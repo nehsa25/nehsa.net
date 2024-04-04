@@ -1,0 +1,41 @@
+@use "@material/snackbar/mdc-snackbar";
+
+:host {
+    min-height: 100% !important;
+    height: 100% !important;
+}
+
+.gridrows {
+    height: 100%;
+    display: grid;
+}
+
+.gridbody {
+    display: grid;
+    grid-template-rows: auto;
+    text-align: left;
+    place-content: center;
+    padding: 1em;
+}
+
+.title {
+    text-align: center;
+}
+
+.card {
+    max-width: 800px;
+}
+
+pre {
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.biowrapper {
+    margin-top: 1em;
+}
+
+.bio {
+    text-align: left;
+    padding: 1em;
+}
