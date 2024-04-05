@@ -1,0 +1,15 @@
+name: nehsanet
+
+version: "3.8"
+services:
+  nehsanet:
+    build: .
+    ports:
+      - "0.0.0.0:4200:4200"
+      - "0.0.0.0:49153:49153"
+    image: "nehsa/nehsanet"
+    volumes:
+    - "/app/node_modules"
+    - ".:/app"
+    command: "npm start -- --host 0.0.0.0"
+
