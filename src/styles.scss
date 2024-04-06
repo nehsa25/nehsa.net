@@ -21,6 +21,23 @@ $my-typography: mat.define-typography-config(
     @include mat.all-component-themes($light-theme);
 }
 
+.black-theme {
+    $dark-theme: mat.define-dark-theme(
+        (
+            color: (
+                primary: $my-primary,
+                accent: $my-accent,
+            ),
+            typography: $my-typography,
+        )
+    );
+
+    background-color: rgb(33,33,33);
+    color: ghostwhite;
+
+    @include mat.all-component-themes($dark-theme);
+}
+
 .dark-theme {
     $dark-theme: mat.define-dark-theme(
         (
@@ -45,7 +62,7 @@ body {
     height: 100%;
 }
 a:link {
-    color: red;
+    color: ghostwhite;
 }
 
 /* visited link */
@@ -67,4 +84,31 @@ a:active {
 .mat-mdc-card-header {
     padding: 0px;
     padding-left: 25px;
+}
+
+li {
+    padding: .5em;
+}
+
+// ont-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
+.code {
+    background-color: white;
+    color: #333;
+    font-family: Consolas;
+    padding: 5px 1em;
+    border-radius: 5px;
+  }
+
+.comment {
+    background-color: white;
+    font-family: Consolas;
+    color: forestgreen;
+}
+
+.condensed li {
+    padding: 0px;
+}
+
+.header {
+    text-decoration: underline;
 }

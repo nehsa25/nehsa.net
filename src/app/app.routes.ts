@@ -9,6 +9,14 @@ import { SchoolComponent } from './main/school/school.component';
 import { ChefComponent } from './main/chef/chef.component';
 import { NpmComponent } from './main/npm/npm.component';
 import { PlaywrightComponent } from './main/playwright/playwright.component';
+import { DoxygenComponent } from './main/doxygen/doxygen.component';
+import { OhaiComponent } from './main/ohai/ohai.component';
+import { PowershellComponent } from './main/powershell/powershell.component';
+import { ProjectsComponent } from './main/projects/projects.component';
+import { AsyncioComponent } from './main/asyncio/asyncio.component';
+import { PythonComponent } from './main/python/python.component';
+import { GitComponent } from './main/git/git.component';
+import { MercurialComponent } from './main/mercurial/mercurial.component';
 
 export const routes: Routes = [
     { path: '', component: BioComponent },
@@ -22,6 +30,14 @@ export const routes: Routes = [
     { path: 'school', component: SchoolComponent },
     { path: 'npm', component: NpmComponent },
     { path: 'playwright', component: PlaywrightComponent },
+    { path: 'doxy', component: DoxygenComponent },
+    { path: 'ohai', component: OhaiComponent },
+    { path: 'powershell', component: PowershellComponent },
+    { path: 'projects', component: ProjectsComponent },
+    { path: 'asyncio', component: AsyncioComponent },
+    { path: 'python', component: PythonComponent },
+    { path: 'git', component: GitComponent },
+    { path: 'mercurial', component: MercurialComponent },
     { path: '', redirectTo: '/', pathMatch: 'full' },
     { path: '**', component: BioComponent },
 ];

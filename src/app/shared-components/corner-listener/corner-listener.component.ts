@@ -33,6 +33,6 @@ export class CornerListenerComponent {
   public contactme_submit() {
     console.log("contactme_submit clicked");
     this.contactme_submit_clicked = true;
-    this.snackMsg.openSnackBar("My apologies, this is not actually implemented.  It's used for testing only.  Please use email above to contact me!", 50000);
+    this.snackMsg.openSnackBar("My apologies, this is not actually implemented.  It's used for testing only.  Please use the email above to contact me!", 50000);
   }
 }
