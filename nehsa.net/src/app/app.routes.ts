@@ -17,6 +17,7 @@ import { AsyncioComponent } from './main/asyncio/asyncio.component';
 import { PythonComponent } from './main/python/python.component';
 import { GitComponent } from './main/git/git.component';
 import { MercurialComponent } from './main/mercurial/mercurial.component';
+import { GcpComponent } from './main/gcp/gcp.component';
 
 export const routes: Routes = [
     { path: '', component: BioComponent },
@@ -38,6 +39,7 @@ export const routes: Routes = [
     { path: 'python', component: PythonComponent },
     { path: 'git', component: GitComponent },
     { path: 'mercurial', component: MercurialComponent },
+    { path: 'gcp', component: GcpComponent },
     { path: '', redirectTo: '/', pathMatch: 'full' },
     { path: '**', component: BioComponent },
 ];
