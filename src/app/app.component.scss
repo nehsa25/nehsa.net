@@ -34,17 +34,16 @@
 
 .bodygrid {
     display: grid;
-    grid-template-rows: 1fr
+    grid-template-rows: 1fr min-content;
 }
 
 .body {
-    padding: 2em;
-    display: grid;
+    padding: 2px .5em .5em 50px;
+    align-items: baseline;
 }
 
 .footer {
     text-align: center;
     width: 100%;
     z-index: 999;
-    border-top: 1px solid black;
 }

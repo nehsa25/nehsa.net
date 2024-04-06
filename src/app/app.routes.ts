@@ -8,6 +8,7 @@ import { TypescriptComponent } from './main/typescript/typescript.component';
 import { SchoolComponent } from './main/school/school.component';
 import { ChefComponent } from './main/chef/chef.component';
 import { NpmComponent } from './main/npm/npm.component';
+import { PlaywrightComponent } from './main/playwright/playwright.component';
 
 export const routes: Routes = [
     { path: '', component: BioComponent },
@@ -20,6 +21,7 @@ export const routes: Routes = [
     { path: 'typescript', component: TypescriptComponent },
     { path: 'school', component: SchoolComponent },
     { path: 'npm', component: NpmComponent },
+    { path: 'playwright', component: PlaywrightComponent },
     { path: '', redirectTo: '/', pathMatch: 'full' },
     { path: '**', component: BioComponent },
 ];
