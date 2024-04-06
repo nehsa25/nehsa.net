@@ -1,1 +1,66 @@
-<p>playwright works!</p>
+<div>
+    <mat-card class="card">
+        <mat-card-header>
+            <mat-card-title>
+                <h1>Playwright</h1>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div>
+                <div>
+                    <h3>Useful Commands</h3>
+                    <span class="code">npm init playwright&#64;latest</span> - Initial setup<br><br>
+                    <span class="code">npx playwright test</span> - Runs the end-to-end tests<br><br>
+                    <span class="code">npx playwright test --ui</span> - Starts the interactive UI mode.<br><br>
+                    <span class="code">npx playwright test --project=chromium</span> - Runs the tests only on Desktop
+                    Chrome<br><br>
+                    <span class="code">npx playwright test example</span> - Runs the tests in a specific file<br><br>
+                    <span class="code">npx playwright test --debug</span> - Runs the tests in debug mode<br><br>
+                    <span class="code">npx playwright codegen</span> - Records browser to auto-generate tests with
+                    Codegen.<br><br>
+                </div>
+                <div>
+                    <h3>Examples</h3>
+                    <ul>
+                        <li>
+<pre>
+    // verify page titles
+    for (const pageDefinition of testSettings.PAGE_DEFINITIONS) &#123;
+        test(`License Portal: Page \"$&#123;pageDefinition.name&#x2775;\" has correct title`, async (&#123; page &#x2775;) => &#123;
+        let testpage = new pageDefinition(page, testSettings);
+        await testpage.goto();
+        await expect(page).toHaveTitle(testpage.title, &#123;timeout: testSettings.defaultTimeoutMs&#x2775;); 
+        &#x2775;);
+    &#x2775;
+</pre>
+                        </li>
+                        <li>
+<pre>
+    // verify we receive a status up/down in varying times 5, 10, 15 seconds
+    for (const pageDefinition of testSettings.STATUS_PAGE_DEFINITIONS) &#123;
+        for (const duration of testSettings.TEST_DURATIONS) &#123;
+            test(`License Portal: Status UP on $&#123;pageDefinition.name&#x2775; shown within $&#123;duration&#x2775; seconds`, async (&#123; page &#x2775;) => &#123;
+            let testpage = new pageDefinition(page, testSettings);
+            await page.goto(testpage.path);
+            await expect(page.getByTestId('portalstatus-status')).toContainText('UP', &#123; ignoreCase: false, timeout: 15000 &#x2775;);
+            &#x2775;);
+        &#x2775;
+        &#x2775;                                  
+</pre>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Other tidbits..</h3>
+                    <ul>
+                        <li><span class="code">await expect(page).toHaveTitle(portalPages.defaultPageTitle);</span> -
+                            Assertion example </li>
+                        <li><span class="code">await
+                                expect.soft(page.getByTestId('status')).toHaveText('Success');</span> - A assert but
+                            don't continue with the test on failure</li>
+                    </ul>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

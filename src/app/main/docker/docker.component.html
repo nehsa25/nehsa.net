@@ -1,1 +1,67 @@
-<p>docker works!</p>
+<div>
+    <mat-card class="card">
+        <mat-card-header>
+            <mat-card-title>
+                <h1>Docker</h1>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div>
+                <div>
+                    <h3>Useful Commands</h3>
+                    <span class="code">docker-compose up --build</span> - Build the image + start the container<br><br>
+                    <span class="code">docker-compose up/down</span> - Start/Stop the container<br><br>
+                    <span class="code">docker network ls</span> - Network info<br><br>
+                    <span class="code">docker images</span> - Image info<br><br>
+                    <span class="code">docker system prune (-a)</span> - Remove stopped containers and unused images.  The options -a removes everything.<br><br>
+                    <span class="code">docker save --output image.tar nehsanet</span> - Saves an image to a local file system<br><br>
+                    <span class="code">docker load --input image.tar</span> - Loads a saved image (likely on a different machine if you're not publishing to dockerhub)<br><br>
+                    <span class="code">docker container ps</span> - Lists running containers<br><br>
+                    <span class="code">docker ps -a</span> - Lists all containers (including stopped)<br><br>
+                </div>
+
+                <div>
+                    <h3>Publishing to dockerhub</h3>
+                    <ol>
+                        <li>Setup account on <a href="https://hub.docker.com/">dockerhub</a></li>
+                        <li>Create dockerfile and docker-compose files</li>
+                        <li><span class="code">docker build . -t &lt;dockerhub username&gt;/&lt;repo name&gt;:latest</span> - Verify it builds</li>
+                        <li><span class="code">docker-compose up</span> - Verify it runs</li>
+                    </ol>
+                </div><br>
+
+                <div>
+                    <h3>Example dockerfile</h3>
+                    <pre>
+                        FROM node:20
+                        WORKDIR /app
+                        COPY package.json .
+                        RUN npm install
+                        COPY . .
+                        EXPOSE 4200 49153
+                        CMD npm run start
+                    </pre>
+                </div><br>
+
+                <div>
+                    <h3>Example docker-compose file</h3>
+                    <pre>
+                        name: nehsanet
+                        version: "3.8"
+                        services:
+                          nehsanet:
+                            build: .
+                            ports:
+                              - "0.0.0.0:4200:4200"
+                              - "0.0.0.0:49153:49153"
+                            image: "node:20"
+                            volumes:
+                            - "/app/node_modules"
+                            - ".:/app"
+                            command: "npm start -- --host 0.0.0.0"                       
+                    </pre>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

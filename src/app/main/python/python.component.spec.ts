@@ -1,17 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { AsyncioComponent } from './asyncio.component';
 
-describe('AsyncioComponent', () => {
-  let component: AsyncioComponent;
-  let fixture: ComponentFixture<AsyncioComponent>;
+import { PythonComponent } from './python.component';
+
+describe('PythonComponent', () => {
+  let component: PythonComponent;
+  let fixture: ComponentFixture<PythonComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AsyncioComponent]
+      imports: [PythonComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(AsyncioComponent);
+    fixture = TestBed.createComponent(PythonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
