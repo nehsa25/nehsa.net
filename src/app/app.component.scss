@@ -1,4 +1,50 @@
+@media screen and (min-width: 0px) and (max-width: 1199px) {
+    .gridcols {
+        grid-template-rows: min-content auto;
+    }
+
+    .main {
+        grid-template-rows: 1fr min-content;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .gridcols {
+        grid-template-columns: min-content auto;
+    }
+
+    .main {
+        grid-template-columns: min-content 1fr;
+    }
+}
+
 :host {
     min-height: 100% !important;
     height: 100% !important;
+}
+
+.main {
+    display: grid;
+    height: 100%;
+}
+
+.gridcols {
+    display: grid;
+}
+
+.bodygrid {
+    display: grid;
+    grid-template-rows: 1fr
+}
+
+.body {
+    padding: 2em;
+    display: grid;
+}
+
+.footer {
+    text-align: center;
+    width: 100%;
+    z-index: 999;
+    border-top: 1px solid black;
 }

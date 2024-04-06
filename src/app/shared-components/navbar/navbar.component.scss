@@ -1,0 +1,24 @@
+.navbar-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-links li:not(:first-child) { 
+    border-top: 1px solid black;
+}
+
+.navbar-links li { 
+    text-align: center;
+    padding: 1em;
+}
+
+.navbar-links li:hover {
+    background-color: yellow;
+    cursor: pointer;
+}
+
+.navbar-links a:hover {
+    background-color: yellow;
+    cursor: pointer;
+}
