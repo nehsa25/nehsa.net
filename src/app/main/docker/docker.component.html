@@ -18,6 +18,22 @@
                     <span class="code">docker load --input image.tar</span> - Loads a saved image (likely on a different machine if you're not publishing to dockerhub)<br><br>
                     <span class="code">docker container ps</span> - Lists running containers<br><br>
                     <span class="code">docker ps -a</span> - Lists all containers (including stopped)<br><br>
+                    <span class="code">docker image ls | grep nehsa/nehsanet</span> - Lists all containers tagged<br><br>
+                </div>
+
+                <div>
+                    <h3>Other tidbits..</h3>
+                    <ul>
+                        <li>You do not need to enter entire hash for an image/container as long as they're using.  e.g. 418 would find this image:
+<pre>
+    PS C:\src\nehsa.net> docker image ls | grep nehsa/nehsanet
+    nehsa/nehsanet   latest    418b390c6d3a   26 minutes ago   3.2GB
+</pre>
+                        </li>
+                        <li><span class="code">await
+                                expect.soft(page.getByTestId('status')).toHaveText('Success');</span> - A assert but
+                            don't continue with the test on failure</li>
+                    </ul>
                 </div>
 
                 <div>
@@ -27,6 +43,7 @@
                         <li>Create dockerfile and docker-compose files</li>
                         <li><span class="code">docker build . -t &lt;dockerhub username&gt;/&lt;repo name&gt;:latest</span> - Verify it builds</li>
                         <li><span class="code">docker-compose up</span> - Verify it runs</li>
+                        <li><span class="code">docker push &lt;dockerhub username&gt;/&lt;repo name&gt;:latest</span></li>
                     </ol>
                 </div><br>
 
