@@ -1,1 +1,108 @@
-<p>pytest works!</p>
+<div>
+    <mat-card class="card">
+        <mat-card-header>
+            <mat-card-title>
+                <h1>Pytest = Awesome</h1>
+            </mat-card-title>
+            <mat-card-subtitle>
+                <h3>Pytest is a great framework for writing quick tests</h3>
+            </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+        <div><h3>Tips</h3>
+                <ul>
+                    <li>Use Enums for paramaterion.  It makes intepretting the results much easier!</li>
+                </ul>
+            </div><br>
+            <div>
+                <h3>Useful Commands</h3>
+                <ul>
+                    <li><span class="code">pytest -k test_authentication" --junit-xml=tpldk_tests.xml</span> - Execute all tests with keyword "test_automation" test and output the results to XML</li>
+                    <li><span class="code">pytest -m automated_maintenance_tests --junit-xml=tpldk_tests.xml</span> -
+                        Execute all tests marked "automated_maintenance_tests" and output the results to XML</li>
+                    <li><span class="code">pytest --markers</span> - List all markers (groups of tests)</li>
+                    <li><span class="code">pytest -k test_authentication --collect-only</span> - List all tests that
+                        *would* be executed</li>
+                </ul>
+            </div><br>
+            <h3>Example Test:</h3>
+            <div>
+                <pre class="code">
+                        &#64;pytest.mark.automated_cid_tests
+                        &#64;pytest.mark.parametrize("test_number, license_name, fingerprint_version, license_type", 
+                        [
+                            (1, LicenseTestUtils.LicenseName.INTIMEMCRT, LicenseTestUtils.FingerprintVersion.VA, LicenseTestUtils.LicenseType.USB),
+                            (2, LicenseTestUtils.LicenseName.INTIMERT, LicenseTestUtils.FingerprintVersion.V6, LicenseTestUtils.LicenseType.USB),
+                            (3, LicenseTestUtils.LicenseName.DRTOSRT, LicenseTestUtils.FingerprintVersion.V7, LicenseTestUtils.LicenseType.USB),
+                            (4, LicenseTestUtils.LicenseName.DRTOSMCRT, LicenseTestUtils.FingerprintVersion.V7, LicenseTestUtils.LicenseType.USB),
+                            (6, LicenseTestUtils.LicenseName.INTIME6SDK, LicenseTestUtils.FingerprintVersion.V6, LicenseTestUtils.LicenseType.USB),
+                            (7, LicenseTestUtils.LicenseName.INTIME7SDK, LicenseTestUtils.FingerprintVersion.VA, LicenseTestUtils.LicenseType.USB),
+                        ])
+                    <span class="comment">
+                        ## Confirms we have can activate various licenses for USB/CID
+                        #
+                        # Test Steps:
+                        # -# Activate a CID-locked license
+                        # -# Verify it's correct
+                    </span>
+                    def test_activate_cid_license(license_test_data, logger, test_number, license_name, fingerprint_version, license_type):
+                    <span class="comment">
+                        // Do stuff
+                        assert something.worked == true, "something did not work as planned!"
+                    </span>
+                </pre>
+            </div>            
+            <div>
+                <h3>Example pytest.ini</h3>
+                <pre class="code">
+                    [pytest]
+                    # addopts = --strict
+                    addopts = -rsxX -l -v --strict --disable-warnings
+                    log_cli=true
+                    junit_family=xunit1
+                    markers =
+                        smoke: An important, frequently ran test
+                </pre>
+            </div>
+
+            <div>
+                <h3>Example conftest.py</h3>
+                <pre class="code">
+                    import pytest
+                    from licensing_webservices_utils import LicenseUtilsWebServices
+                    from licensing_test_utils import LicenseTestUtils
+                    from licensing_selenium_utils import LicenseUtilsSelenium
+                    from licensing_licman_utils import LicenseUtilsLicMan
+                    from log_utils import LogUtils, Level
+                    
+                    def pytest_addoption(parser):
+                        parser.addoption("--environ", action="store", default="test") # test, prod
+                        parser.addoption("--log", action="store", default="c:\\tests\\regression_tests.log") # test, prod
+                    
+                    &#64;pytest.fixture(scope='session')
+                    def logger(request):
+                        return LogUtils.get_logger(filename=request.config.option.log, file_level=Level.DEBUG, console_level=Level.INFO, log_size_bytes=5000000*4, backup_count=10)
+                    
+                    &#64;pytest.fixture(scope='session')
+                    def license_test_data(request, logger):
+                        # get the value passed in as an argument
+                        environment = request.config.option.environ
+                    
+                        # set our test _data accordingly...
+                        license_test_data = LicenseTestUtils(environment, logger) 
+                    
+                        # get our web service stuff
+                        license_test_data.web_services = LicenseUtilsWebServices(license_test_data)
+                        
+                        # setup Selenium stuff
+                        license_test_data.page_objects = LicenseUtilsSelenium(license_test_data)
+                    
+                        # setup licman stuff
+                        license_test_data.licman = LicenseUtilsLicMan(license_test_data)
+                    
+                        return license_test_data                    
+                </pre>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

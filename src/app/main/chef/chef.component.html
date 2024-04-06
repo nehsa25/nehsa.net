@@ -1,1 +1,26 @@
-<p>chef works!</p>
+<div>
+    <mat-card class="card">
+        <mat-card-header>
+            <mat-card-title>
+                <h1>Chef</h1>
+            </mat-card-title>
+            <mat-card-subtitle>
+                <h3>Configures machines based on defined recipes</h3>
+            </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <div>
+                <h3>Important Commands</h3>
+                <ul>
+                    <li><span class="code">knife cookbook upload &lt;cookbook&gt;</span> - Upload cookbook to the server</li>
+                    <li><span class="code">chef-client -o &lt;cookbook&gt;:&lt;recipe&gt;</span> - Run a recipe</li>
+                </ul>       
+                <h3>Important Paths</h3>
+                <ul>
+                    <li><span class="code">C:\Users\&lt;you&gt;\.chef</span> - Contains configuration (knife.rb, pem files, trusted certs)</li>
+                    <li><span class="code">C:\Chef</span> - Chef-client configuration and logs</li>
+                </ul>         
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

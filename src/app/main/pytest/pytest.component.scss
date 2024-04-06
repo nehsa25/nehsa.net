@@ -1,0 +1,18 @@
+li {
+    padding: .5em;
+}
+
+// ont-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
+.code {
+    background-color: white;
+    color: #333;
+    font-family: Consolas;
+    padding: 5px 1em;
+    border-radius: 5px;
+  }
+
+.comment {
+    background-color: white;
+    font-family: Consolas;
+    color: forestgreen;
+}

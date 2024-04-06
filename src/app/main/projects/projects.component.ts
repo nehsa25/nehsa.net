@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 
 @Component({
-  selector: 'app-chef',
+  selector: 'app-projects',
   standalone: true,
   imports: [MatCardModule],
-  templateUrl: './chef.component.html',
-  styleUrl: './chef.component.scss'
+  templateUrl: './projects.component.html',
+  styleUrl: './projects.component.scss'
 })
-export class ChefComponent {
+export class ProjectsComponent {
 
 }
