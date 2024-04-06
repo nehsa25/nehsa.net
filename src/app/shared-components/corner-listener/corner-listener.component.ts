@@ -12,6 +12,7 @@ import { SnackService } from '../../services/snack.service';
   standalone: true,
   imports: [MatButtonModule, CommonModule, MatIconModule, FormsModule, MatInputModule, MatFormFieldModule],
   providers: [
+    SnackService,
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
   ],
   templateUrl: './corner-listener.component.html',
