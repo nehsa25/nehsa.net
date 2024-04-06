@@ -9,6 +9,7 @@
             <div>
                 <div>
                     <h3>Useful Commands</h3>
+                    <span class="code">docker build . -t &lt;dockerhub username&gt;/&lt;repo name&gt;:latest</span> - builds a Docker image and tags it for uploading to <a href="https://hub.docker.dom">Docker Hub</a><br><br>
                     <span class="code">docker-compose up --build</span> - Build the image + start the container<br><br>
                     <span class="code">docker-compose up/down</span> - Start/Stop the container<br><br>
                     <span class="code">docker network ls</span> - Network info<br><br>
@@ -19,6 +20,8 @@
                     <span class="code">docker container ps</span> - Lists running containers<br><br>
                     <span class="code">docker ps -a</span> - Lists all containers (including stopped)<br><br>
                     <span class="code">docker image ls | grep nehsa/nehsanet</span> - Lists all containers tagged<br><br>
+                    <span class="code">docker push &lt;dockerhub username&gt;/&lt;repo name&gt;:latest</span> - publish to Docker Hub
+                    <span class="code">docker pull nehsa/nehsanet:latest</span> - pull from Docker Hub
                 </div>
 
                 <div>
@@ -30,9 +33,6 @@
     nehsa/nehsanet   latest    418b390c6d3a   26 minutes ago   3.2GB
 </pre>
                         </li>
-                        <li><span class="code">await
-                                expect.soft(page.getByTestId('status')).toHaveText('Success');</span> - A assert but
-                            don't continue with the test on failure</li>
                     </ul>
                 </div>
 
