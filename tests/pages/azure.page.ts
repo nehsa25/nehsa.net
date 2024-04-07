@@ -1,10 +1,10 @@
 import BasePage from './base.page';
 
-export default class CSharpPage extends BasePage {
-    name: string = "c#-page";
-    pathstem: string = 'csharp';
+export default class AzurePage extends BasePage {
+    name: string = "azure-page";
+    pathstem: string = 'azure';
     _title = 'Jesse Stone - nehsa.net';
-    get headerTitle(): string { return "C#" }
+    get headerTitle(): string { return "Azure" }
     get title(): string { return this._title }    
     get path(): string { return `${this.settings.APP_ENVIRONMENT}/${this.pathstem}`; };
 

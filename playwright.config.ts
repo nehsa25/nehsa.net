@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import "@angular/compiler";
 
 /**
  * Read environment variables from file.

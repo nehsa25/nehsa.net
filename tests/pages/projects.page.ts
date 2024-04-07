@@ -16,7 +16,6 @@ export default class ProjectsPage extends BasePage {
         throw new RangeError("N/A");
     }
 
-    /** Goes directly to a page via the URL (often not possible due to how sessionization is done on License Portal) */
     async goto() {
         console.log(`Going directly (not navigating) to: ${this.path}`);
         await this.page.goto(this.path);

@@ -18,6 +18,10 @@ import PytestPage from '../pages/pytest.page';
 import PythonPage from '../pages/python.page';
 import SchoolPage from '../pages/school.page';
 import TypeScriptPage from '../pages/typescript.page';
+import AzurePage from '../pages/azure.page';
+import AWSPage from '../pages/aws.page';
+import GcpPage from '../pages/gcp.page';
+import CicdPage from '../pages/cicd.page';
 
 /** Settings objects containing test settings and utility funtions*/
 export class TestSettings {
@@ -43,7 +47,11 @@ export class TestSettings {
         PytestPage,
         PythonPage,
         SchoolPage,
-        TypeScriptPage        
+        TypeScriptPage,
+        AzurePage,
+        AWSPage,
+        GcpPage,
+        CicdPage        
     ];
     defaultTimeoutSecs = 60;
     defaultTimeoutMs = this.defaultTimeoutSecs * 1000;

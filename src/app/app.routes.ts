@@ -34,7 +34,7 @@ export const routes: Routes = [
     { path: 'school', component: SchoolComponent },
     { path: 'npm', component: NpmComponent },
     { path: 'playwright', component: PlaywrightComponent },
-    { path: 'doxy', component: DoxygenComponent },
+    { path: 'doxygen', component: DoxygenComponent },
     { path: 'ohai', component: OhaiComponent },
     { path: 'powershell', component: PowershellComponent },
     { path: 'projects', component: ProjectsComponent },
