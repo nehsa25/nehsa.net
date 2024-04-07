@@ -6,4 +6,4 @@ Personal website of Jesse Stone.  Mainly used to play with technolegies such as 
 
 ## Tests
 
-nehsa.net: Page \"${pageDefinition.name}\" has correct header - validates the <h1> header at the top of each information page is correct
+nehsa.net: test &lt;page&gt; has correct header - validates the title-header at the top of each information page is correct
