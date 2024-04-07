@@ -33,6 +33,12 @@
     nehsa/nehsanet   latest    418b390c6d3a   26 minutes ago   3.2GB
 </pre>
                         </li>
+                        <li>Containers can be started using either:
+                            <ul>
+                                <li>a sole dockerfile and <span class="code">docker run -p 80:80 -it nehsa/nehsanet:latest</span></li>
+                                <li>a dockerfile and docker-compose.yml and <span class="code">docker compose up/down</span></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
 
@@ -50,13 +56,13 @@
                 <div>
                     <h3>Example dockerfile</h3>
                     <pre>
-                        FROM node:20
-                        WORKDIR /app
-                        COPY package.json .
+                        FROM node:21.6.1-slim  <span class="comment">// The base image to start with</span>
+                        EXPOSE 80 443
+                        WORKDIR /app 
+                        COPY package.json . 
                         RUN npm install
                         COPY . .
-                        EXPOSE 4200 49153
-                        CMD npm run start
+                        CMD node index.js
                     </pre>
                 </div><br>
 

@@ -1,0 +1,67 @@
+<div>
+    <mat-card class="card">
+        <mat-card-header>
+            <mat-card-title>
+                <h1 data-testid="header-title">NPM</h1>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div>
+                <div>
+                    <h3>Useful Files</h3>
+                    <ul>
+                        <li>package.json - Main configuration file for Node project.  Contains the dependencies and script hooks for running project.</li>
+                    </ul>                    
+                </div>
+
+                <div>
+                    <h3>Useful Commands</h3>
+                    <span class="code">npm init --yes</span> - Initialize new Node project.<br><br>
+                    <span class="code">npm install -g npm&#64;latest</span> - Update NPM (Node Package Manager) to latest.<br><br>
+                    <span class="code">npm update -g npm</span> - Update Node to latest.<br><br>
+                    <span class="code">npm install</span> - Installs packages specified in packages.json if no package is specified.<br><br>
+                    <span class="code">npm audit fix</span> - Fixes easy security problems found in audit (excluding braeaking changes).
+                    <span class="code">npm run start</span> - Runs a script hook from packages.json, in this case, start.
+                </div>
+
+                <div>
+                    <h3>Packaging a new NPM package</h3>
+                    <ol>
+                        <li>Sign up for an NPM account at <a href="https://www.npmjs.com/">npmjs.com</a></li>
+                        <li>Create folder structure:
+                                <ul class="condensed">
+                                    <li>&lt;packagename&gt;</li>
+                                    <ul>
+                                        <li>package</li>
+                                        <ul>
+                                            <li>&lt;The actual contents of the package&gt;</li>
+                                        </ul>
+                                        <li>test-folder</li>
+                                    </ul>                                    
+                                </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div>
+                    <h3>Example package.json</h3>
+
+<pre>
+    &#123;
+        "name": "nehsanet",
+        "version": "0.0.0",
+        "scripts": &#123;
+            "start": "node index.js"
+        &#x2775;,
+        "type": "module",
+        "dependencies": &#123;
+            "express": "^4.19.2"
+        &#x2775;
+        &#x2775;
+</pre>
+</div>
+
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

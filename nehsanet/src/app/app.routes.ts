@@ -18,6 +18,8 @@ import { PythonComponent } from './main/python/python.component';
 import { GitComponent } from './main/git/git.component';
 import { MercurialComponent } from './main/mercurial/mercurial.component';
 import { GcpComponent } from './main/gcp/gcp.component';
+import { AzureComponent } from './main/azure/azure.component';
+import { AwsComponent } from './main/aws/aws.component';
 
 export const routes: Routes = [
     { path: '', component: BioComponent },
@@ -40,6 +42,8 @@ export const routes: Routes = [
     { path: 'git', component: GitComponent },
     { path: 'mercurial', component: MercurialComponent },
     { path: 'gcp', component: GcpComponent },
+    { path: 'azure', component: AzureComponent },
+    { path: 'aws', component: AwsComponent },
     { path: '', redirectTo: '/', pathMatch: 'full' },
     { path: '**', component: BioComponent },
 ];
