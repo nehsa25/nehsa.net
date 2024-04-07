@@ -1,0 +1,14 @@
+dl {
+    display: grid;
+    grid-gap: 3em;
+    grid-template-columns: max-content;
+  }
+
+  dt {
+    font-weight: bold;
+  }
+
+  dd {
+    margin: 0;
+    grid-column-start: 2;
+  }
