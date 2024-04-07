@@ -17,7 +17,6 @@ export default class AWSPage extends BasePage {
     }
 
     async goto() {
-        console.log(`Going directly (not navigating) to: ${this.path}`);
         await this.page.goto(this.path);
     }
 }

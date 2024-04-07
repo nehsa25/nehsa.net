@@ -10,14 +10,4 @@ export default class PythonPage extends BasePage {
 
     // locators
     get getHeaderTitle() { return this.page.getByTestId('header-title'); }
-
-    /** Navigates to the page using elements on the page as a end user would */
-    async navigateTo() { 
-        throw new RangeError("N/A");
-    }
-
-    async goto() {
-        console.log(`Going directly (not navigating) to: ${this.path}`);
-        await this.page.goto(this.path);
-    }
 }

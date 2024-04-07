@@ -11,4 +11,13 @@ export default class BasePage {
 
     // common locators
 
+    // use website to navigate
+    async navigateTo() { 
+        throw new RangeError("N/A");
+    }
+
+    // go directly
+    async goto() {
+        await this.page.goto(this.path);
+    }
 }
