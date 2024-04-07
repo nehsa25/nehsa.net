@@ -1,0 +1,38 @@
+<div>
+    <mat-card class="card">
+        <mat-card-header>
+            <mat-card-title>
+                <h1 data-testid="header-title">CI/CD</h1>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <h1>Github Actions</h1>
+            <div>
+                <h3>Playwright - run on successful deployment</h3>
+<pre>
+    name: Playwright Tests
+    on:
+    deployment_status:
+    jobs:
+    test:
+        timeout-minutes: 60
+        runs-on: ubuntu-latest
+        if: github.event.deployment_status.state == 'success'
+        steps:
+        - uses: actions/checkout&#64;v4
+        - uses: actions/setup-node&#64;v4
+        with:
+            node-version: 18
+        - name: Install dependencies
+        run: npm ci
+        - name: Install Playwright
+        run: npx playwright install --with-deps
+        - name: Run Playwright tests
+        run: npx playwright test
+        env:
+            PLAYWRIGHT_TEST_BASE_URL: $&#123;&#123; github.event.deployment_status.target_url &#x2775;&#x2775;
+</pre>              
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
