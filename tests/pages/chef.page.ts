@@ -3,8 +3,9 @@ import BasePage from './base.page';
 export default class ChefPage extends BasePage {
     name: string = "chef-page";
     pathstem: string = 'chef';
-    _title = 'Jesse Stone - nehsa.net';
-    get headerTitle(): string { return "Chef" }
+    private _headertitle: string = "Chef";
+    private _title = 'Jesse Stone - nehsa.net';
+    get headerTitle(): string { return this._headertitle }
     get title(): string { return this._title }    
     get path(): string { return `${this.settings.APP_ENVIRONMENT}/${this.pathstem}`; };
 

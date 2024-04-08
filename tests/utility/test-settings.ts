@@ -28,6 +28,11 @@ export class TestSettings {
     public APP_ENVIRONMENT = 'http://localhost:4200'
     public helpers: TestHelpers = new TestHelpers(this.page, this)
 
+    public PAGE_LOAD_DURATIONS_SECS = [
+        1,
+        5
+    ]
+
     /** Every License Portal page.  All pages should be in this list. */
     public PAGE_DEFINITIONS = [
         AboutPage,

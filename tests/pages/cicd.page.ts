@@ -3,8 +3,9 @@ import BasePage from './base.page';
 export default class CicdPage extends BasePage {
     name: string = "cicd-page";
     pathstem: string = 'cicd';
-    _title = 'Jesse Stone - nehsa.net';
-    get headerTitle(): string { return "CI/CD" }
+    private _headertitle: string = "CI/CD";
+    private _title = 'Jesse Stone - nehsa.net';
+    get headerTitle(): string { return this._headertitle }
     get title(): string { return this._title }    
     get path(): string { return `${this.settings.APP_ENVIRONMENT}/${this.pathstem}`; };
 
