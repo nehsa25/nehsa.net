@@ -1,6 +1,6 @@
 @media screen and (min-width: 0px) and (max-width: 799px) {
     .gridcols {
-        grid-template-rows: min-content auto;
+        grid-template-rows: min-content 40px repeat(auto, 5);
     }
 
     .main {
@@ -11,7 +11,7 @@
             "contactme"
             "navbar"
             "footer";
-        grid-template-rows: min-content;
+        grid-template-rows: min-content 40px min-content min-content min-content min-content;
         grid-template-columns: 1fr;
     }
 
@@ -27,7 +27,7 @@
     }
 
     .main {
-        grid-template-rows: 20px min-content min-content 1fr 225px 20px;
+        grid-template-rows: 66px min-content min-content 1fr 225px 20px;
         grid-template-columns: 225px 1fr;
         grid-template-areas:
             "bread bread"
@@ -51,7 +51,7 @@
     }
 
     .main {
-        grid-template-rows: 20px min-content min-content 1fr 225px 20px;
+        grid-template-rows: 66px min-content min-content 1fr 225px 20px;
         grid-template-columns: 225px 1fr;
         grid-template-areas:
             "bread bread"
@@ -68,6 +68,30 @@
     }
 }
 
+.root {
+    color: #ff7f5b;
+}
+
+.root a:link {
+    color: #ff7f5b;
+}
+
+/* visited link */
+.root a:visited {
+    color: #ff7f5b;
+}
+
+/* mouse over link */
+.root a:hover {
+    color: #ff7f5b;
+    font-weight: 700;
+}
+
+/* selected link */
+.root a:active {
+    color: #ff7f5b;
+}
+
 .spacer {
     grid-area: spacer;
 }
@@ -76,7 +100,7 @@
     display: grid;
     height: 100%;
     grid-gap: 2px;
-    background-color: plum;
+    background-color: forestgreen;
     color: #ff7f5b;
     overflow: hidden;
 }
@@ -84,6 +108,9 @@
 .bread {
     grid-area: bread;
     padding-left: 25px;
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    width: 100%;
 }
 
 .child {
@@ -128,7 +155,6 @@
     text-align: center;
     width: 100%;
     z-index: 999;
-    border-top: 2px solid plum;
 }
 
 :host {

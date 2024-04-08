@@ -1,16 +1,28 @@
 <div class="main">
-    <div class="bread child">bread 
+    <div class="bread child">
+        <div class="root"><a href="/">home></a></div>
+        <div>
+            <xng-breadcrumb [separator]="iconTemplate">
+                <ng-template #iconTemplate>
+                    <mat-icon>chevron_right</mat-icon>
+                </ng-template>
+                <ng-container *xngBreadcrumbItem="let bcitem; let info = info; let first = first">
+                    <mat-icon *ngIf="info">{{info}}</mat-icon>
+                    <ng-container>{{bcitem}}</ng-container>
+                </ng-container>
+            </xng-breadcrumb>
+        </div>
     </div>
     <div class="title child">
         <div class="maintitle">Jesse Stone</div>
         <div class="subtitle">Student, Developer, Test Engineer, SDET, Software Development Management</div>
     </div>
     <div class="contact child">
-        <app-corner-listener></app-corner-listener>    
+        <app-corner-listener></app-corner-listener>
     </div>
     <div class="navbar child">
-        <app-navbar></app-navbar>    
-    </div>    
+        <app-navbar></app-navbar>
+    </div>
     <div class="body child">
         <router-outlet class="router" />
     </div>
