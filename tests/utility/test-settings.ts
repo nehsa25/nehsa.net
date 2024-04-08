@@ -25,8 +25,8 @@ import CicdPage from '../pages/cicd.page';
 
 /** Settings objects containing test settings and utility funtions*/
 export class TestSettings {
-    //public APP_ENVIRONMENT = 'http://localhost:4200'
-    public APP_ENVIRONMENT = 'http://localhost'
+    public APP_ENVIRONMENT = 'http://localhost:4200'
+    //public APP_ENVIRONMENT = 'http://localhost'
     public helpers: TestHelpers = new TestHelpers(this.page)
 
     public PAGE_LOAD_DURATIONS_SECS = [
