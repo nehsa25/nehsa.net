@@ -55,6 +55,19 @@ $my-typography: mat.define-typography-config(
     @include mat.all-component-themes($dark-theme);
 }
 
+@media screen and (min-width: 0px) and (max-width: 799px) {
+    .code {
+        line-height: 30px;
+    }  
+}
+
+@media screen and (min-width: 800px) {
+    .code {
+        line-height: inherit;
+    }  
+}
+
+
 html,
 body {
     margin: 0;
@@ -95,8 +108,8 @@ li {
     background-color: white;
     color: #333;
     font-family: Consolas;
-    padding: 5px 1em;
     border-radius: 5px;
+    padding: 5px 1em;
   }
 
 .comment {

@@ -1,14 +1,20 @@
 <div class="main">
-    <div class="navgrid">
-        <app-navbar></app-navbar>
-        <app-corner-listener></app-corner-listener>        
+    <div class="bread child">bread 
     </div>
-    <div class="bodygrid">
-        <div class="body">
-            <router-outlet class="router" />
-        </div>
-        <div class="footer">
-            nehsa.net &copy; 2024 - All Rights Reserved. Be kind.
-        </div>
+    <div class="title child">
+        <div class="maintitle">Jesse Stone</div>
+        <div class="subtitle">Student, Developer, Test Engineer, SDET, Software Development Management</div>
+    </div>
+    <div class="contact child">
+        <app-corner-listener></app-corner-listener>    
+    </div>
+    <div class="navbar child">
+        <app-navbar></app-navbar>    
+    </div>    
+    <div class="body child">
+        <router-outlet class="router" />
+    </div>
+    <div class="footer child">
+        nehsa.net &copy; 2024 - All Rights Reserved. Be kind.
     </div>
 </div>
