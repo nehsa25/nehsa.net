@@ -1,15 +1,15 @@
 <div class="contactme">
     <h4>jesse.stone&#64;nehsa.net</h4>
-    <button mat-stroked-button (click)="contactme()" *ngIf="!contactme_opened">Contact Me</button>
+    <button mat-stroked-button data-testid="contactus-expand-btn" (click)="contactme()" *ngIf="!contactme_opened">Contact Me</button>
     <div *ngIf="contactme_opened">
         <form>
             <mat-form-field class="formfield">
-                <input matInput type="text" [(ngModel)]="emailsubject"  name="emailsubject" placeholder="Subject">
+                <input data-testid="contactus-subject" matInput type="text" [(ngModel)]="emailsubject"  name="emailsubject" placeholder="Subject">
             </mat-form-field>
             <mat-form-field class="formfield">
-                <textarea matInput rows="3" [(ngModel)]="emailbody" name="emailbody" placeholder="Body"></textarea>
+                <textarea data-testid="contactus-body" matInput rows="3" [(ngModel)]="emailbody" name="emailbody" placeholder="Body"></textarea>
             </mat-form-field>
-            <button mat-stroked-button style="margin-left: 1em;" (click)="contactme_submit()">Submit</button>
+            <button data-testid="contactus-btn" mat-stroked-button style="margin-left: 1em;" (click)="contactme_submit()">Submit</button>
         </form>
     </div>
 </div>

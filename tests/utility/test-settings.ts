@@ -26,7 +26,7 @@ import CicdPage from '../pages/cicd.page';
 /** Settings objects containing test settings and utility funtions*/
 export class TestSettings {
     public APP_ENVIRONMENT = 'http://localhost:4200'
-    public helpers: TestHelpers = new TestHelpers(this.page, this)
+    public helpers: TestHelpers = new TestHelpers(this.page)
 
     public PAGE_LOAD_DURATIONS_SECS = [
         1,
@@ -61,6 +61,6 @@ export class TestSettings {
     defaultTimeoutSecs = 60;
     defaultTimeoutMs = this.defaultTimeoutSecs * 1000;
 
-    constructor(public page: any) {
+    constructor(public page: any = null) {
     }
 }

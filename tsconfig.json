@@ -16,10 +16,10 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es5",
-    "module": "es6",
+    "module": "es2022",
     "useDefineForClassFields": false,
     "lib": [
-      "es6",
+      "es5",
       "dom"
     ]
   },
