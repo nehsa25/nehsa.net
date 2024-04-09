@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ContactForm } from '../types/ContactForm';
+import { ContactForm } from '../types/contactform';
 
 @Injectable()
 export class HttpService {
