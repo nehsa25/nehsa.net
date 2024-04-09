@@ -2,7 +2,7 @@ import BasePage from './base.page';
 
 export default class GcpPage extends BasePage {
     name: string = "gcp-page";
-    pathstem: string = 'gcp';
+    pathstem: string = '#/gcp';
     private _headertitle: string = "Google Cloud Platform (gcp)";
     private _title = 'Jesse Stone - nehsa.net';
     get headerTitle(): string { return this._headertitle }

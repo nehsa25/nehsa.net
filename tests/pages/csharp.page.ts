@@ -2,7 +2,7 @@ import BasePage from './base.page';
 
 export default class CSharpPage extends BasePage {
     name: string = "c#-page";
-    pathstem: string = 'csharp';
+    pathstem: string = '#/csharp';
     private _headertitle: string = "C#";
     private _title = 'Jesse Stone - nehsa.net';
     get headerTitle(): string { return this._headertitle }

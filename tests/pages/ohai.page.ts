@@ -2,7 +2,7 @@ import BasePage from './base.page';
 
 export default class OhaiPage extends BasePage {
     name: string = "ohai-page";
-    pathstem: string = 'ohai';
+    pathstem: string = '#/ohai';
     private _headertitle: string = "OHAI";
     private _title = 'Jesse Stone - nehsa.net';
     get headerTitle(): string { return this._headertitle }

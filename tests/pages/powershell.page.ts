@@ -2,7 +2,7 @@ import BasePage from './base.page';
 
 export default class PowershellPage extends BasePage {
     name: string = "powershell-page";
-    pathstem: string = 'powershell';
+    pathstem: string = '#/powershell';
     private _headertitle: string = "Powershell";
     private _title = 'Jesse Stone - nehsa.net';
     get headerTitle(): string { return this._headertitle }

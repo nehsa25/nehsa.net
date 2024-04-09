@@ -2,7 +2,7 @@ import BasePage from './base.page';
 
 export default class AngularPage extends BasePage {
     name: string = "angular-page";
-    pathstem: string = 'angular';
+    pathstem: string = '#/angular';
     private _headertitle: string = "Angular";
     private _title = 'Jesse Stone - nehsa.net';
     get headerTitle(): string { return this._headertitle }

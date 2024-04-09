@@ -2,7 +2,7 @@ import BasePage from './base.page';
 
 export default class AzurePage extends BasePage {
     name: string = "azure-page";
-    pathstem: string = 'azure';
+    pathstem: string = '#/azure';
     private _headertitle: string = "Azure";
     private _title = 'Jesse Stone - nehsa.net';
     get headerTitle(): string { return this._headertitle }

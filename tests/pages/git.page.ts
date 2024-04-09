@@ -2,7 +2,7 @@ import BasePage from './base.page';
 
 export default class GitPage extends BasePage {
     name: string = "git-page";
-    pathstem: string = 'git';
+    pathstem: string = '#/git';
     private _headertitle: string = "git / GitHub";
     private _title = 'Jesse Stone - nehsa.net';
     get headerTitle(): string { return this._headertitle }

@@ -2,7 +2,7 @@ import BasePage from './base.page';
 
 export default class DoxygenPage extends BasePage {
     name: string = "doxygen-page";
-    pathstem: string = 'doxygen';
+    pathstem: string = '#/doxygen';
     private _headertitle: string = "Doxygen";
     private _title = 'Jesse Stone - nehsa.net';
     get headerTitle(): string { return this._headertitle }

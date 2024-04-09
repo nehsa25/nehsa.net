@@ -2,7 +2,7 @@ import BasePage from './base.page';
 
 export default class AboutPage extends BasePage {
     name: string = "about-page";
-    pathstem: string = 'about';
+    pathstem: string = '#/about';
     private _headertitle: string = "About";
     private _title = 'Jesse Stone - nehsa.net';
     get headerTitle(): string { return this._headertitle }

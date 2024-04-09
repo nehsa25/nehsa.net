@@ -2,7 +2,7 @@ import BasePage from './base.page';
 
 export default class PythonPage extends BasePage {
     name: string = "python-page";
-    pathstem: string = 'python';
+    pathstem: string = '#/python';
     private _headertitle: string = "Python";
     private _title = 'Jesse Stone - nehsa.net';
     get headerTitle(): string { return this._headertitle }

@@ -2,7 +2,7 @@ import BasePage from './base.page';
 
 export default class CicdPage extends BasePage {
     name: string = "cicd-page";
-    pathstem: string = 'cicd';
+    pathstem: string = '#/cicd';
     private _headertitle: string = "CI/CD";
     private _title = 'Jesse Stone - nehsa.net';
     get headerTitle(): string { return this._headertitle }

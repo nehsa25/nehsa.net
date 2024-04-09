@@ -2,7 +2,7 @@ import BasePage from './base.page';
 
 export default class MercurialPage extends BasePage {
     name: string = "mercurial-page";
-    pathstem: string = 'mercurial';
+    pathstem: string = '#/mercurial';
     private _headertitle: string = "Mercurial / hg";
     private _title = 'Jesse Stone - nehsa.net';
     get headerTitle(): string { return this._headertitle }

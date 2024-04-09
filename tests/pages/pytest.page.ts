@@ -2,7 +2,7 @@ import BasePage from './base.page';
 
 export default class PytestPage extends BasePage {
     name: string = "pytest-page";
-    pathstem: string = 'pytest';
+    pathstem: string = '#/pytest';
     private _headertitle: string = "Pytest = Awesome";
     private _title = 'Jesse Stone - nehsa.net';
     get headerTitle(): string { return this._headertitle }

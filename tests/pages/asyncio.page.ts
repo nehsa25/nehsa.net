@@ -2,7 +2,7 @@ import BasePage from './base.page';
 
 export default class AsyncIOPage extends BasePage {
     name: string = "ansyncio-page";
-    pathstem: string = 'asyncio';
+    pathstem: string = '#/asyncio';
     private _headertitle: string = "AsyncIO / Websockets";
     private _title = 'Jesse Stone - nehsa.net';
     get headerTitle(): string { return this._headertitle }

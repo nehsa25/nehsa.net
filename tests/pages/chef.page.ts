@@ -2,7 +2,7 @@ import BasePage from './base.page';
 
 export default class ChefPage extends BasePage {
     name: string = "chef-page";
-    pathstem: string = 'chef';
+    pathstem: string = '#/chef';
     private _headertitle: string = "Chef";
     private _title = 'Jesse Stone - nehsa.net';
     get headerTitle(): string { return this._headertitle }

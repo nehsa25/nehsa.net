@@ -2,7 +2,7 @@ import BasePage from './base.page';
 
 export default class AWSPage extends BasePage {
     name: string = "aws-page";
-    pathstem: string = 'aws';
+    pathstem: string = '#/aws';
     private _headertitle: string = "AWS";
     private _title = 'Jesse Stone - nehsa.net';
     get headerTitle(): string { return this._headertitle }

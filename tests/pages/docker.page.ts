@@ -2,7 +2,7 @@ import BasePage from './base.page';
 
 export default class DockerPage extends BasePage {
     name: string = "docker-page";
-    pathstem: string = 'docker';
+    pathstem: string = '#/docker';
     private _headertitle: string = "Docker";
     private _title = 'Jesse Stone - nehsa.net';
     get headerTitle(): string { return this._headertitle }

@@ -2,7 +2,7 @@ import BasePage from './base.page';
 
 export default class TypeScriptPage extends BasePage {
     name: string = "typescript-page";
-    pathstem: string = 'typescript';
+    pathstem: string = '#/typescript';
     private _headertitle: string = "TypeScript";
     private _title = 'Jesse Stone - nehsa.net';
     get headerTitle(): string { return this._headertitle }
