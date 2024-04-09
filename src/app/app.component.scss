@@ -12,7 +12,7 @@
             "contactme"
             "navbar"
             "footer";
-        grid-template-rows: min-content 40px 40px min-content min-content min-content min-content;
+        grid-template-rows: min-content 40px 40px min-content min-content min-content 25px;
         grid-template-columns: 1fr;
     }
 
@@ -28,7 +28,7 @@
     }
 
     .main {
-        grid-template-rows: 66px min-content min-content 1fr 225px 20px;
+        grid-template-rows: 66px min-content min-content 1fr 225px 25px;
         grid-template-columns: 225px 1fr;
         grid-template-areas:
             "bread dh"
@@ -52,7 +52,7 @@
     }
 
     .main {
-        grid-template-rows: 66px min-content min-content 1fr 225px 20px;
+        grid-template-rows: 66px min-content min-content 1fr 225px 25px;
         grid-template-columns: 225px 1fr 1fr;
         grid-template-areas:
             "bread dh dh"
@@ -166,6 +166,13 @@
     text-align: center;
     width: 100%;
     z-index: 999;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.playwright {
+    justify-content: center;
+    height: 25px;
 }
 
 :host {
