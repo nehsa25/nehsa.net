@@ -86,9 +86,10 @@
           name: Build and push
           uses: docker/build-push-action&amp;v5  <span class="comment" style="background-color: inherit;">#&lt;-- Build/Push to Docker</span>
           with:
+            image: nehsa/nehsanet
+            registry: docker.io
             push: true
             tags: user/app:latest
-
         with:
             node-version: 18
         - name: Install dependencies
