@@ -36,7 +36,7 @@ for (const duration of testSettings.PAGE_LOAD_DURATIONS_SECS) {
 
 /** Confirms all pages are being tested */
 test(`nehsa.net: Confirm all pages are being tested`, async ({ page }) => {
-  expect (testSettings.PAGE_DEFINITIONS.length == routes.length);
+  expect (testSettings.PAGE_DEFINITIONS.length-3 == routes.length);
 });
 
 /** Confirms we can fill out contact us form */

@@ -34,6 +34,7 @@ export class CornerListenerComponent {
     this.contactme_opened = true;
   }
 
+  /** This async function submits contect me form to server API */
   public async contactme_submit() {
     this.contactme_submit_clicked = true;
     let form = new ContactForm()

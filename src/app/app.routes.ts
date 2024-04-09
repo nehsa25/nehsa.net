@@ -21,6 +21,8 @@ import { GcpComponent } from './main/gcp/gcp.component';
 import { AzureComponent } from './main/azure/azure.component';
 import { AwsComponent } from './main/aws/aws.component';
 import { CicdComponent } from './main/cicd/cicd.component';
+import { jsDocComment } from '@angular/compiler';
+import { JsdocComponent } from './main/jsdoc/jsdoc.component';
 
 export const routes: Routes = [
     { path: '', component: BioComponent },
@@ -46,6 +48,7 @@ export const routes: Routes = [
     { path: 'azure', component: AzureComponent },
     { path: 'aws', component: AwsComponent },
     { path: 'cicd', component: CicdComponent },
+    { path: 'jsdoc', component: JsdocComponent },
     { path: '', redirectTo: '/', pathMatch: 'full' },
     { path: '**', component: BioComponent },
 ];
