@@ -6,11 +6,6 @@ on:
     pull_request:
         branches: [ master ]
 jobs:
-build: 
-runs-on: ${{matrix.os❵❵
-strategy: #<-- Build on each environment.
-    matrix:
-        os: [ubuntu-latest, windows-latest, macOS-latest]
 test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
