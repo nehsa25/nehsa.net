@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { SnackService } from '../../services/snack.service';
-import { ContactForm } from '../../types/ContactForm';
+import { ContactForm } from '../../types/contactform';
 import { HttpService } from '../../services/http.service';
 
 @Component({
