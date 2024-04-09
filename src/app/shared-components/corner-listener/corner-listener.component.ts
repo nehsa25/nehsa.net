@@ -40,10 +40,7 @@ export class CornerListenerComponent {
     form.subject = this.emailbody;
     form.body = this.emailsubject;
     let response = this.httpClient.postContactMe(form).subscribe(data => {
-      console.log(data);
     });
-
-    console.log(response);
     return response;
   }
 }

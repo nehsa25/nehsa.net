@@ -11,9 +11,14 @@ export class HttpService {
     };
     constructor(private http: HttpClient) { }
 
-    configUrl = 'api/v1/contactme';
+    contactmeUrl = 'api/v1/contactme';
+    dhUrl = 'api/v1/dh';
 
     postContactMe(body: ContactForm) {
-        return this.http.post<ContactForm>(this.configUrl, body);
+        return this.http.post<ContactForm>(this.contactmeUrl, body);
+    }
+
+    getDouglasAdamQuote() {
+        return this.http.get(this.dhUrl);
     }
 }
