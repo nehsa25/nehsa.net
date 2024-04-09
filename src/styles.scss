@@ -1,58 +1,65 @@
 @use '@angular/material' as mat;
 
 @include mat.core();
-$my-primary: mat.define-palette(mat.$indigo-palette, 500);
-$my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-$my-typography: mat.define-typography-config(
+$light-primary: mat.define-palette(mat.$indigo-palette, 500);
+$light-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$light-typography: mat.define-typography-config(
     $font-family: "monospace",
 );
 
-.light-theme {
-    $light-theme: mat.define-light-theme(
-        (
-            color: (
-                primary: $my-primary,
-                accent: $my-accent,
-            ),
-            typography: $my-typography,
-        )
-    );
+$spring-primary: mat.define-palette(mat.$indigo-palette, 500);
+$spring-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$spring-typography: mat.define-typography-config(
+    $font-family: "monospace",
+);
 
-    @include mat.all-component-themes($light-theme);
-}
+$dark-primary: mat.define-palette(mat.$indigo-palette, 500);
+$dark-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$dark-typography: mat.define-typography-config(
+    $font-family: "monospace",
+);
 
-.black-theme {
-    $dark-theme: mat.define-dark-theme(
-        (
-            color: (
-                primary: $my-primary,
-                accent: $my-accent,
-            ),
-            typography: $my-typography,
-        )
-    );
+// per https://github.com/angular/components/blob/main/guides/duplicate-theming-styles.md, start with this, then only adjust colors
 
-    background-color: rgb(33,33,33);
-    color: ghostwhite;
+$light-theme: mat.define-light-theme(
+    (
+        color: (
+            primary: $light-primary,
+            accent: $light-accent,
+        ),
+        typography: $light-typography,
+    )
+);
 
-    @include mat.all-component-themes($dark-theme);
-}
+$spring-theme: mat.define-dark-theme(
+    (
+        color: (
+            primary: $spring-primary,
+            accent: $spring-accent,
+        ),
+        typography: $spring-typography,
+    )
+);
+
+
+$dark-theme: mat.define-dark-theme(
+    (
+        color: (
+            primary: $dark-primary,
+            accent: $dark-accent,
+        ),
+        typography: $dark-typography,
+    )
+);
+
+
+@include mat.all-component-themes($light-theme);
 
 .dark-theme {
-    $dark-theme: mat.define-dark-theme(
-        (
-            color: (
-                primary: $my-primary,
-                accent: $my-accent,
-            ),
-            typography: $my-typography,
-        )
-    );
-
-    background-color: rgb(66, 66, 66);
+    background-color: rgb(33,33,33);
     color: ghostwhite;
-
-    @include mat.all-component-themes($dark-theme);
+    @include mat.all-component-colors($dark-theme);
+    @include mat.all-component-typographies($dark-theme);
 }
 
 @media screen and (min-width: 0px) and (max-width: 799px) {
@@ -103,7 +110,7 @@ li {
     padding: .5em;
 }
 
-// ont-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
+// font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
 .code {
     background-color: white;
     color: #333;
