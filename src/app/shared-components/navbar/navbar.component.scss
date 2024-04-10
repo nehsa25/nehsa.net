@@ -1,18 +1,25 @@
 @media screen and (min-width: 0px) and (max-width: 799px) {
     .navbar-links {
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: min-content min-content;
         grid-template-rows: min-content;
         max-height: 250px;
-        overflow: auto;
+        overflow-y: visible;
+        width: 100%;
+    }
+    .navbar-links li {
+        border-top: 1px solid #999;
     }
 }
 
 @media screen and (min-width: 799px) {
     .navbar-links {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: auto;
         grid-template-rows: min-content;
+    }
+    .navbar-links li {
+        border-top: 1px solid #999;
     }
 }
 
@@ -22,6 +29,10 @@
         display: grid;
         grid-template-columns: auto;
         grid-template-rows: min-content;
+    }
+
+    .navbar-links li:not(:first-child) {
+        border-top: 1px solid #999;
     }
 }
 
@@ -36,13 +47,9 @@
     padding: 0;
 }
 
-.navbar-links li:not(:first-child) {
-    border-top: 1px solid #999;
-}
-
 .navbar-links li {
     text-align: center;
-    padding: 1em;
+    padding: 10px;
 }
 
 .navbar-links li:hover {
