@@ -1,3 +1,30 @@
+@media screen and (min-width: 0px) and (max-width: 799px) {
+    .navbar-links {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: min-content;
+        max-height: 250px;
+        overflow: auto;
+    }
+}
+
+@media screen and (min-width: 799px) {
+    .navbar-links {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: min-content;
+    }
+}
+
+
+@media screen and (min-width: 1500px) {
+    .navbar-links {
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: min-content;
+    }
+}
+
 .navbar {
     max-height: 680px;
     overflow: auto;
@@ -10,7 +37,7 @@
 }
 
 .navbar-links li:not(:first-child) {
-    border-top: 1px solid black;
+    border-top: 1px solid #999;
 }
 
 .navbar-links li {
