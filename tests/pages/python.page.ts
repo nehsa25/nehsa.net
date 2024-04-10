@@ -4,7 +4,7 @@ export default class PythonPage extends BasePage {
     name: string = "python-page";
     pathstem: string = '#/python';
     private _headertitle: string = "Python";
-    private _title = 'Jesse Stone - nehsa.net';
+    private _title = 'nehsa.net | Python';
     get headerTitle(): string { return this._headertitle }
     get title(): string { return this._title }    
     get path(): string { return `${this.settings.APP_ENVIRONMENT}/${this.pathstem}`; };

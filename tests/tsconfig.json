@@ -5,5 +5,8 @@
         "moduleResolution": "Node",
         "sourceMap": true,
         "outDir": "../tests-out",
+    },
+    "angularCompilerOptions": {
+        "strictTemplates": true
     }
 }

@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { RouterStateSnapshot, Routes, TitleStrategy, provideRouter } from '@angular/router';
 import { BioComponent } from './main/bio/bio.component';
 import { AngularComponent } from './main/angular/angular.component';
 import { CSharpComponent } from './main/c-sharp/c-sharp.component';
@@ -21,46 +21,47 @@ import { GcpComponent } from './main/gcp/gcp.component';
 import { AzureComponent } from './main/azure/azure.component';
 import { AwsComponent } from './main/aws/aws.component';
 import { CicdComponent } from './main/cicd/cicd.component';
-import { jsDocComment } from '@angular/compiler';
 import { JsdocComponent } from './main/jsdoc/jsdoc.component';
 import { Engr102Component } from './main/school/engr102/engr102.component';
 import { Ph207Component } from './main/school/ph207/ph207.component';
+import { ApplicationConfig, Injectable } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 export const routes: Routes = [
-    { path: '', component: BioComponent },
-    { path: 'about', component: BioComponent },
-    { path: 'angular', component: AngularComponent },
-    { path: 'chef', component: ChefComponent },
-    { path: 'csharp', component: CSharpComponent },
-    { path: 'docker', component: DockerComponent },
-    { path: 'pytest', component: PytestComponent },
-    { path: 'typescript', component: TypescriptComponent },
+    { path: '', title: 'nehsa.net | Home', component: BioComponent },
+    { path: 'about', title: 'nehsa.net | About', component: BioComponent },
+    { path: 'angular', title: 'nehsa.net | Angular', component: AngularComponent },
+    { path: 'chef', title: 'nehsa.net | Chef', component: ChefComponent },
+    { path: 'csharp', title: 'nehsa.net | C#', component: CSharpComponent },
+    { path: 'docker', title: 'nehsa.net | Docker', component: DockerComponent },
+    { path: 'pytest', title: 'nehsa.net | Pytest', component: PytestComponent },
+    { path: 'typescript', title: 'nehsa.net | TypeScript', component: TypescriptComponent },
     {
-        path: 'school', component: SchoolComponent,
+        path: 'school', title: 'nehsa.net | School', component: SchoolComponent,
     },
     {
-        path: 'school/engr102',
+        path: 'school/engr102', title: 'nehsa.net | engr102',
         component: Engr102Component,
     },
     {
-        path: 'school/ph207',
+        path: 'school/ph207', title: 'nehsa.net | ph207',
         component: Ph207Component
     },
-    { path: 'npm', component: NpmComponent },
-    { path: 'playwright', component: PlaywrightComponent },
-    { path: 'doxygen', component: DoxygenComponent },
-    { path: 'ohai', component: OhaiComponent },
-    { path: 'powershell', component: PowershellComponent },
-    { path: 'projects', component: ProjectsComponent },
-    { path: 'asyncio', component: AsyncioComponent },
-    { path: 'python', component: PythonComponent },
-    { path: 'git', component: GitComponent },
-    { path: 'mercurial', component: MercurialComponent },
-    { path: 'gcp', component: GcpComponent },
-    { path: 'azure', component: AzureComponent },
-    { path: 'aws', component: AwsComponent },
-    { path: 'cicd', component: CicdComponent },
-    { path: 'jsdoc', component: JsdocComponent },
-    { path: '', redirectTo: '/', pathMatch: 'full' },
+    { path: 'npm', title: 'nehsa.net | npm', component: NpmComponent },
+    { path: 'playwright', title: 'nehsa.net | Playwright', component: PlaywrightComponent },
+    { path: 'doxygen', title: 'nehsa.net | Doxygen', component: DoxygenComponent },
+    { path: 'ohai', title: 'nehsa.net | Ohai', component: OhaiComponent },
+    { path: 'powershell', title: 'nehsa.net | Powershell', component: PowershellComponent },
+    { path: 'projects', title: 'nehsa.net | Projects', component: ProjectsComponent },
+    { path: 'asyncio', title: 'nehsa.net | AsyncIO', component: AsyncioComponent },
+    { path: 'python', title: 'nehsa.net | Python', component: PythonComponent },
+    { path: 'git', title: 'nehsa.net | git', component: GitComponent },
+    { path: 'mercurial', title: 'nehsa.net | Mercurial', component: MercurialComponent },
+    { path: 'gcp', title: 'nehsa.net | gcp', component: GcpComponent },
+    { path: 'azure', title: 'nehsa.net | Azure', component: AzureComponent },
+    { path: 'aws', title: 'nehsa.net | aws', component: AwsComponent },
+    { path: 'cicd', title: 'nehsa.net | CI/CD', component: CicdComponent },
+    { path: 'jsdoc', title: 'nehsa.net | jsdoc', component: JsdocComponent },
+    { path: '', title: 'nehsa.net | Home', redirectTo: '/', pathMatch: 'full' },
     { path: '**', component: BioComponent },
 ];

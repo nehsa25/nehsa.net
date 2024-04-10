@@ -4,7 +4,7 @@ export default class MercurialPage extends BasePage {
     name: string = "mercurial-page";
     pathstem: string = '#/mercurial';
     private _headertitle: string = "Mercurial / hg";
-    private _title = 'Jesse Stone - nehsa.net';
+    private _title = 'nehsa.net | Mercurial';
     get headerTitle(): string { return this._headertitle }
     get title(): string { return this._title }    
     get path(): string { return `${this.settings.APP_ENVIRONMENT}/${this.pathstem}`; };
