@@ -23,6 +23,8 @@ import { AwsComponent } from './main/aws/aws.component';
 import { CicdComponent } from './main/cicd/cicd.component';
 import { jsDocComment } from '@angular/compiler';
 import { JsdocComponent } from './main/jsdoc/jsdoc.component';
+import { Engr102Component } from './main/school/engr102/engr102.component';
+import { Ph207Component } from './main/school/ph207/ph207.component';
 
 export const routes: Routes = [
     { path: '', component: BioComponent },
@@ -33,7 +35,19 @@ export const routes: Routes = [
     { path: 'docker', component: DockerComponent },
     { path: 'pytest', component: PytestComponent },
     { path: 'typescript', component: TypescriptComponent },
-    { path: 'school', component: SchoolComponent },
+    {
+        path: 'school', component: SchoolComponent,
+        children: [
+            {
+                path: 'engr102',
+                component: Engr102Component,
+            },
+            {
+                path: 'ph207',
+                component: Ph207Component
+            }
+        ]
+    },
     { path: 'npm', component: NpmComponent },
     { path: 'playwright', component: PlaywrightComponent },
     { path: 'doxygen', component: DoxygenComponent },
