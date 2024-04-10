@@ -80,6 +80,7 @@ body {
     margin: 0;
     font-family: monospace, "Helvetica Neue", sans-serif;
     height: 100%;
+    background-color: white !important;
 }
 a:link {
     color: ghostwhite;
@@ -137,6 +138,7 @@ li {
 /* width */
 ::-webkit-scrollbar {
     width: 10px;
+    height: 10px;
 }
 
 /* Track */
@@ -147,11 +149,11 @@ li {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: plum; 
+    background: #3e3e3e; 
     border-radius: 5px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: plum; 
+    background: #333; 
 }
