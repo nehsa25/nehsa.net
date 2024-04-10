@@ -37,16 +37,14 @@ export const routes: Routes = [
     { path: 'typescript', component: TypescriptComponent },
     {
         path: 'school', component: SchoolComponent,
-        children: [
-            {
-                path: 'engr102',
-                component: Engr102Component,
-            },
-            {
-                path: 'ph207',
-                component: Ph207Component
-            }
-        ]
+    },
+    {
+        path: 'school/engr102',
+        component: Engr102Component,
+    },
+    {
+        path: 'school/ph207',
+        component: Ph207Component
     },
     { path: 'npm', component: NpmComponent },
     { path: 'playwright', component: PlaywrightComponent },
