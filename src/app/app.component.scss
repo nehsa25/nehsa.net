@@ -1,6 +1,6 @@
 @media screen and (min-width: 0px) and (max-width: 400px) {
     .gridcols {
-        grid-template-rows: repeat(min-content, 7);
+        grid-template-rows: repeat(7, min-content);
     }
 
     .main {
@@ -16,15 +16,15 @@
         width: 400px;
         overflow: auto;
     }
-
-    .body {
-        max-height: 300px;
-    }
+    .footer {
+        grid-template-rows: repeat(3, min-content);
+        grid-gap: 1em;
+    }    
 }
 
 @media screen and (min-width: 401px) and (max-width: 800px) {
     .gridcols {
-        grid-template-rows: repeat(min-content, 7);
+        grid-template-rows: repeat(7, min-content);
     }
 
     .main {
@@ -36,15 +36,14 @@
             "contactme"
             "navbar"
             "footer";
-        grid-template-rows: repeat(min-content, 7);
+        grid-template-rows: repeat(7, min-content);
         grid-template-columns: 799px;
         width: 800px;
         overflow: auto;
     }
-
-    .body {
-        max-height: 300px;
-    }
+    .footer {
+        grid-template-rows: repeat(3, min-content);
+    }    
 }
 
 @media screen and (min-width: 799px) {
@@ -65,9 +64,8 @@
         max-width: 1500px;
         overflow: auto;
     }
-
-    .body {
-        max-height: 100%;
+    .footer {
+        grid-template-columns: 1fr 1fr 1fr;
     }
 }
 
@@ -91,8 +89,8 @@
         overflow: hidden;
     }
 
-    .body {
-        max-height: 100%;
+    .footer {
+        grid-template-columns: 1fr 1fr 1fr;
     }
 }
 
@@ -188,6 +186,7 @@
     padding: 2px 0.5em;
     align-items: baseline;
     overflow: auto;
+    max-height: 100%;
 }
 
 .footer {
@@ -196,7 +195,6 @@
     width: 100%;
     z-index: 999;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .playwright {
