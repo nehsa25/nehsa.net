@@ -12,14 +12,23 @@
             <div>
                 <h3>Notes</h3>
                 <ul>
-                    <li>Week 1 :(</li>
-                    <li>Week 2
+                    <li>Week 1
                         <ul>
-                            <li>Inductive Reasoning - Inductive inferences start with observations and arrive and general conclusions.  E.g. Every time I wear blue shoes, people are nicer to me.</li>
-                            <li>Deductive Reasoning - Deductive inferences do the reverse. They start with general knowledge and predict a specific observation. For example, If I know a computer needs power to turn on, I can deduce it will not work without power.</li>
-                            <li>Scientific Method - Systematic reasoning.  E.g. a log broken down into six categories: (1) statement of the problem, (2) hypotheses as to the cause of the problem, (3) experiments designed to test each hypothesis, (4) predicted results of the experiments, (5) observed results of the experiments and (6) conclusions from the results of the experiments. The real purpose of scientific method is to make sure Nature hasn’t misled you into thinking you know something you don’t actually know.
+                            <li>Inductive Reasoning - Inductive inferences start with observations and arrive and
+                                general conclusions. E.g. Every time I wear blue shoes, people are nicer to me.</li>
+                            <li>Deductive Reasoning - Deductive inferences do the reverse. They start with general
+                                knowledge and predict a specific observation. For example, If I know a computer needs
+                                power to turn on, I can deduce it will not work without power.</li>
+                            <li>Scientific Method - Systematic reasoning. E.g. a log broken down into six categories:
+                                (1) statement of the problem, (2) hypotheses as to the cause of the problem, (3)
+                                experiments designed to test each hypothesis, (4) predicted results of the experiments,
+                                (5) observed results of the experiments and (6) conclusions from the results of the
+                                experiments. The real purpose of scientific method is to make sure Nature hasn’t misled
+                                you into thinking you know something you don’t actually know.
                                 <ol>
-                                    <li>In Part One of formal scientific method, which is the statement of the problem, the main skill is in stating absolutely no more than you are positive you know.</li>
+                                    <li>In Part One of formal scientific method, which is the statement of the problem,
+                                        the main skill is in stating absolutely no more than you are positive you know.
+                                    </li>
                                 </ol>
                             </li>
                             <li class="condensed">The Design Process
@@ -33,14 +42,242 @@
                                     <li>How effective is the solution?</li>
                                 </ol>
                             </li>
-                            <li class="condensed">Breaking Down Complex Problems.  Create an outline that lists:
+                            <li class="condensed">Breaking Down Complex Problems. Create an outline that lists:
                                 <ol>
                                     <li>Identifying requirements</li>
                                     <li>The steps needed to meed those requirements</li>
                                 </ol>
                             </li>
-                            <li>Algoithms - Algorithms are abstracted procedures. Any sequence of steps leading to a specific outcome can be considered an algorithm.</li>
+                            <li>Algoithms - Algorithms are abstracted procedures. Any sequence of steps leading to a
+                                specific outcome can be considered an algorithm.</li>
                         </ul>
+                    </li>
+                    <li>Week 2
+                        <ol class="condensed">
+                            <li>Describe how data is stored by computers
+                                <ul class="condensed">
+                                    <li>How does the base 2 numeral system work?</li>
+                                    <li>How do I count in binary?</li>
+                                    <li>How can I convert numbers between bases?</li>
+                                    <li>What tradeoffs are furnished by the choice of number base when representing
+                                        information?</li>
+                                </ul>
+                            </li>
+                            <li>Represent statements using Boolean Algebra and Truth Tables
+                                <ul class="condensed">
+                                    <li>What are the basic Boolean operators?</li>
+                                    <li>How do I build a truth table for a given number of inputs to match a high-level
+                                        description?</li>
+                                    <li>How do I compose a Boolean expression from a truth table?</li>
+                                </ul>
+                            </li>
+                            <li>Binary / bit (binary digit)
+                                <ul class="condensed">
+                                    <li>Counting in Binary
+                                        <ul class="condensed">
+                                            <li>Just like in base10, once you fill up your column, you must move into
+                                                next
+                                                <pre>
+    0
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+    10
+
+    Is the same as:
+    00
+    01
+    02
+    03
+    04
+    05
+    06
+    07
+    08
+    09
+    10 &lt;-- The 9 rolls back to a 0 but we increment the next column and we get 10 (1,0 base<sup>10</sup>)!
+    
+    In Binary:
+    00
+    01 
+    10 &lt;-- The 1 rolls back to a 0 but we increment the next column and we get 1,0 base<sup>2</sup>
+    11
+   100 &lt;-- The 1 rolls back to a 0 but we increment the next column and we get 1,0,0 base<sup>2</sup>
+   101
+                                                </pre>
+
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>Multiples of bits</li>
+                                    <ul class="condensed">
+                                        <li>BIT == [0,1]</li>
+                                        <li>BYTE == 8 bits == 256 characters
+                                            (&#9634;&#9634;&#9634;&#9634;&#9634;&#9634;&#9634;&#9634; == 2<sup>8</sup>
+                                            == 256)
+                                        </li>
+                                        <li>KILOBYTE == 1,000 bytes</li>
+                                        <li>MEGABYTE == 1,000,000 bytes</li>
+                                        <li>GIGABYTE == 1,000,000,000 bytes</li>
+                                        <li>TERABYTE == 1,000,000,000,000 bytes</li>
+                                        <li>PETABYTE == 1,000,000,000,000,000 bytes</li>
+                                        <li>EXABYTE &nbsp;== 1,000,000,000,000,000,000 bytes. An exabyte could fit 1
+                                            million terabytes of data. That's about the same as the volume ratio of the
+                                            sun to the earth.</li>
+                                    </ul>
+                                </ul>
+                            </li>
+                            <li>BASE10 Columns
+                                <ul class="condensed">
+                                    <li>1 column: 0-9 (10 different numbers, i.e. 10<sup>1</sup>)</li>
+                                    <li>2 columns: 0-99 (10<sup>2</sup>)</li>
+                                    <li>3 columns: 0-999 (10<sup>3</sup>)</li>
+                                </ul>
+                            </li>
+                            <li>BINARY Columns (2<sup>0</sup> = 1, 2<sup>1</sup> = 2, 2<sup>2</sup> = 4, 2<sup>3</sup> =
+                                8, 2<sup>4</sup> = 16, and so forth)
+                                <ul class="condensed">
+                                    <li>1 column (ones)</li>
+                                    <li>2 column (twos)</li>
+                                    <li>3 column (fours)</li>
+                                </ul>
+                            </li>
+                            <li>BASE16 Columns (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F)
+                                <ul class="condensed">
+                                    <li>1 column (ones)</li>
+                                    <li>2 column (twos)</li>
+                                    <li>3 column (fours)</li>
+                                </ul>
+                            </li>
+                            <li>BASE 16 example
+                                <pre>
+    0x1        ==        1
+    0xF        ==        15
+    0xFF       ==        255
+    0xFFF      ==        4095
+    0x1000     ==        4096
+                                </pre>
+                            </li>
+                            <li>HTML Color code: #FF0000 == Red value is maxed out at FF (255), while the Green and Blue
+                                values are 0.
+                                <ul class="condensed">
+                                    <li>From that, it can be deduced:
+                                        <ul class="condensed">GREEN == #00FF00;</ul>
+                                        <ul class="condensed">BLUE == #0000FF;</ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        Binary Algebra - Boolean Algebra is a formal method for performing operations on binary values.
+                        <ul class="condensed">
+                            <li>Operators</li>
+                            <ol>
+                                <li>&#x2227; - AND (&amp;#x2227)</li>
+                                <li>&#x2228; - OR (&amp;#x2228)</li>
+                                <li>&#xac; - NOT (&amp;#xac;) - Turn any Boolean value into its opposite counterpart
+                                </li>
+                            </ol>
+                            <li>Examples
+                                <pre>
+    0 &#x2227; 0 = 0 (False &#x2227; False = False)
+    0 &#x2227; 1 = 0 (False &#x2227; True = False)
+    1 &#x2227; 0 = 0 (True &#x2227; False = False)
+    1 &#x2227; 1 = 1 (True &#x2227; True = True)
+    0 &#x2228; 0 = 0 (False &#x2228; False = False)
+    0 &#x2228; 1 = 1 (False &#x2228; True = True)
+    1 &#x2228; 0 = 1 (True &#x2228; False = True)
+    1 &#x2228; 1 = 1 (True &#x2228; True = True)
+    &#xac;0 = 1 (Not 0 is True)
+    &#xac;1 = 0 (Not 1 is False)
+    &#xac;False = True (Not False is True)
+    &#xac;True = False (Not True is False)
+    &#xac;Off = On (Not off is True)
+    &#xac;On = Off (Not On is False)
+                                </pre>
+                            </li>
+                            <li>&quot;3 &lt; 2&quot; &#x2228; &quot;5 * 1 = 5&quot; == False &#x2228; True == True</li>
+                            <li>&quot; 'Oregon' has 6 letters&quot; &#x2227; &quot; 'tacocat' is 'tacocat'
+                                backwards&quot; == True &#x2227; True == True</li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        Truth Tables - Truth Tables are a way of visualizing every possible scenario for a given number
+                        of Boolean inputs. How do we get all of the possible combinations of input values? The easiest
+                        way is to simply count in binary.
+                        <br><br>NOT &#xac;<table mat-table>
+                            <tr>
+                                <th>A</th>
+                                <th>&#xac;A</th>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>&#xac;0=1</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>&#xac;1=0</td>
+                            </tr>
+                        </table><br>
+                        All this table says is, &quot;If A is 0, &#xac;A is 1. If A is 1, &#xac;A is 0&quot;. Since A is
+                        the only input here and A only has two possible values, we only need to have two rows to show
+                        all possible contingencies. We can assign any statement to the variable A and solve, e.g.<br>
+                        A = Clark Kent is Superman<br><br>
+
+                        Solve as:
+                        &#xac;A = &#xac;True = False
+
+                        <br><br>
+                        <table mat-table>
+                            <tr>
+                                <th>A</th><th>B</th><th>A&#x2227;B</th>
+                            </tr>
+                            <tr><td>0</td><td>0</td><td>0&#x2227;0=0</td></tr>
+                            <tr><td>0</td><td>1</td><td>0&#x2227;1=0</td></tr>
+                            <tr><td>1</td><td>0</td><td>1&#x2227;0=0</td></tr>
+                            <tr><td>1</td><td>1</td><td>1&#x2227;1=1</td></tr>
+                        </table><br>
+                        A = Dogs are canines<br>
+                        B = Cats are canines<br>
+                        Since A in this instance is True and B is False, when we substitute the values back into the expression we get<br>
+                        Solve as:
+                        A &#x2227; B  = 1 &#x2227; 0 = 0
+                    </li>
+                    <li>Idempotent Law (pronounced "eye-dem-POHtent") - This basically means that any input "ANDed" or "ORed" with itself is equal to itself.  i.e.
+                        0&#x2227;0=0, 
+                        1&#x2227;1=1, 
+                        0&#x2228;0=0, 
+                        1&#x2228;1=1
+                    </li>
+                    <li>Identity Law - This law says that any input ANDed with False will be False, and any input ANDed with True will be equal to itself.
+                        A&#x2227;0=0
+                        A&#x2227;1=A
+                    </li>
+                    <li>Complement Law - This law states that anything ANDed with its own complement (i.e. its negated self) is False, and anything ORed with its complement is True. In other words, any statement which has the same input as both simultaneously True and False must be False (which should make intuitive sense, since it's impossible). And any statement which says that an input is either True or False is True (since, in a Boolean expression, that's all any input can be, meaning it's redundant to state it). 
+                    </li>
+                    <li>Involution Law - Any input negated twice (or any even number of times, in fact) is equivalent to the original input. 
+                    </li>
+                    <li>Commutative Law - This law basically means that the order of operands doesn't change the expression, as long as the operators are the same. 
+                    </li>
+                    <li>Associative Law - This law allows you to combine operands in different groupings as long as all the operators are the same. 
+                    </li>
+                    <li>Distributive Law
+                    </li>
+                    <li>Absorption and Redundancy - These involve a bit of "hand-waving" at this level, because we aren't going to explain why these equivalencies are true. (If you take discrete math classes in the future then you'll learn more about them, and I certainly would encourage you to think through them, but we won't try to prove any of them in this class.) For now you can think of them as "cheats" that you can use to simplify expressions when you recognize them.<br>
+                        A &#x2228; (A &#x2227; B) = A<br>
+                        A &#x2227; (A &#x2228; B) = A<br>
+                        (A &#x2227; B) &#x2228; (A &#x2227; B) = A<br>
+                        (A &#x2228; B) (A &#x2228; B) = A<br>
+                        A &#x2228; (A &#x2227; B) = A &#x2228; B <br>
+                        A &#x2227; (A &#x2228; B) = A &#x2227; B
                     </li>
                 </ul>
             </div>
