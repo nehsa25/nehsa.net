@@ -3,60 +3,45 @@
 @include mat.core();
 $light-primary: mat.define-palette(mat.$indigo-palette, 500);
 $light-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-$light-typography: mat.define-typography-config(
-    $font-family: "monospace",
-);
+$light-typography: mat.define-typography-config($font-family: "monospace",
+    );
 
 $spring-primary: mat.define-palette(mat.$indigo-palette, 500);
 $spring-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-$spring-typography: mat.define-typography-config(
-    $font-family: "monospace",
-);
+$spring-typography: mat.define-typography-config($font-family: "monospace",
+    );
 
 $dark-primary: mat.define-palette(mat.$indigo-palette, 500);
 $dark-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-$dark-typography: mat.define-typography-config(
-    $font-family: "monospace",
-);
+$dark-typography: mat.define-typography-config($font-family: "monospace",
+    );
 
 // per https://github.com/angular/components/blob/main/guides/duplicate-theming-styles.md, start with this, then only adjust colors
 
-$light-theme: mat.define-light-theme(
-    (
-        color: (
-            primary: $light-primary,
-            accent: $light-accent,
-        ),
-        typography: $light-typography,
-    )
-);
+$light-theme: mat.define-light-theme((color: (primary: $light-primary,
+                accent: $light-accent,
+            ),
+            typography: $light-typography,
+        ));
 
-$spring-theme: mat.define-dark-theme(
-    (
-        color: (
-            primary: $spring-primary,
-            accent: $spring-accent,
-        ),
-        typography: $spring-typography,
-    )
-);
+$spring-theme: mat.define-dark-theme((color: (primary: $spring-primary,
+                accent: $spring-accent,
+            ),
+            typography: $spring-typography,
+        ));
 
 
-$dark-theme: mat.define-dark-theme(
-    (
-        color: (
-            primary: $dark-primary,
-            accent: $dark-accent,
-        ),
-        typography: $dark-typography,
-    )
-);
+$dark-theme: mat.define-dark-theme((color: (primary: $dark-primary,
+                accent: $dark-accent,
+            ),
+            typography: $dark-typography,
+        ));
 
 
 @include mat.all-component-themes($light-theme);
 
 .dark-theme {
-    background-color: rgb(33,33,33);
+    background-color: rgb(33, 33, 33);
     color: ghostwhite;
     @include mat.all-component-colors($dark-theme);
     @include mat.all-component-typographies($dark-theme);
@@ -65,13 +50,13 @@ $dark-theme: mat.define-dark-theme(
 @media screen and (min-width: 0px) and (max-width: 799px) {
     .code {
         line-height: 30px;
-    }  
+    }
 }
 
 @media screen and (min-width: 800px) {
     .code {
         line-height: inherit;
-    }  
+    }
 }
 
 
@@ -82,6 +67,7 @@ body {
     height: 100%;
     background-color: white !important;
 }
+
 a:link {
     color: ghostwhite;
 }
@@ -118,7 +104,7 @@ li {
     font-family: Consolas;
     border-radius: 5px;
     padding: 5px 1em;
-  }
+}
 
 .comment {
     background-color: white;
@@ -143,17 +129,21 @@ li {
 
 /* Track */
 ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px #999; 
+    box-shadow: inset 0 0 5px #999;
     border-radius: 5px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #999;  
+    background: #999;
     border-radius: 5px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #333; 
+    background: #333;
+}
+
+pre {
+    white-space: pre-wrap;
 }
