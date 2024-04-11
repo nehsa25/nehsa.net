@@ -1,6 +1,6 @@
-@media screen and (min-width: 0px) and (max-width: 799px) {
+@media screen and (min-width: 0px) and (max-width: 400px) {
     .gridcols {
-        grid-template-rows: min-content 40px repeat(auto, 5);
+        grid-template-rows: repeat(min-content, 7);
     }
 
     .main {
@@ -12,19 +12,38 @@
             "contactme"
             "navbar"
             "footer";
-        grid-template-rows: min-content 40px 40px min-content min-content min-content min-content;
-        grid-template-columns: 799px;
-        max-width: 799px;
+        grid-template-rows: repeat(7, min-content);
+        width: 400px;
         overflow: auto;
     }
 
-    .dh {
-        text-align: left !important;
+    .body {
+        max-height: 300px;
+    }
+}
+
+@media screen and (min-width: 401px) and (max-width: 800px) {
+    .gridcols {
+        grid-template-rows: repeat(min-content, 7);
     }
 
-    .title {
-        grid-template-areas: "maintitle" "subtitle";
-        grid-template-rows: 1fr;
+    .main {
+        grid-template-areas:
+            "title"
+            "bread"
+            "dh"
+            "body"
+            "contactme"
+            "navbar"
+            "footer";
+        grid-template-rows: repeat(min-content, 7);
+        grid-template-columns: 799px;
+        width: 800px;
+        overflow: auto;
+    }
+
+    .body {
+        max-height: 300px;
     }
 }
 
@@ -47,9 +66,8 @@
         overflow: auto;
     }
 
-    .title {
-        grid-template-areas: "maintitle" "subtitle";
-        grid-template-rows: min-content;
+    .body {
+        max-height: 100%;
     }
 }
 
@@ -73,10 +91,14 @@
         overflow: hidden;
     }
 
-    .title {
-        grid-template-areas: "maintitle subtitle";
-        grid-template-columns: 144px 1fr;
+    .body {
+        max-height: 100%;
     }
+}
+
+.title {
+    grid-template-areas: "maintitle" "subtitle";
+    grid-template-rows: min-content min-content;
 }
 
 .root {
@@ -127,7 +149,7 @@
     display: grid;
     justify-content: inherit !important;
     padding: 0 25px;
-    text-align: right;
+    text-align: left;
     font-size: 1rem;
 }
 
@@ -165,7 +187,6 @@
     grid-area: body;
     padding: 2px 0.5em;
     align-items: baseline;
-    max-height: 100%;
     overflow: auto;
 }
 
