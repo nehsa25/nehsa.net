@@ -147,3 +147,7 @@ li {
 pre {
     white-space: pre-wrap;
 }
+
+wbr:after { 
+    content: "\00200B"; 
+}

@@ -1,14 +1,14 @@
-/* For Desktop View */
+/* For desktop View - large */
 @media screen and (min-width: 1024px) {
     .gridcols {
         grid-template-columns: min-content auto;
     }
 
     .main {
-        grid-template-rows: 66px min-content min-content 1fr 225px min-content;
+        grid-template-rows: min-content min-content min-content 1fr 225px min-content;
         grid-template-columns: 225px 225px 1fr 1fr;
         grid-template-areas:
-            "bread bread dh dh"
+            "bread dh dh dh"
             "spacer title title title"
             "contactme body body body"
             "navbar body body body"
@@ -20,6 +20,68 @@
 
     .footer {
         grid-template-columns: 1fr 1fr 1fr;
+    }
+    .dh {
+        text-align: right;
+    }
+}
+
+/* For desktop View - med */
+@media screen and (min-width: 509px) and (max-width: 1023px) {
+    .gridcols {
+        grid-template-columns: min-content auto;
+    }
+
+    .main {
+        grid-template-rows: min-content min-content min-content 1fr 225px min-content;
+        grid-template-columns: 225px 200px 1fr;
+        grid-template-areas:
+            "bread dh dh"
+            "spacer title title"
+            "contactme body body"
+            "navbar body body"
+            "navbar body body"
+            "footer footer footer";
+        max-width: 1500px;
+        overflow: auto;
+    }
+
+    .footer {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .dh {
+        text-align: right;
+    }
+}
+
+/* For desktop View - tiny */
+@media screen and (min-width: 0px) and (max-width: 510px) {
+    .gridcols {
+        grid-template-rows: repeat(7, min-content);
+    }
+
+    .main {
+        grid-template-areas:
+            "title"
+            "bread"
+            "dh"
+            "body"
+            "contactme"
+            "navbar"
+            "footer";
+        grid-template-rows: repeat(7, min-content);
+        width: 480px;
+        overflow: auto;
+    }
+
+    .footer {
+        grid-template-rows: repeat(3, min-content);
+        grid-gap: 1em;
+    }
+
+    .dh {
+        text-align: left;
     }
 }
 
@@ -45,6 +107,10 @@
 
     .footer {
         grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .dh {
+        text-align: left;
     }
 }
 
@@ -72,6 +138,10 @@
         grid-template-rows: repeat(3, min-content);
         grid-gap: 1em;
     }
+
+    .dh {
+        text-align: left;
+    }
 }
 
 /* For Mobile Landscape View */
@@ -97,6 +167,10 @@
     .footer {
         grid-template-rows: repeat(3, min-content);
         grid-gap: 1em;
+    }
+
+    .dh {
+        text-align: left;
     }
 }
 
@@ -152,9 +226,9 @@
     height: 100%;
     display: grid;
     justify-content: inherit !important;
-    padding: 0 25px;
-    text-align: left;
+    padding: 0 2em;
     font-size: 1rem;
+    white-space: wrap;
 }
 
 .child {

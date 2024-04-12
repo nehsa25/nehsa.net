@@ -41,6 +41,7 @@ export class CornerListenerComponent {
     form.subject = this.emailbody;
     form.body = this.emailsubject;
     let response = this.httpClient.postContactMe(form).subscribe(data => {
+      this.snackMsg.openSnackBar("Request was submitted but.. I won't see it.  Sorry.  Pleease email instead.  :)", 5000);
     });
     return response;
   }
