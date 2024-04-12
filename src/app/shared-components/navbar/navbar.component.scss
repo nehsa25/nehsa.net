@@ -1,4 +1,4 @@
-@media screen and (min-width: 0px) and (max-width: 799px) {
+@media screen and (min-width: 0px) and (max-width: 510px) {
     .navbar-links {
         display: grid;
         grid-template-columns: min-content min-content;
@@ -14,7 +14,7 @@
     }
 }
 
-@media screen and (min-width: 799px) {
+@media screen and (min-width: 511px) and (max-width: 1499px) {
     .navbar-links {
         display: grid;
         grid-template-columns: auto;
