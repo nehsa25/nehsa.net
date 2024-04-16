@@ -6,22 +6,27 @@ import { MatIcon } from '@angular/material/icon';
 import { BreadcrumbComponent, BreadcrumbItemDirective } from 'xng-breadcrumb';
 import { CommonModule } from '@angular/common';
 import { HttpService } from './services/http.service';
+import { version } from '../version';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterModule, RouterOutlet, NavbarComponent, CornerListenerComponent, MatIcon,  BreadcrumbComponent, BreadcrumbItemDirective],
-  providers: [ HttpService ],
+  imports: [CommonModule, RouterModule, RouterOutlet, NavbarComponent, CornerListenerComponent, MatIcon, BreadcrumbComponent, BreadcrumbItemDirective],
+  providers: [HttpService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   quote = "";
-  constructor(public httpClient: HttpService) {};
+  constructor(public httpClient: HttpService) { };
 
   ngOnInit() {
     // this.httpClient.getDouglasAdamQuote().subscribe(data => {
     //   this.quote = data.toString();
     // });
+  }
+
+  public getBuild() {
+    return version.number;
   }
 }
