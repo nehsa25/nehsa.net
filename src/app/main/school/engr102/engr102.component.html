@@ -52,7 +52,7 @@
                                 specific outcome can be considered an algorithm.</li>
                         </ul>
                     </li>
-                    <li>Week 2
+                    <li>Week 2 - Data
                         <ol class="condensed">
                             <li>Describe how data is stored by computers
                                 <ul class="condensed">
@@ -206,7 +206,32 @@
                             <li>&quot;3 &lt; 2&quot; &#x2228; &quot;5 * 1 = 5&quot; == False &#x2228; True == True</li>
                             <li>&quot; 'Oregon' has 6 letters&quot; &#x2227; &quot; 'tacocat' is 'tacocat'
                                 backwards&quot; == True &#x2227; True == True</li>
-
+                            <li>
+                                <ul>
+                                    <li>A = Blue Heeler is another name for an Australian Cattle Dog = True = 1</li>
+                                    <li>B = Planet orbits are ellipses = True = 1</li>
+                                    <li>C = Radio waves are a type of radiation = True = 1</li>
+                                    <li>D = Bicycles have three wheels = False = 0</li>
+                                    <li>Expressions
+                                        <ol>
+                                            <li>(A &#x2228; &#xac;B) &#x2228; (&#xac;C &#x2228; D) = True = 1
+                                                <ul>
+                                                    <li>(1 &#x2228; 0) &#x2228; (0 &#x2228; 0)</li>
+                                                    <li>1 &#x2228; 0</li>
+                                                    <li>= 1</li>
+                                                </ul>
+                                            </li>
+                                            <li>(A &#x2227; &#xac;B) &#x2227; (&#xac;C &#x2227; &#xac;D) = False = 0
+                                                <ul>
+                                                    <li>(1 &#x2227; 0) &#x2227; (0 &#x2228; 1)</li>
+                                                    <li>1 &#x2227; 0</li>
+                                                    <li>= 0</li>
+                                                </ul>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -238,46 +263,125 @@
                         <br><br>
                         <table mat-table>
                             <tr>
-                                <th>A</th><th>B</th><th>A&#x2227;B</th>
+                                <th>A</th>
+                                <th>B</th>
+                                <th>A&#x2227;B</th>
                             </tr>
-                            <tr><td>0</td><td>0</td><td>0&#x2227;0=0</td></tr>
-                            <tr><td>0</td><td>1</td><td>0&#x2227;1=0</td></tr>
-                            <tr><td>1</td><td>0</td><td>1&#x2227;0=0</td></tr>
-                            <tr><td>1</td><td>1</td><td>1&#x2227;1=1</td></tr>
+                            <tr>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0&#x2227;0=0</td>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>0&#x2227;1=0</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>1&#x2227;0=0</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1&#x2227;1=1</td>
+                            </tr>
                         </table><br>
                         A = Dogs are canines<br>
                         B = Cats are canines<br>
-                        Since A in this instance is True and B is False, when we substitute the values back into the expression we get<br>
+                        Since A in this instance is True and B is False, when we substitute the values back into the
+                        expression we get<br>
                         Solve as:
-                        A &#x2227; B  = 1 &#x2227; 0 = 0
+                        A &#x2227; B = 1 &#x2227; 0 = 0
                     </li>
-                    <li>Idempotent Law (pronounced "eye-dem-POHtent") - This basically means that any input "ANDed" or "ORed" with itself is equal to itself.  i.e.
-                        0&#x2227;0=0, 
-                        1&#x2227;1=1, 
-                        0&#x2228;0=0, 
+                    <li>Idempotent Law (pronounced "eye-dem-POHtent") - This basically means that any input "ANDed" or
+                        "ORed" with itself is equal to itself. i.e.
+                        0&#x2227;0=0,
+                        1&#x2227;1=1,
+                        0&#x2228;0=0,
                         1&#x2228;1=1
                     </li>
-                    <li>Identity Law - This law says that any input ANDed with False will be False, and any input ANDed with True will be equal to itself.
+                    <li>Identity Law - This law says that any input ANDed with False will be False, and any input ANDed
+                        with
+                        True will be equal to itself.
                         A&#x2227;0=0
                         A&#x2227;1=A
                     </li>
-                    <li>Complement Law - This law states that anything ANDed with its own complement (i.e. its negated self) is False, and anything ORed with its complement is True. In other words, any statement which has the same input as both simultaneously True and False must be False (which should make intuitive sense, since it's impossible). And any statement which says that an input is either True or False is True (since, in a Boolean expression, that's all any input can be, meaning it's redundant to state it). 
+                    <li>Complement Law - This law states that anything ANDed with its own complement (i.e. its negated
+                        self)
+                        is False, and anything ORed with its complement is True. In other words, any statement which has
+                        the
+                        same input as both simultaneously True and False must be False (which should make intuitive
+                        sense,
+                        since it's impossible). And any statement which says that an input is either True or False is
+                        True
+                        (since, in a Boolean expression, that's all any input can be, meaning it's redundant to state
+                        it).
                     </li>
-                    <li>Involution Law - Any input negated twice (or any even number of times, in fact) is equivalent to the original input. 
+                    <li>Involution Law - Any input negated twice (or any even number of times, in fact) is equivalent to
+                        the
+                        original input.
                     </li>
-                    <li>Commutative Law - This law basically means that the order of operands doesn't change the expression, as long as the operators are the same. 
+                    <li>Commutative Law - This law basically means that the order of operands doesn't change the
+                        expression,
+                        as long as the operators are the same.
                     </li>
-                    <li>Associative Law - This law allows you to combine operands in different groupings as long as all the operators are the same. 
+                    <li>Associative Law - This law allows you to combine operands in different groupings as long as all
+                        the
+                        operators are the same.
                     </li>
                     <li>Distributive Law
                     </li>
-                    <li>Absorption and Redundancy - These involve a bit of "hand-waving" at this level, because we aren't going to explain why these equivalencies are true. (If you take discrete math classes in the future then you'll learn more about them, and I certainly would encourage you to think through them, but we won't try to prove any of them in this class.) For now you can think of them as "cheats" that you can use to simplify expressions when you recognize them.<br>
+                    <li>Absorption and Redundancy - These involve a bit of "hand-waving" at this level, because we
+                        aren't
+                        going to explain why these equivalencies are true. (If you take discrete math classes in the
+                        future
+                        then you'll learn more about them, and I certainly would encourage you to think through them,
+                        but we
+                        won't try to prove any of them in this class.) For now you can think of them as "cheats" that
+                        you
+                        can use to simplify expressions when you recognize them.<br>
                         A &#x2228; (A &#x2227; B) = A<br>
                         A &#x2227; (A &#x2228; B) = A<br>
                         (A &#x2227; B) &#x2228; (A &#x2227; B) = A<br>
                         (A &#x2228; B) (A &#x2228; B) = A<br>
                         A &#x2228; (A &#x2227; B) = A &#x2228; B <br>
                         A &#x2227; (A &#x2228; B) = A &#x2227; B
+                    </li>
+                    <li>Week 3 - Logic
+                        <ul class="condensed">
+                            <li>Learning Outcomes:
+                                <ul>
+                                    <li>Classify examples of inductive and deductive reasoning
+                                        <ul>
+                                            <li>What is the difference between inductive and deductive reasoning?</li>
+                                        </ul>
+                                    </li>
+                                    <li>Recognize logic gate symbols and solve them as functions given Boolean inputs.
+                                        <ul>
+                                            <li>Which Boolean Algebra operators correspond with which logic gates?</li>
+                                        </ul>
+                                    </li>
+                                    <li>Substitute truth values of statements into variables
+                                        <ul>
+                                            <li>How do I use substitution to compute the output of a logic gate with
+                                                variable
+                                                inputs?</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Combine logic gates to form circuits and verify the circuit via truth tables and
+                                        tracing.
+                                        <ul>
+                                            <li>How do I model complex statements using logic gates?</li>
+                                            <li>How can I verify that a circuit emulates a specific expression
+                                                correctly?</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>

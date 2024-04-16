@@ -8,15 +8,18 @@
         <mat-card-content>
             <div>
                 <div>
-                    <h3>Useful Commands (<a href="https://playwright.dev/docs/test-cli">https://playwright.dev/docs/test-cli</a>)</h3>
-                    <span class="code">npm init playwright&#64;latest</span> - Initial setup (more initialization then using npm install playwright:latest)<br><br>
+                    <h3>Useful Commands (<a
+                            href="https://playwright.dev/docs/test-cli">https://playwright.dev/docs/test-cli</a>)</h3>
+                    <span class="code">npm init playwright&#64;latest</span> - Initial setup (more initialization then
+                    using npm install playwright:latest)<br><br>
                     <span class="code">npx playwright test</span> - Runs the end-to-end tests<br><br>
                     <span class="code">npx playwright test --ui</span> - Starts the interactive UI mode.<br><br>
                     <span class="code">npx playwright test --project=chromium</span> - Runs the tests only on Desktop
                     Chrome<br><br>
                     <span class="code">npx playwright test example</span> - Runs the tests in a specific file<br><br>
                     <span class="code">npx playwright test --debug</span> - Runs the tests in debug mode<br><br>
-                    <span class="code">npx playwright test -g &quot;add a todo item&quot;</span> - Run the test with this title<br><br>
+                    <span class="code">npx playwright test -g &quot;add a todo item&quot;</span> - Run the test with
+                    this title<br><br>
                     <span class="code">npx playwright test --workers=1</span> - Disable parallelization<br><br>
                     <span class="code">npx playwright test --headed</span> - Run tests in headed browsers<br><br>
                     <span class="code">npx playwright codegen</span> - Records browser to auto-generate tests with
@@ -26,7 +29,7 @@
                     <h3>Examples</h3>
                     <ul>
                         <li>
-<pre>
+                            <pre>
     // verify page titles
     for (const pageDefinition of testSettings.PAGE_DEFINITIONS) &#123;
         test(`License Portal: Page \"$&#123;pageDefinition.name&#x2775;\" has correct title`, async (&#123; page &#x2775;) => &#123;
@@ -38,7 +41,7 @@
 </pre>
                         </li>
                         <li>
-<pre>
+                            <pre>
     // verify we receive a status up/down in varying times 5, 10, 15 seconds
     for (const pageDefinition of testSettings.STATUS_PAGE_DEFINITIONS) &#123;
         for (const duration of testSettings.TEST_DURATIONS) &#123;
@@ -54,8 +57,59 @@
                     </ul>
                 </div>
                 <div>
+                    <h3>Page Object Model</h3>
+                    Here's my implemation:
+                    <ul class="condensed">
+                        <li>Source Hierarchy
+                            <ul class="condensed">
+                                <li>nehsanet
+                                    <ul class="condensed">
+                                        <li>src
+                                            <ul class="condensed">
+                                                <li>website content</li>
+                                            </ul>
+                                        </li>
+                                        <li>tests
+                                            <ul class="condensed">
+                                                <li>pages - Every page of the website
+                                                    <ul class="condensed">
+                                                        <li>about.page.ts</li>
+                                                        <li>base.page.ts</li>
+                                                        <li>...</li>
+                                                    </ul>
+                                                </li>
+                                                <li>utility
+                                                    <ul class="condensed">
+                                                        <li>test-settings.ts - Envrionment settings for the tests
+                                                        </li>
+                                                        <li>test-helpers.ts - Utility functions
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>tests-playwright-ui.spec.ts</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                        </li>
+                    </ul>
+                </div>
+                <div>
                     <h3>Other tidbits..</h3>
                     <ul>
+                        <li>Finding elements (<a
+                                href="https://playwright.dev/docs/locators">https://playwright.dev/docs/locators</a>)
+                            <ul class="condensed">
+                                <li>By Test ID (data-testid=): await page.getByTestId('status');</li>
+                                <li>By CSS: await page.locator('css=button');</li>
+                                <li>By XPath: await page.locator('xpath=//button');</li>
+                                <li>By ID: await page.locator("#YourId");</li>
+                                <li>Custom element (&lt;cust-elem&gt;blah&lt;/cust-elem&gt;): page.locator('cust-elem')
+                                </li>
+                            </ul>
+                        </li>
                         <li><span class="code">await expect(page).toHaveTitle(portalPages.defaultPageTitle);</span> -
                             Assertion example </li>
                         <li><span class="code">await
