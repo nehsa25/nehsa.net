@@ -8,7 +8,7 @@
         <mat-card-content>
             <div>
                 <div>
-                    <h3>Useful Commands</h3>
+                    <h3>Useful Commands (<a href="https://playwright.dev/docs/test-cli">https://playwright.dev/docs/test-cli</a>)</h3>
                     <span class="code">npm init playwright&#64;latest</span> - Initial setup (more initialization then using npm install playwright:latest)<br><br>
                     <span class="code">npx playwright test</span> - Runs the end-to-end tests<br><br>
                     <span class="code">npx playwright test --ui</span> - Starts the interactive UI mode.<br><br>
@@ -16,6 +16,9 @@
                     Chrome<br><br>
                     <span class="code">npx playwright test example</span> - Runs the tests in a specific file<br><br>
                     <span class="code">npx playwright test --debug</span> - Runs the tests in debug mode<br><br>
+                    <span class="code">npx playwright test -g &quot;add a todo item&quot;</span> - Run the test with this title<br><br>
+                    <span class="code">npx playwright test --workers=1</span> - Disable parallelization<br><br>
+                    <span class="code">npx playwright test --headed</span> - Run tests in headed browsers<br><br>
                     <span class="code">npx playwright codegen</span> - Records browser to auto-generate tests with
                     Codegen.<br><br>
                 </div>
