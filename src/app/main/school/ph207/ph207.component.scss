@@ -1,0 +1,8 @@
+.freqgrid {
+    display: grid;
+    width:60px; 
+    text-align: center;
+    grid-template-columns: auto min-content auto;
+    grid-gap: 1em;
+    align-items: center;
+}
