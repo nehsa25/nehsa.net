@@ -55,11 +55,11 @@
                                         <li>tests
                                             <ul class="condensed">
                                                 <li>pages - Every page of the website
-                                                        <ul class="condensed">
-                                                            <li>about.page.ts</li>
-                                                            <li>base.page.ts</li>
-                                                            <li>...</li>
-                                                        </ul>
+                                                    <ul class="condensed">
+                                                        <li>about.page.ts</li>
+                                                        <li>base.page.ts</li>
+                                                        <li>...</li>
+                                                    </ul>
                                                 </li>
                                                 <li>utility
                                                     <ul class="condensed">
@@ -216,7 +216,7 @@
                     <ul>
                         <li>
                             <div class="code">
-                            <pre>
+                                <pre>
     // verify page titles
     for (const pageDefinition of testSettings.PAGE_DEFINITIONS) &#123;
         test(`ApplicationName: Page \"$&#123;pageDefinition.name&#x2775;\" has correct title`, async (&#123; page &#x2775;) => &#123;
@@ -225,10 +225,12 @@
         await expect(page).toHaveTitle(testpage.title, &#123;timeout: testSettings.defaultTimeoutMs&#x2775;); 
         &#x2775;);
     &#x2775;
-</pre></div>
+</pre>
+                            </div>
                         </li>
-                        <li><div class="code">
-                            <pre>
+                        <li>
+                            <div class="code">
+                                <pre>
     // verify we receive a status up/down in varying times 5, 10, 15 seconds
     for (const pageDefinition of testSettings.STATUS_PAGE_DEFINITIONS) &#123;
         for (const duration of testSettings.TEST_DURATIONS) &#123;
@@ -239,7 +241,8 @@
             &#x2775;);
         &#x2775;
         &#x2775;                                  
-</pre></div>
+</pre>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -258,7 +261,14 @@
                             </ul>
                         <li>
                             <dl>
-                                <dt>Triple the timeout (which is 30 seconds by default)</dt><dd>Add this to the top of the test:<div class="code">test.slow();</div></dd>
+                                <dt>Triple the timeout (which is 30 seconds by default)</dt>
+                                <dd>Add this to the top of the test:<div class="code">test.slow();</div>
+                                </dd>
+                                <dt>A &quot;sleep&quot;</dt>
+                                <dd>
+                                    <div class="code">
+                                        await page.waitForTimeout(3000);</div>
+                                </dd>
                                 <dt>Clicking on a button:/dt>
                                 <dd>await page.locator(`mat-option:has-text("&lt;TEXT TO FIND&gt;")`).click();</dd>
                                 <dt>Verify a table has zero records</dt>
@@ -282,7 +292,7 @@
                                     </div>
                                 </dd>
                                 <dt>Selecting from options list (Option 2 - Two-lines, maybe more readable, required
-                                        for mat-select)</dt>
+                                    for mat-select)</dt>
                                 <dd>
                                     <div class="code">
                                         <pre>
