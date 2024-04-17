@@ -94,6 +94,143 @@
                             </ul>
 
                         </li>
+                        <li>Class Structure
+                            <ul>
+                                <li>
+                                    <span class="underline">base.page.ts</span>
+                                    <br>Contains all elements available on all pages (navbar, breadcrumb) and other utilty functions useful for most pages.
+                                    <div class="code">
+<pre>
+    import &#123; Page &#125; from '&#64;playwright/test';
+    import &#123; TestSettings &#125; from '../../e2e-test-utility/test-settings';
+    
+    /** This class is the base of all page and contains the header/footer elements/functions */
+    export default class BasePage &#123;
+        name: string = "basepage";
+        settings: TestSettings = null;
+        page: Page;
+        constructor(page: Page, settings: TestSettings) &#123;
+            this.page = page;
+            this.settings = settings;
+        &#125;
+    
+        // locators
+        get userDropdown() &#123; return this.page.getByTestId('user-dropdown'); &#125;
+        get changePassword() &#123; return this.page.getByTestId('change-password'); &#125;
+        get logoutBtn() &#123; return this.page.getByTestId('logout-btn'); &#125;
+    &#125;
+</pre>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="underline">fixtures\basepage.ts</span>
+                                    <br>Sets up initial page under test and any other setup required
+                                    <div class="code">
+<pre>
+    import TestPage from 'e2e/pages/admin/testpagefile.page';
+    
+    export const test = base.extend&lt;&#123; 
+        testPage: TestPage
+        &#125;&gt;(&#123;
+            testPage: async (&#123; page &#125;, use) =&gt; &#123;
+            await use(new TestPage(page, new TestSettings(page)));
+        &#125;         
+    &#125;);
+</pre>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="underline">testpage.page.ts</span>
+                                    <br>An actual page of the website.  Contains locators for all elements and utility functions unique to this page.
+                                    <div class="code">
+<pre>
+    import &#123; TestSettings, UserType &#125; from 'e2e-test-utility/test-settings';
+    import BasePage from '../base.page';
+    import UserLoginPage from '../login-dual.page';
+    import AdminLandingPage from './admin-landing.page';
+    import AdminHomePage from './admin-customer-home.page';
+    import &#123; Page &#125; from '&#64;playwright/test';
+    
+    export default class AdminEntitlementDetailsPage extends BasePage &#123;
+        name: string = "admin-entitlement-details";
+        requiresUserLogin = true;
+        requiresEntitlementLogin = false;
+        userRoles = [UserType.ADMIN];
+        _title = 'Entitlement Details (Administrator)';
+        user: string = '';
+        get pathstem(): string &#123;
+            if (this.user === "") &#123;
+                throw new Error("User not set for AdminLandingPage");
+            &#125;
+            return `$&#123;this.user&#125;/admin`;
+        &#125;
+        get title(): string &#123; return `$&#123;this.settings.BASE_PAGE_TITLE&#125; | $&#123;this._title&#125;` &#125;
+        get path(): string &#123; return `$&#123;this.settings.PORTAL_ENVIRONMENT&#125;/$&#123;this.pathstem&#125;`; &#125;;
+    
+        // locators
+        get filterByText() &#123; return this.page.getByTestId('filter-by-text'); &#125;
+        get filterByProduct() &#123; return this.page.getByTestId('filter-by-product'); &#125;
+        get filterByLicensed() &#123; return this.page.getByTestId('filter-by-licensed'); &#125;
+        get filterByLockStyle() &#123; return this.page.getByTestId('filter-by-lock-style'); &#125;
+    
+        /** Manipulates the filter options at the top of the entitlement details table */
+        async filter(filterText: string = '', filterProduct: string = '', filterLicensed: string = '', filterLockStyle: string = '') &#123;
+            if (filterText !== '') &#123;
+                await this.filterByText.fill(filterText);
+            &#125;
+            if (filterProduct !== '') &#123;
+                await this.filterByProduct.selectOption(&#123; label: filterProduct &#125;);
+            &#125;
+            if (filterLicensed !== '') &#123;
+                await this.filterByLicensed.selectOption(&#123; label: filterLicensed &#125;);
+            &#125;
+            if (filterLockStyle !== '') &#123;
+                await this.filterByLockStyle.selectOption(&#123; label: filterLockStyle &#125;);
+            &#125;
+        &#125;
+    
+    
+        /** Navigates to the page using elements on the page as a end user would */
+        async navigateTo(customer: string = 'Demo Company') &#123;
+            const userLoginPage = new UserLoginPage(this.page, this.settings);
+            const adminLandingPage = new AdminLandingPage(this.page, this.settings);
+            const adminHomePage = new AdminHomePage(this.page, this.settings);
+            await userLoginPage.goto();
+            await userLoginPage.loginAsAdmin();
+        
+            // select customer
+            await adminLandingPage.selectCustomerButton.click();
+            await this.page.locator(`mat-option:has-text("$&#123;customer&#125;")`).click();
+        
+            // navigate to entitlement details
+            await adminHomePage.entitlementDetailsButton.click();
+        &#125;
+    
+        /** Goes directly to a page via the URL */
+        async goto(navigate: boolean = false) &#123;
+            await this.page.goto(this.path);
+        &#125;
+    &#125;
+</pre>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="underline">test.spec.ts</span>
+                                    <br>The test file containing the actual tests
+                                    <div class="code">
+<pre>
+    test('License Portal: Page renders is less than 1 minute', async (&#123; testPage, page &#125;) => &#123;
+        // navigate to test page
+        testPage.navigateTo();
+    
+        // verify title
+        await expect(page).toHaveTitle("&lt;THE EXPECTED PAGE TITLE&gt;", &#123; timeout: 60000 &#125;);
+    &#125;);
+</pre>
+                                    </div> 
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
                 <div>
@@ -109,12 +246,30 @@
                                 <li>Custom element (&lt;cust-elem&gt;blah&lt;/cust-elem&gt;): page.locator('cust-elem')
                                 </li>
                             </ul>
+                        <li>
+                            Examples
+                            <dl>
+                                <dt>Clicking on a button:/dt>
+                                <dd>await page.locator(`mat-option:has-text("&lt;TEXT TO FIND&gt;")`).click();</dd>
+                                <dt>Verify a table has zero records</dt>
+                                <dd></dd>
+                                <dt>Selecting from options list (Option 1 - One-line)</dt>
+                                <dd><div class="code">await this.filterByProduct.selectOption(&#123; label: filterProduct
+                                        &#125;);</div></dd>
+                                <dt>Selecting from options list (Option 2 - Two-lines, maybe more readable)</dt>
+                                <dd>
+                                    <div class="code">
+                                        await adminLandingPage.selectCustomerButton.click();<br>
+                                        await page.locator(`mat-option:has-text("&lt;TEXT TO FIND&gt;")`).click();
+                                    </div>
+                                </dd>
+                            </dl>
                         </li>
                         <li><span class="code">await expect(page).toHaveTitle(portalPages.defaultPageTitle);</span> -
                             Assertion example </li>
                         <li><span class="code">await
                                 expect.soft(page.getByTestId('status')).toHaveText('Success');</span> - A assert but
-                            don't continue with the test on failure</li>
+                            don't continue with the test on failure.</li>
                     </ul>
                 </div>
             </div>
