@@ -252,12 +252,13 @@
                         <li>Finding elements (<a
                                 href="https://playwright.dev/docs/locators">https://playwright.dev/docs/locators</a>)
                             <ul class="condensed">
-                                <li>By Test ID (data-testid=): await page.getByTestId('status');</li>
-                                <li>By CSS: await page.locator('css=button');</li>
-                                <li>By XPath: await page.locator('xpath=//button');</li>
-                                <li>By ID: await page.locator("#YourId");</li>
-                                <li>Custom element (&lt;cust-elem&gt;blah&lt;/cust-elem&gt;): page.locator('cust-elem')
-                                </li>
+                                <li>By Test ID (data-testid=): <div class="code">await page.getByTestId('status');</div></li>
+                                <li>By CSS: <div class="code">await page.locator('css=button');</div></li>
+                                <li>By XPath: <div class="code">await page.locator('xpath=//button');</div></li>
+                                <li>By ID: <div class="code">await page.locator("#YourId");</div></li>
+                                <li>Custom element (&lt;cust-elem&gt;blah&lt;/cust-elem&gt;): <div class="code">page.locator('cust-elem')
+                                </div></li>
+                                <li>Exact match: <div class="code">await this.page.locator("mat-option").getByText(filterProduct, &#123;exact: true&#125;).click();</div></li>
                             </ul>
                         <li>
                             <dl>
