@@ -1,0 +1,45 @@
+<div>
+    <mat-card class="card">
+        <mat-card-header>
+            <mat-card-title>
+                <h1 data-testid="header-title">Jenkins</h1>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div>
+                <div>
+                    <h3>Docker Installation: (<a href="https://www.jenkins.io/doc/book/installing/docker/">https://www.jenkins.io/doc/book/installing/docker/</a>)</h3>
+                    <h4>Create bridge</h4>
+                    <div class="code">docker network create jenkins</div>
+                    <h4>Create dockerfile</h4>
+                    <div class="code">
+                        <pre>
+FROM jenkins/jenkins:2.440.3-jdk17
+USER root
+RUN apt-get update && apt-get install -y lsb-release
+RUN curl -fsSLo /usr/share/keyrings/docker-archive-keyring.asc \
+  https://download.docker.com/linux/debian/gpg
+RUN echo "deb [arch=$(dpkg --print-architecture) \
+  signed-by=/usr/share/keyrings/docker-archive-keyring.asc] \
+  https://download.docker.com/linux/debian \
+  $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list
+RUN apt-get update && apt-get install -y docker-ce-cli
+USER jenkins
+RUN jenkins-plugin-cli --plugins "blueocean docker-workflow"
+
+                        </pre>                        
+                    </div>
+                    <h4>Build Docker image from it</h4>
+                    <div class="code">docker build -t lp-blueocean:2.440.3-1 .</div>
+                    <h4>Run Image</h4>
+                    <div class="code">docker run --name jenkins-blueocean --restart=on-failure --detach --network jenkins --env DOCKER_HOST=tcp://docker:2376 --env DOCKER_CERT_PATH=/certs/client --env DOCKER_TLS_VERIFY=1 --publish 8080:8080 --publish 50000:50000 --volume jenkins-data:/var/jenkins_home --volume jenkins-docker-certs:/certs/client:ro lp-blueocean:2.440.3-1</div>
+                    <h4>Access via localhost:8080</h4>
+                </div>
+
+                <div>
+
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
