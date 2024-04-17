@@ -252,15 +252,29 @@
                                 <dt>Clicking on a button:/dt>
                                 <dd>await page.locator(`mat-option:has-text("&lt;TEXT TO FIND&gt;")`).click();</dd>
                                 <dt>Verify a table has zero records</dt>
-                                <dd></dd>
+                                <dd><div class="code">
+<pre>
+    // verify no results
+    expect(await adminEntitlementDetailsPage.page.locator('tr').count()).toBe(2); // header and no results
+
+    // verify no results message
+    expect(await adminEntitlementDetailsPage.page.locator('tr').nth(1).locator('td').first().textContent()).toBe('No data found.');
+</pre>
+                                </div></dd>
                                 <dt>Selecting from options list (Option 1 - One-line)</dt>
-                                <dd><div class="code">await this.filterByProduct.selectOption(&#123; label: filterProduct
-                                        &#125;);</div></dd>
+                                <dd>
+                                    <div class="code">
+<pre>
+    await this.filterByProduct.selectOption(&#123; label: filterProduct &#125;);
+</pre>
+                                    </div></dd>
                                 <dt>Selecting from options list (Option 2 - Two-lines, maybe more readable)</dt>
                                 <dd>
                                     <div class="code">
-                                        await adminLandingPage.selectCustomerButton.click();<br>
-                                        await page.locator(`mat-option:has-text("&lt;TEXT TO FIND&gt;")`).click();
+<pre>
+    await adminLandingPage.selectCustomerButton.click();
+    await page.locator(`mat-option:has-text("&lt;TEXT TO FIND&gt;")`).click();
+</pre>
                                     </div>
                                 </dd>
                             </dl>
