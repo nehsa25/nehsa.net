@@ -10,51 +10,34 @@
                 <div>
                     <h3>Useful Commands (<a
                             href="https://playwright.dev/docs/test-cli">https://playwright.dev/docs/test-cli</a>)</h3>
-                    <span class="code">npm init playwright&#64;latest</span> - Initial setup (more initialization then
-                    using npm install playwright:latest)<br><br>
-                    <span class="code">npx playwright test</span> - Runs the end-to-end tests<br><br>
-                    <span class="code">npx playwright test --ui</span> - Starts the interactive UI mode.<br><br>
-                    <span class="code">npx playwright test --project=chromium</span> - Runs the tests only on Desktop
-                    Chrome<br><br>
-                    <span class="code">npx playwright test example</span> - Runs the tests in a specific file<br><br>
-                    <span class="code">npx playwright test --debug</span> - Runs the tests in debug mode<br><br>
-                    <span class="code">npx playwright test -g &quot;add a todo item&quot;</span> - Run the test with
-                    this title<br><br>
-                    <span class="code">npx playwright test --workers=1</span> - Disable parallelization<br><br>
-                    <span class="code">npx playwright test --headed</span> - Run tests in headed browsers<br><br>
-                    <span class="code">npx playwright codegen</span> - Records browser to auto-generate tests with
-                    Codegen.<br><br>
-                </div>
-                <div>
-                    <h3>Examples</h3>
-                    <ul>
-                        <li>
-                            <pre>
-    // verify page titles
-    for (const pageDefinition of testSettings.PAGE_DEFINITIONS) &#123;
-        test(`License Portal: Page \"$&#123;pageDefinition.name&#x2775;\" has correct title`, async (&#123; page &#x2775;) => &#123;
-        let testpage = new pageDefinition(page, testSettings);
-        await testpage.goto();
-        await expect(page).toHaveTitle(testpage.title, &#123;timeout: testSettings.defaultTimeoutMs&#x2775;); 
-        &#x2775;);
-    &#x2775;
-</pre>
-                        </li>
-                        <li>
-                            <pre>
-    // verify we receive a status up/down in varying times 5, 10, 15 seconds
-    for (const pageDefinition of testSettings.STATUS_PAGE_DEFINITIONS) &#123;
-        for (const duration of testSettings.TEST_DURATIONS) &#123;
-            test(`License Portal: Status UP on $&#123;pageDefinition.name&#x2775; shown within $&#123;duration&#x2775; seconds`, async (&#123; page &#x2775;) => &#123;
-            let testpage = new pageDefinition(page, testSettings);
-            await page.goto(testpage.path);
-            await expect(page.getByTestId('portalstatus-status')).toContainText('UP', &#123; ignoreCase: false, timeout: 15000 &#x2775;);
-            &#x2775;);
-        &#x2775;
-        &#x2775;                                  
-</pre>
-                        </li>
-                    </ul>
+                    <h4>Initial setup (more initialization then using npm install playwright:latest)</h4>
+                    <div class="code">npm init playwright&#64;latest</div>
+
+                    <h4>Runs the end-to-end tests</h4>
+                    <div class="code">npx playwright test</div>
+
+                    <h4>Starts the interactive UI mode.</h4>
+                    <div class="code">npx playwright test --ui</div>
+                    <h4>Runs the tests only on Desktop Chrome</h4>
+                    <div class="code">npx playwright test --project=chromium</div>
+
+                    <h4>Runs the tests in a specific file</h4>
+                    <div class="code">npx playwright test example</div>
+
+                    <h4>Runs the tests in debug mode</h4>
+                    <div class="code">npx playwright test --debug</div>
+
+                    <h4>Run the test with this title</h4>
+                    <div class="code">npx playwright test -g &quot;add a todo item&quot;</div>
+
+                    <h4>Disable parallelization</h4>
+                    <div class="code">npx playwright test --workers=1</div>
+
+                    <h4>Run tests in headed browsers</h4>
+                    <div class="code">npx playwright test --headed</div>
+
+                    <h4>Records browser to auto-generate tests with Codegen.</h4>
+                    <div class="code">npx playwright codegen</div>
                 </div>
                 <div>
                     <h3>Page Object Model</h3>
@@ -72,11 +55,11 @@
                                         <li>tests
                                             <ul class="condensed">
                                                 <li>pages - Every page of the website
-                                                    <ul class="condensed">
-                                                        <li>about.page.ts</li>
-                                                        <li>base.page.ts</li>
-                                                        <li>...</li>
-                                                    </ul>
+                                                        <ul class="condensed">
+                                                            <li>about.page.ts</li>
+                                                            <li>base.page.ts</li>
+                                                            <li>...</li>
+                                                        </ul>
                                                 </li>
                                                 <li>utility
                                                     <ul class="condensed">
@@ -98,9 +81,10 @@
                             <ul>
                                 <li>
                                     <span class="underline">base.page.ts</span>
-                                    <br>Contains all elements available on all pages (navbar, breadcrumb) and other utilty functions useful for most pages.
+                                    <br>Contains all elements available on all pages (navbar, breadcrumb) and other
+                                    utilty functions useful for most pages.
                                     <div class="code">
-<pre>
+                                        <pre>
     import &#123; Page &#125; from '&#64;playwright/test';
     import &#123; TestSettings &#125; from '../../e2e-test-utility/test-settings';
     
@@ -126,7 +110,7 @@
                                     <span class="underline">fixtures\basepage.ts</span>
                                     <br>Sets up initial page under test and any other setup required
                                     <div class="code">
-<pre>
+                                        <pre>
     import TestPage from 'e2e/pages/admin/testpagefile.page';
     
     export const test = base.extend&lt;&#123; 
@@ -141,17 +125,11 @@
                                 </li>
                                 <li>
                                     <span class="underline">testpage.page.ts</span>
-                                    <br>An actual page of the website.  Contains locators for all elements and utility functions unique to this page.
+                                    <br>An actual page of the website. Contains locators for all elements and utility
+                                    functions unique to this page.
                                     <div class="code">
-<pre>
-    import &#123; TestSettings, UserType &#125; from 'e2e-test-utility/test-settings';
-    import BasePage from '../base.page';
-    import UserLoginPage from '../login-dual.page';
-    import AdminLandingPage from './admin-landing.page';
-    import AdminHomePage from './admin-customer-home.page';
-    import &#123; Page &#125; from '&#64;playwright/test';
-    
-    export default class AdminEntitlementDetailsPage extends BasePage &#123;
+                                        <pre>
+    export default class testPage extends BasePage &#123;
         name: string = "admin-entitlement-details";
         requiresUserLogin = true;
         requiresEntitlementLogin = false;
@@ -160,7 +138,7 @@
         user: string = '';
         get pathstem(): string &#123;
             if (this.user === "") &#123;
-                throw new Error("User not set for AdminLandingPage");
+                throw new Error("User not set for testPage");
             &#125;
             return `$&#123;this.user&#125;/admin`;
         &#125;
@@ -193,13 +171,13 @@
         /** Navigates to the page using elements on the page as a end user would */
         async navigateTo(customer: string = 'Demo Company') &#123;
             const userLoginPage = new UserLoginPage(this.page, this.settings);
-            const adminLandingPage = new AdminLandingPage(this.page, this.settings);
+            const testPage = new testPage(this.page, this.settings);
             const adminHomePage = new AdminHomePage(this.page, this.settings);
             await userLoginPage.goto();
             await userLoginPage.loginAsAdmin();
         
             // select customer
-            await adminLandingPage.selectCustomerButton.click();
+            await testPage.selectCustomerButton.click();
             await this.page.locator(`mat-option:has-text("$&#123;customer&#125;")`).click();
         
             // navigate to entitlement details
@@ -218,8 +196,8 @@
                                     <span class="underline">test.spec.ts</span>
                                     <br>The test file containing the actual tests
                                     <div class="code">
-<pre>
-    test('License Portal: Page renders is less than 1 minute', async (&#123; testPage, page &#125;) => &#123;
+                                        <pre>
+    test('ApplicationName: Page renders is less than 1 minute', async (&#123; testPage, page &#125;) => &#123;
         // navigate to test page
         testPage.navigateTo();
     
@@ -227,9 +205,41 @@
         await expect(page).toHaveTitle("&lt;THE EXPECTED PAGE TITLE&gt;", &#123; timeout: 60000 &#125;);
     &#125;);
 </pre>
-                                    </div> 
+                                    </div>
                                 </li>
                             </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Paramaterization Examples</h4>
+                    <ul>
+                        <li>
+                            <div class="code">
+                            <pre>
+    // verify page titles
+    for (const pageDefinition of testSettings.PAGE_DEFINITIONS) &#123;
+        test(`ApplicationName: Page \"$&#123;pageDefinition.name&#x2775;\" has correct title`, async (&#123; page &#x2775;) => &#123;
+        let testpage = new pageDefinition(page, testSettings);
+        await testpage.goto();
+        await expect(page).toHaveTitle(testpage.title, &#123;timeout: testSettings.defaultTimeoutMs&#x2775;); 
+        &#x2775;);
+    &#x2775;
+</pre></div>
+                        </li>
+                        <li><div class="code">
+                            <pre>
+    // verify we receive a status up/down in varying times 5, 10, 15 seconds
+    for (const pageDefinition of testSettings.STATUS_PAGE_DEFINITIONS) &#123;
+        for (const duration of testSettings.TEST_DURATIONS) &#123;
+            test(`ApplicationName: Status UP on $&#123;pageDefinition.name&#x2775; shown within $&#123;duration&#x2775; seconds`, async (&#123; page &#x2775;) => &#123;
+            let testpage = new pageDefinition(page, testSettings);
+            await page.goto(testpage.path);
+            await expect(page.getByTestId('portalstatus-status')).toContainText('UP', &#123; ignoreCase: false, timeout: 15000 &#x2775;);
+            &#x2775;);
+        &#x2775;
+        &#x2775;                                  
+</pre></div>
                         </li>
                     </ul>
                 </div>
@@ -252,38 +262,47 @@
                                 <dt>Clicking on a button:/dt>
                                 <dd>await page.locator(`mat-option:has-text("&lt;TEXT TO FIND&gt;")`).click();</dd>
                                 <dt>Verify a table has zero records</dt>
-                                <dd><div class="code">
-<pre>
+                                <dd>
+                                    <div class="code">
+                                        <pre>
     // verify no results
-    expect(await adminEntitlementDetailsPage.page.locator('tr').count()).toBe(2); // header and no results
+    expect(await testPage.page.locator('tr').count()).toBe(2); // header and no results
 
     // verify no results message
-    expect(await adminEntitlementDetailsPage.page.locator('tr').nth(1).locator('td').first().textContent()).toBe('No data found.');
+    expect(await testPage.page.locator('tr').nth(1).locator('td').first().textContent()).toBe('No data found.');
 </pre>
-                                </div></dd>
+                                    </div>
+                                </dd>
                                 <dt>Selecting from options list (Option 1 - One-line)</dt>
                                 <dd>
                                     <div class="code">
-<pre>
+                                        <pre>
     await this.filterByProduct.selectOption(&#123; label: filterProduct &#125;);
 </pre>
-                                    </div></dd>
-                                <dt>Selecting from options list (Option 2 - Two-lines, maybe more readable)</dt>
+                                    </div>
+                                </dd>
+                                <dt>Selecting from options list (Option 2 - Two-lines, maybe more readable, required
+                                        for mat-select)</dt>
                                 <dd>
                                     <div class="code">
-<pre>
-    await adminLandingPage.selectCustomerButton.click();
+                                        <pre>
+    await testPage.selectCustomerButton.click();
     await page.locator(`mat-option:has-text("&lt;TEXT TO FIND&gt;")`).click();
 </pre>
                                     </div>
                                 </dd>
                             </dl>
                         </li>
-                        <li><span class="code">await expect(page).toHaveTitle(portalPages.defaultPageTitle);</span> -
-                            Assertion example </li>
-                        <li><span class="code">await
-                                expect.soft(page.getByTestId('status')).toHaveText('Success');</span> - A assert but
-                            don't continue with the test on failure.</li>
+                        <li>
+                            <h4>Assertion example</h4>
+                            <div class="code">await expect(page).toHaveTitle(portalPages.defaultPageTitle);</div>
+                        </li>
+                        <li>
+                            <h4>A assert but
+                                don't continue with the test on failure.</h4>
+                            <div class="code">await
+                                expect.soft(page.getByTestId('status')).toHaveText('Success');</div>
+                        </li>
                     </ul>
                 </div>
             </div>

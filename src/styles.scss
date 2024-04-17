@@ -103,8 +103,9 @@ li {
     color: #333;
     font-family: Consolas;
     border-radius: 5px;
-    padding: 5px 1em;
+    padding: 3px 1em;
     font-size: 1rem;
+    max-width: 900px;
 }
 
 .comment {
@@ -114,7 +115,7 @@ li {
 }
 
 .condensed li {
-    padding: 4px 2px;
+    padding: 0px;
 }
 
 .header {
