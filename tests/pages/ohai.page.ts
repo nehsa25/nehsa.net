@@ -1,7 +1,7 @@
 import BasePage from './base.page';
 
 export default class OhaiPage extends BasePage {
-    name: string = "ohai-page";
+    override name: string = "ohai-page";
     pathstem: string = '#/ohai';
     private _headertitle: string = "OHAI";
     private _title = 'nehsa.net | Ohai';

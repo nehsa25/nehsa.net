@@ -1,7 +1,7 @@
 import BasePage from './base.page';
 
 export default class DockerPage extends BasePage {
-    name: string = "docker-page";
+    override name: string = "docker-page";
     pathstem: string = '#/docker';
     private _headertitle: string = "Docker";
     private _title = 'nehsa.net | Docker';

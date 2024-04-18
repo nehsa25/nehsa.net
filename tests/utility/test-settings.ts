@@ -21,7 +21,8 @@ import TypeScriptPage from '../pages/typescript.page';
 import AzurePage from '../pages/azure.page';
 import AWSPage from '../pages/aws.page';
 import GcpPage from '../pages/gcp.page';
-import CicdPage from '../pages/cicd.page';
+import GithubPage from '../pages/github.page';
+import JenkinsPage from '../pages/jenkins.page';
 
 /** Settings objects containing test settings and utility funtions*/
 export class TestSettings {
@@ -30,7 +31,6 @@ export class TestSettings {
     public helpers: TestHelpers = new TestHelpers(this.page)
 
     public PAGE_LOAD_DURATIONS_SECS = [
-        1,
         5
     ]
 
@@ -57,7 +57,8 @@ export class TestSettings {
         AzurePage,
         AWSPage,
         GcpPage,
-        CicdPage        
+        GithubPage,
+        JenkinsPage
     ];
     defaultTimeoutSecs = 60;
     defaultTimeoutMs = this.defaultTimeoutSecs * 1000;

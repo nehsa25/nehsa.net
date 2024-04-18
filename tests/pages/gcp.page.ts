@@ -1,7 +1,7 @@
 import BasePage from './base.page';
 
 export default class GcpPage extends BasePage {
-    name: string = "gcp-page";
+    override name: string = "gcp-page";
     pathstem: string = '#/gcp';
     private _headertitle: string = "Google Cloud Platform (gcp)";
     private _title = 'nehsa.net | gcp';

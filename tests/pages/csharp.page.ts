@@ -1,7 +1,7 @@
 import BasePage from './base.page';
 
 export default class CSharpPage extends BasePage {
-    name: string = "c#-page";
+    override name: string = "c#-page";
     pathstem: string = '#/csharp';
     private _headertitle: string = "C#";
     private _title = 'nehsa.net | C#';

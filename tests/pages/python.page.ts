@@ -1,7 +1,7 @@
 import BasePage from './base.page';
 
 export default class PythonPage extends BasePage {
-    name: string = "python-page";
+    override name: string = "python-page";
     pathstem: string = '#/python';
     private _headertitle: string = "Python";
     private _title = 'nehsa.net | Python';

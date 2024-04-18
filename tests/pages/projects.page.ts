@@ -1,7 +1,7 @@
 import BasePage from './base.page';
 
 export default class ProjectsPage extends BasePage {
-    name: string = "projects-page";
+    override name: string = "projects-page";
     pathstem: string = '#/projects';
     private _headertitle: string = "Projects";
     private _title = 'nehsa.net | Projects';

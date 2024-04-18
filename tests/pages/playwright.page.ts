@@ -1,7 +1,7 @@
 import BasePage from './base.page';
 
 export default class PlaywrightPage extends BasePage {
-    name: string = "playwright-page";
+    override name: string = "playwright-page";
     pathstem: string = '#/playwright';
     private _headertitle: string = "Playwright";
     private _title = 'nehsa.net | Playwright';

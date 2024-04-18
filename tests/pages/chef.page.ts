@@ -1,7 +1,7 @@
 import BasePage from './base.page';
 
 export default class ChefPage extends BasePage {
-    name: string = "chef-page";
+    override name: string = "chef-page";
     pathstem: string = '#/chef';
     private _headertitle: string = "Chef";
     private _title = 'nehsa.net | Chef';

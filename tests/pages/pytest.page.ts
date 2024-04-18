@@ -1,7 +1,7 @@
 import BasePage from './base.page';
 
 export default class PytestPage extends BasePage {
-    name: string = "pytest-page";
+    override name: string = "pytest-page";
     pathstem: string = '#/pytest';
     private _headertitle: string = "Pytest = Awesome";
     private _title = 'nehsa.net | Pytest';

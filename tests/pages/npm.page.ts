@@ -1,7 +1,7 @@
 import BasePage from './base.page';
 
 export default class NpmPage extends BasePage {
-    name: string = "npm-page";
+    override name: string = "npm-page";
     pathstem: string = '#/npm';
     private _headertitle: string = "npm";
     private _title = 'nehsa.net | npm';
