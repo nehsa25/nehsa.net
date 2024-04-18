@@ -2,14 +2,11 @@
     <mat-card class="card">
         <mat-card-header>
             <mat-card-title>
-                <h1 data-testid="header-title">git / GitHub</h1>
+                <h1 data-testid="header-title">git</h1>
             </mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <div>
-                <div>
-                    <h3 style="color: burlywood;">See CI/CD for information on GitHub Actions: <a href="#/cicd">GO HERE</a></h3>
-                </div>
+            <div class="topics">
                 <div>
                     <h3>Important Commands</h3>
                     <ul>
@@ -17,24 +14,13 @@
                     </ul>
                 </div><br><br>
                 <div>
-                    <h3>Pull Requests</h3><h4>(contribute to another developers code base)</h4>
-                    <ol>
-                        <li>Find the repo you wish to contribute to</li>
-                        <li>Fork their repo (to make a copy of their repo in your repo)</li>
-                        <li>Clone your local fork to pull it down locally</li>
-                        <li>Use <span class="code">git checkout &lt;NewBranch&gt;</span> to create a new branch</li>
-                        <li>&lt;Make your changes... add/commit them&gt;</li>
-                        <li>Use <span class="code">git push origin &lt;NewBranch&gt; to put it back to Github</span></li>
-                        <li>Now, you'll see the changes in your fork and have a button to create to <span class="code">Compare & pull request</span> button to open a new pull request</li>
-                        <li>If all is well, you're PR is merged and all is done</li>
-                    </ol>
-                </div><br><br>
-                <div>
                     <h3>Pull Requests - Sync upsteam</h3>
                     <ol>
                         <li>git remove add upstream https://github.com/nehsa25/nehsa.net.git</li>
-                        <li>Now, at any time, use <span class="code">git fetch upstream</span> to pull any new changes</li>
-                        <li>If there are some, use <span class="code">git rebase upstream</span> to add changes on top of your work</li>
+                        <li>Now, at any time, use <span class="code">git fetch upstream</span> to pull any new changes
+                        </li>
+                        <li>If there are some, use <span class="code">git rebase upstream</span> to add changes on top
+                            of your work</li>
                     </ol>
                 </div>
             </div>

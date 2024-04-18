@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 
 @Component({
-  selector: 'app-cicd',
+  selector: 'app-github',
   standalone: true,
   imports: [MatCardModule],
-  templateUrl: './cicd.component.html',
-  styleUrl: './cicd.component.scss'
+  templateUrl: './github.component.html',
+  styleUrl: './github.component.scss'
 })
-export class CicdComponent {
+export class GithubComponent {
 
 }

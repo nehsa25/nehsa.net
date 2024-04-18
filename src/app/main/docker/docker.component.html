@@ -6,7 +6,7 @@
             </mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <div>
+            <div class="topics">
                 <div>
                     <h3>Useful Commands</h3>
                     <span class="code">docker build . -t &lt;dockerhub username&gt;/&lt;repo name&gt;:latest</span> - builds a Docker image and tags it for uploading to <a href="https://hub.docker.dom">Docker Hub</a><br><br>
@@ -23,25 +23,6 @@
                     <span class="code">docker push &lt;dockerhub username&gt;/&lt;repo name&gt;:latest</span> - publish to Docker Hub
                     <span class="code">docker pull nehsa/nehsanet:latest</span> - pull from Docker Hub
                 </div>
-
-                <div>
-                    <h3>Other tidbits..</h3>
-                    <ul>
-                        <li>You do not need to enter entire hash for an image/container as long as they're using.  e.g. 418 would find this image:
-<pre>
-    PS C:\src\nehsa.net> docker image ls | grep nehsa/nehsanet
-    nehsa/nehsanet   latest    418b390c6d3a   26 minutes ago   3.2GB
-</pre>
-                        </li>
-                        <li>Containers can be started using either:
-                            <ul>
-                                <li>a sole dockerfile and <span class="code">docker run -p 80:80 -it nehsa/nehsanet:latest</span></li>
-                                <li>a dockerfile and docker-compose.yml and <span class="code">docker compose up/down</span></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-
                 <div>
                     <h3>Publishing to dockerhub</h3>
                     <ol>
@@ -51,8 +32,7 @@
                         <li><span class="code">docker-compose up</span> - Verify it runs</li>
                         <li><span class="code">docker push &lt;dockerhub username&gt;/&lt;repo name&gt;:latest</span></li>
                     </ol>
-                </div><br>
-
+                </div>
                 <div>
                     <h3>Example dockerfile</h3>
                     <pre>
@@ -64,8 +44,7 @@
                         COPY . .
                         CMD node index.js
                     </pre>
-                </div><br>
-
+                </div>
                 <div>
                     <h3>Example docker-compose file</h3>
                     <pre>
@@ -83,6 +62,23 @@
                             - ".:/app"
                             command: "npm start -- --host 0.0.0.0"                       
                     </pre>
+                </div>
+                <div>
+                    <h3>Other tidbits..</h3>
+                    <ul>
+                        <li>You do not need to enter entire hash for an image/container as long as they're using.  e.g. 418 would find this image:
+<pre>
+    PS C:\src\nehsa.net> docker image ls | grep nehsa/nehsanet
+    nehsa/nehsanet   latest    418b390c6d3a   26 minutes ago   3.2GB
+</pre>
+                        </li>
+                        <li>Containers can be started using either:
+                            <ul>
+                                <li>a sole dockerfile and <span class="code">docker run -p 80:80 -it nehsa/nehsanet:latest</span></li>
+                                <li>a dockerfile and docker-compose.yml and <span class="code">docker compose up/down</span></li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </mat-card-content>
