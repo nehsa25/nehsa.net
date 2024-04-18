@@ -153,3 +153,14 @@ pre {
 wbr:after { 
     content: "\00200B"; 
 }
+
+.topics {
+    display: grid;
+    grid-template-rows: min-content;
+    grid-gap: 1em;
+}
+
+.topics div {
+    border: 1px solid hotpink;
+    padding: 1em;
+}

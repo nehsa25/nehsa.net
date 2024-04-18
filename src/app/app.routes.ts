@@ -20,12 +20,11 @@ import { MercurialComponent } from './main/mercurial/mercurial.component';
 import { GcpComponent } from './main/gcp/gcp.component';
 import { AzureComponent } from './main/azure/azure.component';
 import { AwsComponent } from './main/aws/aws.component';
-import { CicdComponent } from './main/cicd/cicd.component';
 import { JsdocComponent } from './main/jsdoc/jsdoc.component';
 import { Engr102Component } from './main/school/engr102/engr102.component';
 import { Ph207Component } from './main/school/ph207/ph207.component';
-import { ApplicationConfig, Injectable } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { JenkinsComponent } from './main/jenkins/jenkins.component';
+import { GithubComponent } from './main/github/github.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: BioComponent },
@@ -60,8 +59,9 @@ export const routes: Routes = [
     { path: 'gcp', title: 'nehsa.net | gcp', component: GcpComponent },
     { path: 'azure', title: 'nehsa.net | Azure', component: AzureComponent },
     { path: 'aws', title: 'nehsa.net | aws', component: AwsComponent },
-    { path: 'cicd', title: 'nehsa.net | CI/CD', component: CicdComponent },
+    { path: 'jenkins', title: 'nehsa.net | Jenkins', component: JenkinsComponent },
     { path: 'jsdoc', title: 'nehsa.net | jsdoc', component: JsdocComponent },
+    { path: 'github', title: 'nehsa.net | Github', component: GithubComponent },
     { path: '', title: 'nehsa.net | Home', redirectTo: '/', pathMatch: 'full' },
     { path: '**', component: BioComponent },
 ];
