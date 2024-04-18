@@ -43,6 +43,70 @@ RUN jenkins-plugin-cli --plugins "blueocean docker-workflow"
                     <h4>INstall NodeJS Plugin</h4>
                 </div>
                 <div>
+                    <h3>Continuous Integration Example</h3>
+                    <ul>
+                        <li>Pull down Jenkins Docker Image/Run it</li>
+                        <li>Configure Mercurial (or your SCM)</li>
+                        <li>Configure Node</li>
+                        <li>Cnfigure new Pipeline Job
+                            <pre class="code">
+    pipeline &#123;
+        agent any
+        stages &#123;
+            stage ('Deploy Docker image for testing') &#123;
+                steps &#123;
+                    &lt;&gt;
+                &#125;
+            &#125;
+            
+            stage ('Checkout') &#123;
+                steps &#123;
+                    checkout([$class: 'MercurialSCM', credentialsId: '4cbca40f-4ac7-4dd0-9fc8-2461bbe56644', revision: '2024-Sprint3', source: 'https://&lt;SCM URL&gt;/Code/&lt;PROJECT&gt;'])
+                &#125;
+            &#125;
+    
+            stage ('Install Node') &#123;
+                steps &#123;
+                    nodejs(nodeJSInstallationName: 'Node') &#123;
+                        sh 'npm config ls'
+                    &#125;
+                &#125;
+            &#125;
+            
+            stage('Execute Playwright (e2e-ui) tests') &#123;
+                steps &#123;
+                        nodejs(nodeJSInstallationName: 'Node') &#123;
+                        sh 'npm install playwright'
+                        sh 'npm install &#64;playwright/test'
+                        sh 'npx playwright install-deps'
+                        sh 'npx playwright install'
+                        sh 'npx playwright test'
+                    &#125;
+                &#125;
+            &#125;
+            
+    
+            stage('Execute Pytest (e2e-api) tests') &#123;
+                steps &#123;
+                    sh 'pip install -r requirements.txt'
+                    sh 'pytest'
+                &#125;
+            &#125;
+            
+            stage('Merge with dev') &#123;
+                steps &#123;
+                    &lt;&gt;
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+                            </pre>
+
+                        </li>
+  
+                    </ul>
+                </div>
+                <div>
                     <h3>Other Tibits..</h3>
                     <dl>
                         <dt>Restart Jenkins</dt><dd>localhost:8080/restart</dd>
