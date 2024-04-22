@@ -23,6 +23,7 @@ import AWSPage from '../pages/aws.page';
 import GcpPage from '../pages/gcp.page';
 import GithubPage from '../pages/github.page';
 import JenkinsPage from '../pages/jenkins.page';
+import TlsPage from '../pages/tls.page';
 
 /** Settings objects containing test settings and utility funtions*/
 export class TestSettings {
@@ -58,7 +59,8 @@ export class TestSettings {
         AWSPage,
         GcpPage,
         GithubPage,
-        JenkinsPage
+        JenkinsPage,
+        TlsPage
     ];
     defaultTimeoutSecs = 60;
     defaultTimeoutMs = this.defaultTimeoutSecs * 1000;

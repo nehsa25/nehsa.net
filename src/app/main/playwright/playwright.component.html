@@ -27,6 +27,9 @@
                     <h4>Runs the tests in debug mode</h4>
                     <div class="code">npx playwright test --debug</div>
 
+                    <h4>Run the test with Junit output</h4>
+                    <div class="code">$env:PLAYWRIGHT_JUNIT_OUTPUT_NAME=\"#&#123;new_resource.result_local_full_path&#125;\"; npx playwright test --reporter junit</div>
+
                     <h4>Run the test with this title</h4>
                     <div class="code">npx playwright test -g &quot;add a todo item&quot;</div>
 
