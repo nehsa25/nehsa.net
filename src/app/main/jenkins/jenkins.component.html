@@ -11,36 +11,47 @@
                     <h3>Docker Installation: (<a
                             href="https://www.jenkins.io/doc/book/installing/docker/">https://www.jenkins.io/doc/book/installing/docker/</a>)
                     </h3>
-                    <h4>Create bridge</h4>
-                    <div class="code">docker network create jenkins</div>
-                    <h4>Create dockerfile</h4>
-                    <div class="code">
-                        <pre>
-FROM jenkins/jenkins:2.440.3-jdk17
-USER root
-RUN apt-get update && apt-get install -y lsb-release
-RUN curl -fsSLo /usr/share/keyrings/docker-archive-keyring.asc \
-  https://download.docker.com/linux/debian/gpg
-RUN echo "deb [arch=$(dpkg --print-architecture) \
-  signed-by=/usr/share/keyrings/docker-archive-keyring.asc] \
-  https://download.docker.com/linux/debian \
-  $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list
-RUN apt-get update && apt-get install -y docker-ce-cli
-USER jenkins
-RUN jenkins-plugin-cli --plugins "blueocean docker-workflow"
-                        </pre>
-                    </div>
-                    <h4>Build Docker image from it</h4>
-                    <div class="code">docker build -t lp-blueocean:2.440.3-1 .</div>
-                    <h4>Run Image</h4>
-                    <div class="code">docker run --name jenkins-blueocean --restart=on-failure --detach --network
-                        jenkins --env DOCKER_HOST=tcp://docker:2376 --env DOCKER_CERT_PATH=/certs/client --env
-                        DOCKER_TLS_VERIFY=1 --publish 8080:8080 --publish 50000:50000 --volume
-                        jenkins-data:/var/jenkins_home --volume jenkins-docker-certs:/certs/client:ro
-                        lp-blueocean:2.440.3-1</div>
-                    <h4>Access via localhost:8080</h4>
-                    <h4>Install SCM plugin (Git, Mercurial)</h4>
-                    <h4>INstall NodeJS Plugin</h4>
+                    <ul>
+                        <li>Create bridge
+                            <div class="code">docker network create jenkins</div>
+                        </li>
+                        <li>Create dockerfile
+                            <div class="code">
+                                <pre>
+    FROM jenkins/jenkins:2.440.3-jdk17
+    USER root
+    RUN apt-get update && apt-get install -y lsb-release
+    RUN curl -fsSLo /usr/share/keyrings/docker-archive-keyring.asc \
+        https://download.docker.com/linux/debian/gpg
+    RUN echo "deb [arch=$(dpkg --print-architecture) \
+        signed-by=/usr/share/keyrings/docker-archive-keyring.asc] \
+        https://download.docker.com/linux/debian \
+        $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list
+    RUN apt-get update && apt-get install -y docker-ce-cli
+    USER jenkins
+    RUN jenkins-plugin-cli --plugins "blueocean docker-workflow"
+                                </pre>
+                            </div>
+                        </li>
+                        <li>Build Docker image from it
+                            <div class="code">docker build -t lp-blueocean:2.440.3-1 .</div>
+                        </li>
+                        <li>Run Image
+                            <div class="code">docker run --name jenkins-ci-e2e --restart=on-failure -u root --network jenkins --publish 8080:8080 --publish 50000:50000 --volume jenkins-data:/var/jenkins_home lp-blueocean:2.440.3-1</div>
+                        </li>
+                        <li>Initial Setup from Root Bash
+                            <div class="code">
+                                docker exec -it -u root jenkins-ci-e2e bash<br>
+                                apt-get install mercurial<br>
+                                apt-get install vim<br>
+                                vim /etc/group<br>
+                                // Add &quot;jenkins&quot; to Jenkins group<br>
+                                http://localhost:5000/restart
+                            </div>
+                        </li>
+                        <li>Access via localhost:8080</li>
+                        <li>Finish configurating in UI</li>
+                    </ul>
                 </div>
                 <div>
                     <h3>Continuous Integration Example</h3>

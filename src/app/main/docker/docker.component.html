@@ -29,6 +29,7 @@
                     <span class="code">docker push &lt;dockerhub username&gt;/&lt;repo name&gt;:latest</span> - publish
                     to Docker Hub
                     <span class="code">docker pull nehsa/nehsanet:latest</span> - pull from Docker Hub
+                    <span class="code">docker exec -it -u root jenkins /bin/bash</span> - Open bash prompt as root user
                 </div>
                 <div>
                     <h3>Publishing to dockerhub</h3>
@@ -46,10 +47,31 @@
                     <h3>Setting up Local Registry <a href="https://www.docker.com/blog/how-to-use-your-own-registry-2/"
                             target="_blank">https://www.docker.com/blog/how-to-use-your-own-registry-2/</a></h3>
                     <ol>
-                        <li>Download the registry docker container (docker pull registry): <a
+                        <li>Download the registry docker container: <a
                                 href="https://hub.docker.com/_/registry"
-                                target="_blank">https://hub.docker.com/_/registry</a></li>
-                        <li></li>
+                                target="_blank">https://hub.docker.com/_/registry</a>
+                                <div class="code">
+                                    docker pull registry
+                                </div>
+                            </li>
+                        <li>Run it:
+                            <div class="code">docker run -d -p 5000:5000 --name registry registry:latest</div>
+                        </li>
+                        <li>Verify it's running:
+                            <div class="code">docker logs -f registry</div>
+                        </li>
+                        <li>Push to it:
+                            <div class="code">
+                                docker tag node:20 localhost:5000/&lt;tagname&gt;<br>
+                                docker push localhost:5000/&lt;tagname&gt;
+                            </div>
+                        </li>
+                        <li>Delete it from the local machine (for reference):
+                            <div class="code">docker rmi localhost:5000/&lt;tagname&gt;</div>
+                        </li>
+                        <li>Pull from it:
+                            <div class="code">docker pull localhost:5000/&lt;tagname&gt;</div>
+                        </li>
                     </ol>
                 </div>
                 <div>
