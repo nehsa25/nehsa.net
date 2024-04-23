@@ -152,8 +152,8 @@ pre {
     white-space: pre-wrap;
 }
 
-wbr:after { 
-    content: "\00200B"; 
+wbr:after {
+    content: "\00200B";
 }
 
 .topics {
@@ -165,4 +165,17 @@ wbr:after {
 .topics div {
     border: 1px solid hotpink;
     padding: 1em;
+}
+
+table,
+th,
+td {
+    border: 1px solid hotpink;
+    border-collapse: collapse;
+    padding: 5px 1em;
+}
+
+th {
+    text-align: center;
+    font-weight: 700;
 }
