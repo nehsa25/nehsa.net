@@ -61,56 +61,111 @@
                         <li>Configure Node</li>
                         <li>Cnfigure new Pipeline Job
                             <pre class="code">
-    pipeline &#123;
-        agent any
-        stages &#123;
-            stage ('Deploy Docker image for testing') &#123;
-                steps &#123;
-                    &lt;&gt;
-                &#125;
-            &#125;
-            
-            stage ('Checkout') &#123;
-                steps &#123;
-                    checkout([$class: 'MercurialSCM', credentialsId: '4cbca40f-4ac7-4dd0-9fc8-2461bbe56644', revision: '2024-Sprint3', source: 'https://&lt;SCM URL&gt;/Code/&lt;PROJECT&gt;'])
-                &#125;
-            &#125;
-    
-            stage ('Install Node') &#123;
-                steps &#123;
-                    nodejs(nodeJSInstallationName: 'Node') &#123;
-                        sh 'npm config ls'
-                    &#125;
-                &#125;
-            &#125;
-            
-            stage('Execute Playwright (e2e-ui) tests') &#123;
-                steps &#123;
-                        nodejs(nodeJSInstallationName: 'Node') &#123;
-                        sh 'npm install playwright'
-                        sh 'npm install &#64;playwright/test'
-                        sh 'npx playwright install-deps'
-                        sh 'npx playwright install'
-                        sh 'npx playwright test'
-                    &#125;
-                &#125;
-            &#125;
-            
-    
-            stage('Execute Pytest (e2e-api) tests') &#123;
-                steps &#123;
-                    sh 'pip install -r requirements.txt'
-                    sh 'pytest'
-                &#125;
-            &#125;
-            
-            stage('Merge with dev') &#123;
-                steps &#123;
-                    &lt;&gt;
-                &#125;
-            &#125;
-        &#125;
-    &#125;
+                                pipeline &#123;
+                                    agent any
+                                    stages &#123;
+                                       stage ('Start') &#123;
+                                            steps &#123;
+                                                echo "Build number is $&#123;currentBuild.number&#125;"
+                                            &#125;
+                                        &#125;
+                                       stage ('Checkout source (Mercurial)') &#123;
+                                            steps &#123;
+                                                dir('ProjectA')&#123;
+                                                    checkout([$class: 'MercurialSCM', clean: true, credentialsId: '4cbca40f-4ac7-4dd0-9fc8-2461bbe56644', revision: '2024-Sprint3', source: 'scm_path'])
+                                                    script &#123;
+                                                        try &#123;
+                                                            sh 'hg pull'
+                                                            sh 'hg update'
+                                                            sh 'hg merge dev'
+                                                            sh 'hg commit -m "Merged dev -> sprint changes (Jenkins build $BUILD_NUMBER)"'
+                                                        &#125; catch(Exception e) &#123;
+                                                            echo 'Exception occurred: ' + e.toString()
+                                                        &#125;
+                                                    &#125;
+                                                &#125;
+                                                dir('regression_tests') &#123;
+                                                    checkout([$class: 'MercurialSCM', clean: true, credentialsId: '4cbca40f-4ac7-4dd0-9fc8-2461bbe56644', source: 'scm_path'])
+                                                &#125;
+                                                dir('script_utils') &#123;
+                                                    checkout([$class: 'MercurialSCM', clean: true, credentialsId: '4cbca40f-4ac7-4dd0-9fc8-2461bbe56644', source: 'scm_path'])
+                                                &#125;
+                                            &#125;
+                                        &#125;
+                                
+                                       stage ('Install Playwright and Support') &#123;
+                                            steps &#123;
+                                                    nodejs(nodeJSInstallationName: 'Node') &#123;
+                                                    sh 'npm install playwright'
+                                                    sh 'npm install &#64;playwright/test'
+                                                    sh 'npm install &#64;angular/cli'
+                                                    sh 'npx playwright install-deps'
+                                                    sh 'npx playwright install'
+                                                &#125;
+                                            &#125;
+                                        &#125;
+                                
+                                       stage ('Install License Portal dependancies') &#123;
+                                            steps &#123;
+                                                    nodejs(nodeJSInstallationName: 'Node') &#123;
+                                                        sh 'cd ProjectA/projecta-ng; npm install --legacy-peer-deps'
+                                                &#125;
+                                            &#125;
+                                        &#125;
+                                        
+                                       stage ('Install Python and dependancies') &#123;
+                                            steps &#123;
+                                                sh 'apt-get install python3 -y'
+                                                sh 'apt install pipx -y'
+                                                sh 'pipx ensurepath'
+                                                sh 'pipx install pytest'
+                                                sh 'apt install python3-dateutil'
+                                            &#125;
+                                        &#125;
+                                        
+                                       stage ('Install Browser support') &#123;
+                                            steps &#123;
+                                                    nodejs(nodeJSInstallationName: 'Node') &#123;
+                                                    sh 'npx playwright install chrome'
+                                                    sh 'npx playwright install msedge'
+                                                &#125;
+                                            &#125;
+                                        &#125;
+                                        
+                                        stage('Execute Playwright (e2e-ui) tests') &#123;
+                                            steps &#123;
+                                                    nodejs(nodeJSInstallationName: 'Node') &#123;
+                                                    sh 'cd ProjectA/projecta-ng; npx playwright test'
+                                                &#125;
+                                            &#125;
+                                        &#125;
+                                        
+                                        
+                                        stage('Execute Pytest (e2e-api) tests') &#123;
+                                            steps &#123;
+                                                sh 'cd regression_tests; export INTIMECFG=/var/jenkins_home/workspace/Portal\\ CI/; export PYTHONPATH=/var/jenkins_home/workspace/License\\ Portal\\ CI/script_utils/; export INTIME=/var/jenkins_home/workspace/Portal\\ CI/; pytest -m ci'
+                                            &#125;
+                                        &#125;
+                                                
+                                        stage('Push') &#123;
+                                            steps &#123;
+                                                dir('ProjectA')&#123;
+                                                    script &#123;
+                                                        try &#123;
+                                                            sh 'hg checkout dev'
+                                                            sh 'hg pull'
+                                                            sh 'hg merge 2024-Sprint3'
+                                                            sh 'hg commit -m "Merged 2024-Sprint3 -> dev (Jenkins build $BUILD_NUMBER)"'
+                                                            sh 'hg push'
+                                                        &#125; catch(Exception e) &#123;
+                                                            echo 'Exception occurred: ' + e.toString()
+                                                        &#125;
+                                                    &#125;
+                                                &#125;
+                                            &#125;
+                                        &#125;
+                                    &#125;
+                                &#125;
                             </pre>
 
                         </li>
