@@ -310,13 +310,43 @@
                                 </dd>
                             </dl>
                         </li>
+                        <li>Get all columns names by &lt;th&gt;: 
+                            <div class="code">
+                                const columnNames = (await adminEntitlementDetailsPage.page.locator('th').allInnerTexts()).map(x => x.trim());
+                            </div>
+                        </li>
+                        <li>Wait for Splash:
+                            <div class="code">
+                                <pre>
+    async WaitForSplash() &#123; 
+        await this.page.waitForTimeout(5000);
+        let wait:boolean = true;
+        let numAttempts:number = 0;
+
+        // wait for Splash to go away
+        while (wait) &#123;
+            if (await this.page.getByTestId('splash-is-present').isVisible()) &#123;
+                console.log("Waiting for splash to go away...");
+                await this.page.waitForTimeout(500);
+                if (numAttempts > 120 * 5) &#123;
+                    throw new Error("Splash screen never went away!");
+                &#125;
+                numAttempts++;
+            &#125; else &#123;
+                wait = false;
+            &#125;
+        &#125;    
+    &#125;  
+                                </pre>
+                            </div>
+                        </li>
                         <li>
                             <h4>Assertion example</h4>
                             <div class="code">await expect(page).toHaveTitle(portalPages.defaultPageTitle);</div>
                         </li>
+                        <li></li>
                         <li>
-                            <h4>A assert but
-                                don't continue with the test on failure.</h4>
+                            <h4>An assert, but continue with the test on failure.</h4>
                             <div class="code">await
                                 expect.soft(page.getByTestId('status')).toHaveText('Success');</div>
                         </li>
