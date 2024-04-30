@@ -9,37 +9,64 @@
             <div class="topics">
                 <div>
                     <h3>Useful Commands</h3>
-                    <span class="code">docker build . -t &lt;dockerhub username&gt;/&lt;repo name&gt;:latest</span> -
-                    builds a Docker image and tags it for uploading to <a href="https://hub.docker.dom">Docker
-                        Hub</a><br><br>
-                    <span class="code">docker-compose up --build</span> - Build the image + start the container<br><br>
-                    <span class="code">docker-compose up/down</span> - Start/Stop the container<br><br>
-                    <span class="code">docker network ls</span> - Network info<br><br>
-                    <span class="code">docker images</span> - Image info<br><br>
-                    <span class="code">docker system prune (-a)</span> - Remove stopped containers and unused images.
-                    The options -a removes everything.<br><br>
-                    <span class="code">docker save --output image.tar nehsanet</span> - Saves an image to a local file
-                    system<br><br>
-                    <span class="code">docker load --input image.tar</span> - Loads a saved image (likely on a different
-                    machine if you're not publishing to dockerhub)<br><br>
-                    <span class="code">docker container ps</span> - Lists running containers<br><br>
-                    <span class="code">docker ps -a</span> - Lists all containers (including stopped)<br><br>
-                    <span class="code">docker image ls | grep nehsa/nehsanet</span> - Lists all containers
-                    tagged<br><br>
-                    <span class="code">docker push &lt;dockerhub username&gt;/&lt;repo name&gt;:latest</span> - publish
-                    to Docker Hub<br><br>
-                    <span class="code">docker pull nehsa/nehsanet:latest</span> - pull from Docker Hub<br><br>
-                    <span class="code">docker exec -it -u root jenkins /bin/bash</span> - Open bash prompt as root user
+                    <br><label>builds a Docker image and tags it for uploading to <a
+                            href="https://hub.docker.dom">Docker
+                            Hub</a></label>
+                    <div class="code">docker build . -t &lt;dockerhub username&gt;/&lt;repo name&gt;:latest</div>
+                    <br><label>Build the image + start the container</label>
+                    <div class="code">docker-compose up --build</div>
+                    <br><label>Start/Stop the container</label>
+                    <div class="code">docker-compose up/down</div>
+                    <br><label>Network info</label>
+                    <div class="code">docker network ls</div>
+                    <br><label>Image info</label>
+                    <div class="code">docker images</div>
+                    <br><label>Remove stopped containers and unused images.
+                        The options -a removes everything.</label>
+                    <div class="code">docker system prune (-a)</div>
+                    <br><label>Saves an image to a local file
+                        system</label>
+                    <div>
+                        <label>Create new image with current changes (this merges volumes)</label>
+                        <div class="code">docker commit 93afb54049db jenkins:2.440.3-1</div>
+                        <br><label>Saves an image as image.tar</label>
+                        <div class="code">docker save --output image.tar jenkins:2.440.3-1</div>
+                        
+                    </div>
+                    <br><label>Loads a saved image (likely on a different
+                        machine if you're not publishing to dockerhub)</label>
+                    <div class="code">docker load --input image.tar</div>
+                    <br><label>Lists running containers</label>
+                    <div class="code">docker container ps</div>
+                    <br><label>Lists all containers (including stopped)</label>
+                    <div class="code">docker ps -a</div>
+                    <br><label>Lists all containers
+                        tagged</label>
+                    <div class="code">docker image ls | grep nehsa/nehsanet</div>
+                    <br><label>publish
+                        to Docker Hub</label>
+                    <div class="code">docker push &lt;dockerhub username&gt;/&lt;repo name&gt;:latest</div>
+                    <br><label>pull from Docker Hub</label>
+                    <div class="code">docker pull nehsa/nehsanet:latest</div>
+                    <br><label>Open bash prompt as root user</label>
+                    <div class="code">docker exec -it -u root jenkins /bin/bash</div>
                 </div>
                 <div>
                     <h3>Publishing to dockerhub</h3>
                     <ol>
                         <li>Setup account on <a href="https://hub.docker.com/">dockerhub</a></li>
                         <li>Create dockerfile and docker-compose files</li>
-                        <li><span class="code">docker build . -t &lt;dockerhub username&gt;/&lt;repo
-                                name&gt;:latest</span> - Verify it builds</li>
-                        <li><span class="code">docker-compose up</span> - Verify it runs</li>
-                        <li><span class="code">docker push &lt;dockerhub username&gt;/&lt;repo name&gt;:latest</span>
+                        <li>
+                            <br><label>Verify it builds</label>
+                            <div class="code">docker build . -t &lt;dockerhub username&gt;/&lt;repo
+                                name&gt;:latest</div>
+                        </li>
+                        <li>
+                            <br><label>Verify it runs</label>
+                            <div class="code">docker-compose up</div>
+                        </li>
+                        <li>
+                            <div class="code">docker push &lt;dockerhub username&gt;/&lt;repo name&gt;:latest</div>
                         </li>
                     </ol>
                 </div>
@@ -47,13 +74,12 @@
                     <h3>Setting up Local Registry <a href="https://www.docker.com/blog/how-to-use-your-own-registry-2/"
                             target="_blank">https://www.docker.com/blog/how-to-use-your-own-registry-2/</a></h3>
                     <ol>
-                        <li>Download the registry docker container: <a
-                                href="https://hub.docker.com/_/registry"
+                        <li>Download the registry docker container: <a href="https://hub.docker.com/_/registry"
                                 target="_blank">https://hub.docker.com/_/registry</a>
-                                <div class="code">
-                                    docker pull registry
-                                </div>
-                            </li>
+                            <div class="code">
+                                docker pull registry
+                            </div>
+                        </li>
                         <li>Run it:
                             <div class="code">docker run -d -p 5000:5000 --name registry registry:latest</div>
                         </li>
@@ -116,10 +142,12 @@
                         </li>
                         <li>Containers can be started using either:
                             <ul>
-                                <li>a sole dockerfile and <span class="code">docker run -p 80:80 -it
-                                        nehsa/nehsanet:latest</span></li>
-                                <li>a dockerfile and docker-compose.yml and <span class="code">docker compose
-                                        up/down</span></li>
+                                <li>a sole dockerfile and <div class="code">docker run -p 80:80 -it
+                                        nehsa/nehsanet:latest</div>
+                                </li>
+                                <li>a dockerfile and docker-compose.yml and <div class="code">docker compose
+                                        up/down</div>
+                                </li>
                             </ul>
                         </li>
                     </ul>

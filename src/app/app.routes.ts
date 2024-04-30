@@ -26,6 +26,7 @@ import { Ph207Component } from './main/school/ph207/ph207.component';
 import { JenkinsComponent } from './main/jenkins/jenkins.component';
 import { GithubComponent } from './main/github/github.component';
 import { TlsComponent } from './main/tls/tls.component';
+import { WritingComponent } from './main/school/writing/writing.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: BioComponent },
@@ -64,6 +65,7 @@ export const routes: Routes = [
     { path: 'jsdoc', title: 'nehsa.net | jsdoc', component: JsdocComponent },
     { path: 'github', title: 'nehsa.net | Github', component: GithubComponent },
     { path: 'tls', title: 'nehsa.net | TLS', component: TlsComponent },
+    { path: 'grammar', title: 'nehsa.net | Grammar', component: WritingComponent },
     { path: '', title: 'nehsa.net | Home', redirectTo: '/', pathMatch: 'full' },
     { path: '**', component: BioComponent },
 ];
