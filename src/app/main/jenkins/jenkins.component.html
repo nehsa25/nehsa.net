@@ -15,30 +15,65 @@
                         <li>Create bridge
                             <div class="code">docker network create jenkins</div>
                         </li>
-                        <li>Create dockerfile
-                            <div class="code">
-                                <pre>
-    FROM jenkins/jenkins:2.440.3-jdk17
-    USER root
-    RUN apt-get update && apt-get install -y lsb-release
-    RUN curl -fsSLo /usr/share/keyrings/docker-archive-keyring.asc \
-        https://download.docker.com/linux/debian/gpg
-    RUN echo "deb [arch=$(dpkg --print-architecture) \
-        signed-by=/usr/share/keyrings/docker-archive-keyring.asc] \
-        https://download.docker.com/linux/debian \
-        $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list
-    RUN apt-get update && apt-get install -y docker-ce-cli
-    USER jenkins
-    RUN jenkins-plugin-cli --plugins "blueocean docker-workflow"
-                                </pre>
-                            </div>
+                        <li>Get Jenkins LTS
+                            <div class="code">docker pull jenkins/jenkins</div>
                         </li>
-                        <li>Build Docker image from it
-                            <div class="code">docker build -t lp-blueocean:2.440.3-1 .</div>
+                        <li>Start it
+                            <div class="code">docker run --name jenkins-ci-e2e --restart=on-failure -u root --network jenkins --publish 8080:8080 --publish 50000:50000 --volume jenkins-data:/var/jenkins_home jenkins:2.440.3-1</div>
                         </li>
-                        <li>Run Image
-                            <div class="code">docker run --name jenkins-ci-e2e --restart=on-failure -u root --network jenkins --publish 8080:8080 --publish 50000:50000 --volume jenkins-data:/var/jenkins_home lp-blueocean:2.440.3-1</div>
+                        <li>Configure Tools
+                            <ul>
+                                <li>Node</li>
+                                <li>Mercurial (~/.hgrc)</li>
+                            </ul>
                         </li>
+                        <li>Configure more stuff via command-line
+                            <ul>
+                                <li>
+                                    Open shell
+                                    <div class="code">docker exec -it -u root jenkins-ci-e2e /bin/bash</div>
+                                </li>
+                                <li>Apt installations
+                                    <div class="code">
+                                        <pre>
+    apt update
+    apt install mercurial
+    apt install vim
+                                        </pre>
+                                    </div>
+                                </li>
+                                <li>
+                                    Setup SCM
+                                    <ul>
+                                        <li>
+                                            <div class="code">
+                                                <pre>
+    vim ~/.hgrc
+    [ui]
+    username = Jenkins &lt;email to use&gt;
+    
+    [auth]
+    lp.prefix = https://&lt;scm path&gt;/Code/INtime/Components/Licman_dotnet452
+    lp.username = &lt;username&gt;
+    lp.password = &lt;password&gt;
+    rt.prefix = https://&lt;scm path&gt;/Code/PlayArea/Jesse/regression_tests
+    rt.username = &lt;username&gt;
+    rt.password = &lt;password&gt;
+    su.prefix = https://&lt;scm path&gt;/Code/INtime/Tests/script_utils
+    su.username = &lt;username&gt;
+    su.password = &lt;password&gt;
+                                                </pre>
+                                            </div>
+                                        </li>
+                                        <li>Polling is an easy method for checking for changes
+                                            <div class="code">H/5 * * * *</div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                
+                            </ul>
+                        </li>
+
                         <li>Initial Setup from Root Bash
                             <div class="code">
                                 docker exec -it -u root jenkins-ci-e2e bash<br>
