@@ -21,6 +21,8 @@
                     <div class="code">docker network ls</div>
                     <br><label>Image info</label>
                     <div class="code">docker images</div>
+                    <br><label>Copy items to/from image</label>
+                    <div class="code">docker cp volume-holder:/vm-root/var/lib/docker/volumes/volumes_data/_data/public_key.pem .</div>
                     <br><label>Remove stopped containers and unused images.
                         The options -a removes everything.</label>
                     <div class="code">docker system prune (-a)</div>
@@ -31,7 +33,7 @@
                         <div class="code">docker commit 93afb54049db jenkins:2.440.3-1</div>
                         <br><label>Saves an image as image.tar</label>
                         <div class="code">docker save --output image.tar jenkins:2.440.3-1</div>
-                        
+
                     </div>
                     <br><label>Loads a saved image (likely on a different
                         machine if you're not publishing to dockerhub)</label>
@@ -129,6 +131,19 @@
                             - ".:/app"
                             command: "npm start -- --host 0.0.0.0"                       
                     </pre>
+                </div>
+                <div>
+                    <h3>Development within a container</h3>
+                    <ul>
+                        <li>
+                            If you're using WSL2:
+                            <ul>
+                                <li>Open VS code</li>
+                                <li>Connect to running container</li>
+                                <li>Open /app folder</li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
                 <div>
                     <h3>Other tidbits..</h3>
