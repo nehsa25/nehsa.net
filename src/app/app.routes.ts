@@ -50,7 +50,7 @@ export const routes: Routes = [
     },
     { path: 'npm', title: 'nehsa.net | npm', component: NpmComponent },
     { path: 'playwright', title: 'nehsa.net | Playwright', component: PlaywrightComponent },
-    { path: 'doxygen', title: 'nehsa.net | Doxygen', component: DoxygenComponent },
+    { path: 'doxy', title: 'nehsa.net | Doxygen', component: DoxygenComponent },
     { path: 'ohai', title: 'nehsa.net | Ohai', component: OhaiComponent },
     { path: 'powershell', title: 'nehsa.net | Powershell', component: PowershellComponent },
     { path: 'projects', title: 'nehsa.net | Projects', component: ProjectsComponent },
