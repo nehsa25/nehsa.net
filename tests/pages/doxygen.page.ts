@@ -2,7 +2,7 @@ import BasePage from './base.page';
 
 export default class DoxygenPage extends BasePage {
     override name: string = "doxygen-page";
-    pathstem: string = '#/doxygen';
+    pathstem: string = '#/doxy';
     private _headertitle: string = "Doxygen";
     private _title = 'nehsa.net | Doxygen';
     get headerTitle(): string { return this._headertitle }
