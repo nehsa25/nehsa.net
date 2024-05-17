@@ -5,30 +5,36 @@
                 <h1 data-testid="header-title">Pytest = Awesome</h1>
             </mat-card-title>
             <mat-card-subtitle>
-                <h3>Pytest is a great framework for writing quick tests</h3>
+                <h3>Pytest is a great test framework for writing quick tests</h3>
             </mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
             <div class="topics">
-                <h3>Tips</h3>
-                <ul>
-                    <li>Use Enums for paramaterion.  It makes intepretting the results much easier!</li>
-                </ul>
-            </div><br>
-            <div>
-                <h3>Useful Commands</h3>
-                <ul>
-                    <li><span class="code">pytest -k test_authentication" --junit-xml=tpldk_tests.xml</span> - Execute all tests with keyword "test_automation" test and output the results to XML</li>
-                    <li><span class="code">pytest -m automated_maintenance_tests --junit-xml=tpldk_tests.xml</span> -
-                        Execute all tests marked "automated_maintenance_tests" and output the results to XML</li>
-                    <li><span class="code">pytest --markers</span> - List all markers (groups of tests)</li>
-                    <li><span class="code">pytest -k test_authentication --collect-only</span> - List all tests that
-                        *would* be executed</li>
-                </ul>
-            </div><br>
-            <h3>Example Test:</h3>
-            <div>
-                <pre class="code">
+                <div>
+                    <h3>Tips</h3>
+                    <ul>
+                        <li>Use Enums for paramaterion. It makes intepretting the results much easier!</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>Useful Commands</h3>
+                    <ul>
+                        <li><span class="code">pytest -k test_authentication" --junit-xml=tpldk_tests.xml</span> -
+                            Execute
+                            all tests with keyword "test_automation" test and output the results to XML</li>
+                        <li><span class="code">pytest -m automated_maintenance_tests --junit-xml=tpldk_tests.xml</span>
+                            -
+                            Execute all tests marked "automated_maintenance_tests" and output the results to XML</li>
+                        <li><span class="code">pytest --markers</span> - List all markers (groups of tests)</li>
+                        <li><span class="code">pytest -k test_authentication --collect-only</span> - List all tests that
+                            *would* be executed</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Example Test:</h3>
+                    <div>
+                        <pre class="code">
                         &#64;pytest.mark.automated_cid_tests
                         &#64;pytest.mark.parametrize("test_number, license_name, fingerprint_version, license_type", 
                         [
@@ -52,10 +58,10 @@
                         assert something.worked == true, "something did not work as planned!"
                     </span>
                 </pre>
-            </div>            
-            <div>
-                <h3>Example pytest.ini</h3>
-                <pre class="code">
+                    </div>
+                    <div>
+                        <h3>Example pytest.ini</h3>
+                        <pre class="code">
                     [pytest]
                     # addopts = --strict
                     addopts = -rsxX -l -v --strict --disable-warnings
@@ -64,11 +70,11 @@
                     markers =
                         smoke: An important, frequently ran test
                 </pre>
-            </div>
+                    </div>
 
-            <div>
-                <h3>Example conftest.py</h3>
-                <pre class="code">
+                    <div>
+                        <h3>Example conftest.py</h3>
+                        <pre class="code">
                     import pytest
                     from licensing_webservices_utils import LicenseUtilsWebServices
                     from licensing_test_utils import LicenseTestUtils
@@ -103,6 +109,8 @@
                     
                         return license_test_data                    
                 </pre>
+                    </div>
+                </div>
             </div>
         </mat-card-content>
     </mat-card>

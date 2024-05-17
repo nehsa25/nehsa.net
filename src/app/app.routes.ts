@@ -27,9 +27,11 @@ import { JenkinsComponent } from './main/jenkins/jenkins.component';
 import { GithubComponent } from './main/github/github.component';
 import { TlsComponent } from './main/tls/tls.component';
 import { WritingComponent } from './main/school/writing/writing.component';
+import { AgileComponent } from './main/agile/agile.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: BioComponent },
+    { path: 'agile', title: 'nehsa.net | Agile', component: AgileComponent },
     { path: 'about', title: 'nehsa.net | About', component: BioComponent },
     { path: 'angular', title: 'nehsa.net | Angular', component: AngularComponent },
     { path: 'chef', title: 'nehsa.net | Chef', component: ChefComponent },

@@ -7,9 +7,10 @@
         </mat-card-header>
         <mat-card-content>
             <div class="topics">
-                Python is rad!
+                <div>
+                    Python is rad!
 
-                <pre>
+                    <pre>
     <strong>def [function_name]</strong>([parameters, i.e. variable names separated by commas]):
     """ docstring that describes function's usage """
     <strong>[statements e.g. operations, function calls, return statement]</strong>
@@ -17,51 +18,80 @@
                 </pre>
 
 
-            </div>
-            <div>
-                <h3><a href="https://realpython.com/python-pep8/">PEP8 Code Conventions</a></h3>
-                <table>
-                    <tr>
-                        <th>Type</th>
-                        <th style="width: 300px;">Naming Convention</th>
-                        <th>Examples</th>
-                    </tr>
-                    <tr>
-                        <td>Function</td>
-                        <td>Use a lowercase word or words. Separate words by underscores to improve readability.</td>
-                        <td>x, var, python_variable</td>
-                    </tr>
-                    <tr>
-                        <td>Variable</td>
-                        <td>Use a lowercase single letter, word, or words. Separate words with underscores to improve readability.</td>
-                        <td>function, python_function</td>
-                    </tr>
-                    <tr>
-                        <td>Class</td>
-                        <td>Start each word with a capital letter. Don’t separate words with underscores. This style is called camel case or Pascal case.</td>
-                        <td>Model, PythonClass</td>
-                    </tr>
-                    <tr>
-                        <td>Method</td>
-                        <td>Use a lowercase word or words. Separate words with underscores to improve readability.</td>
-                        <td>class_method, method</td>
-                    </tr>
-                    <tr>
-                        <td>Constant</td>
-                        <td>Use an uppercase single letter, word, or words. Separate words with underscores to improve readability.</td>
-                        <td>function, python_function</td>
-                    </tr>
-                    <tr>
-                        <td>Module</td>
-                        <td>Use a short, lowercase word or words. Separate words with underscores to improve readability.</td>
-                        <td>module.py, python_module.py</td>
-                    </tr>
-                    <tr>
-                        <td>Package</td>
-                        <td>Use a short, lowercase word or words. Don’t separate words with underscores.</td>
-                        <td>package, pythonpackage</td>
-                    </tr>
-                </table>
+                </div>
+                <div>
+                    <h3><a href="https://realpython.com/python-pep8/">PEP8 Code Conventions</a></h3>
+                    <table>
+                        <tr>
+                            <th>Type</th>
+                            <th style="width: 300px;">Naming Convention</th>
+                            <th>Examples</th>
+                        </tr>
+                        <tr>
+                            <td>Function</td>
+                            <td>Use a lowercase word or words. Separate words by underscores to improve readability.
+                            </td>
+                            <td>x, var, python_variable</td>
+                        </tr>
+                        <tr>
+                            <td>Variable</td>
+                            <td>Use a lowercase single letter, word, or words. Separate words with underscores to
+                                improve readability.</td>
+                            <td>function, python_function</td>
+                        </tr>
+                        <tr>
+                            <td>Class</td>
+                            <td>Start each word with a capital letter. Don’t separate words with underscores. This style
+                                is called camel case or Pascal case.</td>
+                            <td>Model, PythonClass</td>
+                        </tr>
+                        <tr>
+                            <td>Method</td>
+                            <td>Use a lowercase word or words. Separate words with underscores to improve readability.
+                            </td>
+                            <td>class_method, method</td>
+                        </tr>
+                        <tr>
+                            <td>Constant</td>
+                            <td>Use an uppercase single letter, word, or words. Separate words with underscores to
+                                improve readability.</td>
+                            <td>function, python_function</td>
+                        </tr>
+                        <tr>
+                            <td>Module</td>
+                            <td>Use a short, lowercase word or words. Separate words with underscores to improve
+                                readability.</td>
+                            <td>module.py, python_module.py</td>
+                        </tr>
+                        <tr>
+                            <td>Package</td>
+                            <td>Use a short, lowercase word or words. Don’t separate words with underscores.</td>
+                            <td>package, pythonpackage</td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    Utility Libaries:
+                    <dl>
+                        <dt>Helper functions for working with Excel</dt><dd><a href="assets/libraries/excel_utils.py">excel_utils.py</a></dd>
+                        <dt>Helper functions for setting/deleting enviroment variables</dt><dd><a href="assets/libraries/envion_var_utils.py">envion_var_utils.py</a></dd>
+                        <dt>Helper functions for reading event logs</dt><dd><a href="assets/libraries/event_log_utils.py">event_log_utils.py</a></dd>
+                        <dt>Helper functions for working with files</dt><dd><a href="assets/libraries/file_utils.py">file_utils.py</a></dd>
+                        <dt>Miscellaneous stuff... a sleep_for(seconds) and get_duration(start_time) function</dt><dd><a href="assets/libraries/helper_utils.py">helper_utils.py</a></dd>
+                        <dt>Helper functions for network-related functions</dt><dd><a href="assets/libraries/ip_helpers.py">ip_helpers.py</a></dd>
+                        <dt>Helper functions for logging to file and optionally sending to MS Teams / Slack</dt><dd><a href="assets/libraries/log_utils.py">log_utils.py</a></dd>
+                        <dt>Helper functions for sending messages to MS Teams</dt><dd><a href="assets/libraries/msteams_utils.py">msteams_utils.py</a></dd>
+                        <dt>Single is_windows_64bit function</dt><dd><a href="assets/libraries/platform_utils.py">platform_utils.py</a></dd>
+                        <dt>Helper functions for collecting process information</dt><dd><a href="assets/libraries/process_utils.py">process_utils.py</a></dd>
+                        <dt>Helper functions for working with Pyunit</dt><dd><a href="assets/libraries/pyunit_utils.py">pyunit_utils.py</a></dd>
+                        <dt>Helper functions for working with registry</dt><dd><a href="assets/libraries/registry_utils.py">registry_utils.py</a></dd>
+                        <dt>Helper functions for working with Selenium</dt><dd><a href="assets/libraries/selenium_utils.py">selenium_utils.py</a></dd>
+                        <dt>Helper functions for sending messages to Slack</dt><dd><a href="assets/libraries/slack_utils.py">slack_utils.py</a></dd>
+                        <dt>Helper functions for convert complicated structures into strings</dt><dd><a href="assets/libraries/string_utils.py">string_utils.py</a></dd>
+                        <dt>Helper functions for running commands</dt><dd><a href="assets/libraries/subprocess_utils.py">subprocess_utils.py</a></dd>
+                        <dt>Helper functions for passing arguments to Python script</dt><dd><a href="assets/libraries/sysargs_utils.py">sysargs_utils.py</a></dd>
+                    </dl>
+                </div>
             </div>
         </mat-card-content>
     </mat-card>
