@@ -133,7 +133,7 @@ def test_z_score(population):
     population_sigma = stdev(population, mean(population))    
     for pop_item in population:
         result = z_score(pop_item, population_mean, population_sigma)
-        if not isinstance(result, int):
+        if not isinstance(result, float):
             print(f"The z-score function did not return a valid value for {pop_item}, we got: {result}")
     
 normal_distributions = [population2, population3]
@@ -159,3 +159,7 @@ for distribution in not_normal_distributions:
     result = result_lowest_zscore + result_greatest_zscore
     if result == 0:
         print(f"Test fail, expected non-zero result, got: {result} - This distribution is normal (and it shouldn't be!)")
+
+test_z_score(population1)
+test_z_score(population2)
+test_z_score(population3)
