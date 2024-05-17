@@ -34,7 +34,7 @@
                 <div>
                     <h3>Example Test:</h3>
                     <div>
-                        <pre class="code">
+                        <pre>
                         &#64;pytest.mark.automated_cid_tests
                         &#64;pytest.mark.parametrize("test_number, license_name, fingerprint_version, license_type", 
                         [
@@ -45,7 +45,7 @@
                             (6, LicenseTestUtils.LicenseName.INTIME6SDK, LicenseTestUtils.FingerprintVersion.V6, LicenseTestUtils.LicenseType.USB),
                             (7, LicenseTestUtils.LicenseName.INTIME7SDK, LicenseTestUtils.FingerprintVersion.VA, LicenseTestUtils.LicenseType.USB),
                         ])
-                    <span class="comment">
+                    <span>
                         ## Confirms we have can activate various licenses for USB/CID
                         #
                         # Test Steps:
@@ -53,7 +53,7 @@
                         # -# Verify it's correct
                     </span>
                     def test_activate_cid_license(license_test_data, logger, test_number, license_name, fingerprint_version, license_type):
-                    <span class="comment">
+                    <span>
                         // Do stuff
                         assert something.worked == true, "something did not work as planned!"
                     </span>
@@ -61,7 +61,7 @@
                     </div>
                     <div>
                         <h3>Example pytest.ini</h3>
-                        <pre class="code">
+                        <pre>
                     [pytest]
                     # addopts = --strict
                     addopts = -rsxX -l -v --strict --disable-warnings
@@ -74,7 +74,7 @@
 
                     <div>
                         <h3>Example conftest.py</h3>
-                        <pre class="code">
+                        <pre>
                     import pytest
                     from licensing_webservices_utils import LicenseUtilsWebServices
                     from licensing_test_utils import LicenseTestUtils
