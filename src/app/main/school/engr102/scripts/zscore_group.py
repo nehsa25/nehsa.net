@@ -65,20 +65,6 @@ def greatest(data_set):
     """
     return max(data_set)
 
-def test_z_score_function_copy():
-    pop1_avg = mean(population1)
-    pop1_sd = stdev(population1, pop1_avg)
-    
-    mean_z_score_p1 = z_score(pop1_avg, pop1_avg, pop1_sd)
-    
-    pop2_greatest = greatest(population2)
-    pop2_avg = mean(population2)
-    pop2_sd = stdev(population2, pop2_avg)
-    
-    greatest_z_score_p2 = z_score(pop2_greatest, pop2_avg, pop2_sd)
-    return (mean_z_score_p1, greatest_z_score_p2)
-  
-
 # Your grader will use this function to help them verify your code
 def test_z_score_function():
     pop1_avg = mean(population1)
@@ -100,7 +86,7 @@ def test_z_score_function():
 # YOUR CODE GOES BELOW THIS BOX.                      #
 #                                                     #
 # Complete the following z_score function.            #
-# You may call the functions above,	              #
+# You may call the functions above,	                  #
 #   but do not define any others (except for testing) #
 # You may use arithmetic operators                    #
 #  (i.e., +, -, *, **, /) but not Python Boolean      #
@@ -119,15 +105,46 @@ def z_score(x, mu, sigma):
     Returns the z-score of x
     """
     
-    # Participating group member names go in this comment
-    # Lucca Truitt, Jesse Stone
+    # Participating group member names go in this comment - Lucca Truitt & Jesse Stone
     
     # Your code goes between this comment and the return
     numerator = x - mu
     zscore = numerator / sigma
     return zscore
 
-def test_z_score(population):
+def lucca_test_z_score(): # This is the test function that Lucca made
+    pop1_least = least(population1)
+    pop1_avg = mean(population1)
+    pop1_sd = stdev(population1, pop1_avg)
+    least_z_score_p1 = z_score(pop1_least, pop1_avg, pop1_sd)
+
+    pop2_avg = mean(population2)
+    pop2_sd = stdev(population2, pop2_avg)
+    mean_z_score_p2 = z_score(pop2_avg, pop2_avg, pop2_sd)
+    
+    pop3_greatest = greatest(population3)
+    pop3_avg = mean(population3)
+    pop3_sd = stdev(population3, pop3_avg)
+    greatest_z_score_p3 = z_score(pop3_greatest, pop3_avg, pop3_sd)
+    
+    if mean_z_score_p2 == 0:
+        print("Correct: The z-score of the mean of population2 is", mean_z_score_p2)
+    else: 
+        print("Incorrect: The z-score of the mean of population2 is", mean_z_score_p2)
+
+    if greatest_z_score_p3 > 0:
+        print("Correct: The z-score of the greatest value of population3 is", greatest_z_score_p3)
+    else: 
+        print("Incorrect: The z-score of the greatest value of population3 is", greatest_z_score_p3)
+
+    if least_z_score_p1 < 0:
+        print("Correct: The z-score of the least value of population1 is", least_z_score_p1)
+    else: 
+        print("Incorrect: The z-score of the least value of population1 is", least_z_score_p1)
+    
+lucca_test_z_score()
+
+def jesse_verify_zscore_always_returns_number(population): # This is the test function that Jesse made
     """Prints a message to console if z_score function returns a non-integer value, or if the z-score function produces the wrong result.  No output == success"""     
     population_mean = mean(population)
     population_sigma = stdev(population, mean(population))    
@@ -135,7 +152,10 @@ def test_z_score(population):
         result = z_score(pop_item, population_mean, population_sigma)
         if not isinstance(result, float):
             print(f"The z-score function did not return a valid value for {pop_item}, we got: {result}")
-    
+jesse_verify_zscore_always_returns_number(population1)
+jesse_verify_zscore_always_returns_number(population2)
+jesse_verify_zscore_always_returns_number(population3)
+
 normal_distributions = [population2, population3]
 not_normal_distributions = [population1]
 for distribution in normal_distributions:
@@ -160,6 +180,6 @@ for distribution in not_normal_distributions:
     if result == 0:
         print(f"Test fail, expected non-zero result, got: {result} - This distribution is normal (and it shouldn't be!)")
 
-test_z_score(population1)
-test_z_score(population2)
-test_z_score(population3)
+avg_pop = mean(population1)
+if not z_score(avg_pop, avg_pop, sigmaPop) == 0.0:
+    print("The average of the population did not equal zero!")
