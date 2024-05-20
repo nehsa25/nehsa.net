@@ -7,40 +7,50 @@
         </mat-card-header>
         <mat-card-content>
             <div class="topics">tls
-
                 <div>
-                    <h3>Setting up TLS self-signed PEM/KEY using Powershell</h3>
-                    <ul>
-                        <li>Run script:
-                            <div class="code">
-                                <pre>
+                    <h2>Linux (Ubuntu 24.04 LTS)</h2>
+
+                </div>
+                <div>
+                    <h2>Windows</h2>
+
+                    <div>
+                        <h3>Setting up TLS self-signed PEM/KEY using Powershell</h3>
+                        <ul>
+                            <li>Double-click on it to install it</li>
+                            <li>Install PSPKI (https://www.pkisolutions.com/tools/pspki/)
+                                <div class="code">Install-Module -Name PSPKI</div>
+                            </li>
+                        </ul>
+                    </div><br>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3>Create pfx from pem/crt - needed for IIS HTTPS</h3>
+                                <ol>
+                                    <li>Install cygwin</li>
+                                    <li>Copy private.key and certificate.crt into home directory (c:\crygwin\home\YOU)
+                                    </li>
+                                    <li>openssl pkcs12 -inkey private.key -in certificate.crt -export -out out4.pfx -
+                                        choose a password</li>
+                                    <li>Go to IIS->Server Certificates ->import, import out4.pfx</li>
+                                    <li>Right-click on website, edit binding, set https to use new cert.</li>
+                                </ol>
+                            </li>
+                            <li>
+                                <h3>Create pfx from pem/crt - needed for IIS HTTPS</h3>
+                                <div class="code">
+                                    <pre>
     mkdir c:\tmp
     $cert = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname tenasys.corp;
     $pwd = ConvertTo-SecureString -String '&lt;PASSWORD&gt;' -Force -AsPlainText;
     $path = 'Cert:\LocalMachine\My\' + $cert.thumbprint;
     Export-PfxCertificate -cert $path -FilePath c:\tmp\powershellcert.pfx -Password $pwd
                                 </pre>
-                            </div>
-                        </li>
-                        <li>Double-click on it to install it</li>
-                        <li>Install PSPKI
-                            <div class="code">Install-Module -Name PSPKI</div>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <ul>
-                        <li>
-                            <h3>Create pfx from pem/crt - needed for IIS HTTPS</h3>
-                            <ol>
-                                <li>Install cygwin</li>
-                                <li>Copy private.key and certificate.crt into home directory (c:\crygwin\home\YOU)</li>
-                                <li>openssl pkcs12 -inkey private.key -in certificate.crt -export -out out4.pfx - choose a password</li>
-                                <li>Go to IIS->Server Certificates ->import, import out4.pfx</li>
-                                <li>Right-click on website, edit binding, set https to use new cert.</li>
-                            </ol>
-                        </li>
-                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </mat-card-content>

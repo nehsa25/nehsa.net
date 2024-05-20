@@ -28,6 +28,7 @@ import { GithubComponent } from './main/github/github.component';
 import { TlsComponent } from './main/tls/tls.component';
 import { WritingComponent } from './main/school/writing/writing.component';
 import { AgileComponent } from './main/agile/agile.component';
+import { ThisWebsiteComponent } from './main/this-website/this-website.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: BioComponent },
@@ -66,6 +67,7 @@ export const routes: Routes = [
     { path: 'jenkins', title: 'nehsa.net | Jenkins', component: JenkinsComponent },
     { path: 'jsdoc', title: 'nehsa.net | jsdoc', component: JsdocComponent },
     { path: 'github', title: 'nehsa.net | Github', component: GithubComponent },
+    { path: 'website', title: 'nehsa.net | This Website', component: ThisWebsiteComponent },
     { path: 'tls', title: 'nehsa.net | TLS', component: TlsComponent },
     { path: 'grammar', title: 'nehsa.net | Grammar', component: WritingComponent },
     { path: '', title: 'nehsa.net | Home', redirectTo: '/', pathMatch: 'full' },
