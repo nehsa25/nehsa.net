@@ -21,9 +21,11 @@ export class AppComponent {
   constructor(public httpClient: HttpService) { };
 
   ngOnInit() {
-    // this.httpClient.getDouglasAdamQuote().subscribe(data => {
-    //   this.quote = data.toString();
-    // });
+    this.httpClient.getDouglasAdamQuote().subscribe(data => {
+      if (data != null && data != "") {
+        this.quote = data.toString();
+      }
+    });
   }
 
   public getBuild() {
