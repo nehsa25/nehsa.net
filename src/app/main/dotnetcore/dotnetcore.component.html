@@ -1,0 +1,232 @@
+<div>
+    <mat-card class="card">
+        <mat-card-header>
+            <mat-card-title>
+                <h1 data-testid="header-title">.NET Core</h1>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="topics">.NET Core Development with VSCode
+                <div>
+                    <h2>Installation</h2>
+                    <ol>
+                        <li>Download <a href="https://dotnet.microsoft.com/">.NET Core SDK</a></li>
+                    </ol>
+                </div>
+                <div>
+                    <h2>Usage:</h2>
+                    <ul>
+                        <li>Create a new project webapi project: <div class="code"> dotnet new webapi</div> (All options
+                            listed here: https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-new)
+                        <li>Files Created:
+                            <dl>
+                                <dt>nehsanet-app.sln</dt>
+                                <dd>The solution file</dd>
+                                <dt>nehsanet-app.csproj</dt>
+                                <dd>The project file</dd>
+                                <dt>nehsanet-app.http</dt>
+                                <dd>
+                                    Contains all HTTP locations
+                                    e.g.
+                                    <div class="code">
+                                        GET &#123; &#123;nehsanet_app_HostAddress&#125; &#125;/weatherforecast/<br>
+                                        Accept: application/json
+                                    </div>
+                                </dd>
+                                <dt>Program.cs</dt>
+                                <dd>
+                                    Code behind each HTTP map
+                                    e.g.
+                                    <div class="code">
+                                        <pre>
+    app.MapGet("/weatherforecast", () =>
+    &#123;
+        var forecast =  Enumerable.Range(1, 5).Select(index =>
+            new WeatherForecast
+            (
+                DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
+                Random.Shared.Next(-20, 55),
+                summaries[Random.Shared.Next(summaries.Length)]
+            ))
+            .ToArray();
+        return forecast;
+    &#125;)
+    .WithName("GetWeatherForecast")
+    .WithOpenApi();
+                                        </pre>
+                                    </div>
+                                </dd>
+                            </dl>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>Useful Tips:</h2>
+                    <ul>
+                        <li>The port can be changed in properties\launchsettings.json
+                            <div class="code">
+                                <pre>
+    &#123;
+        "$schema": "http://json.schemastore.org/launchsettings.json",
+        "iisSettings": &#123;
+            "windowsAuthentication": false,
+            "anonymousAuthentication": true,
+            "iisExpress": &#123;
+            "applicationUrl": "http://localhost:9919",
+            "sslPort": 44337
+            &#125;
+        &#125;,
+        "profiles": &#123;
+            &#125;,
+            "https": &#123;
+            "commandName": "Project",
+            "dotnetRunMessages": true,
+            "launchBrowser": true,
+            "launchUrl": "swagger",
+            "applicationUrl": "https://api.nehsa.net:443",
+            "environmentVariables": &#123;
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            &#125;
+            &#125;,
+            "IIS Express": &#123;
+            "commandName": "IISExpress",
+            "launchBrowser": true,
+            "launchUrl": "swagger",
+            "environmentVariables": &#123;
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            &#125;
+            &#125;
+        &#125;
+        &#125;                                      
+                                </pre>
+                            </div>
+                        </li>
+                        <li>To compile your C# source in VSCode:
+                            <ol>
+                                <li>Create .vscode\tasks.json
+                                    <div class="code">
+                                        <pre>
+    &#123;
+        "version": "2.0.0",
+        "tasks": [
+            &#123;
+                "label": "build",
+                "command": "dotnet",
+                "type": "process",
+                "args": [
+                    "build",
+                    "$&#123;workspaceFolder&#125;/nehsanet-app.csproj",
+                    "/property:GenerateFullPaths=true",
+                    "/consoleloggerparameters:NoSummary"
+                ],
+                "problemMatcher": "$msCompile"
+            &#125;,
+            &#123;
+                "label": "publish",
+                "command": "dotnet",
+                "type": "process",
+                "args": [
+                    "publish",
+                    "$&#123;workspaceFolder&#125;/nehsanet-app.csproj",
+                    "/property:GenerateFullPaths=true",
+                    "/consoleloggerparameters:NoSummary"
+                ],
+                "problemMatcher": "$msCompile"
+            &#125;,
+            &#123;
+                "label": "watch",
+                "command": "dotnet",
+                "type": "process",
+                "args": [
+                    "watch",
+                    "run",
+                    "$&#123;workspaceFolder&#125;/nehsanet-app.csproj",
+                    "/property:GenerateFullPaths=true",
+                    "/consoleloggerparameters:NoSummary"
+                ],
+                "problemMatcher": "$msCompile"
+            &#125;
+        ]
+    &#125;
+                                    </pre>
+                                    </div>
+                                </li>
+                                <li>Create .vscode\launch.json
+                                    <div class="code">
+                                        <pre>
+    &#123;
+        "version": "0.2.0",
+        "configurations": [
+            &#123;
+                "name": ".NET Core Launch (web)",
+                "type": "coreclr",
+                "request": "launch",
+                "preLaunchTask": "build",
+                "program": "$&#123;workspaceFolder&#125;/bin/Debug/net8.0/nehsanet-app.dll",
+                "args": [],
+                "cwd": "$&#123;workspaceFolder&#125;",
+                "stopAtEntry": false,
+                "env": &#123;
+                    "ASPNETCORE_ENVIRONMENT": "Development"
+                &#125;,
+                "sourceFileMap": &#123;
+                    "/Views": "$&#123;workspaceFolder&#125;/Views"
+                &#125;
+            &#125;,
+            &#123;
+                "name": ".NET Core Attach",
+                "type": "coreclr",
+                "request": "attach"
+            &#125;
+        ]    
+    &#125;
+                                        </pre>
+                                    </div>
+                                </li>
+                            </ol>
+
+                        </li>
+                        <li>To enable CORS:
+                            <ol>
+                                <li>Edit webapi CS (e.g. program.cs)</li>
+                                <li>Add a new origin polcy under where "builder" is declared:
+                                    <ol>
+                                        <li>
+                                            <div class="code">
+                                                <pre>
+    var  customOrigins = "_customOrigins";
+
+    builder.Services.AddCors(options =>
+    &#123;
+        options.AddPolicy(name: customOrigins,
+            policy  =>
+            &#123;
+                policy.WithOrigins("https://api.nehsa.net",
+                                    "http://localhost:4200");
+            &#125;);
+    &#125;);
+                                                </pre>
+                                            </div>
+                                        </li>
+                                        <li>Use it:
+                                            <div class="code">
+                                                <pre>
+    if (app.Environment.IsDevelopment())
+    &#123;
+        app.UseSwagger();
+        app.UseSwaggerUI();
+        app.UseCors(customOrigins); <span class="comment"><-- Here</span>
+    &#125;
+                                                </pre>
+                                            </div>
+                                        </li>
+                                    </ol>
+                                </li>
+                            </ol>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

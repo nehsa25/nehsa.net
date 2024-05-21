@@ -29,6 +29,7 @@ import { TlsComponent } from './main/tls/tls.component';
 import { WritingComponent } from './main/school/writing/writing.component';
 import { AgileComponent } from './main/agile/agile.component';
 import { ThisWebsiteComponent } from './main/this-website/this-website.component';
+import { DotnetcoreComponent } from './main/dotnetcore/dotnetcore.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: BioComponent },
@@ -38,6 +39,7 @@ export const routes: Routes = [
     { path: 'chef', title: 'nehsa.net | Chef', component: ChefComponent },
     { path: 'csharp', title: 'nehsa.net | C#', component: CSharpComponent },
     { path: 'docker', title: 'nehsa.net | Docker', component: DockerComponent },
+    { path: 'core', title: 'nehsa.net | .NET Core', component: DotnetcoreComponent },
     { path: 'pytest', title: 'nehsa.net | Pytest', component: PytestComponent },
     { path: 'typescript', title: 'nehsa.net | TypeScript', component: TypescriptComponent },
     {
