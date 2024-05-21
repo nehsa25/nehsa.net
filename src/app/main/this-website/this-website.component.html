@@ -15,9 +15,13 @@
         </ul>
     </div>
     <div>
-        <h3>API</h3>
+        <h3>API <button mat-raised-button color="accent" (click)="testapi()">Test</button>&nbsp;
+            <mat-icon *ngIf="testapiCheck == true && testapiSuccess == true" style="color: green; font-weight: bolder;">check</mat-icon>
+            <mat-icon *ngIf="testapiCheck == true && testapiSuccess == false" style="color: red; font-weight: bolder;">error</mat-icon>
+        </h3>
         <ul>
-            <li><a href="https://nodejs.org/en">Node.js</a> / <a href="https://expressjs.com/">Express</a></li>
+            <li>.NET Core 8.0</li>
+            <li>webapi</li>
         </ul>
     </div>
     <div>

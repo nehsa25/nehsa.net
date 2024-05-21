@@ -12,7 +12,7 @@ export class HttpService {
     constructor(private http: HttpClient) { }
 
     contactmeUrl = 'api/v1/contactme';
-    dhUrl = 'api/v1/dh';
+    dhUrl = "https://api.nehsa.net/api/v1/da"
 
     /** 
      * Posts the contact me form to API
@@ -23,7 +23,7 @@ export class HttpService {
         return this.http.post<ContactForm>(this.contactmeUrl, body);
     }
 
-    /** Returns a random Douglas Adam quote - doesn't work yet.. */  
+    /** Returns the Douglas Adam quote */  
     getDouglasAdamQuote() {
         return this.http.get(this.dhUrl);
     }
