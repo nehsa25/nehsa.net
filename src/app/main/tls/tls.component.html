@@ -8,25 +8,84 @@
         <mat-card-content>
             <div class="topics">tls
                 <div>
-                    <h2>Linux (Ubuntu 24.04 LTS)</h2>
-
-                </div>
-                <div>
                     <h2>Windows</h2>
 
                     <div>
+                        <h3>Setup SSL for Docker Container</h3>
+                        <ol>
+                            <li>Create SSL cert</li>
+                            <li>Download certificate package. In my case, it was a zip containing:
+                                <ul class="condensed">
+                                    <li>ca_bundle.crt</li>
+                                    <li>certificate.crt</li>
+                                    <li>private.key</li>
+                                </ul>
+                            </li>
+                            <li>Convert the CRT to a pfx
+                                <ol class="condensed">
+                                    <li>Install Cygwin
+                                        <ul>
+                                            <li>Ensure to install OpenSSL package</li>
+                                        </ul>
+                                    </li>
+                                    <li>Open Cygwin Terminal (Cygwin64 Terminal)</li>
+                                    <li>Drop unzipped CRTs into HOME: (C:\cygwin64\home\&lt;YOU&gt;)</li>
+                                    <li>Within Cygwin Terminal,
+                                        <ul>
+                                            <li>
+                                                <div class="code">openssl pkcs12 -export -out api.nehsa.net.pfx -inkey
+                                                    private.key -in certificate.crt</div>
+                                            </li>
+                                            <li>Enter super secret password twice</li>
+
+                                        </ul>
+                                    </li>
+                                    <li>Take api.nehsa.net.pfx and place it where it can be referened by Docker
+                                        container (C:\src\nehsanet-app\https)</li>
+                                    <li>Run the container using the cert:
+                                        <div class="code">
+                                            dotnet dev-certs https -ep C:\src\nehsanet-app\https\api.nehsa.net.pfx -p
+                                            &lt;password&gt;<br>
+                                            dotnet dev-certs https --trust</div>
+                                    </li>
+                                    <li>
+                                        Launch container:
+                                        <div class="code">
+                                            docker run -it -p 22007:22007 -e ASPNETCORE_URLS="https://+:22007" -e
+                                            ASPNETCORE_HTTPS_PORT=22007 -e
+                                            ASPNETCORE_Kestrel__Certificates__Default__Password="&lt;password&gt;" -e
+                                            ASPNETCORE_Kestrel__Certificates__Default__Path="/https/api.nehsa.net.pfx"
+                                            -v C:\src\nehsanet-app\https:/https/ nehsa/nehsaapi:202405211557
+                                        </div>
+                                    </li>
+
+                                </ol>
+
+                            </li>
+                        </ol>
+                    </div>
+                    <br>
+                    <div>
                         <h3>Setting up TLS self-signed PEM/KEY using Powershell</h3>
                         <ul>
-                            <li>Double-click on it to install it</li>
-                            <li>Install PSPKI (https://www.pkisolutions.com/tools/pspki/)
-                                <div class="code">Install-Module -Name PSPKI</div>
+                            <li>
+                                <ol>
+                                    <li>Open Admin Powershell (Base or Powershell Core)</li>
+                                    <li>Install RSAT (Remote Server Administration Tools): <div class="code">
+                                            Get-WindowsCapability -Name RSAT* -Online | Add-WindowsCapability –Online
+                                        </div>
+                                    </li>
+                                    <li>Install <a href="https://www.pkisolutions.com/tools/pspki/">PSPKI Powershell
+                                            Tools</a>:<div class="code">Install-Module -Name PSPKI</div>
+                                    </li>
+                                </ol>
                             </li>
                         </ul>
                     </div><br>
                     <div>
                         <ul>
                             <li>
-                                <h3>Create pfx from pem/crt - needed for IIS HTTPS</h3>
+                                <h3>Setup SSL for Windows IIS HTTPS</h3>
                                 <ol>
                                     <li>Install cygwin</li>
                                     <li>Copy private.key and certificate.crt into home directory (c:\crygwin\home\YOU)
