@@ -63,6 +63,11 @@
                 <div>
                     <h2>Useful Tips:</h2>
                     <ul>
+                        <li>Since version 3.0.0, ASP.NET Core introduces a new serializer System.Text.Json (STJ) out-of-the-box to replace Newtonsoft
+                            <br>e.g. 
+                            <div class="code">string serializedObject = JsonSerializer.Serialize(x);</div><br>Vs.<br>
+                            <div class="code">string serializedObject = JsonConvert.SerializeObject(x);</div>
+                        </li>
                         <li>The port can be changed in properties\launchsettings.json
                             <div class="code">
                                 <pre>
