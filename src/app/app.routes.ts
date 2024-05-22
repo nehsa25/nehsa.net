@@ -30,6 +30,8 @@ import { WritingComponent } from './main/school/writing/writing.component';
 import { AgileComponent } from './main/agile/agile.component';
 import { ThisWebsiteComponent } from './main/this-website/this-website.component';
 import { DotnetcoreComponent } from './main/dotnetcore/dotnetcore.component';
+import { SwaggerComponent } from './main/swagger/swagger.component';
+import { DesignpatternsComponent } from './main/designpatterns/designpatterns.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: BioComponent },
@@ -72,6 +74,8 @@ export const routes: Routes = [
     { path: 'website', title: 'nehsa.net | This Website', component: ThisWebsiteComponent },
     { path: 'tls', title: 'nehsa.net | TLS', component: TlsComponent },
     { path: 'grammar', title: 'nehsa.net | Grammar', component: WritingComponent },
+    { path: 'design', title: 'nehsa.net | Design Patterns', component: DesignpatternsComponent },
+    { path: 'swagger', title: 'nehsa.net | Swagger Documentation', component: SwaggerComponent },
     { path: '', title: 'nehsa.net | Home', redirectTo: '/', pathMatch: 'full' },
     { path: '**', component: BioComponent },
 ];
