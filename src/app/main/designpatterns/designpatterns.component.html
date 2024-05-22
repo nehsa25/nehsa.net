@@ -85,6 +85,52 @@ hopper.sit();
                 <div>
                     <dl>
                         <dt>
+                            <h3>Facade</h3>
+                        </dt>
+                        <dd>- This pattern is about hiding the details from the end user to simply usage</dd>
+                    </dl>
+                    <div>
+                        <h2>Example</h2>
+                        <div class="code">
+                            <pre>
+    // The complex class
+    class RainConditions &#123;
+        constructor() &#123;&#125;
+
+        addRainQuantity(raindropsInSecs) &#123;
+            this.raindrops = raindropsInSecs;
+        &#125;
+    &#125;
+
+    // A simplified class
+    class Weather &#123;
+        private rain = new 
+        constructor() &#123;&#125;
+
+        setRainDrizzle() &#123;
+            rain.addRainQuantity(100);
+        &#125;
+
+        setRainDownpour() &#123;
+            rain.addRainQuantity(10000);
+        &#125;
+
+        setRainMonsoon() &#123;
+            rain.addRainQuantity(1000000);
+        &#125;
+    &#125;
+
+    const weather = new Weather();
+    weather.setRainMonsoon();
+
+
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <dl>
+                        <dt>
                             <h3>Builder</h3>
                         </dt>
                         <dd>- This pattern allows you to build an object in steps but you always get the object back</dd>
