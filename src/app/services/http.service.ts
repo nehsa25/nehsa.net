@@ -12,7 +12,8 @@ export class HttpService {
     constructor(private http: HttpClient) { }
 
     contactmeUrl = 'api/v1/contactme';
-    dhUrl = "https://api.nehsa.net/api/v1/da"
+    dhUrl = "https://api.nehsa.net/api/v1/da";
+    swaggerUrl = "https://api.nehsa.net/api/v1/swagger";
 
     /** 
      * Posts the contact me form to API
@@ -26,5 +27,10 @@ export class HttpService {
     /** Returns the Douglas Adam quote */  
     getDouglasAdamQuote() {
         return this.http.get(this.dhUrl);
+    }
+
+    /** Returns the Douglas Adam quote */  
+    getSwagger() {
+        return this.http.get(this.swaggerUrl);
     }
 }

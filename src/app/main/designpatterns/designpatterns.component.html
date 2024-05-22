@@ -8,7 +8,117 @@
         <mat-card-content>
             <div class="topics">
                 <div>
-                    <h3>Singleton</h3>
+                    <dl>
+                        <dt>
+                            <h3>Singleton</h3>
+                        </dt>
+                        <dd>- This pattern ensures only a single instance of an object is created. One use may be to
+                            pass around configuration settings which we do not want multiple instances with possible
+                            conflicting settings.</dd>
+                    </dl>
+                    <div>
+                        <h2>Example</h2>
+                        <div class="code">
+                            <pre>
+    if (settings == null)
+        settings = new Settings();
+    else
+        return settings;
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <dl>
+                        <dt>
+                            <h3>Factory</h3>
+                        </dt>
+                        <dd>- Use a method to create an object instead of the new operator.  This is nice if you have logic that needs to be performed repeatedly.</dd>
+                    </dl>
+                    <div>
+                        <h2>Example</h2>
+                        <div class="code">
+                            <pre>
+    class ButtonFactory &#123;
+        createButton(type: string): RaisedButton | FlatButton &#123;
+            if (type == "raised") &#123;
+                return new RaisedButton();
+            &#125; else &#123;
+                return new FlatButton();
+            &#125;
+        &#125;
+    &#125;
+
+    const factory = new ButtonFactory();
+    const btn1 = factory.createButton("flat");
+    const btn2 = factory.createButton("raised");
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <dl>
+                        <dt>
+                            <h3>Prototype (aka cloning)</h3>
+                        </dt>
+                        <dd>- This pattern is like inheritance but it inherits from object already created instead of from a class</dd>
+                    </dl>
+                    <div>
+                        <h2>Example</h2>
+                        <div class="code">
+                            <pre>
+const dog = &#123;
+    sit() &#123;
+        return 'Good dog!';
+    &#125;
+&#125;
+
+const roz = Object.create(dog, &#123;&#125;);
+const hopper = Object.create(dog, &#123;&#125;);
+roz.sit();
+hopper.sit();
+
+                        </pre>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <dl>
+                        <dt>
+                            <h3>Builder</h3>
+                        </dt>
+                        <dd>- This pattern allows you to build an object in steps but you always get the object back</dd>
+                    </dl>
+                    <div>
+                        <h2>Example</h2>
+                        <div class="code">
+                            <pre>
+class WeatherConditions &#123;
+    constructor() &#123;&#125;
+
+    addRain() &#123;
+        this.rain = true;
+        return this;
+    &#125;
+
+    addThunder() &#123;
+        this.thunder = true;
+        return this;
+    &#125;
+
+    addFrightening() &#123;
+        this.frightening = true;
+        return this;
+    &#125;
+&#125;
+
+const todaysWeather = new WeatherhConditions('scary thunderstorm day');
+
+todaysWeather.addRain().addThunder().addFrightening();
+
+                        </pre>
+                        </div>
+                    </div>
                 </div>
             </div>
         </mat-card-content>
