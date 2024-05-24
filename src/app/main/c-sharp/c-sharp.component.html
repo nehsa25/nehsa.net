@@ -8,7 +8,7 @@
         <mat-card-content>
             <div class="topics">
                 <div>
-                    <h3>Questions</h3>
+                    <h3>General</h3>
                     <ul>
                         <li>What is the CLR?<br>CLR is the basic and Virtual Machine component of the .NET Framework. It
                             is the run-time environment in the .NET Framework that runs the codes</li>
@@ -16,7 +16,8 @@
                             is called managed code. Conversely, code that runs outside the runtime is called unmanaged
                             code. COM components, ActiveX interfaces, and Windows API functions are examples of
                             unmanaged code.</li>
-                        <li>What is idempotency in REST?<br>Idempotency /īdem'pōt(ə)nt/ means that sending the same request multiple
+                        <li>What is idempotency in REST?<br>Idempotency /īdem'pōt(ə)nt/ means that sending the same
+                            request multiple
                             times will produce the same result, without changing the state of the server or the
                             resource.</li>
                         <li>What is an interface and how is it used?<br>Interfaces are a good way of specifying a
@@ -108,8 +109,27 @@
                                 <dd>An assembly is a .dll or .exe created by compiling one or more .cs
                                     files in a single compilation.</dd>
                             </dl>
+                        <li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Entity Framework</h3>
+                    <ul>
+                        <li>
+                            <div>
+                                Eager Vs. Lazy Loading<br><br>
+                                In one-to-many relations that you sure are used every where with main entity. Generally, use eager loading When relations are not too complex and eager loading will reduce further queries on server.
+                                When to use lazy loading<br><br>            
+                                Almost on every "collection side" of one-to-many relations. like Articles of User or Products of a Category
+                                You exactly know that you will not need a property instantly.
+                                <dl>
+                                    <dt>One-to-one relationships</dt><dd>one record in one table with a single record in the other table.</dd>
+                                    <dt>One-to-many</dt><dd>A bidirectional relationship (can) exists.  TableA may have a foreign key into tableB, and tableB may have a foreign key into the associated record in tableA.</dd>
+                                </dl>
+                            </div>
                         </li>
                     </ul>
+
                 </div>
             </div>
         </mat-card-content>
