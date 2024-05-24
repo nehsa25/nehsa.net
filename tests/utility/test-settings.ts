@@ -24,6 +24,10 @@ import GcpPage from '../pages/gcp.page';
 import GithubPage from '../pages/github.page';
 import JenkinsPage from '../pages/jenkins.page';
 import TlsPage from '../pages/tls.page';
+import SwaggerPage from '../pages/swagger.page';
+import DotNetCorePage from '../pages/dotnetcore.page';
+import ThisWebsitePage from '../pages/thiswebsite.page';
+import JsDocPage from '../pages/jsdoc.page';
 
 /** Settings objects containing test settings and utility funtions*/
 export class TestSettings {
@@ -60,7 +64,11 @@ export class TestSettings {
         GcpPage,
         GithubPage,
         JenkinsPage,
-        TlsPage
+        TlsPage,
+        SwaggerPage,
+        DotNetCorePage,
+        ThisWebsitePage,
+        JsDocPage
     ];
     defaultTimeoutSecs = 60;
     defaultTimeoutMs = this.defaultTimeoutSecs * 1000;
