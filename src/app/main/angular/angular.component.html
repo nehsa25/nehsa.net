@@ -8,6 +8,54 @@
         <mat-card-content>
             <div class="topics">
                 <div>
+                    <h3>Form Validation</h3>
+                    <ul class="condensed">
+                        <li>Use ngModel to bind form fields to variables
+                            <ul class="condensed">
+                                <li><h4>Example form element:</h4>
+                                    <div class="code">&lt;input type="email" id="email" name="email" [formControl]="emailControl"&gt;</div>                                    
+                                <li><h4>Within TypeScript:</h4>
+                                    <div class="code">
+                                        <pre>
+    export class SignupComponent &#123;
+        userDetails: FormGroup;
+        emailControl = new FormControl('');
+        constructor(
+            private fb: FormBuilder) &#123;
+            this.userDetails = this.fb.group(&#123;
+            email: this.emailControl,
+            &#125;);
+        &#125;
+        
+        ngOnInit() &#123;
+            this.emailControl.addValidators([Validators.required, Validators.email]);
+        &#125;
+
+        submitForm(): void &#123;
+            if (this.userDetails.invalid) return;        
+            <span class="comment">// form is valid, we can proceed!</span>
+        &#125;
+    &#125;
+                                        </pre>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Add submit button<br>
+                            <div class="code">&lt;button type="submit" &gt;Submit&lt;/button&gt;
+                            </div>
+                        </li>                        
+                    </ul>
+                </div>
+                <div>
+                    <h3>Implement a comment shared module</h3>
+                    <ul>
+                        <li>Todo..
+                        </li>
+                    </ul>                    
+                </div>
+
+                <div>
                     <h3>Implement a reCAPTCHA Checkbox</h3>
                     <ul>
                         <li>Sign up for a Recapcha account at https://www.google.com/recaptcha/about/</li>
@@ -51,6 +99,7 @@
                         <img src="assets/images/recaptcha.png" alt="reCAPTCHA" />
                     </div>
                 </div>
+
                 <div>
                     <h3>Template Tips</h3>
                     <ul>
@@ -65,6 +114,7 @@
                             FormsModule</li>
                     </ul>
                 </div>
+
                 <div>
                     <h3>Important Files</h3>
                     <ul>
@@ -72,6 +122,7 @@
                         <li>packages.json - NPM packages to install for application.</li>
                     </ul>
                 </div>
+
                 <div>
                     <h3>Useful Commands</h3>
                     <ul>
@@ -85,6 +136,7 @@
                             preferred for npm install as it performs additional initialization.</li>
                     </ul>
                 </div>
+
                 <div>
                     <h3>Useful Links</h3>
                     <ul>
