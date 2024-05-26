@@ -41,13 +41,7 @@
                                         </ul>
                                     </li>
                                     <li>Take api.nehsa.net.pfx and place it where it can be referened by Docker
-                                        container (C:\src\nehsanet-app\https)</li>
-                                    <li>Run the container using the cert:
-                                        <div class="code">
-                                            dotnet dev-certs https -ep C:\src\nehsanet-app\https\api.nehsa.net.pfx -p
-                                            &lt;password&gt;<br>
-                                            dotnet dev-certs https --trust</div>
-                                    </li>
+                                        container (C:\certs)</li>
                                     <li>
                                         Launch container:
                                         <div class="code">
@@ -55,7 +49,7 @@
                                             ASPNETCORE_HTTPS_PORT=22007 -e
                                             ASPNETCORE_Kestrel__Certificates__Default__Password="&lt;password&gt;" -e
                                             ASPNETCORE_Kestrel__Certificates__Default__Path="/https/api.nehsa.net.pfx"
-                                            -v C:\src\nehsanet-app\https:/https/ nehsa/nehsaapi:202405211557
+                                            -v C:\certs:/https/ nehsa/nehsaapi:latest
                                         </div>
                                     </li>
 
