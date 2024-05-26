@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcjVOgpAAAAALj6HrJ5zt2ImDM57zCBd3EMAGJd"></script>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLW8G28E0B"></script>
@@ -24,5 +25,14 @@
 <body class="dark-theme">
   <app-root></app-root>
 </body>
+
+<script>
+  function onClick(e) {
+    e.preventDefault();
+    grecaptcha.enterprise.ready(async () => {
+      const token = await grecaptcha.enterprise.execute('6LcjVOgpAAAAALj6HrJ5zt2ImDM57zCBd3EMAGJd', {action: 'LOGIN'});
+    });
+  }
+</script>
 
 </html>

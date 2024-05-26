@@ -8,13 +8,61 @@
         <mat-card-content>
             <div class="topics">
                 <div>
+                    <h3>Implement a reCAPTCHA Checkbox</h3>
+                    <ul>
+                        <li>Sign up for a Recapcha account at https://www.google.com/recaptcha/about/</li>
+                        <li>Create new project
+                            <ul>
+                                <li>Check the "Use a checkbox" option</li>
+                                <li>Save your key information</li>
+                            </ul>
+                        </li>
+                        <li>Install reCAPTCHA packages
+                            <div class="code">npm i ng-recaptcha --save</div>
+                        </li>
+                        <li>Add resolved function in your component:
+                            <div class="code">
+                                <pre>
+    resolved(captchaResponse: string | null) &#123;
+        if (captchaResponse != null) &#123;
+            this.captcha = captchaResponse;
+            console.log(`Resolved captcha with response: $&#123;this.captcha&#125;`);
+        &#125;
+    &#125;
+                            </pre>
+                            </div>
+                        </li>
+                        <li>
+                            Add reCAPTCHA to your component form:
+                            <div class="code">
+                                <pre>
+    &lt;div [hidden]="captcha"&gt;
+        &lt;p&gt;Confirm you're human please!&lt;/p&gt;
+            &lt;re-captcha (resolved)="resolved($event)" siteKey="&lt;YOURKEY&gt;"&gt;&lt;/re-captcha&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;button type="submit" *ngIf="captcha" mat-flat-button&gt;Submit&lt;/button&gt;
+                            </pre>
+                            </div>
+                        </li>
+                    </ul>
+                    <div>
+                        <h3>If all went well:</h3>
+                        <img src="assets/images/recaptcha.png" alt="reCAPTCHA" />
+                    </div>
+                </div>
+                <div>
                     <h3>Template Tips</h3>
                     <ul>
-                        <li>() = Do something on an event.  e.g. (click)="clickfunc()"</li>
+                        <li>() = Do something on an event. e.g. (click)="clickfunc()"</li>
                         <li>[] = Right-hand side of the assignment is a dynamic expression.</li>
                         <li>[ngModel]="variable" - Associate with a variable</li>
-                        <li>&lt;curlybrace&gt;&lt;curlybrace&gt;variable&lt;curlybrace&gt;&lt;curlybrace&gt; - Interpolation</li>
-                        <li>[attr.data-testid]="'edit-frozen-' + i" - Embed a "data-testid" attribute in element after build</li>
+                        <li>&lt;curlybrace&gt;&lt;curlybrace&gt;variable&lt;curlybrace&gt;&lt;curlybrace&gt; -
+                            Interpolation</li>
+                        <li>[attr.data-testid]="'edit-frozen-' + i" - Embed a "data-testid" attribute in element after
+                            build</li>
+                        <li>Error: "Can't bind to 'ngModel' since it isn't a known property of 'input'": Import
+                            FormsModule</li>
                     </ul>
                 </div>
                 <div>
