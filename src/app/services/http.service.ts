@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ContactForm } from '../types/contactform';
+import { ContactForm } from '../types/contact.form';
+import { AddUserForm } from '../types/adduser.form';
 
 @Injectable()
 export class HttpService {
@@ -11,7 +12,8 @@ export class HttpService {
     };
     constructor(private http: HttpClient) { }
 
-    contactmeUrl = 'api/v1/contactme';
+    contactmeUrl = 'https://api.nehsa.net/api/v1/contactme';
+    addUserUrl = 'https://api.nehsa.net/api/v1/adduser';
     dhUrl = "https://api.nehsa.net/api/v1/da";
     swaggerUrl = "https://api.nehsa.net/api/v1/swagger";
 
@@ -22,6 +24,15 @@ export class HttpService {
      * */  
     postContactMe(body: ContactForm) {
         return this.http.post<ContactForm>(this.contactmeUrl, body);
+    }
+
+    /** 
+     * Posts the contact me form to API
+     * @param {ContactForm} body - The body to the message
+     * @returns {object} - The response from the API
+     * */  
+    postAddUser(body: AddUserForm) {
+        return this.http.post<AddUserForm>(this.addUserUrl, body);
     }
 
     /** Returns the Douglas Adam quote */  

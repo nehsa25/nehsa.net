@@ -1,0 +1,23 @@
+label {
+    font-size: 3rem;
+}
+
+input {
+    font-size: 3rem;
+}
+
+.form-div {
+    width: 700px;
+    display: grid;
+    grid-template-rows: 1fr 100px;
+}
+
+.grid {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-gap: 1em;
+}
+
+.button {
+    margin: auto 0;
+}
