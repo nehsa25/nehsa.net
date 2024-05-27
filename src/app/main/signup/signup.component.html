@@ -4,7 +4,8 @@
             <div class="form-div">
                 <div class="grid">
                     <h1>This doesn't work yet..</h1>
-                    <h3>Hi!  This is required if you wish to post anything!  This is a test website used for learning purposes, please do not use a password you use elsewhere..</h3>
+                    <h3>Hi! This is required if you wish to post anything! This is a test website used for learning
+                        purposes, please do not use a password you use elsewhere.. I wouldn't suggest that regardless actually.</h3>
                     <div>
                         <label for="email">Email</label>
                         <input type="email" id="email" name="email" [formControl]="emailControl">
@@ -34,7 +35,8 @@
 
                     <div>
                         <label for="passwordmatch">Confirm</label>
-                        <input type="password" id="passwordmatch" name="passwordmatch" [formControl]="passwordmatchControl">
+                        <input type="password" id="passwordmatch" name="passwordmatch"
+                            [formControl]="passwordmatchControl">
                         <div *ngIf="(userDetails.controls['password']?.touched || userDetails.controls['passwordmatch']?.touched) && userDetails.controls['passwordmatch']?.invalid"
                             class="text-danger">
                             Password Mismatch.
@@ -42,12 +44,14 @@
                     </div>
 
                     <div [hidden]="captcha">
-                        <p>Are you organic? (e.g. Homo Sapien,  Neanderthal, X-Gene)</p>
-                        <re-captcha (resolved)="resolved($event)" siteKey="6LcDg-gpAAAAAD0VJQSI-dNrtwo02Dxy3uv0ABTm"></re-captcha>
+                        <p>Are you organic? (e.g. Homo Sapien, Neanderthal, X-Gene)</p>
+                        <re-captcha (resolved)="resolved($event)"
+                            siteKey="6LcDg-gpAAAAAD0VJQSI-dNrtwo02Dxy3uv0ABTm"></re-captcha>
                     </div>
                 </div>
                 <div class="button">
-                    <button (click)="submitForm()" [disabled]="this.userDetails.invalid || !captcha" mat-flat-button>Submit</button>
+                    <button (click)="submitForm()" [disabled]="this.userDetails.invalid || !captcha"
+                        mat-flat-button>Submit</button>
                 </div>
             </div>
         </div>
