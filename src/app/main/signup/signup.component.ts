@@ -36,7 +36,7 @@ export class SignupComponent {
   ngOnInit() {
     this.emailControl.addValidators([Validators.required, Validators.email]);
     this.usernameControl.addValidators([Validators.required, Validators.minLength(4)]);
-    this.passwordControl.addValidators([Validators.required, Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/)]);
+    this.passwordControl.addValidators([Validators.required, Validators.pattern(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-]).{8,}/)]);
     this.passwordmatchControl.addValidators([Validators.required, this.checkPassword()]);
   }
 
