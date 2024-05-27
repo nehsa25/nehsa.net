@@ -3,7 +3,7 @@ label {
 }
 
 input {
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 .form-div {
@@ -20,4 +20,12 @@ input {
 
 .button {
     margin: auto 0;
+}
+
+input {
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 0 .5em;
+    float: right;
 }

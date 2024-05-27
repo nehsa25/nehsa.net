@@ -3,6 +3,7 @@
         <div class="topics">
             <div class="form-div">
                 <div class="grid">
+                    <h3>Hi!  This is required if you wish to post anything!  This is a test website used for learning purposes, please do not use a password you use elsewhere..</h3>
                     <div>
                         <label for="email">Email</label>
                         <input type="email" id="email" name="email" [formControl]="emailControl">
@@ -31,11 +32,11 @@
                     </div>
 
                     <div>
-                        <label for="passwordmatch">Confirm Password</label>
+                        <label for="passwordmatch">Confirm</label>
                         <input type="password" id="passwordmatch" name="passwordmatch" [formControl]="passwordmatchControl">
-                        <div *ngIf="userDetails.controls['passwordmatch']?.touched && userDetails.controls['passwordmatch']?.invalid"
+                        <div *ngIf="(userDetails.controls['password']?.touched || userDetails.controls['passwordmatch']?.touched) && userDetails.controls['passwordmatch']?.invalid"
                             class="text-danger">
-                            Please enter a valid password
+                            Password Mismatch.
                         </div>
                     </div>
 
@@ -45,7 +46,7 @@
                     </div>
                 </div>
                 <div class="button">
-                    <button (click)="submitForm()" [disabled]="this.userDetails.invalid" *ngIf="captcha" mat-flat-button>Submit</button>
+                    <button (click)="submitForm()" [disabled]="this.userDetails.invalid || !captcha" mat-flat-button>Submit</button>
                 </div>
             </div>
         </div>

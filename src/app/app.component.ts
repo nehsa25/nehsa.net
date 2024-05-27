@@ -7,11 +7,12 @@ import { BreadcrumbComponent, BreadcrumbItemDirective } from 'xng-breadcrumb';
 import { CommonModule } from '@angular/common';
 import { HttpService } from './services/http.service';
 import { version } from '../version';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterModule, RouterOutlet, NavbarComponent, CornerListenerComponent, MatIcon, BreadcrumbComponent, BreadcrumbItemDirective],
+  imports: [CommonModule, RouterModule, RouterOutlet, NavbarComponent, CornerListenerComponent, MatIcon, BreadcrumbComponent, BreadcrumbItemDirective, MatButtonModule],
   providers: [HttpService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

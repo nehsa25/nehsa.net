@@ -6,9 +6,9 @@
 
     .main {
         grid-template-rows: min-content min-content min-content 1fr 225px min-content;
-        grid-template-columns: 225px 225px 1fr 1fr;
+        grid-template-columns: 225px 225px 1fr min-content;
         grid-template-areas:
-            "bread dh dh dh"
+            "bread dh dh signup"
             "spacer title title title"
             "contactme body body body"
             "navbar body body body"
@@ -33,9 +33,10 @@
     }
 
     .main {
-        grid-template-rows: min-content min-content min-content 1fr 225px min-content;
+        grid-template-rows: min-content min-content min-content min-content 1fr 225px min-content;
         grid-template-columns: 225px 200px 1fr;
         grid-template-areas:
+            "bread signup signup"
             "bread dh dh"
             "spacer title title"
             "contactme body body"
@@ -44,6 +45,10 @@
             "footer footer footer";
         max-width: 1500px;
         overflow: auto;
+    }
+
+    .signup {
+        text-align: right;
     }
 
     .footer {
@@ -58,7 +63,7 @@
 /* For desktop View - tiny */
 @media screen and (min-width: 0px) and (max-width: 510px) {
     .gridcols {
-        grid-template-rows: repeat(7, min-content);
+        grid-template-rows: repeat(8, min-content);
     }
 
     .main {
@@ -67,10 +72,11 @@
             "bread"
             "dh"
             "body"
+            "signup"
             "contactme"
             "navbar"
             "footer";
-        grid-template-rows: repeat(7, min-content);
+        grid-template-rows: repeat(8, min-content);
         width: 480px;
         overflow: auto;
     }
@@ -92,9 +98,10 @@
     }
 
     .main {
-        grid-template-rows: 66px min-content min-content 1fr 225px min-content;
+        grid-template-rows: min-content min-content min-content min-content 1fr 225px min-content;
         grid-template-columns: 225px 200px 1fr;
         grid-template-areas:
+            "bread bread signup"
             "bread bread dh"
             "spacer title title"
             "contactme body body"
@@ -117,7 +124,7 @@
 /* For Mobile Portrait View */
 @media screen and (max-device-width: 480px) and (orientation: portrait) {
     .gridcols {
-        grid-template-rows: repeat(7, min-content);
+        grid-template-rows: repeat(8, min-content);
     }
 
     .main {
@@ -126,10 +133,11 @@
             "bread"
             "dh"
             "body"
+            "signup"
             "contactme"
             "navbar"
             "footer";
-        grid-template-rows: repeat(7, min-content);
+        grid-template-rows: repeat(8, min-content);
         width: 480px;
         overflow: auto;
     }
@@ -147,7 +155,7 @@
 /* For Mobile Landscape View */
 @media screen and (max-device-width: 640px) and (orientation: landscape) {
     .gridcols {
-        grid-template-rows: repeat(7, min-content);
+        grid-template-rows: repeat(8, min-content);
     }
 
     .main {
@@ -156,10 +164,11 @@
             "bread"
             "dh"
             "body"
+            "signup"
             "contactme"
             "navbar"
             "footer";
-        grid-template-rows: repeat(7, min-content);
+        grid-template-rows: repeat(8, min-content);
         width: 640px;
         overflow: auto;
     }
@@ -219,6 +228,15 @@
     padding-left: 25px;
     display: grid;
     grid-template-columns: 50px 1fr;
+}
+
+.signup {
+    grid-area: signup;
+    background-color: #999 !important;
+    padding: 7px 1em;
+    font-variant: small-caps;
+    font-size: 1.5rem;
+    height: 100%;
 }
 
 .dh {

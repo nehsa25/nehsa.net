@@ -7,28 +7,51 @@
         </mat-card-header>
         <mat-card-content>
             <div class="topics">
-                <div>
-                    <h3>Form Validation</h3>
-                    <ul class="condensed">
-                        <li>Use ngModel to bind form fields to variables
-                            <ul class="condensed">
-                                <li><h4>Example form element:</h4>
-                                    <div class="code">&lt;input type="email" id="email" name="email" [formControl]="emailControl"&gt;</div>                                    
-                                <li><h4>Within TypeScript:</h4>
-                                    <div class="code">
-                                        <pre>
+                <div class="topics">
+                    <h2>Fun feats...</h2>
+                    <div>
+                        <h3>Form Validation</h3>
+                        <ul class="condensed">
+                            <li>
+                                <h4>Example form element:</h4>
+                                <div class="code">&lt;input type="email" id="email" name="email"
+                                    [formControl]="emailControl"&gt;</div>
+                            <li>
+                                <h4>Within TypeScript:</h4>
+                                <div class="code">
+                                    <pre>
     export class SignupComponent &#123;
         userDetails: FormGroup;
         emailControl = new FormControl('');
         constructor(
             private fb: FormBuilder) &#123;
-            this.userDetails = this.fb.group(&#123;
-            email: this.emailControl,
+                this.userDetails = this.fb.group(&#123;
+                email: this.emailControl,
+                passwordmatch: this.passwordmatchControl
             &#125;);
         &#125;
         
         ngOnInit() &#123;
+            <span class="comment">// Add validators</span>
             this.emailControl.addValidators([Validators.required, Validators.email]);
+            this.usernameControl.addValidators([Validators.required, Validators.minLength(4)]);
+            this.passwordControl.addValidators([Validators.required, Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]&#123;6,&#125;$/)]);
+            this.passwordmatchControl.addValidators([Validators.required, this.checkPassword()]);
+        &#125;
+
+        <span class="comment">// custom validator function</span>
+        checkPassword() &#123;
+            return (control: AbstractControl): ValidationErrors | null => &#123;
+                const passwordInput = this.passwordControl.value
+                const passwordMatchInput = this.passwordmatchControl.value
+                if (passwordInput !== passwordMatchInput) &#123;
+                    this.passwordmatchControl.setErrors(&#123; notEquivalent: true &#125;);
+                    return this.passwordmatchControl.errors;        
+                &#125; else &#123;
+                    this.passwordmatchControl.setErrors(null);
+                    return null;
+                &#125;
+            &#125;
         &#125;
 
         submitForm(): void &#123;
@@ -37,40 +60,50 @@
         &#125;
     &#125;
                                         </pre>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>Add submit button<br>
-                            <div class="code">&lt;button type="submit" &gt;Submit&lt;/button&gt;
-                            </div>
-                        </li>                        
-                    </ul>
-                </div>
-                <div>
-                    <h3>Implement a comment shared module</h3>
-                    <ul>
-                        <li>Todo..
-                        </li>
-                    </ul>                    
-                </div>
-
-                <div>
-                    <h3>Implement a reCAPTCHA Checkbox</h3>
-                    <ul>
-                        <li>Sign up for a Recapcha account at https://www.google.com/recaptcha/about/</li>
-                        <li>Create new project
-                            <ul>
-                                <li>Check the "Use a checkbox" option</li>
-                                <li>Save your key information</li>
-                            </ul>
-                        </li>
-                        <li>Install reCAPTCHA packages
-                            <div class="code">npm i ng-recaptcha --save</div>
-                        </li>
-                        <li>Add resolved function in your component:
-                            <div class="code">
-                                <pre>
+                                </div>
+                            </li>
+                            <li>Add submit button<br>
+                                <div class="code">
+                                    &lt;button (click)="submitForm()"
+                                    [disabled]="this.userDetails.invalid"&gt;Submit&lt;/button&gt;
+                                </div>
+                            </li>
+                        </ul>
+                        <div>
+                            <h4>Example</h4>
+                            <img src="assets/images/signup.png" alt="Form Validation" />
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Implement a comment shared module</h3>
+                        <ul>
+                            <li>Todo..
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Table select-columns feature: Alter visiblity, stick/freeze columns, change order</h3>
+                        <ul>
+                            <li>Todo..
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Implement a reCAPTCHA Checkbox</h3>
+                        <ul>
+                            <li>Sign up for a Recapcha account at https://www.google.com/recaptcha/about/</li>
+                            <li>Create new project
+                                <ul>
+                                    <li>Check the "Use a checkbox" option</li>
+                                    <li>Save your key information</li>
+                                </ul>
+                            </li>
+                            <li>Install reCAPTCHA packages
+                                <div class="code">npm i ng-recaptcha --save</div>
+                            </li>
+                            <li>Add resolved function in your component:
+                                <div class="code">
+                                    <pre>
     resolved(captchaResponse: string | null) &#123;
         if (captchaResponse != null) &#123;
             this.captcha = captchaResponse;
@@ -78,12 +111,12 @@
         &#125;
     &#125;
                             </pre>
-                            </div>
-                        </li>
-                        <li>
-                            Add reCAPTCHA to your component form:
-                            <div class="code">
-                                <pre>
+                                </div>
+                            </li>
+                            <li>
+                                Add reCAPTCHA to your component form:
+                                <div class="code">
+                                    <pre>
     &lt;div [hidden]="captcha"&gt;
         &lt;p&gt;Confirm you're human please!&lt;/p&gt;
             &lt;re-captcha (resolved)="resolved($event)" siteKey="&lt;YOURKEY&gt;"&gt;&lt;/re-captcha&gt;
@@ -91,12 +124,13 @@
     &lt;/div&gt;
     &lt;button type="submit" *ngIf="captcha" mat-flat-button&gt;Submit&lt;/button&gt;
                             </pre>
-                            </div>
-                        </li>
-                    </ul>
-                    <div>
-                        <h3>If all went well:</h3>
-                        <img src="assets/images/recaptcha.png" alt="reCAPTCHA" />
+                                </div>
+                            </li>
+                        </ul>
+                        <div>
+                            <h3>If all went well:</h3>
+                            <img src="assets/images/recaptcha.png" alt="reCAPTCHA" />
+                        </div>
                     </div>
                 </div>
 
