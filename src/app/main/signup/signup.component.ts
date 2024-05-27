@@ -1,6 +1,6 @@
 import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, FormsModule, NgControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, FormsModule, NgControl, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { HttpService } from '../../services/http.service';
@@ -19,27 +19,45 @@ export class SignupComponent {
   emailControl = new FormControl('');
   usernameControl = new FormControl('');
   passwordControl = new FormControl('');
+  passwordmatchControl = new FormControl('');
   constructor(
-    private fb: FormBuilder, 
+    private fb: FormBuilder,
     public httpClient: HttpService
-) {
+  ) {
     this.userDetails = this.fb.group({
       email: this.emailControl,
       username: this.usernameControl,
-      password: this.passwordControl
-    });
+      password: this.passwordControl,
+      passwordmatch: this.passwordmatchControl
+    }, {});
     this.captcha = "";
   }
 
   ngOnInit() {
     this.emailControl.addValidators([Validators.required, Validators.email]);
     this.usernameControl.addValidators([Validators.required, Validators.minLength(4)]);
-    this.passwordControl.addValidators([Validators.required, Validators.pattern(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-]).{8,}/)]);
+    this.passwordControl.addValidators([Validators.required, Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/)]);
+    this.passwordmatchControl.addValidators([Validators.required, this.checkPassword()]);
   }
 
   resolved(captchaResponse: string | null) {
     if (captchaResponse != null) {
       this.captcha = captchaResponse;
+    }
+  }
+
+  checkPassword() {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const passwordInput = this.passwordControl.value
+      const passwordMatchInput = this.passwordmatchControl.value
+      if (passwordInput !== passwordMatchInput) {
+        this.passwordmatchControl.setErrors({ notEquivalent: true });
+        return this.passwordmatchControl.errors;
+
+      } else {
+        this.passwordmatchControl.setErrors(null);
+        return null;
+      }
     }
   }
 

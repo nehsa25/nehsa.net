@@ -30,6 +30,15 @@
                         </div>
                     </div>
 
+                    <div>
+                        <label for="passwordmatch">Confirm Password</label>
+                        <input type="password" id="passwordmatch" name="passwordmatch" [formControl]="passwordmatchControl">
+                        <div *ngIf="userDetails.controls['passwordmatch']?.touched && userDetails.controls['passwordmatch']?.invalid"
+                            class="text-danger">
+                            Please enter a valid password
+                        </div>
+                    </div>
+
                     <div [hidden]="captcha">
                         <p>Are you organic? (e.g. Homo Sapien,  Neanderthal, X-Gene)</p>
                         <re-captcha (resolved)="resolved($event)" siteKey="6LcDg-gpAAAAAD0VJQSI-dNrtwo02Dxy3uv0ABTm"></re-captcha>
