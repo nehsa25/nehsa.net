@@ -9,32 +9,66 @@
             <div class="topics">
                 <h3>Some recent projects I've been involved with:</h3>
                 <ul>
-                    <li>Build test automation infrastructure to meet a specific need of testing on varity of (real hardware) and OSs.  Technolgies:  Chef, Doxygen, Python, Pytest<br>
+                    <li>Build test automation infrastructure to meet a specific need of testing on varity of real
+                        hardware (metal) such as network cards, CPUs, and a variety of operating systems. Technolgies: Chef, Doxygen, Python, Pytest<br>
                         <img mat-card-image src="assets/images/test-automation.png"
                             alt="Diagram of test framework test architecture" />
                     </li>
-                    <li>Build a desktop applicaton that runs in taskbar for capturing screenshots and state to facility filing bugs/recording machine state (lab-monitor)<br>
+                    <li>Build a desktop applicaton that runs in taskbar for capturing screenshots and state to facility
+                        filing bugs/recording machine state (lab-monitor)<br>
                         <img mat-card-image src="assets/images/lab_monitor1.png"
-                        alt="Picture of Lab Monitor tray icon" /><br><br>
+                            alt="Picture of Lab Monitor tray icon" /><br><br>
                         <img mat-card-image src="assets/images/lab_monitor2.png"
-                        alt="Picture of Lab Monitor tray options" />
+                            alt="Picture of Lab Monitor tray options" />
                     </li>
-                    <li>Build Client/Server websocket applications using Asyncio.  This is deployed on our all machine machines automatically Chef and allows remove command execution against any/all machines via lab website (lab-listener)<br>
-                        <img width="600"  mat-card-image src="assets/images/lab_listener.png"
-                        alt="picture of lab listener websocket" />
+                    <li>Build Client/Server websocket applications using Asyncio. This is deployed on our all machine
+                        machines automatically Chef and allows remove command execution against any/all machines via lab
+                        website (lab-listener)<br>
+                        <img width="600" mat-card-image src="assets/images/lab_listener.png"
+                            alt="picture of lab listener websocket" />
                     </li>
-                    <li>Replaced free Chef web server with custom implementation (to work-around bugs / at direction of Chef team).  This lab site provides detailed information against all machines in the lab and allows configuration/remote command execution<br>
-                        <img width="600"  mat-card-image src="assets/images/lab_config1.png"
-                        alt="Config page for configuring lab hosts" /></li>
+                    <li>Replaced free Chef web server with custom implementation (to work-around bugs / at direction of
+                        Chef team). This lab site provides detailed information against all machines in the lab and
+                        allows configuration/remote command execution<br>
+                        <img width="600" mat-card-image src="assets/images/lab_config1.png"
+                            alt="Config page for configuring lab hosts" />
+                    </li>
                     <li>Automated debugging tests via Visual Studio us pywinauto</li>
-                    <li>Maintain production Angular project and backend C# API.  Hosted in Azure.<br>
+                    <li>Implemented Recapcha<br>
+                        <img width="600" mat-card-image src="assets/images/recaptcha2.png"
+                            alt="Recapcha implementation" />
+                    </li>
+                    <li>Implemented an Angular status & maintenance page
+                        <ul class="condensed">
+                            <li>Status displays next maintance message text on all login pages for two days before date
+                                in database</li>
+                            <li>Disappears after maintenance date + a few hours</li>
+                            <li>During maintenance:
+                                <ul>
+                                    <li>All pages redirect to maintenance page</li>
+                                    <li>All API requests return a "UNDER_MAINTENANCE" code</li>
+                                </ul>
+                            </li>
+                        </ul><br>
+                        <div>
+                            <span>Database fields:</span><br>
+                            <img width="600" mat-card-image src="assets/images/maint2.png" />
+                        </div>
+                        <div>
+                            <span>Corresponding status on login pages:</span><br>
+                            <img width="600" mat-card-image src="assets/images/maint1.png" />
+                        </div>
+                    </li>
+                    <li>Maintain production Angular project and backend C# API. Hosted in Azure.<br>
                         <img width="600" mat-card-image src="assets/images/license_portal.png"
-                        alt="The License portal with custom built select-columns feature" /></li>
+                            alt="The License portal with custom built select-columns feature" />
+                    </li>
                     <li>website/html "MUD" client: <a href="https://github.com/nehsa25/websocket-mud">Github</a><br>
                         <img width="600" mat-card-image src="assets/images/mud.png"
-                        alt="A web-based MUD client written in Python and using websockets" /></li>
+                            alt="A web-based MUD client written in Python and using websockets" />
+                    </li>
                     <li>RTS game using Python and pygame: <a href="https://github.com/nehsa25/rts">Github</a></li>
-                </ul>           
+                </ul>
             </div>
         </mat-card-content>
     </mat-card>
