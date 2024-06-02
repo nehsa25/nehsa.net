@@ -33,6 +33,7 @@ import { DotnetcoreComponent } from './main/dotnetcore/dotnetcore.component';
 import { SwaggerComponent } from './main/swagger/swagger.component';
 import { DesignpatternsComponent } from './main/designpatterns/designpatterns.component';
 import { SignupComponent } from './main/signup/signup.component';
+import { CssComponent } from './main/css/css.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: BioComponent },
@@ -59,6 +60,7 @@ export const routes: Routes = [
     { path: 'npm', title: 'nehsa.net | npm', component: NpmComponent },
     { path: 'playwright', title: 'nehsa.net | Playwright', component: PlaywrightComponent },
     { path: 'doxy', title: 'nehsa.net | Doxygen', component: DoxygenComponent },
+    { path: 'css', title: 'nehsa.net | Cascading Style Sheets', component: CssComponent },
     { path: 'ohai', title: 'nehsa.net | Ohai', component: OhaiComponent },
     { path: 'powershell', title: 'nehsa.net | Powershell', component: PowershellComponent },
     { path: 'projects', title: 'nehsa.net | Projects', component: ProjectsComponent },

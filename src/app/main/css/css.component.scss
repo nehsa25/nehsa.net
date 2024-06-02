@@ -1,0 +1,10 @@
+
+.example>div {
+    background-color: teal;
+    width: 250px; 
+    margin: 0 75px;
+}
+
+.example>.blah>div {
+    background-color: salmon;
+}
