@@ -21,6 +21,8 @@
                 <div>                    
                     <h3>Other tidbits..</h3>
                     <ul>
+                        <li>Using a <span class="important">&quot;loose-check&quot;</span>, you can test both null and undefined in one hit: <span class="code">if (x == null) &#123; console.log("PeanutsAreOK!"); &#125; </span> &#123;<br><br>
+                            If you use a <span class="important">&quot;strict-check&quot;</span>, it will only be true for values set to null and will not return true for undefined variables: <span class="code">if (x === null) &#123; console.log("WalnutsSuck!"); &#125; </span> </li>
                         <li>Don't use negative names for boolean variables. e.g. this: <span class="code">const isNotSet = true;</span> would be better as <span class="code">const isSet = false;</span> </li>
                         <li>Use "const" whenever possible when a variable is not intended to change instead of var/let</li>
                         <li>var Vs. let &hyphen; var is function scoped, let is block scoped</li>

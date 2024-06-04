@@ -179,8 +179,6 @@
                                         </li>
                                         <li>Interface <span class="code">int a = 5;</span></li>
                                         <li>String <span class="code">String boo = "bob";</span></li>
-                                        <li>Enum (4<sup>-45</sup> - 4028235<sup>38</sup>)<span class="code"></span>
-                                        </li>
                                     </ul>
                                 </div>
                             </li>
@@ -230,7 +228,43 @@
                                 <div class="answer">Answer</div>
                             </li>
                             <li>How do you run a unit test in Java?
-                                <div class="answer">Answer</div>
+                                <div class="answer">
+                                    <h4>JUnit:</h4><br>
+                                    <ul>
+                                        <li>File to be tested (Hello.java):
+                                            <div class="code">
+                                                <pre>
+    public class Hello &#123;
+
+        public static int returnAnswerToEverything() &#123;
+            return 42;
+        &#125;
+    &#125;
+                                                </pre>
+                                            </div>
+                                        </li>
+                                        <li>Test file (HelloTest.java):
+                                            <div class="code">
+                                                <pre>
+    import org.junit.Assert;
+    import org.junit.Before;
+    import org.junit.Test;
+    public class HelloTest &#123;
+        Hello h;
+        &#64;Before
+        public void setUp() throws Exception &#123;
+            h = new Hello();
+        &#125;
+        &#64;Test
+        public void testReturnsAnswer() &#123;
+            Assert.assertEquals(42, Hello.returnAnswerToEverything());
+        &#125;
+    &#125;
+                                                    </pre>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
                             </li>
                         </ul>
                     </div>
