@@ -75,16 +75,110 @@
                         </div>
                     </div>
                     <div>
-                        <h3>Implement a comment shared module</h3>
+                        <h3>Control which CSS classes are applied via TypeScript</h3>
                         <ul>
-                            <li>Todo..
+                            <li>HTML
+                                <div class="code">
+                                    <pre>
+    &lt;div [class.bgblue]="showBlueBg" [class.main]="!showBlueBg"&gt;Yippee!&lt;/div&gt;
+    </pre>
+                                </div>
+                            </li>
+                            <li>CSS
+                                <div class="code">
+                                    <pre>
+    .bgblue &#123;
+        background-color: blue;
+    &#125;
+    
+    .main &#123;
+        background-color: var(--theme-splash-backround-color);
+    &#125;                                        
+    </pre>
+                                </div>
+                            </li>
+                            <li>TypeScript
+                                <div class="code">
+                                    <pre>
+    public showBlueBg: boolean = false;
+    </pre>
+                                </div>
                             </li>
                         </ul>
                     </div>
                     <div>
                         <h3>Table select-columns feature: Alter visiblity, stick/freeze columns, change order</h3>
                         <ul>
-                            <li>Todo..
+                            <li>Todo: Add the example of where I did this!
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Listen for child events</h3>
+                        <ul>
+                            <li>Add a type for the event transmission (e.g. SplashMessage in a new file
+                                splash-message.ts)
+                                <div class="code">
+                                    <pre>
+    export class SplashMessage &#123;
+        showSplash: boolean = false;
+        duration: number = 8;
+    &#125;
+                                    </pre>
+                                </div>
+                            </li>
+                            <li>Add a service called splash.service.ts
+                                <div class="code">
+                                    <pre>
+    import &#123; Injectable &#125; from '&#64;angular/core';
+    import &#123; Observable, Subject &#125; from 'rxjs';
+    import &#123; SplashMessage &#125; from '../types/splash-message';
+
+    &#64;Injectable()
+    export class SplashService &#123;
+        private showSplash:Subject&lt;SplashMessage&gt; = new Subject&lt;SplashMessage&gt;();
+        private msg = new SplashMessage();
+
+        public show(duration:number) &#123;        
+            this.msg.showSplash = true;
+            this.msg.duration = duration;
+            this.showSplash.next(this.msg);
+        &#125;
+
+        public hide() &#123;
+            this.msg.showSplash = false;
+            this.showSplash.next(this.msg);
+        &#125;
+
+        public observe():Observable&lt;SplashMessage&gt; &#123;
+            return this.showSplash.asObservable();
+        &#125;
+    &#125;
+                                    </pre>
+                                </div>
+                            </li>
+                            <li>Add event observer for service to child component
+                                <div class="code">
+                                    <pre>
+    constructor(
+        private splash: SplashService) &#123; &#125;
+    
+        ngOnInit(): void &#123;
+        this.splash.observe().subscribe((d) => &#123;
+            this.showSplash = d.showSplash;
+            let duration: number = d.duration;
+            this.showhide(duration);
+        &#125;);
+    &#125;
+                                    </pre>
+                                </div>
+                            </li>
+                            <li>Use it somewhere:
+                                <div class="code">
+                                    <pre>
+    &#64;&lt;app-splash *ngIf="showSplash"&gt;&lt;/app-splash&gt;
+                                    </pre>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -135,7 +229,7 @@
                 </div>
 
                 <div>
-                    <h3>Template Tips</h3>
+                    <h3>Tips!</h3>
                     <ul>
                         <li>() = Do something on an event. e.g. (click)="clickfunc()"</li>
                         <li>[] = Right-hand side of the assignment is a dynamic expression.</li>
@@ -146,6 +240,29 @@
                             build</li>
                         <li>Error: "Can't bind to 'ngModel' since it isn't a known property of 'input'": Import
                             FormsModule</li>
+                        <li>
+                            <h2>Form stuff:</h2>
+                            <div>
+                                <h3>Selections</h3>
+                                <ul>
+                                    <li>HTML
+                                        <div class="code">
+                                            <pre>
+    &lt;mat-select 
+        value="permanent" 
+        [(ngModel)]="databaseTable"&gt; <span class="comment">// variable with value in ts</span>
+        &lt;mat-option value="permanent"&gt;Standard Licenses&lt;/mat-option&gt;
+        &lt;mat-option value="temp"&gt;Temporary Licenses&lt;/mat-option&gt;
+    &lt;/mat-select&gt;
+                                                </pre>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="code">databaseTable: any = null;</div>
+                                    </li>
+                                </ul>  
+                            </div>
+                        </li>
                     </ul>
                 </div>
 

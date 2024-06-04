@@ -34,6 +34,7 @@ import { SwaggerComponent } from './main/swagger/swagger.component';
 import { DesignpatternsComponent } from './main/designpatterns/designpatterns.component';
 import { SignupComponent } from './main/signup/signup.component';
 import { CssComponent } from './main/css/css.component';
+import { GliderComponent } from './main/glider/glider.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: BioComponent },
@@ -79,6 +80,7 @@ export const routes: Routes = [
     { path: 'grammar', title: 'nehsa.net | Grammar', component: WritingComponent },
     { path: 'design', title: 'nehsa.net | Design Patterns', component: DesignpatternsComponent },
     { path: 'swagger', title: 'nehsa.net | Swagger Documentation', component: SwaggerComponent },
+    { path: 'glider', title: 'nehsa.net | Glider Preparedness', component: GliderComponent },
     { path: 'signup', title: 'nehsa.net | Signup', component: SignupComponent },
     { path: '', title: 'nehsa.net | Home', redirectTo: '/', pathMatch: 'full' },
     { path: '**', component: BioComponent },

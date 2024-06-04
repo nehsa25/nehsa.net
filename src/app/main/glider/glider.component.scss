@@ -1,0 +1,28 @@
+table {
+    border-collapse: collapse;
+    margin: 10px;
+    width: 500px;
+}
+
+th {
+    border: 2px solid plum;
+}
+
+td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.ass-name {
+    text-decoration: underline;
+}
+
+.answer {
+    color: whitesmoke;
+    background-color: #999;
+    border: 1px solid #ccc;
+    padding: 3px 2em;
+    margin: 0 2em;
+    width: 600px;
+}
