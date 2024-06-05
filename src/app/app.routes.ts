@@ -35,6 +35,8 @@ import { DesignpatternsComponent } from './main/designpatterns/designpatterns.co
 import { SignupComponent } from './main/signup/signup.component';
 import { CssComponent } from './main/css/css.component';
 import { GliderComponent } from './main/glider/glider.component';
+import { JavaComponent } from './main/java/java.component';
+import { SqlComponent } from './main/sql/sql.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: BioComponent },
@@ -74,6 +76,7 @@ export const routes: Routes = [
     { path: 'aws', title: 'nehsa.net | aws', component: AwsComponent },
     { path: 'jenkins', title: 'nehsa.net | Jenkins', component: JenkinsComponent },
     { path: 'jsdoc', title: 'nehsa.net | jsdoc', component: JsdocComponent },
+    { path: 'java', title: 'nehsa.net | Java', component: JavaComponent },
     { path: 'github', title: 'nehsa.net | Github', component: GithubComponent },
     { path: 'website', title: 'nehsa.net | This Website', component: ThisWebsiteComponent },
     { path: 'tls', title: 'nehsa.net | TLS', component: TlsComponent },
@@ -82,6 +85,7 @@ export const routes: Routes = [
     { path: 'swagger', title: 'nehsa.net | Swagger Documentation', component: SwaggerComponent },
     { path: 'glider', title: 'nehsa.net | Glider Preparedness', component: GliderComponent },
     { path: 'signup', title: 'nehsa.net | Signup', component: SignupComponent },
+    { path: 'sql', title: 'nehsa.net | SQL', component: SqlComponent },
     { path: '', title: 'nehsa.net | Home', redirectTo: '/', pathMatch: 'full' },
     { path: '**', component: BioComponent },
 ];

@@ -1,0 +1,246 @@
+<div>
+    <mat-card class="card">
+        <mat-card-header>
+            <mat-card-title>
+                <h1 data-testid="header-title">Java</h1>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="topics">
+                <div>
+                    <h3>Coding Conventions</h3>
+                    <ul>
+                        <li><span class="important">Constants</span>: must be all upper case, with multiple words
+                            separated by '_'
+                            <div class="code">
+                                final int ITEMS_IN_BASKET = 42;
+                            </div>
+                        </li>
+
+                        <li><span class="important">Classes</span>: must start with an upper case letter, and use
+                            CamelCase.
+                            <div class="code">
+                                class LargeSpaceship;
+                            </div>
+                        </li>
+                        <li><span class="important">Functions</span>: must start with a lower case letter, and use
+                            CamelCase.
+                            <div class="code">
+                                boolean checkResult();
+                            </div>
+                        </li>
+                        <li><span class="important">Enums</span>: Preferred for readability over integer constants
+                            usually
+                            <div class="code">
+                                <pre>
+    class Directions &#123;
+        public enum Direction &#123;
+            NORTH,
+            SOUTH,
+            EAST,
+            WEST
+        &#125;
+    &#125;
+                                </pre>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2>Java Questions</h2>
+                    <ul>
+                        <li>Why Java?
+                            <div class="answer">Answer</div>
+                        </li>
+                        <li>How does Java work?
+                            <div class="answer">Answer</div>
+                        </li>
+                        <li>What is the most popular Java development IDE?
+                            <div class="answer">IntelliJ IDEA reigns supreme as the most popular Java IDE in 2024
+                                at 41%, according to the 2024 Java Developer Productivity Report. Behind, Eclipse is
+                                second with 23%, and Microsoft VSCode, or Visual Studio Code, is a close third at
+                                19%.
+                                <div>
+                                    <h4>How to setup VSCode for Java (<a
+                                            href="https://code.visualstudio.com/docs/java/java-tutorial">Guide I
+                                            followed</a>)</h4>
+                                    <ol class="condensed">
+                                        <li>Install the &quot;Coding Pack for Java&quot;</li>
+                                        <li>Install the &quot;Extension Pack for Java&quot;</li>
+                                        <li>Install the JDK (Java Development Kit)</li>
+                                        <li>Create a new project (<a
+                                                href="https://github.com/nehsa25/java-app-vscode">java-app-vscode</a>)
+                                        </li>
+                                        <li>Cha-pow:<br>
+                                            Debugging within VSCode:<br>
+                                            <img mat-card-image src="../../assets/images/java2.png" /><br><br>
+                                            Running outside of VSCode:<br>
+                                            <img mat-card-image src="../../assets/images/java1.png" />
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </li>
+                        <li>How to create your first Java project in VS Code?
+                            <div class="answer">
+                                <ul>
+                                    <li>Create a folder called JAVA-APP-VSCODE</li>
+                                    <li>Within it, create a file called Hello.java<br><span>* the case
+                                            of file must match the class name<br><br>e.g. <span
+                                                class="important">Hello.java</span> requires a class
+                                            incide it:
+                                            <div class="code">
+                                                <pre>
+/**
+* This is a simple Java program.
+*/
+
+public class <span class="important">Hello</span> &#123;
+    // Your program begins with a call to main().
+    // Prints "Hello, World" to the terminal window.
+    public static void main(String[] args) &#123;
+        System.out.println("Hello, World");
+    &#125;
+&#125;
+                                                </pre>
+                                            </div>
+                                        </span></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li>Java primitive types?
+                            <div class="answer">
+                                <ul>
+                                    <li>Byte <span class="code">byte b = 100;</span></li>
+                                    <li>Short <span class="code">short s = 10000;</span></li>
+                                    <li>Integer <span class="code">int a = 5;</span></li>
+                                    <li>Long <span class="code">long c = 1000000000;</span></li>
+                                    <li>Float (4<sup>-45</sup> - 4028235<sup>38</sup>)<span class="code"></span>
+                                    </li>
+                                    <li>Double (4.9<sup>-324</sup> - 1.7976931348623157<sup>308</sup>) <span
+                                            class="code"></span><br>(like float but larger)</li>
+                                    <li>Boolean <span class="code">boolean result = true;</span></li>
+                                    <li>Char <span class="code">char capitalX = 'X';</span></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>Java non-primitive types?
+                            <div class="answer">
+                                <ul>
+                                    <li>Array <div class="code">String[] array = new String[100];<br>double[] data;
+                                        </div>
+                                    </li>
+                                    <li>Class
+                                        <div class="code">
+                                            <pre>
+class Car &#123;
+    // data member / instance variable
+    int id;
+
+    // data member / instance variable
+    String name;
+    
+    public static void main(String args[])
+    &#123;
+        // new car object
+        Car volvo = new Car();
+        System.out.println(volvo.id);
+        System.out.println(volvo.name);
+    &#125;
+&#125;
+                                            </pre>
+                                        </div>
+                                    </li>
+                                    <li>String <span class="code">String boo = "bob";</span></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>How do you represwent numbers in different bases:
+                            <ul>
+                                <li>
+                                    <div>
+                                        <span>//Decimal:</span><br>
+                                        int decVal = 26;<br>
+                                    </div>
+                                    <div>
+                                        <span>//Hexadecimal:</span><br>
+                                        int hexVal = 0x1a;<br>
+                                    </div>
+                                    <div>
+                                        <span>//Binary:</span><br>
+                                        int binVal = 0b11010;
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>What is the difference between an interface and an abstract class?
+                            <div class="answer">Answer</div>
+                        </li>
+                        <li>What is method overloading vs method overriding?
+                            <div class="answer"><span class="important">Method overloading</span>is methods that have
+                                the same name but have different number of parameters. Note: simply changing return type
+                                of two methods of the same name/signature will not work. The parameter must be
+                                different.<br>
+                                <span class="important">Method overriding</span> allows you to implement your own
+                                version of a method you inherited.
+                            </div>
+                        </li>
+                        <li>Heap Vs. Stack Memory
+                            <dl>
+                                <dt>Heap</dt><dd>Grows/shrinks dynamically.  When the &quot;new&quot; keyword is used, the object is placed here</dd>
+                                <dt>Stack</dt><dd>Allocated per program.  Fixed memory space.  Local variables live here.</dd>
+                            </dl>
+                        </li>
+                        <li>Shallow Vs. Deep COPY
+                            <dl>
+                                <dt>Shallow Copy</dt><dd>Both objects changes as they are just references to each other</dd>
+                                <dt>Deep Copy</dt><dd>Separate objects completely, can have different values</dd>
+                            </dl>
+                        </li>
+                        <li>How do you run a unit test in Java?
+                            <div class="answer">
+                                <h4>JUnit:</h4><br>
+                                <ul>
+                                    <li>File to be tested (Hello.java):
+                                        <div class="code">
+                                            <pre>
+public class Hello &#123;
+
+    public static int returnAnswerToEverything() &#123;
+        return 42;
+    &#125;
+&#125;
+                                            </pre>
+                                        </div>
+                                    </li>
+                                    <li>Test file (HelloTest.java):
+                                        <div class="code">
+                                            <pre>
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+public class HelloTest &#123;
+    Hello h;
+    &#64;Before
+    public void setUp() throws Exception &#123;
+        h = new Hello();
+    &#125;
+    &#64;Test
+    public void testReturnsAnswer() &#123;
+        Assert.assertEquals(42, Hello.returnAnswerToEverything());
+    &#125;
+&#125;
+                                                </pre>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
