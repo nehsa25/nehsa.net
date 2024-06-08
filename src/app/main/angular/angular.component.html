@@ -8,7 +8,6 @@
         <mat-card-content>
             <div class="topics">
                 <div class="topics">
-                    <h2>Fun feats...</h2>
                     <div>
                         <h3>Form Validation</h3>
                         <ul class="condensed">
@@ -241,7 +240,7 @@
                         <li>Error: "Can't bind to 'ngModel' since it isn't a known property of 'input'": Import
                             FormsModule</li>
                         <li>
-                            <h2>Form stuff:</h2>
+                            <h3>Form stuff:</h3>
                             <div>
                                 <h3>Selections</h3>
                                 <ul>
@@ -260,7 +259,122 @@
                                     <li>
                                         <div class="code">databaseTable: any = null;</div>
                                     </li>
-                                </ul>  
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <h3>Sending/Receiving HTTP Data</h3>
+                            <div>
+                                I typically structure my projects like this:
+                                <ul>
+                                    <li>HTTP Service (app/services/http.service.ts)
+                                        <div class="code">
+                                            <span class="comment">/** Returns the quote */</span>
+                                            <pre>
+    &#64;Injectable()
+    export class HttpService &#123;
+        httpOptions = &#123;
+            headers: new HttpHeaders(&#123;
+                'Content-Type': 'application/json'
+            &#125;)
+        &#125;;
+        constructor(private http: HttpClient) &#123; &#125;
+        quoteUrl = "https://api.nehsa.net/v1/quotes";
+    
+        <span class="comment">/** 
+            * Posts the contact me form to API
+            * &#64;param &#123;AddUserForm&#125; body - The body to the message
+            * &#64;returns &#123;object&#125; - The response from the API
+        */</span>
+        postAddUser(body: AddUserForm) &#123;
+            return this.http.post&lt;AddUserForm&gt;(this.addUserUrl, body);
+        &#125;
+    
+        <span class="comment">/** Returns a quote */ </span>
+        getQuote() &#123;
+            return this.http.get(this.quoteUrl);
+        &#125;
+    &#125;
+                                                </pre>
+                                        </div>
+                                    </li>
+                                    <li>type (app/types/http.service.ts)
+                                        <div class="code">
+                                            <pre>
+    export class AddUserForm &#123;
+        email: string = "";
+        username: string = "";
+        password: string = "";
+    &#125;
+                                            </pre>
+                                        </div>
+                                    </li>
+                                    <li>Component
+                                        <ul>
+                                            <li>component.ts
+                                                <div class="code">
+                                                    <pre>
+    &#64;Component(&#123;
+        selector: 'app-root',
+        standalone: true,
+        imports: [],
+        providers: [HttpService],
+        templateUrl: './app.component.html',
+        styleUrl: './app.component.scss'
+        &#125;)
+        export class AppComponent &#123;
+        quote = "";
+        constructor(public httpClient: HttpService) &#123; &#125;;
+        
+        ngOnInit() &#123;
+            this.httpClient.getQuote().subscribe(data => &#123;
+            if (data != null && data != "") &#123;
+                this.quote = data.toString();
+            &#125;
+        &#125;);
+    &#125;                                         
+                                                    </pre>
+                                                </div>
+                                            </li>
+                                            <li>component.html
+                                                <div class="code">
+                                                    <pre>
+    &lt;div&gt;&lt;p&gt;&#123; &#123;quote&#125; &#125;&lt;/p&gt;&lt;/div&gt; (<span class="comment">Remove spaces between &#123;&#125;</span>)
+                                                    </pre>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        If you need to send await multiple requests:
+                                        <div class="code">
+                                            <pre>            
+    export class SomeComponent &#123;
+        item1 = "";
+        item2 = "";
+        getQueries: Array&lt;Observable&lt;any&gt;&gt;= new Array&lt;Observable&lt;any&gt;&gt;();
+    
+        constructor(public httpClient: HttpService) &#123;
+        var request1 = this.httpClient.getRequest1();
+        var reqeust2 = this.httpClient.getReqeust2();
+        this.getQueries.push(request1);
+        this.getQueries.push(reqeust2);
+        &#125;;
+    
+        ngOnInit() &#123;
+            forkJoin(this.getQueries).subscribe(next => &#123;
+                if (next == null) &#123;
+                    return;
+                &#125;
+                this.item1 = next[0]
+                this.item2 = next[1];
+            &#125;);
+        &#125;
+    &#125;                                                           
+                                            </pre>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
                         </li>
                     </ul>

@@ -19,7 +19,7 @@ export class ThisWebsiteComponent {
     public httpClient: HttpService) { }
 
   public async testapi() {
-    this.httpClient.getDouglasAdamQuote().subscribe(data => {
+    this.httpClient.getQuote().subscribe(data => {
       if (data != null && data != "") {
         this.testapiCheck = true;
         this.testapiSuccess = true;

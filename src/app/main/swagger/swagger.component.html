@@ -37,12 +37,12 @@
                                     <pre>
     app.MapGet("/api/v1/da", [SwaggerOperation(
         Summary = "Returns a single quote",
-        Description = "A random Douglas Adam quote is returned.  Because.")]
+        Description = "A random quote is returned each time a request is made")]
         [SwaggerResponse(200, "Success")]
         [SwaggerResponse(500, "An error occurred")] () =>
     &#123;
     
-        return JsonSerializer.Serialize&lt;string&gt;(douglasAdamQuotes[Random.Shared.Next(douglasAdamQuotes.Length)]);
+        return JsonSerializer.Serialize&lt;string&gt;(quotes[Random.Shared.Next(quotes.Length)]);
     &#125;)
     .WithName("DouglasAdamQuotes")
     .WithOpenApi();
