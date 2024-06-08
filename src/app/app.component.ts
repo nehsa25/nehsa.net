@@ -12,20 +12,32 @@ import { Observable, forkJoin } from 'rxjs';
 import { UserPopupComponent } from './main/user-popup/user-popup.component';
 import { MatDialog } from '@angular/material/dialog';
 import { NamePersonType } from './types/namepersone.type';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterModule, RouterOutlet, NavbarComponent, CornerListenerComponent, MatIcon, BreadcrumbComponent, BreadcrumbItemDirective, MatButtonModule],
+  imports: [
+    CommonModule, 
+    RouterModule,
+    RouterOutlet,
+    NavbarComponent, 
+    CornerListenerComponent, 
+    MatIcon, 
+    BreadcrumbComponent,
+    BreadcrumbItemDirective, 
+    MatButtonModule, 
+    MatTooltipModule
+  ],
   providers: [HttpService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   quote = "";
-  namePerson:NamePersonType = new NamePersonType();
+  namePerson: NamePersonType = new NamePersonType();
   getQueries: Array<Observable<any>> = new Array<Observable<any>>();
-
+  nameConfirmed = false;
   constructor(
     public httpClient: HttpService,
     public nameDialog: MatDialog
@@ -34,7 +46,7 @@ export class AppComponent {
     var getName = this.httpClient.getName();
     this.getQueries.push(getQuotes);
     this.getQueries.push(getName);
-   };
+  };
 
   ngOnInit() {
     forkJoin(this.getQueries).subscribe(next => {
@@ -55,7 +67,9 @@ export class AppComponent {
       width: '450px',
     });
     dialogRef.componentInstance.emitService.subscribe((val) => {
-      console.log("Return from UserPopupComponent: ", val);
+      if (val) {
+        this.nameConfirmed = true;
+      } 
     });
   }
 

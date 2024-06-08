@@ -36,13 +36,20 @@ export class UserPopupComponent {
   }
 
   // if name is changed, emit the new name
-  //this.emitService.next(this.data.column_data);
+  //
 
   yes() {
-    return "yes";
+    this.emitService.next(true);
+    this.closeDialog();
   }
 
   no() {
-    return "no";
+    this.emitService.next(false);
+    this.closeDialog();
   }
+
+  closeDialog() {
+    this.userDialog.close('Closing!');
+  }
+
 }
