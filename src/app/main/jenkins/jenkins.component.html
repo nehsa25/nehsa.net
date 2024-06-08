@@ -6,213 +6,216 @@
             </mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <div class="topics">
-                <div>
-                    <h3>Docker Installation: (<a
-                            href="https://www.jenkins.io/doc/book/installing/docker/">https://www.jenkins.io/doc/book/installing/docker/</a>)
-                    </h3>
-                    <ul>
-                        <li>Create bridge
-                            <div class="code">docker network create jenkins</div>
-                        </li>
-                        <li>Get Jenkins LTS
-                            <div class="code">docker pull jenkins/jenkins</div>
-                        </li>
-                        <li>Start it
-                            <div class="code">docker run --name jenkins-ci-e2e --restart=on-failure -u root --network jenkins --publish 8080:8080 --publish 50000:50000 --volume jenkins-data:/var/jenkins_home jenkins:2.440.3-1</div>
-                        </li>
-                        <li>Configure Tools
-                            <ul>
-                                <li>Node</li>
-                                <li>Mercurial (~/.hgrc)</li>
-                            </ul>
-                        </li>
-                        <li>Configure more stuff via command-line
-                            <ul>
-                                <li>
-                                    Open shell
-                                    <div class="code">docker exec -it -u root jenkins-ci-e2e /bin/bash</div>
-                                </li>
-                                <li>Apt installations
-                                    <div class="code">
-                                        <pre>
-    apt update
-    apt install mercurial
-    apt install vim
-                                        </pre>
-                                    </div>
-                                </li>
-                                <li>
-                                    Setup SCM
-                                    <ul>
-                                        <li>
-                                            <div class="code">
-                                                <pre>
-    vim ~/.hgrc
-    [ui]
-    username = Jenkins &lt;email to use&gt;
+            <div class="commentgrid">
+                <div class="topics">
+                    <div>
+                        <h3>Docker Installation: (<a
+                                href="https://www.jenkins.io/doc/book/installing/docker/">https://www.jenkins.io/doc/book/installing/docker/</a>)
+                        </h3>
+                        <ul>
+                            <li>Create bridge
+                                <div class="code">docker network create jenkins</div>
+                            </li>
+                            <li>Get Jenkins LTS
+                                <div class="code">docker pull jenkins/jenkins</div>
+                            </li>
+                            <li>Start it
+                                <div class="code">docker run --name jenkins-ci-e2e --restart=on-failure -u root --network jenkins --publish 8080:8080 --publish 50000:50000 --volume jenkins-data:/var/jenkins_home jenkins:2.440.3-1</div>
+                            </li>
+                            <li>Configure Tools
+                                <ul>
+                                    <li>Node</li>
+                                    <li>Mercurial (~/.hgrc)</li>
+                                </ul>
+                            </li>
+                            <li>Configure more stuff via command-line
+                                <ul>
+                                    <li>
+                                        Open shell
+                                        <div class="code">docker exec -it -u root jenkins-ci-e2e /bin/bash</div>
+                                    </li>
+                                    <li>Apt installations
+                                        <div class="code">
+                                            <pre>
+        apt update
+        apt install mercurial
+        apt install vim
+                                            </pre>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        Setup SCM
+                                        <ul>
+                                            <li>
+                                                <div class="code">
+                                                    <pre>
+        vim ~/.hgrc
+        [ui]
+        username = Jenkins &lt;email to use&gt;
+        
+        [auth]
+        lp.prefix = https://&lt;scm path&gt;/Code/INtime/Components/Licman_dotnet452
+        lp.username = &lt;username&gt;
+        lp.password = &lt;password&gt;
+        rt.prefix = https://&lt;scm path&gt;/Code/PlayArea/Jesse/regression_tests
+        rt.username = &lt;username&gt;
+        rt.password = &lt;password&gt;
+        su.prefix = https://&lt;scm path&gt;/Code/INtime/Tests/script_utils
+        su.username = &lt;username&gt;
+        su.password = &lt;password&gt;
+                                                    </pre>
+                                                </div>
+                                            </li>
+                                            <li>Polling is an easy method for checking for changes
+                                                <div class="code">H/5 * * * *</div>
+                                            </li>
+                                        </ul>
+                                    </li>                                
+                                </ul>
+                            </li>
     
-    [auth]
-    lp.prefix = https://&lt;scm path&gt;/Code/INtime/Components/Licman_dotnet452
-    lp.username = &lt;username&gt;
-    lp.password = &lt;password&gt;
-    rt.prefix = https://&lt;scm path&gt;/Code/PlayArea/Jesse/regression_tests
-    rt.username = &lt;username&gt;
-    rt.password = &lt;password&gt;
-    su.prefix = https://&lt;scm path&gt;/Code/INtime/Tests/script_utils
-    su.username = &lt;username&gt;
-    su.password = &lt;password&gt;
-                                                </pre>
-                                            </div>
-                                        </li>
-                                        <li>Polling is an easy method for checking for changes
-                                            <div class="code">H/5 * * * *</div>
-                                        </li>
-                                    </ul>
-                                </li>                                
-                            </ul>
-                        </li>
-
-                        <li>Initial Setup from Root Bash
-                            <div class="code">
-                                docker exec -it -u root jenkins-ci-e2e bash<br>
-                                apt-get install mercurial<br>
-                                apt-get install vim<br>
-                                vim /etc/group<br>
-                                // Add &quot;jenkins&quot; to Jenkins group<br>
-                                http://localhost:5000/restart
-                            </div>
-                        </li>
-                        <li>Access via localhost:8080</li>
-                        <li>Finish configurating in UI</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Continuous Integration Example</h3>
-                    <ul>
-                        <li>Pull down Jenkins Docker Image/Run it</li>
-                        <li>Configure Mercurial (or your SCM)</li>
-                        <li>Configure Node</li>
-                        <li>Cnfigure new Pipeline Job
-                            <pre class="code">
-                                pipeline &#123;
-                                    agent any
-                                    stages &#123;
-                                       stage ('Start') &#123;
-                                            steps &#123;
-                                                echo "Build number is $&#123;currentBuild.number&#125;"
+                            <li>Initial Setup from Root Bash
+                                <div class="code">
+                                    docker exec -it -u root jenkins-ci-e2e bash<br>
+                                    apt-get install mercurial<br>
+                                    apt-get install vim<br>
+                                    vim /etc/group<br>
+                                    // Add &quot;jenkins&quot; to Jenkins group<br>
+                                    http://localhost:5000/restart
+                                </div>
+                            </li>
+                            <li>Access via localhost:8080</li>
+                            <li>Finish configurating in UI</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Continuous Integration Example</h3>
+                        <ul>
+                            <li>Pull down Jenkins Docker Image/Run it</li>
+                            <li>Configure Mercurial (or your SCM)</li>
+                            <li>Configure Node</li>
+                            <li>Cnfigure new Pipeline Job
+                                <pre class="code">
+                                    pipeline &#123;
+                                        agent any
+                                        stages &#123;
+                                           stage ('Start') &#123;
+                                                steps &#123;
+                                                    echo "Build number is $&#123;currentBuild.number&#125;"
+                                                &#125;
                                             &#125;
-                                        &#125;
-                                       stage ('Checkout source (Mercurial)') &#123;
-                                            steps &#123;
-                                                dir('ProjectA')&#123;
-                                                    checkout([$class: 'MercurialSCM', clean: true, credentialsId: '4cbca40f-4ac7-4dd0-9fc8-2461bbe56644', revision: '2024-Sprint3', source: 'scm_path'])
-                                                    script &#123;
-                                                        try &#123;
-                                                            sh 'hg pull'
-                                                            sh 'hg update'
-                                                            sh 'hg merge dev'
-                                                            sh 'hg commit -m "Merged dev -> sprint changes (Jenkins build $BUILD_NUMBER)"'
-                                                        &#125; catch(Exception e) &#123;
-                                                            echo 'Exception occurred: ' + e.toString()
+                                           stage ('Checkout source (Mercurial)') &#123;
+                                                steps &#123;
+                                                    dir('ProjectA')&#123;
+                                                        checkout([$class: 'MercurialSCM', clean: true, credentialsId: '4cbca40f-4ac7-4dd0-9fc8-2461bbe56644', revision: '2024-Sprint3', source: 'scm_path'])
+                                                        script &#123;
+                                                            try &#123;
+                                                                sh 'hg pull'
+                                                                sh 'hg update'
+                                                                sh 'hg merge dev'
+                                                                sh 'hg commit -m "Merged dev -> sprint changes (Jenkins build $BUILD_NUMBER)"'
+                                                            &#125; catch(Exception e) &#123;
+                                                                echo 'Exception occurred: ' + e.toString()
+                                                            &#125;
                                                         &#125;
                                                     &#125;
-                                                &#125;
-                                                dir('regression_tests') &#123;
-                                                    checkout([$class: 'MercurialSCM', clean: true, credentialsId: '4cbca40f-4ac7-4dd0-9fc8-2461bbe56644', source: 'scm_path'])
-                                                &#125;
-                                                dir('script_utils') &#123;
-                                                    checkout([$class: 'MercurialSCM', clean: true, credentialsId: '4cbca40f-4ac7-4dd0-9fc8-2461bbe56644', source: 'scm_path'])
-                                                &#125;
-                                            &#125;
-                                        &#125;
-                                
-                                       stage ('Install Playwright and Support') &#123;
-                                            steps &#123;
-                                                    nodejs(nodeJSInstallationName: 'Node') &#123;
-                                                    sh 'npm install playwright'
-                                                    sh 'npm install &#64;playwright/test'
-                                                    sh 'npm install &#64;angular/cli'
-                                                    sh 'npx playwright install-deps'
-                                                    sh 'npx playwright install'
+                                                    dir('regression_tests') &#123;
+                                                        checkout([$class: 'MercurialSCM', clean: true, credentialsId: '4cbca40f-4ac7-4dd0-9fc8-2461bbe56644', source: 'scm_path'])
+                                                    &#125;
+                                                    dir('script_utils') &#123;
+                                                        checkout([$class: 'MercurialSCM', clean: true, credentialsId: '4cbca40f-4ac7-4dd0-9fc8-2461bbe56644', source: 'scm_path'])
+                                                    &#125;
                                                 &#125;
                                             &#125;
-                                        &#125;
-                                
-                                       stage ('Install License Portal dependancies') &#123;
-                                            steps &#123;
-                                                    nodejs(nodeJSInstallationName: 'Node') &#123;
-                                                        sh 'cd ProjectA/projecta-ng; npm install --legacy-peer-deps'
+                                    
+                                           stage ('Install Playwright and Support') &#123;
+                                                steps &#123;
+                                                        nodejs(nodeJSInstallationName: 'Node') &#123;
+                                                        sh 'npm install playwright'
+                                                        sh 'npm install &#64;playwright/test'
+                                                        sh 'npm install &#64;angular/cli'
+                                                        sh 'npx playwright install-deps'
+                                                        sh 'npx playwright install'
+                                                    &#125;
                                                 &#125;
                                             &#125;
-                                        &#125;
-                                        
-                                       stage ('Install Python and dependancies') &#123;
-                                            steps &#123;
-                                                sh 'apt-get install python3 -y'
-                                                sh 'apt install pipx -y'
-                                                sh 'pipx ensurepath'
-                                                sh 'pipx install pytest'
-                                                sh 'apt install python3-dateutil'
-                                            &#125;
-                                        &#125;
-                                        
-                                       stage ('Install Browser support') &#123;
-                                            steps &#123;
-                                                    nodejs(nodeJSInstallationName: 'Node') &#123;
-                                                    sh 'npx playwright install chrome'
-                                                    sh 'npx playwright install msedge'
+                                    
+                                           stage ('Install License Portal dependancies') &#123;
+                                                steps &#123;
+                                                        nodejs(nodeJSInstallationName: 'Node') &#123;
+                                                            sh 'cd ProjectA/projecta-ng; npm install --legacy-peer-deps'
+                                                    &#125;
                                                 &#125;
                                             &#125;
-                                        &#125;
-                                        
-                                        stage('Execute Playwright (e2e-ui) tests') &#123;
-                                            steps &#123;
-                                                    nodejs(nodeJSInstallationName: 'Node') &#123;
-                                                    sh 'cd ProjectA/projecta-ng; npx playwright test'
+                                            
+                                           stage ('Install Python and dependancies') &#123;
+                                                steps &#123;
+                                                    sh 'apt-get install python3 -y'
+                                                    sh 'apt install pipx -y'
+                                                    sh 'pipx ensurepath'
+                                                    sh 'pipx install pytest'
+                                                    sh 'apt install python3-dateutil'
                                                 &#125;
                                             &#125;
-                                        &#125;
-                                        
-                                        
-                                        stage('Execute Pytest (e2e-api) tests') &#123;
-                                            steps &#123;
-                                                sh 'cd regression_tests; export INTIMECFG=/var/jenkins_home/workspace/Portal\\ CI/; export PYTHONPATH=/var/jenkins_home/workspace/License\\ Portal\\ CI/script_utils/; export INTIME=/var/jenkins_home/workspace/Portal\\ CI/; pytest -m ci'
+                                            
+                                           stage ('Install Browser support') &#123;
+                                                steps &#123;
+                                                        nodejs(nodeJSInstallationName: 'Node') &#123;
+                                                        sh 'npx playwright install chrome'
+                                                        sh 'npx playwright install msedge'
+                                                    &#125;
+                                                &#125;
                                             &#125;
-                                        &#125;
-                                                
-                                        stage('Push') &#123;
-                                            steps &#123;
-                                                dir('ProjectA')&#123;
-                                                    script &#123;
-                                                        try &#123;
-                                                            sh 'hg checkout dev'
-                                                            sh 'hg pull'
-                                                            sh 'hg merge 2024-Sprint3'
-                                                            sh 'hg commit -m "Merged 2024-Sprint3 -> dev (Jenkins build $BUILD_NUMBER)"'
-                                                            sh 'hg push'
-                                                        &#125; catch(Exception e) &#123;
-                                                            echo 'Exception occurred: ' + e.toString()
+                                            
+                                            stage('Execute Playwright (e2e-ui) tests') &#123;
+                                                steps &#123;
+                                                        nodejs(nodeJSInstallationName: 'Node') &#123;
+                                                        sh 'cd ProjectA/projecta-ng; npx playwright test'
+                                                    &#125;
+                                                &#125;
+                                            &#125;
+                                            
+                                            
+                                            stage('Execute Pytest (e2e-api) tests') &#123;
+                                                steps &#123;
+                                                    sh 'cd regression_tests; export INTIMECFG=/var/jenkins_home/workspace/Portal\\ CI/; export PYTHONPATH=/var/jenkins_home/workspace/License\\ Portal\\ CI/script_utils/; export INTIME=/var/jenkins_home/workspace/Portal\\ CI/; pytest -m ci'
+                                                &#125;
+                                            &#125;
+                                                    
+                                            stage('Push') &#123;
+                                                steps &#123;
+                                                    dir('ProjectA')&#123;
+                                                        script &#123;
+                                                            try &#123;
+                                                                sh 'hg checkout dev'
+                                                                sh 'hg pull'
+                                                                sh 'hg merge 2024-Sprint3'
+                                                                sh 'hg commit -m "Merged 2024-Sprint3 -> dev (Jenkins build $BUILD_NUMBER)"'
+                                                                sh 'hg push'
+                                                            &#125; catch(Exception e) &#123;
+                                                                echo 'Exception occurred: ' + e.toString()
+                                                            &#125;
                                                         &#125;
                                                     &#125;
                                                 &#125;
                                             &#125;
                                         &#125;
                                     &#125;
-                                &#125;
-                            </pre>
-
-                        </li>
-  
-                    </ul>
+                                </pre>
+    
+                            </li>
+      
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Other Tibits..</h3>
+                        <dl>
+                            <dt>Restart Jenkins</dt><dd>localhost:8080/restart</dd>
+                            <dt>Restart Jenkins (Nicely - let jobs complete)</dt><dd>localhost:8080/safeRestart</dd>
+                        </dl>>
+                    </div>
                 </div>
-                <div>
-                    <h3>Other Tibits..</h3>
-                    <dl>
-                        <dt>Restart Jenkins</dt><dd>localhost:8080/restart</dd>
-                        <dt>Restart Jenkins (Nicely - let jobs complete)</dt><dd>localhost:8080/safeRestart</dd>
-                    </dl>>
-                </div>
+                <div><app-comment></app-comment></div>
             </div>
         </mat-card-content>
     </mat-card>

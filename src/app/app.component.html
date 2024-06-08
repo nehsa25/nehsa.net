@@ -16,7 +16,7 @@
     <div class="child">
         <div class="signup" *ngIf="namePerson.Name != ''">
             <span matTooltip="{{namePerson.About}}"
-            matTooltipClass="tooltip-long">{{namePerson.Name}}</span> <button *ngIf="!nameConfirmed"mat-button routerLink="/signup">not you?</button></div>
+            matTooltipClass="tooltip-long">{{namePerson.Name}}</span> <button *ngIf="!nameConfirmed"mat-button (click)="getRealName()">not you?</button></div>
     </div>
     <div class="dh child">
         <p>{{quote}}</p>

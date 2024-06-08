@@ -6,138 +6,141 @@
             </mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <div class="topics">
-                <div>
-                    <h3>General</h3>
-                    <ul>
-                        <li>Why C#?<br>C# continues to evolve but the language is very mature and has good community
-                            support</li>
-                        <li>What is the CLR?<br>CLR is the basic and Virtual Machine component of the .NET Framework. It
-                            is the run-time environment in the .NET Framework that runs the codes</li>
-                        <li>What is managed vs. unmanaged code?<br>Code that executes under the control of the runtime
-                            is called managed code. Conversely, code that runs outside the runtime is called unmanaged
-                            code. COM components, ActiveX interfaces, and Windows API functions are examples of
-                            unmanaged code.</li>
-                        <li>What is idempotency in REST?<br>Idempotency /īdem'pōt(ə)nt/ means that sending the same
-                            request multiple
-                            times will produce the same result, without changing the state of the server or the
-                            resource.</li>
-                        <li>What is an interface and how is it used?<br>Interfaces are a good way of specifying a
-                            contract that other people's code must meet. The main point is that interfaces is a layer of
-                            abstraction between code and unnecessary details.</li>
-                        <li>
-                            <h3>Access Modifiers</h3>
-                            All types and type members have an accessibility level. The
-                            accessibility level controls whether they can be used from other code in your assembly
-                            or other assemblies.
-                            <table>
-                                <tr>
-                                    <th>Caller's location</th>
-                                    <th>public</th>
-                                    <th>protected internal</th>
-                                    <th>protected</th>
-                                    <th>internal</th>
-                                    <th>protected private</th>
-                                    <th>private</th>
-                                    <th>file</th>
-                                </tr>
-                                <tr>
-                                    <td>Within the file</td>
-                                    <td><mat-icon>check</mat-icon></td>
-                                    <td><mat-icon>check</mat-icon></td>
-                                    <td><mat-icon>check</mat-icon></td>
-                                    <td><mat-icon>check</mat-icon></td>
-                                    <td><mat-icon>check</mat-icon></td>
-                                    <td><mat-icon>check</mat-icon></td>
-                                    <td><mat-icon>check</mat-icon></td>
-                                </tr>
-                                <tr>
-                                    <td>Within the class</td>
-                                    <td><mat-icon>check</mat-icon></td>
-                                    <td><mat-icon>check</mat-icon></td>
-                                    <td><mat-icon>check</mat-icon></td>
-                                    <td><mat-icon>check</mat-icon></td>
-                                    <td><mat-icon>check</mat-icon></td>
-                                    <td><mat-icon>check</mat-icon></td>
-                                    <td><mat-icon>cancel</mat-icon></td>
-                                </tr>
-                                <tr>
-                                    <td>Derived class (same assembly)</td>
-                                    <td><mat-icon>check</mat-icon></td>
-                                    <td><mat-icon>check</mat-icon></td>
-                                    <td><mat-icon>check</mat-icon></td>
-                                    <td><mat-icon>check</mat-icon></td>
-                                    <td><mat-icon>check</mat-icon></td>
-                                    <td><mat-icon>cancel</mat-icon></td>
-                                    <td><mat-icon>cancel</mat-icon></td>
-                                </tr>
-                                <tr>
-                                    <td>Non-derived class (same assembly)</td>
-                                    <td><mat-icon>check</mat-icon></td>
-                                    <td><mat-icon>check</mat-icon></td>
-                                    <td><mat-icon>cancel</mat-icon></td>
-                                    <td><mat-icon>check</mat-icon></td>
-                                    <td><mat-icon>cancel</mat-icon></td>
-                                    <td><mat-icon>cancel</mat-icon></td>
-                                    <td><mat-icon>cancel</mat-icon></td>
-                                </tr>
-                                <tr>
-                                    <td>Derived class (different assembly)</td>
-                                    <td><mat-icon>check</mat-icon></td>
-                                    <td><mat-icon>check</mat-icon></td>
-                                    <td><mat-icon>check</mat-icon></td>
-                                    <td><mat-icon>cancel</mat-icon></td>
-                                    <td><mat-icon>cancel</mat-icon></td>
-                                    <td><mat-icon>cancel</mat-icon></td>
-                                    <td><mat-icon>cancel</mat-icon></td>
-                                </tr>
-                                <tr>
-                                    <td>Non-derived class (different assembly)</td>
-                                    <td><mat-icon>check</mat-icon></td>
-                                    <td><mat-icon>cancel</mat-icon></td>
-                                    <td><mat-icon>cancel</mat-icon></td>
-                                    <td><mat-icon>cancel</mat-icon></td>
-                                    <td><mat-icon>cancel</mat-icon></td>
-                                    <td><mat-icon>cancel</mat-icon></td>
-                                    <td><mat-icon>cancel</mat-icon></td>
-                                </tr>
-                            </table>
-                            <dl>
-                                <dt>Derived class</dt>
-                                <dd>When using inheritance, the inherited class is called the base class, and the
-                                    inheriting class is called the derived class.</dd>
-                                <dt>assembly</dt>
-                                <dd>An assembly is a .dll or .exe created by compiling one or more .cs
-                                    files in a single compilation.</dd>
-                            </dl>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Entity Framework</h3>
-                    <ul>
-                        <li>
-                            <div>
-                                Eager Vs. Lazy Loading<br><br>
-                                In one-to-many relations that you sure are used every where with main entity. Generally,
-                                use eager loading When relations are not too complex and eager loading will reduce
-                                further queries on server.
-                                When to use lazy loading<br><br>
-                                Almost on every "collection side" of one-to-many relations. like Articles of User or
-                                Products of a Category
-                                You exactly know that you will not need a property instantly.
+            <div class="commentgrid">
+                <div class="topics">
+                    <div>
+                        <h3>General</h3>
+                        <ul>
+                            <li>Why C#?<br>C# continues to evolve but the language is very mature and has good community
+                                support</li>
+                            <li>What is the CLR?<br>CLR is the basic and Virtual Machine component of the .NET Framework. It
+                                is the run-time environment in the .NET Framework that runs the codes</li>
+                            <li>What is managed vs. unmanaged code?<br>Code that executes under the control of the runtime
+                                is called managed code. Conversely, code that runs outside the runtime is called unmanaged
+                                code. COM components, ActiveX interfaces, and Windows API functions are examples of
+                                unmanaged code.</li>
+                            <li>What is idempotency in REST?<br>Idempotency /īdem'pōt(ə)nt/ means that sending the same
+                                request multiple
+                                times will produce the same result, without changing the state of the server or the
+                                resource.</li>
+                            <li>What is an interface and how is it used?<br>Interfaces are a good way of specifying a
+                                contract that other people's code must meet. The main point is that interfaces is a layer of
+                                abstraction between code and unnecessary details.</li>
+                            <li>
+                                <h3>Access Modifiers</h3>
+                                All types and type members have an accessibility level. The
+                                accessibility level controls whether they can be used from other code in your assembly
+                                or other assemblies.
+                                <table>
+                                    <tr>
+                                        <th>Caller's location</th>
+                                        <th>public</th>
+                                        <th>protected internal</th>
+                                        <th>protected</th>
+                                        <th>internal</th>
+                                        <th>protected private</th>
+                                        <th>private</th>
+                                        <th>file</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Within the file</td>
+                                        <td><mat-icon>check</mat-icon></td>
+                                        <td><mat-icon>check</mat-icon></td>
+                                        <td><mat-icon>check</mat-icon></td>
+                                        <td><mat-icon>check</mat-icon></td>
+                                        <td><mat-icon>check</mat-icon></td>
+                                        <td><mat-icon>check</mat-icon></td>
+                                        <td><mat-icon>check</mat-icon></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Within the class</td>
+                                        <td><mat-icon>check</mat-icon></td>
+                                        <td><mat-icon>check</mat-icon></td>
+                                        <td><mat-icon>check</mat-icon></td>
+                                        <td><mat-icon>check</mat-icon></td>
+                                        <td><mat-icon>check</mat-icon></td>
+                                        <td><mat-icon>check</mat-icon></td>
+                                        <td><mat-icon>cancel</mat-icon></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Derived class (same assembly)</td>
+                                        <td><mat-icon>check</mat-icon></td>
+                                        <td><mat-icon>check</mat-icon></td>
+                                        <td><mat-icon>check</mat-icon></td>
+                                        <td><mat-icon>check</mat-icon></td>
+                                        <td><mat-icon>check</mat-icon></td>
+                                        <td><mat-icon>cancel</mat-icon></td>
+                                        <td><mat-icon>cancel</mat-icon></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Non-derived class (same assembly)</td>
+                                        <td><mat-icon>check</mat-icon></td>
+                                        <td><mat-icon>check</mat-icon></td>
+                                        <td><mat-icon>cancel</mat-icon></td>
+                                        <td><mat-icon>check</mat-icon></td>
+                                        <td><mat-icon>cancel</mat-icon></td>
+                                        <td><mat-icon>cancel</mat-icon></td>
+                                        <td><mat-icon>cancel</mat-icon></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Derived class (different assembly)</td>
+                                        <td><mat-icon>check</mat-icon></td>
+                                        <td><mat-icon>check</mat-icon></td>
+                                        <td><mat-icon>check</mat-icon></td>
+                                        <td><mat-icon>cancel</mat-icon></td>
+                                        <td><mat-icon>cancel</mat-icon></td>
+                                        <td><mat-icon>cancel</mat-icon></td>
+                                        <td><mat-icon>cancel</mat-icon></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Non-derived class (different assembly)</td>
+                                        <td><mat-icon>check</mat-icon></td>
+                                        <td><mat-icon>cancel</mat-icon></td>
+                                        <td><mat-icon>cancel</mat-icon></td>
+                                        <td><mat-icon>cancel</mat-icon></td>
+                                        <td><mat-icon>cancel</mat-icon></td>
+                                        <td><mat-icon>cancel</mat-icon></td>
+                                        <td><mat-icon>cancel</mat-icon></td>
+                                    </tr>
+                                </table>
                                 <dl>
-                                    <dt>One-to-one relationships</dt>
-                                    <dd>one record in one table with a single record in the other table.</dd>
-                                    <dt>One-to-many</dt>
-                                    <dd>A bidirectional relationship (can) exists. TableA may have a foreign key into
-                                        tableB, and tableB may have a foreign key into the associated record in tableA.
-                                    </dd>
+                                    <dt>Derived class</dt>
+                                    <dd>When using inheritance, the inherited class is called the base class, and the
+                                        inheriting class is called the derived class.</dd>
+                                    <dt>assembly</dt>
+                                    <dd>An assembly is a .dll or .exe created by compiling one or more .cs
+                                        files in a single compilation.</dd>
                                 </dl>
-                            </div>
-                        </li>
-                    </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Entity Framework</h3>
+                        <ul>
+                            <li>
+                                <div>
+                                    Eager Vs. Lazy Loading<br><br>
+                                    In one-to-many relations that you sure are used every where with main entity. Generally,
+                                    use eager loading When relations are not too complex and eager loading will reduce
+                                    further queries on server.
+                                    When to use lazy loading<br><br>
+                                    Almost on every "collection side" of one-to-many relations. like Articles of User or
+                                    Products of a Category
+                                    You exactly know that you will not need a property instantly.
+                                    <dl>
+                                        <dt>One-to-one relationships</dt>
+                                        <dd>one record in one table with a single record in the other table.</dd>
+                                        <dt>One-to-many</dt>
+                                        <dd>A bidirectional relationship (can) exists. TableA may have a foreign key into
+                                            tableB, and tableB may have a foreign key into the associated record in tableA.
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+                <div><app-comment></app-comment></div>
             </div>
         </mat-card-content>
     </mat-card>

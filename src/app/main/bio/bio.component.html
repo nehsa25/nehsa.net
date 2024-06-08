@@ -6,37 +6,43 @@
             </mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <div class="bodybiogrid">
-                <div class="biowrapper" style="max-width: 800px">
-                    <div class="bio">
-                        <img class="mainimg" mat-card-image src="assets/images/me.png"
-                            alt="Photo of a Jesse Stone and dog Roswaal (Roz)" /><br>
-                        "Never done learning" sums me up best. I am a firm believer that education should never end and
-                        I am
-                        always eager to educate myself and hone my
-                        ability to
-                        manage, develop, and test high quality code.<br><br>
-                        Current areas of focus: 
-                        <ul class="condensed">
-                            <li>TypeScript</li>
-                            <li>Highly resiliant cloud deployment with geographically diverse UIs</li>
-                            <li>Docker, containerization, working within containers</li>
-                            <li>CI/CD w/integrated E2E testing using Playwright & Pytest</li>
-                        </ul><br>This silly website is used for just that. To the left are interesting
-                        technologies I've worked with..  
-                        <br><br>I'm a student again! I'm enrolled at <a href="https://oregonstate.edu/">OSU</a> pursuing
-                        a B.S. in Computer Science!  Never too late, aye? Plus, what's the best way stay up-to-date than
-                        a modern education!
-                        <br><br>More about me here: <a target="_blank" mat-button
-                            href="https://www.linkedin.com/in/jessestone/">LinkedIn Profile</a>
-                        <br><br>
-                        <span (mouseover)="doghover=true" (mouseout)="doghover=false">Also, I have the bestest dog
-                            Roz.</span>
+            <div class="commentgrid">
+                <div class="bodybiogrid">
+                    <div class="biowrapper" style="max-width: 800px">
+                        <div class="bio">
+                            <img class="mainimg" mat-card-image src="assets/images/me.png"
+                                alt="Photo of a Jesse Stone and dog Roswaal (Roz)" /><br>
+                            "Never done learning" sums me up best. I am a firm believer that education should never end
+                            and
+                            I am
+                            always eager to educate myself and hone my
+                            ability to
+                            manage, develop, and test high quality code.<br><br>
+                            Current areas of focus:
+                            <ul class="condensed">
+                                <li>TypeScript</li>
+                                <li>Highly resiliant cloud deployment with geographically diverse UIs</li>
+                                <li>Docker, containerization, working within containers</li>
+                                <li>CI/CD w/integrated E2E testing using Playwright & Pytest</li>
+                            </ul><br>This silly website is used for just that. To the left are interesting
+                            technologies I've worked with..
+                            <br><br>I'm a student again! I'm enrolled at <a href="https://oregonstate.edu/">OSU</a>
+                            pursuing
+                            a B.S. in Computer Science! Never too late, aye? Plus, what's the best way stay up-to-date
+                            than
+                            a modern education!
+                            <br><br>More about me here: <a target="_blank" mat-button
+                                href="https://www.linkedin.com/in/jessestone/">LinkedIn Profile</a>
+                            <br><br>
+                            <span (mouseover)="doghover=true" (mouseout)="doghover=false">Also, I have the bestest dog
+                                Roz.</span>
+                        </div>
+                    </div>
+                    <div *ngIf="this.doghover">
+                        <span class="funarrow"><mat-icon>arrow_back</mat-icon>This guy</span>
                     </div>
                 </div>
-                <div *ngIf="this.doghover">
-                    <span class="funarrow"><mat-icon>arrow_back</mat-icon>This guy</span>
-                </div>
+                <div><app-comment></app-comment></div>
             </div>
         </mat-card-content>
     </mat-card>

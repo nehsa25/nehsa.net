@@ -6,42 +6,47 @@
             </mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <div class="topics">Design/technolegies of this website
-                <div>
+            <div class="commentgrid">
+                <div class="topics">
+                    Design/technolegies of this website
                     <div>
-                        <h3>Deployment</h3>
+                        <div>
+                            <h3>Deployment</h3>
+                            <ul>
+                                <li>UI: Container deployed via Google Cloud Run</li>
+                                <li>API: Container hosted locally (api.nehsa.net)</li>
+                            </ul>
+                        </div>
+                        <h3>UI</h3>
                         <ul>
-                            <li>UI: Container deployed via Google Cloud Run</li>
-                            <li>API: Container hosted locally (api.nehsa.net)</li>
+                            <li>Angular</li>
+                            <li>Material</li>
+                            <li><a href="https://hub.docker.com/repository/docker/nehsa/nehsanet/">Docker container</a></li>
+                            <li><a href="https://nodejs.org/en">Node.js</a> / <a href="https://expressjs.com/">Express</a>
+                            </li>
+                            <li>Testing: Playwright</li>
                         </ul>
                     </div>
-                    <h3>UI</h3>
-                    <ul>
-                        <li>Angular</li>
-                        <li>Material</li>
-                        <li><a href="https://hub.docker.com/repository/docker/nehsa/nehsanet/">Docker container</a></li>
-                        <li><a href="https://nodejs.org/en">Node.js</a> / <a href="https://expressjs.com/">Express</a>
-                        </li>
-                        <li>Testing: Playwright</li>
-                    </ul>
+                    <div>
+                        <h3>API <button mat-raised-button color="accent" (click)="testapi()">Test</button>&nbsp;
+                            <mat-icon *ngIf="testapiCheck == true && testapiSuccess == true"
+                                style="color: green; font-weight: bolder;">check</mat-icon>
+                            <mat-icon *ngIf="testapiCheck == true && testapiSuccess == false"
+                                style="color: red; font-weight: bolder;">error</mat-icon>
+                        </h3>
+                        <ul>
+                            <li>.NET Core 8.0</li>
+                            <li>webapi</li>
+                            <li>Testing: Pytest</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>DATABASE - None</h3>
+                    </div>
                 </div>
-                <div>
-                    <h3>API <button mat-raised-button color="accent" (click)="testapi()">Test</button>&nbsp;
-                        <mat-icon *ngIf="testapiCheck == true && testapiSuccess == true"
-                            style="color: green; font-weight: bolder;">check</mat-icon>
-                        <mat-icon *ngIf="testapiCheck == true && testapiSuccess == false"
-                            style="color: red; font-weight: bolder;">error</mat-icon>
-                    </h3>
-                    <ul>
-                        <li>.NET Core 8.0</li>
-                        <li>webapi</li>
-                        <li>Testing: Pytest</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>DATABASE - None</h3>
-                </div>
+                <div><app-comment></app-comment></div>
             </div>
+
         </mat-card-content>
     </mat-card>
 </div>

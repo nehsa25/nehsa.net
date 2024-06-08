@@ -9,65 +9,68 @@
             </mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
-            <div class="topics">
-                <pre>
-                    def get_file_version(path, file)
-                        ENV['show_ps_profile'] = 'false'
-                        full_path = File.join(path, file)        
-                        cmd = "powershell.exe -Command \"get_file_version -file '#&#123;full_path&#x2775;'\""
-                        stdout = shell_out("#&#123;cmd&#x2775;").stdout
-                        if stdout == "" || stdout == nil
-                            stdout = "N/A"
+            <div class="commentgrid">
+                <div class="topics">
+                    <pre>
+                        def get_file_version(path, file)
+                            ENV['show_ps_profile'] = 'false'
+                            full_path = File.join(path, file)        
+                            cmd = "powershell.exe -Command \"get_file_version -file '#&#123;full_path&#x2775;'\""
+                            stdout = shell_out("#&#123;cmd&#x2775;").stdout
+                            if stdout == "" || stdout == nil
+                                stdout = "N/A"
+                            end
+                            stdout = stdout.chomp
+                            Ohai::Log.info("#&#123;full_path&#x2775;: #&#123;stdout.chomp&#x2775;")
+                            return stdout
                         end
-                        stdout = stdout.chomp
-                        Ohai::Log.info("#&#123;full_path&#x2775;: #&#123;stdout.chomp&#x2775;")
-                        return stdout
-                    end
-                
-                    def get_dll_versions()
-                        require "Win32API"
-                
-                        driver_versions = []
-                        begin
-                            Ohai::Log.info("Getting TEST file version information...")
-                            TEST_bin_paths = ["#&#123;ENV['TEST']&#x2775;\\bin", "#&#123;ENV['TEST']&#x2775;\\network7"]
-                            extensions = ['*.dll', '*.rta', '*.rsl', '*.exe']
-                            TEST_bin_paths.each do | current_path |
-                                extensions.each do | extension |
-                                    Ohai::Log.info("Checking #&#123;current_path&#x2775; for #&#123;extension&#x2775;...")
-                                    files = ::Dir.glob(extension, base:current_path)
-                                    Ohai::Log.info("Number of files to process: #&#123;files.length&#x2775;")
-                                    files.each do | file |
-                                        file_ver = get_file_version(current_path, file)                
-                                        driver_versions << &#123; :filename => file.strip, :version => file_ver.strip, :location => current_path.strip&#x2775;                
+                    
+                        def get_dll_versions()
+                            require "Win32API"
+                    
+                            driver_versions = []
+                            begin
+                                Ohai::Log.info("Getting TEST file version information...")
+                                TEST_bin_paths = ["#&#123;ENV['TEST']&#x2775;\\bin", "#&#123;ENV['TEST']&#x2775;\\network7"]
+                                extensions = ['*.dll', '*.rta', '*.rsl', '*.exe']
+                                TEST_bin_paths.each do | current_path |
+                                    extensions.each do | extension |
+                                        Ohai::Log.info("Checking #&#123;current_path&#x2775; for #&#123;extension&#x2775;...")
+                                        files = ::Dir.glob(extension, base:current_path)
+                                        Ohai::Log.info("Number of files to process: #&#123;files.length&#x2775;")
+                                        files.each do | file |
+                                            file_ver = get_file_version(current_path, file)                
+                                            driver_versions << &#123; :filename => file.strip, :version => file_ver.strip, :location => current_path.strip&#x2775;                
+                                        end
                                     end
                                 end
+                            rescue StandardError => e
+                                Ohai::Log.warn("A problem occurred getting TEST dll version information: #&#123;e.message&#x2775;")
                             end
-                        rescue StandardError => e
-                            Ohai::Log.warn("A problem occurred getting TEST dll version information: #&#123;e.message&#x2775;")
+                            return driver_versions
                         end
-                        return driver_versions
-                    end
-                
-                    collect_data(:windows) do   
-                        begin
-                            Ohai::Log.info("Running file_ohai.rb...")
-                            
-                            TEST_file Mash.new
-                            if is_TEST_installed?() == true
-                                Ohai::Log.info("TEST is installed, getting file version information")
-                                TEST_file[:dll_versions] = get_TEST_dll_versions()
-                            else
-                                Ohai::Log.info("TEST is not installed.  Skipping file version capture")
-                                TEST_file[:dll_versions] = []
+                    
+                        collect_data(:windows) do   
+                            begin
+                                Ohai::Log.info("Running file_ohai.rb...")
+                                
+                                TEST_file Mash.new
+                                if is_TEST_installed?() == true
+                                    Ohai::Log.info("TEST is installed, getting file version information")
+                                    TEST_file[:dll_versions] = get_TEST_dll_versions()
+                                else
+                                    Ohai::Log.info("TEST is not installed.  Skipping file version capture")
+                                    TEST_file[:dll_versions] = []
+                                end
+                            rescue StandardError => e
+                                Ohai::Log.warn("A problem occurred collecting data for file_ohai.rb: #&#123;e.message&#x2775;")
                             end
-                        rescue StandardError => e
-                            Ohai::Log.warn("A problem occurred collecting data for file_ohai.rb: #&#123;e.message&#x2775;")
                         end
                     end
-                end
-                
-                </pre>
+                    
+                    </pre>
+                </div>
+                <div><app-comment></app-comment></div>
             </div>
         </mat-card-content>
     </mat-card>

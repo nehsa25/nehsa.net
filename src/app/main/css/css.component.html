@@ -6,55 +6,58 @@
             </mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <div class="topics">
-                <div>
-                    <h3>Things to remember..</h3>
-                    <ul>
-                        <li>Multiple classes can be specified via comma:
-                            <div class="code">
-                                <pre>
-    h1, h2, h3, h4, h5, h6 &#123;
-        color: plum;
-    &#125;
-                                </pre>                                
-                            </div>
-                        </li>
-                        <li>Hierarchy can be indicated using (&gt;):
-                            <div class="code">
-                                <pre>
-    <div>CSS:
-    div &#123;
-        background-color: teal;
-    &#125;
-    .blah>div &#123;
-        background-color: salmon;
-    &#125;
-                                    </div>
-                                    <div>HTML:
-    &lt;div class=&quot;blah&quot;&gt;
-        &lt;div&gt;I'm Salmon!&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div&gt;I'm Teal!&lt;/div&gt;
-                                    </div>
-                                </pre>   
-                                <div class="example">Example:
-                                    <div class="blah">
-                                        <div>I'm Salmon!</div>
-                                    </div>
-                                    <div>I'm Teal!</div>
-                                </div>                             
-                            </div>
-                        </li>
-                    </ul>
+            <div class="commentgrid">
+                <div class="topics">
+                    <div>
+                        <h3>Things to remember..</h3>
+                        <ul>
+                            <li>Multiple classes can be specified via comma:
+                                <div class="code">
+                                    <pre>
+        h1, h2, h3, h4, h5, h6 &#123;
+            color: plum;
+        &#125;
+                                    </pre>                                
+                                </div>
+                            </li>
+                            <li>Hierarchy can be indicated using (&gt;):
+                                <div class="code">
+                                    <pre>
+        <div>CSS:
+        div &#123;
+            background-color: teal;
+        &#125;
+        .blah>div &#123;
+            background-color: salmon;
+        &#125;
+                                        </div>
+                                        <div>HTML:
+        &lt;div class=&quot;blah&quot;&gt;
+            &lt;div&gt;I'm Salmon!&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div&gt;I'm Teal!&lt;/div&gt;
+                                        </div>
+                                    </pre>   
+                                    <div class="example">Example:
+                                        <div class="blah">
+                                            <div>I'm Salmon!</div>
+                                        </div>
+                                        <div>I'm Teal!</div>
+                                    </div>                             
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Important Paths</h3>
+                        <ul>
+                            <li><span class="code">C:\Users\&lt;you&gt;\.chef</span> - Contains configuration (knife.rb, pem
+                                files, trusted certs)</li>
+                            <li><span class="code">C:\Chef</span> - Chef-client configuration and logs</li>
+                        </ul>
+                    </div>
                 </div>
-                <div>
-                    <h3>Important Paths</h3>
-                    <ul>
-                        <li><span class="code">C:\Users\&lt;you&gt;\.chef</span> - Contains configuration (knife.rb, pem
-                            files, trusted certs)</li>
-                        <li><span class="code">C:\Chef</span> - Chef-client configuration and logs</li>
-                    </ul>
-                </div>
+                <div><app-comment></app-comment></div>
             </div>
         </mat-card-content>
     </mat-card>

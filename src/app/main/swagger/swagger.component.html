@@ -6,52 +6,55 @@
             </mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <div class="topics">
-                <div class="grid">
-                    <div>
-                        <h3>Swagger Documentation for this website (OpenApi 3.0)</h3>
+            <div class="commentgrid">
+                <div class="topics">
+                    <div class="grid">
                         <div>
-                            <iframe src="https://api.nehsa.net/swagger" title="OpenAPI Documenation"></iframe>
+                            <h3>Swagger Documentation for this website (OpenApi 3.0)</h3>
+                            <div>
+                                <iframe src="https://api.nehsa.net/swagger" title="OpenAPI Documenation"></iframe>
+                            </div>
+                        </div>
+                        <div>
+                            <h3>Useful Tips</h3>
+                            <ul>
+                                <li>
+                                    <h4>Auto-generation in Kestrel</h4>
+                                    <div class="code">
+                                        <pre>     
+        var builder = WebApplication.CreateBuilder(args);
+        builder.Services.AddEndpointsApiExplorer();
+        builder.Services.AddSwaggerGen();    
+        var app = builder.Build();
+        app.UseSwagger();
+        app.UseSwaggerUI();
+                                        </pre>                                    
+                                    </div>
+                                </li>
+                                <li>
+     <h4>Install the Swashbuckle.AspNetCore.Annotations package<br><div class="code">dotnet add package Swashbuckle.AspNetCore.Annotations</div></h4>
+     For annotated as such:
+                                    <div class="code">
+                                        <pre>
+        app.MapGet("/api/v1/da", [SwaggerOperation(
+            Summary = "Returns a single quote",
+            Description = "A random quote is returned each time a request is made")]
+            [SwaggerResponse(200, "Success")]
+            [SwaggerResponse(500, "An error occurred")] () =>
+        &#123;
+        
+            return JsonSerializer.Serialize&lt;string&gt;(quotes[Random.Shared.Next(quotes.Length)]);
+        &#125;)
+        .WithName("DouglasAdamQuotes")
+        .WithOpenApi();
+                                    </pre>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    <div>
-                        <h3>Useful Tips</h3>
-                        <ul>
-                            <li>
-                                <h4>Auto-generation in Kestrel</h4>
-                                <div class="code">
-                                    <pre>     
-    var builder = WebApplication.CreateBuilder(args);
-    builder.Services.AddEndpointsApiExplorer();
-    builder.Services.AddSwaggerGen();    
-    var app = builder.Build();
-    app.UseSwagger();
-    app.UseSwaggerUI();
-                                    </pre>                                    
-                                </div>
-                            </li>
-                            <li>
- <h4>Install the Swashbuckle.AspNetCore.Annotations package<br><div class="code">dotnet add package Swashbuckle.AspNetCore.Annotations</div></h4>
- For annotated as such:
-                                <div class="code">
-                                    <pre>
-    app.MapGet("/api/v1/da", [SwaggerOperation(
-        Summary = "Returns a single quote",
-        Description = "A random quote is returned each time a request is made")]
-        [SwaggerResponse(200, "Success")]
-        [SwaggerResponse(500, "An error occurred")] () =>
-    &#123;
-    
-        return JsonSerializer.Serialize&lt;string&gt;(quotes[Random.Shared.Next(quotes.Length)]);
-    &#125;)
-    .WithName("DouglasAdamQuotes")
-    .WithOpenApi();
-                                </pre>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
+                <div><app-comment></app-comment></div>
             </div>
         </mat-card-content>
     </mat-card>

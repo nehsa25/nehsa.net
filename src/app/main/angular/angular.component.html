@@ -6,428 +6,431 @@
             </mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <div class="topics">
+            <div class="commentgrid">
                 <div class="topics">
-                    <div>
-                        <h3>Form Validation</h3>
-                        <ul class="condensed">
-                            <li>
-                                <h4>Example form element:</h4>
-                                <div class="code">&lt;input type="email" id="email" name="email"
-                                    [formControl]="emailControl"&gt;</div>
-                            <li>
-                                <h4>Within TypeScript:</h4>
-                                <div class="code">
-                                    <pre>
-    export class SignupComponent &#123;
-        userDetails: FormGroup;
-        emailControl = new FormControl('');
-        constructor(
-            private fb: FormBuilder) &#123;
-                this.userDetails = this.fb.group(&#123;
-                email: this.emailControl,
-                passwordmatch: this.passwordmatchControl
-            &#125;);
-        &#125;
-        
-        ngOnInit() &#123;
-            <span class="comment">// Add validators</span>
-            this.emailControl.addValidators([Validators.required, Validators.email]);
-            this.usernameControl.addValidators([Validators.required, Validators.minLength(4)]);
-            this.passwordControl.addValidators([Validators.required, Validators.pattern(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[&#64;$!%*#?&^_-]).&#123;8,&#125;/)]);
-            this.passwordmatchControl.addValidators([Validators.required, this.checkPassword()]);
-        &#125;
-
-        <span class="comment">// custom validator function</span>
-        checkPassword() &#123;
-            return (control: AbstractControl): ValidationErrors | null => &#123;
-                const passwordInput = this.passwordControl.value
-                const passwordMatchInput = this.passwordmatchControl.value
-                if (passwordInput !== passwordMatchInput) &#123;
-                    this.passwordmatchControl.setErrors(&#123; notEquivalent: true &#125;);
-                    return this.passwordmatchControl.errors;        
-                &#125; else &#123;
-                    this.passwordmatchControl.setErrors(null);
-                    return null;
-                &#125;
-            &#125;
-        &#125;
-
-        submitForm(): void &#123;
-            if (this.userDetails.invalid) return;        
-            <span class="comment">// form is valid, we can proceed!</span>
-        &#125;
-    &#125;
-                                        </pre>
-                                </div>
-                            </li>
-                            <li>Add submit button<br>
-                                <div class="code">
-                                    &lt;button (click)="submitForm()"
-                                    [disabled]="this.userDetails.invalid"&gt;Submit&lt;/button&gt;
-                                </div>
-                            </li>
-                        </ul>
+                    <div class="topics">
                         <div>
-                            <h4>Example</h4>
-                            <img src="assets/images/signup.png" alt="Form Validation" />
-                        </div>
-                    </div>
-                    <div>
-                        <h3>Control which CSS classes are applied via TypeScript</h3>
-                        <ul>
-                            <li>HTML
-                                <div class="code">
-                                    <pre>
-    &lt;div [class.bgblue]="showBlueBg" [class.main]="!showBlueBg"&gt;Yippee!&lt;/div&gt;
-    </pre>
-                                </div>
-                            </li>
-                            <li>CSS
-                                <div class="code">
-                                    <pre>
-    .bgblue &#123;
-        background-color: blue;
-    &#125;
-    
-    .main &#123;
-        background-color: var(--theme-splash-backround-color);
-    &#125;                                        
-    </pre>
-                                </div>
-                            </li>
-                            <li>TypeScript
-                                <div class="code">
-                                    <pre>
-    public showBlueBg: boolean = false;
-    </pre>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>Table select-columns feature: Alter visiblity, stick/freeze columns, change order</h3>
-                        <ul>
-                            <li>Todo: Add the example of where I did this!
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>Listen for child events</h3>
-                        <ul>
-                            <li>Add a type for the event transmission (e.g. SplashMessage in a new file
-                                splash-message.ts)
-                                <div class="code">
-                                    <pre>
-    export class SplashMessage &#123;
-        showSplash: boolean = false;
-        duration: number = 8;
-    &#125;
-                                    </pre>
-                                </div>
-                            </li>
-                            <li>Add a service called splash.service.ts
-                                <div class="code">
-                                    <pre>
-    import &#123; Injectable &#125; from '&#64;angular/core';
-    import &#123; Observable, Subject &#125; from 'rxjs';
-    import &#123; SplashMessage &#125; from '../types/splash-message';
-
-    &#64;Injectable()
-    export class SplashService &#123;
-        private showSplash:Subject&lt;SplashMessage&gt; = new Subject&lt;SplashMessage&gt;();
-        private msg = new SplashMessage();
-
-        public show(duration:number) &#123;        
-            this.msg.showSplash = true;
-            this.msg.duration = duration;
-            this.showSplash.next(this.msg);
-        &#125;
-
-        public hide() &#123;
-            this.msg.showSplash = false;
-            this.showSplash.next(this.msg);
-        &#125;
-
-        public observe():Observable&lt;SplashMessage&gt; &#123;
-            return this.showSplash.asObservable();
-        &#125;
-    &#125;
-                                    </pre>
-                                </div>
-                            </li>
-                            <li>Add event observer for service to child component
-                                <div class="code">
-                                    <pre>
-    constructor(
-        private splash: SplashService) &#123; &#125;
-    
-        ngOnInit(): void &#123;
-        this.splash.observe().subscribe((d) => &#123;
-            this.showSplash = d.showSplash;
-            let duration: number = d.duration;
-            this.showhide(duration);
-        &#125;);
-    &#125;
-                                    </pre>
-                                </div>
-                            </li>
-                            <li>Use it somewhere:
-                                <div class="code">
-                                    <pre>
-    &#64;&lt;app-splash *ngIf="showSplash"&gt;&lt;/app-splash&gt;
-                                    </pre>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>Implement a reCAPTCHA Checkbox</h3>
-                        <ul>
-                            <li>Sign up for a Recapcha account at https://www.google.com/recaptcha/about/</li>
-                            <li>Create new project
-                                <ul>
-                                    <li>Check the "Use a checkbox" option</li>
-                                    <li>Save your key information</li>
-                                </ul>
-                            </li>
-                            <li>Install reCAPTCHA packages
-                                <div class="code">npm i ng-recaptcha --save</div>
-                            </li>
-                            <li>Add resolved function in your component:
-                                <div class="code">
-                                    <pre>
-    resolved(captchaResponse: string | null) &#123;
-        if (captchaResponse != null) &#123;
-            this.captcha = captchaResponse;
-            console.log(`Resolved captcha with response: $&#123;this.captcha&#125;`);
-        &#125;
-    &#125;
-                            </pre>
-                                </div>
-                            </li>
-                            <li>
-                                Add reCAPTCHA to your component form:
-                                <div class="code">
-                                    <pre>
-    &lt;div [hidden]="captcha"&gt;
-        &lt;p&gt;Confirm you're human please!&lt;/p&gt;
-            &lt;re-captcha (resolved)="resolved($event)" siteKey="&lt;YOURKEY&gt;"&gt;&lt;/re-captcha&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;button type="submit" *ngIf="captcha" mat-flat-button&gt;Submit&lt;/button&gt;
-                            </pre>
-                                </div>
-                            </li>
-                        </ul>
-                        <div>
-                            <h3>If all went well:</h3>
-                            <img src="assets/images/recaptcha.png" alt="reCAPTCHA" />
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <h3>Tips!</h3>
-                    <ul>
-                        <li>() = Do something on an event. e.g. (click)="clickfunc()"</li>
-                        <li>[] = Right-hand side of the assignment is a dynamic expression.</li>
-                        <li>[ngModel]="variable" - Associate with a variable</li>
-                        <li>&lt;curlybrace&gt;&lt;curlybrace&gt;variable&lt;curlybrace&gt;&lt;curlybrace&gt; -
-                            Interpolation</li>
-                        <li>[attr.data-testid]="'edit-frozen-' + i" - Embed a "data-testid" attribute in element after
-                            build</li>
-                        <li>Error: "Can't bind to 'ngModel' since it isn't a known property of 'input'": Import
-                            FormsModule</li>
-                        <li>
-                            <h3>Form stuff:</h3>
-                            <div>
-                                <h3>Selections</h3>
-                                <ul>
-                                    <li>HTML
-                                        <div class="code">
-                                            <pre>
-    &lt;mat-select 
-        value="permanent" 
-        [(ngModel)]="databaseTable"&gt; <span class="comment">// variable with value in ts</span>
-        &lt;mat-option value="permanent"&gt;Standard Licenses&lt;/mat-option&gt;
-        &lt;mat-option value="temp"&gt;Temporary Licenses&lt;/mat-option&gt;
-    &lt;/mat-select&gt;
-                                                </pre>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="code">databaseTable: any = null;</div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <h3>Sending/Receiving HTTP Data</h3>
-                            <div>
-                                I typically structure my projects like this:
-                                <ul>
-                                    <li>HTTP Service (app/services/http.service.ts)
-                                        <div class="code">
-                                            <span class="comment">/** Returns the quote */</span>
-                                            <pre>
-    &#64;Injectable()
-    export class HttpService &#123;
-        httpOptions = &#123;
-            headers: new HttpHeaders(&#123;
-                'Content-Type': 'application/json'
-            &#125;)
-        &#125;;
-        constructor(private http: HttpClient) &#123; &#125;
-        quoteUrl = "https://api.nehsa.net/v1/quotes";
-    
-        <span class="comment">/** 
-            * Posts the contact me form to API
-            * &#64;param &#123;AddUserForm&#125; body - The body to the message
-            * &#64;returns &#123;object&#125; - The response from the API
-        */</span>
-        postAddUser(body: AddUserForm) &#123;
-            return this.http.post&lt;AddUserForm&gt;(this.addUserUrl, body);
-        &#125;
-    
-        <span class="comment">/** Returns a quote */ </span>
-        getQuote() &#123;
-            return this.http.get(this.quoteUrl);
-        &#125;
-    &#125;
-                                                </pre>
-                                        </div>
-                                    </li>
-                                    <li>type (app/types/http.service.ts)
-                                        <div class="code">
-                                            <pre>
-    export class AddUserForm &#123;
-        email: string = "";
-        username: string = "";
-        password: string = "";
-    &#125;
-                                            </pre>
-                                        </div>
-                                    </li>
-                                    <li>Component
-                                        <ul>
-                                            <li>component.ts
-                                                <div class="code">
-                                                    <pre>
-    &#64;Component(&#123;
-        selector: 'app-root',
-        standalone: true,
-        imports: [],
-        providers: [HttpService],
-        templateUrl: './app.component.html',
-        styleUrl: './app.component.scss'
-        &#125;)
-        export class AppComponent &#123;
-        quote = "";
-        constructor(public httpClient: HttpService) &#123; &#125;;
-        
-        ngOnInit() &#123;
-            this.httpClient.getQuote().subscribe(data => &#123;
-            if (data != null && data != "") &#123;
-                this.quote = data.toString();
-            &#125;
-        &#125;);
-    &#125;                                         
-                                                    </pre>
-                                                </div>
-                                            </li>
-                                            <li>component.html
-                                                <div class="code">
-                                                    <pre>
-    &lt;div&gt;&lt;p&gt;&#123; &#123;quote&#125; &#125;&lt;/p&gt;&lt;/div&gt; (<span class="comment">Remove spaces between &#123;&#125;</span>)
-                                                    </pre>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        If you need to send await multiple requests:
-                                        <div class="code">
-                                            <pre>            
-    export class SomeComponent &#123;
-        item1 = "";
-        item2 = "";
-        getQueries: Array&lt;Observable&lt;any&gt;&gt;= new Array&lt;Observable&lt;any&gt;&gt;();
-    
-        constructor(public httpClient: HttpService) &#123;
-        var request1 = this.httpClient.getRequest1();
-        var reqeust2 = this.httpClient.getReqeust2();
-        this.getQueries.push(request1);
-        this.getQueries.push(reqeust2);
-        &#125;;
-    
-        ngOnInit() &#123;
-            forkJoin(this.getQueries).subscribe(next => &#123;
-                if (next == null) &#123;
-                    return;
-                &#125;
-                this.item1 = next[0]
-                this.item2 = next[1];
-            &#125;);
-        &#125;
-    &#125;                                                           
-                                            </pre>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            Passing data between components in Angular is easy:
-                            <ul>
-                                <li>Create two components:
+                            <h3>Form Validation</h3>
+                            <ul class="condensed">
+                                <li>
+                                    <h4>Example form element:</h4>
+                                    <div class="code">&lt;input type="email" id="email" name="email"
+                                        [formControl]="emailControl"&gt;</div>
+                                <li>
+                                    <h4>Within TypeScript:</h4>
                                     <div class="code">
                                         <pre>
-                                            ng g c component1
-                                            ng g c component2
+        export class SignupComponent &#123;
+            userDetails: FormGroup;
+            emailControl = new FormControl('');
+            constructor(
+                private fb: FormBuilder) &#123;
+                    this.userDetails = this.fb.group(&#123;
+                    email: this.emailControl,
+                    passwordmatch: this.passwordmatchControl
+                &#125;);
+            &#125;
+            
+            ngOnInit() &#123;
+                <span class="comment">// Add validators</span>
+                this.emailControl.addValidators([Validators.required, Validators.email]);
+                this.usernameControl.addValidators([Validators.required, Validators.minLength(4)]);
+                this.passwordControl.addValidators([Validators.required, Validators.pattern(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[&#64;$!%*#?&^_-]).&#123;8,&#125;/)]);
+                this.passwordmatchControl.addValidators([Validators.required, this.checkPassword()]);
+            &#125;
+    
+            <span class="comment">// custom validator function</span>
+            checkPassword() &#123;
+                return (control: AbstractControl): ValidationErrors | null => &#123;
+                    const passwordInput = this.passwordControl.value
+                    const passwordMatchInput = this.passwordmatchControl.value
+                    if (passwordInput !== passwordMatchInput) &#123;
+                        this.passwordmatchControl.setErrors(&#123; notEquivalent: true &#125;);
+                        return this.passwordmatchControl.errors;        
+                    &#125; else &#123;
+                        this.passwordmatchControl.setErrors(null);
+                        return null;
+                    &#125;
+                &#125;
+            &#125;
+    
+            submitForm(): void &#123;
+                if (this.userDetails.invalid) return;        
+                <span class="comment">// form is valid, we can proceed!</span>
+            &#125;
+        &#125;
+                                            </pre>
+                                    </div>
+                                </li>
+                                <li>Add submit button<br>
+                                    <div class="code">
+                                        &lt;button (click)="submitForm()"
+                                        [disabled]="this.userDetails.invalid"&gt;Submit&lt;/button&gt;
+                                    </div>
+                                </li>
+                            </ul>
+                            <div>
+                                <h4>Example</h4>
+                                <img src="assets/images/signup.png" alt="Form Validation" />
+                            </div>
+                        </div>
+                        <div>
+                            <h3>Control which CSS classes are applied via TypeScript</h3>
+                            <ul>
+                                <li>HTML
+                                    <div class="code">
+                                        <pre>
+        &lt;div [class.bgblue]="showBlueBg" [class.main]="!showBlueBg"&gt;Yippee!&lt;/div&gt;
+        </pre>
+                                    </div>
+                                </li>
+                                <li>CSS
+                                    <div class="code">
+                                        <pre>
+        .bgblue &#123;
+            background-color: blue;
+        &#125;
+        
+        .main &#123;
+            background-color: var(--theme-splash-backround-color);
+        &#125;                                        
+        </pre>
+                                    </div>
+                                </li>
+                                <li>TypeScript
+                                    <div class="code">
+                                        <pre>
+        public showBlueBg: boolean = false;
+        </pre>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>Table select-columns feature: Alter visiblity, stick/freeze columns, change order</h3>
+                            <ul>
+                                <li>Todo: Add the example of where I did this!
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>Listen for child events</h3>
+                            <ul>
+                                <li>Add a type for the event transmission (e.g. SplashMessage in a new file
+                                    splash-message.ts)
+                                    <div class="code">
+                                        <pre>
+        export class SplashMessage &#123;
+            showSplash: boolean = false;
+            duration: number = 8;
+        &#125;
                                         </pre>
                                     </div>
                                 </li>
-                                <li>
-                                    Set a parameter in component1:
-                                    name = "";
-                                    
+                                <li>Add a service called splash.service.ts
+                                    <div class="code">
+                                        <pre>
+        import &#123; Injectable &#125; from '&#64;angular/core';
+        import &#123; Observable, Subject &#125; from 'rxjs';
+        import &#123; SplashMessage &#125; from '../types/splash-message';
+    
+        &#64;Injectable()
+        export class SplashService &#123;
+            private showSplash:Subject&lt;SplashMessage&gt; = new Subject&lt;SplashMessage&gt;();
+            private msg = new SplashMessage();
+    
+            public show(duration:number) &#123;        
+                this.msg.showSplash = true;
+                this.msg.duration = duration;
+                this.showSplash.next(this.msg);
+            &#125;
+    
+            public hide() &#123;
+                this.msg.showSplash = false;
+                this.showSplash.next(this.msg);
+            &#125;
+    
+            public observe():Observable&lt;SplashMessage&gt; &#123;
+                return this.showSplash.asObservable();
+            &#125;
+        &#125;
+                                        </pre>
+                                    </div>
+                                </li>
+                                <li>Add event observer for service to child component
+                                    <div class="code">
+                                        <pre>
+        constructor(
+            private splash: SplashService) &#123; &#125;
+        
+            ngOnInit(): void &#123;
+            this.splash.observe().subscribe((d) => &#123;
+                this.showSplash = d.showSplash;
+                let duration: number = d.duration;
+                this.showhide(duration);
+            &#125;);
+        &#125;
+                                        </pre>
+                                    </div>
+                                </li>
+                                <li>Use it somewhere:
+                                    <div class="code">
+                                        <pre>
+        &#64;&lt;app-splash *ngIf="showSplash"&gt;&lt;/app-splash&gt;
+                                        </pre>
+                                    </div>
                                 </li>
                             </ul>
-                        </li>
-                    </ul>
+                        </div>
+                        <div>
+                            <h3>Implement a reCAPTCHA Checkbox</h3>
+                            <ul>
+                                <li>Sign up for a Recapcha account at https://www.google.com/recaptcha/about/</li>
+                                <li>Create new project
+                                    <ul>
+                                        <li>Check the "Use a checkbox" option</li>
+                                        <li>Save your key information</li>
+                                    </ul>
+                                </li>
+                                <li>Install reCAPTCHA packages
+                                    <div class="code">npm i ng-recaptcha --save</div>
+                                </li>
+                                <li>Add resolved function in your component:
+                                    <div class="code">
+                                        <pre>
+        resolved(captchaResponse: string | null) &#123;
+            if (captchaResponse != null) &#123;
+                this.captcha = captchaResponse;
+                console.log(`Resolved captcha with response: $&#123;this.captcha&#125;`);
+            &#125;
+        &#125;
+                                </pre>
+                                    </div>
+                                </li>
+                                <li>
+                                    Add reCAPTCHA to your component form:
+                                    <div class="code">
+                                        <pre>
+        &lt;div [hidden]="captcha"&gt;
+            &lt;p&gt;Confirm you're human please!&lt;/p&gt;
+                &lt;re-captcha (resolved)="resolved($event)" siteKey="&lt;YOURKEY&gt;"&gt;&lt;/re-captcha&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;button type="submit" *ngIf="captcha" mat-flat-button&gt;Submit&lt;/button&gt;
+                                </pre>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div>
+                                <h3>If all went well:</h3>
+                                <img src="assets/images/recaptcha.png" alt="reCAPTCHA" />
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div>
+                        <h3>Tips!</h3>
+                        <ul>
+                            <li>() = Do something on an event. e.g. (click)="clickfunc()"</li>
+                            <li>[] = Right-hand side of the assignment is a dynamic expression.</li>
+                            <li>[ngModel]="variable" - Associate with a variable</li>
+                            <li>&lt;curlybrace&gt;&lt;curlybrace&gt;variable&lt;curlybrace&gt;&lt;curlybrace&gt; -
+                                Interpolation</li>
+                            <li>[attr.data-testid]="'edit-frozen-' + i" - Embed a "data-testid" attribute in element after
+                                build</li>
+                            <li>Error: "Can't bind to 'ngModel' since it isn't a known property of 'input'": Import
+                                FormsModule</li>
+                            <li>
+                                <h3>Form stuff:</h3>
+                                <div>
+                                    <h3>Selections</h3>
+                                    <ul>
+                                        <li>HTML
+                                            <div class="code">
+                                                <pre>
+        &lt;mat-select 
+            value="permanent" 
+            [(ngModel)]="databaseTable"&gt; <span class="comment">// variable with value in ts</span>
+            &lt;mat-option value="permanent"&gt;Standard Licenses&lt;/mat-option&gt;
+            &lt;mat-option value="temp"&gt;Temporary Licenses&lt;/mat-option&gt;
+        &lt;/mat-select&gt;
+                                                    </pre>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="code">databaseTable: any = null;</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <h3>Sending/Receiving HTTP Data</h3>
+                                <div>
+                                    I typically structure my projects like this:
+                                    <ul>
+                                        <li>HTTP Service (app/services/http.service.ts)
+                                            <div class="code">
+                                                <span class="comment">/** Returns the quote */</span>
+                                                <pre>
+        &#64;Injectable()
+        export class HttpService &#123;
+            httpOptions = &#123;
+                headers: new HttpHeaders(&#123;
+                    'Content-Type': 'application/json'
+                &#125;)
+            &#125;;
+            constructor(private http: HttpClient) &#123; &#125;
+            quoteUrl = "https://api.nehsa.net/v1/quotes";
+        
+            <span class="comment">/** 
+                * Posts the contact me form to API
+                * &#64;param &#123;AddUserForm&#125; body - The body to the message
+                * &#64;returns &#123;object&#125; - The response from the API
+            */</span>
+            postAddUser(body: AddUserForm) &#123;
+                return this.http.post&lt;AddUserForm&gt;(this.addUserUrl, body);
+            &#125;
+        
+            <span class="comment">/** Returns a quote */ </span>
+            getQuote() &#123;
+                return this.http.get(this.quoteUrl);
+            &#125;
+        &#125;
+                                                    </pre>
+                                            </div>
+                                        </li>
+                                        <li>type (app/types/http.service.ts)
+                                            <div class="code">
+                                                <pre>
+        export class AddUserForm &#123;
+            email: string = "";
+            username: string = "";
+            password: string = "";
+        &#125;
+                                                </pre>
+                                            </div>
+                                        </li>
+                                        <li>Component
+                                            <ul>
+                                                <li>component.ts
+                                                    <div class="code">
+                                                        <pre>
+        &#64;Component(&#123;
+            selector: 'app-root',
+            standalone: true,
+            imports: [],
+            providers: [HttpService],
+            templateUrl: './app.component.html',
+            styleUrl: './app.component.scss'
+            &#125;)
+            export class AppComponent &#123;
+            quote = "";
+            constructor(public httpClient: HttpService) &#123; &#125;;
+            
+            ngOnInit() &#123;
+                this.httpClient.getQuote().subscribe(data => &#123;
+                if (data != null && data != "") &#123;
+                    this.quote = data.toString();
+                &#125;
+            &#125;);
+        &#125;                                         
+                                                        </pre>
+                                                    </div>
+                                                </li>
+                                                <li>component.html
+                                                    <div class="code">
+                                                        <pre>
+        &lt;div&gt;&lt;p&gt;&#123; &#123;quote&#125; &#125;&lt;/p&gt;&lt;/div&gt; (<span class="comment">Remove spaces between &#123;&#125;</span>)
+                                                        </pre>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            If you need to send await multiple requests:
+                                            <div class="code">
+                                                <pre>            
+        export class SomeComponent &#123;
+            item1 = "";
+            item2 = "";
+            getQueries: Array&lt;Observable&lt;any&gt;&gt;= new Array&lt;Observable&lt;any&gt;&gt;();
+        
+            constructor(public httpClient: HttpService) &#123;
+            var request1 = this.httpClient.getRequest1();
+            var reqeust2 = this.httpClient.getReqeust2();
+            this.getQueries.push(request1);
+            this.getQueries.push(reqeust2);
+            &#125;;
+        
+            ngOnInit() &#123;
+                forkJoin(this.getQueries).subscribe(next => &#123;
+                    if (next == null) &#123;
+                        return;
+                    &#125;
+                    this.item1 = next[0]
+                    this.item2 = next[1];
+                &#125;);
+            &#125;
+        &#125;                                                           
+                                                </pre>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                Passing data between components in Angular is easy:
+                                <ul>
+                                    <li>Create two components:
+                                        <div class="code">
+                                            <pre>
+                                                ng g c component1
+                                                ng g c component2
+                                            </pre>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        Set a parameter in component1:
+                                        name = "";
+                                        
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+    
+                    <div>
+                        <h3>Important Files</h3>
+                        <ul>
+                            <li>angular.json - Application settings.</li>
+                            <li>packages.json - NPM packages to install for application.</li>
+                        </ul>
+                    </div>
+    
+                    <div>
+                        <h3>Useful Commands</h3>
+                        <ul>
+                            <li><span class="code">npm install</span> - Install all files necessary to run the Angular
+                                project.</li>
+                            <li><span class="code">ng serve -o</span> - Runs app locally. The -o opens it in your browser.
+                            </li>
+                            <li><span class="code">ng build --configuration development/production</span> - Build for
+                                deployments. Output in /dist folder.</li>
+                            <li><span class="code">ng add &#64;angular/material</span> - Installs Material. This method is
+                                preferred for npm install as it performs additional initialization.</li>
+                        </ul>
+                    </div>
+    
+                    <div>
+                        <h3>Useful Links</h3>
+                        <ul>
+                            <li>Angular - https://angular.io/</li>
+                            <li>Material - https://material.angular.io/</li>
+                            <li>Fonts - https://fonts.google.com/icons</li>
+                        </ul>
+                    </div>
                 </div>
-
-                <div>
-                    <h3>Important Files</h3>
-                    <ul>
-                        <li>angular.json - Application settings.</li>
-                        <li>packages.json - NPM packages to install for application.</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3>Useful Commands</h3>
-                    <ul>
-                        <li><span class="code">npm install</span> - Install all files necessary to run the Angular
-                            project.</li>
-                        <li><span class="code">ng serve -o</span> - Runs app locally. The -o opens it in your browser.
-                        </li>
-                        <li><span class="code">ng build --configuration development/production</span> - Build for
-                            deployments. Output in /dist folder.</li>
-                        <li><span class="code">ng add &#64;angular/material</span> - Installs Material. This method is
-                            preferred for npm install as it performs additional initialization.</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3>Useful Links</h3>
-                    <ul>
-                        <li>Angular - https://angular.io/</li>
-                        <li>Material - https://material.angular.io/</li>
-                        <li>Fonts - https://fonts.google.com/icons</li>
-                    </ul>
-                </div>
+                <div><app-comment></app-comment></div>
             </div>
         </mat-card-content>
     </mat-card>

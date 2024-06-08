@@ -6,15 +6,16 @@
             </mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <div class="topics">
-                <div>
-                    <h3>Useful Commands</h3>
-                    <span class="code">doxygen.exe &lt;doxyfile&gt;</span> - Generate documenation<br><br>
-                </div>
+            <div class="commentgrid">
+                <div class="topics">
+                    <div>
+                        <h3>Useful Commands</h3>
+                        <span class="code">doxygen.exe &lt;doxyfile&gt;</span> - Generate documenation<br><br>
+                    </div>
 
-                <div>
-                    <h3>doxyfile example</h3>
-                    <pre>
+                    <div>
+                        <h3>doxyfile example</h3>
+                        <pre>
                         # Doxyfile 1.8.15
 
                         # This file describes the settings to be used by the documentation system
@@ -2582,18 +2583,21 @@
                         
                     </pre>
 
-                </div>
+                    </div>
 
-                <div>
-                    <h3>Setting up Local Registry <a href="https://www.docker.com/blog/how-to-use-your-own-registry-2/"
-                            target="_blank">https://www.docker.com/blog/how-to-use-your-own-registry-2/</a></h3>
-                    <ol>
-                        <li>Download the registry docker container (docker pull registry): <a
-                                href="https://hub.docker.com/_/registry"
-                                target="_blank">https://hub.docker.com/_/registry</a></li>
-                        <li></li>
-                    </ol>
+                    <div>
+                        <h3>Setting up Local Registry <a
+                                href="https://www.docker.com/blog/how-to-use-your-own-registry-2/"
+                                target="_blank">https://www.docker.com/blog/how-to-use-your-own-registry-2/</a></h3>
+                        <ol>
+                            <li>Download the registry docker container (docker pull registry): <a
+                                    href="https://hub.docker.com/_/registry"
+                                    target="_blank">https://hub.docker.com/_/registry</a></li>
+                            <li></li>
+                        </ol>
+                    </div>
                 </div>
+                <div><app-comment></app-comment></div>
             </div>
         </mat-card-content>
     </mat-card>

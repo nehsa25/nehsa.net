@@ -69,7 +69,12 @@ export class AppComponent {
     dialogRef.componentInstance.emitService.subscribe((val) => {
       if (val) {
         this.nameConfirmed = true;
-      } 
+        this.httpClient.updateName(this.namePerson.Name).subscribe(data => {
+          if (data != null && data != "") {
+              console.log("Name updated!: " + data.toString()) ;
+          }
+        });
+      }
     });
   }
 

@@ -88,6 +88,12 @@ a:active {
     color: blue;
 }
 
+iframe {
+    width: 100%;
+    height: 500px;
+    border: 0;
+}
+
 li {
     padding: 7px;
 }
@@ -202,8 +208,8 @@ h1, h2, h3, h4, h5, h6 {
     width: 600px;
 }
 
-iframe {
-    width: 100%;
-    height: 500px;
-    border: 0;
+.commentgrid {
+    display: grid;
+    grid-template-rows: 1fr 300px
 }
+

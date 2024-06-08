@@ -1,14 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { HttpService } from '../../services/http.service';
 import { MatIcon } from '@angular/material/icon';
 import { NgIf } from '@angular/common';
+import { CommentComponent } from '../../shared-components/comment/comment.component';
 
 @Component({
   selector: 'app-this-website',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule, MatIcon, NgIf],
+  imports: [MatCardModule, MatButtonModule, MatIcon, NgIf, CommentComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './this-website.component.html',
   styleUrl: './this-website.component.scss'
 })

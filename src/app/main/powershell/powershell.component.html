@@ -6,109 +6,109 @@
             </mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <div class="topics">
-                <div>
-                    <h3>Useful PowerShell profile with useful functions/information</h3>
-                    <a href="https://github.com/nehsa25/powershell-profile">Microsoft.PowerShell_profile.ps1</a>
+            <div class="commentgrid">
+                <div class="topics">
                     <div>
-                        <pre>
-    <span class="red">Aliases</span><span class="grey">
-    * "npp" - Launches Notepad++
-    * "weather "Casablanca,Morocco" - The weather :)
-    * "weather_full "Casablanca,Morocco" - The weather, but more of it
-    * "ls" - Colorized directory output
-    </span>    
-    <span class="red">Useful Chef/Ohai commands</span><span class="grey">
-    * "knife cookbook upload -a | chef-client" - Uploads cookbooks and runs chef-client
-    * "knife cookbook upload cookbook-test" - Upload cookbook cookbook-test
-    * "chef-client -o cookbook-test::execute_tests - Execute execute_tests recipe from cookbook-test cookbook
-    </span>    
-    <span class="red">Useful pytest commands</span><span class="grey">
-    * "pytest -k test_authentication"  --junit-xml=tpldk_tests.xml" - Execute a single test and output the results to XML
-    * "pytest -m automated_maintenance_tests  --junit-xml=tpldk_tests.xml" - Execute a group of tests and output the results to XML
-    * "pytest --markers" - List all markers (groups of tests)
-    * "pytest -k test_authentication --collect-only" - List all tests that *would* be executed
-    </span>    
-    <span class="red">Useful jq commands</span><span class="grey">
-    * "ohai | jq -C ." - Colorized outout of all collected ohai data
-    * "ohai | jq -C .cpu" - Colorized outout ohai collected CPU info
-    * "ohai | jq -C .kernel" - Colorized outout ohai collected kernel info
-    </span>    
-    <span class="red">Useful Docker commands</span><span class="grey">
-    * "docker container ps" - Lists containers and their status
-    * "docker save --output .\out.tar" - Saves local docker image
-    * "docker load -i .\out.tar" - Loads local docker image
-    * "docker container create --name local-dev node:20" - Creates container from image
-    </span>    
-    <span class="red">Useful Mercurial commands</span><span class="grey">
-    * "hg forget "set:hgignore() and not ignored()"" - Updates added files based on .hgignore
-    </span>    
-    <span class="red">Useful Chocolatey commands</span><span class="grey">
-    * "refreshenv" - Refreshs environment variables in CMD/Powershell
-    </span>    
-    <span class="red">Useful Powershell commands</span><span class="grey">
-    * "get-process rimworld*" to get the process id of a running process
-    * "stop-process -id 1234" - to kill a process
-    * "get-item $env:pythonpath" - Prints contents of environment variables
-    * "test-path env:pythonpath" - Check for existence of a environment variable
-    * "Write-Host $(Get-Date)" - The date
-    * "(get-command notepad.exe).Path" - Figure out where something is installed..
-    </span>    
-    <span class="red">Useful Playwright commands</span><span class="grey">
-    * "npm init playwright&#64;latest --legacy-peer-deps" - Get Playwright
-    * "npx playwright test" - Runs the end-to-end tests.
-    * "npx playwright test --ui" - Opens UI / Interactive Mode
-    </span>    
-    <span class="yellow">
-    ______                _  _    ______                _
-    |  _  \              ( )| |   | ___ \              (_)
-    | | | |  ___   _ __  |/ | |_  | |_/ /  __ _  _ __   _   ___
-    | | | | / _ \ | '_ \    | __| |  __/  / _` || '_ \ | | / __|
-    | |/ / | (_) || | | |   | |_  | |    | (_| || | | || || (__  _
-    |___/   \___/ |_| |_|    \__| \_|     \__,_||_| |_||_| \___|(_)
-    
-                                                        -Douglas Adams
-    
-    YOU ARE NOT RUNNING AS AN ADMINISTRATOR.
-    </span><span class="grey">
-    
-    Good day, sir Jesse!  It is: 05/16/2024 12:48:12
-</span></pre>
+                        <h3>Useful PowerShell profile with useful functions/information</h3>
+                        <a href="https://github.com/nehsa25/powershell-profile">Microsoft.PowerShell_profile.ps1</a>
+                        <div>
+                            <pre>
+        <span class="red">Aliases</span><span class="grey">
+        * "npp" - Launches Notepad++
+        * "weather "Casablanca,Morocco" - The weather :)
+        * "weather_full "Casablanca,Morocco" - The weather, but more of it
+        * "ls" - Colorized directory output
+        </span>    
+        <span class="red">Useful Chef/Ohai commands</span><span class="grey">
+        * "knife cookbook upload -a | chef-client" - Uploads cookbooks and runs chef-client
+        * "knife cookbook upload cookbook-test" - Upload cookbook cookbook-test
+        * "chef-client -o cookbook-test::execute_tests - Execute execute_tests recipe from cookbook-test cookbook
+        </span>    
+        <span class="red">Useful pytest commands</span><span class="grey">
+        * "pytest -k test_authentication"  --junit-xml=tpldk_tests.xml" - Execute a single test and output the results to XML
+        * "pytest -m automated_maintenance_tests  --junit-xml=tpldk_tests.xml" - Execute a group of tests and output the results to XML
+        * "pytest --markers" - List all markers (groups of tests)
+        * "pytest -k test_authentication --collect-only" - List all tests that *would* be executed
+        </span>    
+        <span class="red">Useful jq commands</span><span class="grey">
+        * "ohai | jq -C ." - Colorized outout of all collected ohai data
+        * "ohai | jq -C .cpu" - Colorized outout ohai collected CPU info
+        * "ohai | jq -C .kernel" - Colorized outout ohai collected kernel info
+        </span>    
+        <span class="red">Useful Docker commands</span><span class="grey">
+        * "docker container ps" - Lists containers and their status
+        * "docker save --output .\out.tar" - Saves local docker image
+        * "docker load -i .\out.tar" - Loads local docker image
+        * "docker container create --name local-dev node:20" - Creates container from image
+        </span>    
+        <span class="red">Useful Mercurial commands</span><span class="grey">
+        * "hg forget "set:hgignore() and not ignored()"" - Updates added files based on .hgignore
+        </span>    
+        <span class="red">Useful Chocolatey commands</span><span class="grey">
+        * "refreshenv" - Refreshs environment variables in CMD/Powershell
+        </span>    
+        <span class="red">Useful Powershell commands</span><span class="grey">
+        * "get-process rimworld*" to get the process id of a running process
+        * "stop-process -id 1234" - to kill a process
+        * "get-item $env:pythonpath" - Prints contents of environment variables
+        * "test-path env:pythonpath" - Check for existence of a environment variable
+        * "Write-Host $(Get-Date)" - The date
+        * "(get-command notepad.exe).Path" - Figure out where something is installed..
+        </span>    
+        <span class="red">Useful Playwright commands</span><span class="grey">
+        * "npm init playwright&#64;latest --legacy-peer-deps" - Get Playwright
+        * "npx playwright test" - Runs the end-to-end tests.
+        * "npx playwright test --ui" - Opens UI / Interactive Mode
+        </span>    
+        <span class="yellow">
+        ______                _  _    ______                _
+        |  _  \              ( )| |   | ___ \              (_)
+        | | | |  ___   _ __  |/ | |_  | |_/ /  __ _  _ __   _   ___
+        | | | | / _ \ | '_ \    | __| |  __/  / _` || '_ \ | | / __|
+        | |/ / | (_) || | | |   | |_  | |    | (_| || | | || || (__  _
+        |___/   \___/ |_| |_|    \__| \_|     \__,_||_| |_||_| \___|(_)
+        
+                                                            -Douglas Adams
+        
+        YOU ARE NOT RUNNING AS AN ADMINISTRATOR.
+        </span><span class="grey">
+        
+        Good day, sir Jesse!  It is: 05/16/2024 12:48:12
+    </span></pre>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Powershell Commands</h3>
+                        <ul>
+                            <li>Get 5 latest LabListener event log errors:<br>
+                                <div>(Get-EventLog -Newest 5 -LogName LabListener -EntryType Error).Message</div>
+                            </li>
+                            <li>Harddrive info:<br>
+                                <div>wmic diskdrive get InterfaceType,Model,Name,SerialNumber,Size,Status</div>
+                            </li>
+                            <li>Get the .NET runtime version used:<br>
+                                <div>
+                                    $path = 'C:\Program Files (x86)\LabListener\bin\ghasi.dll'<br>
+                                    [Reflection.Assembly]::ReflectionOnlyLoadFrom($path).ImageRuntimeVersion</div>
+                            </li>
+                            <li>List IPv4 Address:<br>
+                                <div>
+                                    (Get-NetIPConfiguration |Where-Object &#123; $_.IPv4DefaultGateway -ne $null -and
+                                    $_.NetAdapter.Status -ne "Disconnected" &#125;).IPv4Address.IPAddress
+                                </div>
+                            </li>
+                            <li>Get status of a service:<br>
+                                <div>get-service -name 'lab listener'</div>
+                            </li>
+                            <li>Last 30 lines of a log file:
+                                <div>
+                                    Get-Content install_log.txt | Select-Object -last 30
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <div>
-                    <h3>Powershell Commands</h3>
-                    <ul>
-                        <li>Get 5 latest LabListener event log errors:<br>
-                            <div>(Get-EventLog -Newest 5 -LogName LabListener -EntryType Error).Message</div>
-                        </li>
-                        <li>Harddrive info:<br>
-                            <div>wmic diskdrive get InterfaceType,Model,Name,SerialNumber,Size,Status</div>
-                        </li>
-                        <li>Get the .NET runtime version used:<br>
-                            <div>
-                                $path = 'C:\Program Files (x86)\LabListener\bin\ghasi.dll'<br>
-                                [Reflection.Assembly]::ReflectionOnlyLoadFrom($path).ImageRuntimeVersion</div>
-                        </li>
-                        <li>List IPv4 Address:<br>
-                            <div>
-                                (Get-NetIPConfiguration |Where-Object &#123; $_.IPv4DefaultGateway -ne $null -and
-                                $_.NetAdapter.Status -ne "Disconnected" &#125;).IPv4Address.IPAddress
-                            </div>
-                        </li>
-                        <li>Get status of a service:<br>
-                            <div>get-service -name 'lab listener'</div>
-                        </li>
-                        <li>Last 30 lines of a log file:
-                            <div>
-                                Get-Content install_log.txt | Select-Object -last 30
-                            </div>
-                        </li>
-
-
-                    </ul>
-                </div>
-
+                <div><app-comment></app-comment></div>
             </div>
         </mat-card-content>
     </mat-card>

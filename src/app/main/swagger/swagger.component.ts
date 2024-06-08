@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { HttpService } from '../../services/http.service';
+import { CommentComponent } from '../../shared-components/comment/comment.component';
 
 @Component({
   selector: 'app-swagger',
   standalone: true,
-  imports: [MatCardModule],
+  imports: [MatCardModule, CommentComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './swagger.component.html',
   styleUrl: './swagger.component.scss'
 })

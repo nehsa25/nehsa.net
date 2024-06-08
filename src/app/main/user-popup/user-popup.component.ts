@@ -1,7 +1,6 @@
-import { Component, EventEmitter, Inject, Output } from '@angular/core';
-import { MatButton, MatButtonModule } from '@angular/material/button';
-import { MatCard } from '@angular/material/card';
-import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, Inject, Output } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { NamePersonType } from '../../types/namepersone.type';
 
 @Component({
@@ -51,5 +50,4 @@ export class UserPopupComponent {
   closeDialog() {
     this.userDialog.close('Closing!');
   }
-
 }
