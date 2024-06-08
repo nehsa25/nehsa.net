@@ -9,6 +9,9 @@ import { HttpService } from './services/http.service';
 import { version } from '../version';
 import { MatButtonModule } from '@angular/material/button';
 import { Observable, forkJoin } from 'rxjs';
+import { UserPopupComponent } from './main/user-popup/user-popup.component';
+import { MatDialog } from '@angular/material/dialog';
+import { NamePersonType } from './types/namepersone.type';
 
 @Component({
   selector: 'app-root',
@@ -20,10 +23,13 @@ import { Observable, forkJoin } from 'rxjs';
 })
 export class AppComponent {
   quote = "";
-  name = "";
+  namePerson:NamePersonType = new NamePersonType();
   getQueries: Array<Observable<any>> = new Array<Observable<any>>();
 
-  constructor(public httpClient: HttpService) {
+  constructor(
+    public httpClient: HttpService,
+    public nameDialog: MatDialog
+  ) {
     var getQuotes = this.httpClient.getQuote();
     var getName = this.httpClient.getName();
     this.getQueries.push(getQuotes);
@@ -36,7 +42,20 @@ export class AppComponent {
         return;
       }
       this.quote = next[0]
-      this.name = next[1];
+      this.namePerson = next[1];
+      this.getRealName();
+    });
+  }
+
+  getRealName() {
+    const dialogRef = this.nameDialog.open(UserPopupComponent, {
+      data: {
+        namePerson: this.namePerson
+      },
+      width: '450px',
+    });
+    dialogRef.componentInstance.emitService.subscribe((val) => {
+      console.log("Return from UserPopupComponent: ", val);
     });
   }
 

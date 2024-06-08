@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ContactForm } from '../types/contact.form';
-import { AddUserForm } from '../types/adduser.form';
+import { ContactType } from '../types/contact.type';
+import { AddUserType } from '../types/adduser.type';
 
 @Injectable()
 export class HttpService {
@@ -19,20 +19,20 @@ export class HttpService {
     
     /** 
      * Posts the contact me form to API
-     * @param {ContactForm} body - The body to the message
+     * @param {ContactType} body - The body to the message
      * @returns {object} - The response from the API
      * */  
-    postContactMe(body: ContactForm) {
-        return this.http.post<ContactForm>(this.contactmeUrl, body);
+    postContactMe(body: ContactType) {
+        return this.http.post<ContactType>(this.contactmeUrl, body);
     }
 
     /** 
      * Posts the contact me form to API
-     * @param {AddUserForm} body - The body to the message
+     * @param {AddUserType} body - The body to the message
      * @returns {object} - The response from the API
      * */  
-    postAddUser(body: AddUserForm) {
-        return this.http.post<AddUserForm>(this.addUserUrl, body);
+    postAddUser(body: AddUserType) {
+        return this.http.post<AddUserType>(this.addUserUrl, body);
     }
 
     /** Returns the quote */  

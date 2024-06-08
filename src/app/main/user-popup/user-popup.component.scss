@@ -1,0 +1,16 @@
+button {
+    margin: 0 1em;
+    font-size: 2rem;
+}
+
+.main {
+    padding: 1em;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-gap: 10px;
+    font-size: 3rem;
+}
+
+.btns {
+    text-align: center;
+}

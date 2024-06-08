@@ -4,7 +4,7 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, FormsModule, NgCo
 import { MatButtonModule } from '@angular/material/button';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { HttpService } from '../../services/http.service';
-import { AddUserForm } from '../../types/adduser.form';
+import { AddUserType } from '../../types/adduser.type';
 
 @Component({
   selector: 'app-signup',
@@ -64,7 +64,7 @@ export class SignupComponent {
   submitForm(): void {
     if (this.userDetails.invalid) return;
 
-    let addUserForm = new AddUserForm();
+    let addUserForm = new AddUserType();
     if (this.emailControl.value != null && this.usernameControl.value != null && this.passwordControl.value != null) {
       addUserForm.email = this.emailControl.value;
       addUserForm.username = this.usernameControl.value;

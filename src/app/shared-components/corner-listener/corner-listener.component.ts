@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { SnackService } from '../../services/snack.service';
-import { ContactForm } from '../../types/contact.form';
+import { ContactType } from '../../types/contact.type';
 import { HttpService } from '../../services/http.service';
 
 @Component({
@@ -37,7 +37,7 @@ export class CornerListenerComponent {
   /** This async function submits contect me form to server API */
   public async contactme_submit() {
     this.contactme_submit_clicked = true;
-    let form = new ContactForm()
+    let form = new ContactType()
     form.subject = this.emailbody;
     form.body = this.emailsubject;
     let response = this.httpClient.postContactMe(form).subscribe(data => {
