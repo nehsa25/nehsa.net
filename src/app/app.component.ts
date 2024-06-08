@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { HttpService } from './services/http.service';
 import { version } from '../version';
 import { MatButtonModule } from '@angular/material/button';
+import { Observable, forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -19,13 +20,23 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class AppComponent {
   quote = "";
-  constructor(public httpClient: HttpService) { };
+  name = "";
+  getQueries: Array<Observable<any>> = new Array<Observable<any>>();
+
+  constructor(public httpClient: HttpService) {
+    var getQuotes = this.httpClient.getQuote();
+    var getName = this.httpClient.getName();
+    this.getQueries.push(getQuotes);
+    this.getQueries.push(getName);
+   };
 
   ngOnInit() {
-    this.httpClient.getDouglasAdamQuote().subscribe(data => {
-      if (data != null && data != "") {
-        this.quote = data.toString();
+    forkJoin(this.getQueries).subscribe(next => {
+      if (next == null) {
+        return;
       }
+      this.quote = next[0]
+      this.name = next[1];
     });
   }
 

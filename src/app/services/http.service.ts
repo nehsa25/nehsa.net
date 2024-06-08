@@ -14,8 +14,9 @@ export class HttpService {
 
     contactmeUrl = 'https://api.nehsa.net/v1/contactme';
     addUserUrl = 'https://api.nehsa.net/v1/adduser';
-    dhUrl = "https://api.nehsa.net/v1/da";
-
+    quoteUrl = "https://api.nehsa.net/v1/quote";
+    nameUrl = "https://api.nehsa.net/v1/name";
+    
     /** 
      * Posts the contact me form to API
      * @param {ContactForm} body - The body to the message
@@ -27,15 +28,21 @@ export class HttpService {
 
     /** 
      * Posts the contact me form to API
-     * @param {ContactForm} body - The body to the message
+     * @param {AddUserForm} body - The body to the message
      * @returns {object} - The response from the API
      * */  
     postAddUser(body: AddUserForm) {
         return this.http.post<AddUserForm>(this.addUserUrl, body);
     }
 
-    /** Returns the Douglas Adam quote */  
-    getDouglasAdamQuote() {
-        return this.http.get(this.dhUrl);
+    /** Returns the quote */  
+    getQuote() {
+        return this.http.get(this.quoteUrl);
     }
+
+    /** Returns a random name */  
+    getName() {
+        return this.http.get(this.nameUrl);
+    }
+
 }
