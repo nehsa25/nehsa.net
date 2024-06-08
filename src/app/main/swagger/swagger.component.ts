@@ -14,11 +14,7 @@ export class SwaggerComponent {
   constructor(public httpClient: HttpService) { };
 
   ngOnInit() {
-    this.httpClient.getSwagger().subscribe(data => {
-      if (data != null && data != "") {
-        this.swagger = data.toString();
-      }
-    });
+
   }
 
 }
