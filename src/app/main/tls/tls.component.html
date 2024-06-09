@@ -133,6 +133,15 @@
                                 </li>
                             </ul>
                         </div>
+                        <div>
+                            <h3>Convert crt -> pem</h3>
+                            <div class="code">
+                                <pre>
+    openssl x509 -in ca_bundle.crt -out ca_bundle.pem -outform PEM
+    openssl x509 -in certificate.crt -out certificate.pem -outform PEM
+                                </pre>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div><app-comment></app-comment></div>
