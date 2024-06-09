@@ -1,5 +1,5 @@
 textarea {
-    width: 90%;
+    width: 100%;
     font-size: 1.5em;
     background-color: #333;
     color: #fff;
@@ -8,24 +8,43 @@ textarea {
     height: 40px;
     resize: none;
     margin: 0;
+    overflow: hidden;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+}
+
+td {
+    padding: 5px;
+    border: 1px solid #333;
 }
 
 .mudgrid {
     display: grid;
     grid-template-areas:
-    "playername blank status"
-    "main main main"
+    "title blank status"
+    "main main status"
     "command command command"
     "usersconnected usersconnected usersconnected";
-    grid-template-columns: 300px 1fr 300px;
-    grid-template-rows: 75px auto 60px 30px;
-    height: 475px;
+    grid-template-columns: 400px 1fr 300px;
+    grid-template-rows: 20px auto 60px 30px;
+    height: 75vh;
+  }
+
+  #title {
+    grid-area: title;
+    overflow: auto;
   }
 
   #main {
     grid-area: main;
     background-color: black;
-    overflow: auto;
+    overflow: hidden;
+    overflow-y: scroll;
+    padding: 1em;
   }
 
   #usersconnected {
@@ -39,6 +58,8 @@ textarea {
     grid-area: command;
     background-color: #333;
     height: 60px;
+    font-size: 2em;
+    overflow: hidden;
   }
   
   #status {
@@ -53,11 +74,12 @@ textarea {
     background-color: greenyellow;
     margin: 1em;
   }
-  
-  #playername {
-    grid-area: playername;
-    padding: .5em;
-    margin: 1em;
-    background-color: #666;
-    border: 1px solid #333;
+
+  .title_span {
+    background-color: teal;
   }
+
+  .subtitle {
+    background-color: beige;
+    padding: 0 5px;
+ }

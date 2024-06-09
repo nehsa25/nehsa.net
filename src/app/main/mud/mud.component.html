@@ -1,24 +1,39 @@
 <div>
     <mat-card class="card">
-        <mat-card-header>
-            <mat-card-title>
-                <div id="title"><span id="title_span">NehsaMUD<span id="subtitle"> - rouge-like, text-based
-                            MUD</span></span></div>
-            </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <div>
-                <div class="mudgrid">
-                    <div #scrollMe [scrollTop]="scrollMe.scrollHeight" id="main" [innerHTML]="mudEvents"></div>
-                    <div id="playername">{{playerName}}</div>
-                    <div id="status" [innerHTML]="health"></div>
-                    <div id="command">
-                        <textarea (keydown)="sendCommand($event)"  [(ngModel)]="command" placeholder="Submit a command..."></textarea>
-                    </div>
-                    <div id="usersconnected">{{usersConnected}} users online.</div>
+        <div class="commentgrid">
+            <div class="mudgrid">
+                <div id="title">
+                    <span class="title_span">NehsaMUD
+                        <span class="subtitle">a rouge-like, text-based MUD
+                        </span>
+                    </span>
                 </div>
+                <div #scrollMe [scrollTop]="scrollMe.scrollHeight" id="main" [innerHTML]="mudEvents"></div>
+                <div id="status">
+                    <div class="statusgrid">
+                        <table>
+                            <tr>
+                                <td>Name</td>
+                                <td id="playername">{{playerName}}</td>
+                            </tr>
+                            <tr>
+                                <td>Health</td>
+                                <td id="health"><span [innerHTML]="health"></span></td>
+                            </tr>
+                            <tr>
+                                <td>Inventory</td>
+                                <td id="inv"><li *ngFor="let item of inventory"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="command">
+                    <textarea (keydown)="sendCommand($event)" [(ngModel)]="command"
+                        placeholder="Submit a command..."></textarea>
+                </div>
+                <div id="usersconnected">{{usersConnected}} users online.</div>
             </div>
-            <div><app-comment></app-comment></div>
-        </mat-card-content>
+        </div>
+        <div><app-comment></app-comment></div>
     </mat-card>
 </div>

@@ -2,16 +2,17 @@ import { Component, ElementRef, NgModule, ViewChild } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { CommentComponent } from '../../shared-components/comment/comment.component';
 import { MudEvent } from '../../types/mudevent.type';
-import { NgIf } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { MatButton } from '@angular/material/button';
 import { MatError, MatFormField, MatFormFieldControl, MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-mud',
   standalone: true,
-  imports: [MatCardModule, CommentComponent, NgIf, MatButton, MatInputModule, MatFormFieldModule, MatLabel, MatError, FormsModule],
+  imports: [MatCardModule, CommentComponent, NgIf, MatButton, MatInputModule, MatFormFieldModule, MatLabel, MatError, FormsModule, NgFor],
   templateUrl: './mud.component.html',
   styleUrl: './mud.component.scss'
 })
@@ -24,7 +25,8 @@ export class MudComponent {
   command: string = "";
   socket: WebSocket;
   fullAddress: string = "";
-  constructor() {
+  inventory: string[] = [];
+  constructor(public userService: UserService) {
     const host = "api.nehsa.net";
     const port = 60049;
     this.fullAddress = `wss://${host}:${port}`;
@@ -58,8 +60,9 @@ export class MudComponent {
     switch (data.type) {
       case 'request_hostname':
         console.log("Inside request_hostname switch");
-        var names = ['Ambrose', 'Crossen', 'Dunstan', 'Bink', 'Ivar', 'Beatrice', 'Subaru', 'Roswaal', 'Ashen', 'Sigrid', 'Renkath', 'Kelsek', 'Ash', 'Jay', 'Bob', 'Fred', 'Mike', 'James', 'Jones', 'Tim', 'Timmy', 'John', 'Jack', 'May', 'Sally', 'Candie', 'Jesse', 'Ethan']
-        var name = names[Math.floor(Math.random() * names.length)];
+        // var names = ['Ambrose', 'Crossen', 'Dunstan', 'Bink', 'Ivar', 'Beatrice', 'Subaru', 'Roswaal', 'Ashen', 'Sigrid', 'Renkath', 'Kelsek', 'Ash', 'Jay', 'Bob', 'Fred', 'Mike', 'James', 'Jones', 'Tim', 'Timmy', 'John', 'Jack', 'May', 'Sally', 'Candie', 'Jesse', 'Ethan']
+        // var name = names[Math.floor(Math.random() * names.length)];
+        var name = this.userService.name;
         var resp = '{"type": "hostname_answer", "host": "' + name + '"}';
         console.log("Server is requesting our name, sending back: " + resp);
         this.socket.send(resp);
@@ -135,7 +138,7 @@ export class MudComponent {
           this.playerName = name;
 
           // add the health
-          this.health = "Health: <span style=\"color: " + color + ";\">" + hitpoints + "</span> / " + max_hitpoints;
+          this.health = "<span style=\"color: " + color + ";\">" + hitpoints + "</span> / " + max_hitpoints;
 
           // add status effects
           this.status = "Status: Resting";
@@ -199,7 +202,7 @@ export class MudComponent {
     if (this.isOpen(this.socket)) {
       var full_cmd = {
         "type": "cmd",
-        "cmd": this.command
+        "cmd": this.command.trim()
       };
       console.log("Sending: " + this.command);
       console.log(full_cmd);

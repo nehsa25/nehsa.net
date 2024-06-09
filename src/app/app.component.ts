@@ -13,6 +13,7 @@ import { UserPopupComponent } from './main/user-popup/user-popup.component';
 import { MatDialog } from '@angular/material/dialog';
 import { NameAboutType } from './types/nameabout.type';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -29,7 +30,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatButtonModule, 
     MatTooltipModule
   ],
-  providers: [HttpService],
+  providers: [HttpService, UserService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -41,6 +42,7 @@ export class AppComponent {
   nameConfirmed = false;
   constructor(
     public httpClient: HttpService,
+    public userService: UserService,
     public nameDialog: MatDialog
   ) {
     var getQuotes = this.httpClient.getQuote();
@@ -58,6 +60,7 @@ export class AppComponent {
       }
       this.quote = next[0]
       this.namePerson = next[1];
+      this.userService.name = this.namePerson.Name;
       this.posTerms = next[2];
       this.getRealName();
     });
