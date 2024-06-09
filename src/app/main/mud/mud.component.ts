@@ -25,7 +25,34 @@ export class MudComponent {
   command: string = "";
   socket: WebSocket;
   fullAddress: string = "";
-  inventory: string[] = [];
+  inventory: string[] = [
+    "sword", "shield", "potion",
+    "gold", "key", "map", "compass",
+    "torch", "rope", "rations", "armor",
+    "helmet", "boots", "gloves",
+    "cloak", "ring", "amulet", "wand", "staff", 
+    "scroll", "book", "gem", "jewel", 
+    "coin", "bag", "backpack", "sack", 
+    "pouch", "chest", "box", 
+    "barrel", "cask", "bottle", "flask", "vial", 
+    "jar", "jug", "pot", "pan", "plate", "bowl", "cup", "mug", 
+    "glass", "pitcher", "lamp", "candle", "torch", "lantern", 
+    "oil", "flint", "steel", "tinder", "rope", "chain", 
+    "lock", "key", "pick", "hammer", "nail", "screw", 
+    "screwdriver", "wrench", "pliers", "saw", "axe", 
+    "shovel", "spade", "pick", "hoe", "rake", "scythe", 
+    "sickle", "knife", "fork", "spoon", "ladle", "whisk", 
+    "grater", "peeler", "masher", "tongs", "skewer", 
+    "spit", "oven", "stove", "grill", "fire", "pot", 
+    "pan", "plate", "bowl", "cup", "mug", "glass", 
+    "pitcher", "lamp", "candle", "torch", "lantern", 
+    "oil", "flint", "steel", "tinder", "rope", "chain", "lock", 
+    "key", "pick", "hammer", "nail", "screw", "screwdriver", 
+    "wrench", "pliers", "saw", "axe", "shovel", "spade", "pick", "hoe", 
+    "rake", "scythe", "sickle", "knife", "fork", "spoon", "ladle", "whisk", 
+    "grater", "peeler", "masher", "tongs", "skewer", "spit", "oven", "stove", 
+    "grill", "fire", "pot", "pan", "plate", "bowl", "cup"];
+    
   constructor(public userService: UserService) {
     const host = "api.nehsa.net";
     const port = 60049;
@@ -50,9 +77,6 @@ export class MudComponent {
 
       // process the command
       this.processCommand(data)
-
-      // scroll to the bottom
-
     });
   }
 
@@ -60,8 +84,6 @@ export class MudComponent {
     switch (data.type) {
       case 'request_hostname':
         console.log("Inside request_hostname switch");
-        // var names = ['Ambrose', 'Crossen', 'Dunstan', 'Bink', 'Ivar', 'Beatrice', 'Subaru', 'Roswaal', 'Ashen', 'Sigrid', 'Renkath', 'Kelsek', 'Ash', 'Jay', 'Bob', 'Fred', 'Mike', 'James', 'Jones', 'Tim', 'Timmy', 'John', 'Jack', 'May', 'Sally', 'Candie', 'Jesse', 'Ethan']
-        // var name = names[Math.floor(Math.random() * names.length)];
         var name = this.userService.name;
         var resp = '{"type": "hostname_answer", "host": "' + name + '"}';
         console.log("Server is requesting our name, sending back: " + resp);

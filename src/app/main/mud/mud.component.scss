@@ -27,16 +27,23 @@ td {
     grid-template-areas:
     "title blank status"
     "main main status"
-    "command command command"
+    "main main helpsection"
+    "command command helpsection"
     "usersconnected usersconnected usersconnected";
     grid-template-columns: 400px 1fr 300px;
-    grid-template-rows: 20px auto 60px 30px;
+    grid-template-rows: 20px auto auto 60px 30px;
     height: 75vh;
   }
 
   #title {
     grid-area: title;
     overflow: auto;
+  }
+
+  #helpsection {
+    grid-area: helpsection;
+    overflow: auto;
+    padding: 1em;
   }
 
   #main {
@@ -72,14 +79,26 @@ td {
     border-radius: 10px;
     padding: .5em;
     background-color: greenyellow;
-    margin: 1em;
+    margin: 5px 1em;
+    height: 250px;
   }
 
   .title_span {
     background-color: teal;
   }
 
+  #inventory {
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 150px;
+  }
+
   .subtitle {
     background-color: beige;
     padding: 0 5px;
  }
+
+ #inventory ul li{
+  width: 45%;
+  float: left;
+}

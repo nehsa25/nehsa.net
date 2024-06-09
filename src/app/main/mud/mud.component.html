@@ -21,15 +21,63 @@
                                 <td id="health"><span [innerHTML]="health"></span></td>
                             </tr>
                             <tr>
-                                <td>Inventory</td>
-                                <td id="inv"><li *ngFor="let item of inventory"></td>
+                                <td id="inv"colspan="2">Inventory<br>
+                                    <div id="inventory">
+                                        <ul class="condensed">
+                                            <li *ngFor="let item of inventory">{{item}}</li>
+                                        </ul>
+                                    </div>
+                                </td>
                             </tr>
                         </table>
                     </div>
                 </div>
+                <div id="helpsection">
+                    <h4>
+                        A text-based multi-user dungeon. HUZZAH!</h4>
+                    <ul class="condensed">
+                        <li>
+                            <dl>
+                                <dt>Get Help and all available commands</dt>
+                                <dd>help</dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <dt>Speak something!</dt>
+                                <dd>/say &lt;message&gt; &lt;ENTER&gt;</dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <dt>Move Around / Navigation</dt>
+                                <dd>
+                                    Type a direction and then press &lt;ENTER&gt;<br>N, S, E, W, SW, NE, SE, SW, U,
+                                    D<br>
+                                </dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <dt>Look Around</dt>
+                                <dd>L (for look):<br>
+                                    l n &lt;ENTER&gt;: look north
+                                </dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <dt>Pick up something</dt>
+                                <dd>g (for get):<br>
+                                    g stick &lt;ENTER&gt;: pick up stick
+                                </dd>
+                            </dl>
+                        </li>
+                    </ul>
+                </div>
                 <div id="command">
                     <textarea (keydown)="sendCommand($event)" [(ngModel)]="command"
-                        placeholder="Submit a command..."></textarea>
+                        placeholder="Type a command here and press &lt;ENTER&gt;"></textarea>
                 </div>
                 <div id="usersconnected">{{usersConnected}} users online.</div>
             </div>
