@@ -35,6 +35,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 })
 export class AppComponent {
   quote = "";
+  posTerms = "";
   namePerson: NameAboutType = new NameAboutType();
   getQueries: Array<Observable<any>> = new Array<Observable<any>>();
   nameConfirmed = false;
@@ -44,8 +45,10 @@ export class AppComponent {
   ) {
     var getQuotes = this.httpClient.getQuote();
     var getName = this.httpClient.getName();
+    var getPosTerms = this.httpClient.getPosTerms();
     this.getQueries.push(getQuotes);
     this.getQueries.push(getName);
+    this.getQueries.push(getPosTerms);
   };
 
   ngOnInit() {
@@ -55,6 +58,7 @@ export class AppComponent {
       }
       this.quote = next[0]
       this.namePerson = next[1];
+      this.posTerms = next[2];
       this.getRealName();
     });
   }

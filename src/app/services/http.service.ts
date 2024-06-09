@@ -17,7 +17,8 @@ export class HttpService {
     addUserUrl = 'https://api.nehsa.net/v1/adduser';
     quoteUrl = "https://api.nehsa.net/v1/quote";
     nameUrl = "https://api.nehsa.net/v1/name";
-    
+    posAdjUrl = "https://api.nehsa.net/v1/positiveadjective";
+
     /** 
      * Posts the contact me form to API
      * @param {ContactType} body - The body to the message
@@ -44,6 +45,11 @@ export class HttpService {
     /** Returns a random name */  
     getName() {
         return this.http.get(this.nameUrl);
+    }
+
+    /** Returns a random list of positive adjectives */  
+    getPosTerms() {
+        return this.http.get(this.posAdjUrl);
     }
 
     /** updates name */  
