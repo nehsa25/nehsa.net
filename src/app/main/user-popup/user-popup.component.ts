@@ -1,7 +1,7 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, Inject, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { NamePersonType } from '../../types/namepersone.type';
+import { NameAboutType } from '../../types/nameabout.type';
 
 @Component({
   selector: 'app-user-popup',
@@ -19,7 +19,7 @@ export class UserPopupComponent {
     public userDialog: MatDialogRef<UserPopupComponent>,
     @Inject(MAT_DIALOG_DATA) public data:
       {
-        namePerson: NamePersonType
+        namePerson: NameAboutType
       }) {
     this.name = data.namePerson.Name;
     this.about = data.namePerson.About;

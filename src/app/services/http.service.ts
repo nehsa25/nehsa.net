@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ContactType } from '../types/contact.type';
 import { AddUserType } from '../types/adduser.type';
-import { UpdateUserType } from '../types/updateuser.type';
+import { NameType } from '../types/name.type';
 
 @Injectable()
 export class HttpService {
@@ -48,8 +48,8 @@ export class HttpService {
 
     /** updates name */  
     updateName(name: string) {
-        let user:UpdateUserType = new UpdateUserType();
-        user.name = name;
+        let user:NameType = new NameType();
+        user.Name = name;
         return this.http.post(this.nameUrl, user);
     }
 }

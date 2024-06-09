@@ -24,21 +24,21 @@
                                     <li>Add "MainController.cs"
                                         <div class="code">
                                             <pre>
-        namespace NehsaNet.Controllers
+    namespace NehsaNet.Controllers
+    &#123;
+        [ApiController]
+        [Route("/")]
+        public class Main : ControllerBase
         &#123;
-            [ApiController]
-            [Route("/")]
-            public class Main : ControllerBase
+            [HttpGet]
+            [Route("/v1/quote")]
+            [ProducesResponseType(StatusCodes.Status200OK)]
+            public string GetQuote()
             &#123;
-                [HttpGet]
-                [Route("/v1/quote")]
-                [ProducesResponseType(StatusCodes.Status200OK)]
-                public string GetQuote()
-                &#123;
-                    return JsonSerializer.Serialize&lt;string&gt;(quotes[Random.Shared.Next(quotes.Count)]);
-                &#125;
+                return JsonSerializer.Serialize&lt;string&gt;(quotes[Random.Shared.Next(quotes.Count)]);
             &#125;
         &#125;
+    &#125;
                                             </pre>
                                         </div>
                                     </li>
@@ -46,41 +46,41 @@
                                         Update "Program.cs" to use it
                                         <div class="code">
                                             <pre>
-        internal class Program
+    internal class Program
+    &#123;
+        private static void Main(string[] args)
         &#123;
-            private static void Main(string[] args)
-            &#123;
-                var builder = WebApplication.CreateBuilder(args);
-                builder.Services.AddControllers();
-                var app = builder.Build();
-                app.UseRouting();
-                app.MapControllers();
-                app.Run();
-            &#125;
+            var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddControllers();
+            var app = builder.Build();
+            app.UseRouting();
+            app.MapControllers();
+            app.Run();
         &#125;
-                                            </pre>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>Minimial API Example:</h3> - this style seems to be a pattern nowadays. I don't like it. It's
-                        difficult to read and hard to modify.
-                        <div class="code">
-                            <pre>
-        app.MapGet("/v1/quote", [SwaggerOperation(
-        Summary = "Returns a single quote",
-        Description = "A random quote is returned.  Because.")]
-        [SwaggerResponse(200, "Success")]
-        [SwaggerResponse(500, "An error occurred")] () =>
-        &#123;
-    
-            return JsonSerializer.Serialize&lt;string&gt;(quotes[Random.Shared.Next(quotes.Length)]);
-        &#125;)
-        .WithName("Quotes")
-        .WithOpenApi();
+    &#125;
+                                        </pre>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Minimial API Example:</h3> - this style seems to be a pattern nowadays. I don't like it. It's
+                    difficult to read and hard to modify.
+                    <div class="code">
+                        <pre>
+    app.MapGet("/v1/quote", [SwaggerOperation(
+    Summary = "Returns a single quote",
+    Description = "A random quote is returned.  Because.")]
+    [SwaggerResponse(200, "Success")]
+    [SwaggerResponse(500, "An error occurred")] () =>
+    &#123;
+
+        return JsonSerializer.Serialize&lt;string&gt;(quotes[Random.Shared.Next(quotes.Length)]);
+    &#125;)
+    .WithName("Quotes")
+    .WithOpenApi();
                             </pre>
                         </div>
                     </div>
@@ -88,51 +88,51 @@
                         <h3>Configure CORS Support (within program.cs)</h3>
                         <div class="code">
                             <pre>
-        internal class Program
+    internal class Program
+    &#123;
+        private static void Main(string[] args)
         &#123;
-            private static void Main(string[] args)
+            var builder = WebApplication.CreateBuilder(args);
+            var customOrigin = "mainOrigin";
+            var localOrigin = "localOrigin";
+            builder.Services.AddCors(options =>
             &#123;
-                var builder = WebApplication.CreateBuilder(args);
-                var customOrigin = "mainOrigin";
-                var localOrigin = "localOrigin";
-                builder.Services.AddCors(options =>
-                &#123;
-                    options.AddPolicy(name: customOrigin,
-                                        policy =>
-                                        &#123;
-                                            policy.WithOrigins("https://www.nehsa.net").AllowAnyMethod().AllowAnyHeader().AllowCredentials();
-                                        &#125;);
-        
-                    options.AddPolicy(name: localOrigin,
-                                        policy =>
-                                        &#123;
-                                            policy.WithOrigins("http://localhost:4200");
-                                        &#125;);
-                &#125;);
-                var app = builder.Build();
-                app.UseCors(customOrigin);
-                app.UseCors(localOrigin);
-                app.Run();
-            &#125;
+                options.AddPolicy(name: customOrigin,
+                                    policy =>
+                                    &#123;
+                                        policy.WithOrigins("https://www.nehsa.net").AllowAnyMethod().AllowAnyHeader().AllowCredentials();
+                                    &#125;);
+    
+                options.AddPolicy(name: localOrigin,
+                                    policy =>
+                                    &#123;
+                                        policy.WithOrigins("http://localhost:4200");
+                                    &#125;);
+            &#125;);
+            var app = builder.Build();
+            app.UseCors(customOrigin);
+            app.UseCors(localOrigin);
+            app.Run();
         &#125;
+    &#125;
                             </pre>
                         </div>
                         <div>
                             <h3>Configure Swagger Support</h3>
                             <div class="code">
                                 <pre>
-        internal class Program
+    internal class Program
+    &#123;
+        private static void Main(string[] args)
         &#123;
-            private static void Main(string[] args)
-            &#123;
-                var builder = WebApplication.CreateBuilder(args);
-                builder.Services.AddSwaggerGen();
-                var app = builder.Build();
-                app.UseSwagger();
-                app.UseSwaggerUI();
-                app.Run();   
-            &#125;
+            var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddSwaggerGen();
+            var app = builder.Build();
+            app.UseSwagger();
+            app.UseSwaggerUI();
+            app.Run();   
         &#125;
+    &#125;
                                 </pre>
                                 <div>
                                     <h4>Example:</h4>
@@ -164,38 +164,38 @@
                             <li>The port can be changed in properties\launchsettings.json
                                 <div class="code">
                                     <pre>
-        &#123;
-            "$schema": "http://json.schemastore.org/launchsettings.json",
-            "iisSettings": &#123;
-                "windowsAuthentication": false,
-                "anonymousAuthentication": true,
-                "iisExpress": &#123;
-                "applicationUrl": "http://localhost:9919",
-                "sslPort": 44337
-                &#125;
-            &#125;,
-            "profiles": &#123;
-                &#125;,
-                "https": &#123;
-                "commandName": "Project",
-                "dotnetRunMessages": true,
-                "launchBrowser": true,
-                "launchUrl": "swagger",
-                "applicationUrl": "https://api.nehsa.net:443",
-                "environmentVariables": &#123;
-                    "ASPNETCORE_ENVIRONMENT": "Development"
-                &#125;
-                &#125;,
-                "IIS Express": &#123;
-                "commandName": "IISExpress",
-                "launchBrowser": true,
-                "launchUrl": "swagger",
-                "environmentVariables": &#123;
-                    "ASPNETCORE_ENVIRONMENT": "Development"
-                &#125;
-                &#125;
+    &#123;
+        "$schema": "http://json.schemastore.org/launchsettings.json",
+        "iisSettings": &#123;
+            "windowsAuthentication": false,
+            "anonymousAuthentication": true,
+            "iisExpress": &#123;
+            "applicationUrl": "http://localhost:9919",
+            "sslPort": 44337
             &#125;
-            &#125;                                      
+        &#125;,
+        "profiles": &#123;
+            &#125;,
+            "https": &#123;
+            "commandName": "Project",
+            "dotnetRunMessages": true,
+            "launchBrowser": true,
+            "launchUrl": "swagger",
+            "applicationUrl": "https://api.nehsa.net:443",
+            "environmentVariables": &#123;
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            &#125;
+            &#125;,
+            "IIS Express": &#123;
+            "commandName": "IISExpress",
+            "launchBrowser": true,
+            "launchUrl": "swagger",
+            "environmentVariables": &#123;
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            &#125;
+            &#125;
+        &#125;
+        &#125;                                      
                                     </pre>
                                 </div>
                             </li>
@@ -204,80 +204,80 @@
                                     <li>Create .vscode\tasks.json
                                         <div class="code">
                                             <pre>
-        &#123;
-            "version": "2.0.0",
-            "tasks": [
-                &#123;
-                    "label": "build",
-                    "command": "dotnet",
-                    "type": "process",
-                    "args": [
-                        "build",
-                        "$&#123;workspaceFolder&#125;/nehsanet-app.csproj",
-                        "/property:GenerateFullPaths=true",
-                        "/consoleloggerparameters:NoSummary"
-                    ],
-                    "problemMatcher": "$msCompile"
-                &#125;,
-                &#123;
-                    "label": "publish",
-                    "command": "dotnet",
-                    "type": "process",
-                    "args": [
-                        "publish",
-                        "$&#123;workspaceFolder&#125;/nehsanet-app.csproj",
-                        "/property:GenerateFullPaths=true",
-                        "/consoleloggerparameters:NoSummary"
-                    ],
-                    "problemMatcher": "$msCompile"
-                &#125;,
-                &#123;
-                    "label": "watch",
-                    "command": "dotnet",
-                    "type": "process",
-                    "args": [
-                        "watch",
-                        "run",
-                        "$&#123;workspaceFolder&#125;/nehsanet-app.csproj",
-                        "/property:GenerateFullPaths=true",
-                        "/consoleloggerparameters:NoSummary"
-                    ],
-                    "problemMatcher": "$msCompile"
-                &#125;
-            ]
-        &#125;
+    &#123;
+        "version": "2.0.0",
+        "tasks": [
+            &#123;
+                "label": "build",
+                "command": "dotnet",
+                "type": "process",
+                "args": [
+                    "build",
+                    "$&#123;workspaceFolder&#125;/nehsanet-app.csproj",
+                    "/property:GenerateFullPaths=true",
+                    "/consoleloggerparameters:NoSummary"
+                ],
+                "problemMatcher": "$msCompile"
+            &#125;,
+            &#123;
+                "label": "publish",
+                "command": "dotnet",
+                "type": "process",
+                "args": [
+                    "publish",
+                    "$&#123;workspaceFolder&#125;/nehsanet-app.csproj",
+                    "/property:GenerateFullPaths=true",
+                    "/consoleloggerparameters:NoSummary"
+                ],
+                "problemMatcher": "$msCompile"
+            &#125;,
+            &#123;
+                "label": "watch",
+                "command": "dotnet",
+                "type": "process",
+                "args": [
+                    "watch",
+                    "run",
+                    "$&#123;workspaceFolder&#125;/nehsanet-app.csproj",
+                    "/property:GenerateFullPaths=true",
+                    "/consoleloggerparameters:NoSummary"
+                ],
+                "problemMatcher": "$msCompile"
+            &#125;
+        ]
+    &#125;
                                         </pre>
                                         </div>
                                     </li>
                                     <li>Create .vscode\launch.json
                                         <div class="code">
                                             <pre>
-        &#123;
-            "version": "0.2.0",
-            "configurations": [
-                &#123;
-                    "name": ".NET Core Launch (web)",
-                    "type": "coreclr",
-                    "request": "launch",
-                    "preLaunchTask": "build",
-                    "program": "$&#123;workspaceFolder&#125;/bin/Debug/net8.0/nehsanet-app.dll",
-                    "args": [],
-                    "cwd": "$&#123;workspaceFolder&#125;",
-                    "stopAtEntry": false,
-                    "env": &#123;
-                        "ASPNETCORE_ENVIRONMENT": "Development"
-                    &#125;,
-                    "sourceFileMap": &#123;
-                        "/Views": "$&#123;workspaceFolder&#125;/Views"
-                    &#125;
+    &#123;
+        "version": "0.2.0",
+        "configurations": [
+            &#123;
+                "name": ".NET Core Launch (web)",
+                "type": "coreclr",
+                "request": "launch",
+                "preLaunchTask": "build",
+                "program": "$&#123;workspaceFolder&#125;/bin/Debug/net8.0/nehsanet-app.dll",
+                "args": [],
+                "cwd": "$&#123;workspaceFolder&#125;",
+                "stopAtEntry": false,
+                "env": &#123;
+                    "ASPNETCORE_ENVIRONMENT": "Development"
                 &#125;,
-                &#123;
-                    "name": ".NET Core Attach",
-                    "type": "coreclr",
-                    "request": "attach"
+                "sourceFileMap": &#123;
+                    "/Views": "$&#123;workspaceFolder&#125;/Views"
                 &#125;
-            ]    
-        &#125;
+            &#125;,
+            &#123;
+                "name": ".NET Core Attach",
+                "type": "coreclr",
+                "request": "attach"
+            &#125;
+        ]    
+    &#125;
                                             </pre>
                                         </div>
                                     </li>
@@ -292,35 +292,83 @@
                                             <li>
                                                 <div class="code">
                                                     <pre>
-        var  customOrigins = "_customOrigins";
-    
-        builder.Services.AddCors(options =>
-        &#123;
-            options.AddPolicy(name: customOrigins,
-                policy  =>
-                &#123;
-                    policy.WithOrigins("https://api.nehsa.net",
-                                        "http://localhost:4200");
-                &#125;);
-        &#125;);
+    var  customOrigins = "_customOrigins";
+
+    builder.Services.AddCors(options =>
+    &#123;
+        options.AddPolicy(name: customOrigins,
+            policy  =>
+            &#123;
+                policy.WithOrigins("https://api.nehsa.net",
+                                    "http://localhost:4200");
+            &#125;);
+    &#125;);
                                                     </pre>
                                                 </div>
                                             </li>
                                             <li>Use it:
                                                 <div class="code">
                                                     <pre>
-        if (app.Environment.IsDevelopment())
-        &#123;
-            app.UseSwagger();
-            app.UseSwaggerUI();
-            app.UseCors(customOrigins); <span class="comment"><-- Here</span>
-        &#125;
+    if (app.Environment.IsDevelopment())
+    &#123;
+        app.UseSwagger();
+        app.UseSwaggerUI();
+        app.UseCors(customOrigins); <span class="comment"><-- Here</span>
+    &#125;
                                                     </pre>
                                                 </div>
                                             </li>
                                         </ol>
                                     </li>
                                 </ol>
+                            </li>
+                            <li>To configure logging:
+                                <ul>
+                                    <li>
+                                        Program.cs
+                                        <div class="code">
+                                            <pre>
+    internal class Program
+    &#123;
+        private static void Main(string[] args)
+        &#123;
+            var builder = WebApplication.CreateBuilder(args);
+            builder.Logging.ClearProviders();
+            builder.Logging.AddConsole();
+            var app = builder.Build();
+            app.Run();   
+        &#125;
+    &#125;
+                                            </pre>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        appsettings.json.cs
+                                        <div class="code">
+                                            <pre>
+            &#123;
+                "Logging": &#123;
+                  "LogLevel": &#123;
+                    "Default": "Error",
+                    "Microsoft": "Warning"
+                  &#125;,
+                  "Debug": &#123;
+                    "LogLevel": &#123;
+                      "Default": "Information",
+                      "Microsoft.Hosting": "Trace"
+                    &#125;
+                  &#125;,
+                  "EventSource": &#123;
+                    "LogLevel": &#123;
+                      "Default": "Warning"
+                    &#125;
+                  &#125;
+                &#125;
+
+                                            </pre>
+                                        </div>
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     </div>

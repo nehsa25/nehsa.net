@@ -11,7 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { Observable, forkJoin } from 'rxjs';
 import { UserPopupComponent } from './main/user-popup/user-popup.component';
 import { MatDialog } from '@angular/material/dialog';
-import { NamePersonType } from './types/namepersone.type';
+import { NameAboutType } from './types/nameabout.type';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
@@ -35,7 +35,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 })
 export class AppComponent {
   quote = "";
-  namePerson: NamePersonType = new NamePersonType();
+  namePerson: NameAboutType = new NameAboutType();
   getQueries: Array<Observable<any>> = new Array<Observable<any>>();
   nameConfirmed = false;
   constructor(

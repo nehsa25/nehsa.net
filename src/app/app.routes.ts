@@ -37,6 +37,7 @@ import { CssComponent } from './main/css/css.component';
 import { GliderComponent } from './main/glider/glider.component';
 import { JavaComponent } from './main/java/java.component';
 import { SqlComponent } from './main/sql/sql.component';
+import { MudComponent } from './main/mud/mud.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: BioComponent },
@@ -86,6 +87,7 @@ export const routes: Routes = [
     { path: 'glider', title: 'nehsa.net | Glider Preparedness', component: GliderComponent },
     { path: 'signup', title: 'nehsa.net | Signup', component: SignupComponent },
     { path: 'sql', title: 'nehsa.net | SQL', component: SqlComponent },
+    { path: 'mud', title: 'nehsa.net | MUD', component: MudComponent },
     { path: '', title: 'nehsa.net | Home', redirectTo: '/', pathMatch: 'full' },
     { path: '**', component: BioComponent },
 ];
