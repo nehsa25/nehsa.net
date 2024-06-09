@@ -351,25 +351,22 @@
                                         appsettings.json.cs
                                         <div class="code">
                                             <pre>
-            &#123;
-                "Logging": &#123;
-                  "LogLevel": &#123;
-                    "Default": "Error",
-                    "Microsoft": "Warning"
-                  &#125;,
-                  "Debug": &#123;
-                    "LogLevel": &#123;
-                      "Default": "Information",
-                      "Microsoft.Hosting": "Trace"
-                    &#125;
-                  &#125;,
-                  "EventSource": &#123;
-                    "LogLevel": &#123;
-                      "Default": "Warning"
-                    &#125;
-                  &#125;
-                &#125;
-
+    "Logging": &#123;
+        "LogLevel": &#123;
+            "Default": "Debug",
+            "Microsoft": "Warning",
+            "Microsoft.Hosting.Lifetime": "Information"
+        &#125;,
+        "Console": &#123;
+            "FormatterName": "Console",
+            "FormatterOptions": &#123;
+                "SingleLine": true,
+                "IncludeScopes": true,
+                "TimestampFormat": "yyyy-MM-ddTHH:mm:ss : ",
+                "UseUtcTimestamp": true
+            &#125;
+        &#125;
+    &#125;                      
                                             </pre>
                                         </div>
                                     </li>
