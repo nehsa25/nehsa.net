@@ -25,9 +25,9 @@ export class MudComponent {
   socket: WebSocket;
   fullAddress: string = "";
   constructor() {
-    const host = "localhost";
-    const port = 81;
-    this.fullAddress = "ws://" + host + ":" + port + "/"
+    const host = "api.nehsa.net";
+    const port = 60049;
+    this.fullAddress = `wss://${host}:${port}`;
     this.socket = new WebSocket(this.fullAddress);
   }
 
