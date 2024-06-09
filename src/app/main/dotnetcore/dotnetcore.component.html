@@ -333,8 +333,13 @@
         private static void Main(string[] args)
         &#123;
             var builder = WebApplication.CreateBuilder(args);
+            IHost host = Host.CreateDefaultBuilder(args).Build();
+            var logger = host.Services.GetRequiredService&lt;ILogger&lt;Program&gt;&gt;();
+            logger.LogDebug("Host created.");
             builder.Logging.ClearProviders();
             builder.Logging.AddConsole();
+            builder.Logging.AddDebug();
+            builder.Services.AddLogging();
             var app = builder.Build();
             app.Run();   
         &#125;
@@ -369,6 +374,26 @@
                                         </div>
                                     </li>
                                 </ul>
+                            </li>
+                            <li>Add Healthchecks
+                                <div class="code">
+                                    <pre>
+    internal class Program
+    &#123;
+        private static void Main(string[] args)
+        &#123;
+            var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddHealthChecks();
+            var app = builder.Build();
+            app.Run();   
+            app.UseHealthChecks("/health");
+        &#125;
+    &#125;
+                                    </pre>
+                                </div>
+                                Access via /health:<br>
+                                   <img mat-card-image src="../../../assets/images/healthcheck.png"
+                                    alt="screenshot of api returning health" />
                             </li>
                         </ul>
                     </div>
