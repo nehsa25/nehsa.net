@@ -6,7 +6,7 @@
 
     .main {
         grid-template-rows: min-content min-content min-content 1fr 225px min-content;
-        grid-template-columns: 225px 225px 1fr auto;
+        grid-template-columns: 225px 225px 1fr 225px;
         grid-template-areas:
             "bread dh dh signup"
             "spacer title title title"
@@ -24,6 +24,9 @@
     .dh {
         text-align: right;
     }
+    .signup {
+        text-align: right;
+    }
 }
 
 /* For desktop View - med */
@@ -34,12 +37,12 @@
 
     .main {
         grid-template-rows: min-content min-content min-content min-content 1fr 225px min-content;
-        grid-template-columns: 225px 200px 1fr;
+        grid-template-columns: 225px 1fr 225px;
         grid-template-areas:
-            "bread signup signup"
-            "bread dh dh"
-            "spacer title title"
-            "contactme body body"
+            "bread bread signup"
+            "dh dh dh"
+            "contactme title title"
+            "navbar body body"
             "navbar body body"
             "navbar body body"
             "footer footer footer";
@@ -99,7 +102,7 @@
 
     .main {
         grid-template-rows: min-content min-content min-content min-content 1fr 225px min-content;
-        grid-template-columns: 225px 200px 1fr;
+        grid-template-columns: 225px 1fr 225px;
         grid-template-areas:
             "bread bread signup"
             "bread bread dh"
@@ -228,6 +231,7 @@
     padding-left: 25px;
     display: grid;
     grid-template-columns: 50px 1fr;
+    place-content: start;
 }
 
 .signup {
@@ -237,7 +241,7 @@
     font-variant: petite-caps;
     font-size: 2rem;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    place-content: center;
+    place-content: start;
     margin: 0 9 9 25px;
 }
 

@@ -13,8 +13,8 @@
             </xng-breadcrumb>
         </div>
     </div>
-    <div class="child">
-        <div class="signup" *ngIf="this.userService.name != ''">
+    <div class="signup child">
+        <div *ngIf="this.userService.name != ''">
             <span class="personname" matTooltip="{{this.userService.about}}"
             matTooltipClass="tooltip-long">{{this.userService.name}}</span> <button style="color: inherit;" *ngIf="!nameConfirmed"mat-button (click)="getName2ndAttempt()">not you?</button></div>
     </div>
@@ -36,7 +36,7 @@
     </div>
     <div class="footer child">
         <div>&nbsp;</div>
-        <div>nehsa.net &copy; 2024 - All Rights Reserved. Every single one.  Be kind.</div>
+        <div>nehsa.net &copy; 2024 - All Rights Reserved.  Be kind.</div>
         <div>
             <div class="footertxt">
                 <h5>{{getBuild()}}</h5>
