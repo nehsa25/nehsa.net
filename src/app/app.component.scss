@@ -105,7 +105,7 @@
         grid-template-columns: 225px 1fr 225px;
         grid-template-areas:
             "bread bread signup"
-            "bread bread dh"
+            "dh dh dh"
             "spacer title title"
             "contactme body body"
             "navbar body body"
@@ -132,17 +132,27 @@
 
     .main {
         grid-template-areas:
-            "title"
             "bread"
-            "dh"
-            "body"
+            "title"
             "signup"
-            "contactme"
             "navbar"
+            "body"
+            "contactme"
+            "dh"
             "footer";
         grid-template-rows: repeat(8, min-content);
-        width: 480px;
+        width: 315px;
         overflow: auto;
+        padding: 0;
+        margin: 0;
+    }
+
+    .title {
+        text-align: center;
+    }
+
+    .signup {
+        text-align: center;
     }
 
     .footer {

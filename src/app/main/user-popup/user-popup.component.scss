@@ -1,14 +1,65 @@
+/* For desktop View - large */
+@media screen and (min-width: 1024px) {
+    .main {
+        grid-gap: 10px;
+        font-size: 3rem;
+        padding: 1em;
+    }
+}
+
+/* For desktop View - med */
+@media screen and (min-width: 509px) and (max-width: 1023px) {
+    .main {
+        grid-gap: 5px;
+        font-size: 2rem;
+        padding: .5em;
+    }
+}
+
+/* For desktop View - tiny */
+@media screen and (min-width: 0px) and (max-width: 510px) {
+    .main {
+        grid-gap: 2px;
+        font-size: 1rem;
+        padding: 10px;
+    }
+}
+
+/* For Tablet View */
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .main {
+        grid-gap: 2px;
+        font-size: 1rem;
+        padding: 10px;
+    }
+}
+
+/* For Mobile Portrait View */
+@media screen and (max-device-width: 480px) and (orientation: portrait) {
+    .main {
+        grid-gap: 2px;
+        font-size: 1rem;
+        padding: 0;
+    }
+}
+
+/* For Mobile Landscape View */
+@media screen and (max-device-width: 640px) and (orientation: landscape) {
+    .main {
+        grid-gap: 2px;
+        font-size: 1rem;
+        padding: 0;
+    }
+}
+
 button {
     margin: 0 1em;
     font-size: 2rem;
 }
 
 .main {
-    padding: 1em;
     display: grid;
     grid-template-rows: 1fr;
-    grid-gap: 10px;
-    font-size: 3rem;
 }
 
 .btns {

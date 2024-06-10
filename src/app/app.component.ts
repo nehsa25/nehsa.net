@@ -72,7 +72,8 @@ export class AppComponent {
       data: {
         names: this.names
       },
-      width: '800px',
+      width: '300px',
+      panelClass: 'custom-dialog-container'
     });
     dialogRef.componentInstance.emitService.subscribe((val) => {
       if (val) {
