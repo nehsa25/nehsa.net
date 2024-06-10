@@ -1,13 +1,53 @@
 <div class="main">
-    <div>
-        <span class="important">{{greeting}} {{name}}....</span><br><br>
-        May I call you {{name}}?<br><br>
-    </div>
-    <div class="btns">
-        <div>
-            <button mat-button (click)="yes()">Yes</button>
-            <button mat-button (click)="no()">No</button>
-        </div><br>
-        <span style="font-size: 12px">(I'm surprised you're here, but welcome regardless!)</span>
-    </div>
+    <mat-stepper [linear]="isLinear" #stepper>
+        <mat-step [stepControl]="FormGroup1">
+            <form [formGroup]="FormGroup1">
+                <ng-template matStepLabel>{{nameLabel}}</ng-template>
+                <div>
+                    <span class="important">{{greeting}} {{name}}....</span><br><br>
+                    May I call you {{name}}?<br><br>
+                </div>
+                <div class="btns">
+                    <div>
+                        <button matStepperNext mat-button (click)="yes()">Yes</button>
+                        <button matStepperNext mat-button (click)="no()">No</button>
+                    </div><br>
+                    <span style="font-size: 12px">(I'm surprised you're here, but welcome regardless!)</span>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="FormGroup2">
+            <form [formGroup]="FormGroup2">
+                <ng-template matStepLabel>{{moodLabel}}</ng-template>
+                <div>
+                    <span class="important">How is your day going? Be honest.</span><br><br>
+                    <button matStepperNext mat-stroked-button (click)="showRoz(1)" class="numoption">1</button>
+                    <button matStepperNext mat-stroked-button (click)="showRoz(2)" class="numoption">2</button>
+                    <button matStepperNext mat-stroked-button (click)="showRoz(3)" class="numoption">3</button>
+                    <button matStepperNext mat-stroked-button (click)="showRoz(4)" class="numoption">4</button>
+                    <button matStepperNext mat-stroked-button (click)="showRoz(5)" class="numoption">5</button>
+                    <button matStepperNext mat-stroked-button (click)="showRoz(6)" class="numoption">6</button>
+                    <button matStepperNext mat-stroked-button (click)="showRoz(7)" class="numoption">7</button>
+                    <button matStepperNext mat-stroked-button (click)="yourGood(8)" class="numoption">8</button>
+                    <button matStepperNext mat-stroked-button (click)="yourGood(9)" class="numoption">9</button>
+                    <button matStepperNext mat-stroked-button (click)="yourGood(10)" class="numoption">10</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="FormGroup3">
+            <ng-template matStepLabel>:)</ng-template>
+            <form [formGroup]="FormGroup3">
+                <div style="text-align: center;" *ngIf="showRozPhoto">
+                    <h5>Maybe this will make you feel better..</h5>
+                    <img width="400px" mat-card-image src="../../../assets/images/roz.jpg" alt="Photo of Roz" />
+                </div>
+                <div *ngIf="showYourGood">
+                    <h1>I'm happy for you!</h1>
+                </div>
+                <div class="btns">
+                    <button matStepperNext mat-button (click)="close()">Close</button>                    
+                </div>
+            </form>
+        </mat-step>
+    </mat-stepper>
 </div>
