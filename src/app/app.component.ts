@@ -71,7 +71,7 @@ export class AppComponent {
       data: {
         namePerson: this.namePerson
       },
-      width: '450px',
+      width: '650px',
     });
     dialogRef.componentInstance.emitService.subscribe((val) => {
       if (val) {
