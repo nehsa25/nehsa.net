@@ -3,12 +3,12 @@
         <div class="commentgrid">
             <div class="mudgrid">
                 <div id="title">
-                    <span class="title_span">NehsaMUD
-                        <span class="subtitle">a rouge-like, text-based MUD
+                    <span class="mud-title">NehsaMUD
+                        <span class="mud-subtitle">a rouge-like, text-based MUD
                         </span>
                     </span>
                 </div>
-                <div #scrollMe [scrollTop]="scrollMe.scrollHeight" id="main" [innerHTML]="mudEvents"></div>
+                <div #scrollMe [scrollTop]="scrollMe.scrollHeight" id="main" [innerHTML]="mudEvents" (click)="refocus(sendcommandarea)"></div>
                 <div id="status">
                     <div class="statusgrid">
                         <table>
@@ -76,7 +76,7 @@
                     </ul>
                 </div>
                 <div id="command">
-                    <textarea (keydown)="sendCommand($event)" [(ngModel)]="command"
+                    <textarea #sendcommandarea (keydown)="sendCommand($event)" [(ngModel)]="command"
                         placeholder="Type a command here and press &lt;ENTER&gt;"></textarea>
                 </div>
                 <div id="usersconnected">{{usersConnected}} users online.</div>

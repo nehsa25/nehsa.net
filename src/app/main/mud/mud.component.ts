@@ -220,6 +220,10 @@ export class MudComponent {
 
   isOpen(ws: WebSocket) { return ws.readyState === ws.OPEN }
 
+  refocus(div: HTMLTextAreaElement) {
+    div.focus();
+  }
+
   sendCommand(key: KeyboardEvent) {
     if (key.key !== "Enter") {
       return;
