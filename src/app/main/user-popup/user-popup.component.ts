@@ -117,28 +117,19 @@ export class UserPopupComponent {
   }
 
   showRoz(mood: number) {
+    this.showRozPhoto = true;
     if (mood <= 3) {
       this.moodLabel = "Sad";
     } else if (mood < 8 && mood > 3) {
       this.moodLabel = "Average";
     } else {
       this.moodLabel = "Happy";
-    }
-    if (this.showRozPhoto) {
-      this.showRozPhoto = false;
-    } else {
-      this.showRozPhoto = true;
-    }
+    } 
   }
 
   yourGood(mood: any) {
-    if (mood <= 3) {
-      this.moodLabel = "Sad";
-    } else if (mood < 8 && mood > 3) {
-      this.moodLabel = "Average";
-    } else {
-      this.moodLabel = "Happy";
-    }
+    this.showRozPhoto = true;
+    this.moodLabel = "Happy";
     if (this.showYourGood) {
       this.showYourGood = false;
     } else {

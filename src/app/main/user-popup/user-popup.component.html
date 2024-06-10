@@ -27,7 +27,8 @@
                             <button mat-stroked-button (click)="chooseName(false)">No</button>
                         </div>
                         <div *ngIf="this.chooseNameValue">
-                            <button matStepperNext mat-stroked-button (click)="nameAccepted(true, stepper)">Next</button>
+                            <button matStepperNext mat-stroked-button
+                                (click)="nameAccepted(true, stepper)">Next</button>
                         </div>
                         <br>
                         <span style="font-size: 14px">(I'm surprised you're here, but welcome regardless!)</span>
@@ -41,13 +42,18 @@
                     <div *ngIf="!this.chooseNameValue">Confirm</div>
                     <div *ngIf="this.chooseNameValue"><mat-icon>check</mat-icon></div>
                 </ng-template>
-                <div>
-                    <span class="important">May I call you {{name}}?</span>
-                </div>
-                <div class="btns">
+                <div class="sectiongrid">
                     <div>
-                        <button matStepperNext mat-stroked-button (click)="nameAccepted(true, stepper)">Yes</button>
-                        <button matStepperPrevious mat-stroked-button (click)="nameAccepted(false, stepper)">No</button>
+                        <div>
+                            <span class="important">May I call you {{name}}?</span>
+                        </div>
+                    </div>
+                    <div class="btns">
+                        <div>
+                            <button matStepperNext mat-stroked-button (click)="nameAccepted(true, stepper)">Yes</button>
+                            <button matStepperPrevious mat-stroked-button
+                                (click)="nameAccepted(false, stepper)">No</button>
+                        </div>
                     </div>
                 </div>
             </form>
@@ -72,16 +78,22 @@
         </mat-step>
         <mat-step [stepControl]="formGroup4">
             <form [formGroup]="formGroup4">
-                <ng-template matStepLabel>test</ng-template>
-                <div style="text-align: center;" *ngIf="showRozPhoto">
-                    <h5>Maybe this will make you feel better..</h5>
-                    <img width="400px" mat-card-image src="../../../assets/images/roz.jpg" alt="Photo of Roz" />
-                </div>
-                <div *ngIf="showYourGood">
-                    <h1>I'm happy for you!</h1>
-                </div>
-                <div class="btns">
-                    <button matStepperNext mat-stroked-button (click)="close()">Close</button>
+                <ng-template matStepLabel>:)</ng-template>
+                <div class="sectiongrid">
+                    <div>
+                        <div style="text-align: center;" *ngIf="showRozPhoto">
+                            <div *ngIf="!showYourGood">
+                                <h5>Maybe this will make you feel better..</h5>
+                            </div>
+                            <div *ngIf="showYourGood">
+                                <h5>I'm happy for you!</h5>
+                            </div>
+                            <img width="400px" mat-card-image src="../../../assets/images/roz.jpg" alt="Photo of Roz" />
+                        </div>
+                    </div>
+                    <div class="btns">
+                        <button matStepperNext mat-stroked-button (click)="close()">Close</button>
+                    </div>
                 </div>
             </form>
         </mat-step>

@@ -1,4 +1,4 @@
-import { Component, ElementRef, NgModule, ViewChild } from '@angular/core';
+import { Component, ElementRef, NgModule, ViewChild, ViewEncapsulation } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { CommentComponent } from '../../shared-components/comment/comment.component';
 import { MudEvent } from '../../types/mudevent.type';
@@ -14,7 +14,8 @@ import { UserService } from '../../services/user.service';
   standalone: true,
   imports: [MatCardModule, CommentComponent, NgIf, MatButton, MatInputModule, MatFormFieldModule, MatLabel, MatError, FormsModule, NgFor],
   templateUrl: './mud.component.html',
-  styleUrl: './mud.component.scss'
+  styleUrl: './mud.component.scss',
+  encapsulation: ViewEncapsulation.None,
 })
 export class MudComponent {
   mudEvents: string = "";
@@ -30,29 +31,29 @@ export class MudComponent {
     "gold", "key", "map", "compass",
     "torch", "rope", "rations", "armor",
     "helmet", "boots", "gloves",
-    "cloak", "ring", "amulet", "wand", "staff", 
-    "scroll", "book", "gem", "jewel", 
-    "coin", "bag", "backpack", "sack", 
-    "pouch", "chest", "box", 
-    "barrel", "cask", "bottle", "flask", "vial", 
-    "jar", "jug", "pot", "pan", "plate", "bowl", "cup", "mug", 
-    "glass", "pitcher", "lamp", "candle", "torch", "lantern", 
-    "oil", "flint", "steel", "tinder", "rope", "chain", 
-    "lock", "key", "pick", "hammer", "nail", "screw", 
-    "screwdriver", "wrench", "pliers", "saw", "axe", 
-    "shovel", "spade", "pick", "hoe", "rake", "scythe", 
-    "sickle", "knife", "fork", "spoon", "ladle", "whisk", 
-    "grater", "peeler", "masher", "tongs", "skewer", 
-    "spit", "oven", "stove", "grill", "fire", "pot", 
-    "pan", "plate", "bowl", "cup", "mug", "glass", 
-    "pitcher", "lamp", "candle", "torch", "lantern", 
-    "oil", "flint", "steel", "tinder", "rope", "chain", "lock", 
-    "key", "pick", "hammer", "nail", "screw", "screwdriver", 
-    "wrench", "pliers", "saw", "axe", "shovel", "spade", "pick", "hoe", 
-    "rake", "scythe", "sickle", "knife", "fork", "spoon", "ladle", "whisk", 
-    "grater", "peeler", "masher", "tongs", "skewer", "spit", "oven", "stove", 
+    "cloak", "ring", "amulet", "wand", "staff",
+    "scroll", "book", "gem", "jewel",
+    "coin", "bag", "backpack", "sack",
+    "pouch", "chest", "box",
+    "barrel", "cask", "bottle", "flask", "vial",
+    "jar", "jug", "pot", "pan", "plate", "bowl", "cup", "mug",
+    "glass", "pitcher", "lamp", "candle", "torch", "lantern",
+    "oil", "flint", "steel", "tinder", "rope", "chain",
+    "lock", "key", "pick", "hammer", "nail", "screw",
+    "screwdriver", "wrench", "pliers", "saw", "axe",
+    "shovel", "spade", "pick", "hoe", "rake", "scythe",
+    "sickle", "knife", "fork", "spoon", "ladle", "whisk",
+    "grater", "peeler", "masher", "tongs", "skewer",
+    "spit", "oven", "stove", "grill", "fire", "pot",
+    "pan", "plate", "bowl", "cup", "mug", "glass",
+    "pitcher", "lamp", "candle", "torch", "lantern",
+    "oil", "flint", "steel", "tinder", "rope", "chain", "lock",
+    "key", "pick", "hammer", "nail", "screw", "screwdriver",
+    "wrench", "pliers", "saw", "axe", "shovel", "spade", "pick", "hoe",
+    "rake", "scythe", "sickle", "knife", "fork", "spoon", "ladle", "whisk",
+    "grater", "peeler", "masher", "tongs", "skewer", "spit", "oven", "stove",
     "grill", "fire", "pot", "pan", "plate", "bowl", "cup"];
-    
+
   constructor(public userService: UserService) {
     const host = "api.nehsa.net";
     const port = 60049;
@@ -91,12 +92,12 @@ export class MudComponent {
         break;
       case 'event': // check if there's an event # breeze, silence, rain
         if (data.message != "") {
-          this.mudEvents += "<br><span style=\"color: yellow;\">" + data.message + "</span>";
+          this.mudEvents += "<br><span class=\"event-message\">" + data.message + "</span>";
         }
         break;
       case 'info':
         if (data.message != "") {
-          this.mudEvents += "<br><span style=\"color: darksalmon;\">" + data.message + "</span>";
+          this.mudEvents += "<br><span class=\"info-message\">" + data.message + "</span>";
         }
         break;
       case 'time':
@@ -106,23 +107,25 @@ export class MudComponent {
         break;
       case 'command':
         if (data.message != "") {
-          this.mudEvents += "<br><span style=\"color: #F9F5EC;\">" + data.message + "</span>";
+          this.mudEvents += "<br><span class=\"input-message\">" + data.message + "</span>";
         }
         break;
       case 'you_attack':
         if (data.message != "") {
-          this.mudEvents += "<br><span style=\"color: #98FB98;\">" + data.message + "</span>";
+          this.mudEvents += "<br><span class=\"you-attack-message\">" + data.message + "</span>";
         }
         break;
       case 'error':
         if (data.message != "") {
-          this.mudEvents += "<br><span style=\"color: red;\">" + data.message + "</span>";
+          this.mudEvents += "<br><span class=\"error-message\">" + data.message + "</span>";
         }
         break;
       case 'attack':
         if (data.message != "") {
           const attack_txt = data.message.split('! ')
-          this.mudEvents += "<br><span style=\"color: red;\">" + attack_txt[0] + "!</span><br><span style=\"font-size: 1rem; vertical-align: super; color: #cccccc;\">" + attack_txt[1] + "</span>";
+          this.mudEvents += "<br><span class=\"attack1-message\">"
+            + attack_txt[0]
+            + "!</span><br><span  class=\"attack2-message\">" + attack_txt[1] + "</span>";
         }
         break;
       case 'health':
@@ -136,13 +139,13 @@ export class MudComponent {
           console.log("hitpoints: " + hitpoints);
           const max_hitpoints = parseInt(values[1].split('/')[1]);
           console.log("max_hitpoints: " + max_hitpoints);
-          let color = 'green';
+          let cssClass = 'good';
           if (hitpoints / max_hitpoints >= .75) {
-            color = 'green';
+            cssClass = 'status-good ';
           } else if (hitpoints / max_hitpoints >= .25) {
-            color = '#FF7034;'; // burnt orange
+            cssClass = 'status-dicey;'; // burnt orange
           } else {
-            color = 'red';
+            cssClass = 'status-danger';
           }
 
           // statuses
@@ -160,7 +163,7 @@ export class MudComponent {
           this.playerName = name;
 
           // add the health
-          this.health = "<span style=\"color: " + color + ";\">" + hitpoints + "</span> / " + max_hitpoints;
+          this.health = "<span style=\"class: " + cssClass + ";\">" + hitpoints + "</span> / " + max_hitpoints;
 
           // add status effects
           this.status = "Status: Resting";
@@ -168,32 +171,32 @@ export class MudComponent {
         break;
       case 'room':
         if (data.name != "") {
-          this.mudEvents += "<br><span style=\"color: green; text-weight: bold;\">" + data.name + "</span>";
+          this.mudEvents += "<br><span class=\"room-message\">" + data.name + "</span>";
         }
 
         // check if there's a room descrption
         if (data.description != "") {
-          this.mudEvents += "<br><span style=\"color: #F9F5EC;\">" + data.description + "</span>";
+          this.mudEvents += "<br><span class=\"room-description-message\">" + data.description + "</span>";
         }
 
         // check for people
         if (data.people != "") {
-          this.mudEvents += "<br><span style=\"color: #F9F5EC;\">People: </span><span style=\"color: cornflowerblue;\">" + data.people + "</span>";
+          this.mudEvents += "<br><span class=\"people1-message\">People: </span><span class=\"people2-message\">" + data.people + "</span>";
         }
 
         // check for monsters
         if (data.monsters != "") {
-          this.mudEvents += "<br><span style=\"color: #F9F5EC;\">Monsters: </span><span style=\"color: red;\">" + data.monsters + "</span>";
+          this.mudEvents += "<br><span class=\"monster1-message\">Monsters: </span><span class=\"monster2-message\">" + data.monsters + "</span>";
         }
 
         // check for items
         if (data.items != "") {
-          this.mudEvents += "<br><span style=\"color: #F9F5EC;\">You see </span><span style=\"color: green;\">" + data.items + "</span>";
+          this.mudEvents += "<br><span class=\"items1-message\">You see </span><span class=\"items2-message\">" + data.items + "</span>";
         }
 
         // check for available exits
         if (data.exits != "") {
-          this.mudEvents += "<br><span style=\"color: #F9F5EC;\">Available exits: </span><span style=\"color: green;\">" + data.exits + "</span>";
+          this.mudEvents += "<br><span class=\"exits1-message\">Available exits: </span><span class=\"exits2-message\">" + data.exits + "</span>";
         }
         break;
       case 'get_clients':

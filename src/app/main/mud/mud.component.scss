@@ -28,7 +28,7 @@ td {
     "title blank status"
     "main main status"
     "main main helpsection"
-    "main main main"
+    "main main helpsection"
     "command command helpsection"
     "usersconnected usersconnected usersconnected";
   grid-template-columns: 400px 1fr 300px;
@@ -104,7 +104,87 @@ td {
   float: left;
 }
 
-.time-message {
+.event-message {
   color: #999;
+}
+
+.error-message {
+  color: red;
+}
+
+.time-message {
+  color: whitesmoke;
   font-size: 0.8em;
+}
+
+.info-message {
+  color: white;
+}
+
+.input-message {
+  color: yellow;
+}
+
+.you-attack-message {
+  color: fuchsia;
+}
+
+.attach1-message {
+  color: brown;
+}
+
+.attack2-message {
+  vertical-align: super;
+}
+
+.status-good {
+  color: springgreen;
+}
+
+.room-message {
+  color: darkorange;
+}
+
+.status-dicey {
+  color: tomato;
+}
+
+.status-danger {
+  color: crimson;
+}
+
+.room-description-message {
+  color: #00ff00;
+}
+
+.peopl1-message {
+  color: salmon;
+}
+
+.people2-message {
+  color: khaki;
+}
+
+.monster1-message{
+  color: #00ffee;
+}
+
+.monster2-message {
+  color: coral;
+}
+
+.items1-message {
+  color: #ff00ff;
+}
+
+.items2-message {
+  color: #ffcc00;
+}
+
+.exits1-message {
+  color: cornflowerblue;
+}
+
+.exits2-message {
+  color: sienna;
 }
