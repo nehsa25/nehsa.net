@@ -233,10 +233,16 @@
 .signup {
     grid-area: signup;
     background-color: #999 !important;
-    padding: 7px 1em;
-    font-variant: small-caps;
-    font-size: 1.5rem;
-    height: 100%;
+    padding: 2px;
+    font-variant: petite-caps;
+    font-size: 2rem;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    place-content: center;
+    margin: 0 9 9 25px;
+}
+
+.personname {
+    color: white;
 }
 
 .dh {
