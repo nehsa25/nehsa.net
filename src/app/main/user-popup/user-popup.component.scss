@@ -28,3 +28,12 @@ button {
     margin-top: 16px;
 }
 
+.nameinput {
+    width: 100%;
+}
+
+.sectiongrid {
+    display: grid;
+    grid-template-rows: auto 60px;
+    grid-gap: .5em;
+}

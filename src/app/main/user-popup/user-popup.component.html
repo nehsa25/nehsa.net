@@ -1,23 +1,59 @@
 <div class="main">
-    <mat-stepper [linear]="isLinear" #stepper>
-        <mat-step [stepControl]="FormGroup1">
-            <form [formGroup]="FormGroup1">
+    <mat-stepper headerPosition="bottom" labelPosition="bottom" [linear]="isLinear" #stepper>
+        <mat-step [stepControl]="formGroup1">
+            <form [formGroup]="formGroup1">
                 <ng-template matStepLabel>{{nameLabel}}</ng-template>
-                <div>
-                    <span class="important">{{greeting}} {{name}}....</span><br><br>
-                    May I call you {{name}}?<br><br>
-                </div>
-                <div class="btns">
+                <div class="sectiongrid">
                     <div>
-                        <button matStepperNext mat-button (click)="yes()">Yes</button>
-                        <button matStepperNext mat-button (click)="no()">No</button>
-                    </div><br>
-                    <span style="font-size: 12px">(I'm surprised you're here, but welcome regardless!)</span>
+                        <div *ngIf="this.name === this.data.names[0].Name">
+                            <span class="important">{{greeting}} {{name}}!</span>
+                        </div>
+                        <div *ngIf="this.name !== this.data.names[0].Name">
+                            <span class="important">OK, what about {{name}}?</span>
+                        </div>
+                        <div *ngIf="this.chooseNameValue">
+                            <mat-form-field class="nameinput">
+                                <mat-label>What is your name?</mat-label>
+                                <input matInput placeholder="Trixie" formControlName="name" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="btns">
+                        <div *ngIf="this.name === this.data.names[0].Name">
+                            <button matStepperNext mat-stroked-button>Next</button>
+                        </div>
+                        <div *ngIf="this.name !== this.data.names[0].Name && !this.chooseNameValue">
+                            <button matStepperNext mat-stroked-button (click)="nameAccepted(true, stepper)">Yes</button>
+                            <button mat-stroked-button (click)="chooseName(false)">No</button>
+                        </div>
+                        <div *ngIf="this.chooseNameValue">
+                            <button matStepperNext mat-stroked-button (click)="nameAccepted(true, stepper)">Next</button>
+                        </div>
+                        <br>
+                        <span style="font-size: 14px">(I'm surprised you're here, but welcome regardless!)</span>
+                    </div>
                 </div>
             </form>
         </mat-step>
-        <mat-step [stepControl]="FormGroup2">
-            <form [formGroup]="FormGroup2">
+        <mat-step [stepControl]="formGroup2">
+            <form [formGroup]="formGroup2">
+                <ng-template matStepLabel>
+                    <div *ngIf="!this.chooseNameValue">Confirm</div>
+                    <div *ngIf="this.chooseNameValue"><mat-icon>check</mat-icon></div>
+                </ng-template>
+                <div>
+                    <span class="important">May I call you {{name}}?</span>
+                </div>
+                <div class="btns">
+                    <div>
+                        <button matStepperNext mat-stroked-button (click)="nameAccepted(true, stepper)">Yes</button>
+                        <button matStepperPrevious mat-stroked-button (click)="nameAccepted(false, stepper)">No</button>
+                    </div>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="formGroup3" optional>
+            <form [formGroup]="formGroup3">
                 <ng-template matStepLabel>{{moodLabel}}</ng-template>
                 <div>
                     <span class="important">How is your day going? Be honest.</span><br><br>
@@ -34,9 +70,9 @@
                 </div>
             </form>
         </mat-step>
-        <mat-step [stepControl]="FormGroup3">
-            <ng-template matStepLabel>:)</ng-template>
-            <form [formGroup]="FormGroup3">
+        <mat-step [stepControl]="formGroup4">
+            <form [formGroup]="formGroup4">
+                <ng-template matStepLabel>test</ng-template>
                 <div style="text-align: center;" *ngIf="showRozPhoto">
                     <h5>Maybe this will make you feel better..</h5>
                     <img width="400px" mat-card-image src="../../../assets/images/roz.jpg" alt="Photo of Roz" />
@@ -45,7 +81,7 @@
                     <h1>I'm happy for you!</h1>
                 </div>
                 <div class="btns">
-                    <button matStepperNext mat-button (click)="close()">Close</button>                    
+                    <button matStepperNext mat-stroked-button (click)="close()">Close</button>
                 </div>
             </form>
         </mat-step>

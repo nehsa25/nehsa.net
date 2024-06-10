@@ -101,7 +101,7 @@ export class MudComponent {
         break;
       case 'time':
         if (data.message != "") {
-          this.mudEvents += "<br><span style=\"color: #cccccc; font-size: small\">[" + data.message + "]</span>";
+          this.mudEvents += "<br><span class=\"time-message\">[" + data.message + "]</span>";
         }
         break;
       case 'command':

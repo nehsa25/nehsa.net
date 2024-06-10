@@ -47,6 +47,11 @@ export class HttpService {
         return this.http.get(this.nameUrl);
     }
 
+    /** Returns the specified number random names */  
+    getNames(numToReturn: number) {
+        return this.http.get(`${this.nameUrl}/${numToReturn}`);
+    }
+
     /** Returns a random list of positive adjectives */  
     getPosTerms() {
         return this.http.get(this.posAdjUrl);

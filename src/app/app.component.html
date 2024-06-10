@@ -14,9 +14,9 @@
         </div>
     </div>
     <div class="child">
-        <div class="signup" *ngIf="namePerson.Name != ''">
-            <span class="personname" matTooltip="{{namePerson.About}}"
-            matTooltipClass="tooltip-long">{{namePerson.Name}}</span> <button style="color: inherit;" *ngIf="!nameConfirmed"mat-button (click)="getRealName()">not you?</button></div>
+        <div class="signup" *ngIf="this.userService.name != ''">
+            <span class="personname" matTooltip="{{this.userService.about}}"
+            matTooltipClass="tooltip-long">{{this.userService.name}}</span> <button style="color: inherit;" *ngIf="!nameConfirmed"mat-button (click)="getName2ndAttempt()">not you?</button></div>
     </div>
     <div class="dh child">
         <p>{{quote}}</p>

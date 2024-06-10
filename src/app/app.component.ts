@@ -37,7 +37,7 @@ import { UserService } from './services/user.service';
 export class AppComponent {
   quote = "";
   posTerms = "";
-  namePerson: NameAboutType = new NameAboutType();
+  names: Array<NameAboutType> = new Array<NameAboutType>();
   getQueries: Array<Observable<any>> = new Array<Observable<any>>();
   nameConfirmed = false;
   constructor(
@@ -46,7 +46,7 @@ export class AppComponent {
     public nameDialog: MatDialog
   ) {
     var getQuotes = this.httpClient.getQuote();
-    var getName = this.httpClient.getName();
+    var getName = this.httpClient.getNames(2);
     var getPosTerms = this.httpClient.getPosTerms();
     this.getQueries.push(getQuotes);
     this.getQueries.push(getName);
@@ -59,24 +59,25 @@ export class AppComponent {
         return;
       }
       this.quote = next[0]
-      this.namePerson = next[1];
-      this.userService.name = this.namePerson.Name;
+      this.names = next[1];
+      this.userService.name = this.names[0].Name;
+      this.userService.about = this.names[0].About
       this.posTerms = next[2];
-      this.getRealName();
+      this.getName2ndAttempt();
     });
   }
 
-  getRealName() {
+  getName2ndAttempt() {
     const dialogRef = this.nameDialog.open(UserPopupComponent, {
       data: {
-        namePerson: this.namePerson
+        names: this.names
       },
-      width: '650px',
+      width: '800px',
     });
     dialogRef.componentInstance.emitService.subscribe((val) => {
       if (val) {
         this.nameConfirmed = true;
-        this.httpClient.updateName(this.namePerson.Name).subscribe(data => {
+        this.httpClient.updateName(this.names[1].Name).subscribe(data => {
           if (data != null && data != "") {
               console.log("Name updated!: " + data.toString()) ;
           }

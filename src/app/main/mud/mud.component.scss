@@ -1,104 +1,110 @@
 textarea {
-    width: 100%;
-    font-size: 1.5em;
-    background-color: #333;
-    color: #fff;
-    border: 0;
-    padding: 10px 5px;
-    height: 40px;
-    resize: none;
-    margin: 0;
-    overflow: hidden;
+  width: 100%;
+  font-size: 1.5em;
+  background-color: #333;
+  color: #fff;
+  border: 0;
+  padding: 10px 5px;
+  height: 40px;
+  resize: none;
+  margin: 0;
+  overflow: hidden;
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 0;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
 }
 
 td {
-    padding: 5px;
-    border: 1px solid #333;
+  padding: 5px;
+  border: 1px solid #333;
 }
 
 .mudgrid {
-    display: grid;
-    grid-template-areas:
+  display: grid;
+  grid-template-areas:
     "title blank status"
     "main main status"
     "main main helpsection"
+    "main main main"
     "command command helpsection"
     "usersconnected usersconnected usersconnected";
-    grid-template-columns: 400px 1fr 300px;
-    grid-template-rows: 20px auto auto 60px 30px;
-    height: 75vh;
-  }
+  grid-template-columns: 400px 1fr 300px;
+  grid-template-rows: 20px auto auto auto 60px 30px;
+  height: 75vh;
+}
 
-  #title {
-    grid-area: title;
-    overflow: auto;
-  }
+#title {
+  grid-area: title;
+  overflow: auto;
+}
 
-  #helpsection {
-    grid-area: helpsection;
-    overflow: auto;
-    padding: 1em;
-  }
+#helpsection {
+  grid-area: helpsection;
+  overflow: auto;
+  padding: 1em;
+}
 
-  #main {
-    grid-area: main;
-    background-color: black;
-    overflow: hidden;
-    overflow-y: scroll;
-    padding: 1em;
-  }
+#main {
+  grid-area: main;
+  background-color: black;
+  overflow: hidden;
+  overflow-y: scroll;
+  padding: 1em;
+}
 
-  #usersconnected {
-    grid-area: usersconnected;
-    display: block;
-    padding-left: inherit;
-    text-align: center;
-  }
+#usersconnected {
+  grid-area: usersconnected;
+  display: block;
+  padding-left: inherit;
+  text-align: center;
+}
 
-  #command {
-    grid-area: command;
-    background-color: #333;
-    height: 60px;
-    font-size: 2em;
-    overflow: hidden;
-  }
-  
-  #status {
-    grid-area: status;
-    border: 2px solid #cccccc;
-    background-color: antiquewhite;
-    -webkit-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    padding: .5em;
-    background-color: greenyellow;
-    margin: 5px 1em;
-    height: 250px;
-  }
+#command {
+  grid-area: command;
+  background-color: #333;
+  height: 60px;
+  font-size: 2em;
+  overflow: hidden;
+}
 
-  .title_span {
-    background-color: teal;
-  }
+#status {
+  grid-area: status;
+  border: 2px solid #cccccc;
+  background-color: antiquewhite;
+  -webkit-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  padding: .5em;
+  background-color: greenyellow;
+  margin: 5px 1em;
+  height: 250px;
+}
 
-  #inventory {
-    overflow: hidden;
-    overflow-y: scroll;
-    height: 150px;
-  }
+.title_span {
+  background-color: teal;
+}
 
-  .subtitle {
-    background-color: beige;
-    padding: 0 5px;
- }
+#inventory {
+  overflow: hidden;
+  overflow-y: scroll;
+  height: 150px;
+}
 
- #inventory ul li{
+.subtitle {
+  background-color: beige;
+  padding: 0 5px;
+}
+
+#inventory ul li {
   width: 45%;
   float: left;
+}
+
+.time-message {
+  color: #999;
+  font-size: 0.8em;
 }
