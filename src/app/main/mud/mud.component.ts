@@ -55,6 +55,7 @@ export class MudComponent {
     });
   }
 
+  /** Adds a border around the string */
   addBorder(message: string) {
     var desc = "";
     const descriptionLength = message.length;
@@ -68,6 +69,7 @@ export class MudComponent {
     return `${desc}<br>|${message}|<br>${desc}`
   }
 
+    /** Adds a bar under the string */
   addBar(message: string) {
     var desc = "";
     const descriptionLength = message.length;
@@ -81,6 +83,7 @@ export class MudComponent {
     return `${message}<br>${desc}`
   }
 
+  /** Colorize the message */
   colorizeMessage(message: string) {
     let colors: string[] = ["red", "green", "blue", "white", "yellow", "cyan", "magenta", "black", "gray", "grey",
       "orange", "purple", "brown", "pink", "teal", "maroon", "olive", "navy",
@@ -102,10 +105,6 @@ export class MudComponent {
 
   processCommand(data: MudEvent) {
     console.log("Processing command: " + data.type);
-    if (data.message != null && data.message != "") {
-      var mudEvent = data.message.split(',');
-      console.log(mudEvent);
-    }
     switch (data.type) {
       case 'request_hostname':
         console.log("Inside request_hostname switch");
@@ -140,8 +139,13 @@ export class MudComponent {
         }
         break;
       case 'inv':
-        console.log("Inside inv switch " + data.message);
-        //this.inventory = data.message;
+        var inventoryList = new Array<string>();
+        var items = data.message.toString().split(',');
+        items.forEach(o => {
+          console.log("item: " + o);
+          inventoryList.push(o);
+        });
+        this.inventory = inventoryList;
         break;
       case 'error':
         if (data.message != "") {
