@@ -2,8 +2,8 @@
 @media screen and (min-width: 1024px) {
     .main {
         grid-gap: 10px;
-        font-size: 3rem;
-        padding: 1em;
+        font-size: 2rem;
+        padding: .5em;
     }
 }
 
@@ -60,6 +60,9 @@ button {
 .main {
     display: grid;
     grid-template-rows: 1fr;
+    grid-gap: .5em;
+    font-size: 1rem;
+    padding: 0;
 }
 
 .btns {
@@ -86,5 +89,11 @@ button {
 .sectiongrid {
     display: grid;
     grid-template-rows: auto 60px;
-    grid-gap: .5em;
+    grid-gap: 2em;
+}
+
+.roz {
+    width: 300px;
+    border: 2px solid #666;
+    margin: 1em 0;
 }
