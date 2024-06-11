@@ -8,7 +8,8 @@
                         </span>
                     </span>
                 </div>
-                <div #scrollMe [scrollTop]="scrollMe.scrollHeight" id="main" [innerHTML]="mudEvents" (click)="refocus(sendcommandarea)"></div>
+                <div #scrollMe [scrollTop]="scrollMe.scrollHeight" id="main" [innerHTML]="mudEvents"
+                    (click)="refocus(sendcommandarea)"></div>
                 <div id="status">
                     <div class="statusgrid">
                         <table>
@@ -21,7 +22,7 @@
                                 <td id="health"><span [innerHTML]="health"></span></td>
                             </tr>
                             <tr>
-                                <td id="inv"colspan="2">Inventory<br>
+                                <td id="inv" colspan="2">Inventory<br>
                                     <div id="inventory">
                                         <ul class="condensed">
                                             <li *ngFor="let item of inventory">{{item}}</li>
@@ -36,29 +37,27 @@
                     <h4>
                         A text-based multi-user dungeon. HUZZAH!</h4>
                     <ul class="condensed">
-                        <li>
+                        <li>General  
                             <dl>
-                                <dt>Get Help and all available commands</dt>
+                                <dt>Get Help</dt>
                                 <dd>help</dd>
                             </dl>
                         </li>
-                        <li>
+                        <li>Communication
                             <dl>
                                 <dt>Speak something!</dt>
                                 <dd>/say &lt;message&gt; &lt;ENTER&gt;</dd>
+                                <dt>Bellow something loudly!</dt>
+                                <dt>/yell &lt;message&gt; &lt;ENTER&gt;</dt>
                             </dl>
                         </li>
-                        <li>
+                        <li>Explore
                             <dl>
-                                <dt>Move Around / Navigation</dt>
+                                <dt>Navigate the world</dt>
                                 <dd>
                                     Type a direction and then press &lt;ENTER&gt;<br>N, S, E, W, SW, NE, SE, SW, U,
                                     D<br>
                                 </dd>
-                            </dl>
-                        </li>
-                        <li>
-                            <dl>
                                 <dt>Look Around</dt>
                                 <dd>L (for look):<br>
                                     l n &lt;ENTER&gt;: look north

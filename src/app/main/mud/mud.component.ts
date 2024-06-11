@@ -69,7 +69,7 @@ export class MudComponent {
     return `${desc}<br>|${message}|<br>${desc}`
   }
 
-    /** Adds a bar under the string */
+  /** Adds a bar under the string */
   addBar(message: string) {
     var desc = "";
     const descriptionLength = message.length;
@@ -106,6 +106,12 @@ export class MudComponent {
   processCommand(data: MudEvent) {
     console.log("Processing command: " + data.type);
     switch (data.type) {
+      case 'welcome':
+        let welcome = "This is a project Ethan, my son, and I are working on (and you if you want!).  It's a fun way to learn Python while doing something creative.  It's an homage to one of the funnest, most underrated types of game ever invented - <span class=\"important\">text-based multi-user dungeons (MUDs).</span>  MUDs were hard, they required skill, they were fast and cut-throat.  If you died, people took your shit.  They were also highly social and encouraged creatively. Ohh, the day, when my friend Ian figured out how to script following someone in PvP so they couldn't get away! I hope someday people &quot;script&quot; this like MUDs of old.. so I can sneak attack you while you are AFK.<br><br> It's in a constant state of &quot;mostly broken&quot;. Please adjust your expectations accordingly. Someday, it's going to be cool!<br><br>Have fun!<br>";
+        if (data.message != "") {
+          this.mudEvents += `<br><span class=\"welcome-message\">${data.message}<br><br>${welcome}</span>`;
+        }
+        break;
       case 'request_hostname':
         console.log("Inside request_hostname switch");
         var name = this.userService.name;
