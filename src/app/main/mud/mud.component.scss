@@ -53,6 +53,8 @@ td {
   overflow: hidden;
   overflow-y: scroll;
   padding: 1em;
+  font-style: oblique;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
 
 #usersconnected {
@@ -113,7 +115,7 @@ td {
 }
 
 .time-message {
-  color: 999;
+  color: #999;
   font-size: 0.8em;
 }
 
@@ -142,11 +144,11 @@ td {
 }
 
 .room-message {
-  color: darkorange;
+  color: cornflowerblue;
 }
 
 .status-dicey {
-  color: tomato;
+  color: orangered;
 }
 
 .status-danger {
@@ -154,7 +156,7 @@ td {
 }
 
 .room-description-message {
-  color: #00ff00;
+  color: antiquewhite;
 }
 
 .peopl1-message {
@@ -165,26 +167,49 @@ td {
   color: khaki;
 }
 
+/* Monsters: */
 .monster1-message{
-  color: #00ffee;
+  color: antiquewhite;
 }
 
 .monster2-message {
-  color: coral;
+  color: tomato;
 }
 
+/* You see.. */
 .items1-message {
-  color: #ff00ff;
+  color: antiquewhite;
 }
 
 .items2-message {
   color: #ffcc00;
 }
 
+/* Exits: */
 .exits1-message {
-  color: cornflowerblue;
+  color: antiquewhite;
 }
 
 .exits2-message {
   color: sienna;
+}
+
+.color-white {
+  color: whitesmoke;
+}
+
+.color-blue {
+  color: blue;
+}
+.color-red {
+  color: red;
+}
+.color-puple {
+  color: purple;
+}
+.color-black {
+  color: #666;
+}
+.color-gray {
+  color: #333;
 }

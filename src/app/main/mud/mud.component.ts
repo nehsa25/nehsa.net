@@ -26,33 +26,7 @@ export class MudComponent {
   command: string = "";
   socket: WebSocket;
   fullAddress: string = "";
-  inventory: string[] = [
-    "sword", "shield", "potion",
-    "gold", "key", "map", "compass",
-    "torch", "rope", "rations", "armor",
-    "helmet", "boots", "gloves",
-    "cloak", "ring", "amulet", "wand", "staff",
-    "scroll", "book", "gem", "jewel",
-    "coin", "bag", "backpack", "sack",
-    "pouch", "chest", "box",
-    "barrel", "cask", "bottle", "flask", "vial",
-    "jar", "jug", "pot", "pan", "plate", "bowl", "cup", "mug",
-    "glass", "pitcher", "lamp", "candle", "torch", "lantern",
-    "oil", "flint", "steel", "tinder", "rope", "chain",
-    "lock", "key", "pick", "hammer", "nail", "screw",
-    "screwdriver", "wrench", "pliers", "saw", "axe",
-    "shovel", "spade", "pick", "hoe", "rake", "scythe",
-    "sickle", "knife", "fork", "spoon", "ladle", "whisk",
-    "grater", "peeler", "masher", "tongs", "skewer",
-    "spit", "oven", "stove", "grill", "fire", "pot",
-    "pan", "plate", "bowl", "cup", "mug", "glass",
-    "pitcher", "lamp", "candle", "torch", "lantern",
-    "oil", "flint", "steel", "tinder", "rope", "chain", "lock",
-    "key", "pick", "hammer", "nail", "screw", "screwdriver",
-    "wrench", "pliers", "saw", "axe", "shovel", "spade", "pick", "hoe",
-    "rake", "scythe", "sickle", "knife", "fork", "spoon", "ladle", "whisk",
-    "grater", "peeler", "masher", "tongs", "skewer", "spit", "oven", "stove",
-    "grill", "fire", "pot", "pan", "plate", "bowl", "cup"];
+  inventory: string[] = [];
 
   constructor(public userService: UserService) {
     const host = "api.nehsa.net";
@@ -81,7 +55,31 @@ export class MudComponent {
     });
   }
 
+  colorizeMessage(message: string) {
+    let colors: string[] = ["red", "green", "blue", "white", "yellow", "cyan", "magenta", "black", "gray", "grey",
+      "orange", "purple", "brown", "pink", "teal", "maroon", "olive", "navy",
+      "lime", "aqua", "silver", "black", "gray", "grey", "orange",
+      "purple", "brown", "pink", "teal", "maroon", "olive", "navy", "lime", "aqua", "silver"];
+    colors.forEach(o => {
+      const findval = o;
+      let replaceValue = o;
+      if (o == "black" || o == "gray" || o == "grey") {
+        replaceValue = "#999";
+      }
+      const findExpression = new RegExp(`\\s(${o})\\s|\\s(${o}(?=\\S*['-])([a-zA-Z'-]+))`, 'gi');
+      const PreventDupeExpression = new RegExp(`<span class=\"color-${findExpression}\">(.*)</span><span class=\"color-${findExpression}\">(.*)</span>`, 'gi');
+      message = message.replace(findExpression, r => "<span class=\"color-" + replaceValue + "\">" + r + "</span>");
+      message = message.replace(PreventDupeExpression, r => "<span class=\"color-" + replaceValue + "\">" + r + "</span>");
+    });
+    return message;
+  }
+
   processCommand(data: MudEvent) {
+    console.log("Processing command: " + data.type);
+    if (data.message != null && data.message != "") {
+      var mudEvent = data.message.split(',');
+      console.log(mudEvent);
+    }
     switch (data.type) {
       case 'request_hostname':
         console.log("Inside request_hostname switch");
@@ -114,6 +112,10 @@ export class MudComponent {
         if (data.message != "") {
           this.mudEvents += "<br><span class=\"you-attack-message\">" + data.message + "</span>";
         }
+        break;
+      case 'inv':
+        console.log("Inside inv switch " + data.message);
+        //this.inventory = data.message;
         break;
       case 'error':
         if (data.message != "") {
@@ -176,6 +178,7 @@ export class MudComponent {
 
         // check if there's a room descrption
         if (data.description != "") {
+          data.description = this.colorizeMessage(data.description);
           this.mudEvents += "<br><span class=\"room-description-message\">" + data.description + "</span>";
         }
 
