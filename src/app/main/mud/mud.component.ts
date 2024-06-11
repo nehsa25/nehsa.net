@@ -55,6 +55,32 @@ export class MudComponent {
     });
   }
 
+  addBorder(message: string) {
+    var desc = "";
+    const descriptionLength = message.length;
+    if (descriptionLength < 160) {
+      for (var i = 0; i < descriptionLength + 2; i++) {
+        desc += '-';
+      }
+    } else {
+      desc += "---------------------------------------------------------------------------------------------------------------------------------------------------------------";
+    }
+    return `${desc}<br>|${message}|<br>${desc}`
+  }
+
+  addBar(message: string) {
+    var desc = "";
+    const descriptionLength = message.length;
+    if (descriptionLength < 160) {
+      for (var i = 0; i < descriptionLength; i++) {
+        desc += '-';
+      }
+    } else {
+      desc += "---------------------------------------------------------------------------------------------------------------------------------------------------------------";
+    }
+    return `${message}<br>${desc}`
+  }
+
   colorizeMessage(message: string) {
     let colors: string[] = ["red", "green", "blue", "white", "yellow", "cyan", "magenta", "black", "gray", "grey",
       "orange", "purple", "brown", "pink", "teal", "maroon", "olive", "navy",
@@ -173,12 +199,12 @@ export class MudComponent {
         break;
       case 'room':
         if (data.name != "") {
-          this.mudEvents += "<br><span class=\"room-message\">" + data.name + "</span>";
+          this.mudEvents += "<br><span class=\"room-message\">" + this.addBorder(data.name) + "</span>";
         }
 
         // check if there's a room descrption
         if (data.description != "") {
-          data.description = this.colorizeMessage(data.description);
+          data.description = this.colorizeMessage(this.addBar(data.description));
           this.mudEvents += "<br><span class=\"room-description-message\">" + data.description + "</span>";
         }
 
@@ -194,12 +220,12 @@ export class MudComponent {
 
         // check for items
         if (data.items != "") {
-          this.mudEvents += "<br><span class=\"items1-message\">You see </span><span class=\"items2-message\">" + data.items + "</span>";
+          this.mudEvents += "<br><span class=\"items1-message\">You see: </span><span class=\"items2-message\">" + data.items + "</span>";
         }
 
         // check for available exits
         if (data.exits != "") {
-          this.mudEvents += "<br><span class=\"exits1-message\">Available exits: </span><span class=\"exits2-message\">" + data.exits + "</span>";
+          this.mudEvents += "<br><span class=\"exits1-message\">Exits: </span><span class=\"exits2-message\">" + data.exits + "</span>";
         }
         break;
       case 'get_clients':
