@@ -124,8 +124,8 @@
     }
 }
 
-/* For Mobile Portrait View */
-@media screen and (max-device-width: 480px) and (orientation: portrait) {
+/* For Mobile Portrait View iphone12 pro */
+@media screen and (max-device-width: 390px) and (orientation: portrait) {
     .gridcols {
         grid-template-rows: repeat(8, min-content);
     }
@@ -133,15 +133,15 @@
     .main {
         grid-template-areas:
             "bread"
-            "title"
             "signup"
+            "title"
             "navbar"
             "body"
             "contactme"
             "dh"
             "footer";
         grid-template-rows: repeat(8, min-content);
-        width: 315px;
+        width: 390px;
         overflow: auto;
         padding: 0;
         margin: 0;
@@ -165,24 +165,24 @@
     }
 }
 
-/* For Mobile Landscape View */
-@media screen and (max-device-width: 640px) and (orientation: landscape) {
+/* For Mobile Landscape View iphone12 pro */
+@media screen and (max-device-width: 844px) and (orientation: landscape) {
     .gridcols {
         grid-template-rows: repeat(8, min-content);
     }
 
     .main {
-        grid-template-areas:
-            "title"
-            "bread"
-            "dh"
-            "body"
-            "signup"
-            "contactme"
-            "navbar"
-            "footer";
-        grid-template-rows: repeat(8, min-content);
-        width: 640px;
+        grid-template-areas:        
+            "bread signup"
+            "dh dh"
+            "title title"
+            "body body"
+            "contactme contactme"
+            "navbar navbar"
+            "footer footer";
+        grid-template-rows: repeat(7, min-content);
+        grid-template-columns: auto auto;
+        width: 840px;
         overflow: auto;
     }
 
