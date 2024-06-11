@@ -247,12 +247,11 @@
 .signup {
     grid-area: signup;
     background-color: #999 !important;
-    padding: 2px;
+    padding: 2px 10px;
     font-variant: petite-caps;
     font-size: 2rem;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     place-content: start;
-    margin: 0 9 9 25px;
 }
 
 .personname {

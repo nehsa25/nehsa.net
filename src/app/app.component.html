@@ -16,7 +16,7 @@
     <div class="signup child">
         <div *ngIf="this.userService.name != ''">
             <span class="personname" matTooltip="{{this.userService.about}}"
-            matTooltipClass="tooltip-long">{{this.userService.name}}</span> <button style="color: inherit;" *ngIf="!nameConfirmed"mat-button (click)="getName2ndAttempt()">not you?</button></div>
+            matTooltipClass="tooltip-long">{{this.userService.name}}</span><button style="color: inherit;" *ngIf="!nameConfirmed"mat-button (click)="getName2ndAttempt()">not you?</button></div>
     </div>
     <div class="dh child">
         <p>{{quote}}</p>
