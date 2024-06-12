@@ -1,0 +1,43 @@
+h5 {
+    margin: 0px;
+    padding: 0px;
+}
+
+.mainarea {
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+}
+
+.title {
+    padding: 10px 0 0 10px;
+}
+
+.map {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #ffcc00;
+    border: 1px solid #333;
+    overflow: hidden;
+}
+
+.maingrid {
+    display: grid;
+    grid-template-rows: 50px 150px;
+    grid-gap: 0px;
+}
+
+.titlegrid {
+    display: grid;
+    grid-template-columns: 1fr 50px;
+    grid-gap: 0px;
+    height: 50px;
+}
+
+.maparea {
+    height: 150px;
+    padding: 1em;
+    background-color: yellow;
+    color: #333;
+}

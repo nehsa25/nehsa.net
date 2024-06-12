@@ -8,6 +8,9 @@ import { MatError, MatFormField, MatFormFieldControl, MatFormFieldModule, MatLab
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { UserService } from '../../services/user.service';
+import { UserCreateComponent } from './user-create/user-create.component';
+import { MatDialog } from '@angular/material/dialog';
+import { MapComponent } from './map/map.component';
 
 @Component({
   selector: 'app-mud',
@@ -17,6 +20,7 @@ import { UserService } from '../../services/user.service';
   styleUrl: './mud.component.scss',
   encapsulation: ViewEncapsulation.None,
 })
+
 export class MudComponent {
   mudEvents: string = "";
   playerName: string = "";
@@ -28,7 +32,11 @@ export class MudComponent {
   fullAddress: string = "";
   inventory: string[] = [];
 
-  constructor(public userService: UserService) {
+  constructor(
+    public userService: UserService,
+    public usernameCreateDialog: MatDialog,
+    public mapDialog: MatDialog
+  ) {
     const host = "api.nehsa.net";
     const port = 60049;
     this.fullAddress = `wss://${host}:${port}`;
@@ -83,6 +91,45 @@ export class MudComponent {
     return `${message}<br>${desc}`
   }
 
+  launchMap() {
+    const dialogRef = this.mapDialog.open(MapComponent, {
+      data: {
+        names: this.playerName
+      },
+      width: '200px',
+      height: '200px',
+      position: { top: '50px', right: '200px' }
+    });
+    dialogRef.componentInstance.emitService.subscribe((val: any) => {
+      console.log(val);
+      // ULTIMATELY, THIS IS WHERE WE WILL SEND THE NAME TO THE SERVER
+      // console.log("Inside request_hostname switch");
+      // var name = this.userService.name;
+      // var resp = '{"type": "hostname_answer", "host": "' + name + '"}';
+      // console.log("Server is requesting our name, sending back: " + resp);
+      // this.socket.send(resp);
+    });
+  }
+
+  createUser() {
+    const dialogRef = this.usernameCreateDialog.open(UserCreateComponent, {
+      data: {
+        names: this.playerName
+      },
+      width: '500px',
+      panelClass: 'custom-dialog-container'
+    });
+    dialogRef.componentInstance.emitService.subscribe((val: any) => {
+      console.log(val);
+      // ULTIMATELY, THIS IS WHERE WE WILL SEND THE NAME TO THE SERVER
+      // console.log("Inside request_hostname switch");
+      // var name = this.userService.name;
+      // var resp = '{"type": "hostname_answer", "host": "' + name + '"}';
+      // console.log("Server is requesting our name, sending back: " + resp);
+      // this.socket.send(resp);
+    });
+  }
+
   /** Colorize the message */
   colorizeMessage(message: string) {
     let colors: string[] = ["red", "green", "blue", "white", "yellow", "cyan", "magenta", "black", "gray", "grey",
@@ -104,15 +151,28 @@ export class MudComponent {
   }
 
   processCommand(data: MudEvent) {
-    console.log("Processing command: " + data.type);
     switch (data.type) {
       case 'welcome':
-        let welcome = "This is a project Ethan, my son, and I are working on (and you if you want!).  It's a fun way to learn Python while doing something creative.  It's an homage to one of the funnest, most underrated types of game ever invented - <span class=\"important\">text-based multi-user dungeons (MUDs).</span>  MUDs were hard, they required skill, they were fast and cut-throat.  If you died, people took your shit.  They were also highly social and encouraged creatively. Ohh, the day, when my friend Ian figured out how to script following someone in PvP so they couldn't get away! I hope someday people &quot;script&quot; this like MUDs of old.. so I can sneak attack you while you are AFK.<br><br> It's in a constant state of &quot;mostly broken&quot;. Please adjust your expectations accordingly. Someday, it's going to be cool!<br><br>Have fun!<br>";
+        let welcome = "This is NehsaMUD.<br><br>It's a project Ethan, my son, and I are working on (and you if you want!).  It's a fun way to learn Python while doing something creative.  It's an homage to one of the funnest, most underrated types of game ever invented - <span class=\"important\">text-based multi-user dungeons (MUDs).</span>  MUDs were hard, they required skill, they were fast and cut-throat.  If you died, people took your shit.  They were also highly social and encouraged creatively. Ohh, the day, when my friend Ian figured out how to script following someone in PvP so they couldn't get away! I hope someday people &quot;script&quot; this like MUDs of old.. so I can sneak attack you while you are AFK.<br><br>NehsaMUD in a perpetual state of &quot;mostly broken&quot;. Please adjust your expectations accordingly..<br><br>Have fun!<br>";
         if (data.message != "") {
           this.mudEvents += `<br><span class=\"welcome-message\">${data.message}<br><br>${welcome}</span>`;
         }
+        this.launchMap();
         break;
+      case 'book':
+        console.log("book: " + data.message);
+        if (data.message != "") {
+          this.mudEvents += `<br><span class=\"book-message\">${data.message.replace("<", "&lt;").replace(">", "&gt;")}</span>`;
+        }
+        break
       case 'request_hostname':
+        //this.createUser();
+        var name = this.userService.name;
+        var resp = '{"type": "hostname_answer", "host": "' + name + '"}';
+        console.log("Server is requesting our name, sending back: " + resp);
+        this.socket.send(resp);
+        break;
+      case 'dupe_username':
         console.log("Inside request_hostname switch");
         var name = this.userService.name;
         var resp = '{"type": "hostname_answer", "host": "' + name + '"}';
@@ -135,8 +195,9 @@ export class MudComponent {
         }
         break;
       case 'command':
+        console.log(JSON.parse(data.message).content);
         if (data.message != "") {
-          this.mudEvents += "<br><span class=\"input-message\">" + data.message + "</span>";
+          this.mudEvents += "<br><span class=\"input-message\">" + JSON.parse(data.message).content + "</span>";
         }
         break;
       case 'you_attack':

@@ -147,16 +147,21 @@ dt {
     color: plum;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     color: plum;
 }
 
-  
-  .mat-step-header .mat-step-icon {
-      background-color: plum;
-      color: #fff;
-      font-size: 14px;
-  }
+
+.mat-step-header .mat-step-icon {
+    background-color: plum;
+    color: #fff;
+    font-size: 14px;
+}
 
 .code {
     background-color: white;
@@ -218,4 +223,8 @@ h1, h2, h3, h4, h5, h6 {
 .commentgrid {
     display: grid;
     grid-template-rows: 1fr 300px
+}
+
+.mat-mdc-dialog-surface {
+    overflow: hidden !important;
 }

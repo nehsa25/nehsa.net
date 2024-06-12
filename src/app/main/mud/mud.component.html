@@ -9,7 +9,8 @@
                     </span>
                 </div>
                 <div #scrollMe [scrollTop]="scrollMe.scrollHeight" id="main" [innerHTML]="mudEvents"
-                    (click)="refocus(sendcommandarea)"></div>
+                    (click)="refocus(sendcommandarea)">
+                </div>
                 <div id="status">
                     <div class="statusgrid">
                         <table>
@@ -39,11 +40,14 @@
                     <dl class="condensed">
                         <dt>Get Help</dt>
                         <dd>help</dd>
+                        <dt>Attack a monster (or player):</dt>
+                        <dd>a (for attack):<br>
+                            a zombie &lt;ENTER&gt;: attack a zombie</dd>
                         <dt>Get help on a command</dt>
                         <dd>help &lt;COMMAND&gt;</dd>
                         <dt>See who's online</dt>
                         <dd>who</dd>
-                        <dt>Speak something to people in the same room:</dt>
+                        <dt>Speak something to the room:</dt>
                         <dd>/say &lt;message&gt;</dd>
                         <dt>Bellow something loudly:</dt>
                         <dd>/yell &lt;message&gt;</dd>
@@ -60,6 +64,10 @@
                         <dd>g (for get):<br>
                             g stick &lt;ENTER&gt;: pick up stick
                         </dd>
+                        <dt>Character Statistics:</dt>
+                        <dd>stat</dd>
+                        <dt>Display your experience:</dt>
+                        <dd>exp</dd>
                     </dl>
                 </div>
                 <div id="command">
