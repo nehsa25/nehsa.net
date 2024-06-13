@@ -9,6 +9,12 @@ import { NgIf } from '@angular/common';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatInputModule } from '@angular/material/input';
 import { MatIcon } from '@angular/material/icon';
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarModule,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-user-popup',
@@ -24,7 +30,8 @@ import { MatIcon } from '@angular/material/icon';
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIcon
+    MatIcon,
+    MatSnackBarModule
   ],
   templateUrl: './user-popup.component.html',
   styleUrl: './user-popup.component.scss'
@@ -46,11 +53,14 @@ export class UserPopupComponent {
     //Ctrl5: ['', Validators.required],
   });
 
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
   isLinear = true;
   showRozPhoto = false;
   showYourGood = false;
-  saveName = false;
-  chooseNameValue = false;
+  isNameAccepted = false;
+  isNameConfirmed = false;
+  isForceName = false;
   showName2 = false;
   name = "";
   about = "";
@@ -61,6 +71,7 @@ export class UserPopupComponent {
   constructor(
     private _formBuilder: FormBuilder,
     public userDialog: MatDialogRef<UserPopupComponent>,
+    private _snackbar: MatSnackBar,
     @Inject(MAT_DIALOG_DATA) public data:
       {
         names: Array<NameAboutType>
@@ -86,26 +97,43 @@ export class UserPopupComponent {
     this.closeDialog();
   }
 
-  chooseName(choose: boolean) {
-    if (choose) {
-      this.chooseNameValue = false;
-    } else {
-      this.chooseNameValue = true;
-    }
+  forceChooseName() {
+    this.isForceName = true;
   }
 
   nameAccepted(choosen: boolean, stepper: MatStepper) {
     if (choosen) {
-      this.saveName = true;
+      this.isNameAccepted = true;
       let nameform: any | null = this.formGroup1.get('name');
       if (nameform.value != null) {
         this.name = nameform.value
         this.about = "";
         stepper.next();
       }
-      this.nameLabel = this.name;
+      this.nameLabel = this.name; 
+    } else {
+      if (this.name === this.data.names[0].Name) {
+        this.name = this.data.names[1].Name;
+        this.about = this.data.names[1].About;
+      } else {
+        this.name = this.data.names[0].Name;
+        this.about = this.data.names[0].About;
+      }
+    }
+  }
+
+  nameConfirmed(choosen: boolean, stepper: MatStepper) {
+    if (choosen) {
+      this.isNameConfirmed = true;
+      let nameform: any | null = this.formGroup1.get('name');
+      if (nameform.value != null) {
+        this.name = nameform.value
+        this.about = "";
+        stepper.next();
+      }
       this.emitService.next(true);  
     } else {
+      this.isNameConfirmed = false;
       if (this.name === this.data.names[0].Name) {
         this.name = this.data.names[1].Name;
         this.about = this.data.names[1].About;
@@ -118,22 +146,15 @@ export class UserPopupComponent {
 
   showRoz(mood: number) {
     this.showRozPhoto = true;
-    if (mood <= 3) {
-      this.moodLabel = "Sad";
-    } else if (mood < 8 && mood > 3) {
-      this.moodLabel = "Average";
-    } else {
-      this.moodLabel = "Happy";
-    } 
-  }
-
-  yourGood(mood: any) {
-    this.showRozPhoto = true;
-    this.moodLabel = "Happy";
-    if (this.showYourGood) {
-      this.showYourGood = false;
-    } else {
+    this.moodLabel = mood.toString();
+    if (mood >= 7) {
       this.showYourGood = true;
+    }
+    if (mood === 10) {
+      this._snackbar.open("Sublime!  I'm glad to hear it!", "Close", {
+        horizontalPosition: this.horizontalPosition,
+        verticalPosition: this.verticalPosition
+      });  
     }
   }
 

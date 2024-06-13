@@ -1,51 +1,118 @@
 @use '@angular/material' as mat;
 
 @include mat.core();
-$light-primary: mat.define-palette(mat.$indigo-palette, 500);
-$light-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-$light-typography: mat.define-typography-config($font-family: "monospace",
+
+/* For use in src/lib/core/theming/_palette.scss */
+$nehsanet-primary: (
+    50 : #fbf4fb,
+    100 : #f5e3f5,
+    200 : #eed0ee,
+    300 : #e7bde7,
+    400 : #e2aee2,
+    500 : #dda0dd,
+    600 : #d998d9,
+    700 : #d48ed4,
+    800 : #cf84cf,
+    900 : #c773c7,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffdeff,
+    A700 : #ffc4ff,
+    contrast: (50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+$primary: mat.define-palette($nehsanet-primary);
+
+$nehsanet-accent: (
+    50 : #edebf9,
+    100 : #d2cef0,
+    200 : #b5ade6,
+    300 : #978cdc,
+    400 : #8073d5,
+    500 : #6a5acd,
+    600 : #6252c8,
+    700 : #5748c1,
+    800 : #4d3fba,
+    900 : #3c2eae,
+    A100 : #f3f2ff,
+    A200 : #c5bfff,
+    A400 : #978cff,
+    A700 : #8073ff,
+    contrast: (50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+$accent: mat.define-palette($nehsanet-accent);
+
+/* For use in src/lib/core/theming/_palette.scss */
+$nehsanet-warn: (
+    50 : #ffece9,
+    100 : #ffd0c8,
+    200 : #ffb1a3,
+    300 : #ff927e,
+    400 : #ff7a63,
+    500 : #ff6347,
+    600 : #ff5b40,
+    700 : #ff5137,
+    800 : #ff472f,
+    900 : #ff3520,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffd3cf,
+    A700 : #ffbcb6,
+    contrast: (50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+$warn: mat.define-palette($nehsanet-warn);
+
+$nehsanet-typography: mat.define-typography-config($font-family: 'monospace'
     );
 
-$spring-primary: mat.define-palette(mat.$indigo-palette, 500);
-$spring-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-$spring-typography: mat.define-typography-config($font-family: "monospace",
-    );
+$app-theme: mat.define-dark-theme((color: (primary: $primary,
+                accent: $accent,
+                warn: $warn ),
+            density: -1,
+            typography: $nehsanet-typography ));
 
-$dark-primary: mat.define-palette(mat.$indigo-palette, 500);
-$dark-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-$dark-typography: mat.define-typography-config($font-family: "monospace",
-    );
-
-// per https://github.com/angular/components/blob/main/guides/duplicate-theming-styles.md, start with this, then only adjust colors
-
-$light-theme: mat.define-light-theme((color: (primary: $light-primary,
-                accent: $light-accent,
-            ),
-            typography: $light-typography,
-        ));
-
-$spring-theme: mat.define-dark-theme((color: (primary: $spring-primary,
-                accent: $spring-accent,
-            ),
-            typography: $spring-typography,
-        ));
-
-
-$dark-theme: mat.define-dark-theme((color: (primary: $dark-primary,
-                accent: $dark-accent,
-            ),
-            typography: $dark-typography,
-        ));
-
-
-@include mat.all-component-themes($light-theme);
-
-.dark-theme {
-    background-color: rgb(33, 33, 33);
-    color: ghostwhite;
-    @include mat.all-component-colors($dark-theme);
-    @include mat.all-component-typographies($dark-theme);
-}
+@include mat.all-component-themes($app-theme);
 
 @media screen and (min-width: 0px) and (max-width: 799px) {
     .code {
@@ -58,7 +125,6 @@ $dark-theme: mat.define-dark-theme((color: (primary: $dark-primary,
         line-height: inherit;
     }
 }
-
 
 html,
 body {
@@ -240,4 +306,3 @@ h6 {
     border-radius: 5px;
     border: 1px dashed slateblue;
 }
-

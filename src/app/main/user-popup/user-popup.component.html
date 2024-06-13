@@ -2,16 +2,16 @@
     <mat-stepper headerPosition="bottom" labelPosition="bottom" [linear]="isLinear" #stepper>
         <mat-step [stepControl]="formGroup1">
             <form [formGroup]="formGroup1">
-                <ng-template matStepLabel>{{nameLabel}}</ng-template>
+                <ng-template matStepLabel>{{nameLabel}} <mat-icon *ngIf="nameLabel !='Name'">check</mat-icon></ng-template>
                 <div class="sectiongrid">
                     <div>
                         <div *ngIf="this.name === this.data.names[0].Name">
                             <span class="important">{{greeting}} {{name}}!</span>
                         </div>
-                        <div *ngIf="this.name !== this.data.names[0].Name">
+                        <div *ngIf="this.name !== this.data.names[0].Name && !this.isForceName">
                             <span class="important">OK, what about {{name}}?</span>
                         </div>
-                        <div *ngIf="this.chooseNameValue">
+                        <div *ngIf="this.isForceName">
                             <mat-form-field class="nameinput">
                                 <mat-label>What is your name?</mat-label>
                                 <input matInput placeholder="Trixie" formControlName="name" />
@@ -20,27 +20,22 @@
                     </div>
                     <div class="btns">
                         <div *ngIf="this.name === this.data.names[0].Name">
-                            <button matStepperNext mat-stroked-button>Next</button>
+                            <button matStepperNext mat-stroked-button (click)="nameAccepted(true, stepper)">Next</button>
                         </div>
-                        <div *ngIf="this.name !== this.data.names[0].Name && !this.chooseNameValue">
+                        <div *ngIf="this.name !== this.data.names[0].Name">
                             <button matStepperNext mat-stroked-button (click)="nameAccepted(true, stepper)">Yes</button>
-                            <button mat-stroked-button (click)="chooseName(false)">No</button>
-                        </div>
-                        <div *ngIf="this.chooseNameValue">
-                            <button matStepperNext mat-stroked-button
-                                (click)="nameAccepted(true, stepper)">Next</button>
-                        </div>
-                        <br>
-                        <span style="font-size: 14px">(I'm surprised you're here, but welcome regardless!)</span>
+                            <button mat-stroked-button (click)="forceChooseName()">No</button>
+                        </div>                        
                     </div>
+                    <span class="important" style="font-size: 14px; text-align: center;">(I'm surprised you're here, but welcome regardless!)</span>
                 </div>
             </form>
         </mat-step>
         <mat-step [stepControl]="formGroup2">
             <form [formGroup]="formGroup2">
                 <ng-template matStepLabel>
-                    <div *ngIf="!this.chooseNameValue">Confirm</div>
-                    <div *ngIf="this.chooseNameValue"><mat-icon>check</mat-icon></div>
+                    <div *ngIf="!this.isNameConfirmed">Confirm</div>
+                    <div *ngIf="this.isNameConfirmed"><mat-icon>check</mat-icon></div>
                 </ng-template>
                 <div class="sectiongrid">
                     <div>
@@ -50,9 +45,9 @@
                     </div>
                     <div class="btns">
                         <div>
-                            <button matStepperNext mat-stroked-button (click)="nameAccepted(true, stepper)">Yes</button>
+                            <button matStepperNext mat-stroked-button (click)="nameConfirmed(true, stepper)">Yes</button>
                             <button matStepperPrevious mat-stroked-button
-                                (click)="nameAccepted(false, stepper)">No</button>
+                                (click)="nameConfirmed(false, stepper)">No</button>
                         </div>
                     </div>
                 </div>
@@ -70,9 +65,9 @@
                     <button matStepperNext mat-stroked-button (click)="showRoz(5)" class="numoption">5</button>
                     <button matStepperNext mat-stroked-button (click)="showRoz(6)" class="numoption">6</button>
                     <button matStepperNext mat-stroked-button (click)="showRoz(7)" class="numoption">7</button>
-                    <button matStepperNext mat-stroked-button (click)="yourGood(8)" class="numoption">8</button>
-                    <button matStepperNext mat-stroked-button (click)="yourGood(9)" class="numoption">9</button>
-                    <button matStepperNext mat-stroked-button (click)="yourGood(10)" class="numoption">10</button>
+                    <button matStepperNext mat-stroked-button (click)="showRoz(8)" class="numoption">8</button>
+                    <button matStepperNext mat-stroked-button (click)="showRoz(9)" class="numoption">9</button>
+                    <button matStepperNext mat-stroked-button (click)="showRoz(10)" class="numoption">10</button>
                 </div>
             </form>
         </mat-step>
