@@ -72,7 +72,7 @@ export class AppComponent {
 
     this.sleep(5000).then(() => {
       this.expandBio = false; 
-      this.title = "nehsa.net";
+      this.title = "Welcome!";
     });
   }
 
@@ -82,6 +82,9 @@ export class AppComponent {
 
   setExpand() {
     this.expandBio = !this.expandBio;
+    if (this.expandBio) {
+      this.title = "Jesse Stone";
+    }
   }
 
   getName2ndAttempt() {

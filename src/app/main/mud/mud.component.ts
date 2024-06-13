@@ -12,6 +12,7 @@ import { UserCreateComponent } from './user-create/user-create.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MapComponent } from './map/map.component';
 import { MatIcon } from '@angular/material/icon';
+import { DupeNameComponent } from './dupe-name/dupe-name.component';
 
 @Component({
   selector: 'app-mud',
@@ -24,7 +25,6 @@ import { MatIcon } from '@angular/material/icon';
 
 export class MudComponent {
   mudEvents: string = "";
-  playerName: string = "";
   usersConnected: number = 0;
   health: string = "";
   status: string = "";
@@ -36,6 +36,7 @@ export class MudComponent {
 
   constructor(
     public userService: UserService,
+    public dupeDialog: MatDialog,
     public usernameCreateDialog: MatDialog,
     public mapDialog: MatDialog
   ) {
@@ -93,10 +94,29 @@ export class MudComponent {
     return `${message}<br>${desc}`
   }
 
+  launchDupe() {
+    const dialogRef = this.dupeDialog.open(DupeNameComponent, {
+      data: {
+        name: this.userService.name
+      },
+      width: '400px',
+      height: '175px',
+    });
+    dialogRef.componentInstance.emitService.subscribe((val: any) => {
+      console.log(val);
+      this.userService.name = val.value;
+      var resp = '{"type": "hostname_answer", "host": "' + this.userService.name + '"}';
+      console.log("Server is requesting our name, sending back: " + resp);
+      this.socket.send(resp);
+    });
+    dialogRef.afterClosed().subscribe(result => {
+    });
+  }
+
   launchMap() {
     const dialogRef = this.mapDialog.open(MapComponent, {
       data: {
-        names: this.playerName
+        name: this.userService.name
       },
       width: '200px',
       height: '200px',
@@ -122,7 +142,7 @@ export class MudComponent {
   createUser() {
     const dialogRef = this.usernameCreateDialog.open(UserCreateComponent, {
       data: {
-        names: this.playerName
+        name: this.userService.name
       },
       width: '500px',
       panelClass: 'custom-dialog-container'
@@ -161,7 +181,7 @@ export class MudComponent {
   processCommand(data: MudEvent) {
     switch (data.type) {
       case 'welcome':
-        let welcome = "This is NehsaMUD.<br><br>It's a project Ethan, my son, and I are working on (and you if you want!).  It's a fun way to learn Python while doing something creative.  It's an homage to one of the funnest, most underrated types of game ever invented - <span class=\"important\">text-based multi-user dungeons (MUDs).</span>  MUDs were hard, they required skill, they were fast and cut-throat.  If you died, people took your shit.  They were also highly social and encouraged creatively. Ohh, the day, when my friend Ian figured out how to script following someone in PvP so they couldn't get away! I hope someday people &quot;script&quot; this like MUDs of old.. so I can sneak attack you while you are AFK.<br><br>NehsaMUD in a perpetual state of &quot;mostly broken&quot;. Please adjust your expectations accordingly..<br><br>Have fun!<br>";
+        let welcome = "This is NehsaMUD.  Welcome to the world of Illisurom.<br><br>It's a project Ethan, my son, and I are working on (and you if you want!).  It's a fun way to learn Python while doing something creative.  It's an homage to one of the funnest, most underrated types of game ever invented - <span class=\"important\">text-based multi-user dungeons (MUDs).</span>  MUDs were hard, they required skill, they were fast and cut-throat.  If you died, people took your shit.  They were also highly social and encouraged creatively. Ohh, the day, when my friend Ian figured out how to script following someone in PvP so they couldn't get away! I hope someday people &quot;script&quot; this like MUDs of old.. so I can sneak attack you while you are AFK.<br><br>NehsaMUD in a perpetual state of &quot;mostly broken&quot;. Please adjust your expectations accordingly..<br><br>Have fun!<br>";
         if (data.message != "") {
           this.mudEvents += `<br><span class=\"welcome-message\">${data.message}<br><br>${welcome}</span>`;
         }
@@ -181,11 +201,7 @@ export class MudComponent {
         this.socket.send(resp);
         break;
       case 'dupe_username':
-        console.log("Inside request_hostname switch");
-        var name = this.userService.name;
-        var resp = '{"type": "hostname_answer", "host": "' + name + '"}';
-        console.log("Server is requesting our name, sending back: " + resp);
-        this.socket.send(resp);
+        this.launchDupe();       
         break;
       case 'event': // check if there's an event # breeze, silence, rain
         if (data.message != "") {
@@ -265,9 +281,6 @@ export class MudComponent {
           } else {
             statuses = ""; // no status effects present such as resting
           }
-
-          // add the player name
-          this.playerName = name;
 
           // add the health
           this.health = "<span style=\"class: " + cssClass + ";\">" + hitpoints + "</span> / " + max_hitpoints;
