@@ -267,13 +267,130 @@
                                 <h3>Material Theming:</h3>
                                 <div>
                                     <ol>
-                                        <li>Go to <a href="http://mcg.mbitson.com/">Material Design Pallette Generate</a></li>
-                                        <li>Select Copy Code</li>
-                                        <li>Choose Angular JS 2 (MATERIAL 2)</li>
+                                        <li>Go to <a href="http://mcg.mbitson.com/">Material Design Pallette Generate</a>
+                                            <ul>
+                                                <li>Generate 3 schemes: primary, accent, warn</li>
+                                                <li>Select Copy Code</li>
+                                                <li>Add them to style.scss:
+                                                    <div class="code">
+                                                        <pre>
+    $nehsanet-primary: (
+        50 : #fbf4fb,
+        100 : #f5e3f5,
+        200 : #eed0ee,
+        300 : #e7bde7,
+        400 : #e2aee2,
+        500 : #dda0dd,
+        600 : #d998d9,
+        700 : #d48ed4,
+        800 : #cf84cf,
+        900 : #c773c7,
+        A100 : #ffffff,
+        A200 : #ffffff,
+        A400 : #ffdeff,
+        A700 : #ffc4ff,
+        contrast: (50 : #000000,
+            100 : #000000,
+            200 : #000000,
+            300 : #000000,
+            400 : #000000,
+            500 : #000000,
+            600 : #000000,
+            700 : #000000,
+            800 : #000000,
+            900 : #000000,
+            A100 : #000000,
+            A200 : #000000,
+            A400 : #000000,
+            A700 : #000000,
+        )
+    );
+    $primary: mat.define-palette($nehsanet-primary);
+    
+    $nehsanet-accent: (
+        50 : #edebf9,
+        100 : #d2cef0,
+        200 : #b5ade6,
+        300 : #978cdc,
+        400 : #8073d5,
+        500 : #6a5acd,
+        600 : #6252c8,
+        700 : #5748c1,
+        800 : #4d3fba,
+        900 : #3c2eae,
+        A100 : #f3f2ff,
+        A200 : #c5bfff,
+        A400 : #978cff,
+        A700 : #8073ff,
+        contrast: (50 : #000000,
+            100 : #000000,
+            200 : #000000,
+            300 : #000000,
+            400 : #000000,
+            500 : #ffffff,
+            600 : #ffffff,
+            700 : #ffffff,
+            800 : #ffffff,
+            900 : #ffffff,
+            A100 : #000000,
+            A200 : #000000,
+            A400 : #000000,
+            A700 : #000000,
+        )
+    );
+    $accent: mat.define-palette($nehsanet-accent);
+    
+    /* For use in src/lib/core/theming/_palette.scss */
+    $nehsanet-warn: (
+        50 : #ffece9,
+        100 : #ffd0c8,
+        200 : #ffb1a3,
+        300 : #ff927e,
+        400 : #ff7a63,
+        500 : #ff6347,
+        600 : #ff5b40,
+        700 : #ff5137,
+        800 : #ff472f,
+        900 : #ff3520,
+        A100 : #ffffff,
+        A200 : #ffffff,
+        A400 : #ffd3cf,
+        A700 : #ffbcb6,
+        contrast: (50 : #000000,
+            100 : #000000,
+            200 : #000000,
+            300 : #000000,
+            400 : #000000,
+            500 : #000000,
+            600 : #000000,
+            700 : #000000,
+            800 : #ffffff,
+            900 : #ffffff,
+            A100 : #000000,
+            A200 : #000000,
+            A400 : #000000,
+            A700 : #000000,
+        )
+    );
+    $warn: mat.define-palette($nehsanet-warn);
+    
+    $nehsanet-typography: mat.define-typography-config($font-family: 'monospace'
+        );
+    
+    $app-theme: mat.define-dark-theme((color: (primary: $primary,
+                    accent: $accent,
+                    warn: $warn ),
+                density: -1,
+                typography: $nehsanet-typography ));
+    
+    &#64;include mat.all-component-themes($app-theme);
+                                                        </pre>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
                                     </ol>
-
                                 </div>
-
                             </li>
                             <li>
                                 <h3>Sending/Receiving HTTP Data</h3>
