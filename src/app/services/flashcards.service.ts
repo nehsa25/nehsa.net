@@ -10,13 +10,16 @@ export class FlashcardsService {
 
     constructor() { }
     public setQuestion() {
+        if (this.QuestionAnswer != null) {
+            this.current++;
+        }
 
         this.QuestionAnswer = this.Questions[Math.floor(Math.random() * this.Questions.length)];
         while (this.ViewedQuestions.includes(this.QuestionAnswer)) {
             this.QuestionAnswer = this.Questions[Math.floor(Math.random() * this.Questions.length)];
         }
         this.ViewedQuestions.push(this.QuestionAnswer);
-        this.current++;
+
         return this.QuestionAnswer;
     }
     public setQuestions(questions: Question[]) {
