@@ -9,7 +9,7 @@
                             <span class="important">{{greeting}} {{name}}!</span>
                         </div>
                         <div *ngIf="this.name !== this.data.names[0].Name && !this.isForceName">
-                            <span class="important">OK, what about {{name}}?</span>
+                            <span class="important">OK, how about {{name}}?</span>
                         </div>
                         <div *ngIf="this.isForceName">
                             <mat-form-field class="nameinput">
@@ -19,10 +19,10 @@
                         </div>
                     </div>
                     <div class="btns">
-                        <div *ngIf="this.name === this.data.names[0].Name">
+                        <div *ngIf="this.name === this.data.names[0].Name || this.isForceName">
                             <button matStepperNext mat-stroked-button (click)="nameAccepted(true, stepper)">Next</button>
                         </div>
-                        <div *ngIf="this.name !== this.data.names[0].Name">
+                        <div *ngIf="this.name !== this.data.names[0].Name && !this.isForceName">
                             <button matStepperNext mat-stroked-button (click)="nameAccepted(true, stepper)">Yes</button>
                             <button mat-stroked-button (click)="forceChooseName()">No</button>
                         </div>                        

@@ -94,6 +94,8 @@ export class AppComponent {
     });
     dialogRef.componentInstance.emitService.subscribe((val) => {
       if (val) {
+        this.userService.name = val.Name;
+        this.userService.about = val.About;
         this.nameConfirmed = true;
         this.httpClient.updateName(this.names[1].Name).subscribe(data => {
           if (data != null && data != "") {

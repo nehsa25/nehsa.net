@@ -108,9 +108,8 @@ export class UserPopupComponent {
       if (nameform.value != null) {
         this.name = nameform.value
         this.about = "";
-        stepper.next();
       }
-      this.nameLabel = this.name; 
+      this.nameLabel = this.name;
     } else {
       if (this.name === this.data.names[0].Name) {
         this.name = this.data.names[1].Name;
@@ -125,13 +124,11 @@ export class UserPopupComponent {
   nameConfirmed(choosen: boolean, stepper: MatStepper) {
     if (choosen) {
       this.isNameConfirmed = true;
-      let nameform: any | null = this.formGroup1.get('name');
-      if (nameform.value != null) {
-        this.name = nameform.value
-        this.about = "";
-        stepper.next();
-      }
-      this.emitService.next(true);  
+      const nameupdate: NameAboutType = {
+        Name: this.name,
+        About: this.about
+      };
+      this.emitService.next(nameupdate);
     } else {
       this.isNameConfirmed = false;
       if (this.name === this.data.names[0].Name) {
@@ -151,10 +148,11 @@ export class UserPopupComponent {
       this.showYourGood = true;
     }
     if (mood === 10) {
-      this._snackbar.open("Sublime!  I'm glad to hear it!", "Close", {
+      this._snackbar.open("Sublime!  I'm glad to hear it!", undefined, {
         horizontalPosition: this.horizontalPosition,
-        verticalPosition: this.verticalPosition
-      });  
+        verticalPosition: this.verticalPosition,
+        duration: 3000
+      });
     }
   }
 
