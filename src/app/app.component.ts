@@ -80,6 +80,10 @@ export class AppComponent {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
+  setExpand() {
+    this.expandBio = !this.expandBio;
+  }
+
   getName2ndAttempt() {
     const dialogRef = this.nameDialog.open(UserPopupComponent, {
       data: {
