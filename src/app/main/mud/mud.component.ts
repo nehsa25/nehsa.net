@@ -11,11 +11,12 @@ import { UserService } from '../../services/user.service';
 import { UserCreateComponent } from './user-create/user-create.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MapComponent } from './map/map.component';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-mud',
   standalone: true,
-  imports: [MatCardModule, CommentComponent, NgIf, MatButton, MatInputModule, MatFormFieldModule, MatLabel, MatError, FormsModule, NgFor],
+  imports: [MatCardModule, CommentComponent, NgIf, MatButton, MatInputModule, MatFormFieldModule, MatLabel, MatError, FormsModule, NgFor, MatIcon],
   templateUrl: './mud.component.html',
   styleUrl: './mud.component.scss',
   encapsulation: ViewEncapsulation.None,
@@ -31,6 +32,7 @@ export class MudComponent {
   socket: WebSocket;
   fullAddress: string = "";
   inventory: string[] = [];
+  mapMinimized = false;
 
   constructor(
     public userService: UserService,
@@ -101,6 +103,9 @@ export class MudComponent {
       position: { top: '50px', right: '200px' }
     });
     dialogRef.componentInstance.emitService.subscribe((val: any) => {
+      if (val == 'min') {
+        this.mapMinimized = true;
+      }
       console.log(val);
       // ULTIMATELY, THIS IS WHERE WE WILL SEND THE NAME TO THE SERVER
       // console.log("Inside request_hostname switch");
@@ -108,6 +113,9 @@ export class MudComponent {
       // var resp = '{"type": "hostname_answer", "host": "' + name + '"}';
       // console.log("Server is requesting our name, sending back: " + resp);
       // this.socket.send(resp);
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.mapMinimized = true;
     });
   }
 

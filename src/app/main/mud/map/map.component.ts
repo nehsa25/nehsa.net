@@ -41,4 +41,9 @@ export class MapComponent {
     public dialogRef: MatDialogRef<MapComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
   ) { }
+
+  min() {
+    this.emitService.emit('min');
+    this.dialogRef.close();
+  }
 }

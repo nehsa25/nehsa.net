@@ -15,6 +15,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin: 0;
+  border: 1px solid #333;
 }
 
 td {
@@ -32,7 +33,7 @@ td {
     "command command helpsection"
     "usersconnected usersconnected usersconnected";
   grid-template-columns: 400px 1fr 300px;
-  grid-template-rows: 20px auto auto auto 60px 30px;
+  grid-template-rows: 20px 1fr 1fr 1fr 60px 30px;
   height: 75vh;
 }
 
@@ -83,7 +84,7 @@ td {
   padding: .5em;
   background-color: greenyellow;
   margin: 5px 1em;
-  height: 250px;
+  height: 270px;
 }
 
 .mud-title{
@@ -218,3 +219,11 @@ td {
   color: hotpink;
 }
 
+.action {
+  background-color: springgreen;
+  border: 1px solid #333;
+}
+
+.action mat-icon {
+  background-color: springgreen;
+}
