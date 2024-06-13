@@ -1,4 +1,4 @@
-<div class="main">
+<div class="main" [ngClass]="{'main-expanded': expandBio === true, 'main-collapsed' : expandBio === false }" >
     <div class="bread child">
         <div class="root"><a href="/">home></a></div>
         <div>
@@ -22,8 +22,16 @@
         <p>{{quote}}</p>
     </div>
     <div class="title child">
-        <div class="maintitle">Jesse Stone</div>
-        <div class="subtitle" *ngIf="posTerms != ''" [innerHTML]="posTerms"></div>
+        <mat-expansion-panel  [ngClass]="{'panel-expanded': expandBio === true, 'panel-collapsed' : expandBio === false }" [expanded]="expandBio" [hideToggle]="expandBio">
+            <mat-expansion-panel-header>
+              <mat-panel-title class="maintitle">{{title}}
+              </mat-panel-title>
+              <mat-panel-description>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="subtitle" *ngIf="posTerms != ''" [innerHTML]="posTerms"></div>
+          </mat-expansion-panel>    
+        
     </div>
     <div class="contact child">
         <app-corner-listener></app-corner-listener>

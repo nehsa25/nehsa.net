@@ -14,6 +14,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { NameAboutType } from './types/nameabout.type';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { UserService } from './services/user.service';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @Component({
   selector: 'app-root',
@@ -28,13 +29,16 @@ import { UserService } from './services/user.service';
     BreadcrumbComponent,
     BreadcrumbItemDirective, 
     MatButtonModule, 
-    MatTooltipModule
+    MatTooltipModule,
+    MatExpansionModule
   ],
   providers: [HttpService, UserService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+  expandBio = true;
+  title = "Jesse Stone";
   quote = "";
   posTerms = "";
   names: Array<NameAboutType> = new Array<NameAboutType>();
@@ -65,6 +69,15 @@ export class AppComponent {
       this.posTerms = next[2];
       this.getName2ndAttempt();
     });
+
+    this.sleep(5000).then(() => {
+      this.expandBio = false; 
+      this.title = "nehsa.net";
+    });
+  }
+
+  sleep(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   getName2ndAttempt() {

@@ -4,8 +4,22 @@
         grid-template-columns: min-content auto;
     }
 
-    .main {
-        grid-template-rows: min-content min-content min-content 1fr 225px min-content;
+    .main-expanded {
+        grid-template-rows: auto auto auto 1fr 225px min-content;
+        grid-template-columns: 225px 225px 1fr 225px;
+        grid-template-areas:
+            "bread dh dh signup"
+            "spacer title title title"
+            "contactme body body body"
+            "navbar body body body"
+            "navbar body body body"
+            "footer footer footer footer";
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .main-collapsed {
+        grid-template-rows: auto 66px auto 1fr 225px min-content;
         grid-template-columns: 225px 225px 1fr 225px;
         grid-template-areas:
             "bread dh dh signup"
@@ -335,4 +349,14 @@
 .footertxt h5 {
     padding: 0;
     margin: 0;
+}
+
+.panel-collapsed {
+    width: 90%;
+    margin: 0px !important;
+}
+
+.panel-expanded {
+    width: 90%;
+    margin: 1em !important;
 }
