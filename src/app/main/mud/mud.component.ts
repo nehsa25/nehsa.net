@@ -103,9 +103,8 @@ export class MudComponent {
       height: '175px',
     });
     dialogRef.componentInstance.emitService.subscribe((val: any) => {
-      console.log(val);
-      this.userService.name = val.value;
-      var resp = '{"type": "hostname_answer", "host": "' + this.userService.name + '"}';
+      this.userService.name = val;
+      var resp = '{"type": "hostname_answer", "host": "' + val + '"}';
       console.log("Server is requesting our name, sending back: " + resp);
       this.socket.send(resp);
     });
