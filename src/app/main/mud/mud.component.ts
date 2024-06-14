@@ -100,7 +100,7 @@ export class MudComponent {
         name: this.userService.name
       },
       width: '400px',
-      height: '175px',
+      height: '250px',
     });
     dialogRef.componentInstance.emitService.subscribe((val: any) => {
       this.userService.name = val;

@@ -92,7 +92,7 @@ export class AppComponent {
       data: {
         names: this.names
       },
-      width: '420px',
+      width: '500px',
       panelClass: 'custom-dialog-container'
     });
     dialogRef.componentInstance.emitService.subscribe((val) => {

@@ -11,10 +11,10 @@
                         <div *ngIf="this.name !== this.data.names[0].Name && !this.isForceName">
                             <span class="important">OK, how about {{name}}?</span>
                         </div>
-                        <div *ngIf="this.isForceName">
+                        <div class="namediv" *ngIf="this.isForceName">
                             <mat-form-field class="nameinput">
                                 <mat-label>What is your name?</mat-label>
-                                <input matInput placeholder="Trixie" formControlName="name" />
+                                <input matInput maxlength="10" placeholder="Trixie the Rapscallion" formControlName="name" />
                             </mat-form-field>
                         </div>
                     </div>
