@@ -117,8 +117,8 @@ export class MudComponent {
       data: {
         name: this.userService.name
       },
-      width: '200px',
-      height: '200px',
+      width: '400px',
+      height: '400px',
       position: { top: '50px', right: '200px' }
     });
     dialogRef.componentInstance.emitService.subscribe((val: any) => {
@@ -192,6 +192,9 @@ export class MudComponent {
           this.mudEvents += `<br><span class=\"book-message\">${data.message.replace("<", "&lt;").replace(">", "&gt;")}</span>`;
         }
         break
+      case 'update_name':
+        console.log("update name response");
+        break;
       case 'request_hostname':
         //this.createUser();
         var name = this.userService.name;
@@ -200,7 +203,7 @@ export class MudComponent {
         this.socket.send(resp);
         break;
       case 'dupe_username':
-        this.launchDupe();       
+        this.launchDupe();
         break;
       case 'event': // check if there's an event # breeze, silence, rain
         if (data.message != "") {
@@ -215,6 +218,14 @@ export class MudComponent {
       case 'time':
         if (data.message != "") {
           this.mudEvents += "<br><span class=\"time-message\">[" + data.message + "]</span>";
+        }
+        break;
+      case 'changename':
+        if (data.message != "") {
+          const name = data.extra;
+          this.userService.name = name;
+          this.userService.about = "";
+          this.mudEvents += "<br><span class=\"changename-message\">[SYSTEM " + data.message + "]</span>";
         }
         break;
       case 'command':
@@ -349,9 +360,18 @@ export class MudComponent {
       return;
     }
     if (this.isOpen(this.socket)) {
+      let cmd = this.command.trim();
+      let extra = "";
+      let commands = cmd.split(" ");
+      if (commands.length === 3 && commands[0].toLowerCase() === "system" && commands[1].toLowerCase() === "name") {
+        extra = this.userService.name;
+      }
       var full_cmd = {
         "type": "cmd",
-        "cmd": this.command.trim()
+        "cmd": cmd.trim(),
+        "extra": {
+          "name": this.userService.name
+        }
       };
       console.log("Sending: " + this.command);
       console.log(full_cmd);

@@ -164,6 +164,15 @@ li {
     padding: 7px;
 }
 
+li:hover {
+    background-color: #333 !important;
+    color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #ccc;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
 /* width */
 ::-webkit-scrollbar {
     width: 10px;

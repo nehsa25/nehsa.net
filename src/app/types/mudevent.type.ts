@@ -8,4 +8,5 @@ export class MudEvent {
     items: string = "";
     exits: string = "";
     value: string = "";
+    extra: string = "";
 }
