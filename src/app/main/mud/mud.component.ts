@@ -13,6 +13,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MapComponent } from './map/map.component';
 import { MatIcon } from '@angular/material/icon';
 import { DupeNameComponent } from './dupe-name/dupe-name.component';
+import { MudEvents } from '../../types/mudevents.type';
 
 @Component({
   selector: 'app-mud',
@@ -103,8 +104,11 @@ export class MudComponent {
       height: '250px',
     });
     dialogRef.componentInstance.emitService.subscribe((val: any) => {
+      if (val === null || val === "") {
+        return
+      }
       this.userService.name = val;
-      var resp = '{"type": "hostname_answer", "host": "' + val + '"}';
+      var resp = `{\"type\": ${MudEvents.USERNAME_ANSWER}, \"username\": \"${val}\"}`;
       console.log("Server is requesting our name, sending back: " + resp);
       this.socket.send(resp);
     });
@@ -179,48 +183,45 @@ export class MudComponent {
 
   processCommand(data: MudEvent) {
     switch (data.type) {
-      case 'welcome':
-        let welcome = "This is NehsaMUD.  Welcome to the world of Illisurom.<br><br>It's a project Ethan, my son, and I are working on (and you if you want!).  It's a fun way to learn Python while doing something creative.  It's an homage to one of the funnest, most underrated types of game ever invented - <span class=\"important\">text-based multi-user dungeons (MUDs).</span>  MUDs were hard, they required skill, they were fast and cut-throat.  If you died, people took your shit.  They were also highly social and encouraged creatively. Ohh, the day, when my friend Ian figured out how to script following someone in PvP so they couldn't get away! I hope someday people &quot;script&quot; this like MUDs of old.. so I can sneak attack you while you are AFK.<br><br>NehsaMUD in a perpetual state of &quot;mostly broken&quot;. Please adjust your expectations accordingly..<br><br>Have fun!<br>";
+      case MudEvents.WELCOME:
+        let welcome = "This is NehsaMUD.  Welcome to the world of Illisurom.<br><br>It's a project my son, Ethan, and I are working on (and you if you want).  It's a fun way to learn Python while doing something creative.  It's an homage to one of the funnest, most underrated types of game ever invented - <span class=\"important\">text-based multi-user dungeons (MUDs).</span>  MUDs were hard, they required skill, they were fast and cut-throat.  If you died, people took your shit.  They were also highly social and encouraged creatively. Ohh, the day, when my friend Ian figured out how to script following someone in PvP so they couldn't get away! I hope someday people &quot;script&quot; this like MUDs of old.. so I can sneak attack you while you are AFK.<br><br>NehsaMUD in a perpetual state of &quot;mostly broken&quot;. Please adjust your expectations accordingly..<br><br>Have fun!<br>";
         if (data.message != "") {
           this.mudEvents += `<br><span class=\"welcome-message\">${data.message}<br><br>${welcome}</span>`;
         }
         this.launchMap();
         break;
-      case 'book':
+      case MudEvents.BOOK:
         console.log("book: " + data.message);
         if (data.message != "") {
           this.mudEvents += `<br><span class=\"book-message\">${data.message.replace("<", "&lt;").replace(">", "&gt;")}</span>`;
         }
         break
-      case 'update_name':
-        console.log("update name response");
-        break;
-      case 'request_hostname':
+      case MudEvents.USERNAME_REQUEST:
         //this.createUser();
         var name = this.userService.name;
-        var resp = '{"type": "hostname_answer", "host": "' + name + '"}';
+        var resp = `{\"type\": ${MudEvents.USERNAME_ANSWER}, \"username\": \"${name}\"}`;
         console.log("Server is requesting our name, sending back: " + resp);
         this.socket.send(resp);
         break;
-      case 'dupe_username':
+      case MudEvents.DUPLICATE_NAME:
         this.launchDupe();
         break;
-      case 'event': // check if there's an event # breeze, silence, rain
+      case MudEvents.EVENT: // check if there's an event # breeze, silence, rain
         if (data.message != "") {
           this.mudEvents += "<br><span class=\"event-message\">" + data.message + "</span>";
         }
         break;
-      case 'info':
+      case MudEvents.INFO:
         if (data.message != "") {
           this.mudEvents += "<br><span class=\"info-message\">" + data.message + "</span>";
         }
         break;
-      case 'time':
+      case MudEvents.TIME:
         if (data.message != "") {
           this.mudEvents += "<br><span class=\"time-message\">[" + data.message + "]</span>";
         }
         break;
-      case 'changename':
+      case MudEvents.CHANGE_NAME:
         if (data.message != "") {
           const name = data.extra;
           this.userService.name = name;
@@ -228,18 +229,17 @@ export class MudComponent {
           this.mudEvents += "<br><span class=\"changename-message\">[SYSTEM " + data.message + "]</span>";
         }
         break;
-      case 'command':
-        console.log(JSON.parse(data.message).content);
+      case MudEvents.COMMAND:
         if (data.message != "") {
           this.mudEvents += "<br><span class=\"input-message\">" + JSON.parse(data.message).content + "</span>";
         }
         break;
-      case 'you_attack':
+      case MudEvents.YOU_ATTACK:
         if (data.message != "") {
           this.mudEvents += "<br><span class=\"you-attack-message\">" + data.message + "</span>";
         }
         break;
-      case 'inv':
+      case MudEvents.INVENTORY:
         var inventoryList = new Array<string>();
         var items = data.message.toString().split(',');
         items.forEach(o => {
@@ -248,12 +248,12 @@ export class MudComponent {
         });
         this.inventory = inventoryList;
         break;
-      case 'error':
+      case MudEvents.ERROR:
         if (data.message != "") {
           this.mudEvents += "<br><span class=\"error-message\">" + data.message + "</span>";
         }
         break;
-      case 'attack':
+      case MudEvents.ATTACK:
         if (data.message != "") {
           const attack_txt = data.message.split('! ')
           this.mudEvents += "<br><span class=\"attack1-message\">"
@@ -261,7 +261,7 @@ export class MudComponent {
             + "!</span><br><span  class=\"attack2-message\">" + attack_txt[1] + "</span>";
         }
         break;
-      case 'health':
+      case MudEvents.HEALTH:
         if (data.message != "") {
           // f"{player.name}|{str(player.hitpoints)}/{str(player.max_hitpoints)}|R"
           const values = data.message.split('|');
@@ -299,7 +299,7 @@ export class MudComponent {
           this.status = "Status: Resting";
         }
         break;
-      case 'room':
+      case MudEvents.ROOM:
         if (data.name != "") {
           this.mudEvents += "<br><span class=\"room-message\">" + this.addBorder(data.name) + "</span>";
         }
@@ -330,12 +330,12 @@ export class MudComponent {
           this.mudEvents += "<br><span class=\"exits1-message\">Exits: </span><span class=\"exits2-message\">" + data.exits + "</span>";
         }
         break;
-      case 'get_clients':
+      case MudEvents.CLIENT_LIST:
         console.log("Inside get_clients switch");
-        this.usersConnected = Number.parseInt(data.value);
+        this.usersConnected = Number.parseInt(data.message);
         break;
       default:
-        console.error("unsupported event", JSON.stringify(event));
+        console.error("unsupported event", data.type);
         break;
     }
     return this.mudEvents;
@@ -367,7 +367,7 @@ export class MudComponent {
         extra = this.userService.name;
       }
       var full_cmd = {
-        "type": "cmd",
+        "type": MudEvents.COMMAND,
         "cmd": cmd.trim(),
         "extra": {
           "name": this.userService.name

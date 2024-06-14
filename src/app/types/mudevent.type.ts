@@ -1,5 +1,7 @@
+import { MudEvents } from "./mudevents.type";
+
 export class MudEvent {
-    type: string = "";
+    type: MudEvents = MudEvents.NONE;
     message: string = "";
     name: string = "";
     description: string = "";

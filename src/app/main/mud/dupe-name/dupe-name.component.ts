@@ -28,7 +28,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 })
 export class DupeNameComponent {
   @Output() emitService = new EventEmitter();
-  name = '';
+  name: string = "";
   formGroup = this._formBuilder.group({
     name: new FormControl(),
   });
@@ -39,13 +39,13 @@ export class DupeNameComponent {
       {
         name: string
       }) {}
-
+      
   ngOnInit() {
     this.name = this.data.name;
   }
-
+  
   submit() {
-    this.emitService.emit(this.formGroup.get('name'));
+    this.emitService.emit(this.formGroup.get('name')?.value);
     this.dialogRef.close();
   }
 }
