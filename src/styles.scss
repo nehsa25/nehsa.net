@@ -137,21 +137,15 @@ body {
 a:link {
     color: ghostwhite;
 }
-
-/* visited link */
+a:active {
+    color: slateblue !important;
+    font-weight: 600 !important;  
+}
 a:visited {
     color: ghostwhite;
 }
-
-/* mouse over link */
 a:hover {
-    color: black;
-    font-weight: 700;
-}
-
-/* selected link */
-a:active {
-    color: blue;
+    color: plum !important;
 }
 
 iframe {

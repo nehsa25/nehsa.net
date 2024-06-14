@@ -37,13 +37,27 @@ export interface DialogData { }
 })
 export class MapComponent {
   @Output() emitService = new EventEmitter();
+  image = "";
+  image_width = 380;
   constructor(
     public dialogRef: MatDialogRef<MapComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    @Inject(MAT_DIALOG_DATA) public data:
+      {
+        map_name: string
+      }
   ) { }
+
+  ngOnInit() {
+    this.image = `https://api.nehsa.net/${this.data.map_name}`;
+  }
 
   min() {
     this.emitService.emit('min');
     this.dialogRef.close();
+  }
+
+  enlargen() {
+    this.dialogRef.updateSize('100%', '100%');
+    this.image_width = this.image_width * 2;
   }
 }

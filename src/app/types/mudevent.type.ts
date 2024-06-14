@@ -11,4 +11,5 @@ export class MudEvent {
     exits: string = "";
     value: string = "";
     extra: string = "";
+    map_name: string = "";
 }
