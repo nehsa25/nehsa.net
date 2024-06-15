@@ -37,10 +37,11 @@ h5 {
 
 .maparea {
     width: 100%;
-    padding: 1em;
     background-color: silver;
     color: #333;
     padding: 0px;
+    max-height: 500px;
+    overflow: auto;
 }
 
 .map-sub-btns {
