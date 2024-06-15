@@ -38,6 +38,7 @@ import { GliderComponent } from './main/glider/glider.component';
 import { JavaComponent } from './main/java/java.component';
 import { SqlComponent } from './main/sql/sql.component';
 import { MudComponent } from './main/mud/mud.component';
+import { DotComponent } from './main/dot/dot.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: BioComponent },
@@ -65,6 +66,7 @@ export const routes: Routes = [
     { path: 'playwright', title: 'nehsa.net | Playwright', component: PlaywrightComponent },
     { path: 'doxy', title: 'nehsa.net | Doxygen', component: DoxygenComponent },
     { path: 'css', title: 'nehsa.net | Cascading Style Sheets', component: CssComponent },
+    { path: 'dot', title: 'nehsa.net | Dot / Graphwiz / Pydot', component: DotComponent },
     { path: 'ohai', title: 'nehsa.net | Ohai', component: OhaiComponent },
     { path: 'powershell', title: 'nehsa.net | Powershell', component: PowershellComponent },
     { path: 'projects', title: 'nehsa.net | Projects', component: ProjectsComponent },
