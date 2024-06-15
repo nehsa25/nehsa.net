@@ -4,10 +4,15 @@
             <div>
                 <h5 class="title">NehsaMUD Map</h5>
             </div>
-            <div><mat-icon (click)="min()">minimize</mat-icon></div>
+            <div class="map-sub-btns">
+                <button mat-button (click)="enlargen()"><mat-icon class="map-buttons-icons">expand</mat-icon></button>
+                <button mat-button (click)="min()"><mat-icon class="map-buttons-icons">minimize</mat-icon></button>
+            </div>
         </div>
         <div class="maparea">
-            <button mat-button (click)="enlargen()"><img [width]="image_width" [src]="image"></button>
+            <div class="map-image">
+                <img width="100%" height="100%" [src]="image">
+            </div>
         </div>
     </div>
 </mat-dialog-content>

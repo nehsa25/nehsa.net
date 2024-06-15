@@ -13,7 +13,7 @@
                 </div>
                 <div id="status">
                     <div class="statusgrid">
-                        <table>
+                        <table class="tiny5-regular">
                             <tr>
                                 <td>Name</td>
                                 <td id="playername">{{this.userService.name}}</td>
@@ -33,7 +33,7 @@
                             </tr>
                             <tr>
                                 <td>actions</td>
-                                <td><button class="action" *ngIf="this.mapMinimized === true" [disabled]="mapName != ''" (click)="launchMap(this.mapName)"><mat-icon>map</mat-icon></button></td>
+                                <td><button class="action" *ngIf="this.mapMinimized === true" [disabled]="mapName == ''" (click)="launchMap(this.mapName)"><mat-icon>map</mat-icon></button></td>
                             </tr>
                         </table>
                     </div>

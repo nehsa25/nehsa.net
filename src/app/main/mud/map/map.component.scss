@@ -9,10 +9,6 @@ h5 {
     overflow: hidden;
 }
 
-.title {
-    padding: 10px 0 0 10px;
-}
-
 .map {
     position: absolute;
     top: 0;
@@ -24,20 +20,50 @@ h5 {
 
 .maingrid {
     display: grid;
-    grid-template-rows: 50px 350px;
+    grid-template-rows: 35px 1fr;
     grid-gap: 0px;
 }
 
 .titlegrid {
     display: grid;
-    grid-template-columns: 1fr 50px;
+    grid-template-columns: 1fr 1fr;
     grid-gap: 0px;
-    height: 50px;
+    height: 35px;
+}
+
+.title {
+    padding: 1em .5em;
 }
 
 .maparea {
-    height: 350px;
+    width: 100%;
     padding: 1em;
-    background-color: yellow;
+    background-color: silver;
     color: #333;
+    padding: 0px;
+}
+
+.map-sub-btns {
+    text-align: right;    
+}
+
+.map-btns button {
+    padding-left: 1em;
+    color: whitesmoke;
+    width: 50px;
+}
+
+.map-sub-btns button {
+    padding-left: 10px;
+}
+
+.map-image {
+    overflow: auto;
+}
+
+
+.map-buttons-icons {
+    color: hotpink;
+    margin: 0px;
+    text-align: center;
 }

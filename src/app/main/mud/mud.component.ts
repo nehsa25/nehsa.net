@@ -123,7 +123,6 @@ export class MudComponent {
         map_name: map_name
       },
       width: '400px',
-      height: '400px',
       position: { top: '50px', right: '200px' }
     });
     dialogRef.componentInstance.emitService.subscribe((val: any) => {
@@ -185,7 +184,8 @@ export class MudComponent {
   processCommand(data: MudEvent) {
     switch (data.type) {
       case MudEvents.WELCOME:
-        let welcome = "This is NehsaMUD.  Welcome to the world of <span class=\"material-icons red\">star</span><span class=\"material-icons purple\">star</span><span class=\"material-icons teal\">star</span>Illisurom<span class=\"material-icons teal\">star</span><span class=\"material-icons purple\">star</span><span class=\"material-icons red\">star</span>.<br><br>It's a project my son, Ethan, and I are working on (and you if you want).  It's a fun way to learn Python while doing something creative.  It's an homage to one of the funnest, most underrated types of game ever invented - <span class=\"important\">text-based multi-user dungeons (MUDs).</span>  MUDs were hard, they required skill, they were fast and cut-throat.  If you died, people took your shit.  They were also highly social and encouraged creatively. Ohh, the day, when my friend Ian figured out how to script following someone in PvP so they couldn't get away! I hope someday people &quot;script&quot; this like MUDs of old.. so I can sneak attack you while you are AFK.<br><br>NehsaMUD in a perpetual state of &quot;mostly broken&quot;. Please adjust your expectations accordingly..<br><br>Have fun!<br>";
+        const stars = "<span class=\"material-icons red\">star</span><span class=\"material-icons purple\">star</span><span class=\"material-icons teal\">star</span>";
+        const welcome = `${stars}This is NehsaMUD.  Welcome to the world of Illisurom.${stars}<br><br>It's a project my son, Ethan, and I are working on (and you if you want).  It's a fun way to learn Python while doing something creative.  It's an homage to one of the funnest, most underrated types of game ever invented - <span class=\"important\">text-based multi-user dungeons (MUDs).</span>  MUDs were hard, they required skill, they were fast and cut-throat.  If you died, people took your shit.  They were also highly social and encouraged creatively. Ohh, the day, when my friend Ian figured out how to script following someone in PvP so they couldn't get away! I hope someday people &quot;script&quot; this like MUDs of old.. so I can sneak attack you while you are AFK.<br><br>NehsaMUD in a perpetual state of &quot;mostly broken&quot;. Please adjust your expectations accordingly..<br><br>Have fun!<br>`;
         if (data.message != "") {
           this.mudEvents += `<br><span class=\"welcome-message\">${data.message}<br><br>${welcome}</span>`;
         }
@@ -336,11 +336,12 @@ export class MudComponent {
         break;
       case MudEvents.MAP_EVENT:
         this.mapName = data.map_name;
-        this.launchMap(this.mapName);
+        this.mapMinimized = true;
+        //this.launchMap(this.mapName);
         break;
 
       default:
-        console.error("unsupported event", data.type);
+        console.error("unsupported event: " + data.type.toString());
         break;
     }
     return this.mudEvents;
