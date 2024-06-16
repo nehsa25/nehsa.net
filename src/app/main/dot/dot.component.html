@@ -25,21 +25,18 @@
                             <pre>
     <span class="comment">Global graph settings (the graph....)</span>
     graph = pydot.Dot(
-        player.name,
-        graph_type="graph",
+        "mud_map",
+        graph_type="digraph",
         bgcolor="hotpink",
-        style="dotted",
         rankdir="LR",
         splines="ortho",
-        fontsize="12",
         concentrate="true"
-        size="width,heigth!"
     )<br>
     <span class="comment">Global node settings (each &quot;object&quot; on the graph)</span>
     graph.set_node_defaults(
         shape="rectangle",
         style="filled",
-        fillcolor="blue",
+        fillcolor="cornflowerblue",
         fontcolor="whitesmoke",
         fontname="monospace"
     )<br>
@@ -83,6 +80,11 @@
                 with open(full_path + extension, "w") as final_text_file:
                     final_text_file.write(main)    
                             </pre>
+                        </div>
+                        <div>
+                            <h4>Example</h4>
+                            <img width="600" mat-card-image src="../../assets/images/mud_map.png"
+                                alt="Photo of a Jesse Stone and dog Roswaal (Roz)" />
                         </div>
                     </div>
                 </div>
