@@ -49,7 +49,7 @@ export class MapComponent {
   ) { }
 
   ngOnInit() {
-    this.image = `https://api.nehsa.net/${this.data.map_name}_mini.svg`;
+    this.image = `https://api.nehsa.net/${this.data.map_name}.svg`;
   }
 
   min() {
