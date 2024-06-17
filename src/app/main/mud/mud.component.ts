@@ -73,10 +73,12 @@ export class MudComponent {
     });
   }
 
-  /** Adds a border around the string */
+  /** Adds a dashed border around the string */
   addBorder(message: string) {
+    let roomTitle = message;
+    roomTitle = roomTitle.replace(/---\d*/g, ' ');
     var desc = "";
-    const descriptionLength = message.length;
+    const descriptionLength = roomTitle.length;
     if (descriptionLength < 160) {
       for (var i = 0; i < descriptionLength + 2; i++) {
         desc += '-';
@@ -84,21 +86,27 @@ export class MudComponent {
     } else {
       desc += "---------------------------------------------------------------------------------------------------------------------------------------------------------------";
     }
-    return `${desc}<br>|${message}|<br>${desc}`
+    return `<hr class="hr-border" />${desc}<br>|${roomTitle}|<br>${desc}`
   }
+
+
+  // /** Adds a bar under the string */
+  // addBar(message: string) {
+  //   var desc = "";
+  //   const descriptionLength = message.length;
+  //   if (descriptionLength < 160) {
+  //     for (var i = 0; i < descriptionLength; i++) {
+  //       desc += '-';
+  //     }
+  //   } else {
+  //     desc += "---------------------------------------------------------------------------------------------------------------------------------------------------------------";
+  //   }
+  //   return `${message}<br>${desc}`
+  // }
 
   /** Adds a bar under the string */
   addBar(message: string) {
-    var desc = "";
-    const descriptionLength = message.length;
-    if (descriptionLength < 160) {
-      for (var i = 0; i < descriptionLength; i++) {
-        desc += '-';
-      }
-    } else {
-      desc += "---------------------------------------------------------------------------------------------------------------------------------------------------------------";
-    }
-    return `${message}<br>${desc}`
+    return `${message}<hr class="hr-border" />`
   }
 
   launchDupe() {
@@ -379,6 +387,11 @@ export class MudComponent {
         this.roomImageName = data.room_image_name;
         this.roomImageAvailable = true;
         //this.launchMap(this.mapName);
+        break;
+      case MudEvents.DIRECTION:
+        if (data.message != "") {
+          this.mudEvents += "<br><span class=\"direction-message\">" + data.message + "</span>";
+        }
         break;
       default:
         console.error("unsupported event: " + data.type.toString());

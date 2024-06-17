@@ -38,7 +38,7 @@ export interface DialogData { }
 export class MapComponent {
   @Output() emitService = new EventEmitter();
   image = "";
-  image_width = 380;
+
   expanded = false;
   constructor(
     public dialogRef: MatDialogRef<MapComponent>,
@@ -49,7 +49,7 @@ export class MapComponent {
   ) { }
 
   ngOnInit() {
-    this.image = `https://api.nehsa.net/${this.data.map_name}.svg`;
+    this.image = `https://api.nehsa.net/${this.data.map_name}_small.svg`;
   }
 
   min() {
@@ -59,12 +59,12 @@ export class MapComponent {
 
   enlargen() {
     if (this.expanded) {
-      this.dialogRef.updateSize('380px');
-      this.image_width = 380;
+      this.dialogRef.updateSize('750px');
+      this.image = `https://api.nehsa.net/${this.data.map_name}_small.svg`;
       this.expanded = false;
     } else {
       this.dialogRef.updateSize('100%');
-      this.image_width = this.image_width * 2;
+      this.image = `https://api.nehsa.net/${this.data.map_name}.svg`;
       this.expanded = true;
     }
   }
