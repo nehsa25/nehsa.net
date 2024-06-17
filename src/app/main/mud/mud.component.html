@@ -1,12 +1,24 @@
 <div>
     <mat-card class="card">
         <div class="commentgrid">
-            <div class="mudgrid">
+            <div [ngClass]="{'mudgrid-expanded': panelExpanded === true, 'mudgrid-collapsed' : panelExpanded === false }">
                 <div id="title">
-                    <span class="mud-title">NehsaMUD
-                        <span class="mud-subtitle">a rouge-like, text-based MUD
-                        </span>
-                    </span>
+                    <mat-expansion-panel [ngClass]="{'title-panel-expanded': panelExpanded === true, 'title-panel-collapsed' : panelExpanded === false }" [expanded]="panelExpanded" (click)="expandPanel()">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title> <span class="mud-title">NehsaMUD
+                                    <span class="mud-subtitle">a rouge-like, text-based MUD
+                                    </span>
+                                </span>
+                            </mat-panel-title>
+                            <mat-panel-description>&nbsp;
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <mat-card-content>
+                            <div>
+                                <div><img class="mapmap" [src]="this.miniMap"/></div>
+                            </div>
+                        </mat-card-content>
+                    </mat-expansion-panel>
                 </div>
                 <div #scrollMe [scrollTop]="scrollMe.scrollHeight" id="main" [innerHTML]="mudEvents"
                     (click)="refocus(sendcommandarea)">
@@ -23,6 +35,10 @@
                                 <td id="health"><span [innerHTML]="health"></span></td>
                             </tr>
                             <tr>
+                                <td>Resting</td>
+                                <td><span [innerHTML]="this.resting"></span></td>
+                            </tr>
+                            <tr>
                                 <td id="inv" colspan="2">Inventory<br>
                                     <div id="inventory">
                                         <ul class="condensed">
@@ -34,8 +50,10 @@
                             <tr>
                                 <td>actions</td>
                                 <td>
-                                    <button class="action" *ngIf="this.mapImageAvailable === true" (click)="launchMap()"><mat-icon>map</mat-icon></button>
-                                    <button class="action" *ngIf="this.roomImageAvailable === true" (click)="launchImage()"><mat-icon>search</mat-icon></button>
+                                    <button class="action" *ngIf="this.mapImageAvailable === true"
+                                        (click)="launchMap()"><mat-icon>map</mat-icon></button>
+                                    <button class="action" *ngIf="this.roomImageAvailable === true"
+                                        (click)="launchImage()"><mat-icon>search</mat-icon></button>
                                 </td>
                             </tr>
                         </table>
@@ -81,6 +99,7 @@
                     <textarea #sendcommandarea (keydown)="sendCommand($event)" [(ngModel)]="command"
                         placeholder="Type a command here and press &lt;ENTER&gt;"></textarea>
                 </div>
+                <div id="aiimage">image</div>
                 <div id="usersconnected">{{usersConnected}} users online.</div>
             </div>
         </div>

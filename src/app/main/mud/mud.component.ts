@@ -2,7 +2,7 @@ import { Component, ElementRef, NgModule, ViewChild, ViewEncapsulation } from '@
 import { MatCardModule } from '@angular/material/card';
 import { CommentComponent } from '../../shared-components/comment/comment.component';
 import { MudEvent } from '../../types/mudevent.type';
-import { NgFor, NgIf } from '@angular/common';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 import { MatButton } from '@angular/material/button';
 import { MatError, MatFormField, MatFormFieldControl, MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -15,11 +15,12 @@ import { MatIcon } from '@angular/material/icon';
 import { DupeNameComponent } from './dupe-name/dupe-name.component';
 import { MudEvents } from '../../types/mudevents.type';
 import { AiImageComponent } from './ai-image/ai-image.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @Component({
   selector: 'app-mud',
   standalone: true,
-  imports: [MatCardModule, CommentComponent, NgIf, MatButton, MatInputModule, MatFormFieldModule, MatLabel, MatError, FormsModule, NgFor, MatIcon],
+  imports: [NgClass, MatExpansionModule, MatCardModule, CommentComponent, NgIf, MatButton, MatInputModule, MatFormFieldModule, MatLabel, MatError, FormsModule, NgFor, MatIcon],
   templateUrl: './mud.component.html',
   styleUrl: './mud.component.scss',
   encapsulation: ViewEncapsulation.None,
@@ -30,16 +31,19 @@ export class MudComponent {
   usersConnected: number = 0;
   health: string = "";
   status: string = "";
+  resting: boolean = false;
   command: string = "";
   socket: WebSocket;
   map_contents = "";
   mapImageName = "";
   roomImageName = "";
+  panelExpanded = false;
   fullAddress: string = "";
   inventory: string[] = [];
   mapImageAvailable = false;
   room_description = "";
   roomImageAvailable = false;
+  miniMap = "";
 
   constructor(
     public userService: UserService,
@@ -89,7 +93,6 @@ export class MudComponent {
     return `<hr class="hr-border" />${desc}<br>|${roomTitle}|<br>${desc}`
   }
 
-
   // /** Adds a bar under the string */
   // addBar(message: string) {
   //   var desc = "";
@@ -103,6 +106,11 @@ export class MudComponent {
   //   }
   //   return `${message}<br>${desc}`
   // }
+
+  expandPanel() {
+
+    this.panelExpanded = !this.panelExpanded;
+  } 
 
   /** Adds a bar under the string */
   addBar(message: string) {
@@ -386,6 +394,7 @@ export class MudComponent {
       case MudEvents.MAP_EVENT:
         this.mapImageName = data.map_image_name;
         this.mapImageAvailable = true;
+        this.miniMap = `https://api.nehsa.net/${this.mapImageName}_small.svg`;
         //this.launchMap(this.mapName);
         break;
       case MudEvents.ROOM_IMAGE:
@@ -398,6 +407,11 @@ export class MudComponent {
           this.mudEvents += "<br><span class=\"direction-message\">" + data.message + "</span>";
         }
         break;
+      case MudEvents.ENVIRONMENT:
+      if (data.message != "") {
+        this.mudEvents += "<br><span class=\"environment-message\">" + data.message + "</span>";
+      }
+      break;
       default:
         console.error("unsupported event: " + data.type.toString());
         break;

@@ -23,18 +23,42 @@ td {
   border: 1px solid #333;
 }
 
-.mudgrid {
+.mudgrid-expanded {
   display: grid;
   grid-template-areas:
-    "title blank status"
+    "title title status"
     "main main status"
-    "main main helpsection"
+    "main main aiimage"
     "main main helpsection"
     "command command helpsection"
-    "usersconnected usersconnected usersconnected";
+    "usersconnected usersconnected helpsection";
   grid-template-columns: 400px 1fr 300px;
-  grid-template-rows: 20px 1fr 1fr 1fr 60px 30px;
+  grid-template-rows: auto 1fr 1fr 1fr 60px 30px;
   height: 75vh;
+}
+
+.mudgrid-collapsed {
+  display: grid;
+  grid-template-areas:
+    "title title status"
+    "main main status"
+    "main main aiimage"
+    "main main helpsection"
+    "command command helpsection"
+    "usersconnected usersconnected helpsection";
+  grid-template-columns: 400px 1fr 500px;
+  grid-template-rows: 44px 1fr 1fr 1fr 60px 30px;
+  height: 75vh;
+}
+
+.title-panel-expanded {
+  background-color: #999 !important;
+  height: 470px;
+  overflow: none;
+}
+
+.title-panel-collapsed {
+  background-color: #999 !important;
 }
 
 #title {
@@ -56,6 +80,10 @@ td {
   padding: 1em;
   font-size:large;
   font-family: monospace;
+}
+
+#aiimage {
+  grid-area: aiimage;
 }
 
 #usersconnected {
@@ -84,16 +112,13 @@ td {
   padding: .5em;
   background-color: greenyellow;
   margin: 5px 1em;
-  height: 270px;
-}
-
-.mud-title{
-  background-color: teal;
+  height: 305px;
 }
 
 .mud-subtitle{
-  background-color: beige;
+  background-color: #999;
   padding: 0 5px;
+  color: #333;
 }
 
 #inventory {
@@ -183,6 +208,10 @@ td {
 
 .monster2-message {
   color: tomato;
+}
+
+.environment-message {
+  color: turquoise;
 }
 
 /* You see.. */
