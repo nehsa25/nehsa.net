@@ -1,0 +1,90 @@
+<div>
+    <mat-card class="card">
+        <mat-card-header>
+            <mat-card-title>
+                <h1 data-testid="header-title">AI Image Generation</h1>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="commentgrid">
+                <div class="topics">
+                    <h4>Quick Start</h4>
+                    <ol>
+                        <span class="comment">Pick a service</span>
+                        <li>NehsaMUD is using this service: <a
+                                href="https://platform.stability.ai/docs/api-reference#tag/SDXL-and-SD1.6/operation/textToImage">stability.ai
+                                Text-to-image</a></li>
+                        <li>Instrument Backend (Python)
+                            <ul>
+                                <li>Submit the request:
+                                    <div class="code">
+                                        <pre>
+                                            class AIImage(Utility):
+    
+    &#64;staticmethod
+    async def get_room_image(self, room_image_name, room_description):
+        engine_id = "stable-diffusion-v1-6"
+        api_host = 'https://api.stability.ai'
+        api_key = "sk-aIIMUE6NJeYvXfmJ83d8T6Rqueur7hOjT07hskStmrnB7khw"
+
+        if api_key is None:
+            raise Exception("Missing Stability API key.")
+
+        response = requests.post(
+            f"&#123;api_host&#125;/v1/generation/&#123;engine_id&#125;/text-to-image",
+            headers=&#123;
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "Authorization": f"Bearer &#123;api_key&#125;"
+            &#125;,
+            json=&#123;
+                "text_prompts": [
+                    &#123;
+                        "text": room_description
+                    &#125;
+                ],
+                "cfg_scale": 35, <span class="comment">How strictly the diffusion process adheres to the prompt text (higher values keep your image closer to your prompt). Default: 7</span>
+                "height": 512,
+                "width": 512,
+                "samples": 1, <span class="comment">Number of images to generate. Default: 1</span>
+                "steps": 30, <span class="comment">Number of diffusion steps to run. Default: 30</span>
+                "fantasy-art": "fantasy-art" <span class="comment">3d-model analog-film anime cinematic<br> comic-book digital-art enhance fantasy-art isometric line-art low-poly modeling-compound<br> neon-punk origami photographic pixel-art tile-texture</span>
+                &#125;,
+            )
+        
+        if response.status_code != 200:
+            raise Exception("Non-200 response: " + str(response.text))
+
+        data = response.json()
+
+        for i, image in enumerate(data["artifacts"]):
+            with open(room_image_name, "wb") as f:
+                f.write(base64.b64decode(image["base64"]))
+                                        </pre>
+                                    </div>
+
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Instrument Frontend
+                            <ul>
+                                <li>Prepend "8-bit fantasy image." to the front of image to force a style preference
+                                </li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <div>
+                        <h4>Example :)</h4>
+                        <span class="important">Prompt: "You find yourself within a majestic inn. The smell of food and
+                            wine permeates the air. A worn, well-kept fireplace burned softly in the corner. There's a
+                            shelf with a small assortment of books.</span><br>
+                        <div>
+                            <img width="600" mat-card-image src="../../assets/images/aiimage.png" />
+                        </div>
+                    </div>
+                </div>
+                <div><app-comment></app-comment></div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
