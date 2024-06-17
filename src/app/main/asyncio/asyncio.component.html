@@ -8,7 +8,47 @@
         <mat-card-content>
             <div class="commentgrid">
                 <div class="topics">
-                    TBD     
+                    <h3>Setup new Async Call</h3>
+                    <ul>
+                        <li>
+                            <h4>Create a Async class</h4>
+                            <div class="code">
+                                <pre>
+    class SyncClass:
+        def __init__(self, logger) -> None:
+            self.logger = logger
+
+            
+        def start_async_method(self, room_image_name, room_description, player):
+            start_server = self.generate_room_image(room_image_name, room_description, player)
+            loop = asyncio.get_event_loop()
+            loop.run_until_complete(start_server)
+            
+        async def generate_room_image(self, room_image_name, room_description, player):
+            <span class="comment"># do stuff</span><br></pre>
+                            </div>
+                        </li>
+
+                        <li>
+                            <h4>Create a Async class tha runs forever</h4>
+                            <div class="code">
+                                <pre>
+    class SyncClass:
+        def __init__(self, logger) -> None:
+            self.logger = logger
+
+            
+        def start_async_method(self, room_image_name, room_description, player):
+            start_server = self.generate_room_image(room_image_name, room_description, player)
+            loop = asyncio.get_event_loop()
+            loop.run_until_complete(start_server)
+            loop.run_forever() <span class="comment"># <-- add this</span>
+            
+        async def generate_room_image(self, room_image_name, room_description, player):
+            <span class="comment"># do stuff</span><br></pre>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
                 <div><app-comment></app-comment></div>
             </div>
