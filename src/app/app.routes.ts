@@ -39,6 +39,8 @@ import { JavaComponent } from './main/java/java.component';
 import { SqlComponent } from './main/sql/sql.component';
 import { MudComponent } from './main/mud/mud.component';
 import { DotComponent } from './main/dot/dot.component';
+import { AiImageComponent } from './main/mud/ai-image/ai-image.component';
+import { AiImageGenerationComponent } from './main/ai-image-generation/ai-image-generation.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: BioComponent },
@@ -90,6 +92,7 @@ export const routes: Routes = [
     { path: 'signup', title: 'nehsa.net | Signup', component: SignupComponent },
     { path: 'sql', title: 'nehsa.net | SQL', component: SqlComponent },
     { path: 'mud', title: 'nehsa.net | MUD', component: MudComponent },
+    { path: 'aiimage', title: 'nehsa.net | AI Image Generation', component: AiImageGenerationComponent },
     { path: '', title: 'nehsa.net | Home', redirectTo: '/', pathMatch: 'full' },
     { path: '**', component: BioComponent },
 ];
