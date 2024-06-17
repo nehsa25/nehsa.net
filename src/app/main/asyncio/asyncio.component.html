@@ -21,7 +21,7 @@
             loop.run_until_complete(start_server)
             
         async def generate_room_image(self, room_image_name, room_description, player):
-            <span class="comment"># do stuff</span><br></pre>
+            <span class="comment"># do stuff</span></pre>
                             </div>
                         </li>
 
@@ -37,13 +37,15 @@
             loop.run_forever() <span class="comment"># <-- add this</span>
             
         async def generate_room_image(self, room_image_name, room_description, player):
-        <span class="comment"># do stuff</span><br></pre>
+        <span class="comment"># do stuff</span></pre>
                             </div>
                         </li>
                         <li>
                             <h4>Do something asynchronously and do not block but continue once it's finished:</h4>
-                            <div class="code">result = <span class="important">await</span> something(); <span class="comment"># the await keyword is
-                                    important.<br>Without it, only the routine of what *would* run will be returned and we
+                            <div class="code">result = <span class="important">await</span> something(); <span
+                                    class="comment"># the await keyword is
+                                    important.<br>Without it, only the routine of what *would* run will be returned and
+                                    we
                                     will continue without waiting for the actual response.</span>
                             </div>
                         </li>
@@ -51,15 +53,44 @@
                             <h4>Start websocket server with valid SSL support:</h4>
                             <div class="code">
                                 <pre>
-        ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
-        ssl_context.load_cert_chain(
-            "c:/secretarea/certificate.pem", "c:/secretarea/private.key"
-        )
-        start_server = websockets.serve(
-            m.main, host, port, max_size=9000000, ssl=ssl_context
-        )
+    ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+    ssl_context.load_cert_chain(
+        "c:/secretarea/certificate.pem", "c:/secretarea/private.key"
+    )
+    start_server = websockets.serve(
+        m.main, host, port, max_size=9000000, ssl=ssl_context
+    )
                                 </pre>
                             </div>
+                        </li>
+                        <li>
+                            <h4>Start a new Async Loop within a thread</h4>
+                            <ul>
+                                <li>
+                                    <h4>AsyncIO Class</h4>
+                                    <div class="code">
+                                        <pre>
+            class Map(Utility):
+                def start_async(self, argument):
+                    start_server = self.generate_map(argument)
+                    loop = asyncio.new_event_loop() <span class="comment"># Use <span class="important">asyncio.new_event_loop()</span> instead of <span class="important">asyncio.get_event_loop()</span></span><br>
+                    loop.run_until_complete(start_server)
+        
+                async def generate_map(self, argument):
+                <span class="comment"># do stuff</span><br>
+                                        </pre>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h4>How to call it</h4>
+                                    <div class="code">
+                                        <pre>
+    map_thread = Thread(target = world.map.start_async, args = (new_room, map_image_name, player, world))
+    map_thread.start()
+                                        </pre>
+                                    </div>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
