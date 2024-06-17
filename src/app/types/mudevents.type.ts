@@ -20,4 +20,5 @@ export enum MudEvents {
     MAP_EVENT = 17,
     ROOM_IMAGE = 18,
     DIRECTION = 19,
+    ANNOUCEMENT = 20,
 }

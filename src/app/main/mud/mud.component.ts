@@ -230,7 +230,7 @@ export class MudComponent {
         const star_yellow = "<span class=\"material-icons yellow\">star</span>";
         const welcome = `${star_teal}${star_purple}${star_red}${star_yellow}This is NehsaMUD.  Welcome to the world of Illisurom.${star_yellow}${star_red}${star_purple}${star_teal}<br><br>It's a project my son, Ethan, and I are working on (and you if you want).  It's a fun way to learn Python while doing something creative.  It's an homage to one of the funnest, most underrated types of game ever invented - <span class=\"important\">text-based multi-user dungeon (a &quot;MUD&quot;).</span>  MUDs were hard, they required skill, they were fast and cut-throat.  If you died, people took your shit.  They were also highly social and encouraged creatively. Ohh, the day, when my friend Ian figured out how to script following someone in PvP so they couldn't get away! I hope someday people &quot;script&quot; this like MUDs of old.. so I can sneak attack you while you are AFK.<br><br>NehsaMUD in a perpetual state of &quot;mostly broken&quot;. Please adjust your expectations accordingly..<br><br>Have fun!<br>`;
         if (data.message != "") {
-          this.mudEvents += `<br><span class=\"welcome-message\">${data.message}<br><br>${welcome}</span>`;
+          this.mudEvents += `${welcome}<br><br><span class=\"welcome-message\">${data.message}</span>`;
         }
         break;
       case MudEvents.BOOK:
@@ -257,6 +257,11 @@ export class MudComponent {
       case MudEvents.INFO:
         if (data.message != "") {
           this.mudEvents += "<br><span class=\"info-message\">" + data.message + "</span>";
+        }
+        break;
+      case MudEvents.ANNOUCEMENT:
+        if (data.message != "") {
+          this.mudEvents += "<br><span class=\"announcement-message\">" + data.message + "</span>";
         }
         break;
       case MudEvents.TIME:
