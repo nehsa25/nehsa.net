@@ -61,11 +61,9 @@ export class MapComponent {
     if (this.expanded) {
       this.dialogRef.updateSize('380px');
       this.image_width = 380;
-      this.image = `https://api.nehsa.net/${this.data.map_name}_mini.svg`;
       this.expanded = false;
     } else {
       this.dialogRef.updateSize('100%');
-      this.image = `https://api.nehsa.net/${this.data.map_name}.svg`;
       this.image_width = this.image_width * 2;
       this.expanded = true;
     }

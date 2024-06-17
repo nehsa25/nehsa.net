@@ -12,4 +12,5 @@ export class MudEvent {
     value: string = "";
     extra: string = "";
     map_name: string = "";
+    players: number = -1;
 }

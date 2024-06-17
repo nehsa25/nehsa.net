@@ -335,7 +335,7 @@ export class MudComponent {
         break;
       case MudEvents.CLIENT_LIST:
         console.log("Inside get_clients switch");
-        this.usersConnected = Number.parseInt(data.message);
+        this.usersConnected = data.players;
         break;
       case MudEvents.MAP_EVENT:
         this.mapName = data.map_name;
