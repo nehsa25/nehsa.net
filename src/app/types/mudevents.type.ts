@@ -17,5 +17,6 @@ export enum MudEvents {
     ATTACK = 14,
     HEALTH = 15,
     CLIENT_LIST = 16,
-    MAP_EVENT = 17
+    MAP_EVENT = 17,
+    ROOM_IMAGE = 18,
 }

@@ -33,7 +33,10 @@
                             </tr>
                             <tr>
                                 <td>actions</td>
-                                <td><button class="action" *ngIf="this.mapMinimized === true" [disabled]="mapName == ''" (click)="launchMap(this.mapName)"><mat-icon>map</mat-icon></button></td>
+                                <td>
+                                    <button class="action" *ngIf="this.mapImageAvailable === true" (click)="launchMap()"><mat-icon>map</mat-icon></button>
+                                    <button class="action" *ngIf="this.roomImageAvailable === true" (click)="launchImage()"><mat-icon>search</mat-icon></button>
+                                </td>
                             </tr>
                         </table>
                     </div>

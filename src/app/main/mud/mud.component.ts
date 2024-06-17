@@ -14,6 +14,7 @@ import { MapComponent } from './map/map.component';
 import { MatIcon } from '@angular/material/icon';
 import { DupeNameComponent } from './dupe-name/dupe-name.component';
 import { MudEvents } from '../../types/mudevents.type';
+import { AiImageComponent } from './ai-image/ai-image.component';
 
 @Component({
   selector: 'app-mud',
@@ -31,10 +32,14 @@ export class MudComponent {
   status: string = "";
   command: string = "";
   socket: WebSocket;
-  mapName = "";
+  map_contents = "";
+  mapImageName = "";
+  roomImageName = "";
   fullAddress: string = "";
   inventory: string[] = [];
-  mapMinimized = false;
+  mapImageAvailable = false;
+  room_description = "";
+  roomImageAvailable = false;
 
   constructor(
     public userService: UserService,
@@ -117,17 +122,19 @@ export class MudComponent {
     });
   }
 
-  launchMap(map_name:string) {
-    const dialogRef = this.mapDialog.open(MapComponent, {
+  launchImage() {
+    console.log("launching image..");
+    const dialogRef = this.mapDialog.open(AiImageComponent, {
       data: {
-        map_name: map_name
+        image_path: this.roomImageName
       },
-      width: '400px',
+      width: '600px',
+      height: '600px',
       position: { top: '50px', right: '200px' }
     });
     dialogRef.componentInstance.emitService.subscribe((val: any) => {
       if (val == 'min') {
-        this.mapMinimized = true;
+        this.mapImageAvailable = true;
       }
       console.log(val);
       // ULTIMATELY, THIS IS WHERE WE WILL SEND THE NAME TO THE SERVER
@@ -138,7 +145,32 @@ export class MudComponent {
       // this.socket.send(resp);
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.mapMinimized = true;
+      this.mapImageAvailable = true;
+    });
+  }
+
+  launchMap() {
+    const dialogRef = this.mapDialog.open(MapComponent, {
+      data: {
+        map_name: this.mapImageName
+      },
+      width: '750px',
+      position: { top: '50px', right: '200px' }
+    });
+    dialogRef.componentInstance.emitService.subscribe((val: any) => {
+      if (val == 'min') {
+        this.mapImageAvailable = true;
+      }
+      console.log(val);
+      // ULTIMATELY, THIS IS WHERE WE WILL SEND THE NAME TO THE SERVER
+      // console.log("Inside request_hostname switch");
+      // var name = this.userService.name;
+      // var resp = '{"type": "hostname_answer", "host": "' + name + '"}';
+      // console.log("Server is requesting our name, sending back: " + resp);
+      // this.socket.send(resp);
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.mapImageAvailable = true;
     });
   }
 
@@ -188,7 +220,7 @@ export class MudComponent {
         const star_purple = "<span class=\"material-icons purple\">star</span>";
         const star_red = "<span class=\"material-icons red\">star</span>";
         const star_yellow = "<span class=\"material-icons yellow\">star</span>";
-        const welcome = `${star_teal}${star_purple}${star_red}${star_yellow}This is NehsaMUD.  Welcome to the world of Illisurom.${star_yellow}${star_red}${star_purple}${star_teal}<br><br>It's a project my son, Ethan, and I are working on (and you if you want).  It's a fun way to learn Python while doing something creative.  It's an homage to one of the funnest, most underrated types of game ever invented - <span class=\"important\">text-based multi-user dungeons (MUDs).</span>  MUDs were hard, they required skill, they were fast and cut-throat.  If you died, people took your shit.  They were also highly social and encouraged creatively. Ohh, the day, when my friend Ian figured out how to script following someone in PvP so they couldn't get away! I hope someday people &quot;script&quot; this like MUDs of old.. so I can sneak attack you while you are AFK.<br><br>NehsaMUD in a perpetual state of &quot;mostly broken&quot;. Please adjust your expectations accordingly..<br><br>Have fun!<br>`;
+        const welcome = `${star_teal}${star_purple}${star_red}${star_yellow}This is NehsaMUD.  Welcome to the world of Illisurom.${star_yellow}${star_red}${star_purple}${star_teal}<br><br>It's a project my son, Ethan, and I are working on (and you if you want).  It's a fun way to learn Python while doing something creative.  It's an homage to one of the funnest, most underrated types of game ever invented - <span class=\"important\">text-based multi-user dungeon (a &quot;MUD&quot;).</span>  MUDs were hard, they required skill, they were fast and cut-throat.  If you died, people took your shit.  They were also highly social and encouraged creatively. Ohh, the day, when my friend Ian figured out how to script following someone in PvP so they couldn't get away! I hope someday people &quot;script&quot; this like MUDs of old.. so I can sneak attack you while you are AFK.<br><br>NehsaMUD in a perpetual state of &quot;mostly broken&quot;. Please adjust your expectations accordingly..<br><br>Have fun!<br>`;
         if (data.message != "") {
           this.mudEvents += `<br><span class=\"welcome-message\">${data.message}<br><br>${welcome}</span>`;
         }
@@ -303,6 +335,7 @@ export class MudComponent {
         }
         break;
       case MudEvents.ROOM:
+        this.room_description = data.description;
         if (data.name != "") {
           this.mudEvents += "<br><span class=\"room-message\">" + this.addBorder(data.name) + "</span>";
         }
@@ -338,11 +371,15 @@ export class MudComponent {
         this.usersConnected = data.players;
         break;
       case MudEvents.MAP_EVENT:
-        this.mapName = data.map_name;
-        this.mapMinimized = true;
+        this.mapImageName = data.map_image_name;
+        this.mapImageAvailable = true;
         //this.launchMap(this.mapName);
         break;
-
+      case MudEvents.ROOM_IMAGE:
+        this.roomImageName = data.room_image_name;
+        this.roomImageAvailable = true;
+        //this.launchMap(this.mapName);
+        break;
       default:
         console.error("unsupported event: " + data.type.toString());
         break;

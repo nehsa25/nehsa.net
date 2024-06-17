@@ -11,6 +11,8 @@ export class MudEvent {
     exits: string = "";
     value: string = "";
     extra: string = "";
-    map_name: string = "";
+    map_contents: string = "";
+    room_image_name: string = "";
+    map_image_name: string = "";
     players: number = -1;
 }

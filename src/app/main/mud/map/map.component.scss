@@ -58,13 +58,24 @@ h5 {
     padding-left: 10px;
 }
 
-.map-image {
-    overflow: auto;
-}
-
-
 .map-buttons-icons {
     color: hotpink;
     margin: 0px;
     text-align: center;
 }
+
+.edit {
+    background-color: khaki;
+    color: hotpink;
+    font-size: 4rem;
+}
+
+.maparea {
+    max-width: 750px;
+    overflow: auto;
+}
+
+.mapmap {
+    border: 1px solid black;
+}
+
