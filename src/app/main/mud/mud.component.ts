@@ -20,7 +20,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 @Component({
   selector: 'app-mud',
   standalone: true,
-  imports: [NgClass, MatExpansionModule, MatCardModule, CommentComponent, NgIf, MatButton, MatInputModule, MatFormFieldModule, MatLabel, MatError, FormsModule, NgFor, MatIcon],
+  imports: [NgClass, NgIf, MatExpansionModule, MatCardModule, CommentComponent, NgIf, MatButton, MatInputModule, MatFormFieldModule, MatLabel, MatError, FormsModule, NgFor, MatIcon],
   templateUrl: './mud.component.html',
   styleUrl: './mud.component.scss',
   encapsulation: ViewEncapsulation.None,
@@ -142,7 +142,7 @@ export class MudComponent {
     console.log("launching image..");
     const dialogRef = this.mapDialog.open(AiImageComponent, {
       data: {
-        image_path: this.roomImageName
+        roomImageName: this.roomImageName
       },
       width: '600px',
       height: '600px',
@@ -397,8 +397,8 @@ export class MudComponent {
         this.miniMap = `https://api.nehsa.net/${this.mapImageName}_small.svg`;
         //this.launchMap(this.mapName);
         break;
-      case MudEvents.ROOM_IMAGE:
-        this.roomImageName = data.room_image_name;
+      case MudEvents.ROOM_IMAGE:        
+        this.roomImageName = `https://api.nehsa.net/${data.room_image_name}`;
         this.roomImageAvailable = true;
         //this.launchMap(this.mapName);
         break;

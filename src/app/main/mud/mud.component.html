@@ -100,7 +100,7 @@
                     <textarea #sendcommandarea (keydown)="sendCommand($event)" [(ngModel)]="command"
                         placeholder="Type a command here and press &lt;ENTER&gt;"></textarea>
                 </div>
-                <div id="aiimage">image</div>
+                <div id="aiimage"><div *ngIf="this.roomImageName !=''"><img class="aiimage" [src]="this.roomImageName"></div></div>
                 <div id="usersconnected">{{usersConnected}} users online.</div>
             </div>
         </div>

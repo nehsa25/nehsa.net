@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ContactType } from '../types/contact.type';
 import { AddUserType } from '../types/adduser.type';
 import { NameType } from '../types/name.type';
+import { AiImageType } from '../types/aiimage.type';
 
 @Injectable()
 export class HttpService {
@@ -18,6 +19,7 @@ export class HttpService {
     quoteUrl = "https://api.nehsa.net/v1/quote";
     nameUrl = "https://api.nehsa.net/v1/name";
     posAdjUrl = "https://api.nehsa.net/v1/positiveadjective";
+    stabilityaiUrl = `https://api.stability.ai/v1/generation/stable-diffusion-v1-6/text-to-image`;
 
     /** 
      * Posts the contact me form to API
@@ -62,5 +64,15 @@ export class HttpService {
         let user:NameType = new NameType();
         user.Name = name;
         return this.http.post(this.nameUrl, user);
+    }
+  
+    getAiImage(image: AiImageType) {
+        const bearer = "sk-aIIMUE6NJeYvXfmJ83d8T6Rqueur7hOjT07hskStmrnB7khw";
+
+        const headers = new HttpHeaders().set('Authorization', 'Bearer ' + bearer);
+        headers.append('Content-Type', 'application/json');
+        headers.append('Accept', 'application/json');
+
+        return this.http.post(this.stabilityaiUrl, image, { headers });
     }
 }
