@@ -24,11 +24,21 @@
             <span class="comment"># do stuff</span></pre>
                             </div>
                         </li>
-
                         <li>
                             <h4>Create a Async class tha runs forever</h4>
-                            <div class="code">
-                                <pre>
+                            <ul>
+                                <li>
+                                    <div class="code">
+                                        <pre>
+    async def setup_world_events(self):
+        if self.breeze_task is None:
+            self.breeze_task = asyncio.create_task(self.breeze())
+                                        </pre>
+                                    </div>
+                                </li>
+                                <li>Alternatively - 
+                                    <div class="code">
+                                        <pre>
     class SyncClass:
         def start_async_method(self, room_image_name, room_description, player):
             start_server = self.generate_room_image(room_image_name, room_description, player)
@@ -37,8 +47,12 @@
             loop.run_forever() <span class="comment"># <-- add this</span>
             
         async def generate_room_image(self, room_image_name, room_description, player):
-        <span class="comment"># do stuff</span></pre>
-                            </div>
+        <span class="comment"># do stuff
+
+            </span></pre>
+                                    </div>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <h4>Do something asynchronously and do not block but continue once it's finished:</h4>
