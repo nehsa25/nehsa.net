@@ -14,8 +14,9 @@
                             </mat-panel-description>
                         </mat-expansion-panel-header>
                         <mat-card-content>
-                            <div>
-                                <div><img class="mapmap" [src]="this.miniMap"/></div>
+                            <div class="mud-sub-title-actions-grid">
+                                <div>&nbsp;</div>
+                                <div><button class="minimap-btn" mat-button (click)="launchMap()"><img class="minimap" [src]="this.miniMap"/></button></div>
                             </div>
                         </mat-card-content>
                     </mat-expansion-panel>
