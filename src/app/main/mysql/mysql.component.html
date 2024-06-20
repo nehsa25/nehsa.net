@@ -1,0 +1,152 @@
+<div>
+    <mat-card class="card">
+        <mat-card-header>
+            <mat-card-title>
+                <h1 data-testid="header-title">MySQL</h1>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="commentgrid">
+                <div class="topics">
+                    <ul>
+                        <h4>Setup Docker</h4>
+                        <ul>
+                            <li>
+                                <div class="code">docker pull ubuntu/mysql</div>
+                            </li>
+                            <li>
+                                <div class="code">docker run -d --name mysql-container -e TZ=UTC -p 30306:3306 -e
+                                    MYSQL_ROOT_PASSWORD=&lt;PASSWORD&gt; ubuntu/mysql:latest</div>
+                            </li>
+                            <li>
+                                We now have a SQL server install running to the outside world on port <span
+                                    class="important">30306</span>:<br><br><br>
+                                <span class="code-command">docker ps</span>
+                                <div class="code">
+
+                                    <pre>
+    CONTAINER ID   IMAGE                 COMMAND                  CREATED          STATUS          PORTS                                NAMES
+    6d2a74d5914f   ubuntu/mysql:latest   "docker-entrypoint.s…"   17 minutes ago   Up 17 minutes   33060/tcp, 0.0.0.0:30306->3306/tcp   mysql-container
+                                    </pre>
+                                </div>
+                            </li>
+                            <li>Get MySQL Workbench
+                                <ul class="condensed">
+                                    <li>Install client only</li>
+                                </ul>
+                            </li>
+                            <li>Configure .NET Core support<br><br>
+                                <ul>
+                                    <li>
+                                        <span class="code-command">dotnet add package MySqlConnector</span>
+                                        <div class="code">
+                                            <pre>
+    Determining projects to restore...
+    ...
+    info : Adding PackageReference for package 'MySqlConnector' into project 'C:\src\&lt;PROJECT&gt;\&lt;PROJECT&gt;.csproj'.
+    ...
+    info : Package 'MySqlConnector' is compatible with all the specified frameworks in project 'C:\src\&lt;PROJECT&gt;\&lt;PROJECT&gt;.csproj'.
+    info : PackageReference for package 'MySqlConnector' version '2.3.7' added to file 'C:\src\&lt;PROJECT&gt;\&lt;PROJECT&gt;.csproj'.
+    info : Generating MSBuild file C:\src\&lt;PROJECT&gt;\obj\&lt;PROJECT&gt;.csproj.nuget.g.targets.
+    info : Writing assets file to disk. Path: C:\src\&lt;PROJECT&gt;\obj\project.assets.json
+    log  : Restored C:\src\&lt;PROJECT&gt;\&lt;PROJECT&gt;.csproj (in 1.72 sec).
+                                            </pre>
+                                        </div>
+                                    </li>
+                                    <li>Add connection string to appsettings.json:
+                                        <div class="code">
+                                            <pre>
+    "ConnectionStrings": &#123;
+        "Default": "Server=&lt;YOURSERVER&gt;;User ID=&lt;USERID&gt;;Password=&lt;PASSWORD&gt;;Database=&lt;YOURDATABASE&gt;"
+    &#125;,
+                                              </pre>
+                                        </div>
+                                    </li>
+                                    <li>Install MySqlConnector.DependencyInjection:<br><br>
+                                        <span class="code-command">dotnet add package
+                                            MySqlConnector.DependencyInjection</span>
+                                        <div class="code">
+                                            <pre>
+    Determining projects to restore...
+    ...
+    info : Adding PackageReference for package 'MySqlConnector.DependencyInjection' into project 'C:\src\&lt;PROJECT&gt;\&lt;PROJECT&gt;.csproj'.
+    ...
+    info : Package 'MySqlConnector.DependencyInjection' is compatible with all the specified frameworks in project 'C:\src\&lt;PROJECT&gt;\&lt;PROJECT&gt;.csproj'.
+    info : PackageReference for package 'MySqlConnector.DependencyInjection' version '2.3.6' added to file 'C:\src\&lt;PROJECT&gt;\&lt;PROJECT&gt;.csproj'.
+    info : Writing assets file to disk. Path: C:\src\&lt;PROJECT&gt;\obj\project.assets.json
+    log  : Restored C:\src\&lt;PROJECT&gt;\&lt;PROJECT&gt;.csproj (in 1.22 sec)
+                                            </pre>
+                                        </div>
+                                    </li>
+                                    <li>Update appsetings.json again and add:<br>
+                                        <div class="code">
+                                            builder.Services.AddMySqlDataSource(builder.Configuration.GetConnectionString("Default")!);
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>Setup database
+                                <ul>
+                                    <li>Connect via MySQL Workbench</li>
+                                    <li>
+                                        Create the new database:<br>
+                                        <div class="code">create schema &lt;DATABASE NAME&gt;</div>
+                                    </li>
+                                    <li>Ensure you're viewing "Schemas," click "Refresh" to see your new schema</li>
+                                    <li>Create a new type by expanding the schema and right-clicking on Tables</li>
+                                    <li>Click "Apply" to generate the new table</li>
+                                </ul>
+                            </li>
+                            <li>Ensure connectiveity
+                                <ul>
+                                    <li>Log into system:<br><br>
+                                        <ul>
+                                            <li>
+                                                <span class="code-command">docker ps</span>
+                                                <div class="code">
+                                                    <pre>
+    CONTAINER ID   IMAGE                         COMMAND                  CREATED          STATUS          PORTS                      NAMES
+    944c910dbdc7   nehsa/nehsaapi:202406201442   "dotnet nehsanet-app…"   11 minutes ago   Up 11 minutes   0.0.0.0:22007->22007/tcp   distracted_shannon
+                                                            </pre>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="code">docker exec -it -u root 944 /bin/bash</div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>Install MySQL Client<br>
+                                        <div class="code">apt-get install default-mysql-client/stable</div>
+                                    </li>
+                                    <li>Verify you can connect:<br><br>
+                                        <span class="code-command">mysql -u &lt;USERNAME&gt; -p'&lt;PASSWORD&gt;' -h
+                                            &lt;HOSTNAME OR IP&gt; -P &lt;PORT&gt;
+                                            -D &lt;DATABASE NAME&gt; <span class="comment">note the password is touching
+                                                -p, that's important.</span></span>
+                                        <div class="code">
+                                            <pre>
+    Reading table information for completion of table and column names
+    You can turn off this feature to get a quicker startup with -A
+    
+    Welcome to the MariaDB monitor.  Commands end with ; or \g.
+    Your MySQL connection id is 17
+    Server version: 8.0.37-0ubuntu0.22.04.3 (Ubuntu)
+    
+    Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+    
+    Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+    
+    MySQL [&lt;DATABASE NAME&gt;]>
+                                            </pre>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </ul>
+                </div>
+                <div><app-comment></app-comment></div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

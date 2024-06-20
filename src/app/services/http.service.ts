@@ -44,6 +44,10 @@ export class HttpService {
         return this.http.get(this.quoteUrl);
     }
 
+    getDBHealth() { 
+        return this.http.get('https://api.nehsa.net/v1/dbhealth');
+    }
+
     /** Returns a random name */  
     getName() {
         return this.http.get(this.nameUrl);
