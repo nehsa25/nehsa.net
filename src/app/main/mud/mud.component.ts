@@ -73,7 +73,7 @@ export class MudComponent {
       this.trimHtml();
 
       // process the command
-      this.processCommand(data)
+      this.processEvent(data)
     });
   }
 
@@ -211,17 +211,13 @@ export class MudComponent {
 
   /** Colorize the message */
   colorizeMessage(message: string) {
+    const yellow_bolt = "<span class=\"material-icons yellow\">bolt</span>";
     let colors: string[] = ["red", "green", "blue", "white", "yellow", "cyan", "magenta", "black", "gray", "grey",
       "orange", "purple", "brown", "pink", "teal", "maroon", "olive", "navy",
-      "lime", "aqua", "silver", "black", "gray", "grey", "orange",
+      "lime", "aqua", "silver", "black", "gray", "orange",
       "purple", "brown", "pink", "teal", "maroon", "olive", "navy", "lime", "aqua", "silver"];
-    colors.forEach(o => {
-      const findval = o;
-      let replaceValue = o;
-      if (o == "black" || o == "gray" || o == "grey") {
-        replaceValue = "#999";
-      }
-      const findExpression = new RegExp(`\\s(${o})\\s|\\s(${o}(?=\\S*['-])([a-zA-Z'-]+))`, 'gi');
+    colors.forEach(replaceValue => {
+      const findExpression = new RegExp(`\\s(${replaceValue})\\s|\\s(${replaceValue}(?=\\S*['-])([a-zA-Z'-]+))`, 'gi');
       const PreventDupeExpression = new RegExp(`<span class=\"color-${findExpression}\">(.*)</span><span class=\"color-${findExpression}\">(.*)</span>`, 'gi');
       message = message.replace(findExpression, r => "<span class=\"color-" + replaceValue + "\">" + r + "</span>");
       message = message.replace(PreventDupeExpression, r => "<span class=\"color-" + replaceValue + "\">" + r + "</span>");
@@ -229,7 +225,7 @@ export class MudComponent {
     return message;
   }
 
-  processCommand(data: MudEvent) {
+  processEvent(data: MudEvent) {
     switch (data.type) {
       case MudEvents.WELCOME:
         const star_teal = "<span class=\"material-icons teal\">star</span>";
@@ -264,7 +260,7 @@ export class MudComponent {
         break;
       case MudEvents.INFO:
         if (data.message != "") {
-          this.mudEvents += "<br><span class=\"info-message\">" + data.message + "</span>";
+          this.mudEvents += "<br><span class=\"info-message\">" + this.colorizeMessage(data.message) + "</span>";
         }
         break;
       case MudEvents.ANNOUCEMENT:
@@ -313,8 +309,8 @@ export class MudComponent {
         if (data.message != "") {
           const attack_txt = data.message.split('! ')
           this.mudEvents += "<br><span class=\"attack1-message\">"
-            + attack_txt[0]
-            + "!</span><br><span  class=\"attack2-message\">" + attack_txt[1] + "</span>";
+            + attack_txt
+            + "</span>";
         }
         break;
       case MudEvents.HEALTH:
@@ -352,8 +348,16 @@ export class MudComponent {
           this.health = "<span style=\"class: " + cssClass + ";\">" + hitpoints + "</span> / " + max_hitpoints;
 
           // add status effects
-          this.status = "Status: Resting";
+          if (data.is_resting) {
+            this.resting = true;
+          }
         }
+        break;
+      case MudEvents.REST:
+        if (data.message != "") {
+          this.mudEvents += "<br><span class=\"rest-message\">" + data.message + "</span>";
+        }
+        this.resting = data.is_resting
         break;
       case MudEvents.ROOM:
         this.room_description = data.description;
@@ -398,7 +402,7 @@ export class MudComponent {
         //this.launchMap(this.mapName);
         break;
       case MudEvents.ROOM_IMAGE:        
-        this.roomImageName = `https://api.nehsa.net/${data.room_image_name}`;
+        this.roomImageName = `https://api.nehsa.net/rooms/${data.room_image_name}`;
         this.roomImageAvailable = true;
         //this.launchMap(this.mapName);
         break;
@@ -429,7 +433,7 @@ export class MudComponent {
 
   isOpen(ws: WebSocket) { return ws.readyState === ws.OPEN }
 
-  refocus(div: HTMLTextAreaElement) {
+  refocus(div: HTMLInputElement) {
     div.focus();
   }
 

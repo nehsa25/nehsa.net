@@ -84,12 +84,21 @@ td {
 
 #aiimage {
   grid-area: aiimage;
-  background-color: black;
+  background-color: #999;
 }
 
 .aiimage {
   width: 300px;
   height: 300px;
+}
+
+
+.aiimage-btn {
+  background-color: #666;
+  color: #fff;
+  border: 1px solid #333;
+  border-radius: 5px;
+  margin: 5px;
 }
 
 #usersconnected {
@@ -160,6 +169,10 @@ td {
   color: #999;
 }
 
+.rest-message {
+  color: royalblue;
+}
+
 .input-message {
   color: yellow;
 }
@@ -217,7 +230,8 @@ td {
 }
 
 .environment-message {
-  color: turquoise;
+  color: whitesmoke;
+  font-size: 0.8em;
 }
 
 /* You see.. */
@@ -243,7 +257,7 @@ td {
 }
 
 .color-blue {
-  color: blue;
+  color: skyblue;
 }
 .color-red {
   color: red;
@@ -252,10 +266,10 @@ td {
   color: purple;
 }
 .color-black {
-  color: #666;
+  color: #333;
 }
 .color-gray {
-  color: #333;
+  color: #666;
 }
 
 .hr-border {
@@ -273,7 +287,6 @@ td {
 .action {
   background-color: springgreen;
   border: 1px solid #333;
-  margin: 0 5px;
 }
 
 .action mat-icon {
@@ -292,7 +305,6 @@ td {
   color: crimson;
 }
 
-
 .minimap {
   width: 400px;
 }
@@ -300,4 +312,17 @@ td {
 .mud-sub-title-actions-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+
+.command-input {
+  width: 100%;
+  font-size: 1.5rem;
+  background-color: #333;
+  color: #999 !important;
+  border: 0;
+  padding: 5px 25px;
+  height: 40px;
+  resize: none;
+  margin: 0;
+  overflow: hidden;
 }

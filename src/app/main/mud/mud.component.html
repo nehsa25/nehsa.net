@@ -1,9 +1,12 @@
 <div>
     <mat-card class="card">
         <div class="commentgrid">
-            <div [ngClass]="{'mudgrid-expanded': panelExpanded === true, 'mudgrid-collapsed' : panelExpanded === false }">
+            <div
+                [ngClass]="{'mudgrid-expanded': panelExpanded === true, 'mudgrid-collapsed' : panelExpanded === false }">
                 <div id="title">
-                    <mat-expansion-panel [ngClass]="{'title-panel-expanded': panelExpanded === true, 'title-panel-collapsed' : panelExpanded === false }" [expanded]="panelExpanded" (click)="expandPanel()">
+                    <mat-expansion-panel
+                        [ngClass]="{'title-panel-expanded': panelExpanded === true, 'title-panel-collapsed' : panelExpanded === false }"
+                        [expanded]="panelExpanded" (click)="expandPanel()">
                         <mat-expansion-panel-header>
                             <mat-panel-title> <span class="mud-title">NehsaMUD
                                     <span class="mud-subtitle">a rouge-like, text-based MUD
@@ -16,7 +19,8 @@
                         <mat-card-content>
                             <div class="mud-sub-title-actions-grid">
                                 <div>&nbsp;</div>
-                                <div><button class="minimap-btn" mat-button (click)="launchMap()"><img class="minimap" [src]="this.miniMap"/></button></div>
+                                <div><button class="minimap-btn" mat-button (click)="launchMap()"><img class="minimap"
+                                            [src]="this.miniMap" /></button></div>
                             </div>
                         </mat-card-content>
                     </mat-expansion-panel>
@@ -29,18 +33,19 @@
                         <table class="tiny5-regular">
                             <tr>
                                 <td>Name</td>
-                                <td id="playername">{{this.userService.name}}</td>
+                                <td colspan="2" id="playername">{{this.userService.name}}</td>
                             </tr>
                             <tr>
                                 <td>Health</td>
-                                <td id="health"><span [innerHTML]="health"></span></td>
+                                <td colspan="2" id="health"><span [innerHTML]="health"></span></td>
                             </tr>
                             <tr>
-                                <td>Resting</td>
-                                <td><span [innerHTML]="this.resting"></span></td>
+                                <td>Statuses</td>
+                                <td style="width: 50%;">Resting</td>
+                                <td style="width: 50%;"><span [innerHTML]="this.resting"></span></td>
                             </tr>
                             <tr>
-                                <td id="inv" colspan="2">Inventory<br>
+                                <td id="inv" colspan="3">Inventory<br>
                                     <div id="inventory">
                                         <ul class="condensed">
                                             <li *ngFor="let item of inventory">{{item}}</li>
@@ -50,11 +55,9 @@
                             </tr>
                             <tr>
                                 <td>actions</td>
-                                <td>
+                                <td colspan="2">
                                     <button class="action" *ngIf="this.mapImageAvailable === true"
                                         (click)="launchMap()"><mat-icon>map</mat-icon></button>
-                                    <button class="action" *ngIf="this.roomImageAvailable === true"
-                                        (click)="launchImage()"><mat-icon>search</mat-icon></button>
                                 </td>
                             </tr>
                         </table>
@@ -97,10 +100,15 @@
                     </dl>
                 </div>
                 <div id="command">
-                    <textarea #sendcommandarea (keydown)="sendCommand($event)" [(ngModel)]="command"
-                        placeholder="Type a command here and press &lt;ENTER&gt;"></textarea>
+                    <input type="text" class="command-input" #sendcommandarea (keydown)="sendCommand($event)" [(ngModel)]="command"
+                        placeholder="Type a command here and press &lt;ENTER&gt;.  (e.g. /say Hi!&lt;ENTER&gt; to say hello)" />
                 </div>
-                <div id="aiimage"><div *ngIf="this.roomImageName !=''"><img class="aiimage" [src]="this.roomImageName"></div></div>
+                <div id="aiimage">
+                    <div *ngIf="this.roomImageName !=''">
+                        <button class="aiimage-btn" *ngIf="this.roomImageAvailable === true" (click)="launchImage()"><img
+                                class="aiimage" [src]="this.roomImageName"></button>
+                    </div>
+                </div>
                 <div id="usersconnected">{{usersConnected}} users online.</div>
             </div>
         </div>

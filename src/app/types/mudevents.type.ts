@@ -22,5 +22,5 @@ export enum MudEvents {
     DIRECTION = 19,
     ANNOUCEMENT = 20,
     ENVIRONMENT = 21,
-
+    REST = 22
 }
