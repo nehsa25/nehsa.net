@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
+import { NameType } from '../types/name.type';
 
 @Injectable()
 export class UserService {

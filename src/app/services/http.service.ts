@@ -20,6 +20,8 @@ export class HttpService {
     nameUrl = "https://api.nehsa.net/v1/name";
     posAdjUrl = "https://api.nehsa.net/v1/positiveadjective";
     stabilityaiUrl = `https://api.stability.ai/v1/generation/stable-diffusion-v1-6/text-to-image`;
+    dbhealth = 'https://api.nehsa.net/v1/dbhealth';
+    commentUrl = 'https://api.nehsa.net/v1/comment';
 
     /** 
      * Posts the contact me form to API
@@ -45,7 +47,11 @@ export class HttpService {
     }
 
     getDBHealth() { 
-        return this.http.get('https://api.nehsa.net/v1/dbhealth');
+        return this.http.get(this.dbhealth);
+    }
+
+    postComment(body: any) { 
+        return this.http.post(this.commentUrl, body);
     }
 
     /** Returns a random name */  

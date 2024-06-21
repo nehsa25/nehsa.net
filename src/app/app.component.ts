@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterModule, RouterOutlet, TitleStrategy } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './shared-components/navbar/navbar.component';
 import { CornerListenerComponent } from './shared-components/corner-listener/corner-listener.component';
 import { MatIcon } from '@angular/material/icon';
@@ -32,7 +32,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatTooltipModule,
     MatExpansionModule
   ],
-  providers: [HttpService, UserService],
+  providers: [HttpService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
