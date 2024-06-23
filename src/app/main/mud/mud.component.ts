@@ -16,11 +16,13 @@ import { DupeNameComponent } from './dupe-name/dupe-name.component';
 import { MudEvents } from '../../types/mudevents.type';
 import { AiImageComponent } from './ai-image/ai-image.component';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MudService } from '../../services/mud.service';
 
 @Component({
   selector: 'app-mud',
   standalone: true,
   imports: [NgClass, NgIf, MatExpansionModule, MatCardModule, CommentComponent, NgIf, MatButton, MatInputModule, MatFormFieldModule, MatLabel, MatError, FormsModule, NgFor, MatIcon],
+  providers: [MudService, UserService],
   templateUrl: './mud.component.html',
   styleUrl: './mud.component.scss',
   encapsulation: ViewEncapsulation.None,
@@ -28,6 +30,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 
 export class MudComponent {
   mudEvents: string = "";
+  world_name: string = "";
   usersConnected: number = 0;
   health: string = "";
   status: string = "";
@@ -49,7 +52,8 @@ export class MudComponent {
     public userService: UserService,
     public dupeDialog: MatDialog,
     public usernameCreateDialog: MatDialog,
-    public mapDialog: MatDialog
+    public mapDialog: MatDialog, 
+    private _mudService: MudService
   ) {
     const host = "api.nehsa.net";
     const port = 60049;
@@ -108,7 +112,6 @@ export class MudComponent {
   // }
 
   expandPanel() {
-
     this.panelExpanded = !this.panelExpanded;
   } 
 
@@ -232,7 +235,7 @@ export class MudComponent {
         const star_purple = "<span class=\"material-icons purple\">star</span>";
         const star_red = "<span class=\"material-icons red\">star</span>";
         const star_yellow = "<span class=\"material-icons yellow\">star</span>";
-        const welcome = `${star_teal}${star_purple}${star_red}${star_yellow}This is NehsaMUD.  Welcome to the world of Illisurom.${star_yellow}${star_red}${star_purple}${star_teal}<br><br>It's a project my son, Ethan, and I are working on (and you if you want).  It's a fun way to learn Python while doing something creative.  It's an homage to one of the funnest, most underrated types of game ever invented - <span class=\"important\">text-based multi-user dungeon (a &quot;MUD&quot;).</span>  MUDs were hard, they required skill, they were fast and cut-throat.  If you died, people took your <span class=\"strikeout\">shit</span> stuff.  They were also highly social and encouraged creatively. Ohh, the day, when my friend Ian figured out how to script following someone in PvP so they couldn't get away! I hope someday people &quot;script&quot; this like MUDs of old.. so I can sneak attack you while you are AFK.<br><br>NehsaMUD in a perpetual state of &quot;mostly broken&quot;. Please adjust your expectations accordingly..<br><br>Have fun!<br>`;
+        const welcome = `${star_teal}${star_purple}${star_red}${star_yellow}This is NehsaMUD.  Welcome to the world of ${this.world_name}.${star_yellow}${star_red}${star_purple}${star_teal}<br><br>It's a project my son, Ethan, and I are working on (and you if you want).  It's a fun way to learn Python while doing something creative.  It's an homage to one of the funnest, most underrated types of game ever invented - <span class=\"important\">text-based multi-user dungeon (a &quot;MUD&quot;).</span>  MUDs were hard, they required skill, they were fast and cut-throat.  If you died, people took your <span class=\"strikeout\">shit</span> stuff.  They were also highly social and encouraged creatively. Ohh, the day, when my friend Ian figured out how to script following someone in PvP so they couldn't get away! I hope someday people &quot;script&quot; this like MUDs of old.. so I can sneak attack you while you are AFK.<br><br>NehsaMUD in a perpetual state of &quot;mostly broken&quot;. Please adjust your expectations accordingly..<br><br>Have fun!<br>`;
         if (data.message != "") {
           this.mudEvents += `${welcome}<br><br><span class=\"welcome-message\">${data.message}</span>`;
         }
@@ -245,6 +248,9 @@ export class MudComponent {
         break
       case MudEvents.USERNAME_REQUEST:
         //this.createUser();
+        if (data.world_name != "") {
+          this.world_name = data.world_name;
+        }
         var name = this.userService.name;
         var resp = `{\"type\": ${MudEvents.USERNAME_ANSWER}, \"username\": \"${name}\"}`;
         console.log("Server is requesting our name, sending back: " + resp);
@@ -464,6 +470,14 @@ export class MudComponent {
     } else {
       console.log("Websocket is closed..");
     }
+  }
+
+  fullscreen() {
+    var elem = document.documentElement;
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } 
+    this._mudService.toggle_fullscreen();
   }
 }
 

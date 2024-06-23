@@ -15,24 +15,27 @@ import { NameAboutType } from './types/nameabout.type';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { UserService } from './services/user.service';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MudService } from './services/mud.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    CommonModule, 
+    CommonModule,
     RouterModule,
     RouterOutlet,
-    NavbarComponent, 
-    CornerListenerComponent, 
-    MatIcon, 
+    NavbarComponent,
+    CornerListenerComponent,
+    MatIcon,
     BreadcrumbComponent,
-    BreadcrumbItemDirective, 
-    MatButtonModule, 
+    BreadcrumbItemDirective,
+    MatButtonModule,
     MatTooltipModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatSidenavModule
   ],
-  providers: [HttpService],
+  providers: [HttpService, MudService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -41,13 +44,15 @@ export class AppComponent {
   title = "Jesse Stone";
   quote = "";
   posTerms = "";
+  openSideNav = true;
   names: Array<NameAboutType> = new Array<NameAboutType>();
   getQueries: Array<Observable<any>> = new Array<Observable<any>>();
   nameConfirmed = false;
   constructor(
     public httpClient: HttpService,
     public userService: UserService,
-    public nameDialog: MatDialog
+    public nameDialog: MatDialog,
+    private _mudService: MudService
   ) {
     var getQuotes = this.httpClient.getQuote();
     var getName = this.httpClient.getNames(2);
@@ -69,9 +74,14 @@ export class AppComponent {
       this.posTerms = next[2];
       this.getName2ndAttempt();
     });
+    
+    // subscribe to full screen event
+    this._mudService.fullScreenEvent.subscribe((val) => {
+      this.openSideNav = !val;
+    });
 
     this.sleep(5000).then(() => {
-      this.expandBio = false; 
+      this.expandBio = false;
       this.title = "Welcome!";
     });
   }
@@ -102,7 +112,7 @@ export class AppComponent {
         this.nameConfirmed = true;
         this.httpClient.updateName(this.names[1].Name).subscribe(data => {
           if (data != null && data != "") {
-              console.log("Name updated!: " + data.toString()) ;
+            console.log("Name updated!: " + data.toString());
           }
         });
       }

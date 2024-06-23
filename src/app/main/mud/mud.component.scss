@@ -27,13 +27,13 @@ td {
   display: grid;
   grid-template-areas:
     "title title status"
-    "main main status"
+    "title title status"
     "main main aiimage"
     "main main helpsection"
     "command command helpsection"
     "usersconnected usersconnected helpsection";
   grid-template-columns: 400px 1fr 325px;
-  grid-template-rows: auto 1fr 1fr 1fr 60px 30px;
+  grid-template-rows: 44px 1fr 1fr 1fr 60px 30px;
   height: 75vh;
 }
 
@@ -325,4 +325,21 @@ td {
   resize: none;
   margin: 0;
   overflow: hidden;
+}
+
+.command-input:focus {
+  color: #fff !important;
+  background-color: black;
+}
+
+.panel-description-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  width: 100%;
+}
+
+.title-btns {
+  padding: 10px;
+  color: black;
+  border: 1px thin #333;
 }

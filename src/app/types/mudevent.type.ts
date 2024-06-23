@@ -16,4 +16,5 @@ export class MudEvent {
     map_image_name: string = "";
     players: number = -1;
     is_resting: boolean = false;
+    world_name: string = "";
 }

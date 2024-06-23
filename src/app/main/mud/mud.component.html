@@ -4,25 +4,29 @@
             <div
                 [ngClass]="{'mudgrid-expanded': panelExpanded === true, 'mudgrid-collapsed' : panelExpanded === false }">
                 <div id="title">
-                    <mat-expansion-panel
-                        [ngClass]="{'title-panel-expanded': panelExpanded === true, 'title-panel-collapsed' : panelExpanded === false }"
-                        [expanded]="panelExpanded" (click)="expandPanel()">
+                    <mat-expansion-panel disabled="true" [expanded]="panelExpanded" hideToggle
+                        [ngClass]="{'title-panel-expanded': panelExpanded === true, 'title-panel-collapsed' : panelExpanded === false }">
                         <mat-expansion-panel-header>
-                            <mat-panel-title> <span class="mud-title">NehsaMUD
-                                    <span class="mud-subtitle">a rouge-like, text-based MUD
-                                    </span>
-                                </span>
+                            <mat-panel-title> <span class="mud-title">NehsaMUD</span>
+                                <span class="mud-subtitle">a rouge-like, text-based MUD</span>
                             </mat-panel-title>
-                            <mat-panel-description>&nbsp;
+                            <mat-panel-description>
+                                <div class="panel-description-grid">
+                                    <div>&nbsp;
+                                    </div>
+                                    <div>
+                                        <mat-icon class="title-btns" (click)="fullscreen()">fullscreen</mat-icon>
+                                        <mat-icon class="title-btns" (click)="expandPanel()">expand</mat-icon>
+                                    </div>
+                                </div>
                             </mat-panel-description>
                         </mat-expansion-panel-header>
-                        <mat-card-content>
-                            <div class="mud-sub-title-actions-grid">
-                                <div>&nbsp;</div>
-                                <div><button class="minimap-btn" mat-button (click)="launchMap()"><img class="minimap"
-                                            [src]="this.miniMap" /></button></div>
-                            </div>
-                        </mat-card-content>
+                        <div class="mud-sub-title-actions-grid">
+                            <div><span *ngIf="world_name != ''">Welcome to
+                                    {{world_name}}!
+                                </span></div>
+                            <div><img class="minimap" [src]="this.miniMap" /></div>
+                        </div>
                     </mat-expansion-panel>
                 </div>
                 <div #scrollMe [scrollTop]="scrollMe.scrollHeight" id="main" [innerHTML]="mudEvents"
@@ -48,7 +52,7 @@
                                 <td id="inv" colspan="3">Inventory<br>
                                     <div id="inventory">
                                         <ul class="condensed">
-                                            <li *ngFor="let item of inventory">{{item}}</li>
+                                            <li *ngFor="let item of inventory" [innerHtml]="item"></li>
                                         </ul>
                                     </div>
                                 </td>
@@ -100,13 +104,14 @@
                     </dl>
                 </div>
                 <div id="command">
-                    <input type="text" class="command-input" #sendcommandarea (keydown)="sendCommand($event)" [(ngModel)]="command"
+                    <input type="text" class="command-input" #sendcommandarea (keydown)="sendCommand($event)"
+                        [(ngModel)]="command"
                         placeholder="Type a command here and press &lt;ENTER&gt;.  (e.g. /say Hi!&lt;ENTER&gt; to say hello)" />
                 </div>
                 <div id="aiimage">
                     <div *ngIf="this.roomImageName !=''">
-                        <button class="aiimage-btn" *ngIf="this.roomImageAvailable === true" (click)="launchImage()"><img
-                                class="aiimage" [src]="this.roomImageName"></button>
+                        <button class="aiimage-btn" *ngIf="this.roomImageAvailable === true"
+                            (click)="launchImage()"><img class="aiimage" [src]="this.roomImageName"></button>
                     </div>
                 </div>
                 <div id="usersconnected">{{usersConnected}} users online.</div>
