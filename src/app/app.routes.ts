@@ -41,6 +41,7 @@ import { MudComponent } from './main/mud/mud.component';
 import { DotComponent } from './main/dot/dot.component';
 import { AiImageGenerationComponent } from './main/ai-image-generation/ai-image-generation.component';
 import { MysqlComponent } from './main/mysql/mysql.component';
+import { InnoComponent } from './main/inno/inno.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: BioComponent },
@@ -93,6 +94,7 @@ export const routes: Routes = [
     { path: 'sql', title: 'nehsa.net | SQL', component: SqlComponent },
     { path: 'mud', title: 'nehsa.net | MUD', component: MudComponent },
     { path: 'aiimage', title: 'nehsa.net | AI Image Generation', component: AiImageGenerationComponent },
+    { path: 'inno', title: 'nehsa.net |Inno Setup', component: InnoComponent },
     { path: 'mysql', title: 'nehsa.net | mysql', component: MysqlComponent },
     { path: '', title: 'nehsa.net | Home', redirectTo: '/', pathMatch: 'full' },
     { path: '**', component: BioComponent },
