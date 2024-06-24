@@ -8,7 +8,7 @@
         grid-template-rows: auto auto auto 1fr 225px min-content;
         grid-template-columns: 225px 225px 1fr 225px;
         grid-template-areas:
-            "bread dh dh signup"
+            "bread dh dh user_admin"
             "spacer title title title"
             "contactme body body body"
             "navbar body body body"
@@ -22,7 +22,7 @@
         grid-template-rows: auto 66px auto 1fr 225px min-content;
         grid-template-columns: 225px 225px 1fr 225px;
         grid-template-areas:
-            "bread dh dh signup"
+            "bread dh dh user_admin"
             "spacer title title title"
             "contactme body body body"
             "navbar body body body"
@@ -38,7 +38,7 @@
     .dh {
         text-align: right;
     }
-    .signup {
+    .user_admin {
         text-align: right;
     }
 }
@@ -53,7 +53,7 @@
         grid-template-rows: min-content min-content min-content min-content 1fr 225px min-content;
         grid-template-columns: 225px 1fr 225px;
         grid-template-areas:
-            "bread bread signup"
+            "bread bread user_admin"
             "dh dh dh"
             "contactme title title"
             "navbar body body"
@@ -64,7 +64,7 @@
         overflow: auto;
     }
 
-    .signup {
+    .user_admin {
         text-align: right;
     }
 
@@ -89,7 +89,7 @@
             "bread"
             "dh"
             "body"
-            "signup"
+            "user_admin"
             "contactme"
             "navbar"
             "footer";
@@ -118,7 +118,7 @@
         grid-template-rows: min-content min-content min-content min-content 1fr 225px min-content;
         grid-template-columns: 225px 1fr 225px;
         grid-template-areas:
-            "bread bread signup"
+            "bread bread user_admin"
             "dh dh dh"
             "spacer title title"
             "contactme body body"
@@ -147,7 +147,7 @@
     .main {
         grid-template-areas:
             "bread"
-            "signup"
+            "user_admin"
             "title"
             "navbar"
             "body"
@@ -165,7 +165,7 @@
         text-align: center;
     }
 
-    .signup {
+    .user_admin {
         text-align: center;
     }
 
@@ -187,7 +187,7 @@
 
     .main {
         grid-template-areas:        
-            "bread signup"
+            "bread user_admin"
             "dh dh"
             "title title"
             "body body"
@@ -208,6 +208,19 @@
     .dh {
         text-align: left;
     }
+}
+
+.main-fullscreen {
+    display: grid;
+    grid-template-rows: 1fr min-content;
+    grid-template-columns: 225px 1fr 225px;
+    grid-template-areas:
+    "user_admin user_admin user_admin"
+    "body body body"
+    "body body body"
+    "footer footer footer";
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .title {
@@ -258,8 +271,8 @@
     place-content: start;
 }
 
-.signup {
-    grid-area: signup;
+.user_admin {
+    grid-area: user_admin;
     background-color: #999 !important;
     padding: 2px 10px;
     font-variant: petite-caps;

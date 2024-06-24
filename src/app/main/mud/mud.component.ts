@@ -1,10 +1,10 @@
-import { Component, ElementRef, NgModule, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { CommentComponent } from '../../shared-components/comment/comment.component';
 import { MudEvent } from '../../types/mudevent.type';
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { MatButton } from '@angular/material/button';
-import { MatError, MatFormField, MatFormFieldControl, MatFormFieldModule, MatLabel } from '@angular/material/form-field';
+import { MatError, MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { UserService } from '../../services/user.service';
@@ -16,19 +16,18 @@ import { DupeNameComponent } from './dupe-name/dupe-name.component';
 import { MudEvents } from '../../types/mudevents.type';
 import { AiImageComponent } from './ai-image/ai-image.component';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { MudService } from '../../services/mud.service';
 
 @Component({
   selector: 'app-mud',
   standalone: true,
   imports: [NgClass, NgIf, MatExpansionModule, MatCardModule, CommentComponent, NgIf, MatButton, MatInputModule, MatFormFieldModule, MatLabel, MatError, FormsModule, NgFor, MatIcon],
-  providers: [MudService, UserService],
+  providers: [UserService],
   templateUrl: './mud.component.html',
   styleUrl: './mud.component.scss',
   encapsulation: ViewEncapsulation.None,
 })
 
-export class MudComponent {
+export class MudComponent implements OnInit, OnDestroy {
   mudEvents: string = "";
   world_name: string = "";
   usersConnected: number = 0;
@@ -47,18 +46,21 @@ export class MudComponent {
   room_description = "";
   roomImageAvailable = false;
   miniMap = "";
+  isFullscreen = false;
 
   constructor(
     public userService: UserService,
     public dupeDialog: MatDialog,
     public usernameCreateDialog: MatDialog,
-    public mapDialog: MatDialog, 
-    private _mudService: MudService
+    public mapDialog: MatDialog,
   ) {
     const host = "api.nehsa.net";
     const port = 60049;
     this.fullAddress = `wss://${host}:${port}`;
     this.socket = new WebSocket(this.fullAddress);
+  }
+  ngOnDestroy(): void {
+    this.socket.close();
   }
 
   ngOnInit() {
@@ -113,7 +115,7 @@ export class MudComponent {
 
   expandPanel() {
     this.panelExpanded = !this.panelExpanded;
-  } 
+  }
 
   /** Adds a bar under the string */
   addBar(message: string) {
@@ -407,7 +409,7 @@ export class MudComponent {
         this.miniMap = `https://api.nehsa.net/${this.mapImageName}_small.svg`;
         //this.launchMap(this.mapName);
         break;
-      case MudEvents.ROOM_IMAGE:        
+      case MudEvents.ROOM_IMAGE:
         this.roomImageName = `https://api.nehsa.net/rooms/${data.room_image_name}`;
         this.roomImageAvailable = true;
         //this.launchMap(this.mapName);
@@ -418,10 +420,10 @@ export class MudComponent {
         }
         break;
       case MudEvents.ENVIRONMENT:
-      if (data.message != "") {
-        this.mudEvents += "<br><span class=\"environment-message\">" + data.message + "</span>";
-      }
-      break;
+        if (data.message != "") {
+          this.mudEvents += "<br><span class=\"environment-message\">" + data.message + "</span>";
+        }
+        break;
       default:
         console.error("unsupported event: " + data.type.toString());
         break;
@@ -472,12 +474,27 @@ export class MudComponent {
     }
   }
 
-  fullscreen() {
+
+  openFullScreen() {
     var elem = document.documentElement;
     if (elem.requestFullscreen) {
       elem.requestFullscreen();
-    } 
-    this._mudService.toggle_fullscreen();
+    }
+  }
+
+  cancelFullScreen() {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    }
+  }
+
+  fullscreen() {
+    this.isFullscreen = !this.isFullscreen;
+    if (this.isFullscreen) {
+      this.openFullScreen();
+    } else {
+      this.cancelFullScreen();
+    }
   }
 }
 

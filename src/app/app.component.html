@@ -1,6 +1,6 @@
-<div class="main" [ngClass]="{'main-expanded': expandBio === true, 'main-collapsed' : expandBio === false }" >
-    <div class="bread child">
-        <div class="root"><a href="/">home></a></div>
+<div class="main" [ngClass]="{'main-fullscreen': fullScreen === true, 'main-expanded' : fullScreen === false }" >
+    <div *ngIf="!fullScreen" class="bread child">
+        <div ngIf="!fullScreen" class="root"><a href="/">home></a></div>
         <div>
             <xng-breadcrumb [separator]="iconTemplate">
                 <ng-template #iconTemplate>
@@ -13,15 +13,15 @@
             </xng-breadcrumb>
         </div>
     </div>
-    <div class="signup child">
+    <div class="user_admin child">
         <div *ngIf="this.userService.name != ''">
             <span class="personname" matTooltip="{{this.userService.about}}"
             matTooltipClass="tooltip-long">{{this.userService.name}}</span><button style="color: inherit;" *ngIf="!nameConfirmed"mat-button (click)="getName2ndAttempt()">not you?</button></div>
     </div>
-    <div class="dh child">
+    <div *ngIf="!fullScreen" class="dh child">
         <p>{{quote}}</p>
     </div>
-    <div class="title child">
+    <div *ngIf="!fullScreen" class="title child">
         <mat-expansion-panel  [ngClass]="{'panel-expanded': expandBio === true, 'panel-collapsed' : expandBio === false }" [expanded]="expandBio" (click)="setExpand()" [hideToggle]="expandBio">
             <mat-expansion-panel-header>
               <mat-panel-title class="maintitle">{{title}}
@@ -32,16 +32,13 @@
             <div class="subtitle" *ngIf="posTerms != ''" [innerHTML]="posTerms"></div>
           </mat-expansion-panel>    
     </div>
-    <div class="contact child">
+    <div *ngIf="!fullScreen" class="contact child">
         <app-corner-listener></app-corner-listener>
     </div>
-    <div class="navbar child">
-        <mat-sidenav [opened]="openSideNav">
-            <app-navbar></app-navbar>
-        </mat-sidenav>
+    <div *ngIf="!fullScreen" class="navbar child"><app-navbar></app-navbar>
     </div>
     <div class="body child">
-        <router-outlet class="router"></router-outlet>
+        <router-outlet></router-outlet>
     </div>
     <div class="footer child">
         <div>&nbsp;</div>

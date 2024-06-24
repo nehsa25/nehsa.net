@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './shared-components/navbar/navbar.component';
 import { CornerListenerComponent } from './shared-components/corner-listener/corner-listener.component';
@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
 import { HttpService } from './services/http.service';
 import { version } from '../version';
 import { MatButtonModule } from '@angular/material/button';
-import { Observable, forkJoin } from 'rxjs';
+import { Observable, Subject, forkJoin } from 'rxjs';
 import { UserPopupComponent } from './main/user-popup/user-popup.component';
 import { MatDialog } from '@angular/material/dialog';
 import { NameAboutType } from './types/nameabout.type';
@@ -16,7 +16,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { UserService } from './services/user.service';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MudService } from './services/mud.service';
+import { MudComponent } from './main/mud/mud.component';
 
 @Component({
   selector: 'app-root',
@@ -35,11 +35,11 @@ import { MudService } from './services/mud.service';
     MatExpansionModule,
     MatSidenavModule
   ],
-  providers: [HttpService, MudService],
+  providers: [HttpService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit, OnDestroy {
   expandBio = true;
   title = "Jesse Stone";
   quote = "";
@@ -48,12 +48,14 @@ export class AppComponent {
   names: Array<NameAboutType> = new Array<NameAboutType>();
   getQueries: Array<Observable<any>> = new Array<Observable<any>>();
   nameConfirmed = false;
+  fullScreen: boolean = false;
+  isFullScreenEvent = new Subject<boolean>();
+
   constructor(
+    private ref: ChangeDetectorRef,
     public httpClient: HttpService,
     public userService: UserService,
-    public nameDialog: MatDialog,
-    private _mudService: MudService
-  ) {
+    public nameDialog: MatDialog) {
     var getQuotes = this.httpClient.getQuote();
     var getName = this.httpClient.getNames(2);
     var getPosTerms = this.httpClient.getPosTerms();
@@ -63,6 +65,14 @@ export class AppComponent {
   };
 
   ngOnInit() {
+    this.isFullScreenEvent.subscribe(data => { 
+      console.log("Full screen event: " + data.toString()); 
+      this.fullScreen = data;
+      this.ref.detectChanges();
+    });
+
+    this.chkScreenMode();
+
     forkJoin(this.getQueries).subscribe(next => {
       if (next == null) {
         return;
@@ -74,11 +84,6 @@ export class AppComponent {
       this.posTerms = next[2];
       this.getName2ndAttempt();
     });
-    
-    // subscribe to full screen event
-    this._mudService.fullScreenEvent.subscribe((val) => {
-      this.openSideNav = !val;
-    });
 
     this.sleep(5000).then(() => {
       this.expandBio = false;
@@ -86,9 +91,33 @@ export class AppComponent {
     });
   }
 
+  ngOnDestroy(): void {
+  }
+
   sleep(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
+
+  elem: any; isFullScreen: boolean | undefined;
+  @HostListener('document:fullscreenchange', ['$event'])
+  @HostListener('document:webkitfullscreenchange', ['$event'])
+  @HostListener('document:mozfullscreenchange', ['$event'])
+  @HostListener('document:MSFullscreenChange', ['$event'])
+  fullscreenmodes(event: any) {
+    this.chkScreenMode();
+  }
+  chkScreenMode() {
+    if (document.fullscreenElement) {
+      //fullscreen
+      this.isFullScreen = true;
+    } else {
+      //not in full screen
+      this.isFullScreen = false;
+    }
+
+    this.isFullScreenEvent.next(this.isFullScreen );
+  }
+
 
   setExpand() {
     this.expandBio = !this.expandBio;
