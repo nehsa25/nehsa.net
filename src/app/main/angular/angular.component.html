@@ -11,299 +11,335 @@
                     <div class="topics">
                         <ul class="condensed">
                             <li>
-                                <h3>Form Validation</h3>
-                                <ul class="condensed">
-                                    <li>
-                                        <h4>Example form element:</h4>
-                                        <div class="code">&lt;input type="email" id="email" name="email"
-                                            [formControl]="emailControl"&gt;</div>
-                                    <li>
-                                        <h4>Within TypeScript:</h4>
-                                        <div class="code">
-                                            <pre>
-        export class SignupComponent &#123;
-            userDetails: FormGroup;
-            emailControl = new FormControl('');
-            constructor(
-                private fb: FormBuilder) &#123;
-                    this.userDetails = this.fb.group(&#123;
-                    email: this.emailControl,
-                    passwordmatch: this.passwordmatchControl
-                &#125;);
-            &#125;
-            
-            ngOnInit() &#123;
-                <span class="comment">// Add validators</span>
-                this.emailControl.addValidators([Validators.required, Validators.email]);
-                this.usernameControl.addValidators([Validators.required, Validators.minLength(4)]);
-                this.passwordControl.addValidators([Validators.required, Validators.pattern(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[&#64;$!%*#?&^_-]).&#123;8,&#125;/)]);
-                this.passwordmatchControl.addValidators([Validators.required, this.checkPassword()]);
-            &#125;
-    
-            <span class="comment">// custom validator function</span>
-            checkPassword() &#123;
-                return (control: AbstractControl): ValidationErrors | null => &#123;
-                    const passwordInput = this.passwordControl.value
-                    const passwordMatchInput = this.passwordmatchControl.value
-                    if (passwordInput !== passwordMatchInput) &#123;
-                        this.passwordmatchControl.setErrors(&#123; notEquivalent: true &#125;);
-                        return this.passwordmatchControl.errors;        
-                    &#125; else &#123;
-                        this.passwordmatchControl.setErrors(null);
-                        return null;
-                    &#125;
-                &#125;
-            &#125;
-    
-            submitForm(): void &#123;
-                if (this.userDetails.invalid) return;        
-                <span class="comment">// form is valid, we can proceed!</span>
-            &#125;
-        &#125;
-                                            </pre>
-                                        </div>
-                                    </li>
-                                    <li>Add submit button<br>
-                                        <div class="code">
-                                            &lt;button (click)="submitForm()"
-                                            [disabled]="this.userDetails.invalid"&gt;Submit&lt;/button&gt;
-                                        </div>
-                                    </li>
-                                </ul>
-                                <div>
-                                    <h4>Example</h4>
-                                    <img src="assets/images/signup.png" alt="Form Validation" />
-                                </div>
-                            </li>
-                            <li>
-                                <h3>Control which CSS classes are applied via TypeScript</h3>
-                                <ul>
-                                    <li>HTML
-                                        <div class="code">
-                                            <pre>
-        &lt;div [class.bgblue]="showBlueBg" [class.main]="!showBlueBg"&gt;Yippee!&lt;/div&gt;
-        </pre>
-                                        </div>
-                                    </li>
-                                    <li>CSS
-                                        <div class="code">
-                                            <pre>
-        .bgblue &#123;
-            background-color: blue;
-        &#125;
-        
-        .main &#123;
-            background-color: var(--theme-splash-backround-color);
-        &#125;                                        
-        </pre>
-                                        </div>
-                                    </li>
-                                    <li>TypeScript
-                                        <div class="code">
-                                            <pre>
-        public showBlueBg: boolean = false;
-        </pre>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <h3>Table select-columns feature: Alter visiblity, stick/freeze columns, change order
-                                </h3>
-                                <ul>
-                                    <li>Todo: Add the example of where I did this!
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <h3>Listen for child events</h3>
-                                <ul>
-                                    <li>Add a type for the event transmission (e.g. SplashMessage in a new file
-                                        splash-message.ts)
-                                        <div class="code">
-                                            <pre>
-        export class SplashMessage &#123;
-            showSplash: boolean = false;
-            duration: number = 8;
-        &#125;
-                                        </pre>
-                                        </div>
-                                    </li>
-                                    <li>Add a service called splash.service.ts
-                                        <div class="code">
-                                            <pre>
-        import &#123; Injectable &#125; from '&#64;angular/core';
-        import &#123; Observable, Subject &#125; from 'rxjs';
-        import &#123; SplashMessage &#125; from '../types/splash-message';
-    
-        &#64;Injectable()
-        export class SplashService &#123;
-            private showSplash:Subject&lt;SplashMessage&gt; = new Subject&lt;SplashMessage&gt;();
-            private msg = new SplashMessage();
-    
-            public show(duration:number) &#123;        
-                this.msg.showSplash = true;
-                this.msg.duration = duration;
-                this.showSplash.next(this.msg);
-            &#125;
-    
-            public hide() &#123;
-                this.msg.showSplash = false;
-                this.showSplash.next(this.msg);
-            &#125;
-    
-            public observe():Observable&lt;SplashMessage&gt; &#123;
-                return this.showSplash.asObservable();
-            &#125;
-        &#125;
-                                        </pre>
-                                        </div>
-                                    </li>
-                                    <li>Add event observer for service to child component
-                                        <div class="code">
-                                            <pre>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Form Validation</mat-panel-title>
+                                        <mat-panel-description>                                        
+                                        </mat-panel-description>
+                                    </mat-expansion-panel-header>   
+                                    <ul class="condensed">
+                                        <li>
+                                            <h4>Example form element:</h4>
+                                            <div class="code">&lt;input type="email" id="email" name="email"
+                                                [formControl]="emailControl"&gt;</div>
+                                        <li>
+                                            <h4>Within TypeScript:</h4>
+                                            <div class="code">
+                                                <pre>
+    export class SignupComponent &#123;
+        userDetails: FormGroup;
+        emailControl = new FormControl('');
         constructor(
-            private splash: SplashService) &#123; &#125;
-        
-            ngOnInit(): void &#123;
-            this.splash.observe().subscribe((d) => &#123;
-                this.showSplash = d.showSplash;
-                let duration: number = d.duration;
-                this.showhide(duration);
+            private fb: FormBuilder) &#123;
+                this.userDetails = this.fb.group(&#123;
+                email: this.emailControl,
+                passwordmatch: this.passwordmatchControl
             &#125;);
         &#125;
-                                        </pre>
-                                        </div>
-                                    </li>
-                                    <li>Use it somewhere:
-                                        <div class="code">
-                                            <pre>
-        &#64;&lt;app-splash *ngIf="showSplash"&gt;&lt;/app-splash&gt;
-                                        </pre>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <h3>Implement a reCAPTCHA Checkbox</h3>
-                                <ul>
-                                    <li>Sign up for a Recapcha account at https://www.google.com/recaptcha/about/</li>
-                                    <li>Create new project
-                                        <ul>
-                                            <li>Check the "Use a checkbox" option</li>
-                                            <li>Save your key information</li>
-                                        </ul>
-                                    </li>
-                                    <li>Install reCAPTCHA packages
-                                        <div class="code">npm i ng-recaptcha --save</div>
-                                    </li>
-                                    <li>Add resolved function in your component:
-                                        <div class="code">
-                                            <pre>
-        resolved(captchaResponse: string | null) &#123;
-            if (captchaResponse != null) &#123;
-                this.captcha = captchaResponse;
-                console.log(`Resolved captcha with response: $&#123;this.captcha&#125;`);
+        
+        ngOnInit() &#123;
+            <span class="comment">// Add validators</span>
+            this.emailControl.addValidators([Validators.required, Validators.email]);
+            this.usernameControl.addValidators([Validators.required, Validators.minLength(4)]);
+            this.passwordControl.addValidators([Validators.required, Validators.pattern(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[&#64;$!%*#?&^_-]).&#123;8,&#125;/)]);
+            this.passwordmatchControl.addValidators([Validators.required, this.checkPassword()]);
+        &#125;
+
+        <span class="comment">// custom validator function</span>
+        checkPassword() &#123;
+            return (control: AbstractControl): ValidationErrors | null => &#123;
+                const passwordInput = this.passwordControl.value
+                const passwordMatchInput = this.passwordmatchControl.value
+                if (passwordInput !== passwordMatchInput) &#123;
+                    this.passwordmatchControl.setErrors(&#123; notEquivalent: true &#125;);
+                    return this.passwordmatchControl.errors;        
+                &#125; else &#123;
+                    this.passwordmatchControl.setErrors(null);
+                    return null;
+                &#125;
             &#125;
         &#125;
-                                </pre>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        Add reCAPTCHA to your component form:
-                                        <div class="code">
-                                            <pre>
-        &lt;div [hidden]="captcha"&gt;
-            &lt;p&gt;Confirm you're human please!&lt;/p&gt;
-                &lt;re-captcha (resolved)="resolved($event)" siteKey="&lt;YOURKEY&gt;"&gt;&lt;/re-captcha&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-        &lt;button type="submit" *ngIf="captcha" mat-flat-button&gt;Submit&lt;/button&gt;
-                                </pre>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <div>
-                                    <h3>If all went well:</h3>
-                                    <img src="assets/images/recaptcha.png" alt="reCAPTCHA" />
-                                </div>
+
+        submitForm(): void &#123;
+            if (this.userDetails.invalid) return;        
+            <span class="comment">// form is valid, we can proceed!</span>
+        &#125;
+    &#125;
+                                                </pre>
+                                            </div>
+                                        </li>
+                                        <li>Add submit button<br>
+                                            <div class="code">
+                                                &lt;button (click)="submitForm()"
+                                                [disabled]="this.userDetails.invalid"&gt;Submit&lt;/button&gt;
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div>
+                                        <h4>Example</h4>
+                                        <img src="assets/images/signup.png" alt="Form Validation" />
+                                    </div>                   
+                                </mat-expansion-panel>
                             </li>
-                            <li><h3>Fullscreen mode</h3>
-                                Enables full screen mode in the browser + issues events to control what's shown on page<br>
-                                <img src="assets/images/fullscreen.png"
-                                alt="A screenshot of the fullscreen button in mud" />
-                                <ul class="condensed">
-                                    <li>Update <span class="important">app.component.ts</span>
-                                        <div class="code">
-                                            <pre>
-    fullScreen: boolean = false;
-    isFullScreenEvent = new Subject&lt;boolean&gt;();
-    ...
-    ngOnInit() &#123;
-        this.isFullScreenEvent.subscribe(data => &#123; 
-          console.log("Full screen event: " + data.toString()); 
-          this.fullScreen = data;
-          this.ref.detectChanges();
-        &#125;);
-    
-        this.checkScreenMode();
-    &#125;
-    ...    
-    elem: any; isFullScreen: boolean | undefined;
-    &#64;HostListener('document:fullscreenchange', ['$event'])
-    &#64;HostListener('document:webkitfullscreenchange', ['$event'])
-    &#64;HostListener('document:mozfullscreenchange', ['$event'])
-    &#64;HostListener('document:MSFullscreenChange', ['$event'])
-    fullscreenmodes(event: any) &#123;
-        this.checkScreenMode();
-    &#125;
-    checkScreenMode() &#123;
-        if (document.fullscreenElement) &#123;
-        this.isFullScreen = true;
-        &#125; else &#123;
-        this.isFullScreen = false;
-        &#125;
-        this.isFullScreenEvent.next(this.isFullScreen );
-    &#125;
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Table select-columns feature</mat-panel-title>
+                                        <mat-panel-description>                                        
+                                        </mat-panel-description>
+                                    </mat-expansion-panel-header>
+                                    <h3>Table select-columns feature: Alter visiblity, stick/freeze columns, change order
+                                    </h3>
+                                    <ul>
+                                        <li>Todo: Add the example of where I did this!
+                                        </li>
+                                    </ul>
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Listen for child events</mat-panel-title>
+                                        <mat-panel-description>                                        
+                                        </mat-panel-description>
+                                    </mat-expansion-panel-header>   
+                                    <ul>
+                                        <li>Add a type for the event transmission (e.g. SplashMessage in a new file
+                                            splash-message.ts)
+                                            <div class="code">
+                                                <pre>
+            export class SplashMessage &#123;
+                showSplash: boolean = false;
+                duration: number = 8;
+            &#125;
                                             </pre>
-                                        </div>
-                                    </li>
-                                    <li>Mark any div to hide when in fullscreen with: *ngIf="!fullScreen"</li>
-                                    <li>Add feature in component:
-                                        <div class="code">
-                                            <pre>
-    openFullScreen() &#123;
-        var elem = document.documentElement;
-        if (elem.requestFullscreen) &#123;
-            elem.requestFullscreen();
-        &#125;
-    &#125;
-    
-        cancelFullScreen() &#123;
-        if (document.exitFullscreen) &#123;
-            document.exitFullscreen();
-        &#125;
-    &#125;
-    
-        fullscreen() &#123;
-        this.isFullscreen = !this.isFullscreen;
-        if (this.isFullscreen) &#123;
-            this.openFullScreen();
-        &#125; else &#123;
-            this.cancelFullScreen();
-        &#125;
-    &#125;
+                                            </div>
+                                        </li>
+                                        <li>Add a service called splash.service.ts
+                                            <div class="code">
+                                                <pre>
+            import &#123; Injectable &#125; from '&#64;angular/core';
+            import &#123; Observable, Subject &#125; from 'rxjs';
+            import &#123; SplashMessage &#125; from '../types/splash-message';
+        
+            &#64;Injectable()
+            export class SplashService &#123;
+                private showSplash:Subject&lt;SplashMessage&gt; = new Subject&lt;SplashMessage&gt;();
+                private msg = new SplashMessage();
+        
+                public show(duration:number) &#123;        
+                    this.msg.showSplash = true;
+                    this.msg.duration = duration;
+                    this.showSplash.next(this.msg);
+                &#125;
+        
+                public hide() &#123;
+                    this.msg.showSplash = false;
+                    this.showSplash.next(this.msg);
+                &#125;
+        
+                public observe():Observable&lt;SplashMessage&gt; &#123;
+                    return this.showSplash.asObservable();
+                &#125;
+            &#125;
                                             </pre>
-                                        </div>
-                                    </li>
-                                </ul>
+                                            </div>
+                                        </li>
+                                        <li>Add event observer for service to child component
+                                            <div class="code">
+                                                <pre>
+            constructor(
+                private splash: SplashService) &#123; &#125;
+            
+                ngOnInit(): void &#123;
+                this.splash.observe().subscribe((d) => &#123;
+                    this.showSplash = d.showSplash;
+                    let duration: number = d.duration;
+                    this.showhide(duration);
+                &#125;);
+            &#125;
+                                            </pre>
+                                            </div>
+                                        </li>
+                                        <li>Use it somewhere:
+                                            <div class="code">
+                                                <pre>
+            &#64;&lt;app-splash *ngIf="showSplash"&gt;&lt;/app-splash&gt;
+                                            </pre>
+                                            </div>
+                                        </li>
+                                    </ul> 
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>reCAPTCHA</mat-panel-title>
+                                        <mat-panel-description>Implement a reCAPTCHA Checkbox <img src="assets/images/recaptcha.png" alt="reCAPTCHA" />                                   
+                                        </mat-panel-description>
+                                    </mat-expansion-panel-header>  
+                                    <ul>
+                                        <li>Sign up for a Recapcha account at https://www.google.com/recaptcha/about/</li>
+                                        <li>Create new project
+                                            <ul>
+                                                <li>Check the "Use a checkbox" option</li>
+                                                <li>Save your key information</li>
+                                            </ul>
+                                        </li>
+                                        <li>Install reCAPTCHA packages
+                                            <div class="code">npm i ng-recaptcha --save</div>
+                                        </li>
+                                        <li>Add resolved function in your component:
+                                            <div class="code">
+                                                <pre>
+            resolved(captchaResponse: string | null) &#123;
+                if (captchaResponse != null) &#123;
+                    this.captcha = captchaResponse;
+                    console.log(`Resolved captcha with response: $&#123;this.captcha&#125;`);
+                &#125;
+            &#125;
+                                    </pre>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            Add reCAPTCHA to your component form:
+                                            <div class="code">
+                                                <pre>
+    &lt;div [hidden]="captcha"&gt;
+        &lt;p&gt;Confirm you're human please!&lt;/p&gt;
+            &lt;re-captcha (resolved)="resolved($event)" siteKey="&lt;YOURKEY&gt;"&gt;&lt;/re-captcha&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;button type="submit" *ngIf="captcha" mat-flat-button&gt;Submit&lt;/button&gt;
+                                    </pre>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div>
+                                        <h3>If all went well:</h3>
+                                        <img src="assets/images/recaptcha.png" alt="reCAPTCHA" />
+                                    </div>               
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Fullscreen mode</mat-panel-title>
+                                        <mat-panel-description>Enables full screen mode in the browser + issues events to control what's shown on page<br>
+                                            <img src="assets/images/fullscreen.png"
+                                            alt="A screenshot of the fullscreen button in mud" />                                        
+                                        </mat-panel-description>
+                                    </mat-expansion-panel-header>   
+                                    <ul class="condensed">
+                                        <li>Update <span class="important">app.component.ts</span>
+                                            <div class="code">
+                                                <pre>
+        fullScreen: boolean = false;
+        isFullScreenEvent = new Subject&lt;boolean&gt;();
+        ...
+        ngOnInit() &#123;
+            this.isFullScreenEvent.subscribe(data => &#123; 
+              console.log("Full screen event: " + data.toString()); 
+              this.fullScreen = data;
+              this.ref.detectChanges();
+            &#125;);
+        
+            this.checkScreenMode();
+        &#125;
+        ...    
+        elem: any; isFullScreen: boolean | undefined;
+        &#64;HostListener('document:fullscreenchange', ['$event'])
+        &#64;HostListener('document:webkitfullscreenchange', ['$event'])
+        &#64;HostListener('document:mozfullscreenchange', ['$event'])
+        &#64;HostListener('document:MSFullscreenChange', ['$event'])
+        fullscreenmodes(event: any) &#123;
+            this.checkScreenMode();
+        &#125;
+        checkScreenMode() &#123;
+            if (document.fullscreenElement) &#123;
+            this.isFullScreen = true;
+            &#125; else &#123;
+            this.isFullScreen = false;
+            &#125;
+            this.isFullScreenEvent.next(this.isFullScreen );
+        &#125;
+                                                </pre>
+                                            </div>
+                                        </li>
+                                        <li>Mark any div to hide when in fullscreen with: *ngIf="!fullScreen"</li>
+                                        <li>Add feature in component:
+                                            <div class="code">
+                                                <pre>
+        openFullScreen() &#123;
+            var elem = document.documentElement;
+            if (elem.requestFullscreen) &#123;
+                elem.requestFullscreen();
+            &#125;
+        &#125;
+        
+            cancelFullScreen() &#123;
+            if (document.exitFullscreen) &#123;
+                document.exitFullscreen();
+            &#125;
+        &#125;
+        
+            fullscreen() &#123;
+            this.isFullscreen = !this.isFullscreen;
+            if (this.isFullscreen) &#123;
+                this.openFullScreen();
+            &#125; else &#123;
+                this.cancelFullScreen();
+            &#125;
+        &#125;
+                                                </pre>
+                                            </div>
+                                        </li>
+                                    </ul>                        
+                                </mat-expansion-panel>
                             </li>
                         </ul>
                     </div>
-
                     <div>
                         <h3>Tips!</h3>
                         <ul>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Control which CSS classes are applied via TypeScript</mat-panel-title>
+                                        <mat-panel-description>                                        
+                                        </mat-panel-description>
+                                    </mat-expansion-panel-header>  
+                                    <ul>
+                                        <li>HTML
+                                            <div class="code">
+                                                <pre>
+    &lt;div [class.bgblue]="showBlueBg" [class.main]="!showBlueBg"&gt;Yippee!&lt;/div&gt;
+            </pre>
+                                            </div>
+                                        </li>
+                                        <li>CSS
+                                            <div class="code">
+                                                <pre>
+    .bgblue &#123;
+        background-color: blue;
+    &#125;
+    
+    .main &#123;
+        background-color: var(--theme-splash-backround-color);
+    &#125;                                        
+            </pre>
+                                            </div>
+                                        </li>
+                                        <li>TypeScript
+                                            <div class="code">
+                                                <pre>
+    public showBlueBg: boolean = false;
+                                                </pre>
+                                            </div>
+                                        </li>
+                                    </ul>                        
+                                </mat-expansion-panel>
+                            </li>
                             <li>() = Do something on an event. e.g. (click)="clickfunc()"</li>
                             <li>[] = Right-hand side of the assignment is a dynamic expression.</li>
                             <li>[ngModel]="variable" - Associate with a variable</li>
