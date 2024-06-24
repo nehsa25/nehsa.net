@@ -37,9 +37,17 @@
                         <ul>
                             <li>'website' cookbook depends on 'test'</li>
                             <li>'test' depends on 'app'</li>
-                            <li>'app' depends on 'lab'</li>
+                            <li>'app' depends on 'installs'</li>
+                            <li>'installs' depends on 'lab'</li>
                             <li>'lab' depends on 'chocolatey' and 'slack-handler'</li>
                         </ul>
+                        <dl>
+                            <dt>website</dt><dd>Builds the website that arounds configuration and insight into Lab activities every 5 minutes</dd>
+                            <dt>test</dt><dd>Understands how to configure machines and execute tests (Pytest, Playwright, cunit, nunit, etc)</dd>
+                            <dt>app</dt><dd>Everything about the application under test</dd>
+                            <dt>installs</dt><dd>Every dependencies.  For example, installing Notepad++, or Wireshark</dd>
+                            <dt>lab</dt><dd>Anything machine or OS-specific</dd>
+                        </dl>
                     </div>
                     <div>
                         <mat-expansion-panel>
@@ -406,8 +414,8 @@
                         run_script -script_cmd $cleanup_script_cmd -script_desc $cleanup_desc;
     
                         # save last chef log
-                        open_lima_connection
-                        copy-item -force -Path $chef_log -Destination "\\lima\TestResults\Logs\<%=node.name-%>.log"
+                        open_network_connection
+                        copy-item -force -Path $chef_log -Destination "\\network\TestResults\Logs\<%=node.name-%>.log"
     
                         # reboot to start FOG task
                         reboot;
