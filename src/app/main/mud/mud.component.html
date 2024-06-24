@@ -2,7 +2,7 @@
     <mat-card class="card">
         <div class="commentgrid">
             <div
-                [ngClass]="{'mudgrid-expanded': panelExpanded === true, 'mudgrid-collapsed' : panelExpanded === false }">
+                [ngClass]="{'mudgrid-fullscreen': isFullscreen, 'mudgrid-expanded': panelExpanded === true, 'mudgrid-collapsed' : panelExpanded === false }">
                 <div id="title">
                     <mat-expansion-panel disabled="true" [expanded]="panelExpanded" hideToggle
                         [ngClass]="{'title-panel-expanded': panelExpanded === true, 'title-panel-collapsed' : panelExpanded === false }">

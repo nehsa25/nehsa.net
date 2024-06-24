@@ -9,8 +9,8 @@
         grid-template-columns: 225px 225px 1fr 225px;
         grid-template-areas:
             "bread dh dh user_admin"
-            "spacer title title title"
-            "contactme body body body"
+            "navbar title title title"
+            "navbar body body body"
             "navbar body body body"
             "navbar body body body"
             "footer footer footer footer";
@@ -19,14 +19,17 @@
     }
 
     .main-collapsed {
-        grid-template-rows: auto 66px auto 1fr 225px min-content;
+        grid-template-rows: min-content min-content min-content min-content 1fr min-content min-content min-content min-content;
         grid-template-columns: 225px 225px 1fr 225px;
         grid-template-areas:
             "bread dh dh user_admin"
-            "spacer title title title"
+            "bread dh dh user_admin"
+            "navbar title title title"
+            "navbar title title title"
+            "navbar body body body"
             "contactme body body body"
-            "navbar body body body"
-            "navbar body body body"
+            "contactme body body body"
+            "footer footer footer footer"
             "footer footer footer footer";
         max-width: 100%;
         overflow: hidden;
@@ -35,9 +38,11 @@
     .footer {
         grid-template-columns: 1fr 1fr 1fr;
     }
+
     .dh {
         text-align: right;
     }
+
     .user_admin {
         text-align: right;
     }
@@ -186,7 +191,7 @@
     }
 
     .main {
-        grid-template-areas:        
+        grid-template-areas:
             "bread user_admin"
             "dh dh"
             "title title"
@@ -215,10 +220,10 @@
     grid-template-rows: 1fr min-content;
     grid-template-columns: 225px 1fr 225px;
     grid-template-areas:
-    "user_admin user_admin user_admin"
-    "body body body"
-    "body body body"
-    "footer footer footer";
+        "user_admin user_admin user_admin"
+        "body body body"
+        "body body body"
+        "footer footer footer";
     max-width: 100%;
     overflow: hidden;
 }
@@ -252,15 +257,20 @@
     color: #ff7f5b;
 }
 
-.spacer {
-    grid-area: spacer;
-}
-
 .main {
     display: grid;
     height: 100%;
     grid-gap: 0;
     color: #ff7f5b;
+}
+
+.email {
+    font-variant: inherit !important;
+    font-family: "Berkshire Swash", serif !important;
+    font-weight: 400;
+    font-style: normal;
+    color: #666;
+    font-size: 2.5rem !important;
 }
 
 .bread {
@@ -277,7 +287,7 @@
     padding: 2px 10px;
     font-variant: petite-caps;
     font-size: 2rem;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     place-content: start;
 }
 
@@ -367,6 +377,8 @@
 .panel-collapsed {
     width: 90%;
     margin: 0px !important;
+    background-color: #333  !important;
+    border: none;
 }
 
 .panel-expanded {

@@ -23,6 +23,21 @@ td {
   border: 1px solid #333;
 }
 
+.mudgrid-fullscreen {
+  display: grid;
+  grid-template-areas:
+    "title title status"
+    "title title status"
+    "main main aiimage"
+    "main main helpsection"
+    "command command helpsection"
+    "usersconnected usersconnected helpsection";
+    grid-template-columns: 400px 1fr 325px;
+    grid-template-rows: 44px 1fr 1fr 1fr 60px 30px;
+  height: 100vh;
+
+}
+
 .mudgrid-expanded {
   display: grid;
   grid-template-areas:
@@ -34,7 +49,7 @@ td {
     "usersconnected usersconnected helpsection";
   grid-template-columns: 400px 1fr 325px;
   grid-template-rows: 44px 1fr 1fr 1fr 60px 30px;
-  height: 75vh;
+  height: 70vh;
 }
 
 .mudgrid-collapsed {
@@ -48,7 +63,7 @@ td {
     "usersconnected usersconnected helpsection";
   grid-template-columns: 400px 1fr 325px;
   grid-template-rows: 44px 1fr 1fr 1fr 60px 30px;
-  height: 75vh;
+  height: 70vh;
 }
 
 .title-panel-expanded {

@@ -1,6 +1,6 @@
-<div class="main" [ngClass]="{'main-fullscreen': fullScreen === true, 'main-expanded' : fullScreen === false }" >
+<div class="main" [ngClass]="{'main-fullscreen': fullScreen === true, 'main-expanded' : fullScreen, 'main-collapsed' : !fullScreen}" >
     <div *ngIf="!fullScreen" class="bread child">
-        <div ngIf="!fullScreen" class="root"><a href="/">home></a></div>
+        <div class="root"><a href="/">home></a></div>
         <div>
             <xng-breadcrumb [separator]="iconTemplate">
                 <ng-template #iconTemplate>
@@ -22,7 +22,7 @@
         <p>{{quote}}</p>
     </div>
     <div *ngIf="!fullScreen" class="title child">
-        <mat-expansion-panel  [ngClass]="{'panel-expanded': expandBio === true, 'panel-collapsed' : expandBio === false }" [expanded]="expandBio" (click)="setExpand()" [hideToggle]="expandBio">
+        <mat-expansion-panel  [ngClass]="{'panel-expanded': expandedBio === true, 'panel-collapsed' : expandedBio === false }" [expanded]="expandedBio" (click)="setExpand()" [hideToggle]="expandedBio">
             <mat-expansion-panel-header>
               <mat-panel-title class="maintitle">{{title}}
               </mat-panel-title>
@@ -32,11 +32,9 @@
             <div class="subtitle" *ngIf="posTerms != ''" [innerHTML]="posTerms"></div>
           </mat-expansion-panel>    
     </div>
-    <div *ngIf="!fullScreen" class="contact child">
-        <app-corner-listener></app-corner-listener>
+    <div *ngIf="!fullScreen" id="lugrasimo-regular" class="contactme child email">jesse.stone<wbr>&#64;nehsa.net
     </div>
-    <div *ngIf="!fullScreen" class="navbar child"><app-navbar></app-navbar>
-    </div>
+    <div *ngIf="!fullScreen" class="navbar child"><app-navbar></app-navbar></div>
     <div class="body child">
         <router-outlet></router-outlet>
     </div>

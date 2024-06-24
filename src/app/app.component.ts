@@ -40,7 +40,7 @@ import { MudComponent } from './main/mud/mud.component';
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit, OnDestroy {
-  expandBio = true;
+  expandedBio = true;
   title = "Jesse Stone";
   quote = "";
   posTerms = "";
@@ -86,8 +86,8 @@ export class AppComponent implements OnInit, OnDestroy {
     });
 
     this.sleep(5000).then(() => {
-      this.expandBio = false;
-      this.title = "Welcome!";
+      this.expandedBio = false;
+      this.title = "Welcome to nehsa.net!";
     });
   }
 
@@ -120,8 +120,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
 
   setExpand() {
-    this.expandBio = !this.expandBio;
-    if (this.expandBio) {
+    this.expandedBio = !this.expandedBio;
+    if (this.expandedBio) {
       this.title = "Jesse Stone";
     }
   }
