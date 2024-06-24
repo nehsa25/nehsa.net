@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './shared-components/navbar/navbar.component';
 import { CornerListenerComponent } from './shared-components/corner-listener/corner-listener.component';
@@ -16,7 +16,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { UserService } from './services/user.service';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MudComponent } from './main/mud/mud.component';
 
 @Component({
   selector: 'app-root',
@@ -71,7 +70,7 @@ export class AppComponent implements OnInit, OnDestroy {
       this.ref.detectChanges();
     });
 
-    this.chkScreenMode();
+    this.checkScreenMode();
 
     forkJoin(this.getQueries).subscribe(next => {
       if (next == null) {
@@ -104,20 +103,16 @@ export class AppComponent implements OnInit, OnDestroy {
   @HostListener('document:mozfullscreenchange', ['$event'])
   @HostListener('document:MSFullscreenChange', ['$event'])
   fullscreenmodes(event: any) {
-    this.chkScreenMode();
+    this.checkScreenMode();
   }
-  chkScreenMode() {
+  checkScreenMode() {
     if (document.fullscreenElement) {
-      //fullscreen
       this.isFullScreen = true;
     } else {
-      //not in full screen
       this.isFullScreen = false;
     }
-
     this.isFullScreenEvent.next(this.isFullScreen );
   }
-
 
   setExpand() {
     this.expandedBio = !this.expandedBio;

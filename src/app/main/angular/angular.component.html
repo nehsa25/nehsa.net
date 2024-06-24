@@ -9,17 +9,18 @@
             <div class="commentgrid">
                 <div class="topics">
                     <div class="topics">
-                        <div>
-                            <h3>Form Validation</h3>
-                            <ul class="condensed">
-                                <li>
-                                    <h4>Example form element:</h4>
-                                    <div class="code">&lt;input type="email" id="email" name="email"
-                                        [formControl]="emailControl"&gt;</div>
-                                <li>
-                                    <h4>Within TypeScript:</h4>
-                                    <div class="code">
-                                        <pre>
+                        <ul class="condensed">
+                            <li>
+                                <h3>Form Validation</h3>
+                                <ul class="condensed">
+                                    <li>
+                                        <h4>Example form element:</h4>
+                                        <div class="code">&lt;input type="email" id="email" name="email"
+                                            [formControl]="emailControl"&gt;</div>
+                                    <li>
+                                        <h4>Within TypeScript:</h4>
+                                        <div class="code">
+                                            <pre>
         export class SignupComponent &#123;
             userDetails: FormGroup;
             emailControl = new FormControl('');
@@ -60,33 +61,33 @@
             &#125;
         &#125;
                                             </pre>
-                                    </div>
-                                </li>
-                                <li>Add submit button<br>
-                                    <div class="code">
-                                        &lt;button (click)="submitForm()"
-                                        [disabled]="this.userDetails.invalid"&gt;Submit&lt;/button&gt;
-                                    </div>
-                                </li>
-                            </ul>
-                            <div>
-                                <h4>Example</h4>
-                                <img src="assets/images/signup.png" alt="Form Validation" />
-                            </div>
-                        </div>
-                        <div>
-                            <h3>Control which CSS classes are applied via TypeScript</h3>
-                            <ul>
-                                <li>HTML
-                                    <div class="code">
-                                        <pre>
+                                        </div>
+                                    </li>
+                                    <li>Add submit button<br>
+                                        <div class="code">
+                                            &lt;button (click)="submitForm()"
+                                            [disabled]="this.userDetails.invalid"&gt;Submit&lt;/button&gt;
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div>
+                                    <h4>Example</h4>
+                                    <img src="assets/images/signup.png" alt="Form Validation" />
+                                </div>
+                            </li>
+                            <li>
+                                <h3>Control which CSS classes are applied via TypeScript</h3>
+                                <ul>
+                                    <li>HTML
+                                        <div class="code">
+                                            <pre>
         &lt;div [class.bgblue]="showBlueBg" [class.main]="!showBlueBg"&gt;Yippee!&lt;/div&gt;
         </pre>
-                                    </div>
-                                </li>
-                                <li>CSS
-                                    <div class="code">
-                                        <pre>
+                                        </div>
+                                    </li>
+                                    <li>CSS
+                                        <div class="code">
+                                            <pre>
         .bgblue &#123;
             background-color: blue;
         &#125;
@@ -95,41 +96,42 @@
             background-color: var(--theme-splash-backround-color);
         &#125;                                        
         </pre>
-                                    </div>
-                                </li>
-                                <li>TypeScript
-                                    <div class="code">
-                                        <pre>
+                                        </div>
+                                    </li>
+                                    <li>TypeScript
+                                        <div class="code">
+                                            <pre>
         public showBlueBg: boolean = false;
         </pre>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3>Table select-columns feature: Alter visiblity, stick/freeze columns, change order</h3>
-                            <ul>
-                                <li>Todo: Add the example of where I did this!
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3>Listen for child events</h3>
-                            <ul>
-                                <li>Add a type for the event transmission (e.g. SplashMessage in a new file
-                                    splash-message.ts)
-                                    <div class="code">
-                                        <pre>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h3>Table select-columns feature: Alter visiblity, stick/freeze columns, change order
+                                </h3>
+                                <ul>
+                                    <li>Todo: Add the example of where I did this!
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h3>Listen for child events</h3>
+                                <ul>
+                                    <li>Add a type for the event transmission (e.g. SplashMessage in a new file
+                                        splash-message.ts)
+                                        <div class="code">
+                                            <pre>
         export class SplashMessage &#123;
             showSplash: boolean = false;
             duration: number = 8;
         &#125;
                                         </pre>
-                                    </div>
-                                </li>
-                                <li>Add a service called splash.service.ts
-                                    <div class="code">
-                                        <pre>
+                                        </div>
+                                    </li>
+                                    <li>Add a service called splash.service.ts
+                                        <div class="code">
+                                            <pre>
         import &#123; Injectable &#125; from '&#64;angular/core';
         import &#123; Observable, Subject &#125; from 'rxjs';
         import &#123; SplashMessage &#125; from '../types/splash-message';
@@ -155,11 +157,11 @@
             &#125;
         &#125;
                                         </pre>
-                                    </div>
-                                </li>
-                                <li>Add event observer for service to child component
-                                    <div class="code">
-                                        <pre>
+                                        </div>
+                                    </li>
+                                    <li>Add event observer for service to child component
+                                        <div class="code">
+                                            <pre>
         constructor(
             private splash: SplashService) &#123; &#125;
         
@@ -171,33 +173,33 @@
             &#125;);
         &#125;
                                         </pre>
-                                    </div>
-                                </li>
-                                <li>Use it somewhere:
-                                    <div class="code">
-                                        <pre>
+                                        </div>
+                                    </li>
+                                    <li>Use it somewhere:
+                                        <div class="code">
+                                            <pre>
         &#64;&lt;app-splash *ngIf="showSplash"&gt;&lt;/app-splash&gt;
                                         </pre>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3>Implement a reCAPTCHA Checkbox</h3>
-                            <ul>
-                                <li>Sign up for a Recapcha account at https://www.google.com/recaptcha/about/</li>
-                                <li>Create new project
-                                    <ul>
-                                        <li>Check the "Use a checkbox" option</li>
-                                        <li>Save your key information</li>
-                                    </ul>
-                                </li>
-                                <li>Install reCAPTCHA packages
-                                    <div class="code">npm i ng-recaptcha --save</div>
-                                </li>
-                                <li>Add resolved function in your component:
-                                    <div class="code">
-                                        <pre>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h3>Implement a reCAPTCHA Checkbox</h3>
+                                <ul>
+                                    <li>Sign up for a Recapcha account at https://www.google.com/recaptcha/about/</li>
+                                    <li>Create new project
+                                        <ul>
+                                            <li>Check the "Use a checkbox" option</li>
+                                            <li>Save your key information</li>
+                                        </ul>
+                                    </li>
+                                    <li>Install reCAPTCHA packages
+                                        <div class="code">npm i ng-recaptcha --save</div>
+                                    </li>
+                                    <li>Add resolved function in your component:
+                                        <div class="code">
+                                            <pre>
         resolved(captchaResponse: string | null) &#123;
             if (captchaResponse != null) &#123;
                 this.captcha = captchaResponse;
@@ -205,12 +207,12 @@
             &#125;
         &#125;
                                 </pre>
-                                    </div>
-                                </li>
-                                <li>
-                                    Add reCAPTCHA to your component form:
-                                    <div class="code">
-                                        <pre>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        Add reCAPTCHA to your component form:
+                                        <div class="code">
+                                            <pre>
         &lt;div [hidden]="captcha"&gt;
             &lt;p&gt;Confirm you're human please!&lt;/p&gt;
                 &lt;re-captcha (resolved)="resolved($event)" siteKey="&lt;YOURKEY&gt;"&gt;&lt;/re-captcha&gt;
@@ -218,16 +220,87 @@
         &lt;/div&gt;
         &lt;button type="submit" *ngIf="captcha" mat-flat-button&gt;Submit&lt;/button&gt;
                                 </pre>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div>
-                                <h3>If all went well:</h3>
-                                <img src="assets/images/recaptcha.png" alt="reCAPTCHA" />
-                            </div>
-                        </div>
-                    </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div>
+                                    <h3>If all went well:</h3>
+                                    <img src="assets/images/recaptcha.png" alt="reCAPTCHA" />
+                                </div>
+                            </li>
+                            <li><h3>Fullscreen mode</h3>
+                                Enables full screen mode in the browser + issues events to control what's shown on page<br>
+                                <img src="assets/images/fullscreen.png"
+                                alt="A screenshot of the fullscreen button in mud" />
+                                <ul class="condensed">
+                                    <li>Update <span class="important">app.component.ts</span>
+                                        <div class="code">
+                                            <pre>
+    fullScreen: boolean = false;
+    isFullScreenEvent = new Subject&lt;boolean&gt;();
+    ...
+    ngOnInit() &#123;
+        this.isFullScreenEvent.subscribe(data => &#123; 
+          console.log("Full screen event: " + data.toString()); 
+          this.fullScreen = data;
+          this.ref.detectChanges();
+        &#125;);
     
+        this.checkScreenMode();
+    &#125;
+    ...    
+    elem: any; isFullScreen: boolean | undefined;
+    &#64;HostListener('document:fullscreenchange', ['$event'])
+    &#64;HostListener('document:webkitfullscreenchange', ['$event'])
+    &#64;HostListener('document:mozfullscreenchange', ['$event'])
+    &#64;HostListener('document:MSFullscreenChange', ['$event'])
+    fullscreenmodes(event: any) &#123;
+        this.checkScreenMode();
+    &#125;
+    checkScreenMode() &#123;
+        if (document.fullscreenElement) &#123;
+        this.isFullScreen = true;
+        &#125; else &#123;
+        this.isFullScreen = false;
+        &#125;
+        this.isFullScreenEvent.next(this.isFullScreen );
+    &#125;
+                                            </pre>
+                                        </div>
+                                    </li>
+                                    <li>Mark any div to hide when in fullscreen with: *ngIf="!fullScreen"</li>
+                                    <li>Add feature in component:
+                                        <div class="code">
+                                            <pre>
+    openFullScreen() &#123;
+        var elem = document.documentElement;
+        if (elem.requestFullscreen) &#123;
+            elem.requestFullscreen();
+        &#125;
+    &#125;
+    
+        cancelFullScreen() &#123;
+        if (document.exitFullscreen) &#123;
+            document.exitFullscreen();
+        &#125;
+    &#125;
+    
+        fullscreen() &#123;
+        this.isFullscreen = !this.isFullscreen;
+        if (this.isFullscreen) &#123;
+            this.openFullScreen();
+        &#125; else &#123;
+            this.cancelFullScreen();
+        &#125;
+    &#125;
+                                            </pre>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
                     <div>
                         <h3>Tips!</h3>
                         <ul>
@@ -236,7 +309,8 @@
                             <li>[ngModel]="variable" - Associate with a variable</li>
                             <li>&lt;curlybrace&gt;&lt;curlybrace&gt;variable&lt;curlybrace&gt;&lt;curlybrace&gt; -
                                 Interpolation</li>
-                            <li>[attr.data-testid]="'edit-frozen-' + i" - Embed a "data-testid" attribute in element after
+                            <li>[attr.data-testid]="'edit-frozen-' + i" - Embed a "data-testid" attribute in element
+                                after
                                 build</li>
                             <li>Error: "Can't bind to 'ngModel' since it isn't a known property of 'input'": Import
                                 FormsModule</li>
@@ -267,7 +341,8 @@
                                 <h3>Material Theming:</h3>
                                 <div>
                                     <ol>
-                                        <li>Go to <a href="http://mcg.mbitson.com/">Material Design Pallette Generate</a>
+                                        <li>Go to <a href="http://mcg.mbitson.com/">Material Design Pallette
+                                                Generate</a>
                                             <ul>
                                                 <li>Generate 3 schemes: primary, accent, warn</li>
                                                 <li>Select Copy Code</li>
@@ -478,7 +553,7 @@
                                         <li>
                                             If you need to send await multiple requests:
                                             <div class="code">
-                                                <pre>            
+                                                <pre>
         export class SomeComponent &#123;
             item1 = "";
             item2 = "";
@@ -521,13 +596,13 @@
                                     <li>
                                         Set a parameter in component1:
                                         name = "";
-                                        
+
                                     </li>
                                 </ul>
                             </li>
                         </ul>
                     </div>
-    
+
                     <div>
                         <h3>Important Files</h3>
                         <ul>
@@ -535,21 +610,23 @@
                             <li>packages.json - NPM packages to install for application.</li>
                         </ul>
                     </div>
-    
+
                     <div>
                         <h3>Useful Commands</h3>
                         <ul>
                             <li><span class="code">npm install</span> - Install all files necessary to run the Angular
                                 project.</li>
-                            <li><span class="code">ng serve -o</span> - Runs app locally. The -o opens it in your browser.
+                            <li><span class="code">ng serve -o</span> - Runs app locally. The -o opens it in your
+                                browser.
                             </li>
                             <li><span class="code">ng build --configuration development/production</span> - Build for
                                 deployments. Output in /dist folder.</li>
-                            <li><span class="code">ng add &#64;angular/material</span> - Installs Material. This method is
+                            <li><span class="code">ng add &#64;angular/material</span> - Installs Material. This method
+                                is
                                 preferred for npm install as it performs additional initialization.</li>
                         </ul>
                     </div>
-    
+
                     <div>
                         <h3>Useful Links</h3>
                         <ul>

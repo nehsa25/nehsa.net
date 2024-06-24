@@ -122,6 +122,16 @@ export class MudComponent implements OnInit, OnDestroy {
     return `${message}<hr class="hr-border" />`
   }
 
+  startRest() {
+    console.log("Starting rest..");
+
+  }
+
+  getHelp() {
+    console.log("Getting help..");
+
+  }
+
   launchDupe() {
     const dialogRef = this.dupeDialog.open(DupeNameComponent, {
       data: {

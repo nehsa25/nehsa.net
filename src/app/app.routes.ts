@@ -1,4 +1,4 @@
-import { RouterStateSnapshot, Routes, TitleStrategy, provideRouter } from '@angular/router';
+import { Routes } from '@angular/router';
 import { BioComponent } from './main/bio/bio.component';
 import { AngularComponent } from './main/angular/angular.component';
 import { CSharpComponent } from './main/c-sharp/c-sharp.component';
@@ -39,7 +39,6 @@ import { JavaComponent } from './main/java/java.component';
 import { SqlComponent } from './main/sql/sql.component';
 import { MudComponent } from './main/mud/mud.component';
 import { DotComponent } from './main/dot/dot.component';
-import { AiImageComponent } from './main/mud/ai-image/ai-image.component';
 import { AiImageGenerationComponent } from './main/ai-image-generation/ai-image-generation.component';
 import { MysqlComponent } from './main/mysql/mysql.component';
 

@@ -62,6 +62,10 @@
                                 <td colspan="2">
                                     <button class="action" *ngIf="this.mapImageAvailable === true"
                                         (click)="launchMap()"><mat-icon>map</mat-icon></button>
+                                    <button class="action" *ngIf="this.mapImageAvailable === true"
+                                        (click)="startRest()"><mat-icon>rest</mat-icon></button>
+                                    <button class="action" *ngIf="this.mapImageAvailable === true"
+                                        (click)="getHelp()"><mat-icon>help</mat-icon></button>
                                 </td>
                             </tr>
                         </table>

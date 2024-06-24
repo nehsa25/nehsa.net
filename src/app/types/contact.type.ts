@@ -1,5 +1,5 @@
 export class ContactType {
-    name: string = "";
-    subject: string = "";
-    body: string = "";
+    username: string = "";
+    comment: string = "";
+    page: string = "";
 }
