@@ -31,6 +31,7 @@ import { UserService } from '../../services/user.service';
     MatIcon,
     MatSnackBarModule
   ],
+  providers: [HttpService],
   templateUrl: './comment.component.html',
   styleUrl: './comment.component.scss'
 })

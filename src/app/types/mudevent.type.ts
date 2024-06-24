@@ -17,4 +17,20 @@ export class MudEvent {
     players: number = -1;
     is_resting: boolean = false;
     world_name: string = "";
+    help_commands: HelpEvent = new HelpEvent();
+    inventory: InventoryEvent = new InventoryEvent();
+}
+
+export class InventoryEvent {
+    items = new Array<any>();
+    money = 0;
+}
+
+export class HelpEvent {
+    commands = new Array<any>();
+}
+
+export class HelpCommand {
+    command: string = "";
+    description: string = "";
 }

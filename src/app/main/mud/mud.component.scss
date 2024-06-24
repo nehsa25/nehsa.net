@@ -304,6 +304,10 @@ td {
   border: 1px solid #333;
 }
 
+.action:not(:first-child) {
+  margin-left: 5px;
+}
+
 .action mat-icon {
   background-color: springgreen;
 }
@@ -358,3 +362,4 @@ td {
   color: black;
   border: 1px thin #333;
 }
+

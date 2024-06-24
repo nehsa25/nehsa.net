@@ -1,7 +1,7 @@
 import { Component, HostListener, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { CommentComponent } from '../../shared-components/comment/comment.component';
-import { MudEvent } from '../../types/mudevent.type';
+import { HelpEvent, MudEvent } from '../../types/mudevent.type';
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { MatButton } from '@angular/material/button';
 import { MatError, MatFormFieldModule, MatLabel } from '@angular/material/form-field';
@@ -16,6 +16,7 @@ import { DupeNameComponent } from './dupe-name/dupe-name.component';
 import { MudEvents } from '../../types/mudevents.type';
 import { AiImageComponent } from './ai-image/ai-image.component';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { HelpModalComponent } from './help-modal/help-modal.component';
 
 @Component({
   selector: 'app-mud',
@@ -123,13 +124,11 @@ export class MudComponent implements OnInit, OnDestroy {
   }
 
   startRest() {
-    console.log("Starting rest..");
-
+    this.sendCommand("rest");
   }
 
   getHelp() {
-    console.log("Getting help..");
-
+    this.sendCommand("help");
   }
 
   launchDupe() {
@@ -177,6 +176,17 @@ export class MudComponent implements OnInit, OnDestroy {
     });
     dialogRef.afterClosed().subscribe(result => {
       this.mapImageAvailable = true;
+    });
+  }
+
+  launchHelp(help_commands: any) {
+    const dialogRef = this.mapDialog.open(HelpModalComponent, {
+      data: {
+        cmds: help_commands
+      },
+      width: '600px',
+      height: '600px',
+      position: { top: '50px', right: '200px' }
     });
   }
 
@@ -311,10 +321,8 @@ export class MudComponent implements OnInit, OnDestroy {
         break;
       case MudEvents.INVENTORY:
         var inventoryList = new Array<string>();
-        var items = data.message.toString().split(',');
-        items.forEach(o => {
-          console.log("item: " + o);
-          inventoryList.push(o);
+        data.inventory.items.forEach(o => {
+          inventoryList.push(o.name);
         });
         this.inventory = inventoryList;
         break;
@@ -370,6 +378,9 @@ export class MudComponent implements OnInit, OnDestroy {
             this.resting = true;
           }
         }
+        break;
+      case MudEvents.HELP:
+        this.launchHelp(data.help_commands);
         break;
       case MudEvents.REST:
         if (data.message != "") {
@@ -455,20 +466,31 @@ export class MudComponent implements OnInit, OnDestroy {
     div.focus();
   }
 
-  sendCommand(key: KeyboardEvent) {
+  sendKeyCommand(key: KeyboardEvent) {
     if (key.key !== "Enter") {
       return;
     }
+    let command = this.command.trim();
+    return this._sendCommand(command);
+  }
+
+  sendCommand(command: string) {
+    command = command.trim();
+    if (command === "") {
+      return;
+    }
+    return this._sendCommand(command);
+  }
+
+  _sendCommand(cmd: string, extra: string = "") {
     if (this.isOpen(this.socket)) {
-      let cmd = this.command.trim();
-      let extra = "";
       let commands = cmd.split(" ");
       if (commands.length === 3 && commands[0].toLowerCase() === "system" && commands[1].toLowerCase() === "name") {
         extra = this.userService.name;
       }
       var full_cmd = {
         "type": MudEvents.COMMAND,
-        "cmd": cmd.trim(),
+        "cmd": cmd,
         "extra": {
           "name": this.userService.name
         }
@@ -483,7 +505,6 @@ export class MudComponent implements OnInit, OnDestroy {
       console.log("Websocket is closed..");
     }
   }
-
 
   openFullScreen() {
     var elem = document.documentElement;

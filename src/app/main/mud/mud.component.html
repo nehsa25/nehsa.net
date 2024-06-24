@@ -63,7 +63,7 @@
                                     <button class="action" *ngIf="this.mapImageAvailable === true"
                                         (click)="launchMap()"><mat-icon>map</mat-icon></button>
                                     <button class="action" *ngIf="this.mapImageAvailable === true"
-                                        (click)="startRest()"><mat-icon>rest</mat-icon></button>
+                                        (click)="startRest()"><mat-icon>favorite</mat-icon></button>
                                     <button class="action" *ngIf="this.mapImageAvailable === true"
                                         (click)="getHelp()"><mat-icon>help</mat-icon></button>
                                 </td>
@@ -71,44 +71,10 @@
                         </table>
                     </div>
                 </div>
-                <div id="helpsection">
-                    <h4>
-                        A text-based multi-user dungeon. HUZZAH!</h4>
-                    <dl class="condensed">
-                        <dt>Get Help</dt>
-                        <dd>help</dd>
-                        <dt>Attack a monster (or player):</dt>
-                        <dd>a (for attack):<br>
-                            a zombie &lt;ENTER&gt;: attack a zombie</dd>
-                        <dt>Get help on a command</dt>
-                        <dd>help &lt;COMMAND&gt;</dd>
-                        <dt>See who's online</dt>
-                        <dd>who</dd>
-                        <dt>Speak something to the room:</dt>
-                        <dd>/say &lt;message&gt;</dd>
-                        <dt>Change your username:</dt>
-                        <dd>system name &lt;desired username&gt;</dd>
-                        <dt>Navigate the world</dt>
-                        <dd>
-                            Type a direction and then press &lt;ENTER&gt;<br>N, S, E, W, SW, NE, SE, SW, U,
-                            D<br>
-                        </dd>
-                        <dt>Look into an adjacent room</dt>
-                        <dd>L (for look):<br>
-                            l n &lt;ENTER&gt;: look north
-                        </dd>
-                        <dt>Pick up something</dt>
-                        <dd>g (for get):<br>
-                            g stick &lt;ENTER&gt;: pick up stick
-                        </dd>
-                        <dt>Character Statistics:</dt>
-                        <dd>stat</dd>
-                        <dt>Display your experience:</dt>
-                        <dd>exp</dd>
-                    </dl>
+                <div id="helpsection"><span class="important">A text-based multi-user dungeon. HUZZAH!</span>
                 </div>
                 <div id="command">
-                    <input type="text" class="command-input" #sendcommandarea (keydown)="sendCommand($event)"
+                    <input type="text" class="command-input" #sendcommandarea (keydown)="sendKeyCommand($event)"
                         [(ngModel)]="command"
                         placeholder="Type a command here and press &lt;ENTER&gt;.  (e.g. /say Hi!&lt;ENTER&gt; to say hello)" />
                 </div>
