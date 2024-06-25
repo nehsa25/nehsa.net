@@ -4,24 +4,35 @@ import { CommentComponent } from '../../shared-components/comment/comment.compon
 import { Subject } from 'rxjs';
 import { CommentType } from '../../types/comment.type';
 import { UserService } from '../../services/user.service';
+import { NgIf } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-aws',
   standalone: true,
-  imports: [MatCardModule, CommentComponent],
+  imports: [MatCardModule, CommentComponent, NgIf, MatButtonModule],
+  providers: [UserService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './aws.component.html',
   styleUrl: './aws.component.scss'
 })
 
 export class AwsComponent {
-  constructor(private _userService: UserService) {}
+  page_name = "AWS";
+  totalItems = 0;
+
+  constructor(
+    private _userService: UserService
+  ) {}
+
   eventsSubject: Subject<CommentType> = new Subject<CommentType>();
+
+  ngOnInit() { }
 
   sendPageInfoToChild() {
     let comment = new CommentType();
     comment.username = this._userService.name;
-    comment.page = "AWS";
+    comment.page = this.page_name;
     this.eventsSubject.next(comment);
   }
 }

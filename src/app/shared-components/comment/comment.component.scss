@@ -33,3 +33,32 @@ textarea {
 .add-comment:hover {
     cursor: pointer;
 }
+
+.grid {
+    display: grid;
+    grid-template-rows: 1fr min-content min-content;
+    grid-gap: 1em;
+}
+
+th {
+    text-decoration: solid;
+    font-variant: small-caps;
+    border: none;
+    font-size: 1.5rem;
+}
+
+.column-username {
+    background-color: lightblue !important;
+    width: 300px;
+}
+
+.column-date {
+    background-color: lightcoral !important;
+    border-radius: 25px 0 0 0;
+    width: 300px;
+}
+
+.column-comment {
+    background-color: sandybrown !important;
+    border-radius: 0 25px 0 0;
+}

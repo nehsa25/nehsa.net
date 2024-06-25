@@ -46,6 +46,11 @@ export class HttpService {
         return this.http.get(this.quoteUrl);
     }
 
+    /** Returns the comments for a page */  
+    getComments(page_name: string, numToReturn: number = 5) {
+        let url = `${this.commentUrl}/${page_name}/${numToReturn}`;
+        return this.http.get(url);
+    }
     getDBHealth() { 
         return this.http.get(this.dbhealth);
     }
