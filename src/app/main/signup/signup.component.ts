@@ -24,12 +24,12 @@ export class SignupComponent {
   usernameControl = new FormControl('');
   passwordControl = new FormControl('');
   passwordmatchControl = new FormControl('');    
-  page_name = "signup";
+  private _page_name = "signup";
   totalItems = 0;
   eventsSubject: Subject<CommentType> = new Subject<CommentType>();
   constructor(
     private fb: FormBuilder,
-    private _userService: UserService,
+    public userService: UserService,
     public httpClient: HttpService
   ) {
     this.userDetails = this.fb.group({
@@ -41,14 +41,8 @@ export class SignupComponent {
     this.captcha = "";
   }
 
-  sendPageInfoToChild() {
-    let comment = new CommentType();
-    comment.username = this._userService.name;
-    comment.page = this.page_name;
-    this.eventsSubject.next(comment);
-  }
-
   ngOnInit() {
+    this.userService.page = this._page_name;
     this.emailControl.addValidators([Validators.required, Validators.email]);
     this.usernameControl.addValidators([Validators.required, Validators.minLength(4)]);
     this.passwordControl.addValidators([Validators.required, Validators.pattern(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-]).{8,}/)]);

@@ -18,21 +18,15 @@ import { CommentType } from '../../../types/comment.type';
   providers: [FlashcardsService]
 })
 export class Ph207Component {
-  page_name = "ph207";
+  private _page_name = "ph207";
   totalItems = 0;
   eventsSubject: Subject<CommentType> = new Subject<CommentType>();
   constructor(
-    private _userService: UserService,
+    public userService: UserService,
     public flashcardsService: FlashcardsService) {
    }
    
- 
-   ngOnInit() { }
- 
-   sendPageInfoToChild() {
-     let comment = new CommentType();
-     comment.username = this._userService.name;
-     comment.page = this.page_name;
-     this.eventsSubject.next(comment);
-   }
+   ngOnInit() { 
+    this.userService.page = this._page_name;
+  }
 }

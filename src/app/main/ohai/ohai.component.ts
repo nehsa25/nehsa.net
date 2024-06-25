@@ -15,21 +15,14 @@ import { CommentType } from '../../types/comment.type';
   styleUrl: './ohai.component.scss'
 })
 export class OhaiComponent {
-  page_name = "ohai";
+  private _page_name = "ohai";
   totalItems = 0;
 
   constructor(
-    private _userService: UserService
+    public userService: UserService
   ) {}
 
-  eventsSubject: Subject<CommentType> = new Subject<CommentType>();
-
-  ngOnInit() { }
-
-  sendPageInfoToChild() {
-    let comment = new CommentType();
-    comment.username = this._userService.name;
-    comment.page = this.page_name;
-    this.eventsSubject.next(comment);
+  ngOnInit() { 
+    this.userService.page = this._page_name;
   }
 }

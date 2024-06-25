@@ -16,21 +16,14 @@ import { CommentType } from '../../types/comment.type';
   styleUrl: './inno.component.scss'
 })
 export class InnoComponent {
-  page_name = "inno";
+  private _page_name = "inno";
   totalItems = 0;
 
   constructor(
-    private _userService: UserService
+    public userService: UserService
   ) {}
 
-  eventsSubject: Subject<CommentType> = new Subject<CommentType>();
-
-  ngOnInit() { }
-
-  sendPageInfoToChild() {
-    let comment = new CommentType();
-    comment.username = this._userService.name;
-    comment.page = this.page_name;
-    this.eventsSubject.next(comment);
+  ngOnInit() { 
+    this.userService.page = this._page_name;
   }
 }

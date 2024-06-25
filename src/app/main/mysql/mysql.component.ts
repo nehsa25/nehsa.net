@@ -14,21 +14,14 @@ import { CommentType } from '../../types/comment.type';
   styleUrl: './mysql.component.scss'
 })
 export class MysqlComponent {
-  page_name = "mysql";
+  private _page_name = "mysql";
   totalItems = 0;
 
   constructor(
-    private _userService: UserService
+    public userService: UserService
   ) {}
 
-  eventsSubject: Subject<CommentType> = new Subject<CommentType>();
-
-  ngOnInit() { }
-
-  sendPageInfoToChild() {
-    let comment = new CommentType();
-    comment.username = this._userService.name;
-    comment.page = this.page_name;
-    this.eventsSubject.next(comment);
+  ngOnInit() { 
+    this.userService.page = this._page_name;
   }
 }

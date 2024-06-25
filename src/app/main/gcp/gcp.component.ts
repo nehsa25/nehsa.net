@@ -15,21 +15,14 @@ import { Subject } from 'rxjs';
   styleUrl: './gcp.component.scss'
 })
 export class GcpComponent {
-  page_name = "gcp";
+  private _page_name = "gcp";
   totalItems = 0;
 
   constructor(
-    private _userService: UserService
+    public userService: UserService
   ) {}
 
-  eventsSubject: Subject<CommentType> = new Subject<CommentType>();
-
-  ngOnInit() { }
-
-  sendPageInfoToChild() {
-    let comment = new CommentType();
-    comment.username = this._userService.name;
-    comment.page = this.page_name;
-    this.eventsSubject.next(comment);
+  ngOnInit() { 
+    this.userService.page = this._page_name;
   }
 }

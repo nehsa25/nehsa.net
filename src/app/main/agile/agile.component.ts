@@ -15,21 +15,15 @@ import { UserService } from '../../services/user.service';
   styleUrl: './agile.component.scss'
 })
 export class AgileComponent {
-  page_name = "agile";
+  private _page_name = "agile";
   totalItems = 0;
 
   constructor(
-    private _userService: UserService
+    public userService: UserService
   ) {}
 
-  eventsSubject: Subject<CommentType> = new Subject<CommentType>();
-
-  ngOnInit() { }
-
-  sendPageInfoToChild() {
-    let comment = new CommentType();
-    comment.username = this._userService.name;
-    comment.page = this.page_name;
-    this.eventsSubject.next(comment);
+  ngOnInit() { 
+    this.userService.page = this._page_name;
   }
+
 }

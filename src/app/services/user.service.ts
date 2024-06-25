@@ -6,6 +6,7 @@ import { NameType } from '../types/name.type';
 export class UserService {
     private _name: string = "";
     private _about: string = "";
+    private _currentPage: string = "";
 
     get name(): string {
         return this._name;
@@ -19,5 +20,12 @@ export class UserService {
     }
     set about(value: string) {
         this._about = value;
+    }
+
+    get page(): string {
+        return this._currentPage;
+    }
+    set page(value: string) {
+        this._currentPage = value;
     }
 }

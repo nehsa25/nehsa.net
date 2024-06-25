@@ -24,9 +24,16 @@ export class ThisWebsiteComponent {
   testapiSuccess = false;
   testdbChecked = false;
   testdbSuccess = false;
+  private _page_name = "this website";
+  totalItems = 0;
+
   constructor(
     public httpClient: HttpService,
-    private _userService: UserService) { }
+    public userService: UserService) { }
+
+  ngOnInit() {
+    this.userService.page = this._page_name;
+  }
 
   public async testapi() {
     this.httpClient.getQuote().subscribe(data => {
@@ -50,16 +57,5 @@ export class ThisWebsiteComponent {
         this.testdbSuccess = false;
       }
     });
-  }
-
-  page_name = "this website";
-  totalItems = 0;
-  eventsSubject: Subject<CommentType> = new Subject<CommentType>();
-  ngOnInit() { }
-  sendPageInfoToChild() {
-    let comment = new CommentType();
-    comment.username = this._userService.name;
-    comment.page = this.page_name;
-    this.eventsSubject.next(comment);
   }
 }

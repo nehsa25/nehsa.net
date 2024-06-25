@@ -17,21 +17,13 @@ import { CommentType } from '../../types/comment.type';
 })
 export class SwaggerComponent {
   swagger: string = "Please Wait.";  
-  page_name = "school";
+  private _page_name = "school";
   totalItems = 0;
-  eventsSubject: Subject<CommentType> = new Subject<CommentType>();
   constructor(
     public httpClient: HttpService,
-    private _userService: UserService) { };
+    public userService: UserService) { };
 
-  ngOnInit() {
-
-  }
-
-  sendPageInfoToChild() {
-    let comment = new CommentType();
-    comment.username = this._userService.name;
-    comment.page = this.page_name;
-    this.eventsSubject.next(comment);
-  }
+    ngOnInit() { 
+      this.userService.page = this._page_name;
+    }
 }

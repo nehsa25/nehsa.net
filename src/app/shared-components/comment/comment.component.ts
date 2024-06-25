@@ -51,10 +51,7 @@ export class CommentComponent {
   dataSource: MatTableDataSource<CommentType> = new MatTableDataSource<CommentType>();
   clicked = false;
   result = "Yes!";
-  users: Observable<UserService> = new Observable<UserService>();
-
   @Input() events: Observable<CommentType> = new Observable<CommentType>();
-  @Input() emitService = new EventEmitter();
   constructor(
     public userService: UserService,
     private _formBuilder: FormBuilder,
@@ -62,27 +59,15 @@ export class CommentComponent {
     private _snackbar: MatSnackBar) { }
 
   ngOnInit() {
-    
-    let test = this.users.subscribe((data) => {
-      console.log("test user service!");
-      console.log(data);
-    });
-
-    this.eventsSubscription = this.emitService.subscribe((y) => {
-      this.result = Math.random() < 0.5 ? 'Yes! Am I correct? Post a comment and let me know.' : 'Damnit. No. You will not. Am I correct? Post a comment and let me know.';
-
-      console.log("we got our event in comment component!");
-      this.page = y.page;
-      this.username = y.username;
-
-      this._httpService.getComments(this.page).subscribe((data: any) => {
-        console.log("we got our comments!");
-        let comments: Array<CommentType> = new Array<CommentType>();
-        comments.push(data);
-        this.dataSource = new MatTableDataSource(comments);
-        this.dataSource.data = data;
-        this.totalItems = data.length;
-      });
+    this.username = this.userService.name;
+    this.page = this.userService.page;
+    this.result = Math.random() < 0.5 ? 'Yes! Am I correct? Post a comment and let me know.' : 'Doh.. no, you will not. Am I correct? Post a comment and let me know.';
+    this._httpService.getComments(this.page).subscribe((data: any) => {
+      let comments: Array<CommentType> = new Array<CommentType>();
+      comments.push(data);
+      this.dataSource = new MatTableDataSource(comments);
+      this.dataSource.data = data;
+      this.totalItems = data.length;
     });
   }
 
@@ -114,14 +99,11 @@ export class CommentComponent {
     this.commenttext = "";
     let comment = new CommentType();
     comment.comment = user_comment;
-    comment.page = this.page;
-    comment.username = this.username;
+    comment.page = this.userService.page;
+    comment.username = this.userService.name;
     this._httpService.postComment(comment).subscribe((_next: any) => {
-      console.log(_next);
       this._snackbar.open("Comment added", "Dismiss");
       this._httpService.getComments(this.page).subscribe((data: any) => {
-        console.log("we got our comments!");
-        console.log(data);
         this.dataSource.data = data;
       })
     });

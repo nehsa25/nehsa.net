@@ -51,10 +51,10 @@ export class MudComponent implements OnInit, OnDestroy {
   roomImageAvailable = false;
   miniMap = "";
   isFullscreen = false;
-  page_name = "mud";
   totalItems = 0;
-  eventsSubject: Subject<CommentType> = new Subject<CommentType>();
-
+  eventsSubject: Subject<CommentType> = new Subject<CommentType>();  
+  private _page_name = "mud";
+  
   constructor(
     public userService: UserService,
     public dupeDialog: MatDialog,
@@ -67,18 +67,13 @@ export class MudComponent implements OnInit, OnDestroy {
     this.socket = new WebSocket(this.fullAddress);
   }
 
-  sendPageInfoToChild() {
-    let comment = new CommentType();
-    comment.username = this.userService.name;
-    comment.page = this.page_name;
-    this.eventsSubject.next(comment);
-  }
-
   ngOnDestroy(): void {
     this.socket.close();
   }
 
   ngOnInit() {
+    this.userService.page = this._page_name;
+
     console.log("Setting up websocket connection at " + this.fullAddress)
     //Connection opened
     this.socket.addEventListener('open', function (event) {

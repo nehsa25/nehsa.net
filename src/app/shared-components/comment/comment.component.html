@@ -1,10 +1,9 @@
-NAME: {{this.userService.name}}
 <div class="comments">
     <div class="topics grid">
         <div *ngIf="userService.name != null && userService.name != ''">
             <div class="add-comment" *ngIf="addComment == false" (click)="addcomment()">Click to add comment</div>
             <div *ngIf="addComment == true">
-                <div class="addcommentgrid">{{this.userService.name}}
+                <div class="addcommentgrid">
                     <div>
                         <form [formGroup]="commentform">
                             <mat-form-field class="comment">
