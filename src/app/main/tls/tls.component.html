@@ -144,9 +144,8 @@
                         </div>
                     </div>
                 </div>
-                <div><app-comment></app-comment></div>
+                <div (click)="sendPageInfoToChild()"><app-comment [events]="eventsSubject.asObservable()"></app-comment></div>
             </div>
-
         </mat-card-content>
     </mat-card>
 </div>

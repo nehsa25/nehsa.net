@@ -5,6 +5,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon'
 import { CommonModule } from '@angular/common';  
 import { CommentComponent } from '../../shared-components/comment/comment.component';
+import { UserService } from '../../services/user.service';
+import { CommentType } from '../../types/comment.type';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-bio',
@@ -28,4 +31,22 @@ export class BioComponent {
     this.doghover = true;
     console.log("yuppers!");
   };
+
+  page_name = "bio";
+  totalItems = 0;
+
+  constructor(
+    private _userService: UserService
+  ) {}
+
+  eventsSubject: Subject<CommentType> = new Subject<CommentType>();
+
+  ngOnInit() { }
+
+  sendPageInfoToChild() {
+    let comment = new CommentType();
+    comment.username = this._userService.name;
+    comment.page = this.page_name;
+    this.eventsSubject.next(comment);
+  }
 }

@@ -6,11 +6,15 @@ import { MatIcon } from '@angular/material/icon';
 import { NgIf } from '@angular/common';
 import { CommentComponent } from '../../shared-components/comment/comment.component';
 import { RouterModule } from '@angular/router';
+import { Subject } from 'rxjs';
+import { UserService } from '../../services/user.service';
+import { CommentType } from '../../types/comment.type';
 
 @Component({
   selector: 'app-this-website',
   standalone: true,
   imports: [MatCardModule, MatButtonModule, MatIcon, NgIf, CommentComponent, RouterModule],
+  providers: [HttpService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './this-website.component.html',
   styleUrl: './this-website.component.scss'
@@ -21,7 +25,8 @@ export class ThisWebsiteComponent {
   testdbChecked = false;
   testdbSuccess = false;
   constructor(
-    public httpClient: HttpService) { }
+    public httpClient: HttpService,
+    private _userService: UserService) { }
 
   public async testapi() {
     this.httpClient.getQuote().subscribe(data => {
@@ -45,5 +50,16 @@ export class ThisWebsiteComponent {
         this.testdbSuccess = false;
       }
     });
+  }
+
+  page_name = "this website";
+  totalItems = 0;
+  eventsSubject: Subject<CommentType> = new Subject<CommentType>();
+  ngOnInit() { }
+  sendPageInfoToChild() {
+    let comment = new CommentType();
+    comment.username = this._userService.name;
+    comment.page = this.page_name;
+    this.eventsSubject.next(comment);
   }
 }

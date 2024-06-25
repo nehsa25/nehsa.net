@@ -37,7 +37,7 @@
                             courses and can be taken in any order. (Bacc Core Course)</dd>
                     </dl>
                 </div>
-                <div><app-comment></app-comment></div>
+                <div (click)="sendPageInfoToChild()"><app-comment [events]="eventsSubject.asObservable()"></app-comment></div>
             </div>
         </mat-card-content>
     </mat-card>

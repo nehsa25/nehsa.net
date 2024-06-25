@@ -57,7 +57,7 @@ export class CommentComponent {
     private _httpService: HttpService,
     private _snackbar: MatSnackBar) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.eventsSubscription = this.events.subscribe((y) => {
       this.result = Math.random() < 0.5 ? 'Yes! Am I correct? Post a comment and let me know.' : 'Damnit. No. You will not. Am I correct? Post a comment and let me know.';
 
@@ -67,12 +67,15 @@ export class CommentComponent {
 
       this._httpService.getComments(this.page).subscribe((data: any) => {
         console.log("we got our comments!");
-        console.log(data);
+        let comments: Array<CommentType> = new Array<CommentType>();
+        comments.push(data);
+        this.dataSource = new MatTableDataSource(comments);
         this.dataSource.data = data;
-      });  
+        this.totalItems = data.length;
+      });
     });
   }
-  
+
   ngOnDestroy() {
     this.eventsSubscription.unsubscribe();
   }
@@ -86,7 +89,7 @@ export class CommentComponent {
   }
 
   getDisplayedColumnsAll() {
-    return ['date', 'username', 'comment' ];
+    return ['commentid', 'date', 'username', 'comment'];
   }
 
 
@@ -106,6 +109,11 @@ export class CommentComponent {
     this._httpService.postComment(comment).subscribe((_next: any) => {
       console.log(_next);
       this._snackbar.open("Comment added", "Dismiss");
+      this._httpService.getComments(this.page).subscribe((data: any) => {
+        console.log("we got our comments!");
+        console.log(data);
+        this.dataSource.data = data;
+      })
     });
   }
 

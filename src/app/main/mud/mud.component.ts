@@ -17,11 +17,14 @@ import { MudEvents } from '../../types/mudevents.type';
 import { AiImageComponent } from './ai-image/ai-image.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { HelpModalComponent } from './help-modal/help-modal.component';
+import { Subject } from 'rxjs';
+import { CommentType } from '../../types/comment.type';
 
 @Component({
   selector: 'app-mud',
   standalone: true,
-  imports: [NgClass, NgIf, MatExpansionModule, MatCardModule, CommentComponent, NgIf, MatButton, MatInputModule, MatFormFieldModule, MatLabel, MatError, FormsModule, NgFor, MatIcon],
+  imports: [NgClass, NgIf, MatExpansionModule, MatCardModule, CommentComponent, NgIf, 
+    MatButton, MatInputModule, MatFormFieldModule, MatLabel, MatError, FormsModule, NgFor, MatIcon],
   providers: [UserService],
   templateUrl: './mud.component.html',
   styleUrl: './mud.component.scss',
@@ -48,6 +51,9 @@ export class MudComponent implements OnInit, OnDestroy {
   roomImageAvailable = false;
   miniMap = "";
   isFullscreen = false;
+  page_name = "mud";
+  totalItems = 0;
+  eventsSubject: Subject<CommentType> = new Subject<CommentType>();
 
   constructor(
     public userService: UserService,
@@ -60,6 +66,14 @@ export class MudComponent implements OnInit, OnDestroy {
     this.fullAddress = `wss://${host}:${port}`;
     this.socket = new WebSocket(this.fullAddress);
   }
+
+  sendPageInfoToChild() {
+    let comment = new CommentType();
+    comment.username = this.userService.name;
+    comment.page = this.page_name;
+    this.eventsSubject.next(comment);
+  }
+
   ngOnDestroy(): void {
     this.socket.close();
   }

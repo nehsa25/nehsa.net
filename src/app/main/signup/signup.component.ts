@@ -5,11 +5,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { HttpService } from '../../services/http.service';
 import { AddUserType } from '../../types/adduser.type';
+import { Subject } from 'rxjs';
+import { UserService } from '../../services/user.service';
+import { CommentType } from '../../types/comment.type';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
   imports: [NgIf, FormsModule, MatButtonModule, RecaptchaModule, ReactiveFormsModule],
+  providers: [UserService, HttpService], 
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.scss'
 })
@@ -19,9 +23,13 @@ export class SignupComponent {
   emailControl = new FormControl('');
   usernameControl = new FormControl('');
   passwordControl = new FormControl('');
-  passwordmatchControl = new FormControl('');
+  passwordmatchControl = new FormControl('');    
+  page_name = "signup";
+  totalItems = 0;
+  eventsSubject: Subject<CommentType> = new Subject<CommentType>();
   constructor(
     private fb: FormBuilder,
+    private _userService: UserService,
     public httpClient: HttpService
   ) {
     this.userDetails = this.fb.group({
@@ -31,6 +39,13 @@ export class SignupComponent {
       passwordmatch: this.passwordmatchControl
     }, {});
     this.captcha = "";
+  }
+
+  sendPageInfoToChild() {
+    let comment = new CommentType();
+    comment.username = this._userService.name;
+    comment.page = this.page_name;
+    this.eventsSubject.next(comment);
   }
 
   ngOnInit() {

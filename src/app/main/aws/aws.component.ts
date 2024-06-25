@@ -27,7 +27,9 @@ export class AwsComponent {
 
   eventsSubject: Subject<CommentType> = new Subject<CommentType>();
 
-  ngOnInit() { }
+  ngOnInit() { 
+    this.sendPageInfoToChild();
+  }
 
   sendPageInfoToChild() {
     let comment = new CommentType();

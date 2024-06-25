@@ -15,6 +15,9 @@ import {
   MatSnackBarModule,
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
+import { Subject } from 'rxjs';
+import { UserService } from '../../services/user.service';
+import { CommentType } from '../../types/comment.type';
 
 @Component({
   selector: 'app-user-popup',
@@ -72,6 +75,7 @@ export class UserPopupComponent {
     private _formBuilder: FormBuilder,
     public userDialog: MatDialogRef<UserPopupComponent>,
     private _snackbar: MatSnackBar,
+    private _userService: UserService,
     @Inject(MAT_DIALOG_DATA) public data:
       {
         names: Array<NameAboutType>
@@ -158,5 +162,17 @@ export class UserPopupComponent {
 
   closeDialog() {
     this.userDialog.close('Closing!');
+  }
+  page_name = "user-popup";
+  totalItems = 0;
+  eventsSubject: Subject<CommentType> = new Subject<CommentType>();
+
+  ngOnInit() { }
+
+  sendPageInfoToChild() {
+    let comment = new CommentType();
+    comment.username = this._userService.name;
+    comment.page = this.page_name;
+    this.eventsSubject.next(comment);
   }
 }

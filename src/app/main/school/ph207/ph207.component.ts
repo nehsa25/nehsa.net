@@ -4,6 +4,9 @@ import { CommentComponent } from '../../../shared-components/comment/comment.com
 import { FlashcardsComponent } from '../../../shared-components/flashcards/flashcards.component';
 import { FlashcardsService } from '../../../services/flashcards.service';
 import { Question } from '../../../types/question.type';
+import { Subject } from 'rxjs';
+import { UserService } from '../../../services/user.service';
+import { CommentType } from '../../../types/comment.type';
 
 @Component({
   selector: 'app-ph207',
@@ -15,6 +18,21 @@ import { Question } from '../../../types/question.type';
   providers: [FlashcardsService]
 })
 export class Ph207Component {
-  constructor(public flashcardsService: FlashcardsService) {
+  page_name = "ph207";
+  totalItems = 0;
+  eventsSubject: Subject<CommentType> = new Subject<CommentType>();
+  constructor(
+    private _userService: UserService,
+    public flashcardsService: FlashcardsService) {
+   }
+   
+ 
+   ngOnInit() { }
+ 
+   sendPageInfoToChild() {
+     let comment = new CommentType();
+     comment.username = this._userService.name;
+     comment.page = this.page_name;
+     this.eventsSubject.next(comment);
    }
 }

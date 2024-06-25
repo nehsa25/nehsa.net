@@ -49,16 +49,33 @@ th {
 
 .column-username {
     background-color: lightblue !important;
-    width: 300px;
+    width: 200px;
+}
+
+.column-id {
+    background-color: lemonchiffon !important;
+    color: black;
+    border-radius: 25px 0 0 0;
+    width:100px;
 }
 
 .column-date {
     background-color: lightcoral !important;
-    border-radius: 25px 0 0 0;
-    width: 300px;
+    border-radius: 0 0 0 0;
+    width: 150px;
 }
 
 .column-comment {
     background-color: sandybrown !important;
     border-radius: 0 25px 0 0;
+}
+
+.view-comments {
+    width: 100%;
+}
+
+.view-comments td {
+    width: 10px;
+    border-collapse: collapse;
+    border: 1px solid #333;
 }
