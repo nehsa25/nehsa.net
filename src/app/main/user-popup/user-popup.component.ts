@@ -36,6 +36,7 @@ import { CommentType } from '../../types/comment.type';
     MatIcon,
     MatSnackBarModule
   ],
+  providers: [UserService],
   templateUrl: './user-popup.component.html',
   styleUrl: './user-popup.component.scss'
 })
@@ -162,17 +163,5 @@ export class UserPopupComponent {
 
   closeDialog() {
     this.userDialog.close('Closing!');
-  }
-  page_name = "user-popup";
-  totalItems = 0;
-  eventsSubject: Subject<CommentType> = new Subject<CommentType>();
-
-  ngOnInit() { }
-
-  sendPageInfoToChild() {
-    let comment = new CommentType();
-    comment.username = this._userService.name;
-    comment.page = this.page_name;
-    this.eventsSubject.next(comment);
   }
 }

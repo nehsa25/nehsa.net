@@ -1,19 +1,22 @@
+NAME: {{this.userService.name}}
 <div class="comments">
     <div class="topics grid">
-        <div class="add-comment" *ngIf="addComment == false" (click)="addcomment()">Click to add comment</div>
-        <div *ngIf="addComment == true">
-            <div class="addcommentgrid">
-                <div>
-                    <form [formGroup]="commentform">
-                        <mat-form-field class="comment">
-                            <mat-label>Comments! Enter your comment here!</mat-label>
-                            <textarea [(ngModel)]="commenttext" class="comments-textarea" matInput maxlength="10"
-                                placeholder="What's your comment?" formControlName="comment"></textarea>
-                        </mat-form-field>
-                    </form>
+        <div *ngIf="userService.name != null && userService.name != ''">
+            <div class="add-comment" *ngIf="addComment == false" (click)="addcomment()">Click to add comment</div>
+            <div *ngIf="addComment == true">
+                <div class="addcommentgrid">{{this.userService.name}}
+                    <div>
+                        <form [formGroup]="commentform">
+                            <mat-form-field class="comment">
+                                <mat-label>Comments! Enter your comment here!</mat-label>
+                                <textarea [(ngModel)]="commenttext" class="comments-textarea" matInput maxlength="10"
+                                    placeholder="What's your comment?" formControlName="comment"></textarea>
+                            </mat-form-field>
+                        </form>
+                    </div>
+                    <div class="submit-btn-div"><button mat-button (click)="submit()">Submit</button><button mat-button
+                            (click)="cancel()">Cancel</button></div>
                 </div>
-                <div class="submit-btn-div"><button mat-button (click)="submit()">Submit</button><button mat-button
-                        (click)="cancel()">Cancel</button></div>
             </div>
         </div>
         <div style="border: none;">

@@ -1,5 +1,5 @@
 import { NgIf } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input } from '@angular/core';
 import { FormBuilder, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -10,6 +10,7 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatStepperModule } from '@angular/material/stepper';
 import { CommentType } from '../../types/comment.type';
 import { HttpService } from '../../services/http.service';
+import { UserService } from '../../services/user.service'
 import { Observable, Subscription } from 'rxjs';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -50,15 +51,24 @@ export class CommentComponent {
   dataSource: MatTableDataSource<CommentType> = new MatTableDataSource<CommentType>();
   clicked = false;
   result = "Yes!";
+  users: Observable<UserService> = new Observable<UserService>();
 
   @Input() events: Observable<CommentType> = new Observable<CommentType>();
+  @Input() emitService = new EventEmitter();
   constructor(
+    public userService: UserService,
     private _formBuilder: FormBuilder,
     private _httpService: HttpService,
     private _snackbar: MatSnackBar) { }
 
   ngOnInit() {
-    this.eventsSubscription = this.events.subscribe((y) => {
+    
+    let test = this.users.subscribe((data) => {
+      console.log("test user service!");
+      console.log(data);
+    });
+
+    this.eventsSubscription = this.emitService.subscribe((y) => {
       this.result = Math.random() < 0.5 ? 'Yes! Am I correct? Post a comment and let me know.' : 'Damnit. No. You will not. Am I correct? Post a comment and let me know.';
 
       console.log("we got our event in comment component!");

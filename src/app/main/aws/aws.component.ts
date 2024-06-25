@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { CommentComponent } from '../../shared-components/comment/comment.component';
 import { Subject } from 'rxjs';
@@ -11,7 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
   selector: 'app-aws',
   standalone: true,
   imports: [MatCardModule, CommentComponent, NgIf, MatButtonModule],
-  providers: [UserService],
+  providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './aws.component.html',
   styleUrl: './aws.component.scss'
@@ -22,19 +22,12 @@ export class AwsComponent {
   totalItems = 0;
 
   constructor(
-    private _userService: UserService
+    public userService: UserService
   ) {}
 
-  eventsSubject: Subject<CommentType> = new Subject<CommentType>();
+  @Input() emitService = new EventEmitter();
 
   ngOnInit() { 
-    this.sendPageInfoToChild();
-  }
-
-  sendPageInfoToChild() {
-    let comment = new CommentType();
-    comment.username = this._userService.name;
-    comment.page = this.page_name;
-    this.eventsSubject.next(comment);
+    console.log(this.userService);
   }
 }
