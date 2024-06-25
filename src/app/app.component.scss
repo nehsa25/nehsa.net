@@ -1,4 +1,4 @@
-/* For desktop View - large */
+/* 1400px */
 @media screen and (min-width: 1024px) {
     .gridcols {
         grid-template-columns: min-content auto;
@@ -48,29 +48,41 @@
     }
 }
 
-/* For desktop View - med */
-@media screen and (min-width: 509px) and (max-width: 1023px) {
+/* 1200px */
+@media screen and (min-width: 1200px) and (max-width: 1399) {
     .gridcols {
         grid-template-columns: min-content auto;
     }
 
-    .main {
-        grid-template-rows: min-content min-content min-content min-content 1fr 225px min-content;
-        grid-template-columns: 225px 1fr 225px;
+    .main-expanded {
+        grid-template-rows: auto auto auto 1fr 225px min-content;
+        grid-template-columns: 225px 225px 1fr 225px;
         grid-template-areas:
-            "bread bread user_admin"
-            "dh dh dh"
-            "contactme title title"
-            "navbar body body"
-            "navbar body body"
-            "navbar body body"
-            "footer footer footer";
-        max-width: 1500px;
-        overflow: auto;
+            "bread dh dh user_admin"
+            "navbar title title title"
+            "navbar body body body"
+            "navbar body body body"
+            "navbar body body body"
+            "footer footer footer footer";
+        max-width: 100%;
+        overflow: hidden;
     }
 
-    .user_admin {
-        text-align: right;
+    .main-collapsed {
+        grid-template-rows: min-content min-content min-content min-content 1fr min-content min-content min-content min-content;
+        grid-template-columns: 225px 225px 1fr 225px;
+        grid-template-areas:
+            "bread dh dh user_admin"
+            "bread dh dh user_admin"
+            "navbar title title title"
+            "navbar title title title"
+            "navbar body body body"
+            "contactme body body body"
+            "contactme body body body"
+            "footer footer footer footer"
+            "footer footer footer footer";
+        max-width: 100%;
+        overflow: hidden;
     }
 
     .footer {
@@ -80,58 +92,47 @@
     .dh {
         text-align: right;
     }
-}
 
-/* For desktop View - tiny */
-@media screen and (min-width: 0px) and (max-width: 510px) {
-    .gridcols {
-        grid-template-rows: repeat(8, min-content);
-    }
-
-    .main {
-        grid-template-areas:
-            "title"
-            "bread"
-            "dh"
-            "body"
-            "user_admin"
-            "contactme"
-            "navbar"
-            "footer";
-        grid-template-rows: repeat(8, min-content);
-        width: 480px;
-        overflow: auto;
-    }
-
-    .footer {
-        grid-template-rows: repeat(3, min-content);
-        grid-gap: 1em;
-    }
-
-    .dh {
-        text-align: left;
+    .user_admin {
+        text-align: right;
     }
 }
 
-/* For Tablet View */
-@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+/* 992px */
+@media screen and (min-device-width: 992px) and (max-device-width: 1199px) {
     .gridcols {
         grid-template-columns: min-content auto;
     }
 
-    .main {
-        grid-template-rows: min-content min-content min-content min-content 1fr 225px min-content;
-        grid-template-columns: 225px 1fr 225px;
+    .main-expanded {
+        grid-template-rows: auto auto auto 1fr 225px min-content;
+        grid-template-columns: 225px 225px 1fr 225px;
         grid-template-areas:
-            "bread bread user_admin"
-            "dh dh dh"
-            "spacer title title"
-            "contactme body body"
-            "navbar body body"
-            "navbar body body"
-            "footer footer footer";
-        max-width: 1500px;
-        overflow: auto;
+            "bread dh dh user_admin"
+            "navbar title title title"
+            "navbar body body body"
+            "navbar body body body"
+            "navbar body body body"
+            "footer footer footer footer";
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .main-collapsed {
+        grid-template-rows: min-content min-content min-content min-content 1fr min-content min-content min-content min-content;
+        grid-template-columns: 225px 225px 1fr 225px;
+        grid-template-areas:
+            "bread dh dh user_admin"
+            "bread dh dh user_admin"
+            "navbar title title title"
+            "navbar title title title"
+            "navbar body body body"
+            "contactme body body body"
+            "contactme body body body"
+            "footer footer footer footer"
+            "footer footer footer footer";
+        max-width: 100%;
+        overflow: hidden;
     }
 
     .footer {
@@ -139,81 +140,249 @@
     }
 
     .dh {
-        text-align: left;
-    }
-}
-
-/* For Mobile Portrait View iphone12 pro */
-@media screen and (max-device-width: 390px) and (orientation: portrait) {
-    .gridcols {
-        grid-template-rows: repeat(8, min-content);
-    }
-
-    .main {
-        grid-template-areas:
-            "bread"
-            "user_admin"
-            "title"
-            "navbar"
-            "body"
-            "contactme"
-            "dh"
-            "footer";
-        grid-template-rows: repeat(8, min-content);
-        width: 390px;
-        overflow: auto;
-        padding: 0;
-        margin: 0;
-    }
-
-    .title {
-        text-align: center;
+        text-align: right;
     }
 
     .user_admin {
-        text-align: center;
+        text-align: right;
+    }
+}
+
+/* 768px */
+@media screen and (min-device-width: 768px) and (max-device-width: 991px) {
+    .gridcols {
+        grid-template-columns: min-content auto;
+    }
+
+    .main-expanded {
+        grid-template-rows: auto auto auto 1fr 225px min-content;
+        grid-template-columns: 225px 225px 1fr 225px;
+        grid-template-areas:
+            "bread dh dh user_admin"
+            "navbar title title title"
+            "navbar body body body"
+            "navbar body body body"
+            "navbar body body body"
+            "footer footer footer footer";
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .main-collapsed {
+        grid-template-rows: min-content min-content min-content min-content 1fr min-content min-content min-content min-content;
+        grid-template-columns: 225px 225px 1fr 225px;
+        grid-template-areas:
+            "bread dh dh user_admin"
+            "bread dh dh user_admin"
+            "navbar title title title"
+            "navbar title title title"
+            "navbar body body body"
+            "contactme body body body"
+            "contactme body body body"
+            "footer footer footer footer"
+            "footer footer footer footer";
+        max-width: 100%;
+        overflow: hidden;
     }
 
     .footer {
-        grid-template-rows: repeat(3, min-content);
-        grid-gap: 1em;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .dh {
+        text-align: right;
+    }
+
+    .user_admin {
+        text-align: right;
+    }
+}
+
+/* 576px */
+@media screen and (min-device-width: 576px) and (max-device-width: 768px) {
+    .gridcols {
+        grid-template-columns: min-content auto;
+    }
+
+    .main-expanded {
+        grid-template-rows: auto auto auto 1fr 225px min-content;
+        grid-template-columns: 225px 225px 1fr 225px;
+        grid-template-areas:
+            "bread dh dh user_admin"
+            "navbar title title title"
+            "navbar body body body"
+            "navbar body body body"
+            "navbar body body body"
+            "footer footer footer footer";
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .main-collapsed {
+        grid-template-rows: min-content min-content min-content min-content 1fr min-content min-content min-content min-content;
+        grid-template-columns: 225px 225px 1fr 225px;
+        grid-template-areas:
+            "bread dh dh user_admin"
+            "bread dh dh user_admin"
+            "navbar title title title"
+            "navbar title title title"
+            "navbar body body body"
+            "contactme body body body"
+            "contactme body body body"
+            "footer footer footer footer"
+            "footer footer footer footer";
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .footer {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .dh {
+        text-align: right;
+    }
+
+    .user_admin {
+        text-align: right;
+    }
+}
+
+/* small */
+@media screen and (max-device-width: 575px) {
+    .gridcols {
+        grid-template-columns: min-content auto;
+    }
+
+    .main-expanded {
+        grid-template-rows: repeat(4, min-content) 700px 1fr repeat(3, min-content);
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "bread"
+            "dh"
+            "user_admin"
+            "title"
+            "body"
+            "navbar"
+            "contactmey"
+            "footer";
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .main-collapsed {
+        grid-template-rows: repeat(4, min-content) min-content repeat(3, min-content);
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "bread"
+            "dh"
+            "user_admin"
+            "title"
+            "body"
+            "navbar"
+            "contactmey"
+            "footer";
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .footer {
+        grid-template-columns: 1fr;
     }
 
     .dh {
         text-align: left;
     }
-}
 
-/* For Mobile Landscape View iphone12 pro */
-@media screen and (max-device-width: 844px) and (orientation: landscape) {
-    .gridcols {
-        grid-template-rows: repeat(8, min-content);
-    }
-
-    .main {
-        grid-template-areas:
-            "bread user_admin"
-            "dh dh"
-            "title title"
-            "body body"
-            "contactme contactme"
-            "navbar navbar"
-            "footer footer";
-        grid-template-rows: repeat(7, min-content);
-        grid-template-columns: auto auto;
-        width: 840px;
+    .navbar {
+        height: 200px;
         overflow: auto;
     }
 
-    .footer {
-        grid-template-rows: repeat(3, min-content);
-        grid-gap: 1em;
+    .user_admin {
+        text-align: right;
     }
 
-    .dh {
-        text-align: left;
+    .contactme {
+        text-align: center;
+    }   
+
+    .maintitle {
+        font-size: 1.5rem;
     }
 }
+
+// /* 768px */
+// @media screen and (max-device-width: 390px) and (orientation: portrait) {
+//     .gridcols {
+//         grid-template-rows: repeat(8, min-content);
+//     }
+
+//     .main {
+//         grid-template-areas:
+//             "bread"
+//             "user_admin"
+//             "title"
+//             "navbar"
+//             "body"
+//             "contactme"
+//             "dh"
+//             "footer";
+//         grid-template-rows: repeat(8, min-content);
+//         width: 390px;
+//         overflow: auto;
+//         padding: 0;
+//         margin: 0;
+//     }
+
+//     .title {
+//         text-align: center;
+//     }
+
+//     .user_admin {
+//         text-align: center;
+//     }
+
+//     .footer {
+//         grid-template-rows: repeat(3, min-content);
+//         grid-gap: 1em;
+//     }
+
+//     .dh {
+//         text-align: left;
+//     }
+// }
+
+// /* 576px */, 
+// @media screen and (max-device-width: 844px) and (orientation: landscape) {
+//     .gridcols {
+//         grid-template-rows: repeat(8, min-content);
+//     }
+
+//     .main {
+//         grid-template-areas:
+//             "bread user_admin"
+//             "dh dh"
+//             "title title"
+//             "body body"
+//             "contactme contactme"
+//             "navbar navbar"
+//             "footer footer";
+//         grid-template-rows: repeat(7, min-content);
+//         grid-template-columns: auto auto;
+//         width: 840px;
+//         overflow: auto;
+//     }
+
+//     .footer {
+//         grid-template-rows: repeat(3, min-content);
+//         grid-gap: 1em;
+//     }
+
+//     .dh {
+//         text-align: left;
+//     }
+// }
 
 .main-fullscreen {
     display: grid;
@@ -283,7 +452,7 @@
 
 .user_admin {
     grid-area: user_admin;
-    background-color: #999 !important;
+    background-color: silver !important;
     padding: 2px 10px;
     font-variant: petite-caps;
     font-size: 2rem;
@@ -322,7 +491,6 @@
 
 .maintitle {
     grid-area: maintitle;
-    font-size: 2.5rem;
 }
 
 .subtitle {
