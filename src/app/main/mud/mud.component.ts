@@ -25,7 +25,7 @@ import { CommentType } from '../../types/comment.type';
   standalone: true,
   imports: [NgClass, NgIf, MatExpansionModule, MatCardModule, CommentComponent, NgIf, 
     MatButton, MatInputModule, MatFormFieldModule, MatLabel, MatError, FormsModule, NgFor, MatIcon],
-  providers: [UserService],
+  providers: [],
   templateUrl: './mud.component.html',
   styleUrl: './mud.component.scss',
   encapsulation: ViewEncapsulation.None,
@@ -54,7 +54,7 @@ export class MudComponent implements OnInit, OnDestroy {
   totalItems = 0;
   eventsSubject: Subject<CommentType> = new Subject<CommentType>();  
   private _page_name = "mud";
-  
+
   constructor(
     public userService: UserService,
     public dupeDialog: MatDialog,
