@@ -1,261 +1,10 @@
-/* 1400px */
-@media screen and (min-width: 1024px) {
+@media (min-width: 481px) {
     .gridcols {
-        grid-template-columns: min-content auto;
+        grid-template-columns: min-content 1fr;
     }
 
-    .main-expanded {
-        grid-template-rows: auto auto auto 1fr 225px min-content;
-        grid-template-columns: 225px 225px 1fr 225px;
-        grid-template-areas:
-            "bread dh dh user_admin"
-            "navbar title title title"
-            "navbar body body body"
-            "navbar body body body"
-            "navbar body body body"
-            "footer footer footer footer";
-        max-width: 100%;
-        overflow: hidden;
-    }
-
-    .main-collapsed {
-        grid-template-rows: min-content min-content min-content min-content 1fr min-content min-content min-content min-content;
-        grid-template-columns: 225px 225px 1fr 225px;
-        grid-template-areas:
-            "bread dh dh user_admin"
-            "bread dh dh user_admin"
-            "navbar title title title"
-            "navbar title title title"
-            "navbar body body body"
-            "contactme body body body"
-            "contactme body body body"
-            "footer footer footer footer"
-            "footer footer footer footer";
-        max-width: 100%;
-        overflow: hidden;
-    }
-
-    .footer {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-
-    .dh {
-        text-align: right;
-    }
-
-    .user_admin {
-        text-align: right;
-    }
-}
-
-/* 1200px */
-@media screen and (min-width: 1200px) and (max-width: 1399) {
-    .gridcols {
-        grid-template-columns: min-content auto;
-    }
-
-    .main-expanded {
-        grid-template-rows: auto auto auto 1fr 225px min-content;
-        grid-template-columns: 225px 225px 1fr 225px;
-        grid-template-areas:
-            "bread dh dh user_admin"
-            "navbar title title title"
-            "navbar body body body"
-            "navbar body body body"
-            "navbar body body body"
-            "footer footer footer footer";
-        max-width: 100%;
-        overflow: hidden;
-    }
-
-    .main-collapsed {
-        grid-template-rows: min-content min-content min-content min-content 1fr min-content min-content min-content min-content;
-        grid-template-columns: 225px 225px 1fr 225px;
-        grid-template-areas:
-            "bread dh dh user_admin"
-            "bread dh dh user_admin"
-            "navbar title title title"
-            "navbar title title title"
-            "navbar body body body"
-            "contactme body body body"
-            "contactme body body body"
-            "footer footer footer footer"
-            "footer footer footer footer";
-        max-width: 100%;
-        overflow: hidden;
-    }
-
-    .footer {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-
-    .dh {
-        text-align: right;
-    }
-
-    .user_admin {
-        text-align: right;
-    }
-}
-
-/* 992px */
-@media screen and (min-device-width: 992px) and (max-device-width: 1199px) {
-    .gridcols {
-        grid-template-columns: min-content auto;
-    }
-
-    .main-expanded {
-        grid-template-rows: auto auto auto 1fr 225px min-content;
-        grid-template-columns: 225px 225px 1fr 225px;
-        grid-template-areas:
-            "bread dh dh user_admin"
-            "navbar title title title"
-            "navbar body body body"
-            "navbar body body body"
-            "navbar body body body"
-            "footer footer footer footer";
-        max-width: 100%;
-        overflow: hidden;
-    }
-
-    .main-collapsed {
-        grid-template-rows: min-content min-content min-content min-content 1fr min-content min-content min-content min-content;
-        grid-template-columns: 225px 225px 1fr 225px;
-        grid-template-areas:
-            "bread dh dh user_admin"
-            "bread dh dh user_admin"
-            "navbar title title title"
-            "navbar title title title"
-            "navbar body body body"
-            "contactme body body body"
-            "contactme body body body"
-            "footer footer footer footer"
-            "footer footer footer footer";
-        max-width: 100%;
-        overflow: hidden;
-    }
-
-    .footer {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-
-    .dh {
-        text-align: right;
-    }
-
-    .user_admin {
-        text-align: right;
-    }
-}
-
-/* 768px */
-@media screen and (min-device-width: 768px) and (max-device-width: 991px) {
-    .gridcols {
-        grid-template-columns: min-content auto;
-    }
-
-    .main-expanded {
-        grid-template-rows: auto auto auto 1fr 225px min-content;
-        grid-template-columns: 225px 225px 1fr 225px;
-        grid-template-areas:
-            "bread dh dh user_admin"
-            "navbar title title title"
-            "navbar body body body"
-            "navbar body body body"
-            "navbar body body body"
-            "footer footer footer footer";
-        max-width: 100%;
-        overflow: hidden;
-    }
-
-    .main-collapsed {
-        grid-template-rows: min-content min-content min-content min-content 1fr min-content min-content min-content min-content;
-        grid-template-columns: 225px 225px 1fr 225px;
-        grid-template-areas:
-            "bread dh dh user_admin"
-            "bread dh dh user_admin"
-            "navbar title title title"
-            "navbar title title title"
-            "navbar body body body"
-            "contactme body body body"
-            "contactme body body body"
-            "footer footer footer footer"
-            "footer footer footer footer";
-        max-width: 100%;
-        overflow: hidden;
-    }
-
-    .footer {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-
-    .dh {
-        text-align: right;
-    }
-
-    .user_admin {
-        text-align: right;
-    }
-}
-
-/* 576px */
-@media screen and (min-device-width: 576px) and (max-device-width: 768px) {
-    .gridcols {
-        grid-template-columns: min-content auto;
-    }
-
-    .main-expanded {
-        grid-template-rows: auto auto auto 1fr 225px min-content;
-        grid-template-columns: 225px 225px 1fr 225px;
-        grid-template-areas:
-            "bread dh dh user_admin"
-            "navbar title title title"
-            "navbar body body body"
-            "navbar body body body"
-            "navbar body body body"
-            "footer footer footer footer";
-        max-width: 100%;
-        overflow: hidden;
-    }
-
-    .main-collapsed {
-        grid-template-rows: min-content min-content min-content min-content 1fr min-content min-content min-content min-content;
-        grid-template-columns: 225px 225px 1fr 225px;
-        grid-template-areas:
-            "bread dh dh user_admin"
-            "bread dh dh user_admin"
-            "navbar title title title"
-            "navbar title title title"
-            "navbar body body body"
-            "contactme body body body"
-            "contactme body body body"
-            "footer footer footer footer"
-            "footer footer footer footer";
-        max-width: 100%;
-        overflow: hidden;
-    }
-
-    .footer {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-
-    .dh {
-        text-align: right;
-    }
-
-    .user_admin {
-        text-align: right;
-    }
-}
-
-/* small */
-@media screen and (max-device-width: 575px) {
-    .gridcols {
-        grid-template-columns: min-content auto;
-    }
-
-    .main-expanded {
-        grid-template-rows: repeat(4, min-content) 700px 1fr repeat(3, min-content);
+    .app-main-expanded {
+        grid-template-rows: repeat(8, min-content);
         grid-template-columns: 1fr;
         grid-template-areas:
             "bread"
@@ -264,14 +13,12 @@
             "title"
             "body"
             "navbar"
-            "contactmey"
+            "contactme"
             "footer";
-        max-width: 100%;
-        overflow: hidden;
     }
 
-    .main-collapsed {
-        grid-template-rows: repeat(4, min-content) min-content repeat(3, min-content);
+    .app-main-collapsed {
+        grid-template-rows: repeat(8, min-content);
         grid-template-columns: 1fr;
         grid-template-areas:
             "bread"
@@ -280,10 +27,67 @@
             "title"
             "body"
             "navbar"
-            "contactmey"
+            "contactme"
             "footer";
-        max-width: 100%;
-        overflow: hidden;
+    }
+
+    .footer {
+        grid-template-columns: 1fr;
+    }
+
+    .dh {
+        text-align: left;
+    }
+
+    .navbar {
+        overflow: auto;
+        height: 200px;
+    }
+
+    .user_admin {
+        text-align: right;
+    }
+
+    .contactme {
+        text-align: center;
+    }
+
+    .maintitle {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 576px) {
+    .gridcols {
+        grid-template-columns: min-content 1fr;
+    }
+
+    .app-main-expanded {
+        grid-template-rows: repeat(8, min-content);
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "bread"
+            "dh"
+            "user_admin"
+            "title"
+            "body"
+            "navbar"
+            "contactme"
+            "footer";
+    }
+
+    .app-main-collapsed {
+        grid-template-rows: repeat(8, min-content);
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "bread"
+            "dh"
+            "user_admin"
+            "title"
+            "body"
+            "navbar"
+            "contactme"
+            "footer";
     }
 
     .footer {
@@ -296,7 +100,7 @@
 
     .navbar {
         height: 200px;
-        overflow: auto;
+        overflow: auto;;
     }
 
     .user_admin {
@@ -305,84 +109,188 @@
 
     .contactme {
         text-align: center;
-    }   
+    }
 
     .maintitle {
         font-size: 1.5rem;
     }
 }
 
-// /* 768px */
-// @media screen and (max-device-width: 390px) and (orientation: portrait) {
-//     .gridcols {
-//         grid-template-rows: repeat(8, min-content);
-//     }
+@media (min-width: 768px) {
+    .gridcols {
+        grid-template-columns: min-content 1fr;
+    }
 
-//     .main {
-//         grid-template-areas:
-//             "bread"
-//             "user_admin"
-//             "title"
-//             "navbar"
-//             "body"
-//             "contactme"
-//             "dh"
-//             "footer";
-//         grid-template-rows: repeat(8, min-content);
-//         width: 390px;
-//         overflow: auto;
-//         padding: 0;
-//         margin: 0;
-//     }
+    .app-main-expanded {
+        grid-template-rows: 7vh 21vh 69vh 3vh 3vh;
+        grid-template-columns: 225px 1fr;
+        grid-template-areas:
+            "bread title"
+            "user_admin body"
+            "navbar body"
+            "navbar body"
+            "navbar body"
+            "conactme conactme"
+            "conactme footer";
+    }
 
-//     .title {
-//         text-align: center;
-//     }
+    .app-main-collapsed {
+        grid-template-rows: 7vh 5vh 85vh 3vh 3vh;
+        grid-template-columns: 225px 1fr;
+        grid-template-areas:
+            "bread title"
+            "user_admin body"
+            "navbar body"
+            "navbar body"
+            "navbar body"
+            "conactme conactme"
+            "footer footer";
+    }
 
-//     .user_admin {
-//         text-align: center;
-//     }
+    .footer {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 
-//     .footer {
-//         grid-template-rows: repeat(3, min-content);
-//         grid-gap: 1em;
-//     }
+    .dh {
+        text-align: right;
+    }
 
-//     .dh {
-//         text-align: left;
-//     }
-// }
+    .user_admin {
+        text-align: right;
+    }
 
-// /* 576px */, 
-// @media screen and (max-device-width: 844px) and (orientation: landscape) {
-//     .gridcols {
-//         grid-template-rows: repeat(8, min-content);
-//     }
+    .navbar {
+        height: 100%;
+        overflow: auto;;
+    }
+}
 
-//     .main {
-//         grid-template-areas:
-//             "bread user_admin"
-//             "dh dh"
-//             "title title"
-//             "body body"
-//             "contactme contactme"
-//             "navbar navbar"
-//             "footer footer";
-//         grid-template-rows: repeat(7, min-content);
-//         grid-template-columns: auto auto;
-//         width: 840px;
-//         overflow: auto;
-//     }
+@media (min-width: 992px) {
+    .gridcols {
+        grid-template-columns: min-content 1fr;
+    }
 
-//     .footer {
-//         grid-template-rows: repeat(3, min-content);
-//         grid-gap: 1em;
-//     }
+    .app-main-expanded {
+        grid-template-rows: 6vh 20vh 70vh 4vh;
+        grid-template-columns: 225px 1fr 1fr 225px;
+        grid-template-areas:
+            "bread dh dh user_admin"
+            "navbar title title title"
+            "navbar body body body"
+            "contactme footer footer footer";
+    }
+    .app-main-collapsed {
+        grid-template-rows: 6vh 5vh 85vh 4vh;
+        grid-template-columns: 225px 1fr 1fr 225px;
+        grid-template-areas:
+            "bread dh dh user_admin"
+            "navbar title title title"
+            "navbar body body body"
+            "contactme footer footer footer";
+    }
 
-//     .dh {
-//         text-align: left;
-//     }
-// }
+    .footer {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .dh {
+        text-align: right;
+    }
+
+    .user_admin {
+        text-align: right;
+    }
+
+    .navbar {
+        height: 100%;
+        overflow: auto;;
+    }
+}
+
+@media (min-width: 1200px) {
+    .gridcols {
+        grid-template-columns: min-content 1fr;
+    }
+
+    .app-main-expanded {
+        grid-template-rows: 6vh 20vh 70vh 4vh;
+        grid-template-columns: 225px 1fr 1fr 225px;
+        grid-template-areas:
+            "bread dh dh user_admin"
+            "navbar title title title"
+            "navbar body body body"
+            "contactme footer footer footer";
+    }
+    .app-main-collapsed {
+        grid-template-rows: 6vh 5vh 85vh 4vh;
+        grid-template-columns: 225px 1fr 1fr 225px;
+        grid-template-areas:
+            "bread dh dh user_admin"
+            "navbar title title title"
+            "navbar body body body"
+            "contactme footer footer footer";
+    }
+
+
+    .footer {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .dh {
+        text-align: right;
+    }
+
+    .user_admin {
+        text-align: right;
+    }
+
+    .navbar {
+        height: 100%;
+        overflow: auto;;
+    }
+}
+
+@media (min-width: 1400px) {
+    .gridcols {
+        grid-template-columns: min-content 1fr;
+    }
+
+    .app-main-expanded {
+        grid-template-rows: 6vh 20vh 70vh 4vh;
+        grid-template-columns: 225px 1fr 1fr 225px;
+        grid-template-areas:
+            "bread dh dh user_admin"
+            "navbar title title title"
+            "navbar body body body"
+            "contactme footer footer footer";
+    }
+    .app-main-collapsed {
+        grid-template-rows: 6vh 5vh 85vh 4vh;
+        grid-template-columns: 225px 1fr 1fr 225px;
+        grid-template-areas:
+            "bread dh dh user_admin"
+            "navbar title title title"
+            "navbar body body body"
+            "contactme footer footer footer";
+    }
+
+    .footer {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .dh {
+        text-align: right;
+    }
+
+    .user_admin {
+        text-align: right;
+    }
+
+    .navbar {
+        height: 100%;
+        overflow: auto;;
+    }
+}
 
 .main-fullscreen {
     display: grid;
@@ -431,6 +339,19 @@
     height: 100%;
     grid-gap: 0;
     color: #ff7f5b;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.contactme {
+    grid-area: contactme;
+    background-color: #333;
+    color: #666;
+    padding: 2px 10px;
+    font-variant: petite-caps;
+    font-size: 2rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    place-content: start;
 }
 
 .email {
@@ -438,8 +359,8 @@
     font-family: "Berkshire Swash", serif !important;
     font-weight: 400;
     font-style: normal;
-    color: #666;
-    font-size: 2.5rem !important;
+    color: #444;
+    font-size: 1rem !important;
 }
 
 .bread {
@@ -500,7 +421,6 @@
 
 .navbar {
     grid-area: navbar;
-    margin-top: -2px;
 }
 
 .body {
@@ -508,7 +428,6 @@
     padding: 2px 0.5em;
     align-items: baseline;
     overflow: auto;
-    max-height: 100%;
 }
 
 .footer {
@@ -545,7 +464,7 @@
 .panel-collapsed {
     width: 90%;
     margin: 2px !important;
-    background-color: #333  !important;
+    background-color: #333 !important;
     color: #666 !important;
 }
 

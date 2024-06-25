@@ -1,4 +1,8 @@
-<div class="main" [ngClass]="{'main-fullscreen': fullScreen === true, 'main-expanded' : fullScreen, 'main-collapsed' : !fullScreen}" >
+<div class="main" [ngClass]="{
+'main-fullscreen': fullScreen === true, 
+'app-main-expanded': expandedBio === true, 
+'app-main-collapsed': expandedBio === false
+}">
     <div *ngIf="!fullScreen" class="bread child">
         <div class="root"><a href="/">home></a></div>
         <div>

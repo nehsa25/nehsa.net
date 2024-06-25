@@ -114,17 +114,18 @@ $app-theme: mat.define-dark-theme((color: (primary: $primary,
 
 @include mat.all-component-themes($app-theme);
 
-@media screen and (min-width: 0px) and (max-width: 799px) {
+@media (min-width: 481px) {
     .code {
-        line-height: 30px;
+        line-height: 20lvh;
     }
 }
 
-@media screen and (min-width: 800px) {
+@media (min-width: 992px) {
     .code {
-        line-height: inherit;
+        line-height: 10lvh;
     }
 }
+
 
 html,
 body {
