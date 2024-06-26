@@ -330,47 +330,47 @@
                                     <mat-panel-title>Favicon</mat-panel-title>
                                 </mat-expansion-panel-header>
                                 <ul class="condensed">
-                                    <li>Get your image:
+                                    <li>Get your image:<br><span class="note">(Google Gemini was used to create this
+                                            Australian Cattle Dog)</span>
                                         <div>
                                             <img mat-card-image src="assets/images/dog_favicon.jpg" />
                                         </div>
                                     </li>
-                                    <li>Resize in in 3 sizes:
-                                        <ul class="condensed">
-                                            <li>16x16
-                                                <div>
-                                                    <img style="width: 16px;" mat-card-image
-                                                        src="assets/images/dog_favicon16.png" />
-                                                </div>
-                                            </li>
-                                            <li>32x32
-                                                <div>
-                                                    <img style="width: 32px;" mat-card-image
-                                                        src="assets/images/dog_favicon32.png" />
-                                                </div>
-                                            </li>
-                                            <li>64x64
-                                                <div>
-                                                    <img style="width: 64px;" mat-card-image
-                                                        src="assets/images/dog_favicon64.png" />
-                                                </div>
-                                            </li>
+                                    <li>Take the image to a transparency removal site to create a
+                                        transparent .PNG file
+                                    </li>
+                                    <li>Take that images to an Online FavIcon generator.
+                                        <ul>
+                                            <li>Resize in in 3 sizes:
+                                                <ul class="condensed">
+                                                    <li>16x16
+                                                        <div>
+                                                            <img style="width: 16px;" mat-card-image
+                                                                src="assets/images/dog_favicon16.png" />
+                                                        </div>
+                                                    </li>
+                                                    <li>32x32
+                                                        <div>
+                                                            <img style="width: 32px;" mat-card-image
+                                                                src="assets/images/dog_favicon32.png" />
+                                                        </div>
+                                                    </li>
+                                                    <li>64x64
+                                                        <div>
+                                                            <img style="width: 64px;" mat-card-image
+                                                                src="assets/images/dog_favicon64.png" />
+                                                        </div>
+                                                    </li>
+                                                </ul>
                                         </ul>
                                     </li>
-                                    <li>Take the images to an Online FavIcon generator to embed them into a FavIcon. You
-                                        should end up with several files:
-                                        <ul class="condensed">
-                                            <li>favicon.ico</li>
-                                            <li>favicon-16x16.png</li>
-                                            <li>favicon-32x32.png</li>
-                                        </ul>
-                                    </li>
-                                    <li>Add the link to your css.  In most cases, theses file need to be in the root of the website but Angular needs them in the asset folder:
+                                    <li>Add the link to your css. In most cases, theses file need to be in the root of
+                                        the website but Angular needs them in the asset folder:
                                         <div class="code">
                                             <pre>
-                                                &lt;link rel="icon" type="image/x-icon" sizes="32x32" href="assets/images/favicon-32x32.png"&gt;
-                                                &lt;link rel="icon" type="image/x-icon" sizes="16x16" href="assets/images/favicon-16x16.png"&gt;
-                                                &lt;link rel="icon" type="image/x-icon" sizes="64x64" href="assets/images/favicon.ico"&gt;
+    &lt;link rel="icon" type="image/x-icon" sizes="32x32" href="assets/images/favicon-32x32.png"&gt;
+    &lt;link rel="icon" type="image/x-icon" sizes="16x16" href="assets/images/favicon-16x16.png"&gt;
+    &lt;link rel="icon" type="image/x-icon" sizes="64x64" href="assets/images/favicon.ico"&gt;
                                             </pre>
                                         </div>
                                     </li>
