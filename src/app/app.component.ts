@@ -81,7 +81,7 @@ export class AppComponent implements OnInit, OnDestroy {
       this.userService.name = this.names[0].Name;
       this.userService.about = this.names[0].About
       this.posTerms = next[2];
-      this.getName2ndAttempt();
+      //this.getName2ndAttempt();
     });
 
     this.sleep(5000).then(() => {

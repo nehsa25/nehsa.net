@@ -262,6 +262,18 @@ h6 {
     font-size: 14px;
 }
 
+span.code {
+    background-color: rebeccapurple !important;
+    color: silver;
+    font-family: Consolas;
+    border-radius: 5px;
+    padding: 3px 1em;
+    font-size: 1rem;
+    min-width: 400px;
+    max-width: 90%;
+    line-height: 5lvh !important;
+}
+
 .code {
     background-color: white;
     color: #333;
@@ -273,6 +285,11 @@ h6 {
     max-width: 90%;
 }
 
+.note {
+    color: violet;
+    font-weight: 400;
+    font-size:small;
+}
 
 .code-command {
     background-color: white;
