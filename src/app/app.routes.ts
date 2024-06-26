@@ -42,6 +42,7 @@ import { DotComponent } from './main/dot/dot.component';
 import { AiImageGenerationComponent } from './main/ai-image-generation/ai-image-generation.component';
 import { MysqlComponent } from './main/mysql/mysql.component';
 import { InnoComponent } from './main/inno/inno.component';
+import { WebDesignComponent } from './main/web-design/web-design.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: BioComponent },
@@ -96,6 +97,7 @@ export const routes: Routes = [
     { path: 'aiimage', title: 'nehsa.net | AI Image Generation', component: AiImageGenerationComponent },
     { path: 'inno', title: 'nehsa.net |Inno Setup', component: InnoComponent },
     { path: 'mysql', title: 'nehsa.net | mysql', component: MysqlComponent },
+    { path: 'webdesign', title: 'nehsa.net | Web Design', component: WebDesignComponent },
     { path: '', title: 'nehsa.net | Home', redirectTo: '/', pathMatch: 'full' },
     { path: '**', component: BioComponent },
 ];

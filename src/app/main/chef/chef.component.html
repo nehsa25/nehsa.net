@@ -13,7 +13,7 @@
                 <div class="topics">
                     <div>
                         <h3>Important Commands</h3>
-                        <ul>
+                        <ul class="condensed">
                             <li><span class="code">knife cookbook upload &lt;cookbook&gt;</span> - Upload cookbook to
                                 the
                                 server</li>
@@ -23,7 +23,7 @@
                     </div>
                     <div>
                         <h3>Important Paths</h3>
-                        <ul>
+                        <ul class="condensed">
                             <li><span class="code">C:\Users\&lt;you&gt;\.chef</span> - Contains configuration (knife.rb,
                                 pem
                                 files, trusted certs)</li>
@@ -34,7 +34,7 @@
                         <h3>Cookbook Hierarchy</h3>
                         I've found good success in the following setup. Relationships can be defined via the <span
                             class="file">metadata.rb</span> file via "depends."
-                        <ul>
+                        <ul class="condensed">
                             <li>'website' cookbook depends on 'test'</li>
                             <li>'test' depends on 'app'</li>
                             <li>'app' depends on 'installs'</li>
@@ -42,11 +42,18 @@
                             <li>'lab' depends on 'chocolatey' and 'slack-handler'</li>
                         </ul>
                         <dl>
-                            <dt>website</dt><dd>Builds the website that arounds configuration and insight into Lab activities every 5 minutes</dd>
-                            <dt>test</dt><dd>Understands how to configure machines and execute tests (Pytest, Playwright, cunit, nunit, etc)</dd>
-                            <dt>app</dt><dd>Everything about the application under test</dd>
-                            <dt>installs</dt><dd>Every dependencies.  For example, installing Notepad++, or Wireshark</dd>
-                            <dt>lab</dt><dd>Anything machine or OS-specific</dd>
+                            <dt>website</dt>
+                            <dd>Builds the website that arounds configuration and insight into Lab activities every 5
+                                minutes</dd>
+                            <dt>test</dt>
+                            <dd>Understands how to configure machines and execute tests (Pytest, Playwright, cunit,
+                                nunit, etc)</dd>
+                            <dt>app</dt>
+                            <dd>Everything about the application under test</dd>
+                            <dt>installs</dt>
+                            <dd>Every dependencies. For example, installing Notepad++, or Wireshark</dd>
+                            <dt>lab</dt>
+                            <dd>Anything machine or OS-specific</dd>
                         </dl>
                     </div>
                     <div>
@@ -54,7 +61,7 @@
                             <mat-expansion-panel-header>
                                 <mat-panel-title>Sending messages to Slack</mat-panel-title>
                             </mat-expansion-panel-header>
-                            <ul>
+                            <ul class="condensed">
                                 <li>
                                     Slack Handler (recipes\slack_handler.rb)
                                     <div class="code">
@@ -252,11 +259,11 @@
                             was trying to use the attribute feature and they
                             were inconsistently being saved). For this reason, I went down this path and it's
                             worked great...
-                            <ul>
+                            <ul class="condensed">
                                 <li>Build UI that saves JSON to a shared location. I actually use Chef itself to build
                                     the website using knife commands to gather key information. e.g. <span
                                         class="code">knife recipe list</span>
-                                    <ul>
+                                    <ul class="condensed">
                                         <li>Recipes can be dragged from left<mat-icon>arrow_forward</mat-icon>right to
                                             configure how a machine should run<br>
                                             <img width="600" mat-card-image src="assets/images/lab_config1.png"
@@ -827,10 +834,11 @@
                         <mat-expansion-panel>
                             <mat-expansion-panel-header>
                                 <mat-panel-title>Gather custom data via OHAI</mat-panel-title>
-                                <mat-panel-subtitle>Chef runs a utility called OHAI to gather system information required for it to run.  We can also use this same service to gather other information</mat-panel-subtitle>
                             </mat-expansion-panel-header>
-                            I run OHAI separate via a custom Python desktop tray application to prevent slowing down Chef runs.
-                            <ul>
+                            Chef runs a utility called OHAI to gather system information required for it to run. We can
+                            also use this same service to gather other information. I run OHAI separate via a custom
+                            Python desktop tray application to prevent slowing down Chef runs.
+                            <ul class="condensed">
                                 <li>
                                     <span class="file">chef_ohai.rb</span>
                                     <div class="code">
