@@ -90,7 +90,7 @@
                                     </mat-expansion-panel-header>
                                     <h3>Table select-columns feature: Alter visiblity, stick/freeze columns, change order
                                     </h3>
-                                    <ul>
+                                     <ul class="condensed">
                                         <li>Todo: Add the example of where I did this!
                                         </li>
                                     </ul>
@@ -103,7 +103,7 @@
                                         <mat-panel-description>                                        
                                         </mat-panel-description>
                                     </mat-expansion-panel-header>   
-                                    <ul>
+                                     <ul class="condensed">
                                         <li>Add a type for the event transmission (e.g. SplashMessage in a new file
                                             <span class=file>splash-message.ts</span>)
                                             <div class="code">
@@ -178,10 +178,10 @@
                                         <mat-panel-description>Implement a reCAPTCHA Checkbox <img src="assets/images/recaptcha.png" alt="reCAPTCHA" />                                   
                                         </mat-panel-description>
                                     </mat-expansion-panel-header>  
-                                    <ul>
+                                     <ul class="condensed">
                                         <li>Sign up for a Recapcha account at https://www.google.com/recaptcha/about/</li>
                                         <li>Create new project
-                                            <ul>
+                                             <ul class="condensed">
                                                 <li>Check the "Use a checkbox" option</li>
                                                 <li>Save your key information</li>
                                             </ul>
@@ -219,318 +219,6 @@
                                         <h3>If all went well:</h3>
                                         <img src="assets/images/recaptcha.png" alt="reCAPTCHA" />
                                     </div>               
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Responsive Design</mat-panel-title>
-                                    </mat-expansion-panel-header> 
-                                    <ul>
-                                        <li>I use the following media queries.  It's important to start small and work up as they cancel each other out..
-                                            <ul>
-                                                <li>
-                                                    <div class="code">
-                                                        <pre>
-    &#64;media (min-width: 481px) &#123;
-        .gridcols &#123;
-            grid-template-columns: min-content 1fr;
-        &#125;
-    
-        .app-main-expanded &#123;
-            grid-template-rows: repeat(8, min-content);
-            grid-template-columns: 1fr;
-            grid-template-areas:
-                "bread"
-                "dh"
-                "user_admin"
-                "title"
-                "body"
-                "navbar"
-                "contactme"
-                "footer";
-        &#125;
-    
-        .app-main-collapsed &#123;
-            grid-template-rows: repeat(8, min-content);
-            grid-template-columns: 1fr;
-            grid-template-areas:
-                "bread"
-                "dh"
-                "user_admin"
-                "title"
-                "body"
-                "navbar"
-                "contactme"
-                "footer";
-        &#125;
-    
-        .footer &#123;
-            grid-template-columns: 1fr;
-        &#125;
-    
-        .dh &#123;
-            text-align: left;
-        &#125;
-    
-        .navbar &#123;
-            overflow: auto;
-            height: 200px;
-        &#125;
-    
-        .user_admin &#123;
-            text-align: right;
-        &#125;
-    
-        .contactme &#123;
-            text-align: center;
-        &#125;
-    
-        .maintitle &#123;
-            font-size: 1.5rem;
-        &#125;
-    &#125;
-    
-    &#64;media (min-width: 576px) &#123;
-        .gridcols &#123;
-            grid-template-columns: min-content 1fr;
-        &#125;
-    
-        .app-main-expanded &#123;
-            grid-template-rows: repeat(8, min-content);
-            grid-template-columns: 1fr;
-            grid-template-areas:
-                "bread"
-                "dh"
-                "user_admin"
-                "title"
-                "body"
-                "navbar"
-                "contactme"
-                "footer";
-        &#125;
-    
-        .app-main-collapsed &#123;
-            grid-template-rows: repeat(8, min-content);
-            grid-template-columns: 1fr;
-            grid-template-areas:
-                "bread"
-                "dh"
-                "user_admin"
-                "title"
-                "body"
-                "navbar"
-                "contactme"
-                "footer";
-        &#125;
-    
-        .footer &#123;
-            grid-template-columns: 1fr;
-        &#125;
-    
-        .dh &#123;
-            text-align: left;
-        &#125;
-    
-        .navbar &#123;
-            height: 200px;
-            overflow: auto;;
-        &#125;
-    
-        .user_admin &#123;
-            text-align: right;
-        &#125;
-    
-        .contactme &#123;
-            text-align: center;
-        &#125;
-    
-        .maintitle &#123;
-            font-size: 1.5rem;
-        &#125;
-    &#125;
-    
-    &#64;media (min-width: 768px) &#123;
-        .gridcols &#123;
-            grid-template-columns: min-content 1fr;
-        &#125;
-    
-        .app-main-expanded &#123;
-            grid-template-rows: 7vh 21vh 69vh 6vh;
-            grid-template-columns: 225px 1fr;
-            grid-template-areas:
-                "bread title"
-                "user_admin body"
-                "navbar body"
-                "navbar body"
-                "navbar body"
-                "footer footer";
-        &#125;
-    
-        .app-main-collapsed &#123;
-            grid-template-rows: 7vh 5vh 85vh 3vh;
-            grid-template-columns: 225px 1fr;
-            grid-template-areas:
-                "bread title"
-                "user_admin body"
-                "navbar body"
-                "navbar body"
-                "navbar body"
-                "footer footer";
-        &#125;
-    
-        .footer &#123;
-            grid-template-columns: 1fr 1fr 1fr;
-        &#125;
-    
-        .dh &#123;
-            text-align: right;
-        &#125;
-    
-        .user_admin &#123;
-            text-align: right;
-        &#125;
-    
-        .navbar &#123;
-            height: 100%;
-            overflow: auto;;
-        &#125;
-    &#125;
-    
-    &#64;media (min-width: 992px) &#123;
-        .gridcols &#123;
-            grid-template-columns: min-content 1fr;
-        &#125;
-    
-        .app-main-expanded &#123;
-            grid-template-rows: 6vh 20vh 70vh 4vh;
-            grid-template-columns: 225px 1fr 1fr 225px;
-            grid-template-areas:
-                "bread dh dh user_admin"
-                "navbar title title title"
-                "navbar body body body"
-                "footer footer footer footer";
-        &#125;
-        .app-main-collapsed &#123;
-            grid-template-rows: 6vh 5vh 85vh 4vh;
-            grid-template-columns: 225px 1fr 1fr 225px;
-            grid-template-areas:
-                "bread dh dh user_admin"
-                "navbar title title title"
-                "navbar body body body"
-                "footer footer footer footer";
-        &#125;
-    
-        .footer &#123;
-            grid-template-columns: 1fr 1fr 1fr;
-        &#125;
-    
-        .dh &#123;
-            text-align: right;
-        &#125;
-    
-        .user_admin &#123;
-            text-align: right;
-        &#125;
-    
-        .navbar &#123;
-            height: 100%;
-            overflow: auto;;
-        &#125;
-    &#125;
-    
-    &#64;media (min-width: 1200px) &#123;
-        .gridcols &#123;
-            grid-template-columns: min-content 1fr;
-        &#125;
-    
-        .app-main-expanded &#123;
-            grid-template-rows: 6vh 20vh 70vh 4vh;
-            grid-template-columns: 225px 1fr 1fr 225px;
-            grid-template-areas:
-                "bread dh dh user_admin"
-                "navbar title title title"
-                "navbar body body body"
-                "footer footer footer footer";
-        &#125;
-        .app-main-collapsed &#123;
-            grid-template-rows: 6vh 5vh 85vh 4vh;
-            grid-template-columns: 225px 1fr 1fr 225px;
-            grid-template-areas:
-                "bread dh dh user_admin"
-                "navbar title title title"
-                "navbar body body body"
-                "footer footer footer footer";
-        &#125;
-    
-    
-        .footer &#123;
-            grid-template-columns: 1fr 1fr 1fr;
-        &#125;
-    
-        .dh &#123;
-            text-align: right;
-        &#125;
-    
-        .user_admin &#123;
-            text-align: right;
-        &#125;
-    
-        .navbar &#123;
-            height: 100%;
-            overflow: auto;;
-        &#125;
-    &#125;
-    
-    &#64;media (min-width: 1400px) &#123;
-        .gridcols &#123;
-            grid-template-columns: min-content 1fr;
-        &#125;
-    
-        .app-main-expanded &#123;
-            grid-template-rows: 6vh 20vh 70vh 4vh;
-            grid-template-columns: 225px 1fr 1fr 225px;
-            grid-template-areas:
-                "bread dh dh user_admin"
-                "navbar title title title"
-                "navbar body body body"
-                "footer footer footer footer";
-        &#125;
-        .app-main-collapsed &#123;
-            grid-template-rows: 6vh 5vh 85vh 4vh;
-            grid-template-columns: 225px 1fr 1fr 225px;
-            grid-template-areas:
-                "bread dh dh user_admin"
-                "navbar title title title"
-                "navbar body body body"
-                "footer footer footer footer";
-        &#125;
-    
-        .footer &#123;
-            grid-template-columns: 1fr 1fr 1fr;
-        &#125;
-    
-        .dh &#123;
-            text-align: right;
-        &#125;
-    
-        .user_admin &#123;
-            text-align: right;
-        &#125;
-    
-        .navbar &#123;
-            height: 100%;
-            overflow: auto;;
-        &#125;
-    &#125;
-                                                        </pre>
-                                                    </div>
-
-                                                    
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
                                 </mat-expansion-panel>
                             </li>
                             <li>
@@ -613,7 +301,7 @@
                     </div>
                     <div>
                         <h3>Tips!</h3>
-                        <ul>
+                         <ul class="condensed">
                             <li>
                                 <mat-expansion-panel>
                                     <mat-expansion-panel-header>
@@ -621,7 +309,7 @@
                                         <mat-panel-description>                                        
                                         </mat-panel-description>
                                     </mat-expansion-panel-header>  
-                                    <ul>
+                                     <ul class="condensed">
                                         <li>HTML
                                             <div class="code">
                                                 <pre>
@@ -667,7 +355,7 @@
                                 <h3>Form stuff:</h3>
                                 <div>
                                     <h3>Selections</h3>
-                                    <ul>
+                                     <ul class="condensed">
                                         <li>HTML
                                             <div class="code">
                                                 <pre>
@@ -692,7 +380,7 @@
                                     <ol>
                                         <li>Go to <a href="http://mcg.mbitson.com/">Material Design Pallette
                                                 Generate</a>
-                                            <ul>
+                                             <ul class="condensed">
                                                 <li>Generate 3 schemes: primary, accent, warn</li>
                                                 <li>Select Copy Code</li>
                                                 <li>Add them to style.scss:
@@ -820,7 +508,7 @@
                                 <h3>Sending/Receiving HTTP Data</h3>
                                 <div>
                                     I typically structure my projects like this:
-                                    <ul>
+                                     <ul class="condensed">
                                         <li>HTTP Service (<span class=file>app/services/http.service.ts</span>)
                                             <div class="code">
                                                 <span class="comment">/** Returns the quote */</span>
@@ -864,7 +552,7 @@
                                             </div>
                                         </li>
                                         <li>Component
-                                            <ul>
+                                             <ul class="condensed">
                                                 <li><span class=file>component.ts</span>
                                                     <div class="code">
                                                         <pre>
@@ -933,7 +621,7 @@
                             </li>
                             <li>
                                 Passing data between components in Angular is easy:
-                                <ul>
+                                 <ul class="condensed">
                                     <li>Create two components:
                                         <div class="code">
                                             <pre>
@@ -954,7 +642,7 @@
 
                     <div>
                         <h3>Important Files</h3>
-                        <ul>
+                         <ul class="condensed">
                             <li>angular.json - Application settings.</li>
                             <li>packages.json - NPM packages to install for application.</li>
                         </ul>
@@ -962,7 +650,7 @@
 
                     <div>
                         <h3>Useful Commands</h3>
-                        <ul>
+                         <ul class="condensed">
                             <li><span class="code">npm install</span> - Install all files necessary to run the Angular
                                 project.</li>
                             <li><span class="code">ng serve -o</span> - Runs app locally. The -o opens it in your
@@ -978,7 +666,7 @@
 
                     <div>
                         <h3>Useful Links</h3>
-                        <ul>
+                         <ul class="condensed">
                             <li>Angular - https://angular.io/</li>
                             <li>Material - https://material.angular.io/</li>
                             <li>Fonts - https://fonts.google.com/icons</li>

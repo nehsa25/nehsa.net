@@ -115,17 +115,40 @@ $app-theme: mat.define-dark-theme((color: (primary: $primary,
 @include mat.all-component-themes($app-theme);
 
 @media (min-width: 481px) {
-    .code {
-        line-height: 20lvh;
+    body {
+        line-height: 3lvh;
+    }
+}
+
+@media (min-width: 576px) {
+    body {
+        line-height: 3lvh;
+    }
+}
+
+@media (min-width: 768px) {
+    body {
+        line-height: 3lvh;
     }
 }
 
 @media (min-width: 992px) {
-    .code {
-        line-height: 10lvh;
+    body {
+        line-height: 2lvh;
     }
 }
 
+@media (min-width: 1200px) {
+    body {
+        line-height: 2lvh;
+    }
+}
+
+@media (min-width: 1400px) {
+    body {
+        line-height: 2lvh;
+    }
+}
 
 html,
 body {
@@ -165,8 +188,8 @@ li {
 li:hover {
     background-color: #333 !important;
     color: white;
-    -webkit-text-stroke-width: .5px;
-    -webkit-text-stroke-color: #666;
+    -webkit-text-stroke-width: .2px;
+    -webkit-text-stroke-color: hotpink;
     border-radius: 10px;
 }
 

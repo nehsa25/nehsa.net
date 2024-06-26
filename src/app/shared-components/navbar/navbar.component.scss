@@ -1,33 +1,25 @@
-@media screen and (min-width: 0px) and (max-width: 510px) {
-    .navbar-links {
-        display: grid;
-        grid-template-columns: min-content min-content;
-        grid-template-rows: min-content;
-        max-height: 250px;
-        overflow-y: visible;
-        width: 100%;
-        justify-content: center;
-        padding: 1em 0;
-    }
+@media (min-width: 481px) {
+
 }
 
-@media screen and (min-width: 511px) and (max-width: 1499px) {
-    .navbar-links {
-        display: grid;
-        grid-template-columns: auto;
-        padding: 1em 0;
-        grid-template-rows: min-content;
-    }
+@media (min-width: 576px) {
+
 }
 
+@media (min-width: 768px) {
 
-@media screen and (min-width: 1500px) {
-    .navbar-links {
-        display: grid;
-        grid-template-columns: auto;
-        grid-template-rows: min-content;
-        padding: 0;
-    }
+}
+
+@media (min-width: 992px) {
+
+}
+
+@media (min-width: 1200px) {
+
+}
+
+@media (min-width: 1400px) {
+
 }
 
 .navbar {
@@ -41,15 +33,12 @@
 
 .navbar-links li {
     text-align: center;
-    padding: 10px;
 }
 
-.featured-navbar-links li:hover {
-    background-color: orangered !important;
-    border: 1px solid #ff7f5b;
-    border-radius: 0 !important;
-    cursor: pointer;
+ul {
+    padding: 0px;
 }
+
 
 .norm-navbar-links li:hover {
     background-color: plum !important;
@@ -67,8 +56,17 @@
 
 .featured {
     font-size: 1.5rem;
-    padding: 1em;
-    margin: 1em;
-    border-radius: 5px;
-    border: 1px solid #ff7f5b;
+    padding: 7px 1em;
+    border-top: 1px solid #ff7f5b;
+    border-bottom: 1px solid #ff7f5b;
+    margin: .5em auto 2em auto;
 }
+
+.featured-navbar-links li:hover {
+    border-top: 1px solid #ff7f5b;
+    border-bottom: 1px solid #ff7f5b;
+    border-radius: 0 !important;
+    cursor: pointer;
+    background-color: whitesmoke !important;
+}
+
