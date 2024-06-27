@@ -3,11 +3,12 @@ import { MatCardModule } from '@angular/material/card';
 import { CommentComponent } from '../../shared-components/comment/comment.component';
 import { UserService } from '../../services/user.service';
 import { MatIcon } from '@angular/material/icon';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @Component({
   selector: 'app-css',
   standalone: true,
-  imports: [MatCardModule, CommentComponent, MatIcon],
+  imports: [MatCardModule, CommentComponent, MatIcon, MatExpansionModule],
   providers: [UserService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './css.component.html',

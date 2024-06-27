@@ -9,10 +9,49 @@
             <div class="commentgrid">
                 <div class="topics">
                     <div>
-                        <h3>Things to remember..</h3>
                         <ul>
                             <li>svh <mat-icon>arrow_forward_ios</mat-icon> vh</li>
-                            <li>If you wish to affect all elements that have a certain class (e.g. all span elements that have the class "code"):
+                            <li>rem for fonts, em for divs/containers</li>
+                            <li>Ways to center objects under different circumstances:
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Veritical align using auto margin: auto 0;</mat-panel-title>
+                                        <mat-panel-description>If the child we wish to move is inside a div that is using flex or grid, we can usually use an auto margin.
+                                        </mat-panel-description>
+                                    </mat-expansion-panel-header>
+                                    <span class="example">E.g.</span>
+                                    <div class="code">
+
+                                        <div class="example-grid">
+                                            <div>Parent of type <span class="important">display: grid;</span></div>
+                                            <div style="background-color: orchid; width: 25px; height: 25px;">&nbsp;</div>
+                                            <div>
+                                                <div class="code">
+                                                    <pre>
+    &lt;div style="display: grid; background-color: orchid; width: 100px; height: 100px;"&gt;
+        &lt;div style="background-color: red; width: 25px; height: 25px; margin: auto 0;"&gt;
+            &amp;nbsp;
+        &lt;/div&gt;
+    &lt;/div&gt;
+                                                    </pre>
+                                                </div>
+                                            </div>
+                                            
+                                            <div>Child we wish to center:</div>
+                                            <div style="background-color: red; width: 25px; height: 25px;">&nbsp;</div>
+                                            <div>
+
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div style="display: grid; background-color: orchid; width: 100px; height: 100px;">
+                                            <div style="background-color: red; width: 25px; height: 25px; margin: auto 0;"></div>
+                                        </div>
+                                    </div>
+                                </mat-expansion-panel>
+                            </li>
+                            <li>If you wish to affect all elements that have a certain class (e.g. all span elements
+                                that have the class "code"):
                                 <div class="code">
                                     <pre>
     span.code &#123;
@@ -65,15 +104,6 @@
                                     </div>
                                 </div>
                             </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>Important Paths</h3>
-                        <ul>
-                            <li><span class="code">C:\Users\&lt;you&gt;\.chef</span> - Contains configuration (knife.rb,
-                                pem
-                                files, trusted certs)</li>
-                            <li><span class="code">C:\Chef</span> - Chef-client configuration and logs</li>
                         </ul>
                     </div>
                 </div>
