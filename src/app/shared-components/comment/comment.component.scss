@@ -79,3 +79,13 @@ th {
     border-collapse: collapse;
     border: 1px solid var(--theme-border-color);
 }
+
+.comment-light {
+    background-color: white !important;
+    border: none;
+}
+
+.comment-dark {
+    background-color: bisque !important;
+    border: none;
+}

@@ -462,6 +462,14 @@ div.code:hover {
     font-weight: 700;
 }
 
+.card-light {
+    background-color: white !important;
+}
+
+.card-dark {
+    background-color: bisque !important;
+}
+
 .mat-mdc-card-header {
     padding: 0px;
     padding-left: 25px;
@@ -494,7 +502,7 @@ div.code:hover {
 
 .commentgrid {
     display: grid;
-    grid-template-rows: 1fr min-content;
+    grid-template-rows: 1fr 1fr;
     grid-gap: 1em;
 }
 
