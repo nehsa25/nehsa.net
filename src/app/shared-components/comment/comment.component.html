@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-        <div  [class.comment-dark]="userService.appIsDark()" [class.comment-light]="!userService.appIsDark()">
+        <div [class.comment-dark]="userService.appIsDark()" [class.comment-light]="!userService.appIsDark()">
             <div>
                 <table class="view-comments" [class.comment-dark]="userService.appIsDark()" [class.comment-light]="!userService.appIsDark()" mat-table density="-4" [dataSource]="dataSource" matSort #table>
                     <ng-container matColumnDef="commentid">

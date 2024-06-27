@@ -1,5 +1,5 @@
 <div class="black-theme navbar">
-  <ul class="navbar-links featured-navbar-links">
+  <ul class="navbar-links featured-navbar-links" [class.featured-navbar-links-dark]="userService.appIsDark()" [class.featured-navbar-links-light]="!userService.appIsDark()">
     <li class="featured bungee-spice-regular" routerLink="/mud">NehsaMUD</li>
   </ul>
   <ul class="navbar-links norm-navbar-links">

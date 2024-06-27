@@ -67,6 +67,15 @@ ul {
     border-bottom: 1px solid greenyellow;
     border-radius: 0 !important;
     cursor: pointer;
+}
+
+.featured-navbar-links-dark li:hover {
     background-color: whitesmoke !important;
 }
+
+.featured-navbar-links-light li:hover {
+    background-color: orangered !important;
+}
+
+
 
