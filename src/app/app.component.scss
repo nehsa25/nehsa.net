@@ -141,7 +141,7 @@
     }
 
     .app-main-collapsed {
-        grid-template-rows: 10svh 5svh 5svh 70svh 5svh 5svh;
+        grid-template-rows: 10svh 7svh 5svh 68svh 5svh 5svh;
         grid-template-columns: 225px 1fr;
         grid-template-areas:
             "bread title"
@@ -187,7 +187,7 @@
     }
 
     .app-main-collapsed {
-        grid-template-rows: 8svh 5svh 84svh 3svh;
+        grid-template-rows: 7svh 6svh 84svh 3svh;
         grid-template-columns: 225px 100px 1fr 1fr 100px 225px;
         grid-template-areas:
             "bread bread dh dh dh user_admin"
@@ -231,7 +231,7 @@
     }
 
     .app-main-collapsed {
-        grid-template-rows: 8svh 5svh 84svh 3svh;
+        grid-template-rows: 7svh 6svh 84svh 3svh;
         grid-template-columns: 225px 100px 1fr 1fr 100px 225px;
         grid-template-areas:
             "bread bread dh dh dh user_admin"
@@ -275,7 +275,7 @@
     }
 
     .app-main-collapsed {
-        grid-template-rows: 7svh 5svh 85svh 3svh;
+        grid-template-rows: 7svh 6svh 84svh 3svh;
         grid-template-columns: 225px 100px 1fr 1fr 100px 225px;
         grid-template-areas:
             "bread bread dh dh dh user_admin"

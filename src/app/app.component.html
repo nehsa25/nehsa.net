@@ -1,7 +1,9 @@
 <div class="main" [ngClass]="{
 'main-fullscreen': fullScreen === true, 
 'app-main-expanded': expandedBio === true, 
-'app-main-collapsed': expandedBio === false
+'app-main-collapsed': expandedBio === false,
+'vampire': userService.appIsDark() === true,
+'angel': userService.appIsDark() === false,
 }">
     <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen"
         class="bread child">
