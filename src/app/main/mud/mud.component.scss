@@ -183,9 +183,9 @@ td {
 .info-message {
   color: #999;
 }
-
+// royalblue
 .rest-message {
-  color: royalblue;
+  color: bisque;
 }
 
 .input-message {
@@ -303,6 +303,37 @@ td {
   background-color: springgreen;
   border: 1px solid var(--theme-border-color);
 }
+
+.map-selected {
+  background-color: springgreen !important;
+  color: black !important;
+}
+
+.map-deselected {
+  background-color: silver !important;
+  color: black !important;
+}
+
+.help-selected {
+  background-color: springgreen !important;
+  color: black !important;
+}
+
+.help-deselected {
+  background-color: silver !important;
+  color: black !important;
+}
+
+.rest-selected {
+  background-color: springgreen !important;
+  color: black !important;
+}
+
+.rest-deselected {
+  background-color: silver !important;
+  color: black !important;
+}
+
 
 .action:not(:first-child) {
   margin-left: 5px;

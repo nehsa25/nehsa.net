@@ -52,6 +52,9 @@ export class MudComponent implements OnInit, OnDestroy {
   miniMap = "";
   isFullscreen = false;
   totalItems = 0;
+  mapSelected = false;
+  helpSelected = false;
+  restSelected = false;
   eventsSubject: Subject<CommentType> = new Subject<CommentType>();  
   private _page_name = "mud";
 
@@ -133,10 +136,12 @@ export class MudComponent implements OnInit, OnDestroy {
   }
 
   startRest() {
+    this.restSelected = true;
     this.sendCommand("rest");
   }
 
   getHelp() {
+    this.helpSelected = !this.helpSelected;
     this.sendCommand("help");
   }
 
@@ -200,6 +205,7 @@ export class MudComponent implements OnInit, OnDestroy {
   }
 
   launchMap() {
+    this.mapSelected = !this.mapSelected;
     const dialogRef = this.mapDialog.open(MapComponent, {
       data: {
         map_name: this.mapImageName
@@ -220,6 +226,7 @@ export class MudComponent implements OnInit, OnDestroy {
       // this.socket.send(resp);
     });
     dialogRef.afterClosed().subscribe(result => {
+      this.mapSelected = false;
       this.mapImageAvailable = true;
     });
   }
@@ -257,6 +264,14 @@ export class MudComponent implements OnInit, OnDestroy {
       message = message.replace(PreventDupeExpression, r => "<span class=\"color-" + replaceValue + "\">" + r + "</span>");
     });
     return message;
+  }
+
+  playerBoolean(val: boolean) {
+    if (val) {
+      return "Aye";
+    } else {
+      return "Nay";
+    }
   }
 
   processEvent(data: MudEvent) {
@@ -393,6 +408,13 @@ export class MudComponent implements OnInit, OnDestroy {
         break;
       case MudEvents.REST:
         if (data.message != "") {
+          if (data.is_resting) {
+            this.resting = true;
+            this.restSelected = true;
+          } else {
+            this.resting = false;
+            this.restSelected = false;
+          }
           this.mudEvents += "<br><span class=\"rest-message\">" + data.message + "</span>";
         }
         this.resting = data.is_resting

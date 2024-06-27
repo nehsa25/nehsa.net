@@ -46,7 +46,7 @@
                             <tr>
                                 <td>Statuses</td>
                                 <td style="width: 50%;">Resting</td>
-                                <td style="width: 50%;"><span [innerHTML]="this.resting"></span></td>
+                                <td style="width: 50%;"><span [innerHTML]="playerBoolean(this.resting)"></span></td>
                             </tr>
                             <tr>
                                 <td id="inv" colspan="3">Inventory<br>
@@ -60,12 +60,14 @@
                             <tr>
                                 <td>actions</td>
                                 <td colspan="2">
-                                    <button class="action" *ngIf="this.mapImageAvailable === true"
-                                        (click)="launchMap()"><mat-icon>map</mat-icon></button>
-                                    <button class="action" *ngIf="this.mapImageAvailable === true"
-                                        (click)="startRest()"><mat-icon>favorite</mat-icon></button>
-                                    <button class="action" *ngIf="this.mapImageAvailable === true"
-                                        (click)="getHelp()"><mat-icon>help</mat-icon></button>
+                                    <button class="action" [class.map-selected]="mapSelected" [class.map-deselected]="!mapSelected" *ngIf="this.mapImageAvailable === true"
+                                        (click)="launchMap()"><mat-icon [class.map-selected]="mapSelected" [class.map-deselected]="!mapSelected">map</mat-icon></button>
+
+                                    <button class="action" [class.rest-selected]="restSelected" [class.rest-deselected]="!restSelected"  *ngIf="this.mapImageAvailable === true"
+                                        (click)="startRest()"><mat-icon [class.rest-selected]="restSelected" [class.rest-deselected]="!restSelected" >favorite</mat-icon></button>
+
+                                    <button class="action" [class.help-selected]="helpSelected" [class.help-deselected]="!helpSelected"  *ngIf="this.mapImageAvailable === true"
+                                        (click)="getHelp()"><mat-icon [class.help-selected]="helpSelected" [class.help-deselected]="!helpSelected" >help</mat-icon></button>
                                 </td>
                             </tr>
                         </table>
