@@ -16,6 +16,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { UserService } from './services/user.service';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import {MatSliderModule} from '@angular/material/slider';
 
 @Component({
   selector: 'app-root',
@@ -32,7 +33,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatButtonModule,
     MatTooltipModule,
     MatExpansionModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatSliderModule
   ],
   providers: [HttpService],
   templateUrl: './app.component.html',
@@ -49,6 +51,9 @@ export class AppComponent implements OnInit, OnDestroy {
   nameConfirmed = false;
   fullScreen: boolean = false;
   isFullScreenEvent = new Subject<boolean>();
+  osCheckIsDark = () => window?.matchMedia?.('(prefers-color-scheme:dark)')?.matches ? true : false;
+  appIsDark = false;
+  osIsDark = false;
 
   constructor(
     private ref: ChangeDetectorRef,
@@ -64,8 +69,16 @@ export class AppComponent implements OnInit, OnDestroy {
   };
 
   ngOnInit() {
-    this.isFullScreenEvent.subscribe(data => { 
-      console.log("Full screen event: " + data.toString()); 
+    this.osIsDark = this.osCheckIsDark();
+    this.appIsDark = this.userService.appIsDark();
+    if (this.osIsDark) {
+      console.log("OS is dark mode.  Setting website initially to dark mode");
+      this.appIsDark = true;
+    }
+    console.log("Theme mode: osIsDark: " + this.osIsDark + " appIsDark: " + this.appIsDark);
+
+    this.isFullScreenEvent.subscribe(data => {
+      console.log("Full screen event: " + data.toString());
       this.fullScreen = data;
       this.ref.detectChanges();
     });
@@ -86,7 +99,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
     this.sleep(5000).then(() => {
       this.expandedBio = false;
-      this.title = "Welcome to nehsa.net!";
+      this.title = "";
     });
   }
 
@@ -111,13 +124,27 @@ export class AppComponent implements OnInit, OnDestroy {
     } else {
       this.isFullScreen = false;
     }
-    this.isFullScreenEvent.next(this.isFullScreen );
+    this.isFullScreenEvent.next(this.isFullScreen);
+  }
+
+  themeChange(event: any) {
+    let slider_value = event.srcElement.value == 0 ? true: false;
+    console.log(slider_value);
+    if (slider_value==true) {
+      this.appIsDark = false;
+      this.userService.setDarkMode(false);
+    } else {
+      this.appIsDark = true;
+      this.userService.setDarkMode(true);
+    }
   }
 
   setExpand() {
     this.expandedBio = !this.expandedBio;
     if (this.expandedBio) {
       this.title = "Jesse Stone";
+    } else {
+      this.title = "";
     }
   }
 

@@ -3,7 +3,8 @@
 'app-main-expanded': expandedBio === true, 
 'app-main-collapsed': expandedBio === false
 }">
-    <div *ngIf="!fullScreen" class="bread child">
+    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen"
+        class="bread child">
         <div class="root"><a href="/">home></a></div>
         <div>
             <xng-breadcrumb [separator]="iconTemplate">
@@ -17,32 +18,43 @@
             </xng-breadcrumb>
         </div>
     </div>
-    <div class="user_admin child">
+    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()"  class="user_admin child">
         <div *ngIf="this.userService.name != ''">
-            <span class="personname" matTooltip="{{this.userService.about}}"
-            matTooltipClass="tooltip-long">{{this.userService.name}}</span><button style="color: inherit;" *ngIf="!nameConfirmed"mat-button (click)="getName2ndAttempt()">not you?</button></div>
+            <span [class.personname-dark]="userService.appIsDark()" [class.personname-light]="!userService.appIsDark()" matTooltip="{{this.userService.about}}"
+                matTooltipClass="tooltip-long">{{this.userService.name}}</span><button style="color: inherit;"
+                *ngIf="!nameConfirmed" mat-button (click)="getName2ndAttempt()">not you?</button>
+        </div>
     </div>
-    <div *ngIf="!fullScreen" class="dh child">
+    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()"  *ngIf="!fullScreen" class="dh child">
         <p>{{quote}}</p>
     </div>
-    <div *ngIf="!fullScreen" class="title child">
-        <mat-expansion-panel  [ngClass]="{'panel-expanded': expandedBio === true, 'panel-collapsed' : expandedBio === false }" [expanded]="expandedBio" (click)="setExpand()" [hideToggle]="expandedBio">
+    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()"  *ngIf="!fullScreen" class="theme child"><mat-icon>light_mode</mat-icon><mat-slider class="colorSlider" max=1
+            min=0 step=1 discrete=false showTickMarks=false>
+            <input matSliderThumb #slider (change)="themeChange($event)">
+        </mat-slider><mat-icon>brightness_4</mat-icon>
+    </div>
+    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()"  *ngIf="!fullScreen" class="title child">
+        <mat-expansion-panel
+            [ngClass]="{'panel-expanded': expandedBio === true, 'panel-collapsed' : expandedBio === false }"
+            [expanded]="expandedBio" (click)="setExpand()" [hideToggle]="expandedBio">
             <mat-expansion-panel-header>
-              <mat-panel-title class="maintitle">{{title}}
-              </mat-panel-title>
+                <mat-panel-title>
+                    <span [class.maintitle-dark]="userService.appIsDark()" [class.maintitle-light]="!userService.appIsDark()">
+                        {{title}}
+                    </span>
+                </mat-panel-title>
             </mat-expansion-panel-header>
             <div class="subtitle" *ngIf="posTerms != ''" [innerHTML]="posTerms"></div>
-          </mat-expansion-panel>    
+        </mat-expansion-panel>
     </div>
-    <div *ngIf="!fullScreen" id="lugrasimo-regular" class="contactme child email">jesse.stone<wbr>&#64;nehsa.net
+    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()"  *ngIf="!fullScreen" id="lugrasimo-regular" class="contactme child email">jesse.stone<wbr>&#64;nehsa.net
     </div>
-    <div *ngIf="!fullScreen" class="navbar child"><app-navbar></app-navbar></div>
-    <div class="body child">
+    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()"  *ngIf="!fullScreen" class="navbar child"><app-navbar></app-navbar></div>
+    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()"  class="body child">
         <router-outlet></router-outlet>
     </div>
-    <div class="footer child">
-        <div>&nbsp;</div>
-        <div>nehsa.net &copy; 2024 - All Rights Reserved.  Be kind.</div>
+    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()"  class="footer child">
+        <div>nehsa.net &copy; 2024 - All Rights Reserved. Be kind.</div>
         <div>
             <div class="footertxt">
                 <h5>{{getBuild()}}</h5>

@@ -7,6 +7,15 @@ export class UserService {
     private _name: string = "";
     private _about: string = "";
     private _currentPage: string = "";
+    private _isDark: boolean = false;
+
+    setDarkMode(value: boolean) {
+      this._isDark = value;
+    }
+  
+    appIsDark(): boolean {
+      return this._isDark;
+    }
 
     get name(): string {
         return this._name;

@@ -1,9 +1,79 @@
+
 @use '@angular/material' as mat;
 
 @include mat.core();
 
+$dark-primary: (
+    50 : #e0e9f5,
+    100 : #b3c8e6,
+    200 : #80a3d5,
+    300 : #4d7ec4,
+    400 : #2663b8,
+    500 : #0047ab,
+    600 : #0040a4,
+    700 : #00379a,
+    800 : #002f91,
+    900 : #002080,
+    A100 : #adbbff,
+    A200 : #7a90ff,
+    A400 : #4766ff,
+    A700 : #2e51ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+$dark-primary-palette: mat.define-palette($dark-primary);
+
 /* For use in src/lib/core/theming/_palette.scss */
-$nehsanet-primary: (
+$dark-accent: (
+    50 : #e6e4e9,
+    100 : #c0bac8,
+    200 : #978da3,
+    300 : #6d5f7e,
+    400 : #4d3c63,
+    500 : #2e1a47,
+    600 : #291740,
+    700 : #231337,
+    800 : #1d0f2f,
+    900 : #120820,
+    A100 : #975eff,
+    A200 : #762bff,
+    A400 : #5700f7,
+    A700 : #4e00de,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+$dark-accent-palette: mat.define-palette($dark-accent);
+
+
+$light-primary: (
     50 : #fbf4fb,
     100 : #f5e3f5,
     200 : #eed0ee,
@@ -34,9 +104,9 @@ $nehsanet-primary: (
         A700 : #000000,
     )
 );
-$primary: mat.define-palette($nehsanet-primary);
+$light-primary-palette: mat.define-palette($light-primary);
 
-$nehsanet-accent: (
+$light-accent: (
     50 : #edebf9,
     100 : #d2cef0,
     200 : #b5ade6,
@@ -67,10 +137,9 @@ $nehsanet-accent: (
         A700 : #000000,
     )
 );
-$accent: mat.define-palette($nehsanet-accent);
+$light-accent-palette: mat.define-palette($light-accent);
 
-/* For use in src/lib/core/theming/_palette.scss */
-$nehsanet-warn: (
+$light-warn: (
     50 : #ffece9,
     100 : #ffd0c8,
     200 : #ffb1a3,
@@ -101,18 +170,72 @@ $nehsanet-warn: (
         A700 : #000000,
     )
 );
-$warn: mat.define-palette($nehsanet-warn);
+$light-warn-palette: mat.define-palette($light-warn);
 
-$nehsanet-typography: mat.define-typography-config($font-family: 'monospace'
-    );
+$nehsanet-typography: mat.define-typography-config($font-family: 'monospace');
 
-$app-theme: mat.define-dark-theme((color: (primary: $primary,
-                accent: $accent,
-                warn: $warn ),
+$dark-theme: mat.define-light-theme((color: (theme-type: dark,
+                primary: $light-primary-palette,
+                accent: $light-accent-palette,
+                warn: $light-warn-palette ),
             density: -1,
             typography: $nehsanet-typography ));
 
-@include mat.all-component-themes($app-theme);
+$light-theme: mat.define-dark-theme((color: (theme-type: light,
+                primary: $dark-primary-palette,
+                accent: $dark-accent-palette,
+                warn: $light-warn-palette ),
+            density: -1,
+            typography: $nehsanet-typography ));
+
+$theme-border-color: mat.get-color-from-palette($light-theme, 500);
+$theme-background-color: mat.get-color-from-palette($light-theme, 50); 
+
+// these variables can be accessed in the global scope
+:root {
+    --theme-border-color: #{$theme-border-color};
+    --theme-background-color: #{$theme-background-color};
+}
+
+html, body {
+    // Apply the dark theme by default
+    background-color: #333;
+    @include mat.core-theme($dark-theme);
+    @include mat.button-theme($dark-theme);
+    @include mat.card-theme($dark-theme);
+    @include mat.checkbox-theme($dark-theme);
+    @include mat.dialog-theme($dark-theme);
+    @include mat.icon-theme($dark-theme);
+    @include mat.input-theme($dark-theme);
+    @include mat.list-theme($dark-theme);
+    @include mat.menu-theme($dark-theme);
+    @include mat.radio-theme($dark-theme);
+    @include mat.select-theme($dark-theme);
+    @include mat.sidenav-theme($dark-theme);
+
+    // Apply the light theme only when the user prefers light themes. (the -color mixins are used to apply the color palette without redefining the entire theme)
+    @media (prefers-color-scheme: light) {
+        background-color: white;
+        @include mat.core-color($light-theme);
+        @include mat.button-color($light-theme);
+        @include mat.card-color($light-theme);
+        @include mat.checkbox-color($light-theme);
+        @include mat.dialog-color($light-theme);
+        @include mat.icon-color($light-theme);
+        @include mat.input-color($light-theme);
+        @include mat.list-color($light-theme);
+        @include mat.menu-color($light-theme);
+        @include mat.radio-color($light-theme);
+        @include mat.select-color($light-theme);
+        @include mat.sidenav-color($light-theme);
+    }
+    margin: 0;
+    font-family: monospace,
+    "Helvetica Neue",
+    sans-serif;
+    height: 100%;
+    background-color: $theme-border-color;
+}
 
 @media (min-width: 481px) {
     body {
@@ -150,16 +273,8 @@ $app-theme: mat.define-dark-theme((color: (primary: $primary,
     }
 }
 
-html,
-body {
-    margin: 0;
-    font-family: monospace, "Helvetica Neue", sans-serif;
-    height: 100%;
-    background-color: #666 !important;
-}
-
 a:link {
-    color: ghostwhite;
+    color: black;
 }
 
 a:active {
@@ -168,7 +283,7 @@ a:active {
 }
 
 a:visited {
-    color: ghostwhite;
+    color: black;
 }
 
 a:hover {
@@ -178,7 +293,7 @@ a:hover {
 iframe {
     width: 100%;
     height: 500px;
-    border: 0;
+    border: none;
 }
 
 li {
@@ -223,7 +338,7 @@ wbr:after {
 table,
 th,
 td {
-    border: 1px solid hotpink;
+    border: 1px solid var(--theme-border-color);
     border-collapse: collapse;
     padding: 5px 1em;
 }
@@ -247,15 +362,14 @@ h6 {
     color: plum;
 }
 
-
 .mat-step-header .mat-step-icon {
-    background-color: plum;
+    background-color: $theme-background-color;
     color: #fff;
     font-size: 14px;
 }
 
 span.code {
-    background-color: rebeccapurple !important;
+    background-color: $theme-background-color !important;
     color: silver;
     font-family: Consolas;
     border-radius: 5px;
@@ -267,28 +381,43 @@ span.code {
 }
 
 ul.navbar-links>li:hover {
-    background-color: #333 !important;
-    color: whitesmoke;
+    color: purple !important;
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: cornflowerblue;
+    -webkit-text-stroke-color: black !important;
     border-radius: 10px;
 }
-li:hover {
-    background-color: #333 !important;
+
+mat-panel-title:hover {
     color: whitesmoke;
     -webkit-text-stroke-width: .5px;
-    -webkit-text-stroke-color: greenyellow;
+    -webkit-text-stroke-color: forestgreen;
+    border-radius: 10px;
+}
+
+li>h3:hover {
+    color: whitesmoke;
+    -webkit-text-stroke-width: .5px;
+    -webkit-text-stroke-color: forestgreen;
+    border-radius: 10px;
+}
+
+li>h4:hover {
+    color: greenyellow;
+    -webkit-text-stroke-width: .5px;
+    -webkit-text-stroke-color: forestgreen;
     border-radius: 10px;
 }
 
 span.code:hover {
+    color: greenyellow;
     -webkit-text-stroke-width: .5px;
-    -webkit-text-stroke-color: black !important;
+    -webkit-text-stroke-color: forestgreen !important;
 }
 
 div.code:hover {
+    color: greenyellow;
     -webkit-text-stroke-width: .5px;
-    -webkit-text-stroke-color: black !important;
+    -webkit-text-stroke-color: forestgreen !important;
 }
 
 .code {
@@ -350,14 +479,14 @@ div.code:hover {
 }
 
 .topics>div {
-    border: 1px solid hotpink;
+    border: 1px solid var(--theme-border-color);
     padding: 1em;
 }
 
 .answer {
     color: whitesmoke;
-    background-color: #999;
-    border: 1px solid #ccc;
+    background-color: $theme-background-color;
+    border: 1px solid var(--theme-border-color);
     padding: 3px 2em;
     margin: 0 2em;
     width: 600px;
@@ -366,7 +495,7 @@ div.code:hover {
 .commentgrid {
     display: grid;
     grid-template-rows: 1fr min-content;
-    grid-gap: 200px;
+    grid-gap: 1em;
 }
 
 .mat-mdc-dialog-surface {
@@ -376,13 +505,13 @@ div.code:hover {
 .olq {
     list-style-type: lower-alpha;
     border-radius: 5px;
-    border: 1px dashed slateblue;
+    border: 1px solid var(--theme-border-color);
 }
 
 .ula {
     list-style-type: none;
     border-radius: 5px;
-    border: 1px dashed slateblue;
+    border: 1px solid var(--theme-border-color);
 }
 
 .tiny5-regular {

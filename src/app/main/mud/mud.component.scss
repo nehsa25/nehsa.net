@@ -1,13 +1,9 @@
-.commentgrid {
-  grid-template-rows: 722px min-content !important;
-}
-
 textarea {
   width: 100%;
   font-size: 1.5em;
   background-color: #333;
   color: #fff;
-  border: 0;
+  border: none;
   padding: 10px 5px;
   height: 40px;
   resize: none;
@@ -19,12 +15,12 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin: 0;
-  border: 1px solid #333;
+  border: 1px solid var(--theme-border-color);
 }
 
 td {
   padding: 5px;
-  border: 1px solid #333;
+  border: 1px solid var(--theme-border-color);
 }
 
 .mudgrid-fullscreen {
@@ -115,7 +111,7 @@ td {
 .aiimage-btn {
   background-color: #666;
   color: #fff;
-  border: 1px solid #333;
+  border: 1px solid var(--theme-border-color);
   border-radius: 5px;
   margin: 5px;
 }
@@ -305,7 +301,7 @@ td {
 
 .action {
   background-color: springgreen;
-  border: 1px solid #333;
+  border: 1px solid var(--theme-border-color);
 }
 
 .action:not(:first-child) {

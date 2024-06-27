@@ -43,7 +43,7 @@ ul {
 .norm-navbar-links li:hover {
     background-color: plum !important;
     border-radius: 0 25px 25px 0 !important;
-    border: 1px solid whitesmoke;
+    border: 1px solid var(--theme-border-color);
     border-left: none;
     color: black;
     font-weight: bolder;
@@ -57,14 +57,14 @@ ul {
 .featured {
     font-size: 1.5rem;
     padding: 7px 1em;
-    border-top: 1px solid #ff7f5b;
-    border-bottom: 1px solid #ff7f5b;
+    border-top: 1px solid greenyellow;
+    border-bottom: 1px solid greenyellow;
     margin: .5em auto 2em auto;
 }
 
 .featured-navbar-links li:hover {
-    border-top: 1px solid #ff7f5b;
-    border-bottom: 1px solid #ff7f5b;
+    border-top: 1px solid greenyellow;
+    border-bottom: 1px solid greenyellow;
     border-radius: 0 !important;
     cursor: pointer;
     background-color: whitesmoke !important;

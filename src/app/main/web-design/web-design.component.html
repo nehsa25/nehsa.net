@@ -2,7 +2,7 @@
     <mat-card class="card">
         <mat-card-header>
             <mat-card-title>
-                <h1 data-testid="header-title">Web Design</h1>
+                <h1 data-testid="header-title">Web Design / <span class="important">S</span>CSS</h1>
             </mat-card-title>
             <mat-card-subtitle>Large cross-section with the Angular page but this is focused on non-Angular aspects of
                 webdesign such as responsive design, creating favicons, ect</mat-card-subtitle>
@@ -12,12 +12,64 @@
                 <div class="topics">
                     <ul>
                         <li>
+                            <mat-expansion-panel expanded="true">
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Theming</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>For Angular specific theming, see <button mat-stroked-button
+                                            routerLink="/angular">Angular</button></li>
+                                    <li>
+                                        <h4>Working with colors</h4>
+                                        <ul>
+                                            <li>
+                                                Create a new colors.scss file for a central spot for all our coloring
+                                                needs. This should be at the same level as styles.scss
+                                                <br>
+                                                This file should contain:
+                                                <ul class="condensed">
+                                                    <li>
+                                                        <div class="code">
+                                                            <pre>
+    // main theme palettes
+    $colorful-palette: map.get($color-config, 'colorful');
+    $vampire-palette: map.get($color-config, 'vampire');
+    $angel-palette: map.get($color-config, 'angel');
+    $current-theme-palette: $colorful-palette;
+    
+    // main colors
+    $theme-border-color: mat.get-color-from-palette($current-theme-palette, 500);
+    $theme-backround-color: mat.get-color-from-palette($current-theme-palette, 50);
+    
+    // these variables can be accessed in the global scope
+    :root &#123;
+        --theme-border-color: #&#123;$theme-border-color&#125;;
+        --theme-backround-color: #&#123;$theme-background-color-info&#125;;
+    &#125;
+                                                            </pre>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+
+                                            </li>
+                                            <li></li>
+
+
+                                        </ul>
+
+
+                                    </li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Responsive Design</mat-panel-title>
                                 </mat-expansion-panel-header>
                                 <ul class="condensed">
-                                    <li>This website uses CSS Grids and media queries to handle responsive design.  I use the following media queries. It's important to start small and work up as
+                                    <li>This website uses CSS Grids and media queries to handle responsive design. I use
+                                        the following media queries. It's important to start small and work up as
                                         they cancel each other out..
                                         <ul class="condensed">
                                             <li>
