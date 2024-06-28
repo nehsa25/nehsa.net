@@ -9,7 +9,6 @@ import { CommentType } from '../../types/comment.type';
   selector: 'app-ohai',
   standalone: true,
   imports: [MatCardModule, CommentComponent],
-  providers: [UserService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './ohai.component.html',
   styleUrl: './ohai.component.scss'

@@ -9,7 +9,6 @@ import { Subject } from 'rxjs';
   selector: 'app-dotnetcore',
   standalone: true,
   imports: [MatCardModule, CommentComponent],
-  providers: [UserService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './dotnetcore.component.html',
   styleUrl: './dotnetcore.component.scss'

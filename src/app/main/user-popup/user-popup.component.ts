@@ -1,10 +1,10 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, Inject, NgModule, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { NameAboutType } from '../../types/nameabout.type';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatStepper, MatStepperModule } from '@angular/material/stepper';
-import { FormBuilder, FormsModule, Validators, ReactiveFormsModule, FormControl } from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule, FormControl } from '@angular/forms';
 import { NgIf } from '@angular/common';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatInputModule } from '@angular/material/input';
@@ -15,9 +15,7 @@ import {
   MatSnackBarModule,
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
-import { Subject } from 'rxjs';
 import { UserService } from '../../services/user.service';
-import { CommentType } from '../../types/comment.type';
 
 @Component({
   selector: 'app-user-popup',

@@ -9,7 +9,6 @@ import { Subject } from 'rxjs';
   selector: 'app-github',
   standalone: true,
   imports: [MatCardModule, CommentComponent],
-  providers: [UserService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './github.component.html',
   styleUrl: './github.component.scss'

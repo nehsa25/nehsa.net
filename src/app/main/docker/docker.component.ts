@@ -9,7 +9,6 @@ import { Subject } from 'rxjs';
   selector: 'app-docker',
   standalone: true,
   imports: [MatCardModule, CommentComponent],
-  providers: [UserService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './docker.component.html',
   styleUrl: './docker.component.scss'

@@ -9,7 +9,6 @@ import { Subject } from 'rxjs';
   selector: 'app-doxygen',
   standalone: true,
   imports: [MatCardModule, CommentComponent],
-  providers: [UserService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './doxygen.component.html',
   styleUrl: './doxygen.component.scss'

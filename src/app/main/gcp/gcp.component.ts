@@ -9,7 +9,6 @@ import { Subject } from 'rxjs';
   selector: 'app-gcp',
   standalone: true,
   imports: [MatCardModule, CommentComponent],
-  providers: [UserService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './gcp.component.html',
   styleUrl: './gcp.component.scss'

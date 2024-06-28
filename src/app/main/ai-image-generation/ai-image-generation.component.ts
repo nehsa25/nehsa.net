@@ -11,7 +11,6 @@ import { CommentType } from '../../types/comment.type';
     templateUrl: './ai-image-generation.component.html',
     styleUrl: './ai-image-generation.component.scss',
     imports: [MatCardModule, CommentComponent],
-    providers: [UserService]
 })
 export class AiImageGenerationComponent {
     _page_name = "ai-generation";

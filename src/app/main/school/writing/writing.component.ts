@@ -9,7 +9,6 @@ import { CommentType } from '../../../types/comment.type';
   selector: 'app-writing',
   standalone: true,
   imports: [MatCardModule, CommentComponent],
-  providers: [UserService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './writing.component.html',
   styleUrl: './writing.component.scss'

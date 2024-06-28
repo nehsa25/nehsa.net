@@ -9,7 +9,6 @@ import { CommentType } from '../../types/comment.type';
   selector: 'app-mercurial',
   standalone: true,
   imports: [MatCardModule, CommentComponent],
-  providers: [UserService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './mercurial.component.html',
   styleUrl: './mercurial.component.scss'

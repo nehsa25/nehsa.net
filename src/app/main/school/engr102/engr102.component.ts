@@ -9,7 +9,6 @@ import { CommentType } from '../../../types/comment.type';
   selector: 'app-engr102',
   standalone: true,
   imports: [MatCardModule, CommentComponent],
-  providers: [UserService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './engr102.component.html',
   styleUrl: './engr102.component.scss'

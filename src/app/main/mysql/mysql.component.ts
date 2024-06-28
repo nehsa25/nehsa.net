@@ -9,7 +9,6 @@ import { CommentType } from '../../types/comment.type';
   selector: 'app-mysql',
   standalone: true,
   imports: [CommentComponent, MatCardModule],
-  providers: [UserService],
   templateUrl: './mysql.component.html',
   styleUrl: './mysql.component.scss'
 })

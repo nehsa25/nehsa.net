@@ -9,7 +9,6 @@ import { CommentType } from '../../types/comment.type';
   selector: 'app-typescript',
   standalone: true,
   imports: [MatCardModule, CommentComponent],
-  providers: [UserService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './typescript.component.html',
   styleUrl: './typescript.component.scss'

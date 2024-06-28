@@ -11,7 +11,6 @@ import { Subject } from 'rxjs';
   selector: 'app-chef',
   standalone: true,
   imports: [MatCardModule, CommentComponent, MatExpansionModule, MatIconModule],
-  providers: [UserService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './chef.component.html',
   styleUrl: './chef.component.scss'

@@ -9,7 +9,6 @@ import { CommentType } from '../../types/comment.type';
   selector: 'app-sql',
   standalone: true,
   imports: [MatCardModule, CommentComponent],
-  providers: [UserService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './sql.component.html',
   styleUrl: './sql.component.scss'

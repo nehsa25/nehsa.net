@@ -9,7 +9,6 @@ import { CommentType } from '../../types/comment.type';
   selector: 'app-tls',
   standalone: true,
   imports: [MatCardModule, CommentComponent],
-  providers: [UserService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './tls.component.html',
   styleUrl: './tls.component.scss'

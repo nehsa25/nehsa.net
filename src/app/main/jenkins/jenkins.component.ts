@@ -9,7 +9,6 @@ import { Subject } from 'rxjs';
   selector: 'app-jenkins',
   standalone: true,
   imports: [MatCardModule, CommentComponent],
-  providers: [UserService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './jenkins.component.html',
   styleUrl: './jenkins.component.scss'

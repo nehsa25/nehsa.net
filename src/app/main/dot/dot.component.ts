@@ -11,7 +11,6 @@ import { Subject } from 'rxjs';
     templateUrl: './dot.component.html',
     styleUrl: './dot.component.scss',
     imports: [MatCardModule, CommentComponent],
-    providers: [UserService]
 })
 export class DotComponent {
     private _page_name = "dot";

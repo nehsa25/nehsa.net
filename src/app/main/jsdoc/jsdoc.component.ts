@@ -9,7 +9,6 @@ import { UserService } from '../../services/user.service';
   selector: 'app-jsdoc',
   standalone: true,
   imports: [MatCardModule, CommentComponent],
-  providers: [UserService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './jsdoc.component.html',
   styleUrl: './jsdoc.component.scss'

@@ -9,7 +9,6 @@ import { Subject } from 'rxjs';
   selector: 'app-glider',
   standalone: true,
   imports: [MatCardModule, CommentComponent],
-  providers: [UserService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './glider.component.html',
   styleUrl: './glider.component.scss'

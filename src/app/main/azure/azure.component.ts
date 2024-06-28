@@ -9,7 +9,6 @@ import { Subject } from 'rxjs';
   selector: 'app-azure',
   standalone: true,
   imports: [MatCardModule, CommentComponent],
-  providers: [UserService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './azure.component.html',
   styleUrl: './azure.component.scss'

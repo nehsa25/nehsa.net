@@ -11,7 +11,6 @@ import { CommentType } from '../../types/comment.type';
   selector: 'app-inno',
   standalone: true,
   imports: [MatCardModule, CommentComponent, MatIconModule, MatExpansionModule],
-  providers: [UserService],
   templateUrl: './inno.component.html',
   styleUrl: './inno.component.scss'
 })

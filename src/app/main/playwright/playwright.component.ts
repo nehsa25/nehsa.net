@@ -9,7 +9,6 @@ import { CommentType } from '../../types/comment.type';
   selector: 'app-playwright',
   standalone: true,
   imports: [MatCardModule, CommentComponent],
-  providers: [UserService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './playwright.component.html',
   styleUrl: './playwright.component.scss'

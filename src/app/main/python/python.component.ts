@@ -9,7 +9,6 @@ import { CommentType } from '../../types/comment.type';
   selector: 'app-python',
   standalone: true,
   imports: [MatCardModule, CommentComponent],
-  providers: [UserService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './python.component.html',
   styleUrl: './python.component.scss'

@@ -9,7 +9,6 @@ import { CommentType } from '../../types/comment.type';
   selector: 'app-asyncio',
   standalone: true,
   imports: [MatCardModule, CommentComponent],
-  providers: [UserService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './asyncio.component.html',
   styleUrl: './asyncio.component.scss'

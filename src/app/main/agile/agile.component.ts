@@ -9,7 +9,6 @@ import { UserService } from '../../services/user.service';
   selector: 'app-agile',
   standalone: true,
   imports: [MatCardModule, CommentComponent],
-  providers: [UserService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './agile.component.html',
   styleUrl: './agile.component.scss'

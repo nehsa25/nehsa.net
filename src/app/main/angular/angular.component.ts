@@ -10,7 +10,6 @@ import { Subject } from 'rxjs';
   selector: 'app-angular',
   standalone: true,
   imports: [MatCardModule, CommentComponent, MatExpansionModule],
-  providers: [UserService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './angular.component.html',
   styleUrl: './angular.component.scss'

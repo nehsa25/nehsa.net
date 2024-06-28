@@ -1,7 +1,7 @@
-import { Component, HostListener, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { CommentComponent } from '../../shared-components/comment/comment.component';
-import { HelpEvent, MudEvent } from '../../types/mudevent.type';
+import { MudEvent } from '../../types/mudevent.type';
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { MatButton } from '@angular/material/button';
 import { MatError, MatFormFieldModule, MatLabel } from '@angular/material/form-field';
@@ -30,7 +30,6 @@ import { CommentType } from '../../types/comment.type';
   styleUrl: './mud.component.scss',
   encapsulation: ViewEncapsulation.None,
 })
-
 export class MudComponent implements OnInit, OnDestroy {
   mudEvents: string = "";
   world_name: string = "";

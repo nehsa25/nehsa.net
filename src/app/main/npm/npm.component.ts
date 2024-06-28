@@ -9,7 +9,6 @@ import { CommentType } from '../../types/comment.type';
   selector: 'app-npm',
   standalone: true,
   imports: [MatCardModule, CommentComponent],
-  providers: [UserService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './npm.component.html',
   styleUrl: './npm.component.scss'

@@ -9,7 +9,6 @@ import { Subject } from 'rxjs';
   selector: 'app-designpatterns',
   standalone: true,
   imports: [MatCardModule, CommentComponent],
-  providers: [UserService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './designpatterns.component.html',
   styleUrl: './designpatterns.component.scss'

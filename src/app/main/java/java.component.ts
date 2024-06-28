@@ -9,7 +9,6 @@ import { CommentType } from '../../types/comment.type';
   selector: 'app-java',
   standalone: true,
   imports: [MatCardModule, CommentComponent],
-  providers: [UserService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './java.component.html',
   styleUrl: './java.component.scss'
