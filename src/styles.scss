@@ -79,6 +79,14 @@ $theme-file-color: yellow;
 $theme-navbar-background: mat.get-color-from-palette($dark-primary-palette, 500); 
 $theme-navbar-color: mat.get-color-from-palette($dark-primary-palette, 100); 
 
+//button
+$theme-button-background: mat.get-color-from-palette($dark-primary-palette, 400); 
+$theme-button-color: mat.get-color-from-palette($dark-primary-palette, 50); 
+
+//button hover
+$theme-button-hover-background: mat.get-color-from-palette($dark-primary-palette, A700); 
+$theme-button-hover-color: mat.get-color-from-palette($dark-primary-palette, 100); 
+
 //links
 $theme-a-active: mat.get-color-from-palette($dark-primary-palette, 100); 
 $theme-a-visited: mat.get-color-from-palette($dark-primary-palette, 200); 
@@ -123,7 +131,15 @@ $theme-header-color: anqituewhite;
 
     //navbar
     $theme-navbar-background: mat.get-color-from-palette($light-primary-palette, 500); 
-    $theme-navbar-color: mat.get-color-from-palette($light-primary-palette, 100); 
+    $theme-navbar-color: mat.get-color-from-palette($light-primary-palette, 100);
+    
+    //button
+    $theme-button-background: mat.get-color-from-palette($light-primary-palette, 400); 
+    $theme-button-color: mat.get-color-from-palette($light-primary-palette, 50); 
+
+    //button hover
+    $theme-button-hover-background: mat.get-color-from-palette($light-primary-palette, A700); 
+    $theme-button-hover-color: mat.get-color-from-palette($light-primary-palette, 100); 
 
     //links
     $theme-a-active: mat.get-color-from-palette($light-primary-palette, 100); 
@@ -163,6 +179,10 @@ $theme-header-color: anqituewhite;
     --theme-navbar-background: #{$theme-navbar-background};
     --theme-navbar-color: #{$theme-navbar-color};
     --theme-header-color: #{$theme-header-color};
+    --theme-button-color: #{$theme-button-color};
+    --theme-button-background: #{$theme-button-background};
+    --theme-button-hover-color: #{$theme-button-hover-color};
+    --theme-button-hover-background: #{$theme-button-hover-background};
 }
 
 @media (min-width: 481px) {
@@ -473,6 +493,24 @@ mat-card {
 .paginators {
     background-color: var(--theme-table-background) !important;
     color: var(--theme-table-color) !important;
+}
+
+.mat-mdc-button,
+.mat-mdc-raised-button,
+.mat-mdc-outlined-button,
+.mat-mdc-flat-button,
+.mat-mdc-unelevated-button {
+    background-color: var(--theme-button-background) !important;
+    color: var(--theme-button-color) !important;
+}
+
+.mat-mdc-button:hover,
+.mat-mdc-raised-button:hover,
+.mat-mdc-outlined-button:hover,
+.mat-mdc-flat-button:hover,
+.mat-mdc-unelevated-button:hover {
+    background-color: var(--theme-button-hover-background) !important;
+    color: var(--theme-button-hover-color) !important;
 }
 
 // custom fonts

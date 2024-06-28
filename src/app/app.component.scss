@@ -507,6 +507,11 @@ a.panel-expanded {
     color: white;
 }
 
+.notyoubutton  {
+    background-color: var(--theme-background-color) !important;
+    color: var(--theme-color) !important;
+}
+
 .maintitle-light {
     color: black;
 }
