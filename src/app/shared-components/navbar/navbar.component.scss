@@ -39,13 +39,12 @@ ul {
     padding: 0px;
 }
 
-
 .norm-navbar-links li:hover {
-    background-color: plum !important;
+    background-color: var(--theme-navbar-background) !important;
+    color: var(--theme-navbar-color) !important;
     border-radius: 0 25px 25px 0 !important;
     border: 1px solid var(--theme-border-color);
     border-left: none;
-    color: black;
     font-weight: bolder;
     cursor: pointer;
 }

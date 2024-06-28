@@ -1,0 +1,18 @@
+
+@use '@angular/material' as mat;
+@include mat.core();
+@import './themes-colorful.scss';
+
+$dark-theme: mat.define-light-theme((color: (theme-type: dark,
+                primary: $light-primary-palette,
+                accent: $light-accent-palette,
+                warn: $light-warn-palette ),
+            density: -1,
+            typography: $typography ));
+
+$light-theme: mat.define-dark-theme((color: (theme-type: light,
+                primary: $dark-primary-palette,
+                accent: $dark-accent-palette,
+                warn: $light-warn-palette ),
+            density: -1,
+            typography: $typography ));

@@ -17,6 +17,7 @@ import { UserService } from './services/user.service';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatSliderModule} from '@angular/material/slider';
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -54,6 +55,7 @@ export class AppComponent implements OnInit, OnDestroy {
   osCheckIsDark = () => window?.matchMedia?.('(prefers-color-scheme:dark)')?.matches ? true : false;
   appIsDark = false;
   osIsDark = false;
+  darkmode_value = 0; // slider value
 
   constructor(
     private ref: ChangeDetectorRef,
@@ -74,6 +76,8 @@ export class AppComponent implements OnInit, OnDestroy {
     if (this.osIsDark) {
       console.log("OS is dark mode.  Setting website initially to dark mode");
       this.appIsDark = true;
+      this.darkmode_value = 1;
+      this.userService.setDarkMode(true);
     }
     console.log("Theme mode: osIsDark: " + this.osIsDark + " appIsDark: " + this.appIsDark);
 
