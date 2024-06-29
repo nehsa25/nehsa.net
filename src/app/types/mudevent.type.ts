@@ -19,6 +19,7 @@ export class MudEvent {
     world_name: string = "";
     help_commands: HelpEvent = new HelpEvent();
     inventory: InventoryEvent = new InventoryEvent();
+    npcs: string = "";
 }
 
 export class InventoryEvent {

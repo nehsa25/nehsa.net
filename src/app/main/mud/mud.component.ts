@@ -436,6 +436,12 @@ export class MudComponent implements OnInit, OnDestroy {
         }
 
         // check for monsters
+        if (data.npcs != "") {
+          this.mudEvents += "<br><span class=\"npcs1-message\">" + data.npcs + "</span>";
+        }
+
+
+        // check for monsters
         if (data.monsters != "") {
           this.mudEvents += "<br><span class=\"monster1-message\">Monsters: </span><span class=\"monster2-message\">" + data.monsters + "</span>";
         }
