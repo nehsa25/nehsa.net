@@ -11,15 +11,100 @@
                     <div>
                         Python is rad!
                         <ul>
-                            <li>Docstring example:
-                                <pre><span class="comment">
-    <strong>def [function_name]</strong>([parameters, i.e. variable names separated by commas]):
-    """ docstring that describes function's usage """
-    <strong>[statements e.g. operations, function calls, return statement]</strong>
-    return [value]
-</span></pre>
+                            <li>Constructor is:<br>
+                                <div class="code">
+                                    <pre>
+    def __init__(self, &lt;PARAMS&gt;):
+        pass
+                                    </pre>
+                                </div>
                             </li>
-                            <li>Prefer <span class="important">if my_object is None</span> over <span class="important">if my_object == None</span> - Small difference (see below) in comparison.<br>Using "is" keyword is faster since fewer operations are perforemd:
+                            <li>To use subfolders to better organize your code, a file must be created called <span
+                                    class="file">__init__.py</span>.
+
+                                The __init__.py files are required to make Python treat directories containing the file
+                                as packages (unless using a namespace package, a relatively advanced feature). This
+                                prevents directories with a common name, such as string, from unintentionally hiding
+                                valid modules that occur later on the module search path. In the simplest case,
+                                __init__.py can just be an empty file, but it can also execute initialization code for
+                                the package or set the __all__ variable, described later.
+
+                                This will no longer be necessary in Python 3.3+
+
+                                <ul><li>To access this subpackage, refer to it with a  period: <span class="code">from races.goblin import Goblin</span></li></ul>
+                            </li>
+                            <li>Inheritence in Python looks like this:<br><br>If we have these three classes:<ul>
+                                <li>Kobold - Contains specific infformation on the Kobold races. The factory for generating Kobolds in the world.</li>
+                                <li>BaseStats - Contains general attributes of all races (HP, strength, intelligence, ect)
+                                    <div class="code">
+                                        <pre>
+    class BaseStats(Utility):
+        hp = 0
+        strength = 0
+        agility = 0
+        location = 0
+        perception = 0
+        determination = 0
+                                        
+                                        </pre>
+                                    </div>
+                                </li>
+                                <li>Utility - Mostly ENUMs with shared data
+                                    <div class="code">
+                                        <pre>
+        class Utility(MudEvents):  
+            class Share:
+                WORLD_NAME = "Illisurom"
+                PLAYER_BASE_REST_WAIT_SECS = 2
+                                                
+                class EnvironmentTypes(Enum):
+                    TOWNSMEE = 1,
+                    BEACH = 2,
+                    FOREST = 3,
+                    JUNGLE = 4,
+                    BREACH = 5,
+                    GRAVEYARD = 6
+                    
+                class Races(Enum):
+                    HUMAN = 0,
+                    KOBOLD = 1,
+                    GOBLIN = 2,
+                    HALFLING = 3,
+                    HALFOGRE = 4,
+                    ORC = 5,
+                    ELF = 6,
+                    FAE = 7,
+                    NYRRISS = 8,
+                    ARGUNA = 9,
+                    EAREA = 10
+                                        </pre>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            This could be structured like this:
+                                <div class="code">
+                                    <pre>
+    class Kobold(BaseStats):
+        class BaseStats(Utility):
+                                    </pre>                                    
+                                </div>
+                            </li>
+                            <li>Docstring example:
+                                <div class="code">
+                                    <pre>
+    <strong>def [function_name]</strong>([parameters, i.e. variable names separated by commas]):
+    <span class="comment">
+    """ docstring that describes function's usage """
+    [statements e.g. operations, function calls, return statement]
+    return [value]
+</span>
+                                    </pre>
+                                </div>
+                            </li>
+                            <li>Prefer <span class="important">if my_object is None</span> over <span
+                                    class="important">if my_object == None</span> - Small difference (see below) in
+                                comparison.<br>Using "is" keyword is faster since fewer operations are perforemd:
                                 <div class="code">
                                     <pre>
     class NewObject:
