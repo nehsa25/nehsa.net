@@ -8,71 +8,99 @@
         <mat-card-content>
             <div class="commentgrid">
                 <div class="topics">
-                    <h3>Some fun things I've been involved with:</h3>
-                    <div>Build test automation infrastructure to meet a specific need of testing on varity of real
-                        hardware (metal) such as network cards, CPUs, and a variety of operating systems. Technolgies: Chef,
-                        Doxygen, Python, Pytest<br>
-                        <img mat-card-image src="assets/images/test-automation.png"
-                            alt="Diagram of test framework test architecture" />
-                    </div>
-                    <div>Build a desktop application using Python that runs in taskbar for capturing screenshots and state to facilitates
-                        finding bugs/recording machine state (lab-monitor)<br>
-                        <img mat-card-image src="assets/images/lab_monitor1.png"
-                            alt="Picture of Lab Monitor tray icon" /><br><br>
-                        <img mat-card-image src="assets/images/lab_monitor2.png"
-                            alt="Picture of Lab Monitor tray options" />
-                    </div>
-                    <div>Built a Client/Server websocket application using Asyncio. This is deployed on our all lab
-                        machines automatically via Chef and allows remove command execution against any/all machines via lab
-                        website (lab-listener)<br>
-                        <img width="600" mat-card-image src="assets/images/lab_listener.png"
-                            alt="picture of lab divstener websocket" />
-                    </div>
-                    <div>Replaced free Chef web server with custom implementation (to work-around bugs / at direction of
-                        Chef team). This lab site provides detailed information against all machines in the lab and
-                        allows configuration/remote command execution<br>
-                        <img width="600" mat-card-image src="assets/images/lab_config1.png"
-                            alt="Config page for configuring lab hosts" />
-                    </div>
-                    <div>Automated debugging tests via Visual Studio us pywinauto</div>
-                    <div>Implemented a Recapcha.. because<br>
-                        <img mat-card-image src="assets/images/recaptcha2.png" alt="Recapcha implementation" />
-                    </div>
-                    <div>Implemented an Angular status & maintenance page
-                        <ul class="condensed">
-                            <li>Status displays next maintance message text on all login pages for two days before date
-                                in database</li>
-                            <li>Disappears after maintenance date + a few hours</li>
-                            <div>During maintenance:
-                                <ul class="condensed">
-                                    <li>All pages redirect to maintenance page</li>
-                                    <li>All API requests return a "UNDER_MAINTENANCE" code</li>
-                                    <li>Users on whitedivst and continue to vadivdate page</li>
-                                </ul>
-                            </div>
-                        </ul>
-                        <div>
-                            <span>Database fields:</span><br>
-                            <img width="600" mat-card-image src="assets/images/maint2.png" />
-                        </div>
-                        <div>
-                            <span>Corresponding status on login pages:</span><br>
-                            <img width="600" mat-card-image src="assets/images/maint1.png" />
-                        </div>
-                        <div>
-                            <span>Folks not on maintenance whitelist are redirected to maintenance page:</span><br>
-                            <img width="600" mat-card-image src="assets/images/maint3.png" />
-                        </div>
-                    </div>
-                    <div>Maintain production Angular project and backend C# API. Hosted in Azure.<br>
-                        <img width="600" mat-card-image src="assets/images/license_portal.png"
-                            alt="Material table with custom select-columns feature" />
-                    </div>
-                    <div>website/html "MUD" client: <a href="https://github.com/nehsa25/websocket-mud">Github</a><br>
-                        <img width="600" mat-card-image src="assets/images/mud.png"
-                            alt="A web-based MUD client written in Python and using websockets" />
-                    </div>
-                    <div>RTS game using Python and pygame: <a href="https://github.com/nehsa25/rts">Github</a></div>
+                    <ul>
+                        <li>
+                            <h3>Some fun things I've been involved with:</h3>Build test automation infrastructure to
+                            meet a specific need of testing on varity of
+                            real
+                            hardware (metal) such as network cards, CPUs, and a variety of operating systems.
+                            Technolgies: Chef,
+                            Doxygen, Python, Pytest<br>
+                            <img style="width: 600px;" mat-card-image src="assets/images/test-automation.png"
+                                alt="Diagram of test framework test architecture" />
+                        </li>
+                        <li>
+                            Built a desktop systray application using Python that runs in taskbar for capturing
+                            screenshots
+                            and state to facilitates
+                            finding bugs/recording machine state (lab-monitor)<br>
+                            <img style="width: 100px;" mat-card-image src="assets/images/lab_monitor1.png"
+                                alt="Picture of Lab Monitor tray icon" /><br><br>
+                            <img style="width: 100px;" mat-card-image src="assets/images/lab_monitor2.png"
+                                alt="Picture of Lab Monitor tray options" />
+                        </li>
+                        <li>
+                            Built a Client/Server websocket application using Asyncio. This is deployed on our all
+                            lab
+                            machines automatically via Chef and allows remove command execution against any/all
+                            machines via
+                            lab
+                            website (lab-listener)<br>
+                            <img style="width: 600px;" mat-card-image src="assets/images/lab_listener.png"
+                                alt="picture of lab divstener websocket" />
+                        </li>
+                        <li>
+                            Replaced the Chef UI (I believe it was called Chef Manage) with custom implementation (to
+                            work-around bugs / at
+                            direction of
+                            Chef team). This lab site provides detailed information against all machines in the lab
+                            and
+                            allows configuration/remote command execution<br>
+                            <img style="width: 600px;" mat-card-image src="assets/images/lab_config1.png"
+                                alt="Config page for configuring lab hosts" />
+                        </li>
+                        <li>
+                            Automated debugging tests via Visual Studio us pywinauto (step-into, over, set watch)
+                        </li>
+                        <li>
+                            Implemented a Recapcha<br>
+                            <img style="width: 300px;" mat-card-image src="assets/images/recaptcha2.png"
+                                alt="Recapcha implementation" />
+                        </li>
+                        <li>
+                            To prevent folks in the office from using a computer in use by someone remote, I wrote a
+                            Python script that sets the wallpaper of the machine:<br>
+                            <img style="width: 600px;" src="assets/images/wallpaper_python.jpg" />
+                        </li>
+                        <li>Implemented an Angular status & maintenance page
+                            <ul class="condensed">
+                                <li>Status displays next maintance message text on all login pages for two days
+                                    before date
+                                    in database</li>
+                                <li>Disappears after maintenance date + a few hours</li>
+                                <div>During maintenance:
+                                    <ul class="condensed">
+                                        <li>All pages redirect to maintenance page</li>
+                                        <li>All API requests return a "UNDER_MAINTENANCE" code</li>
+                                        <li>Users on whitedivst and continue to vadivdate page</li>
+                                    </ul>
+                                </div>
+                                <li>
+                                    <span>Controlled via table in database:</span><br>
+                                    <img width="600" mat-card-image src="assets/images/maint2.png" />
+                                </li>
+                                <li>
+                                    <span>Corresponding status on login pages:</span><br>
+                                    <img width="600" mat-card-image src="assets/images/maint1.png" />
+                                </li>
+                                <li>
+                                    <span>Folks not on maintenance whitelist are redirected to maintenance
+                                        page:</span><br>
+                                    <img width="600" mat-card-image src="assets/images/maint3.png" />
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Maintain production Angular project and backend C# API. Hosted in Azure.<br>
+                            <img width="600" mat-card-image src="assets/images/license_portal.png"
+                                alt="Material table with custom select-columns feature" />
+                        </li>
+                        <li>
+                            website/html "MUD" client: <a href="https://github.com/nehsa25/websocket-mud">Github</a><br>
+                            <img width="600" mat-card-image src="assets/images/mud.png"
+                                alt="A web-based MUD client written in Python and using websockets" />
+                        </li>
+                        <li>RTS game using Python and pygame: <a href="https://github.com/nehsa25/rts">Github</a></li>
+                    </ul>
                 </div>
                 <div><app-comment></app-comment></div>
             </div>

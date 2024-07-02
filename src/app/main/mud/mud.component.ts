@@ -11,7 +11,7 @@ import { UserService } from '../../services/user.service';
 import { UserCreateComponent } from './user-create/user-create.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MapComponent } from './map/map.component';
-import { MatIcon } from '@angular/material/icon';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { DupeNameComponent } from './dupe-name/dupe-name.component';
 import { MudEvents } from '../../types/mudevents.type';
 import { AiImageComponent } from './ai-image/ai-image.component';
@@ -23,8 +23,8 @@ import { CommentType } from '../../types/comment.type';
 @Component({
   selector: 'app-mud',
   standalone: true,
-  imports: [NgClass, NgIf, MatExpansionModule, MatCardModule, CommentComponent, NgIf, 
-    MatButton, MatInputModule, MatFormFieldModule, MatLabel, MatError, FormsModule, NgFor, MatIcon],
+  imports: [NgClass, NgIf, MatExpansionModule, MatCardModule, CommentComponent, NgIf,
+    MatButton, MatInputModule, MatFormFieldModule, MatLabel, MatError, FormsModule, NgFor, MatIconModule],
   providers: [],
   templateUrl: './mud.component.html',
   styleUrl: './mud.component.scss',
@@ -36,7 +36,8 @@ export class MudComponent implements OnInit, OnDestroy {
   usersConnected: number = 0;
   health: string = "";
   status: string = "";
-  resting: boolean = false;
+  is_resting: boolean = false;
+  poisioned: boolean = false;
   command: string = "";
   socket: WebSocket;
   map_contents = "";
@@ -49,12 +50,13 @@ export class MudComponent implements OnInit, OnDestroy {
   room_description = "";
   roomImageAvailable = false;
   miniMap = "";
+  statuses = [];
   isFullscreen = false;
   totalItems = 0;
   mapSelected = false;
   helpSelected = false;
   restSelected = false;
-  eventsSubject: Subject<CommentType> = new Subject<CommentType>();  
+  eventsSubject: Subject<CommentType> = new Subject<CommentType>();
   private _page_name = "mud";
 
   constructor(
@@ -363,43 +365,28 @@ export class MudComponent implements OnInit, OnDestroy {
         }
         break;
       case MudEvents.HEALTH:
-        if (data.message != "") {
-          // f"{player.name}|{str(player.hitpoints)}/{str(player.max_hitpoints)}|R"
-          const values = data.message.split('|');
-          const num_items = values.length;
-          console.log("num items: " + num_items);
-          name = values[0]; // player.name
-          const hitpoints = parseInt(values[1].split('/')[0]);
-          console.log("hitpoints: " + hitpoints);
-          const max_hitpoints = parseInt(values[1].split('/')[1]);
-          console.log("max_hitpoints: " + max_hitpoints);
-          let cssClass = 'good';
-          if (hitpoints / max_hitpoints >= .75) {
-            cssClass = 'status-good ';
-          } else if (hitpoints / max_hitpoints >= .25) {
-            cssClass = 'status-dicey;'; // burnt orange
-          } else {
-            cssClass = 'status-danger';
-          }
+        const hitpoints = parseInt(data.statuses.current_hp);
+        const max_hitpoints = parseInt(data.statuses.max_hp);
 
-          // statuses
-          let statuses = "";
-          if (num_items > 2) {
-            statuses = values[2];
-            if (statuses == 'REST') {
-              statuses = 'Resting'
-            }
-          } else {
-            statuses = ""; // no status effects present such as resting
-          }
+        let cssClass = 'good';
+        if (hitpoints / max_hitpoints >= .75) {
+          cssClass = 'status-good ';
+        } else if (hitpoints / max_hitpoints >= .25) {
+          cssClass = 'status-dicey;'; // burnt orange
+        } else {
+          cssClass = 'status-danger';
+        }
 
-          // add the health
-          this.health = "<span style=\"class: " + cssClass + ";\">" + hitpoints + "</span> / " + max_hitpoints;
+        // add the health
+        this.health = "<span style=\"class: " + cssClass + ";\">" + hitpoints + "</span> / " + max_hitpoints;
 
-          // add status effects
-          if (data.is_resting) {
-            this.resting = true;
-          }
+        // add status effects
+        this.is_resting = data.is_resting;
+        this.poisioned = data.is_posioned;
+        this.statuses = data.statuses;
+
+        if (data.is_resting) {
+          this.is_resting = true;
         }
         break;
       case MudEvents.HELP:
@@ -408,15 +395,15 @@ export class MudComponent implements OnInit, OnDestroy {
       case MudEvents.REST:
         if (data.message != "") {
           if (data.is_resting) {
-            this.resting = true;
+            this.is_resting = true;
             this.restSelected = true;
           } else {
-            this.resting = false;
+            this.is_resting = false;
             this.restSelected = false;
           }
           this.mudEvents += "<br><span class=\"rest-message\">" + data.message + "</span>";
         }
-        this.resting = data.is_resting
+        this.is_resting = data.is_resting
         break;
       case MudEvents.ROOM:
         this.room_description = data.description;
@@ -440,10 +427,10 @@ export class MudComponent implements OnInit, OnDestroy {
           this.mudEvents += "<br><span class=\"npcs1-message\">" + data.npcs + "</span>";
         }
 
-
         // check for monsters
         if (data.monsters != "") {
-          this.mudEvents += "<br><span class=\"monster1-message\">Monsters: </span><span class=\"monster2-message\">" + data.monsters + "</span>";
+          // this.mudEvents += "<br><span class=\"monster1-message\">Monsters: </span><span class=\"monster2-message\">" + data.monsters + "</span>";
+          this.mudEvents += "<br><span class=\"monster2-message\">" + data.monsters + "</span>";
         }
 
         // check for items

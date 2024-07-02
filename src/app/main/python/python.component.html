@@ -102,6 +102,15 @@
                                     </pre>
                                 </div>
                             </li>
+                            <li>An enum class can be treated as a list: <span class="code">random.choice(<span class="important">list(</span>Monsters<span class="important">)</span>)</span>
+                                <div class="code">
+                                    <pre>
+    class Monsters(Enum):
+        SKELETON = 1
+        ZOMBIE = 2                                          
+                                   </pre>
+                                </div>
+                            </li>
                             <li>Prefer <span class="important">if my_object is None</span> over <span
                                     class="important">if my_object == None</span> - Small difference (see below) in
                                 comparison.<br>Using "is" keyword is faster since fewer operations are perforemd:

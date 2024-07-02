@@ -16,10 +16,12 @@ export class MudEvent {
     map_image_name: string = "";
     players: number = -1;
     is_resting: boolean = false;
+    is_posioned: boolean = false;
     world_name: string = "";
     help_commands: HelpEvent = new HelpEvent();
     inventory: InventoryEvent = new InventoryEvent();
     npcs: string = "";
+    statuses: any = {};
 }
 
 export class InventoryEvent {

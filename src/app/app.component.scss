@@ -357,11 +357,6 @@
 .contactme {
     grid-area: contactme;
     background-color: var(--theme-background-color);
-    color: #666;
-    padding: 2px 10px;
-    font-variant: petite-caps;
-    font-size: 2rem;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     place-content: start;
 }
 
@@ -375,12 +370,10 @@
 }
 
 .email {
-    font-variant: inherit !important;
-    font-family: "Berkshire Swash", serif !important;
-    font-weight: 400;
-    font-style: normal;
-    color: #444;
-    font-size: 1rem !important;
+    color: #666;
+    padding: 2px 10px;
+    font-variant: petite-caps !important;
+    font-size: 1.2rem !important;
 }
 
 .bread {
