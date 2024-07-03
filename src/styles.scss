@@ -319,8 +319,8 @@ h6 {
 }
 
 span.code {
-    background-color: $theme-background !important;
-    color: var(--theme-background-light-gray);
+    background-color: var(--theme-code-background) !important;
+    color: var(--theme-code-color) !important;
     font-family: Consolas;
     border-radius: 5px;
     padding: 3px 1em;
