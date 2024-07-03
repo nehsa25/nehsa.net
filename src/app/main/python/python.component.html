@@ -16,8 +16,46 @@
                                     <pre>
     def __init__(self, &lt;PARAMS&gt;):
         pass
+</pre>
+                                </div>
+                            </li>
+                            <li>Python has a nice enhancement for try/catches, traceback:
+                                <div class="code">
+                                    <pre>
+    try:
+        <span class="comment">&lt;CODE WE WISH TO RUN&gt;</span>
+    except websockets.ConnectionClosedOK: <span class="comment"><mat-icon>arrow_back</mat-icon> each condition we wish to check (the more the better!)</span>
+        LogUtils.warn(f"Someone left. Grin and bear it.  Grin and bear it.  We're going to move on people!", logger)
+    except KeyboardInterrupt: <span class="comment"><mat-icon>arrow_back</mat-icon> another condition</span>
+        loop.stop()
+    except:
+        LogUtils.error(
+            f"An error occurred!\nException:\n&#123;traceback.format_exc()&#125;", logger <span class="comment"><mat-icon>arrow_back</mat-icon> format_exc() is an easy way to provide good stacktrace information</span>
+        )
+                                    </pre>
+                                </div><br>
+                                Example output:<br>
+                                <div class="code">
+                                    <pre>
+    Traceback (most recent call last):
+    File "&lt;PATH&gt;\&lt;FILE&gt;", line &lt;LINE NUMBER&gt;, in main
+        message = await websocket.recv()
+                ^^^^^^^^^^^^^^^^^^^^^^
+    File "C:\Local\Programs\Python\Python312\Lib\site-packages\websockets\legacy\protocol.py", line 568, in recv
+        await self.ensure_open()
+    File "C:\Local\Programs\Python\Python312\Lib\site-packages\websockets\legacy\protocol.py", line 948, in ensure_open
+        raise self.connection_closed_exc()
+    websockets.exceptions.ConnectionClosedOK: received 1005 (no status received [internal]); then sent 1005 (no status received [internal])
                                     </pre>
                                 </div>
+                            </li>
+                            <li>Ternary in Python:<br>
+                                The typical ternary operation found in most languages can be represented like this in
+                                Python:<br>
+                                <span class="code">result == null ? true : false</span> <span
+                                    class="comment"><mat-icon>arrow_back</mat-icon> the yoozh</span><br>
+                                <span class="code">True if result is not None else False</span> <span
+                                    class="comment"><mat-icon>arrow_back</mat-icon> Python</span>
                             </li>
                             <li>To use subfolders to better organize your code, a file must be created called <span
                                     class="file">__init__.py</span>.
@@ -31,13 +69,56 @@
 
                                 This will no longer be necessary in Python 3.3+
 
-                                <ul><li>To access this subpackage, refer to it with a  period: <span class="code">from races.goblin import Goblin</span></li></ul>
+                                <ul>
+                                    <li>To access this subpackage, refer to it with a period: <span class="code">from
+                                            races.goblin import Goblin</span></li>
+                                </ul>
+                            </li>
+                            <li>Make a class JSON serializable in Python<br>
+                                Take this class:
+                                <div class="code">
+                                    <pre>
+    class LogEntry:
+    file_name = None
+    description = None        
+    def __init__(self, file_name, description) -> None:
+        self.file_name = file_name
+        self.description = description                                            
+                                        </pre>
+                                </div>
+
+                                I often find it necessary to convert this into a string. One reason is to sent to a
+                                website or API in the form of JSON. to make the above code into a JSON string, a couple
+                                options are available:<br>
+                                Use <span class="important">jsonpickle</span>, it's a library designed to take
+                                Python objects and convert them into JSON.<br>
+                                Update object with this method:
+                                <div class="code">
+                                    <pre>
+    def to_json(self):
+        return jsonpickle.encode(self)
+</pre>
+                                </div>
+                                to call it:<span class="code">&lt;OBJECT&gt;.to_json()</span><br>
+                                Example output:<br>
+                                <div class="code">
+                                    <pre>
+&#123;"py/object": "aiimages.AIImages.LogEntry", "file_name": "townsmeeblacksmithbackroomroom1720017333.png", "description": "You are in the blacksmith's back Room.  A hot forge still burns smoldering coals."&#125;
+ </pre>
+                                </div>
+
+                                The JSON string can be read back into an object with <span
+                                    class="code">json.loads(item)</span> and then
+                                each JSON object can be referenced as a dictionary: <span class="code">description =
+                                    item["description"]</span>
                             </li>
                             <li>Inheritence in Python looks like this:<br><br>If we have these three classes:<ul>
-                                <li>Kobold - Contains specific infformation on the Kobold races. The factory for generating Kobolds in the world.</li>
-                                <li>BaseStats - Contains general attributes of all races (HP, strength, intelligence, ect)
-                                    <div class="code">
-                                        <pre>
+                                    <li>Kobold - Contains specific infformation on the Kobold races. The factory for
+                                        generating Kobolds in the world.</li>
+                                    <li>BaseStats - Contains general attributes of all races (HP, strength,
+                                        intelligence, ect)
+                                        <div class="code">
+                                            <pre>
     class BaseStats(Utility):
         hp = 0
         strength = 0
@@ -45,13 +126,12 @@
         location = 0
         perception = 0
         determination = 0
-                                        
-                                        </pre>
-                                    </div>
-                                </li>
-                                <li>Utility - Mostly ENUMs with shared data
-                                    <div class="code">
-                                        <pre>
+</pre>
+                                        </div>
+                                    </li>
+                                    <li>Utility - Mostly ENUMs with shared data
+                                        <div class="code">
+                                            <pre>
         class Utility(MudEvents):  
             class Share:
                 WORLD_NAME = "Illisurom"
@@ -78,16 +158,16 @@
                     ARGUNA = 9,
                     EAREA = 10
                                         </pre>
-                                    </div>
-                                </li>
-                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
 
-                            This could be structured like this:
+                                This could be structured like this:
                                 <div class="code">
                                     <pre>
     class Kobold(BaseStats):
         class BaseStats(Utility):
-                                    </pre>                                    
+                                    </pre>
                                 </div>
                             </li>
                             <li>Docstring example:
@@ -102,7 +182,8 @@
                                     </pre>
                                 </div>
                             </li>
-                            <li>An enum class can be treated as a list: <span class="code">random.choice(<span class="important">list(</span>Monsters<span class="important">)</span>)</span>
+                            <li>An enum class can be treated as a list: <span class="code">random.choice(<span
+                                        class="important">list(</span>Monsters<span class="important">)</span>)</span>
                                 <div class="code">
                                     <pre>
     class Monsters(Enum):
@@ -129,10 +210,6 @@
 
                             </li>
                         </ul>
-
-
-
-
                     </div>
                     <div>
                         <h3><a href="https://realpython.com/python-pep8/">PEP8 Code Conventions</a></h3>
@@ -188,7 +265,7 @@
                         </table>
                     </div>
                     <div>
-                        Utility Libaries:
+                        These are utility libraries I've written to ease miscellaneous tasks..
                         <dl>
                             <dt>Helper functions for working with Excel</dt>
                             <dd><a href="assets/libraries/excel_utils.py">excel_utils.py</a></dd>
