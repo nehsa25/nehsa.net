@@ -13,6 +13,7 @@ export class MudEvent {
     extra: string = "";
     map_contents: string = "";
     room_image_name: string = "";
+    image_name: string = "";
     map_image_name: string = "";
     players: number = -1;
     is_resting: boolean = false;

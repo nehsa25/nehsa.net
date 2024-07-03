@@ -436,3 +436,8 @@ td {
   border: 1px thin #333;
 }
 
+.player-image, .npc-image, .monster-image, .item-image {
+  width: 300px;
+  height: 300px;
+  border: 1px solid whitesmoke;
+}

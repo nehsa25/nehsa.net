@@ -456,7 +456,18 @@ export class MudComponent implements OnInit, OnDestroy {
       case MudEvents.ROOM_IMAGE:
         this.roomImageName = `https://api.nehsa.net/rooms/${data.room_image_name}`;
         this.roomImageAvailable = true;
-        //this.launchMap(this.mapName);
+        break;
+      case MudEvents.PLAYER_IMAGE:
+          this.mudEvents += `<br><img src="https://api.nehsa.net/rooms/${data.image_name}" alt="player image" class="player-image" />`;
+        break;
+      case MudEvents.NPC_IMAGE:
+        this.mudEvents += `<br><img src="https://api.nehsa.net/rooms/${data.image_name}" alt="npc image" class="npc-image" />`;
+        break;
+      case MudEvents.ITEM_IMAGE:
+        this.mudEvents += `<br><img src="https://api.nehsa.net/rooms/${data.image_name}" alt="item image" class="item-image" />`;
+        break;
+      case MudEvents.MONSTER_IMAGE:
+        this.mudEvents += `<br><img src="https://api.nehsa.net/rooms/${data.image_name}" alt="monster image" class="monster-image" />`;
         break;
       case MudEvents.DIRECTION:
         if (data.message != "") {
