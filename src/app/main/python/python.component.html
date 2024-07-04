@@ -11,49 +11,164 @@
                     <div>
                         Python is rad!
                         <ul>
-                            <li>Constructor is:<br>
-                                <div class="code">
-                                    <pre>
-    def __init__(self, &lt;PARAMS&gt;):
-        pass
-</pre>
-                                </div>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Constructor</mat-panel-title>
+                                        <mat-card-subtitle>Constructor is: <span class="code">def __init__(self,
+                                                &lt;PARAMS&gt;):</span></mat-card-subtitle>
+                                    </mat-expansion-panel-header>
+                                    <div class="code">
+                                        <pre>
+        def __init__(self, &lt;PARAMS&gt;):
+            pass
+        </pre>
+                                    </div>
+                                </mat-expansion-panel>
                             </li>
-                            <li>Shallow Vs. Deep copy<br>In most cases, Python uses shallow copying for variables. They
-                                means when you do something like this:
-                                <div class="code">
-                                    <pre>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>super SuPer SUpER SUPER!</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    When working with inheritance, it can sometimes be handly to work directly with the
+                                    parent class.
+
+                                    Take for example a structure like this (known as a "factory" pattern):
+                                    <div class="code">
+                                        <pre>
+    class Npc:
+        def __init__(self):
+            print("So am I!!!")
+
+    class Guard(Npc):
+        def __init__(self):
+            print("I'm being constructed baby!")
+
+    bob_the_guard = Guard()
+</pre>
+                                    </div>
+                                    <br>
+                                    <button mat-button color="accent" (click)="clickAnswerTwo()" class="question"><mat-icon
+                                            class="questionmark">question_mark</mat-icon>Will the contents have both print statements?</button>
+                                    <div *ngIf="answerTwo != ''" class="answer">
+                                        &#123;&#123;answerTwo&#125;&#125;<br>
+                                        It can sometimes be handy to call the base/parent constructor.  For example, if your parent constructor has a optional parameter "name":
+                                        <div class="code">
+<pre>
+        class Npc:
+            name = ""
+            def __init__(self, name=""):
+                print("So am I!!!")
+                if name != "":
+                    self.name = name
+
+                print(f"And my name is: &#123;self.name&#125;")
+    
+        class Guard(Npc):
+            def __init__(self):
+                print("I'm being constructed baby!")
+                super().__init__(name="Maximus")
+    
+        bob_the_guard = Guard()
+</pre>
+                                        </div><br>
+                                        <div>
+<pre>
+    I'm being constructed baby!
+    So am I!!!
+    And my name is: Maximus
+</pre>
+                                        </div>
+
+                                    </div>
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Multi-line comment</mat-panel-title>
+                                        <mat-card-subtitle>Triple Quotes: <span
+                                                class="code">"""</span></mat-card-subtitle>
+                                    </mat-expansion-panel-header>
+                                    <div class="code">
+                                        <pre>
+    player_stats = f"""        
+    Hello &#123;player.name&#125;&lt;br&gt;
+    **************************************************&lt;br&gt;
+    Level: &#123;player.level&#125;&lt;br&gt;
+    Experience: &#123;player.experience&#125;&lt;br&gt;
+    **************************************************&lt;br&gt;
+    You have the following attributes:&lt;br&gt;
+    * Health &#123;player.stats.current_hp&#125; of &#123;player.stats.max_hp&#125;&lt;br&gt;
+    * Strength &#123;player.stats.strength&#125;&lt;br&gt;
+    * Agility &#123;player.stats.agility&#125;&lt;br&gt;
+    * Determination &#123;player.stats.determination&#125;&lt;br&gt;
+    * Faith &#123;player.stats.faith&#125;&lt;br&gt;
+    * Intelligence &#123;player.stats.intelligence&#125;&lt;br&gt;
+    * Perception &#123;player.stats.perception&#125;&lt;br&gt;
+    Current Conditions and Aielments:&lt;br&gt;
+    * Feriocity &#123;player.stats.feriocity.name.capitalize()&#125;&lt;br&gt;
+    * Resting &#123;player.stats.is_resting&#125;&lt;br&gt;
+    * Poisoned &#123;player.stats.is_posioned&#125;&lt;br&gt;
+    **************************************************&lt;br&gt;
+    """
+</pre>
+                                    </div>
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Shallow Vs. Deep copy</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    <div class="code">In most cases, Python uses shallow copying for variables. They
+                                        means when you do something like this:
+                                        <div class="code">
+                                            <pre>
     monsters_a = []
     monsters_b = []
     monsters_a = monsters_b
     monsters_a.append("Jerry")
 </pre>
-                                    <button mat-button color="accent" (click)="answer(0)" class="question"><mat-icon
-                                            class="questionmark">question_mark</mat-icon>What is the contents of
-                                        monsters_b?</button>
+                                            <button mat-button color="accent" (click)="clickAnswerOne()"
+                                                class="question"><mat-icon
+                                                    class="questionmark">question_mark</mat-icon>What is the contents of
+                                                monsters_b?</button>
 
-                                    <div *ngIf="displayAnswerOne != ''" class="answer">{{displayAnswerOne}}
-                                        <span class="code">print(monsters_b)</span><span class="answer">['Jerry']</span>
-                                        <br><br>Yup, Jerry got into list b<br>
-                                        This is a shallow copy meaning that there's simply a refererence between list a
-                                        and list b. What happens to one, happens to the other. We need to do a deep copy
-                                        to separate the contents.<br><br>The can be done using deepcopy():
-                                        <div class="code">
-<pre>
+                                            <div *ngIf="answerOne != ''" class="answer">
+                                                &#123;&#123;answerOne&#125;&#125;;
+                                                <span class="code">print(monsters_b)</span><span
+                                                    class="answer">['Jerry']</span>
+                                                <br><br>Yup, Jerry got into list b<br>
+                                                This is a shallow copy meaning that there's simply a refererence between
+                                                list a
+                                                and list b. What happens to one, happens to the other. We need to do a
+                                                deep copy
+                                                to separate the contents.<br><br>The can be done using deepcopy():
+                                                <div class="code">
+                                                    <pre>
     monsters_a = []
     monsters_b = []
     monsters_a = deepcopy(monsters_b)
     monsters_a.append("Jerry")
     <span class="code">print(monsters_b)</span><span class="answer">['']</span>
 </pre>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </mat-expansion-panel>
 
                             </li>
-                            <li>Python has a nice enhancement for try/catches, traceback:
-                                <div class="code">
-                                    <pre>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Try/Except</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    Python has a nice enhancement for try/catches, traceback:
+                                    <div class="code">
+                                        <pre>
     try:
         <span class="comment">&lt;CODE WE WISH TO RUN&gt;</span>
     except websockets.ConnectionClosedOK: <span class="comment"><mat-icon>arrow_back</mat-icon> each condition we wish to check (the more the better!)</span>
@@ -64,11 +179,11 @@
         LogUtils.error(
             f"An error occurred!\nException:\n&#123;traceback.format_exc()&#125;", logger <span class="comment"><mat-icon>arrow_back</mat-icon> format_exc() is an easy way to provide good stacktrace information</span>
         )
-                                    </pre>
-                                </div><br>
-                                Example output:<br>
-                                <div class="code">
-                                    <pre>
+</pre>
+                                    </div><br>
+                                    Example output:<br>
+                                    <div class="code">
+                                        <pre>
     Traceback (most recent call last):
     File "&lt;PATH&gt;\&lt;FILE&gt;", line &lt;LINE NUMBER&gt;, in main
         message = await websocket.recv()
@@ -78,8 +193,9 @@
     File "C:\Local\Programs\Python\Python312\Lib\site-packages\websockets\legacy\protocol.py", line 948, in ensure_open
         raise self.connection_closed_exc()
     websockets.exceptions.ConnectionClosedOK: received 1005 (no status received [internal]); then sent 1005 (no status received [internal])
-                                    </pre>
-                                </div>
+</pre>
+                                    </div>
+                                </mat-expansion-panel>
                             </li>
                             <li>Ternary in Python:<br>
                                 The typical ternary operation found in most languages can be represented like this in

@@ -513,6 +513,16 @@ mat-card {
     color: var(--theme-button-hover-color) !important;
 }
 
+
+// makes the question_mark icon bigger and a nice green
+.questionmark {
+    color: var(--theme-pop);
+    font-size: 1.5rem !important;
+    font-weight: 600;
+    height: 1.5rem !important;
+    width: 1.5rem !important;
+}
+
 // custom fonts
 .tiny5-regular {
     font-family: "Tiny5", sans-serif;
@@ -525,3 +535,4 @@ mat-card {
     font-weight: 400;
     font-style: normal;
 }
+

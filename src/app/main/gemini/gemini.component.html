@@ -16,6 +16,22 @@
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Implmentation</mat-panel-title>
                                 </mat-expansion-panel-header>
+                                <div class="code">
+<pre>
+    class GeminiAPI:
+    logger = None
+    key = None
+    def __init__(self, logger) -> None:
+        self.logger = logger
+        LogUtils.debug("Initializing GeminiAPI() class", self.logger)            
+        self.key = Secrets.GeminiAPIKey
+    
+    def create(self, description, room_image_name):
+        genai.configure(api_key=self.key)            
+        model = genai.GenerativeModel('gemini-1.5-flash',)
+        response = model.generate_content(f"<span class="important">&lt;PROMPT&gt;</span>")
+</pre>
+                                </div>
                             </mat-expansion-panel>
                         </li>
                         <li>
