@@ -43,6 +43,7 @@ import { MysqlComponent } from './main/mysql/mysql.component';
 import { InnoComponent } from './main/inno/inno.component';
 import { WebDesignComponent } from './main/web-design/web-design.component';
 import { IisComponent } from './main/iis/iis.component';
+import { GeminiComponent } from './main/gemini/gemini.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: BioComponent },
@@ -87,6 +88,7 @@ export const routes: Routes = [
     { path: 'website', title: 'nehsa.net | This Website', component: ThisWebsiteComponent },
     { path: 'tls', title: 'nehsa.net | TLS', component: TlsComponent },
     { path: 'grammar', title: 'nehsa.net | Grammar', component: WritingComponent },
+    { path: 'gemini', title: 'nehsa.net | Google Gemini', component: GeminiComponent },
     { path: 'design', title: 'nehsa.net | Design Patterns', component: DesignpatternsComponent },
     { path: 'swagger', title: 'nehsa.net | Swagger Documentation', component: SwaggerComponent },
     { path: 'glider', title: 'nehsa.net | Glider Preparedness', component: GliderComponent },
