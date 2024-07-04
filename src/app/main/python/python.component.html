@@ -19,6 +19,38 @@
 </pre>
                                 </div>
                             </li>
+                            <li>Shallow Vs. Deep copy<br>In most cases, Python uses shallow copying for variables. They
+                                means when you do something like this:
+                                <div class="code">
+                                    <pre>
+    monsters_a = []
+    monsters_b = []
+    monsters_a = monsters_b
+    monsters_a.append("Jerry")
+</pre>
+                                    <button mat-button color="accent" (click)="answer(0)" class="question"><mat-icon
+                                            class="questionmark">question_mark</mat-icon>What is the contents of
+                                        monsters_b?</button>
+
+                                    <div *ngIf="displayAnswerOne != ''" class="answer">{{displayAnswerOne}}
+                                        <span class="code">print(monsters_b)</span><span class="answer">['Jerry']</span>
+                                        <br><br>Yup, Jerry got into list b<br>
+                                        This is a shallow copy meaning that there's simply a refererence between list a
+                                        and list b. What happens to one, happens to the other. We need to do a deep copy
+                                        to separate the contents.<br><br>The can be done using deepcopy():
+                                        <div class="code">
+<pre>
+    monsters_a = []
+    monsters_b = []
+    monsters_a = deepcopy(monsters_b)
+    monsters_a.append("Jerry")
+    <span class="code">print(monsters_b)</span><span class="answer">['']</span>
+</pre>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </li>
                             <li>Python has a nice enhancement for try/catches, traceback:
                                 <div class="code">
                                     <pre>
@@ -212,7 +244,7 @@
                         </ul>
                     </div>
                     <div>
-                        <h3><a href="https://realpython.com/python-pep8/">PEP8 Code Conventions</a></h3>
+                        <h4><a href="https://realpython.com/python-pep8/">PEP8 Code Conventions</a></h4>
                         <table>
                             <tr>
                                 <th>Type</th>
