@@ -14,9 +14,9 @@
                                 <mat-expansion-panel>
                                     <mat-expansion-panel-header>
                                         <mat-panel-title>Form Validation</mat-panel-title>
-                                        <mat-panel-description>                                        
+                                        <mat-panel-description>
                                         </mat-panel-description>
-                                    </mat-expansion-panel-header>   
+                                    </mat-expansion-panel-header>
                                     <ul class="condensed">
                                         <li>
                                             <h4>Example form element:</h4>
@@ -78,19 +78,20 @@
                                     <div>
                                         <h4>Example</h4>
                                         <img src="assets/images/signup.png" alt="Form Validation" />
-                                    </div>                   
+                                    </div>
                                 </mat-expansion-panel>
                             </li>
                             <li>
                                 <mat-expansion-panel>
                                     <mat-expansion-panel-header>
                                         <mat-panel-title>Table select-columns feature</mat-panel-title>
-                                        <mat-panel-description>                                        
+                                        <mat-panel-description>
                                         </mat-panel-description>
                                     </mat-expansion-panel-header>
-                                    <h3>Table select-columns feature: Alter visiblity, stick/freeze columns, change order
+                                    <h3>Table select-columns feature: Alter visiblity, stick/freeze columns, change
+                                        order
                                     </h3>
-                                     <ul class="condensed">
+                                    <ul class="condensed">
                                         <li>Todo: Add the example of where I did this!
                                         </li>
                                     </ul>
@@ -100,10 +101,10 @@
                                 <mat-expansion-panel>
                                     <mat-expansion-panel-header>
                                         <mat-panel-title>Listen for child events</mat-panel-title>
-                                        <mat-panel-description>                                        
+                                        <mat-panel-description>
                                         </mat-panel-description>
-                                    </mat-expansion-panel-header>   
-                                     <ul class="condensed">
+                                    </mat-expansion-panel-header>
+                                    <ul class="condensed">
                                         <li>Add a type for the event transmission (e.g. SplashMessage in a new file
                                             <span class=file>splash-message.ts</span>)
                                             <div class="code">
@@ -168,20 +169,22 @@
                                             </pre>
                                             </div>
                                         </li>
-                                    </ul> 
+                                    </ul>
                                 </mat-expansion-panel>
                             </li>
                             <li>
                                 <mat-expansion-panel>
                                     <mat-expansion-panel-header>
                                         <mat-panel-title>reCAPTCHA</mat-panel-title>
-                                        <mat-panel-description>Implement a reCAPTCHA Checkbox <img src="assets/images/recaptcha.png" alt="reCAPTCHA" />                                   
+                                        <mat-panel-description>Implement a reCAPTCHA Checkbox <img
+                                                src="assets/images/recaptcha.png" alt="reCAPTCHA" />
                                         </mat-panel-description>
-                                    </mat-expansion-panel-header>  
-                                     <ul class="condensed">
-                                        <li>Sign up for a Recapcha account at https://www.google.com/recaptcha/about/</li>
+                                    </mat-expansion-panel-header>
+                                    <ul class="condensed">
+                                        <li>Sign up for a Recapcha account at https://www.google.com/recaptcha/about/
+                                        </li>
                                         <li>Create new project
-                                             <ul class="condensed">
+                                            <ul class="condensed">
                                                 <li>Check the "Use a checkbox" option</li>
                                                 <li>Save your key information</li>
                                             </ul>
@@ -218,18 +221,19 @@
                                     <div>
                                         <h3>If all went well:</h3>
                                         <img src="assets/images/recaptcha.png" alt="reCAPTCHA" />
-                                    </div>               
+                                    </div>
                                 </mat-expansion-panel>
                             </li>
                             <li>
                                 <mat-expansion-panel>
                                     <mat-expansion-panel-header>
                                         <mat-panel-title>Fullscreen mode</mat-panel-title>
-                                        <mat-panel-description>Enables full screen mode in the browser + issues events to control what's shown on page<br>
+                                        <mat-panel-description>Enables full screen mode in the browser + issues events
+                                            to control what's shown on page<br>
                                             <img src="assets/images/fullscreen.png"
-                                            alt="A screenshot of the fullscreen button in mud" />                                        
+                                                alt="A screenshot of the fullscreen button in mud" />
                                         </mat-panel-description>
-                                    </mat-expansion-panel-header>   
+                                    </mat-expansion-panel-header>
                                     <ul class="condensed">
                                         <li>Update <span class="file">app.component.ts</span>
                                             <div class="code">
@@ -294,22 +298,51 @@
                                                 </pre>
                                             </div>
                                         </li>
-                                    </ul>                        
+                                    </ul>
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Set focus on control after page load</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    <ul>
+                                        <li>Add a sleep in ngOnInit with something like this:<br>
+                                            <span class="important">HTML:</span>
+                                            <div class="code">
+<pre>
+    &lt;input id="mud-input" type="text" /&gt;
+</pre>
+                                            </div>
+                                            <span class="important">Typescript:</span>
+                                            <div class="code">
+<pre>
+    // set focus to mud input
+    const mudInput = document.getElementById('mud-input')! as HTMLInputElement;
+    setTimeout(() => &#123;
+      this.refocus(mudInput);
+    &#125;, 0);
+</pre>
+                                            </div>
+                                        </li>
+                                    </ul>
+
                                 </mat-expansion-panel>
                             </li>
                         </ul>
                     </div>
                     <div>
                         <h3>Tips!</h3>
-                         <ul class="condensed">
+                        <ul class="condensed">
                             <li>
                                 <mat-expansion-panel>
                                     <mat-expansion-panel-header>
-                                        <mat-panel-title>Control which CSS classes are applied via TypeScript</mat-panel-title>
-                                        <mat-panel-description>                                        
+                                        <mat-panel-title>Control which CSS classes are applied via
+                                            TypeScript</mat-panel-title>
+                                        <mat-panel-description>
                                         </mat-panel-description>
-                                    </mat-expansion-panel-header>  
-                                     <ul class="condensed">
+                                    </mat-expansion-panel-header>
+                                    <ul class="condensed">
                                         <li>HTML
                                             <div class="code">
                                                 <pre>
@@ -337,10 +370,11 @@
                                                 </pre>
                                             </div>
                                         </li>
-                                    </ul>                        
+                                    </ul>
                                 </mat-expansion-panel>
                             </li>
-                            <li>Services need to be singletons.  If you have a userService, it should only be in the "providers" in a single spot.</li>
+                            <li>Services need to be singletons. If you have a userService, it should only be in the
+                                "providers" in a single spot.</li>
                             <li>() = Do something on an event. e.g. (click)="clickfunc()"</li>
                             <li>[] = Right-hand side of the assignment is a dynamic expression.</li>
                             <li>[ngModel]="variable" - Associate with a variable</li>
@@ -355,7 +389,7 @@
                                 <h3>Form stuff:</h3>
                                 <div>
                                     <h3>Selections</h3>
-                                     <ul class="condensed">
+                                    <ul class="condensed">
                                         <li>HTML
                                             <div class="code">
                                                 <pre>
@@ -380,7 +414,7 @@
                                     <ol>
                                         <li>Go to <a href="http://mcg.mbitson.com/">Material Design Pallette
                                                 Generate</a>
-                                             <ul class="condensed">
+                                            <ul class="condensed">
                                                 <li>Generate 3 schemes: primary, accent, warn</li>
                                                 <li>Select Copy Code</li>
                                                 <li>Add them to style.scss:
@@ -508,7 +542,7 @@
                                 <h3>Sending/Receiving HTTP Data</h3>
                                 <div>
                                     I typically structure my projects like this:
-                                     <ul class="condensed">
+                                    <ul class="condensed">
                                         <li>HTTP Service (<span class=file>app/services/http.service.ts</span>)
                                             <div class="code">
                                                 <span class="comment">/** Returns the quote */</span>
@@ -552,7 +586,7 @@
                                             </div>
                                         </li>
                                         <li>Component
-                                             <ul class="condensed">
+                                            <ul class="condensed">
                                                 <li><span class=file>component.ts</span>
                                                     <div class="code">
                                                         <pre>
@@ -621,7 +655,7 @@
                             </li>
                             <li>
                                 Passing data between components in Angular is easy:
-                                 <ul class="condensed">
+                                <ul class="condensed">
                                     <li>Create two components:
                                         <div class="code">
                                             <pre>
@@ -642,7 +676,7 @@
 
                     <div>
                         <h3>Important Files</h3>
-                         <ul class="condensed">
+                        <ul class="condensed">
                             <li>angular.json - Application settings.</li>
                             <li>packages.json - NPM packages to install for application.</li>
                         </ul>
@@ -650,7 +684,7 @@
 
                     <div>
                         <h3>Useful Commands</h3>
-                         <ul class="condensed">
+                        <ul class="condensed">
                             <li><span class="code">npm install</span> - Install all files necessary to run the Angular
                                 project.</li>
                             <li><span class="code">ng serve -o</span> - Runs app locally. The -o opens it in your
@@ -666,7 +700,7 @@
 
                     <div>
                         <h3>Useful Links</h3>
-                         <ul class="condensed">
+                        <ul class="condensed">
                             <li>Angular - https://angular.io/</li>
                             <li>Material - https://material.angular.io/</li>
                             <li>Fonts - https://fonts.google.com/icons</li>

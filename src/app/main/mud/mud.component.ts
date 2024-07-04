@@ -94,6 +94,12 @@ export class MudComponent implements OnInit, OnDestroy {
 
       // process the command
       this.processEvent(data)
+
+      // set focus to mud input
+      const mudInput = document.getElementById('mud-input')! as HTMLInputElement;
+      setTimeout(() => {
+        this.refocus(mudInput);
+      }, 0);
     });
   }
 
@@ -458,7 +464,7 @@ export class MudComponent implements OnInit, OnDestroy {
         this.roomImageAvailable = true;
         break;
       case MudEvents.PLAYER_IMAGE:
-          this.mudEvents += `<br><img src="https://api.nehsa.net/rooms/${data.image_name}" alt="player image" class="player-image" />`;
+        this.mudEvents += `<br><img src="https://api.nehsa.net/rooms/${data.image_name}" alt="player image" class="player-image" />`;
         break;
       case MudEvents.NPC_IMAGE:
         this.mudEvents += `<br><img src="https://api.nehsa.net/rooms/${data.image_name}" alt="npc image" class="npc-image" />`;
