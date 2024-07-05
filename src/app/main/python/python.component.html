@@ -29,6 +29,55 @@
                             <li>
                                 <mat-expansion-panel>
                                     <mat-expansion-panel-header>
+                                        <mat-panel-title>List Comphrehension</mat-panel-title>
+                                        <mat-panel-subtitle>is da <span
+                                                style="color: red;margin-right: 10px">bomb</span></mat-panel-subtitle>
+                                    </mat-expansion-panel-header>
+                                    Given you have a list of objects such as and you need to see if you have a lock on a
+                                    specific NPC:
+                                    <div class="code">
+                                        <pre>
+    locks = []
+    class NpcWanderLock:
+    npc_name = ""
+    lock = None
+    
+    def __init__(self, npc_name):
+        self.npc_name = npc_name
+        self.lock = asyncio.Lock()
+    
+</pre>
+                                    </div><br><br>
+
+                                    Traditionally:
+                                    <div class="code">
+                                        <pre>
+    for npclock in self.npc_running_wander_event:
+        if npclock.npc_name == npc.name:
+            continue
+                                        </pre>
+                                    </div><br>
+                                    Same thing using list comphrehension with a single line of code. <span
+                                        class="note">Technically, these will provide different results as the loop will
+                                        remain "None" if nothing is found or the found object if something is found.  The list comprehsion, on the other hand, is
+                                        a list and will either be a length of 0 if nothing if found or have a single
+                                        entry accessed via lock[0].</span>
+                                    <div class="code">
+                                        <pre>
+    lock = [x.lock for x in self.npc_running_wander_event if x.npc_name == npc.name]     
+                                        </pre>
+                                    </div>
+
+                                    Which is shorthand for:<br>
+                                    From the object <span class="important">"x"</span>, give me the attribute <span
+                                        class="important">"lock" only if</span> the name of the object (x.npc_name) is
+                                    the name we're looking for (npc.name)
+
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
                                         <mat-panel-title>super SuPer SUpER SUPER!</mat-panel-title>
                                     </mat-expansion-panel-header>
                                     When working with inheritance, it can sometimes be handly to work directly with the
@@ -49,13 +98,15 @@
 </pre>
                                     </div>
                                     <br>
-                                    <button mat-button color="accent" (click)="clickAnswerTwo()" class="question"><mat-icon
-                                            class="questionmark">question_mark</mat-icon>Will the contents have both print statements?</button>
+                                    <button mat-button color="accent" (click)="clickAnswerTwo()"
+                                        class="question"><mat-icon class="questionmark">question_mark</mat-icon>Will the
+                                        contents have both print statements?</button>
                                     <div *ngIf="answerTwo != ''" class="answer">
                                         &#123;&#123;answerTwo&#125;&#125;<br>
-                                        It can sometimes be handy to call the base/parent constructor.  For example, if your parent constructor has a optional parameter "name":
+                                        It can sometimes be handy to call the base/parent constructor. For example, if
+                                        your parent constructor has a optional parameter "name":
                                         <div class="code">
-<pre>
+                                            <pre>
         class Npc:
             name = ""
             def __init__(self, name=""):
@@ -72,9 +123,9 @@
     
         bob_the_guard = Guard()
 </pre>
-                                        </div><br>
+                                        </div>
                                         <div>
-<pre>
+                                            <pre>
     I'm being constructed baby!
     So am I!!!
     And my name is: Maximus
