@@ -328,6 +328,7 @@ span.code {
     min-width: 400px;
     max-width: 90%;
     line-height: 5lvh !important;
+    display: contents;
 }
 
 ul.navbar-links>li:hover {
@@ -437,6 +438,7 @@ div.code:hover {
     font-size: 2rem;
     font-weight: 600;
     font-variant: small-caps;
+    display: contents;
 }
 
 .answer {
