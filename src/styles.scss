@@ -435,10 +435,11 @@ div.code:hover {
 .file {
     background-color: var(--theme-file-background) !important;
     color: var(--theme-file-color) !important;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 600;
     font-variant: small-caps;
-    display: contents;
+    display: inline-block;
+    top: -2px !important;
 }
 
 .answer {
