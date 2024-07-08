@@ -102,7 +102,7 @@
                 <div id="helpsection"><span class="important">A text-based multi-user dungeon. HUZZAH!</span>
                 </div>
                 <div id="command">
-                    <input id="mud-input" autofocus="ture" spellcheck="false" type="text"  class="command-input" #sendcommandarea (keydown)="sendKeyCommand($event)"
+                    <input id="mud-input" autocomplete="off" autofocus="ture" spellcheck="false" type="text"  class="command-input" #sendcommandarea (keydown)="sendKeyCommand($event)"
                         [(ngModel)]="command"
                         placeholder="Type a command here and press &lt;ENTER&gt;.  (e.g. /say Hi!&lt;ENTER&gt; to say hello)" />
                 </div>
