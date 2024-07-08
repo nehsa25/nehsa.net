@@ -516,6 +516,9 @@ mat-card {
     color: var(--theme-button-hover-color) !important;
 }
 
+.question {
+    font-style: italic;
+}
 
 // makes the question_mark icon bigger and a nice green
 .questionmark {
@@ -537,5 +540,10 @@ mat-card {
     font-family: "Bungee Spice", sans-serif;
     font-weight: 400;
     font-style: normal;
+}
+
+a {
+    cursor: pointer !important;
+    text-decoration: underline !important;
 }
 

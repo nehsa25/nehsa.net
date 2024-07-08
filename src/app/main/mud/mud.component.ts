@@ -19,11 +19,12 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { HelpModalComponent } from './help-modal/help-modal.component';
 import { Subject } from 'rxjs';
 import { CommentType } from '../../types/comment.type';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-mud',
   standalone: true,
-  imports: [NgClass, NgIf, MatExpansionModule, MatCardModule, CommentComponent, NgIf,
+  imports: [NgClass, NgIf, MatExpansionModule, MatCardModule, CommentComponent, NgIf, RouterModule,
     MatButton, MatInputModule, MatFormFieldModule, MatLabel, MatError, FormsModule, NgFor, MatIconModule],
   providers: [],
   templateUrl: './mud.component.html',
@@ -60,6 +61,7 @@ export class MudComponent implements OnInit, OnDestroy {
   private _page_name = "mud";
 
   constructor(
+    public router: Router,
     public userService: UserService,
     public dupeDialog: MatDialog,
     public usernameCreateDialog: MatDialog,
@@ -288,7 +290,16 @@ export class MudComponent implements OnInit, OnDestroy {
         const star_purple = "<span class=\"material-icons purple\">star</span>";
         const star_red = "<span class=\"material-icons red\">star</span>";
         const star_yellow = "<span class=\"material-icons yellow\">star</span>";
-        const welcome = `${star_teal}${star_purple}${star_red}${star_yellow}This is NehsaMUD.  Welcome to the world of ${this.world_name}.${star_yellow}${star_red}${star_purple}${star_teal}<br><br>It's a project my son, Ethan, and I are working on (and you if you want).  It's a fun way to learn Python while doing something creative.  It's an homage to one of the funnest, most underrated types of game ever invented - <span class=\"important\">text-based multi-user dungeon (a &quot;MUD&quot;).</span>  MUDs were hard, they required skill, they were fast and cut-throat.  If you died, people took your <span class=\"strikeout\">shit</span> stuff.  They were also highly social and encouraged creatively. Ohh, the day, when my friend Ian figured out how to script following someone in PvP so they couldn't get away! I hope someday people &quot;script&quot; this like MUDs of old.. so I can sneak attack you while you are AFK.<br><br>NehsaMUD in a perpetual state of &quot;mostly broken&quot;. Please adjust your expectations accordingly. All the images are generated using StabilityAI, dialog is provided via Google Gemini, the maps are built using dot.<br><br>I hope you like it!<br>`;
+        let welcome: string = `${star_teal}${star_purple}${star_red}${star_yellow}This is NehsaMUD.`;
+        welcome += ` Welcome to the world of ${this.world_name}.${star_yellow}${star_red}${star_purple}${star_teal}<br><br>`;
+        welcome += ` It's a project my son, Ethan, and I are working on (and you if you want). It's a fun way to learn Python while doing something creative.`;
+        welcome += ` It's homage to one of the most underrated types of game ever invented - <span class=\"important\">text-based multi-user dungeon (&quot;MUDs&quot;).</span>.`;
+        welcome += ` MUDs were hard, they required skill and were fast and cut-throat.  If you died, people took your stuff and you may not be able to get it back.`;
+        welcome += ` Die and the game may be over..<br><br>`;
+        welcome += ` About NehsaMUD:<ul class=\"condensed\"><li>All the images are generated using StabilityAI. More information on that in the <a routerLink=\"/aiimage\">AI Image Generation"</a></li><li>All NPC and monster dialog is AI provided via <a routerLink=\"/gemini\">Google Gemini</a>. Want to know what temperature bronze melts at?  Ask the blacksmith, he likely knows. Lonely? Find and chat with Princess Candie wandering around Town Smee.</li><li>All maps are generated programmatically, and in real-time as the user progresses the world using Dot and Pydot</li></ul>`;
+        welcome += ` Lastly, NehsaMUD is a side project.  I want to recreate an old game using modern technologies.  `;
+        welcome += ` It's in a perpetual state of &quot;mostly broken&quot;. Please adjust your expectations accordingly.<br>`;
+        welcome += ` <h4 class="important">I hope you like it!</h4>`;
         if (data.message != "") {
           this.mudEvents += `${welcome}<br><br><span class=\"welcome-message\">${data.message}</span>`;
         }
