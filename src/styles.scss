@@ -145,7 +145,6 @@ $theme-header-color: anqituewhite;
     $theme-a-active: mat.get-color-from-palette($light-primary-palette, 100); 
     $theme-a-visited: mat.get-color-from-palette($light-primary-palette, 200); 
     $theme-a-hover: mat.get-color-from-palette($light-primary-palette, 300); 
-    $theme-a-link: mat.get-color-from-palette($light-primary-palette, 400); 
 
     // pop color
     $theme-pop: royalblue;
@@ -166,9 +165,9 @@ $theme-header-color: anqituewhite;
     --theme-comment-background: #{$theme-comment-background};
     --theme-comment-color: #{$theme-comment-color};
     --theme-a-active: #{$theme-a-active};
-    --theme-a-visited: #{$theme-a-visited};
-    --theme-a-hover: #{$theme-a-hover};
-    --theme-a-link: #{$theme-a-link};
+    --theme-a-visited: #{$theme-button-color};
+    --theme-a-hover: #{$theme-button-hover-color};
+    --theme-a-link: #{$theme-button-color};
     --theme-pop: #{$theme-pop};
     --theme-file-background: #{$theme-file-background};
     --theme-file-color: #{$theme-file-color};
@@ -219,23 +218,6 @@ $theme-header-color: anqituewhite;
     body {
         line-height: 2lvh;
     }
-}
-
-a:link {
-    color: var(--theme-a-link) !important;
-}
-
-a:active {
-    color: var(--theme-a-active) !important;
-    font-weight: 600 !important;
-}
-
-a:visited {
-    color: var(--theme-a-visited) !important;
-}
-
-a:hover {
-    color: var(--theme-a-hover) !important;
 }
 
 iframe {
@@ -412,18 +394,6 @@ div.code:hover {
     overflow: hidden !important;
 }
 
-.olq {
-    list-style-type: lower-alpha;
-    border-radius: 5px;
-    border: 1px solid var(--theme-border);
-}
-
-.ula {
-    list-style-type: none;
-    border-radius: 5px;
-    border: 1px solid var(--theme-border);
-}
-
 .strikeout {
     text-decoration: line-through;
 }
@@ -498,6 +468,40 @@ mat-card {
     color: var(--theme-table-color) !important;
 }
 
+// lists
+.olq {
+    list-style-type: lower-alpha;
+    border-radius: 5px;
+    border: 1px solid var(--theme-border);
+}
+
+.ula {
+    list-style-type: none;
+    border-radius: 5px;
+    border: 1px solid var(--theme-border);
+}
+
+
+// Buttons and links
+a {
+    background-color: var(--theme-button-background) !important;
+    text-decoration: none !important;
+}
+
+a:link {
+    color: var(--theme-a-link) !important;
+}
+
+a:active {
+    color: var(--theme-a-active) !important;
+    font-weight: 600 !important;
+}
+
+a:visited {
+    color: var(--theme-a-visited) !important;
+}
+
+a, 
 .mat-mdc-button,
 .mat-mdc-raised-button,
 .mat-mdc-outlined-button,
@@ -505,8 +509,10 @@ mat-card {
 .mat-mdc-unelevated-button {
     background-color: var(--theme-button-background) !important;
     color: var(--theme-button-color) !important;
+    text-decoration: none !important;
 }
 
+a:hover,
 .mat-mdc-button:hover,
 .mat-mdc-raised-button:hover,
 .mat-mdc-outlined-button:hover,
