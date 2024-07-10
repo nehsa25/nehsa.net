@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { CommentComponent } from '../../shared-components/comment/comment.component';
-import { MudEvent } from '../../types/mudevent.type';
-import { NgClass, NgFor, NgIf } from '@angular/common';
+import { MonsterAlignment, MudEvent } from '../../types/mudevent.type';
+import { NgClass, NgFor, NgIf, NgStyle } from '@angular/common';
 import { MatButton } from '@angular/material/button';
 import { MatError, MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -25,7 +25,7 @@ import { Router, RouterModule } from '@angular/router';
   selector: 'app-mud',
   standalone: true,
   imports: [NgClass, NgIf, MatExpansionModule, MatCardModule, CommentComponent, NgIf, RouterModule,
-    MatButton, MatInputModule, MatFormFieldModule, MatLabel, MatError, FormsModule, NgFor, MatIconModule],
+    MatButton, MatInputModule, MatFormFieldModule, MatLabel, MatError, FormsModule, NgFor, MatIconModule, NgStyle],
   providers: [],
   templateUrl: './mud.component.html',
   styleUrl: './mud.component.scss',
@@ -57,6 +57,20 @@ export class MudComponent implements OnInit, OnDestroy {
   mapSelected = false;
   helpSelected = false;
   restSelected = false;
+  intervalId: any;
+  soundtrack_intro = "drip growl drip drip growl";
+  // verse
+  A = "whoosh, bzzzzzz, ting, shhh, ting, tweet, ting, chirp, tweet, chirp, bzzzzzz, glug, glug, glug, drip, drip, boom.....whoosh, shhh, tweet, chirp, glug, gurgle, tinkle, tinkle";
+
+  // chorus
+  B = "clang, whoosh, drip, drip, drip";
+
+  // bridge
+  C = "clink clink CLINK";
+  soundtrack_outro = "tinkle tinkle tinkle, whoosh, whoosh, whoosh";
+  soundtrack = `${this.soundtrack_intro}.. ${this.A}.. ${this.B}.. ${this.A}.. ${this.B}.. ${this.C}.. ${this.B}.. ${this.soundtrack_outro}. This has been a production of the Illisurom soundtrack. Tips accepted.`;
+  soundtrackPosition: number = this.soundtrack.length; // Initial scroll position (text length in pixels)
+
   eventsSubject: Subject<CommentType> = new Subject<CommentType>();
   private _page_name = "mud";
 
@@ -75,6 +89,9 @@ export class MudComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.socket.close();
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+    }
   }
 
   ngOnInit() {
@@ -85,6 +102,9 @@ export class MudComponent implements OnInit, OnDestroy {
     this.socket.addEventListener('open', function (event) {
       console.log("Connected to server");
     });
+
+    // soundtrack
+    this.intervalId = setInterval(() => this.updateSoundtrackTicker(), 50);
 
     //Listen to messages
     this.socket.addEventListener('message', o => {
@@ -104,6 +124,14 @@ export class MudComponent implements OnInit, OnDestroy {
       }, 0);
     });
   }
+
+  updateSoundtrackTicker() {
+    this.soundtrackPosition -= 1;
+    if (this.soundtrackPosition < -this.soundtrack.length * 10) {
+      this.soundtrackPosition = this.soundtrack.length * 10;
+    }
+  }
+
 
   /** Adds a dashed border around the string */
   addBorder(message: string) {
@@ -445,8 +473,24 @@ export class MudComponent implements OnInit, OnDestroy {
         }
 
         // check for monsters
-        if (data.monsters != "") {
+        if (data.monsters.length > 0) {
           // this.mudEvents += "<br><span class=\"monster1-message\">Monsters: </span><span class=\"monster2-message\">" + data.monsters + "</span>";
+          let good_monster: string = "<span class=\"friendly-monster\">";
+          let bad_monster: string = "<span class=\"hostile-monster\">";
+          let neutral_monster: string = "<span class=\"neutral-monster\">";
+
+          // let monsters_text = ""
+          // data.monsters.forEach(monster => {
+          //   if (monster.alignment == MonsterAlignment.EVIL) {
+          //     monsters_text += "<br><span class=\"monster1-message\">" + bad_monster + monster.name + "</span></span>";
+          //   } else if (monster.alignment == MonsterAlignment.GOOD) {
+          //     monsters_text  += "<br><span class=\"monster1-message\">" + good_monster + monster.name + "</span></span>";
+          //   } else {
+          //     monsters_text += "<br><span class=\"monster1-message\">" + neutral_monster + monster.name + "</span></span>";
+          //   }
+          // });
+          // this.mudEvents += monsters_text;
+
           this.mudEvents += "<br><span class=\"monster2-message\">" + data.monsters + "</span>";
         }
 

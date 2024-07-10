@@ -310,7 +310,7 @@ span.code {
     min-width: 400px;
     max-width: 90%;
     line-height: 5lvh !important;
-    display: contents;
+    display: inline-block;
 }
 
 ul.navbar-links>li:hover {
@@ -507,9 +507,11 @@ a,
 .mat-mdc-outlined-button,
 .mat-mdc-flat-button,
 .mat-mdc-unelevated-button {
+    cursor: pointer !important;
     background-color: var(--theme-button-background) !important;
     color: var(--theme-button-color) !important;
     text-decoration: none !important;
+    display: inline-block;
 }
 
 a:hover,
@@ -546,10 +548,5 @@ a:hover,
     font-family: "Bungee Spice", sans-serif;
     font-weight: 400;
     font-style: normal;
-}
-
-a {
-    cursor: pointer !important;
-    text-decoration: underline !important;
 }
 

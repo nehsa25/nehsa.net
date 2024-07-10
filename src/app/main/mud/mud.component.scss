@@ -32,8 +32,8 @@ td {
     "main main helpsection"
     "command command helpsection"
     "usersconnected usersconnected helpsection";
-    grid-template-columns: 400px 1fr 325px;
-    grid-template-rows: 44px 1fr 1fr 1fr 60px 30px;
+  grid-template-columns: 400px 1fr 325px;
+  grid-template-rows: 44px 1fr 1fr 1fr 60px 30px;
   height: 100svh !important;
 
 }
@@ -66,7 +66,8 @@ td {
   height: 70svh;
 }
 
-#playername, #health {
+#playername,
+#health {
   font-size: 2rem;
 }
 
@@ -101,7 +102,7 @@ td {
   overflow: hidden;
   overflow-y: scroll;
   padding: 1em;
-  font-size:large;
+  font-size: large;
   font-family: monospace;
   color: beige;
 }
@@ -109,8 +110,8 @@ td {
 #aiimage {
   grid-area: aiimage;
   background-color: #999;
-  width:300px;
-  height:300px;
+  width: 300px;
+  height: 300px;
 }
 
 .aiimage {
@@ -163,21 +164,21 @@ td {
   color: green;
   height: 32px;
   width: 32px;
-  font-size:32px;
-  padding:0;
-  margin:0;
+  font-size: 32px;
+  padding: 0;
+  margin: 0;
 }
 
 .icon-status-mood-good {
   color: green;
   height: 48px;
   width: 48px;
-  font-size:48px;
-  padding:0;
-  margin:0;
+  font-size: 48px;
+  padding: 0;
+  margin: 0;
 }
 
-.mud-subtitle{
+.mud-subtitle {
   background-color: #999;
   padding: 0 5px;
   color: #333;
@@ -189,7 +190,7 @@ td {
   height: 80px;
 }
 
-#inventory ul  {
+#inventory ul {
   padding: 2px 20px;
 }
 
@@ -219,6 +220,7 @@ td {
 .info-message {
   color: #999;
 }
+
 // royalblue
 .rest-message {
   color: bisque;
@@ -273,7 +275,7 @@ td {
 }
 
 /* Monsters: */
-.monster1-message{
+.monster1-message {
   color: cornflowerblue;
 }
 
@@ -282,8 +284,8 @@ td {
 }
 
 /* npcs: */
-.npcs1-message{
-  color:darkseagreen;
+.npcs1-message {
+  color: darkseagreen;
 }
 
 .environment-message {
@@ -316,15 +318,19 @@ td {
 .color-blue {
   color: skyblue;
 }
+
 .color-red {
   color: red;
 }
+
 .color-puple {
   color: purple;
 }
+
 .color-black {
   color: #333;
 }
+
 .color-gray {
   color: #666;
 }
@@ -436,8 +442,44 @@ td {
   border: 1px thin #333;
 }
 
-.player-image, .npc-image, .monster-image, .item-image {
+.player-image,
+.npc-image,
+.monster-image,
+.item-image {
   width: 300px;
   height: 300px;
   border: 1px solid whitesmoke;
+}
+
+// Monsters
+.friendly-monster {
+  color: cornflowerblue;
+}
+
+.hostile-monster {
+  color: tomato;
+}
+
+.neutral-monster {
+  color: darkseagreen;
+}
+
+.soundtrack {
+  width: 600px;
+  height: 1em;
+  line-height: 1em;
+  font-size: .8rem;
+  color: teal !important;
+  margin: auto 0;
+  white-space: nowrap;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 20%);
+  /* Safari */
+  mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 20%);
+  /* Standard browsers */
+}
+
+.ticker-text {
+  display: inline-block;
+  /* Allow for scrolling within the container */
 }

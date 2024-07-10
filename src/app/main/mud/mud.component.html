@@ -12,7 +12,8 @@
                             </mat-panel-title>
                             <mat-panel-description>
                                 <div class="panel-description-grid">
-                                    <div>&nbsp;
+                                    <div class="soundtrack">
+                                        <span class="ticker-text" [ngStyle]="{'transform': 'translateX(' + this.soundtrackPosition + 'px)'}">{{ soundtrack }}</span>                                        
                                     </div>
                                     <div>
                                         <mat-icon class="title-btns" (click)="fullscreen()">fullscreen</mat-icon>

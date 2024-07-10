@@ -6,7 +6,7 @@ export class MudEvent {
     name: string = "";
     description: string = "";
     people: string = "";
-    monsters: string = "";
+    monsters: Monster[] = [];
     items: string = "";
     exits: string = "";
     value: string = "";
@@ -23,6 +23,17 @@ export class MudEvent {
     inventory: InventoryEvent = new InventoryEvent();
     npcs: string = "";
     statuses: any = {};
+}
+
+export enum MonsterAlignment {
+    GOOD = 0,
+    NEUTRAL = 1,
+    EVIL = 2
+}
+
+export class Monster {
+    name: string = "";    
+    alignment: MonsterAlignment = MonsterAlignment.NEUTRAL;
 }
 
 export class InventoryEvent {

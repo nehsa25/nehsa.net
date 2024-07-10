@@ -1,6 +1,20 @@
 @media (min-width: 0) {
+    .main {
+        text-align: left !important;
+        padding: 5px;
+    }
+
+    .theme {
+        grid-area: theme;
+        text-align: center;
+    }
+    
     .gridcols {
         grid-template-columns: min-content 1fr;
+    }
+
+    .body {
+        height: 300px;
     }
 
     .app-main-expanded {
@@ -60,6 +74,7 @@
 }
 
 @media (min-width: 576px) {
+    
     .gridcols {
         grid-template-columns: min-content 1fr;
     }
@@ -122,6 +137,10 @@
 }
 
 @media (min-width: 768px) {
+
+    .body {
+        height: inherit;
+    }
     .gridcols {
         grid-template-columns: min-content 1fr;
     }
@@ -358,11 +377,6 @@
     grid-area: contactme;
     background-color: var(--theme-background-color);
     place-content: start;
-}
-
-.theme {
-    grid-area: theme;
-    text-align: left;
 }
 
 .colorSlider {
