@@ -404,12 +404,13 @@ td {
 }
 
 .minimap {
-  width: 400px;
+  width: 100%;
+  height: auto;
 }
 
 .mud-sub-title-actions-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;  
 }
 
 .command-input {

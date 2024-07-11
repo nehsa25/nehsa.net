@@ -70,7 +70,7 @@ export class MudComponent implements OnInit, OnDestroy {
   soundtrack_outro = "tinkle tinkle tinkle, whoosh, whoosh, whoosh";
   soundtrack = `${this.soundtrack_intro}.. ${this.A}.. ${this.B}.. ${this.A}.. ${this.B}.. ${this.C}.. ${this.B}.. ${this.soundtrack_outro}. This has been a production of the Illisurom soundtrack. Tips accepted.`;
   soundtrackOriginal = this.soundtrack;
-  soundtrackPixelWiggle = 1.2
+  soundtrackPixelWiggle = 2
   soundtrackPosition: number = this.soundtrack.length*this.soundtrackPixelWiggle;
   eventsSubject: Subject<CommentType> = new Subject<CommentType>();
   private _page_name = "mud";
@@ -328,11 +328,12 @@ export class MudComponent implements OnInit, OnDestroy {
         welcome += ` It's a project my son, Ethan, and I are working on (and you if you want). It's a fun way to learn Python while doing something creative.`;
         welcome += ` It's homage to one of the most underrated types of game ever invented - <span class=\"important\">text-based multi-user dungeon (&quot;MUDs&quot;).</span>.`;
         welcome += ` MUDs were hard, they required skill and were fast and cut-throat.  If you died, people took your stuff and you may not be able to get it back.`;
+        welcome += ` They were also highly social and encouraging environments. I met my wife playing MUD.<br><br>`;
         welcome += ` Die and the game may be over..<br><br>`;
         welcome += ` About NehsaMUD:<ul class=\"condensed\"><li>All the images are generated using StabilityAI. More information on that in the <a routerLink=\"/aiimage\">AI Image Generation"</a></li><li>All NPC and monster dialog is AI provided via <a routerLink=\"/gemini\">Google Gemini</a>. Want to know what temperature bronze melts at?  Ask the blacksmith, he likely knows. Lonely? Find and chat with Princess Candie wandering around Town Smee.</li><li>All maps are generated programmatically, and in real-time as the user progresses the world using Dot and Pydot</li></ul>`;
         welcome += ` Lastly, NehsaMUD is a side project.  I want to recreate an old game using modern technologies.  `;
         welcome += ` It's in a perpetual state of &quot;mostly broken&quot;. Please adjust your expectations accordingly.<br>`;
-        welcome += ` <h4 class="important">I hope you like it!</h4>`;
+        welcome += ` <h4 class="important">We hope you like it!</h4>`;
         if (data.message != "") {
           this.mudEvents += `${welcome}<br><br><span class=\"welcome-message\">${data.message}</span>`;
         }
