@@ -69,8 +69,9 @@ export class MudComponent implements OnInit, OnDestroy {
   C = "clink clink CLINK";
   soundtrack_outro = "tinkle tinkle tinkle, whoosh, whoosh, whoosh";
   soundtrack = `${this.soundtrack_intro}.. ${this.A}.. ${this.B}.. ${this.A}.. ${this.B}.. ${this.C}.. ${this.B}.. ${this.soundtrack_outro}. This has been a production of the Illisurom soundtrack. Tips accepted.`;
-  soundtrackPosition: number = this.soundtrack.length; // Initial scroll position (text length in pixels)
-
+  soundtrackOriginal = this.soundtrack;
+  soundtrackPixelWiggle = 1.2
+  soundtrackPosition: number = this.soundtrack.length*this.soundtrackPixelWiggle;
   eventsSubject: Subject<CommentType> = new Subject<CommentType>();
   private _page_name = "mud";
 
@@ -125,10 +126,14 @@ export class MudComponent implements OnInit, OnDestroy {
     });
   }
 
+  mute() {
+    this.soundtrack == "" ? this.soundtrack =  this.soundtrackOriginal : this.soundtrack = "";
+  }
+
   updateSoundtrackTicker() {
     this.soundtrackPosition -= 1;
-    if (this.soundtrackPosition < -this.soundtrack.length * 10) {
-      this.soundtrackPosition = this.soundtrack.length * 10;
+    if (this.soundtrackPosition < -this.soundtrack.length*this.soundtrackPixelWiggle) {
+      this.soundtrackPosition = this.soundtrack.length*this.soundtrackPixelWiggle;
     }
   }
 

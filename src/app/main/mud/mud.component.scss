@@ -469,7 +469,7 @@ td {
   height: 1em;
   line-height: 1em;
   font-size: .8rem;
-  color: teal !important;
+  color: seagreen !important;
   margin: auto 0;
   white-space: nowrap;
   overflow: hidden;
@@ -482,4 +482,14 @@ td {
 .ticker-text {
   display: inline-block;
   /* Allow for scrolling within the container */
+}
+
+.ticker-grid {
+  display: grid;
+  grid-template-columns: 1fr 50px;
+  place-content: center;
+}
+
+.ticker-icon {
+  color: black;
 }
