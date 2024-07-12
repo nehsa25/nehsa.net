@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { CommentComponent } from '../../shared-components/comment/comment.component';
-import { MonsterAlignment, MudEvent } from '../../types/mudevent.type';
+import { MudEvent } from '../../types/mudevent.type';
 import { NgClass, NgFor, NgIf, NgStyle } from '@angular/common';
 import { MatButton } from '@angular/material/button';
 import { MatError, MatFormFieldModule, MatLabel } from '@angular/material/form-field';
@@ -11,7 +11,7 @@ import { UserService } from '../../services/user.service';
 import { UserCreateComponent } from './user-create/user-create.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MapComponent } from './map/map.component';
-import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { DupeNameComponent } from './dupe-name/dupe-name.component';
 import { MudEvents } from '../../types/mudevents.type';
 import { AiImageComponent } from './ai-image/ai-image.component';
@@ -71,7 +71,7 @@ export class MudComponent implements OnInit, OnDestroy {
   soundtrack = `${this.soundtrack_intro}.. ${this.A}.. ${this.B}.. ${this.A}.. ${this.B}.. ${this.C}.. ${this.B}.. ${this.soundtrack_outro}. This has been a production of the Illisurom soundtrack. Tips accepted.`;
   soundtrackOriginal = this.soundtrack;
   soundtrackPixelWiggle = 2
-  soundtrackPosition: number = this.soundtrack.length*this.soundtrackPixelWiggle;
+  soundtrackPosition: number = this.soundtrack.length * this.soundtrackPixelWiggle;
   eventsSubject: Subject<CommentType> = new Subject<CommentType>();
   private _page_name = "mud";
 
@@ -127,13 +127,13 @@ export class MudComponent implements OnInit, OnDestroy {
   }
 
   mute() {
-    this.soundtrack == "" ? this.soundtrack =  this.soundtrackOriginal : this.soundtrack = "";
+    this.soundtrack == "" ? this.soundtrack = this.soundtrackOriginal : this.soundtrack = "";
   }
 
   updateSoundtrackTicker() {
     this.soundtrackPosition -= 1;
-    if (this.soundtrackPosition < -this.soundtrack.length*this.soundtrackPixelWiggle) {
-      this.soundtrackPosition = this.soundtrack.length*this.soundtrackPixelWiggle;
+    if (this.soundtrackPosition < -this.soundtrack.length * this.soundtrackPixelWiggle) {
+      this.soundtrackPosition = this.soundtrack.length * this.soundtrackPixelWiggle;
     }
   }
 
@@ -252,7 +252,7 @@ export class MudComponent implements OnInit, OnDestroy {
       data: {
         map_name: this.mapImageName
       },
-      width: '750px',
+      width: '90%',
       position: { top: '50px', right: '200px' }
     });
     dialogRef.componentInstance.emitService.subscribe((val: any) => {
@@ -330,7 +330,7 @@ export class MudComponent implements OnInit, OnDestroy {
         welcome += ` MUDs were hard, they required skill and were fast and cut-throat.  If you died, people took your stuff and you may not be able to get it back.`;
         welcome += ` They were also highly social and encouraging environments. I met my wife playing MUD.<br><br>`;
         welcome += ` Die and the game may be over..<br><br>`;
-        welcome += ` About NehsaMUD:<ul class=\"condensed\"><li>All the images are generated using StabilityAI. More information on that in the <a routerLink=\"/aiimage\">AI Image Generation"</a></li><li>All NPC and monster dialog is AI provided via <a routerLink=\"/gemini\">Google Gemini</a>. Want to know what temperature bronze melts at?  Ask the blacksmith, he likely knows. Lonely? Find and chat with Princess Candie wandering around Town Smee.</li><li>All maps are generated programmatically, and in real-time as the user progresses the world using Dot and Pydot</li></ul>`;
+        welcome += ` About NehsaMUD:<ul class=\"condensed\"><li>All the images are generated using StabilityAI. More information on that in the <a href=\"https://www.nehsa.net/#/aiimage\">AI Image Generation</a></li><li>All NPC and monster dialog is AI provided via <a href=\"https://www.nehsa.net/#/gemini\">Google Gemini</a>. Want to know what temperature bronze melts at?  I have no idea. Ask the blacksmith, he likely knows. Lonely? Find and chat with Princess Candie wandering around Town Smee. She can teach you to speak like someone of nobility.</li><li>All maps are generated programmatically, and in real-time as the user progresses the world using Dot and Pydot</li></ul>`;
         welcome += ` Lastly, NehsaMUD is a side project.  I want to recreate an old game using modern technologies.  `;
         welcome += ` It's in a perpetual state of &quot;mostly broken&quot;. Please adjust your expectations accordingly.<br>`;
         welcome += ` <h4 class="important">We hope you like it!</h4>`;

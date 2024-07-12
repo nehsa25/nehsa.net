@@ -310,13 +310,13 @@
                                         <li>Add a sleep in ngOnInit with something like this:<br>
                                             <span class="important">HTML:</span>
                                             <div class="code">
-<pre>
+                                                <pre>
     &lt;input id="mud-input" type="text" /&gt;
 </pre>
                                             </div>
                                             <span class="important">Typescript:</span>
                                             <div class="code">
-<pre>
+                                                <pre>
     // set focus to mud input
     const mudInput = document.getElementById('mud-input')! as HTMLInputElement;
     setTimeout(() => &#123;
@@ -334,6 +334,47 @@
                     <div>
                         <h3>Tips!</h3>
                         <ul class="condensed">
+                            <li>Limit logic in a component to only that required for the view. All other logic should be
+                                delegated to services. Services I tend to create:
+                                <ul class="condensed">
+                                    <li>http.service.ts - For all HTTP requests<br><br>
+                                        <span class="file">http.service.ts</span>
+                                        <div class="code">
+<pre>
+    /** Returns the quote */  
+    getQuote() &#123;
+        return this.http.get(this.quoteUrl);
+    &#125;
+</pre>
+                                        </div><br>
+                                        <span class="file">supercomponent.ts</span>
+                                        <div class="code">
+<pre>
+constructor()
+&#123;
+    var getQuotes = this.httpClient.getQuote();
+    this.getQueries.push(getQuotes);
+&#125;
+
+ngOnInit() &#123;
+    forkJoin(this.getQueries).subscribe(next => &#123;
+      if (next == null) &#123;
+        return;
+      &#125;
+      this.quote = next[0]
+    &#125;);
+&#125;
+</pre>
+                                        </div>
+                                    </li>
+                                    <li>user.service.ts - For all user-related functions
+                                    </li>
+                                    <li>snack.service.ts - Providing messaging to users
+                                    </li>
+                                    <li>splash.service.ts - Displaying splash screen on longer loading pages/activities
+                                    </li>
+                                </ul>
+                            </li>
                             <li>
                                 <mat-expansion-panel>
                                     <mat-expansion-panel-header>

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
-import { NameType } from '../types/name.type';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class UserService {
@@ -9,8 +8,17 @@ export class UserService {
     private _currentPage: string = "";
     private _isDark: boolean = false;
 
+    constructor(private router: Router) {
+    }
+
+
     setDarkMode(value: boolean) {
       this._isDark = value;
+    }
+
+    navigateTo(routerlink: string) {
+        console.log("Navigating to " + routerlink);
+        this.router.navigate([routerlink]);
     }
   
     appIsDark(): boolean {

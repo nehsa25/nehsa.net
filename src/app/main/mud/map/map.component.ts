@@ -58,11 +58,11 @@ export class MapComponent {
 
   enlargen() {
     if (this.expanded) {
-      this.dialogRef.updateSize('750px');
+      this.dialogRef.updateSize('90%');
       this.image = `https://api.nehsa.net/${this.data.map_name}_small.svg`;
       this.expanded = false;
     } else {
-      this.dialogRef.updateSize('100%');
+      this.dialogRef.updateSize('90%', '90%');
       this.image = `https://api.nehsa.net/${this.data.map_name}.svg`;
       this.expanded = true;
     }
