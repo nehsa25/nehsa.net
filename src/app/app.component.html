@@ -20,25 +20,31 @@
             </xng-breadcrumb>
         </div>
     </div>
-    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()"  class="user_admin child">
+    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" class="user_admin child">
         <div *ngIf="this.userService.name != ''">
-            <span [class.personname-dark]="userService.appIsDark()" [class.personname-light]="!userService.appIsDark()" matTooltip="{{this.userService.about}}"
-                matTooltipClass="tooltip-long">{{this.userService.name}}</span><button class="notyoubutton" *ngIf="!nameConfirmed" mat-button (click)="getName2ndAttempt()">not you?</button>
+            <span [class.personname-dark]="userService.appIsDark()" [class.personname-light]="!userService.appIsDark()"
+                matTooltip="{{this.userService.about}}"
+                matTooltipClass="tooltip-long">{{this.userService.name}}</span><button class="notyoubutton"
+                *ngIf="!nameConfirmed" mat-button (click)="getName2ndAttempt()">not you?</button>
         </div>
     </div>
-    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()"  *ngIf="!fullScreen" class="dh child" [innerHTML]="quote"></div>
-    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()"  *ngIf="!fullScreen" class="theme child"><mat-icon>light_mode</mat-icon><mat-slider class="colorSlider" max=1
-            min=0 step=1 discrete=false showTickMarks=false>
+    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen"
+        class="dh child" [innerHTML]="quote"></div>
+    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen"
+        class="theme child"><mat-icon>light_mode</mat-icon><mat-slider class="colorSlider" max=1 min=0 step=1
+            discrete=false showTickMarks=false>
             <input matSliderThumb #slider [value]="darkmode_value" (change)="themeChange($event)">
         </mat-slider><mat-icon>brightness_4</mat-icon>
     </div>
-    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()"  *ngIf="!fullScreen" class="title child">
+    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen"
+        class="title child">
         <mat-expansion-panel
             [ngClass]="{'panel-expanded': expandedBio === true, 'panel-collapsed' : expandedBio === false }"
             [expanded]="expandedBio" (click)="setExpand()" [hideToggle]="expandedBio">
             <mat-expansion-panel-header>
                 <mat-panel-title>
-                    <span [class.maintitle-dark]="userService.appIsDark()" [class.maintitle-light]="!userService.appIsDark()">
+                    <span [class.maintitle-dark]="userService.appIsDark()"
+                        [class.maintitle-light]="!userService.appIsDark()">
                         {{title}}
                     </span>
                 </mat-panel-title>
@@ -46,22 +52,21 @@
             <div class="subtitle" *ngIf="posTerms != ''" [innerHTML]="posTerms"></div>
         </mat-expansion-panel>
     </div>
-    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()"  *ngIf="!fullScreen" class="contactme child email">jesse.stone<wbr>&#64;nehsa.net
+    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen"
+        class="contactme child">jesse.stone<wbr>&#64;nehsa.net
     </div>
-    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()"  *ngIf="!fullScreen" class="navbar child"><app-navbar></app-navbar></div>
-    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()"  class="body child">
+    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen"
+        class="navbar child"><app-navbar></app-navbar></div>
+    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" class="body child">
         <router-outlet></router-outlet>
     </div>
-    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()"  class="footer child">
+    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" class="footer child">
         <div>nehsa.net &copy; 2024 - All Rights Reserved. Be kind.</div>
-        <div>
-            <div class="footertxt">
-                <h5>{{getBuild()}}</h5>
-            </div>
-            <!-- <div class="playwright"><a href="https://github.com/nehsa25/nehsa.net/actions"><img
-                        src="https://github.com/nehsa25/nehsa.net/actions/workflows/playwright.yml/badge.svg" /></a>
-            </div> -->
-            <div></div>
-        </div>
+        <div>{{getBuild()}}</div>
+        <!-- <div class="playwright">
+            <a href="https://github.com/nehsa25/nehsa.net/actions"><img
+                    src="https://github.com/nehsa25/nehsa.net/actions/workflows/playwright.yml/badge.svg" /></a>
+            <h2>Why?</h2>
+        </div> -->
     </div>
 </div>
