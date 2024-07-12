@@ -44,6 +44,7 @@ import { InnoComponent } from './main/inno/inno.component';
 import { WebDesignComponent } from './main/web-design/web-design.component';
 import { IisComponent } from './main/iis/iis.component';
 import { GeminiComponent } from './main/gemini/gemini.component';
+import { RegexComponent } from './main/regex/regex.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: BioComponent },
@@ -98,6 +99,7 @@ export const routes: Routes = [
     { path: 'aiimage', title: 'nehsa.net | AI Image Generation', component: AiImageGenerationComponent },
     { path: 'inno', title: 'nehsa.net |Inno Setup', component: InnoComponent },
     { path: 'mysql', title: 'nehsa.net | mysql', component: MysqlComponent },
+    { path: 'regex', title: 'nehsa.net | Regular Expressions', component: RegexComponent },
     { path: 'webdesign', title: 'nehsa.net | Web Design', component: WebDesignComponent },
     { path: 'iis', title: 'nehsa.net | IIS', component: IisComponent },
     { path: '', title: 'nehsa.net | Home', redirectTo: '/', pathMatch: 'full' },
