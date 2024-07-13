@@ -27,5 +27,6 @@ export enum MudEvents {
     MONSTER_IMAGE = 24,
     PLAYER_IMAGE = 25,
     NPC_IMAGE = 26,
-    ITEM_IMAGE = 27
+    ITEM_IMAGE = 27,
+    INVALID_NAME = 28,
 }

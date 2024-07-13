@@ -20,12 +20,14 @@ import { HelpModalComponent } from './help-modal/help-modal.component';
 import { Subject } from 'rxjs';
 import { CommentType } from '../../types/comment.type';
 import { Router, RouterModule } from '@angular/router';
+import { InvalidNameComponent } from './invalid-name/invalid-name.component';
+import { MatTooltip } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-mud',
   standalone: true,
   imports: [NgClass, NgIf, MatExpansionModule, MatCardModule, CommentComponent, NgIf, RouterModule,
-    MatButton, MatInputModule, MatFormFieldModule, MatLabel, MatError, FormsModule, NgFor, MatIconModule, NgStyle],
+    MatButton, MatInputModule, MatFormFieldModule, MatLabel, MatError, FormsModule, NgFor, MatIconModule, NgStyle, MatTooltip],
   providers: [],
   templateUrl: './mud.component.html',
   styleUrl: './mud.component.scss',
@@ -187,6 +189,24 @@ export class MudComponent implements OnInit, OnDestroy {
     this.sendCommand("help");
   }
 
+  launchInvalidName() {
+    const dialogRef = this.dupeDialog.open(InvalidNameComponent, {
+      data: {
+        name: this.userService.name
+      },
+      width: '400px',
+      height: '250px',
+    });
+    dialogRef.componentInstance.emitService.subscribe((val: any) => {
+      this.userService.name = val;
+      var resp = `{\"type\": ${MudEvents.USERNAME_ANSWER}, \"username\": \"${val}\"}`;
+      console.log("Server is requesting our name, sending back: " + resp);
+      this.socket.send(resp);
+    });
+    dialogRef.afterClosed().subscribe(result => {
+    });
+  }
+
   launchDupe() {
     const dialogRef = this.dupeDialog.open(DupeNameComponent, {
       data: {
@@ -196,9 +216,6 @@ export class MudComponent implements OnInit, OnDestroy {
       height: '250px',
     });
     dialogRef.componentInstance.emitService.subscribe((val: any) => {
-      if (val === null || val === "") {
-        return
-      }
       this.userService.name = val;
       var resp = `{\"type\": ${MudEvents.USERNAME_ANSWER}, \"username\": \"${val}\"}`;
       console.log("Server is requesting our name, sending back: " + resp);
@@ -323,7 +340,7 @@ export class MudComponent implements OnInit, OnDestroy {
         const star_purple = "<span class=\"material-icons purple\">star</span>";
         const star_red = "<span class=\"material-icons red\">star</span>";
         const star_yellow = "<span class=\"material-icons yellow\">star</span>";
-        let welcome: string = `${star_teal}${star_purple}${star_red}${star_yellow}This is NehsaMUD.`;
+        let welcome: string = `<br>${star_teal}${star_purple}${star_red}${star_yellow}This is NehsaMUD.`;
         welcome += ` Welcome to the world of ${this.world_name}.${star_yellow}${star_red}${star_purple}${star_teal}<br><br>`;
         welcome += ` It's a project my son, Ethan, and I are working on (and you if you want). It's a fun way to learn Python while doing something creative.`;
         welcome += ` It's homage to one of the most underrated types of game ever invented - <span class=\"important\">text-based multi-user dungeon (&quot;MUDs&quot;).</span>.`;
@@ -337,6 +354,7 @@ export class MudComponent implements OnInit, OnDestroy {
         if (data.message != "") {
           this.mudEvents += `${welcome}<br><br><span class=\"welcome-message\">${data.message}</span>`;
         }
+        this.userService.name = data.name;
         break;
       case MudEvents.BOOK:
         console.log("book: " + data.message);
@@ -356,6 +374,9 @@ export class MudComponent implements OnInit, OnDestroy {
         break;
       case MudEvents.DUPLICATE_NAME:
         this.launchDupe();
+        break;
+      case MudEvents.INVALID_NAME:
+        this.launchInvalidName();
         break;
       case MudEvents.EVENT: // check if there's an event # breeze, silence, rain
         if (data.message != "") {
@@ -583,28 +604,43 @@ export class MudComponent implements OnInit, OnDestroy {
     return this._sendCommand(command);
   }
 
-  _sendCommand(cmd: string, extra: string = "") {
-    if (this.isOpen(this.socket)) {
-      let commands = cmd.split(" ");
-      if (commands.length === 3 && commands[0].toLowerCase() === "system" && commands[1].toLowerCase() === "name") {
-        extra = this.userService.name;
-      }
-      var full_cmd = {
-        "type": MudEvents.COMMAND,
-        "cmd": cmd,
-        "extra": {
-          "name": this.userService.name
-        }
-      };
-      console.log("Sending: " + this.command);
-      console.log(full_cmd);
-      this.socket.send(JSON.stringify(full_cmd));
-
-      // clear command
-      this.command = "";
-    } else {
-      console.log("Websocket is closed..");
+  processInternalCommand(command: string) {
+    let found = false;
+    if (command === "map") {
+      found = true;
+      this.launchMap();
     }
+    return found;
+  }
+
+  _sendCommand(cmd: string, extra: string = "") {
+    // check if this is a command we can handle client-side
+    let found = this.processInternalCommand(cmd);
+
+    // nope, hit the server
+    if (!found) {
+      if (this.isOpen(this.socket)) {
+        let commands = cmd.split(" ");
+        if (commands.length === 3 && commands[0].toLowerCase() === "system" && commands[1].toLowerCase() === "name") {
+          extra = this.userService.name;
+        }
+        var full_cmd = {
+          "type": MudEvents.COMMAND,
+          "cmd": cmd,
+          "extra": {
+            "name": this.userService.name
+          }
+        };
+        console.log("Sending: " + this.command);
+        console.log(full_cmd);
+        this.socket.send(JSON.stringify(full_cmd));
+      } else {
+        console.log("Websocket is closed..");
+      }
+    }
+
+    // clear command
+    this.command = "";
   }
 
   openFullScreen() {

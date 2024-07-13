@@ -87,7 +87,7 @@ td {
 
 #title {
   grid-area: title;
-  overflow: auto;
+  overflow: none;
 }
 
 #helpsection {
@@ -145,20 +145,30 @@ td {
 
 #status {
   grid-area: status;
-  border: 2px solid #cccccc;
   -webkit-border-radius: 10px;
   -ms-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
-  padding: .5em;
+  padding: 0;
   background-color: #4a4231;
-  margin: 5px 1em;
-  height: 365px;
+  margin: 0;
+  height: 395px;
+  width: 100%;
 }
 
 #status td {
   background-color: greenyellow important;
 }
+
+.icon-status-na {
+  color: silver;
+  height: 32px;
+  width: 32px;
+  font-size: 32px;
+  padding: 0;
+  margin: 0;
+}
+
 
 .icon-status-good {
   color: green;
@@ -171,9 +181,9 @@ td {
 
 .icon-status-mood-good {
   color: green;
-  height: 48px;
-  width: 48px;
-  font-size: 48px;
+  height: 32px;
+  width: 32px;
+  font-size: 32px;
   padding: 0;
   margin: 0;
 }
@@ -410,7 +420,7 @@ td {
 
 .mud-sub-title-actions-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;  
+  grid-template-columns: 1fr 1fr;
 }
 
 .command-input {
@@ -493,4 +503,19 @@ td {
 
 .ticker-icon {
   color: black;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+  border: 1px solid var(--theme-border-color);
+}
+
+.table td {
+  border: 1px solid chocolate;
+}
+
+.datacolumn {
+  text-align: center;
 }

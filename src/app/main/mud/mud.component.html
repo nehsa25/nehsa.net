@@ -40,36 +40,41 @@
                 </div>
                 <div id="status">
                     <div class="statusgrid">
-                        <table class="tiny5-regular">
-                            <tr>
-                                <td>Name</td>
-                                <td colspan="2" id="playername">{{this.userService.name}}</td>
-                            </tr>
+                        <table class="table">
                             <tr>
                                 <td>Health</td>
-                                <td colspan="2" id="health"><span [innerHTML]="health"></span></td>
+                                <td class="datacolumn" colspan="2" id="health"><span [innerHTML]="health"></span></td>
                             </tr>
                             <tr>
                                 <td>Resting</td>
-                                <td colspan="2">{{playerBoolean(is_resting)}}</td>
-                            </tr>
-                            <tr>
-                                <td>Poisoned</td>
-                                <td colspan="2">{{playerBoolean(poisioned)}}</td>
+                                <td class="datacolumn" colspan="2"><mat-icon class="icon-status-good">sentiment_satisfied</mat-icon></td>
                             </tr>
                             <tr>
                                 <td>Hungry</td>
-                                <td><mat-icon class="icon-status-good">sentiment_satisfied</mat-icon>
-                                </td>
-
-                                <td>Thirsty</td>
-                                <td><mat-icon class="icon-status-good">sentiment_satisfied</mat-icon>
-                                    <!-- sentiment_satisfied, sentiment_dissatisfied -->
+                                <td class="datacolumn" colspan="2"><mat-icon class="icon-status-good">sentiment_satisfied</mat-icon>
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2">Overall Mood</td>
-                                <td colspan="2"><mat-icon
+                                <td>Thirsty</td>
+                                <td class="datacolumn" colspan="2"><mat-icon class="icon-status-good">sentiment_satisfied</mat-icon>
+                                    <!-- sentiment_satisfied, sentiment_dissatisfied -->
+                                </td>
+                            <tr>
+                                <tr>
+                                    <td>Statuses</td>
+                                    <td class="datacolumn" colspan="2">
+                                        <mat-icon class="icon-status-na" matTooltip="Poisoned"
+                                        matTooltipClass="status-tooltip" [matTooltipPosition]="'before'">sick</mat-icon>
+                                        <mat-icon class="icon-status-na" matTooltip="Resting"
+                                        matTooltipClass="status-tooltip" [matTooltipPosition]="'before'">night_shelter</mat-icon>
+                                        <mat-icon class="icon-status-na" matTooltip="Meditating"
+                                        matTooltipClass="status-tooltip" [matTooltipPosition]="'before'">self_improvement</mat-icon>
+                                        <mat-icon class="icon-status-na" matTooltip="Dazzled"
+                                        matTooltipClass="status-tooltip" [matTooltipPosition]="'before'">psychology</mat-icon>
+                                    </td>
+                                <tr>
+                                <td>Overall Mood</td>
+                                <td class="datacolumn" colspan="2"><mat-icon
                                         class="icon-status-mood-good">sentiment_very_satisfied</mat-icon>
                                     <!-- sentiment_very_satisfied, sentiment_neutral, sentiment_extremely_dissatisfied -->
                                 </td>

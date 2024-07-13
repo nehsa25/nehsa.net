@@ -47,7 +47,7 @@ import { GeminiComponent } from './main/gemini/gemini.component';
 import { RegexComponent } from './main/regex/regex.component';
 
 export const routes: Routes = [
-    { path: '', title: 'nehsa.net | Home', component: BioComponent },
+    { path: '', title: 'nehsa.net | Home', component: MudComponent },
     { path: 'agile', title: 'nehsa.net | Agile', component: AgileComponent },
     { path: 'about', title: 'nehsa.net | About', component: BioComponent },
     { path: 'angular', title: 'nehsa.net | Angular', component: AngularComponent },
@@ -103,5 +103,5 @@ export const routes: Routes = [
     { path: 'webdesign', title: 'nehsa.net | Web Design', component: WebDesignComponent },
     { path: 'iis', title: 'nehsa.net | IIS', component: IisComponent },
     { path: '', title: 'nehsa.net | Home', redirectTo: '/', pathMatch: 'full' },
-    { path: '**', component: BioComponent },
+    { path: '**', component: MudComponent },
 ];
