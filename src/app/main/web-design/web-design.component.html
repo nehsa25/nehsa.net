@@ -12,7 +12,7 @@
                 <div class="topics">
                     <ul>
                         <li>
-                            <mat-expansion-panel expanded="true">
+                            <mat-expansion-panel>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Theming</mat-panel-title>
                                 </mat-expansion-panel-header>
@@ -571,116 +571,162 @@
                             </mat-expansion-panel>
                         </li>
                         <li>Ways to center objects under different circumstances:
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Veritical align using &nbsp;<span class="important">margin: auto
-                                            0;</span></mat-panel-title>
-                                    <mat-panel-description>If the child we wish to move is inside a div that is
-                                        using flex or grid, we can usually use an auto margin.
-                                    </mat-panel-description>
-                                </mat-expansion-panel-header>
-                                <div class="code">
+                            <ul>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>Veritical align using &nbsp;<span class="important">margin:
+                                                    auto
+                                                    0;</span></mat-panel-title>
+                                            <mat-panel-description>If the child we wish to move is inside a div that is
+                                                using flex or grid, we can usually use an auto margin.
+                                            </mat-panel-description>
+                                        </mat-expansion-panel-header>
+                                        <div class="code">
 
-                                    <div class="example-grid">
-                                        <div>
-                                            <table>
-                                                <tr>
-                                                    <td colspan="2">
-                                                        <div>
-                                                            <div class="code">
-                                                                <pre>
-&lt;div style="display: grid; background-color: orchid; width: 100px; height: 100px;"&gt;
-    &lt;div style="background-color: red; width: 25px; height: 25px; margin: auto 0;"&gt;
-        &amp;nbsp;
-    &lt;/div&gt;
-&lt;/div&gt;
-                                                        </pre>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div>Parent of type <span class="important">display:
-                                                                grid;</span>:
-                                                        </div>
-                                                        <div
-                                                            style="background-color: orchid; width: 25px; height: 25px;">
-                                                            &nbsp;
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div>Child we wish to center:</div>
-                                                        <div style="background-color: red; width: 25px; height: 25px;">
-                                                            &nbsp;</div>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                        <div
-                                            style="display: grid; background-color: orchid; width: 100px; height: 100px;">
-                                            <div
-                                                style="background-color: red; width: 25px; height: 25px; margin: auto 0;">
+                                            <div class="example-grid">
+                                                <div>
+                                                    <table>
+                                                        <tr>
+                                                            <td colspan="2">
+                                                                <div>
+                                                                    <div class="code">
+                                                                        <pre>
+        &lt;div style="display: grid; background-color: orchid; width: 100px; height: 100px;"&gt;
+            &lt;div style="background-color: red; width: 25px; height: 25px; margin: auto 0;"&gt;
+                &amp;nbsp;
+            &lt;/div&gt;
+        &lt;/div&gt;
+                                                                </pre>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div>Parent of type <span class="important">display:
+                                                                        grid;</span>:
+                                                                </div>
+                                                                <div
+                                                                    style="background-color: orchid; width: 25px; height: 25px;">
+                                                                    &nbsp;
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div>Child we wish to center:</div>
+                                                                <div
+                                                                    style="background-color: red; width: 25px; height: 25px;">
+                                                                    &nbsp;</div>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <div
+                                                    style="display: grid; background-color: orchid; width: 100px; height: 100px;">
+                                                    <div
+                                                        style="background-color: red; width: 25px; height: 25px; margin: auto 0;">
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Horitzonal align using &nbsp;<span class="important">margin: 0
-                                            auto;</span></mat-panel-title>
-                                    <mat-panel-description>Same thing can be done horizontally
-                                    </mat-panel-description>
-                                </mat-expansion-panel-header>
-                                <div class="code">
-                                    <div class="example-grid">
-                                        <div>
-                                            <table>
-                                                <tr>
-                                                    <td colspan="2">
-                                                        <div>
-                                                            <div class="code">
-                                                                <pre>
-&lt;div style="display: grid; background-color: orchid; width: 100px; height: 100px;"&gt;
-    &lt;div style="background-color: red; width: 25px; height: 25px; margin: 0 auto;"&gt;
-        &amp;nbsp;
-    &lt;/div&gt;
-&lt;/div&gt;
-                                                        </pre>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div>Parent of type <span class="important">display:
-                                                                grid;</span>:
-                                                        </div>
-                                                        <div
-                                                            style="background-color: orchid; width: 25px; height: 25px;">
-                                                            &nbsp;
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div>Child we wish to center:</div>
-                                                        <div style="background-color: red; width: 25px; height: 25px;">
-                                                            &nbsp;</div>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                        <div
-                                            style="display: grid; background-color: orchid; width: 100px; height: 100px;">
-                                            <div
-                                                style="background-color: red; width: 25px; height: 25px; margin: 0 auto;">
+                                    </mat-expansion-panel>
+                                </li>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>Horitzonal align using &nbsp;<span
+                                                    class="important">margin: 0
+                                                    auto;</span></mat-panel-title>
+                                            <mat-panel-description>Same thing can be done horizontally
+                                            </mat-panel-description>
+                                        </mat-expansion-panel-header>
+                                        <div class="code">
+                                            <div class="example-grid">
+                                                <div>
+                                                    <table>
+                                                        <tr>
+                                                            <td colspan="2">
+                                                                <div>
+                                                                    <div class="code">
+                                                                        <pre>
+        &lt;div style="display: grid; background-color: orchid; width: 100px; height: 100px;"&gt;
+            &lt;div style="background-color: red; width: 25px; height: 25px; margin: 0 auto;"&gt;
+                &amp;nbsp;
+            &lt;/div&gt;
+        &lt;/div&gt;
+                                                                </pre>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div>Parent of type <span class="important">display:
+                                                                        grid;</span>:
+                                                                </div>
+                                                                <div
+                                                                    style="background-color: orchid; width: 25px; height: 25px;">
+                                                                    &nbsp;
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div>Child we wish to center:</div>
+                                                                <div
+                                                                    style="background-color: red; width: 25px; height: 25px;">
+                                                                    &nbsp;</div>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <div
+                                                    style="display: grid; background-color: orchid; width: 100px; height: 100px;">
+                                                    <div
+                                                        style="background-color: red; width: 25px; height: 25px; margin: 0 auto;">
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </mat-expansion-panel>
+                                    </mat-expansion-panel>
+                                </li>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>place-content</mat-panel-title>
+                                            <mat-panel-description>If the display:flex, you can use place-content to
+                                                center both vertically and horizontally.
+                                            </mat-panel-description>
+                                        </mat-expansion-panel-header>
+                                        Example here..
+                                    </mat-expansion-panel>
+                                </li>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>align-self</mat-panel-title>
+                                            <mat-panel-description>If the element is a grid item, you can use align-self: center
+                                            </mat-panel-description>
+                                        </mat-expansion-panel-header>
+                                            <span class="impoartant">html</span><br>
+                                            <div class="code">
+<pre>
+    &lt;div class="map-sub-btns"&gt;
+        &lt;button mat-button (click)="enlargen()"&gt;&lt;mat-icon class="map-buttons-icons"&gt;expand&lt;/mat-icon&gt;&lt;/button&gt;
+        &lt;button mat-button (click)="min()"&gt;&lt;mat-icon class="map-buttons-icons"&gt;close&lt;/mat-icon&gt;&lt;/button&gt;
+    &lt;/div&gt;
+</pre>
+                                            </div><br><br>
+                                            <span class="impoartant">css</span><br>
+                                            <div class="code">
+<pre>
+    .map-sub-btns &#123;
+        align-self: center;
+    &#125;
+</pre>
+                                            </div><br><br>Tada!<br>
+                                            <img mat-card-image src="assets/images/align_self.png" />
+                                    </mat-expansion-panel>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <mat-expansion-panel>
