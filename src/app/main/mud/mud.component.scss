@@ -24,7 +24,7 @@
       "usersconnected";
     grid-template-columns: 1fr;
     grid-template-rows: min-content;
-    height: 68svh !important; 
+    height: 80svh !important; 
   }
   
   .mudgrid-collapsed {
@@ -73,7 +73,7 @@
       "usersconnected";
     grid-template-columns: 1fr;
     grid-template-rows: min-content 1fr repeat(5, min-content);
-    height: 68svh !important; 
+    height: 80svh !important; 
   }
   
   .mudgrid-collapsed {
@@ -412,7 +412,7 @@ td {
   padding: 0;
   background-color: #4a4231;
   margin: 0;
-  height: 395px;
+  height: 355px;
   width: 100%;
 }
 

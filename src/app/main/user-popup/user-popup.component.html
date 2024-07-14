@@ -6,10 +6,10 @@
                 <div class="sectiongrid">
                     <div>
                         <div *ngIf="this.name === this.data.names[0].Name">
-                            <span class="important">{{greeting}} {{name}}!</span>
+                            <span>{{greeting}} {{name}}!</span>
                         </div>
                         <div *ngIf="this.name !== this.data.names[0].Name && !this.isForceName">
-                            <span class="important">OK, how about {{name}}?</span>
+                            <span>OK, how about {{name}}?</span>
                         </div>
                         <div class="namediv" *ngIf="this.isForceName">
                             <mat-form-field class="nameinput">
@@ -27,7 +27,7 @@
                             <button mat-stroked-button (click)="forceChooseName()">No</button>
                         </div>                        
                     </div>
-                    <span class="important" style="font-size: 14px; text-align: center;">(I'm surprised you're here, but welcome regardless!)</span>
+                    <span style="font-size: 14px; text-align: center;">(I'm surprised you're here, but welcome regardless!)</span>
                 </div>
             </form>
         </mat-step>
@@ -40,7 +40,7 @@
                 <div class="sectiongrid">
                     <div>
                         <div>
-                            <span class="important">May I call you {{name}}?</span>
+                            <span>May I call you {{name}}?</span>
                         </div>
                     </div>
                     <div class="btns">
@@ -57,7 +57,7 @@
             <form [formGroup]="formGroup3">
                 <ng-template matStepLabel>{{moodLabel}}</ng-template>
                 <div>
-                    <span class="important">How is your day going? Be honest.</span><br><br>
+                    <span>How is your day going? Be honest.</span><br><br>
                     <button matStepperNext mat-stroked-button (click)="showRoz(1)" class="numoption">1</button>
                     <button matStepperNext mat-stroked-button (click)="showRoz(2)" class="numoption">2</button>
                     <button matStepperNext mat-stroked-button (click)="showRoz(3)" class="numoption">3</button>
@@ -78,10 +78,10 @@
                     <div>
                         <div style="text-align: center;" *ngIf="showRozPhoto">
                             <div *ngIf="!showYourGood">
-                                <span class="important">Maybe this will make you feel better..</span>
+                                <span>Maybe this will make you feel better..</span>
                             </div>
                             <div *ngIf="showYourGood">
-                                <span class="important">I'm happy for you!</span>
+                                <span>I'm happy for you!</span>
                             </div>
                             <img class="roz" mat-card-image src="../../../assets/images/roz.jpg" alt="Photo of Roz" />
                         </div>

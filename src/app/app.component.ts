@@ -153,9 +153,12 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   getName2ndAttempt() {
+    if (this.userService.name != "") {
+      this.names[0].Name == this.userService.name;
+    }
     const dialogRef = this.nameDialog.open(UserPopupComponent, {
       data: {
-        names: this.names
+        names: this.names,
       },
       width: '500px',
       panelClass: 'custom-dialog-container'

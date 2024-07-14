@@ -373,9 +373,11 @@ export class MudComponent implements OnInit, OnDestroy {
         this.socket.send(resp);
         break;
       case MudEvents.DUPLICATE_NAME:
+        this.userService.name = "";
         this.launchDupe();
         break;
       case MudEvents.INVALID_NAME:
+        this.userService.name = "";
         this.launchInvalidName();
         break;
       case MudEvents.EVENT: // check if there's an event # breeze, silence, rain
