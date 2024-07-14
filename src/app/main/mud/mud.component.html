@@ -7,8 +7,7 @@
                     <mat-expansion-panel disabled="true" [expanded]="panelExpanded" hideToggle
                         [ngClass]="{'title-panel-expanded': panelExpanded === true, 'title-panel-collapsed' : panelExpanded === false }">
                         <mat-expansion-panel-header>
-                            <mat-panel-title> <span class="mud-title">NehsaMUD</span>
-                                <span class="mud-subtitle">a rouge-like, text-based MUD</span>
+                            <mat-panel-title>NehsaMUD
                             </mat-panel-title>
                             <mat-panel-description>
                                 <div class="panel-description-grid">
@@ -47,32 +46,38 @@
                             </tr>
                             <tr>
                                 <td>Resting</td>
-                                <td class="datacolumn" colspan="2"><mat-icon class="icon-status-good">sentiment_satisfied</mat-icon></td>
+                                <td class="datacolumn" colspan="2"><mat-icon
+                                        class="icon-status-good">sentiment_satisfied</mat-icon></td>
                             </tr>
                             <tr>
                                 <td>Hungry</td>
-                                <td class="datacolumn" colspan="2"><mat-icon class="icon-status-good">sentiment_satisfied</mat-icon>
+                                <td class="datacolumn" colspan="2"><mat-icon
+                                        class="icon-status-good">sentiment_satisfied</mat-icon>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Thirsty</td>
-                                <td class="datacolumn" colspan="2"><mat-icon class="icon-status-good">sentiment_satisfied</mat-icon>
+                                <td class="datacolumn" colspan="2"><mat-icon
+                                        class="icon-status-good">sentiment_satisfied</mat-icon>
                                     <!-- sentiment_satisfied, sentiment_dissatisfied -->
                                 </td>
                             <tr>
-                                <tr>
-                                    <td>Statuses</td>
-                                    <td class="datacolumn" colspan="2">
-                                        <mat-icon class="icon-status-na" matTooltip="Poisoned"
+                            <tr>
+                                <td>Statuses</td>
+                                <td class="datacolumn" colspan="2">
+                                    <mat-icon class="icon-status-na" matTooltip="Poisoned"
                                         matTooltipClass="status-tooltip" [matTooltipPosition]="'before'">sick</mat-icon>
-                                        <mat-icon class="icon-status-na" matTooltip="Resting"
-                                        matTooltipClass="status-tooltip" [matTooltipPosition]="'before'">night_shelter</mat-icon>
-                                        <mat-icon class="icon-status-na" matTooltip="Meditating"
-                                        matTooltipClass="status-tooltip" [matTooltipPosition]="'before'">self_improvement</mat-icon>
-                                        <mat-icon class="icon-status-na" matTooltip="Dazzled"
-                                        matTooltipClass="status-tooltip" [matTooltipPosition]="'before'">psychology</mat-icon>
-                                    </td>
-                                <tr>
+                                    <mat-icon class="icon-status-na" matTooltip="Resting"
+                                        matTooltipClass="status-tooltip"
+                                        [matTooltipPosition]="'before'">night_shelter</mat-icon>
+                                    <mat-icon class="icon-status-na" matTooltip="Meditating"
+                                        matTooltipClass="status-tooltip"
+                                        [matTooltipPosition]="'before'">self_improvement</mat-icon>
+                                    <mat-icon class="icon-status-na" matTooltip="Dazzled"
+                                        matTooltipClass="status-tooltip"
+                                        [matTooltipPosition]="'before'">psychology</mat-icon>
+                                </td>
+                            <tr>
                                 <td>Overall Mood</td>
                                 <td class="datacolumn" colspan="2"><mat-icon
                                         class="icon-status-mood-good">sentiment_very_satisfied</mat-icon>

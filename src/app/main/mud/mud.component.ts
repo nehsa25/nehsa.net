@@ -314,7 +314,7 @@ export class MudComponent implements OnInit, OnDestroy {
     const yellow_bolt = "<span class=\"material-icons yellow\">bolt</span>";
     let colors: string[] = ["red", "green", "blue", "white", "yellow", "cyan", "magenta", "black", "gray", "grey",
       "orange", "purple", "brown", "pink", "teal", "maroon", "olive", "navy",
-      "lime", "aqua", "silver", "black", "gray", "orange",
+      "lime", "aqua", "silver", "black", "gray", "orange", "crimson",
       "purple", "brown", "pink", "teal", "maroon", "olive", "navy", "lime", "aqua", "silver"];
     colors.forEach(replaceValue => {
       const findExpression = new RegExp(`\\s(${replaceValue})\\s|\\s(${replaceValue}(?=\\S*['-])([a-zA-Z'-]+))`, 'gi');

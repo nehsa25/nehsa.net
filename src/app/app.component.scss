@@ -18,33 +18,31 @@
     }
 
     .app-main-expanded {
-        grid-template-rows: repeat(8, min-content);
-        grid-template-columns: 1fr;
+        grid-template-rows: min-content min-content 70svh min-content min-content min-content min-content min-content;
+        grid-template-columns: 1fr 1fr;
         grid-template-areas:
-            "bread"
-            "dh"
-            "user_admin"
-            "theme"
-            "title"
-            "body"
-            "navbar"
-            "contactme"
-            "footer";
+            "bread user_admin"
+            "title title"
+            "body body"
+            "navbar navbar"
+            "theme theme"
+            "contactme contactme"
+            "dh dh"
+            "footer footer";
     }
 
     .app-main-collapsed {
-        grid-template-rows: repeat(8, min-content);
-        grid-template-columns: 1fr;
+        grid-template-rows: min-content min-content 70svh min-content min-content min-content min-content min-content;
+        grid-template-columns: 1fr 1fr;
         grid-template-areas:
-            "bread"
-            "dh"
-            "user_admin"
-            "theme"
-            "title"
-            "body"
-            "navbar"
-            "contactme"
-            "footer";
+            "bread user_admin"
+            "title title"
+            "body body"
+            "navbar navbar"
+            "theme theme"
+            "contactme contactme"
+            "dh dh"
+            "footer footer";
     }
 
     .footer {
@@ -80,33 +78,31 @@
     }
 
     .app-main-expanded {
-        grid-template-rows: repeat(8, min-content);
-        grid-template-columns: 1fr;
+        grid-template-rows: min-content min-content 70svh min-content min-content min-content min-content min-content;
+        grid-template-columns: 1fr 1fr;
         grid-template-areas:
-            "bread"
-            "dh"
-            "user_admin"
-            "theme"
-            "title"
-            "body"
-            "navbar"
-            "contactme"
-            "footer";
+            "bread user_admin"
+            "title title"
+            "body body"
+            "navbar navbar"
+            "theme theme"
+            "contactme contactme"
+            "dh dh"
+            "footer footer";
     }
 
     .app-main-collapsed {
-        grid-template-rows: repeat(8, min-content);
-        grid-template-columns: 1fr;
+        grid-template-rows: min-content min-content 70svh min-content min-content min-content min-content min-content;
+        grid-template-columns: 1fr 1fr;
         grid-template-areas:
-            "bread"
-            "dh"
-            "user_admin"
-            "theme"
-            "title"
-            "body"
-            "navbar"
-            "contactme"
-            "footer";
+            "bread user_admin"
+            "title title"
+            "body body"
+            "navbar navbar"
+            "theme theme"
+            "contactme contactme"
+            "dh dh"
+            "footer footer";
     }
 
     .footer {

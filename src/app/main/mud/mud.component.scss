@@ -1,3 +1,290 @@
+@media (min-width: 0) {
+  .mudgrid-fullscreen {
+    grid-template-areas:
+      "title"
+      "main"
+      "command"
+      "status"
+      "aiimage"
+      "helpsection"
+      "usersconnected";
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content;
+    height: 100svh !important;  
+  }
+  
+  .mudgrid-expanded {
+    grid-template-areas:
+      "title"
+      "main"
+      "command"
+      "status"
+      "aiimage"
+      "helpsection"
+      "usersconnected";
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content;
+    height: 68svh !important; 
+  }
+  
+  .mudgrid-collapsed {
+    grid-template-areas:
+      "title"
+      "main"
+      "command"
+      "status"
+      "aiimage"
+      "helpsection"
+      "usersconnected";
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content 1fr repeat(5, min-content);
+    height: 100svh !important; 
+  }
+
+  .ticker-grid {
+    grid-template-columns: 1fr 50px;
+    place-content: center;
+  }
+}
+
+@media (min-width: 576px) {
+  .mudgrid-fullscreen {
+    grid-template-areas:
+      "title"
+      "main"
+      "command"
+      "status"
+      "aiimage"
+      "helpsection"
+      "usersconnected";
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content;
+    height: 100svh !important;  
+  }
+  
+  .mudgrid-expanded {
+    grid-template-areas:
+      "title"
+      "main"
+      "command"
+      "status"
+      "aiimage"
+      "helpsection"
+      "usersconnected";
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content 1fr repeat(5, min-content);
+    height: 68svh !important; 
+  }
+  
+  .mudgrid-collapsed {
+    grid-template-areas:
+      "title"
+      "main"
+      "command"
+      "status"
+      "aiimage"
+      "helpsection"
+      "usersconnected";
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content;
+    height: 100svh !important; 
+  }
+
+  .ticker-grid {
+    grid-template-columns: 1fr 50px;
+    place-content: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .mudgrid-fullscreen {
+    grid-template-areas:
+      "title title status"
+      "title title status"
+      "main main aiimage"
+      "main main helpsection"
+      "command command helpsection"
+      "usersconnected usersconnected helpsection";
+    grid-template-columns: 400px 1fr 325px;
+    grid-template-rows: 45px 1fr 1fr 1fr 60px 30px;
+    height: 100svh !important;
+  
+  }
+  
+  .mudgrid-expanded {
+    grid-template-areas:
+      "title title status"
+      "title title status"
+      "main main aiimage"
+      "main main helpsection"
+      "command command helpsection"
+      "usersconnected usersconnected helpsection";
+    grid-template-columns: 400px 1fr 325px;
+    grid-template-rows: 45px 1fr 1fr 1fr 60px 30px;
+    height: 68svh !important;
+  }
+  
+  .mudgrid-collapsed {
+    grid-template-areas:
+      "title title status"
+      "main main status"
+      "main main aiimage"
+      "main main helpsection"
+      "command command helpsection"
+      "usersconnected usersconnected helpsection";
+    grid-template-columns: 400px 1fr 325px;
+    grid-template-rows: 45px 1fr 1fr 1fr 60px 30px;
+    height: 68svh !important;
+  }
+
+  .ticker-grid {
+    grid-template-columns: 1fr 50px;
+    place-content: center;
+  }
+}
+
+@media (min-width: 992px) {
+  .mudgrid-fullscreen {
+    grid-template-areas:
+      "title title status"
+      "title title status"
+      "main main aiimage"
+      "main main helpsection"
+      "command command helpsection"
+      "usersconnected usersconnected helpsection";
+    grid-template-columns: 400px 1fr 325px;
+    grid-template-rows: 45px 1fr 1fr 1fr 60px 30px;
+    height: 100svh !important;
+  
+  }
+  
+  .mudgrid-expanded {
+    grid-template-areas:
+      "title title status"
+      "title title status"
+      "main main aiimage"
+      "main main helpsection"
+      "command command helpsection"
+      "usersconnected usersconnected helpsection";
+    grid-template-columns: 400px 1fr 325px;
+    grid-template-rows: 45px 1fr 1fr 1fr 60px 30px;
+    height: 68svh;
+  }
+  
+  .mudgrid-collapsed {
+    grid-template-areas:
+      "title title status"
+      "main main status"
+      "main main aiimage"
+      "main main helpsection"
+      "command command helpsection"
+      "usersconnected usersconnected helpsection";
+    grid-template-columns: 400px 1fr 325px;
+    grid-template-rows: 45px 1fr 1fr 1fr 60px 30px;
+    height: 68svh;
+  }
+
+  .ticker-grid {
+    grid-template-columns: 1fr 50px;
+    place-content: center;
+  }
+}
+
+@media (min-width: 1200px) {
+  .mudgrid-fullscreen {
+    grid-template-areas:
+      "title title status"
+      "title title status"
+      "main main aiimage"
+      "main main helpsection"
+      "command command helpsection"
+      "usersconnected usersconnected helpsection";
+    grid-template-columns: 400px 1fr 325px;
+    grid-template-rows: 45px 1fr 1fr 1fr 60px 30px;
+    height: 100svh !important;
+  
+  }
+  
+  .mudgrid-expanded {
+    grid-template-areas:
+      "title title status"
+      "title title status"
+      "main main aiimage"
+      "main main helpsection"
+      "command command helpsection"
+      "usersconnected usersconnected helpsection";
+    grid-template-columns: 400px 1fr 325px;
+    grid-template-rows: 45px 1fr 1fr 1fr 60px 30px;
+    height: 68svh;
+  }
+  
+  .mudgrid-collapsed {
+    grid-template-areas:
+      "title title status"
+      "main main status"
+      "main main aiimage"
+      "main main helpsection"
+      "command command helpsection"
+      "usersconnected usersconnected helpsection";
+    grid-template-columns: 400px 1fr 325px;
+    grid-template-rows: 45px 1fr 1fr 1fr 60px 30px;
+    height: 68svh;
+  }
+
+  .ticker-grid {
+    grid-template-columns: 1fr 50px;
+    place-content: center;
+  }
+}
+
+@media (min-width: 1400px) {
+  .mudgrid-fullscreen {
+    grid-template-areas:
+      "title title status"
+      "title title status"
+      "main main aiimage"
+      "main main helpsection"
+      "command command helpsection"
+      "usersconnected usersconnected helpsection";
+    grid-template-columns: 400px 1fr 325px;
+    grid-template-rows: 45px 1fr 1fr 1fr 60px 30px;
+    height: 100svh !important;
+  
+  }
+  
+  .mudgrid-expanded {
+    grid-template-areas:
+      "title title status"
+      "title title status"
+      "main main aiimage"
+      "main main helpsection"
+      "command command helpsection"
+      "usersconnected usersconnected helpsection";
+    grid-template-columns: 400px 1fr 325px;
+    grid-template-rows: 45px 1fr 1fr 1fr 60px 30px;
+    height: 68svh;
+  }
+  
+  .mudgrid-collapsed {
+    grid-template-areas:
+      "title title status"
+      "main main status"
+      "main main aiimage"
+      "main main helpsection"
+      "command command helpsection"
+      "usersconnected usersconnected helpsection";
+    grid-template-columns: 400px 1fr 325px;
+    grid-template-rows: 45px 1fr 1fr 1fr 60px 30px;
+    height: 68svh;
+  }
+
+  .ticker-grid {
+    grid-template-columns: 1fr 50px;
+    place-content: center;
+  }
+}
+
+
 textarea {
   width: 100%;
   font-size: 1.5em;
@@ -25,45 +312,14 @@ td {
 
 .mudgrid-fullscreen {
   display: grid;
-  grid-template-areas:
-    "title title status"
-    "title title status"
-    "main main aiimage"
-    "main main helpsection"
-    "command command helpsection"
-    "usersconnected usersconnected helpsection";
-  grid-template-columns: 400px 1fr 325px;
-  grid-template-rows: 44px 1fr 1fr 1fr 60px 30px;
-  height: 100svh !important;
-
 }
 
 .mudgrid-expanded {
   display: grid;
-  grid-template-areas:
-    "title title status"
-    "title title status"
-    "main main aiimage"
-    "main main helpsection"
-    "command command helpsection"
-    "usersconnected usersconnected helpsection";
-  grid-template-columns: 400px 1fr 325px;
-  grid-template-rows: 44px 1fr 1fr 1fr 60px 30px;
-  height: 70svh;
 }
 
 .mudgrid-collapsed {
   display: grid;
-  grid-template-areas:
-    "title title status"
-    "main main status"
-    "main main aiimage"
-    "main main helpsection"
-    "command command helpsection"
-    "usersconnected usersconnected helpsection";
-  grid-template-columns: 400px 1fr 325px;
-  grid-template-rows: 44px 1fr 1fr 1fr 60px 30px;
-  height: 70svh;
 }
 
 #playername,
@@ -76,18 +332,22 @@ td {
 }
 
 .title-panel-expanded {
-  background-color: #999 !important;
+  background-color: #999;
   height: 470px;
-  overflow: none;
+  overflow: hidden;
 }
 
 .title-panel-collapsed {
-  background-color: #999 !important;
+  background-color: #999;
 }
 
 #title {
   grid-area: title;
-  overflow: none;
+  overflow: hidden;
+  width:100%;
+  background-color: #999;
+  margin: 0;
+  padding:0;
 }
 
 #helpsection {
@@ -186,6 +446,11 @@ td {
   font-size: 32px;
   padding: 0;
   margin: 0;
+}
+
+.mud-title {
+  padding: 0 1em;
+  color: teal !important;
 }
 
 .mud-subtitle {
@@ -497,8 +762,6 @@ td {
 
 .ticker-grid {
   display: grid;
-  grid-template-columns: 1fr 50px;
-  place-content: center;
 }
 
 .ticker-icon {
