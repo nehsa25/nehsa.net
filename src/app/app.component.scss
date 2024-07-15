@@ -15,7 +15,7 @@
     }
 
     .body {
-        height: 300px;
+        height: inherit;
     }
 
     .app-main-expanded {
@@ -73,7 +73,10 @@
 }
 
 @media (min-width: 576px) {
-    
+    .body {
+        height: inherit;
+    }
+
     .gridcols {
         grid-template-columns: min-content 1fr;
     }
@@ -134,37 +137,39 @@
 }
 
 @media (min-width: 768px) {
-
     .body {
         height: inherit;
     }
+
     .gridcols {
         grid-template-columns: min-content 1fr;
     }
 
     .app-main-expanded {
-        grid-template-rows: 30svh 5svh 5svh 70svh 5svh 5svh;
-        grid-template-columns: 225px 1fr;
+        grid-template-rows: min-content min-content 70svh min-content min-content min-content min-content min-content;
+        grid-template-columns: 1fr 1fr;
         grid-template-areas:
-            "bread title"
-            "user_admin body"
-            "theme body"
-            "navbar body"
-            "navbar body"
-            "navbar body"
-            "conactme conactme"
-            "conactme footer";
+            "bread user_admin"
+            "title title"
+            "body body"
+            "navbar navbar"
+            "theme theme"
+            "contactme contactme"
+            "dh dh"
+            "footer footer";
     }
 
     .app-main-collapsed {
-        grid-template-rows: 10svh 7svh 5svh 68svh 5svh 5svh;
-        grid-template-columns: 225px 1fr;
+        grid-template-rows: min-content min-content 70svh min-content min-content min-content min-content min-content;
+        grid-template-columns: 1fr 1fr;
         grid-template-areas:
-            "bread title"
-            "user_admin body"
-            "theme body"
-            "navbar body"
-            "conactme conactme"
+            "bread user_admin"
+            "title title"
+            "body body"
+            "navbar navbar"
+            "theme theme"
+            "contactme contactme"
+            "dh dh"
             "footer footer";
     }
 
@@ -188,6 +193,9 @@
 }
 
 @media (min-width: 992px) {
+    .body {
+        height: inherit;
+    }
     .gridcols {
         grid-template-columns: min-content 1fr;
     }

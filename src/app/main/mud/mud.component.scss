@@ -1,4 +1,8 @@
 @media (min-width: 0) {
+  #status {
+    height: 371px;
+  }
+
   .mudgrid-fullscreen {
     grid-template-areas:
       "title"
@@ -9,10 +13,10 @@
       "helpsection"
       "usersconnected";
     grid-template-columns: 1fr;
-    grid-template-rows: min-content;
-    height: 100svh !important;  
+    grid-template-rows: min-content 55svh repeat(5, min-content);
+    height: 100svh !important;
   }
-  
+
   .mudgrid-expanded {
     grid-template-areas:
       "title"
@@ -22,11 +26,11 @@
       "aiimage"
       "helpsection"
       "usersconnected";
-    grid-template-columns: 1fr;
+    grid-template-columns: min-content 55svh repeat(5, min-content);
     grid-template-rows: min-content;
-    height: 80svh !important; 
+    height: 80svh !important;
   }
-  
+
   .mudgrid-collapsed {
     grid-template-areas:
       "title"
@@ -37,8 +41,8 @@
       "helpsection"
       "usersconnected";
     grid-template-columns: 1fr;
-    grid-template-rows: min-content 1fr repeat(5, min-content);
-    height: 100svh !important; 
+    grid-template-rows: min-content 55svh repeat(5, min-content);
+    height: 100svh !important;
   }
 
   .ticker-grid {
@@ -48,6 +52,9 @@
 }
 
 @media (min-width: 576px) {
+  #status {
+    height: 371px;
+  }
   .mudgrid-fullscreen {
     grid-template-areas:
       "title"
@@ -58,10 +65,10 @@
       "helpsection"
       "usersconnected";
     grid-template-columns: 1fr;
-    grid-template-rows: min-content;
-    height: 100svh !important;  
+    grid-template-rows: min-content 55svh repeat(5, min-content);
+    height: 100svh !important;
   }
-  
+
   .mudgrid-expanded {
     grid-template-areas:
       "title"
@@ -72,10 +79,10 @@
       "helpsection"
       "usersconnected";
     grid-template-columns: 1fr;
-    grid-template-rows: min-content 1fr repeat(5, min-content);
-    height: 80svh !important; 
+    grid-template-rows: min-content 55svh repeat(5, min-content);
+    height: 80svh !important;
   }
-  
+
   .mudgrid-collapsed {
     grid-template-areas:
       "title"
@@ -87,7 +94,7 @@
       "usersconnected";
     grid-template-columns: 1fr;
     grid-template-rows: min-content;
-    height: 100svh !important; 
+    height: 100svh !important;
   }
 
   .ticker-grid {
@@ -97,6 +104,9 @@
 }
 
 @media (min-width: 768px) {
+  #status {
+    height: 355px;
+  }
   .mudgrid-fullscreen {
     grid-template-areas:
       "title title status"
@@ -108,9 +118,9 @@
     grid-template-columns: 400px 1fr 325px;
     grid-template-rows: 45px 1fr 1fr 1fr 60px 30px;
     height: 100svh !important;
-  
+
   }
-  
+
   .mudgrid-expanded {
     grid-template-areas:
       "title title status"
@@ -123,7 +133,7 @@
     grid-template-rows: 45px 1fr 1fr 1fr 60px 30px;
     height: 68svh !important;
   }
-  
+
   .mudgrid-collapsed {
     grid-template-areas:
       "title title status"
@@ -144,6 +154,9 @@
 }
 
 @media (min-width: 992px) {
+  #status {
+    height: 355px;
+  }
   .mudgrid-fullscreen {
     grid-template-areas:
       "title title status"
@@ -155,9 +168,9 @@
     grid-template-columns: 400px 1fr 325px;
     grid-template-rows: 45px 1fr 1fr 1fr 60px 30px;
     height: 100svh !important;
-  
+
   }
-  
+
   .mudgrid-expanded {
     grid-template-areas:
       "title title status"
@@ -170,7 +183,7 @@
     grid-template-rows: 45px 1fr 1fr 1fr 60px 30px;
     height: 68svh;
   }
-  
+
   .mudgrid-collapsed {
     grid-template-areas:
       "title title status"
@@ -191,6 +204,9 @@
 }
 
 @media (min-width: 1200px) {
+  #status {
+    height: 355px;
+  }
   .mudgrid-fullscreen {
     grid-template-areas:
       "title title status"
@@ -202,9 +218,9 @@
     grid-template-columns: 400px 1fr 325px;
     grid-template-rows: 45px 1fr 1fr 1fr 60px 30px;
     height: 100svh !important;
-  
+
   }
-  
+
   .mudgrid-expanded {
     grid-template-areas:
       "title title status"
@@ -217,7 +233,7 @@
     grid-template-rows: 45px 1fr 1fr 1fr 60px 30px;
     height: 68svh;
   }
-  
+
   .mudgrid-collapsed {
     grid-template-areas:
       "title title status"
@@ -238,6 +254,9 @@
 }
 
 @media (min-width: 1400px) {
+  #status {
+    height: 355px;
+  }
   .mudgrid-fullscreen {
     grid-template-areas:
       "title title status"
@@ -249,9 +268,9 @@
     grid-template-columns: 400px 1fr 325px;
     grid-template-rows: 45px 1fr 1fr 1fr 60px 30px;
     height: 100svh !important;
-  
+
   }
-  
+
   .mudgrid-expanded {
     grid-template-areas:
       "title title status"
@@ -264,7 +283,7 @@
     grid-template-rows: 45px 1fr 1fr 1fr 60px 30px;
     height: 68svh;
   }
-  
+
   .mudgrid-collapsed {
     grid-template-areas:
       "title title status"
@@ -344,10 +363,10 @@ td {
 #title {
   grid-area: title;
   overflow: hidden;
-  width:100%;
+  width: 100%;
   background-color: #999;
   margin: 0;
-  padding:0;
+  padding: 0;
 }
 
 #helpsection {
@@ -412,7 +431,6 @@ td {
   padding: 0;
   background-color: #4a4231;
   margin: 0;
-  height: 355px;
   width: 100%;
 }
 

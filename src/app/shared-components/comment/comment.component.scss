@@ -1,6 +1,62 @@
+@media (min-width: 0) {
+    .addcommentgrid {
+        grid-template-rows: 1fr min-content;
+        grid-template-columns: inherit;
+    }
+    .grid {
+        grid-template-rows: 1fr min-content min-content;
+    }
+}
+
+@media (min-width: 576px) {
+    .addcommentgrid {
+        grid-template-rows: 1fr min-content;
+        grid-template-columns: inherit;
+    }
+    .grid {
+        grid-template-rows: 1fr min-content min-content;
+    }
+}
+
+@media (min-width: 768px) {
+    .addcommentgrid {
+        grid-template-columns: 1fr 200px;
+    }
+    .grid {
+        grid-template-rows: 1fr min-content min-content;
+    }
+}
+
+@media (min-width: 992px) {
+    .addcommentgrid {
+        grid-template-columns: 1fr 200px;
+    }
+    .grid {
+        grid-template-rows: 1fr min-content min-content;
+    }
+}
+
+@media (min-width: 1200px) {
+    .addcommentgrid {
+        grid-template-columns: 1fr 200px;
+    }
+    .grid {
+        grid-template-rows: 1fr min-content min-content;
+    }
+}
+
+@media (min-width: 1400px) {
+    .addcommentgrid {
+        grid-template-columns: 1fr 200px;
+    }
+    .grid {
+        grid-template-rows: 1fr min-content min-content;
+    }
+}
+
+
 .addcommentgrid {
     display: grid;
-    grid-template-columns: 1fr 200px;
     grid-gap: 1em;
 }
 
@@ -34,7 +90,6 @@ textarea {
 
 .grid {
     display: grid;
-    grid-template-rows: 1fr min-content min-content;
     grid-gap: 1em;
 }
 
@@ -54,7 +109,7 @@ th {
     background-color: lemonchiffon !important;
     color: black;
     border-radius: 25px 0 0 0;
-    width:100px;
+    width: 100px;
 }
 
 .column-date {

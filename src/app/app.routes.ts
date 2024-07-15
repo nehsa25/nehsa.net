@@ -45,6 +45,7 @@ import { WebDesignComponent } from './main/web-design/web-design.component';
 import { IisComponent } from './main/iis/iis.component';
 import { GeminiComponent } from './main/gemini/gemini.component';
 import { RegexComponent } from './main/regex/regex.component';
+import { IdeComponent } from './main/ide/ide.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: BioComponent },
@@ -101,6 +102,7 @@ export const routes: Routes = [
     { path: 'mysql', title: 'nehsa.net | mysql', component: MysqlComponent },
     { path: 'regex', title: 'nehsa.net | Regular Expressions', component: RegexComponent },
     { path: 'webdesign', title: 'nehsa.net | Web Design', component: WebDesignComponent },
+    { path: 'ide', title: 'nehsa.net | IDEs / Code Editors', component: IdeComponent },
     { path: 'iis', title: 'nehsa.net | IIS', component: IisComponent },
     { path: '', title: 'nehsa.net | Home', redirectTo: '/', pathMatch: 'full' },
     { path: '**', component: BioComponent },

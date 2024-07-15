@@ -355,6 +355,14 @@ export class MudComponent implements OnInit, OnDestroy {
           this.mudEvents += `${welcome}<br><br><span class=\"welcome-message\">${data.message}</span>`;
         }
         this.userService.name = data.name;
+
+        // look
+        this.sendCommand(``);
+
+        // look at player
+        //this.sendCommand(`look ${data.name}`);
+
+
         break;
       case MudEvents.BOOK:
         console.log("book: " + data.message);
