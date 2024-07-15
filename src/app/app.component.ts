@@ -143,6 +143,11 @@ export class AppComponent implements OnInit, OnDestroy {
     }
   }
 
+  themeChangeBtnClick(darkMode: boolean) {
+    this.darkmode_value = darkMode ? 1 : 0;
+    this.userService.setDarkMode(darkMode);
+  }
+
   setExpand() {
     this.expandedBio = !this.expandedBio;
     if (this.expandedBio) {
