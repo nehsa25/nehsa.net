@@ -313,9 +313,7 @@ export class MudComponent implements OnInit, OnDestroy {
   colorizeMessage(message: string) {
     const yellow_bolt = "<span class=\"material-icons yellow\">bolt</span>";
     let colors: string[] = ["red", "green", "blue", "white", "yellow", "cyan", "magenta", "black", "gray", "grey",
-      "orange", "purple", "brown", "pink", "teal", "maroon", "olive", "navy",
-      "lime", "aqua", "silver", "black", "gray", "orange", "crimson",
-      "purple", "brown", "pink", "teal", "maroon", "olive", "navy", "lime", "aqua", "silver"];
+      "orange", "teal", "maroon", "olive", "navy", "lime", "aqua", "silver", "crimson", "purple", "brown", "pink"];
     colors.forEach(replaceValue => {
       const findExpression = new RegExp(`\\s(${replaceValue})\\s|\\s(${replaceValue}(?=\\S*['-])([a-zA-Z'-]+))`, 'gi');
       const PreventDupeExpression = new RegExp(`<span class=\"color-${findExpression}\">(.*)</span><span class=\"color-${findExpression}\">(.*)</span>`, 'gi');
