@@ -2,15 +2,201 @@
     <mat-card class="card">
         <mat-card-header>
             <mat-card-title>
-                <h1 data-testid="header-title">Python</h1>
+                <h1 data-testid="header-title">Python is rad!</h1>
             </mat-card-title>
         </mat-card-header>
         <mat-card-content>
             <div class="commentgrid">
                 <div class="topics">
                     <div>
-                        Python is rad!
                         <ul>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Types in Python</mat-panel-title>
+                                        <mat-card-subtitle>Constructor is: <span class="code">def say_hello(name: str)
+                                                -> str:</span></mat-card-subtitle>
+                                    </mat-expansion-panel-header>Python does nearly everything for you
+                                    in regards with variables types, but with later versions of Python, you can now
+                                    have more control, and it can be helpful for several reasons. To me, most
+                                    importantly,
+                                    it is
+                                    better for earlier detecting coding errors. When everything is dynamic, making
+                                    mistakes
+                                    and passing the wrong type is easy. These mistakes are often only noticed at runtime
+                                    when things blow up dramatically.<br><br>
+                                    Working with types explicity can mitigate this.<br><br>
+                                    For example:<br>
+                                    <br>The old, somewhat sad way:
+                                    <div class="code">
+                                        <pre>
+    def __init__(self, room, description):
+        ...
+</pre>
+                                    </div><br>
+                                    The new, happier way:
+                                    <div class="code">
+                                        <pre>
+    def __init__(self, room:str, description: str) -> None:
+        ...
+</pre>
+                                    </div>
+                                    <br>
+                                    In the example above, we ensure that the variables "room" and "description" are
+                                    strings and that the return value is a
+                                    None. If the wrong type is passed or we attempt to return something, Python will
+                                    throw an error (an error will be thrown regardless as you cannot return something
+                                    from a constructor but that's beside the point).
+                                    <br><br>
+                                    Example 2:
+                                    <div class="code">
+                                        <pre>
+    def say_hello(name: str) -> str:
+        return "Hello " + name
+</pre>
+                                    </div>
+                                    <br>
+                                    Similar but we're also indicating that the return type must be a string.
+
+                                    Common built-in data types:
+                                    <ul class="condensed">
+                                        <li>str</li>
+                                        <li>int</li>
+                                        <li>float</li>
+                                        <li>bool</li>
+                                        <li>list</li>
+                                        <li>tuple</li>
+                                        <li>set</li>
+                                        <li>dict</li>
+                                    </ul><br><br>
+                                    Getting the type of a variable: <span class="code">type(x)</span>
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Getters & Setters in Python = Don't. Use properties
+                                            instead.</mat-panel-title>
+                                        <mat-card-subtitle>
+                                            <div class="code">
+                                                <pre>
+&#64;property
+def description(self):
+</pre>
+                                            </div>
+                                        </mat-card-subtitle>
+                                    </mat-expansion-panel-header>
+                                    In many languages, it's sacralagues to not use assessors when working with classes
+                                    but not with Python. In Python, you can use properties to get and set values. This
+                                    is a much cleaner way to work with classes and is more Pythonic. <br><br>
+
+                                    <div class="code">
+                                        <pre>
+                                            Example, forthcoming..
+                                        </pre>
+                                    </div>
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Threading Vs. Async</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    Threading is for working in parallel; async is similar, but as you're in a single
+                                    thread, it's more like waiting asynchronously, not working asynchronously.<br><br>
+
+                                    Synchronously:<br>
+                                    <div class="code">
+<pre>
+    def sync_example(self):        
+        for i in range(self.number_iterations):
+            pass
+
+    # sync
+    start = time.perf_counter()
+    t.sync_example()
+    stop = time.perf_counter()
+    sync_duration = f"&#123;stop - start:.5f&#125;"
+    print(f"Look ma, I'm synchronous! &#123;sync_duration&#125;")                                                
+</pre>
+                                    </div>
+                                    Timings: <span class="important">Look ma, I'm synchronous! 0.00017</span>
+                                    <br><br>
+
+                                    Asynchronously (threading):<br>
+                                    <div class="code">
+<pre>
+    def thread_example(self, i):
+        pass
+                
+    def async_threading_example(self):
+        with ThreadPoolExecutor() as executor:
+            executor.submit(self.thread_example, range(self.number_iterations))   
+
+    # threading
+    start = time.perf_counter()
+    t.async_threading_example()
+    stop = time.perf_counter()
+    async_duration1 = f"&#123;stop - start:.5f&#125;"
+    print(f"Async using Threading: &#123;async_duration1&#125;")
+</pre>
+                                    </div>
+                                    Timings: <span class="important">Async using Threading: 0.00099</span>
+                                    <br><br>
+                                    Asynchronously (AsyncIO):<br>
+                                    <div class="code">
+<pre>
+    async def asyncio_thread_example(self):
+        for i in range(self.number_iterations):
+            pass
+        
+    async def async_asyncio_example(self):
+        await self.asyncio_thread_example()
+
+    # asyncio example
+    loop = asyncio.new_event_loop()
+    start = time.perf_counter()
+    loop.run_until_complete(t.async_asyncio_example())
+    stop = time.perf_counter()
+    async_duration2 = f"&#123;stop - start:.5f&#125;"
+    print(f"Async using asyncio: &#123;async_duration2&#125;")
+</pre>
+                                    </div>
+                                    Timings: <span class="important">Async using asyncio: 0.00033</span>
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Formatting</mat-panel-title>
+                                    </mat-expansion-panel-header>
+
+                                    Numbers, fixed decimal places:<br>
+                                    <div class="code">
+                                        <pre>
+    super_long_number = 12345678923423.4234234230
+    print(f"super_long_number with 2 percision: &#123;super_long_number:.2f&#125;")
+</pre>
+                                    </div>Results in <span class="important">12,345,678,923,423.42</span>
+                                    <br><br>
+                                    Numbers, commas:<br>
+                                    <div class="code">
+                                        <pre>
+    super_long_number = 12345678923423.4234234230
+    print(f"super_long_number: &#123;super_long_number:.0f&#125;")
+</pre>
+                                    </div>Results in <span class="important">12,345,678,923,423</span>
+                                    <br><br>
+                                    Scientific:<br>
+                                    <div class="code">
+                                        <pre>
+    super_long_number = 12345678923423.4234234230
+    print(f"Number: &#123;super_long_number:.2e&#125;")
+</pre>
+                                    </div>Results in <span class="important">1.23e+13</span>
+                                    <br>
+                                </mat-expansion-panel>
+                            </li>
                             <li>
                                 <mat-expansion-panel>
                                     <mat-expansion-panel-header>
@@ -59,7 +245,8 @@
                                     </div><br>
                                     Same thing using list comphrehension with a single line of code. <span
                                         class="note">Technically, these will provide different results as the loop will
-                                        remain "None" if nothing is found or the found object if something is found.  The list comprehsion, on the other hand, is
+                                        remain "None" if nothing is found or the found object if something is found. The
+                                        list comprehsion, on the other hand, is
                                         a list and will either be a length of 0 if nothing if found or have a single
                                         entry accessed via lock[0].</span>
                                     <div class="code">

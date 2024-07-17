@@ -76,7 +76,7 @@ $theme-table-background: mat.get-color-from-palette($light-primary-palette, 200)
 $theme-table-color: mat.get-color-from-palette($light-primary-palette, 400);
 
 //files
-$theme-file-background: mat.get-color-from-palette($dark-primary-palette, 300);
+$theme-file-background: #454B1B;
 $theme-file-color: yellow;
 
 //navbar
@@ -130,7 +130,7 @@ $theme-header-color: anqituewhite;
     $theme-table-color: mat.get-color-from-palette($light-primary-palette, 400);
 
     //files
-    $theme-file-background: mat.get-color-from-palette($light-primary-palette, 300);
+    $theme-file-background: #454B1B;
     $theme-file-color: yellow;
 
     //navbar
@@ -395,7 +395,8 @@ div.code:hover {
     font-weight: 600;
     font-variant: small-caps;
     display: inline-block;
-    top: -2px !important;
+    padding: .5em 5px;
+    border-radius: 5px;
 }
 
 .answer {

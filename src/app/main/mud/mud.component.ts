@@ -498,8 +498,8 @@ export class MudComponent implements OnInit, OnDestroy {
         }
 
         // check for people
-        if (data.people != "") {
-          this.mudEvents += "<br><span class=\"people1-message\">People: </span><span class=\"people2-message\">" + data.people + "</span>";
+        if (data.players != "") {
+          this.mudEvents += "<br><span class=\"people1-message\">People: </span><span class=\"people2-message\">" + data.players + "</span>";
         }
 
         // check for monsters
@@ -541,7 +541,7 @@ export class MudComponent implements OnInit, OnDestroy {
         break;
       case MudEvents.CLIENT_LIST:
         console.log("Inside get_clients switch");
-        this.usersConnected = data.players;
+        this.usersConnected = data.num_players;
         break;
       case MudEvents.MAP_EVENT:
         this.mapImageName = data.map_image_name;
