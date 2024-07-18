@@ -353,8 +353,11 @@ div.code:hover {
 }
 
 .important {
-    font-weight: 700;
+    font-weight: bold;
     color: orangered;
+    -webkit-text-stroke: .5px white;
+    font-size: 2rem;
+    line-height: 1.5;
 }
 
 .topics {

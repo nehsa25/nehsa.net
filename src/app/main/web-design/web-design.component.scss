@@ -30,3 +30,21 @@ table {
     grid-template-columns: 250px 100px 1fr;
     grid-template-rows: min-content min-content;
 }
+
+.importante:before {
+    content: "<";
+    -webkit-text-stroke: .3px #222;
+}
+
+.importante:after {
+    content: ">";
+    -webkit-text-stroke: .3px #222;
+}
+
+.importante {
+    font-weight: bold;
+    color: orangered;
+    -webkit-text-stroke: .5px white;
+    font-size: 2rem;
+    line-height: 1.5;
+}

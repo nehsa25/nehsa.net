@@ -192,6 +192,38 @@
                         <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
+                                    <mat-panel-title>Fun with :before and :after</mat-panel-title>
+                                    <mat-panel-description>Allows you to add content before or after an element</mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <div class="code">
+                                    <pre>
+.important:before &#123;
+    content: "<";
+    -webkit-text-stroke: .3px #222;
+&#125;
+
+.important:after &#123;
+    content: ">";
+    -webkit-text-stroke: .3px #222;
+&#125;
+
+.important &#123;
+    font-weight: bold;
+    color: orangered;
+    -webkit-text-stroke: .5px white;
+    font-size: 2rem;
+    line-height: 1.5;
+&#125;
+                                    </pre>
+                                </div>
+
+                                <span class="importante">I'm super important text!</span>
+
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
                                     <mat-panel-title>Responsive Design</mat-panel-title>
                                 </mat-expansion-panel-header>
                                 <ul class="condensed">
