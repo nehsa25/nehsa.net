@@ -120,176 +120,162 @@ def description(self, value):
                                     <mat-expansion-panel-header>
                                         <mat-panel-title>Threading Vs. Async</mat-panel-title>
                                     </mat-expansion-panel-header>
-                                    Threading is for working in parallel; async is similar, but as you're in a single
-                                    thread, it's more like waiting asynchronously, not working asynchronously.<br><br>
-
-                                    Synchronously:<br>
-                                    <div class="code">
-                                        <pre>
+                                    Definitions:<br>
+                                    <dl>
+                                        <dt>Async function</dt>
+                                        <dd>Indicates that a function is a coroutine which can be waited upon (awaited).
+                                            Async functions run within a single thread. They work by starting an "Event
+                                            Loop," which allows them to work on other things while "awaiting" longer
+                                            running tasks. See <a
+                                                href="https://docs.python.org/3/library/asyncio.html">asyncio</a></dd>
+                                        <dt>Threads</dt>
+                                        <dd>Allows you to run multiple threads in parallel. See <a
+                                                href="https://docs.python.org/3/library/concurrent.futures.html">concurrent.futures</a>
+                                        </dd>
+                                        <dt>Processes</dt>
+                                        <dd>Threads run within a process. You may have a multi-process application,
+                                            which is a collection of processes. Browsers are often used as an example of
+                                            this as each tab is usually a different process, so if something terrible
+                                            happens to one tab, like you visit a malicious website, the other tabs will
+                                            remain functional. See <a
+                                                href="https://docs.python.org/3/library/multiprocessing.html">multiprocessing</a>
+                                        </dd>
+                                    </dl>
+                                    <br><br>
+                                    <ol>
+                                        <li>Synchronously: A disgraced fully synchronous function. We will only proceed
+                                            to the next iteration of the loop when the previous returns. OK if the call
+                                            is near instantaneous, but any delay quickly adds up
+                                            <div class="code">
+                                                <pre>
 def sync_example(self):        
     for i in range(self.number_iterations):
-        pass
-
+        time.sleep(0.1)
 # sync
 t.sync_example()                                         
-</pre>
-                                    </div>
-                                    <br><br>
-
-                                    Asynchronously (threading):<br>
-                                    <div class="code">
-                                        <pre>
+        </pre>
+                                            </div>
+                                        </li>
+                                        <li>Asynchronously (threading - executor.submit):<br>
+                                            <div class="code">
+                                                <pre>
 def thread_example(self, i):
-    pass
+    time.sleep(0.1)
             
 def async_threading_example(self):
     with ThreadPoolExecutor() as executor:
-        executor.submit(self.thread_example, range(self.number_iterations))   
+        executor.<span
+        class="important">submit</span>(self.thread_example, range(self.number_iterations))   
 
 # threading
 t.async_threading_example()
-</pre>
-                                    </div>
-                                    <br><br>
-                                    Asynchronously (AsyncIO):<br>
-                                    <div class="code">
-                                        <pre>
-async def asyncio_thread_example(self):
-    for i in range(self.number_iterations):
-        pass
-    
-async def async_asyncio_example(self):
-    await self.asyncio_thread_example()
+        </pre>
+                                            </div>
+                                        </li>
+                                        <li>Asynchronously (threading - executor.map):<br>
+                                            <div class="code">
+                                                <pre>
+def thread_example(self, i):
+    time.sleep(0.1)
+            
+def async_threading_example(self):
+    with ThreadPoolExecutor() as executor:
+        executor.<span
+        class="important">map</span>(self.thread_example, range(self.number_iterations))   
 
-# asyncio example
+# threading
+t.async_threading_example()
+        </pre>
+                                            </div>
+                                            <span class="comment">Notice the nearly similar syntax of <span
+                                                    class="importantish">the map</span> to <span
+                                                    class="importantish">submit</span>.
+                                                The main difference between the two is that submission has more power
+                                                but is also more complex. I use maps unless there's a specific reason
+                                                not to. Submitting allows for more control, such as canceling threads.
+                                                You've returned a future object and have more flexibility in arguments
+                                                passed to thread functions.</span>
+                                        </li>
+                                        <li>Asynchronously (AsyncIO):<br>
+                                            <div class="code">
+                                                <pre>
+# the "thread/task" function that's doing the actual work
+async def sleep_asyncio_example(self):
+    await asyncio.sleep(0.1)
+        
+# the function that will call the above function
+async def sleep_asyncio_thread_example(self):
+    tasks = []
+    for i in range(self.number_iterations):
+        tasks.append(asyncio.create_task(self.sleep_asyncio_example()))
+    await asyncio.gather(*tasks) #<mat-icon class="comment-arrow">arrow_back</mat-icon> the magic
+    
+# starts the event look
 loop = asyncio.new_event_loop()
-loop.run_until_complete(t.async_asyncio_example())
-</pre>
-                                    </div>
-                                    Timings (noop):
-                                    <ul>
-                                        <li>
-                                            <mat-expansion-panel>
-                                                <mat-expansion-panel-header>
-                                                    <mat-panel-title>100,000 iterations but doing nothing (returning
-                                                        immediately)</mat-panel-title>
-                                                    <mat-panel-subtitle>Winner: threading, sync,
-                                                        asyncio</mat-panel-subtitle>
-                                                </mat-expansion-panel-header>
-                                                <div class="code">
-                                                    <pre>
-Results from threading examples, quickest first:
-threading (executor.submit) took 0.00108 seconds
-Sync took 0.00173 seconds
-asyncio took 0.00216 seconds
-                                                        </pre>
-                                                </div>
-                                            </mat-expansion-panel>
+
+# starts our async function
+loop.run_until_complete(t.sleep_asyncio_thread_example())
+        </pre>
+                                            </div>
                                         </li>
-                                        <li>
-                                            <mat-expansion-panel>
-                                                <mat-expansion-panel-header>
-                                                    <mat-panel-title>1,000,000 iterations but doing nothing (returning
-                                                        immediately)</mat-panel-title>
-                                                    <mat-panel-subtitle>Winner: threading, sync,
-                                                        asyncio</mat-panel-subtitle>
-                                                </mat-expansion-panel-header>
-                                                <div class="code">
-                                                    <pre>
-Results from threading examples, quickest first:
-threading (executor.submit) took 0.00104 seconds
-Sync took 0.01704 seconds
-asyncio took 0.01892 seconds
-                                                        </pre>
-                                                </div>
-                                            </mat-expansion-panel>
-                                        </li>
-                                        <li>
-                                            <mat-expansion-panel>
-                                                <mat-expansion-panel-header>
-                                                    <mat-panel-title>10,000,000 iterations but doing nothing (returning
-                                                        immediately)</mat-panel-title>
-                                                    <mat-panel-subtitle>Winner: threading, sync,
-                                                        asyncio</mat-panel-subtitle>
-                                                </mat-expansion-panel-header>
-                                                <div class="code">
-                                                    <pre>
-Results from threading examples, quickest first:
-threading (executor.submit) took 0.00104 seconds
-Sync took 0.01704 seconds
-asyncio took 0.01892 seconds
-                                                        </pre>
-                                                </div>
-                                            </mat-expansion-panel>
-                                        </li>
-                                        <li>
-                                            <mat-expansion-panel>
-                                                <mat-expansion-panel-header>
-                                                    <mat-panel-title>100,000,000 iterations but doing nothing (returning
-                                                        immediately)</mat-panel-title>
-                                                    <mat-panel-subtitle>Winner: threading, sync,
-                                                        asyncio</mat-panel-subtitle>
-                                                </mat-expansion-panel-header>
-                                                <div class="code">
-                                                    <pre>
-Results from threading examples, quickest first:
-threading (executor.submit) took 0.00155 seconds
-Sync took 1.93227 seconds
-asyncio took 1.99386 seconds
-                                                        </pre>
-                                                </div>
-                                            </mat-expansion-panel>
-                                        </li>
-                                    </ul>
+                                    </ol>
                                     <br><br>
                                     Timings (.1 sleep):
-                                    <ul>
-                                        <li> 
-                                            <mat-expansion-panel>
-                                                <mat-expansion-panel-header>
-                                                    <mat-panel-title>1 iteration (test duration .3s)</mat-panel-title>
-                                                    <mat-panel-subtitle>Winner: sync, threading, asyncio</mat-panel-subtitle>
-                                                </mat-expansion-panel-header>
-                                                <div class="code">
-                                                    <pre>
-Sync sleep took 0.10049 seconds
-threading sleep took 0.10322 seconds
-asyncio sleep took 0.11342 seconds
-                                                        </pre>
-                                                </div>
-                                            </mat-expansion-panel>
-                                        </li>
-                                        <li>
-                                            <mat-expansion-panel>
-                                                <mat-expansion-panel-header>
-                                                    <mat-panel-title>100 iterations (test duration: 21s)</mat-panel-title>
-                                                    <mat-panel-subtitle>Winner: threading, sync, asyncio</mat-panel-subtitle>
-                                                </mat-expansion-panel-header>
-                                                <div class="code">
-<pre>
-threading sleep took 0.10246 seconds
-Sync sleep took 10.03752 seconds
-asyncio sleep took 10.85943 seconds
+                                    <div class="code">
+                                        <pre>
+Results from threading examples, quickest first:
+Sync, 1, sleep took 0.10052 seconds
+Threading, 1, sleep .1 - executor.map took 0.10087 seconds
+Threading, 2, sleep .1 - executor.submit took 0.10110 seconds
+Threading, 50, sleep .1 - executor.submit took 0.10128 seconds
+Threading, 2, sleep .1 - executor.map took 0.10137 seconds
+Threading, 500, sleep .1 - executor.submit took 0.10154 seconds
+Threading, 100, sleep .1 - executor.submit took 0.10161 seconds
+Threading, 2000, sleep .1 - executor.submit took 0.10162 seconds
+asyncio, 1, sleep .1 took 0.10192 seconds
+Threading, 1000, sleep .1 - executor.submit took 0.10226 seconds
+Threading, 1, sleep .1 - executor.submit took 0.10234 seconds
+asyncio, 2, sleep .1 took 0.10716 seconds
+asyncio, 50, sleep .1 took 0.10781 seconds
+asyncio, 500, sleep .1 took 0.11151 seconds
+asyncio, 100, sleep .1 took 0.11651 seconds
+asyncio, 1000, sleep .1 took 0.12279 seconds
+asyncio, 2000, sleep .1 took 0.14289 seconds
+Sync, 2, sleep took 0.20086 seconds
+Threading, 50, sleep .1 - executor.map took 0.50277 seconds
+Threading, 100, sleep .1 - executor.map took 0.90686 seconds
+Sync, 100, sleep took 10.04044 seconds
+Sync, 1000, sleep took 100.46653 seconds
+Threading, 2000, sleep .1 - executor.map took 16.78237 seconds
+Sync, 2000, sleep took 200.85585 seconds
+Threading, 500, sleep .1 - executor.map took 4.22102 seconds
+Sync, 50, sleep took 5.03877 seconds
+Sync, 500, sleep took 50.19780 seconds
+Threading, 1000, sleep .1 - executor.map took 8.44001 seconds
+                                            </pre><br><span class="important">or, </span>if preferred read as a horse race:
+                                        <div class="code">
+                                            <pre>
+
+    The Great Sleep Race: Sync vs Threading vs Asyncio!
+    In the lead:
+    
+    Synchronous execution takes the top spot for single tasks (Sync, 1, sleep). It finishes in a blazing 0.10 seconds!
+    Threading contenders:
+    
+    They struggle with single tasks, but shine with multiple. Threading with 2 threads (Threading, 2, sleep) comes in second at 0.10 seconds.
+    As the number of threads increases, performance dips slightly due to overhead.
+    Asyncio stumbles:
+    
+    Surprisingly, Asyncio lags behind for all test cases, even with multiple tasks. It seems like these short sleeps aren't ideal for its asynchronous style.
+    The real slowpokes:
+    
+    Synchronous execution with multiple tasks (Sync, 50+) falls far behind, taking minutes to complete due to waiting for each sleep to finish.
+    So, the winner is...
+    
+    It depends! For quick single tasks, synchronous execution wins. For multiple tasks with waiting (like network requests), threading might be faster. Asyncio shines when dealing with many I/O bound tasks that don't rely heavily on CPU power.
 </pre>
-                                                </div>
-                                            </mat-expansion-panel>
-                                        </li>
-                                        <li>
-                                            <mat-expansion-panel>
-                                                <mat-expansion-panel-header>
-                                                    <mat-panel-title>1,000 iterations (test duration: 210s)</mat-panel-title>
-                                                    <mat-panel-subtitle>Winner: threading, sync, asyncio</mat-panel-subtitle>
-                                                </mat-expansion-panel-header>
-                                                <div class="code">
-                                                    <pre>
-                                                    threading sleep took 0.10246 seconds
-                                                    Sync sleep took 10.03752 seconds
-                                                    asyncio sleep took 10.85943 seconds
-                                                    </pre>
-                                                                                                    </div>
-                                            </mat-expansion-panel>
-                                        </li>
-                                    </ul>
+                                        </div>
+                                    </div>
                                 </mat-expansion-panel>
                             </li>
                             <li>
@@ -799,6 +785,34 @@ print(my_oject is not None)
 # True
 </pre>
                                     </div>
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Reflection</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    Reflection is the ability of a program to examine and modify its own structure and
+                                    behavior at runtime. Python has a module called <span
+                                        class="important">inspect</span> that provides several functions to help
+                                    get information about live objects.<br><br>I wrap all methods and classes with:
+                                    <div class="code">
+                                        <pre>
+method_name = inspect.currentframe().f_code.co_name
+logger.debug(f"&#123;method_name&#125;: enter")
+...
+logger.debug(f"&#123;method_name&#125;: exit")
+</pre>
+                                    </div>
+                                    This will provide the method name and the line number of the method:<br>
+                                    <div class="code">
+                                        <pre>
+2024-07-19 07:02:35,411 [MainThread] [DEBUG]  get_room: enter, room_id: &lt;room.Room object at 0x000001DCB19FACF0&gt;
+2024-07-19 07:02:35,411 [MainThread] [DEBUG]  get_room: room "[&lt;room.Room object at 0x000001DCB21C8830&gt;]"
+2024-07-19 07:02:35,412 [MainThread] [DEBUG]  get_room: exit, returning room "Town Smee - Town Square"
+</pre>
+                                    </div>
+
                                 </mat-expansion-panel>
                             </li>
                         </ul>
