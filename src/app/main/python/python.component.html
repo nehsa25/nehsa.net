@@ -257,35 +257,72 @@ loop.run_until_complete(t.sleep_asyncio_thread_example())
                                     Timings (.1 sleep):
                                     <div class="code">
                                         <pre>
+115.96500 seconds
 Results from threading examples, quickest first:
-Sync, 1, sleep took 0.10052 seconds
-Threading, 1, sleep .1 - executor.map took 0.10087 seconds
-Threading, 2, sleep .1 - executor.submit took 0.10110 seconds
-Threading, 50, sleep .1 - executor.submit took 0.10128 seconds
-Threading, 2, sleep .1 - executor.map took 0.10137 seconds
-Threading, 500, sleep .1 - executor.submit took 0.10154 seconds
-Threading, 100, sleep .1 - executor.submit took 0.10161 seconds
-Threading, 2000, sleep .1 - executor.submit took 0.10162 seconds
-asyncio, 1, sleep .1 took 0.10192 seconds
-Threading, 1000, sleep .1 - executor.submit took 0.10226 seconds
-Threading, 1, sleep .1 - executor.submit took 0.10234 seconds
-asyncio, 2, sleep .1 took 0.10716 seconds
-asyncio, 50, sleep .1 took 0.10781 seconds
-asyncio, 500, sleep .1 took 0.11151 seconds
-asyncio, 100, sleep .1 took 0.11651 seconds
-asyncio, 1000, sleep .1 took 0.12279 seconds
-asyncio, 2000, sleep .1 took 0.14289 seconds
-Sync, 2, sleep took 0.20086 seconds
-Threading, 50, sleep .1 - executor.map took 0.50277 seconds
-Threading, 100, sleep .1 - executor.map took 0.90686 seconds
-Sync, 100, sleep took 10.04044 seconds
-Sync, 1000, sleep took 100.46653 seconds
-Threading, 2000, sleep .1 - executor.map took 16.78237 seconds
-Sync, 2000, sleep took 200.85585 seconds
-Threading, 500, sleep .1 - executor.map took 4.22102 seconds
-Sync, 50, sleep took 5.03877 seconds
-Sync, 500, sleep took 50.19780 seconds
-Threading, 1000, sleep .1 - executor.map took 8.44001 seconds
+Threading (submit), iterations: 1, sleep: 2 took 0.00043 seconds
+Threading (submit), iterations: 20, sleep: 2 took 0.00055 seconds
+Threading (submit), iterations: 2, sleep: 0.5 took 0.00063 seconds
+Threading (submit), iterations: 1, sleep: 1 took 0.00074 seconds
+Threading (submit), iterations: 2, sleep: 1 took 0.00075 seconds
+Threading (submit), iterations: 5, sleep: 2 took 0.00090 seconds
+Threading (submit), iterations: 2, sleep: 0.1 took 0.00091 seconds
+Threading (submit), iterations: 20, sleep: 0.1 took 0.00098 seconds
+Threading (submit), iterations: 5, sleep: 1 took 0.00101 seconds
+Threading (submit), iterations: 20, sleep: 1 took 0.00111 seconds
+Threading (submit), iterations: 5, sleep: 0.5 took 0.00121 seconds
+Threading (submit), iterations: 5, sleep: 0.1 took 0.00123 seconds
+Threading (submit), iterations: 1, sleep: 0.1 took 0.00125 seconds
+Threading (submit), iterations: 1, sleep: 0.5 took 0.00137 seconds
+Threading (submit), iterations: 20, sleep: 0.5 took 0.00143 seconds
+Threading (submit), iterations: 2, sleep: 2 took 0.00145 seconds
+Multi-process, iterations: 2, sleep: 1 took 0.01941 seconds
+Multi-process, iterations: 1, sleep: 1 took 0.01945 seconds
+Multi-process, iterations: 2, sleep: 0.1 took 0.02206 seconds
+Multi-process, iterations: 5, sleep: 0.5 took 0.02561 seconds
+Multi-process, iterations: 20, sleep: 1 took 0.02617 seconds
+Multi-process, iterations: 5, sleep: 2 took 0.02664 seconds
+Multi-process, iterations: 1, sleep: 0.5 took 0.02719 seconds
+Multi-process, iterations: 5, sleep: 1 took 0.02737 seconds
+Multi-process, iterations: 20, sleep: 0.5 took 0.02885 seconds
+Multi-process, iterations: 2, sleep: 2 took 0.02916 seconds
+Multi-process, iterations: 5, sleep: 0.1 took 0.02998 seconds
+Multi-process, iterations: 20, sleep: 0.1 took 0.03079 seconds
+Multi-process, iterations: 2, sleep: 0.5 took 0.03856 seconds
+Multi-process, iterations: 1, sleep: 0.1 took 0.04133 seconds
+Multi-process, iterations: 1, sleep: 2 took 0.05037 seconds
+Sync, iterations: 1, sleep: 0.1 took 0.10008 seconds
+Multi-process, iterations: 20, sleep: 2 took 0.10142 seconds
+asyncio, iterations: 2, sleep: 0.1 took 0.10341 seconds
+asyncio, iterations: 5, sleep: 0.1 took 0.10413 seconds
+asyncio, iterations: 20, sleep: 0.1 took 0.10925 seconds
+asyncio, iterations: 1, sleep: 0.1 took 0.11280 seconds
+Sync, iterations: 2, sleep: 0.1 took 0.20087 seconds
+Sync, iterations: 1, sleep: 0.5 took 0.50058 seconds
+Sync, iterations: 5, sleep: 0.1 took 0.50187 seconds
+asyncio, iterations: 5, sleep: 0.5 took 0.50450 seconds
+asyncio, iterations: 1, sleep: 0.5 took 0.51174 seconds
+asyncio, iterations: 2, sleep: 0.5 took 0.51452 seconds
+asyncio, iterations: 20, sleep: 0.5 took 0.51556 seconds
+Sync, iterations: 1, sleep: 1 took 1.00023 seconds
+Sync, iterations: 2, sleep: 0.5 took 1.00093 seconds
+asyncio, iterations: 1, sleep: 1 took 1.00201 seconds
+asyncio, iterations: 20, sleep: 1 took 1.00771 seconds
+asyncio, iterations: 2, sleep: 1 took 1.00982 seconds
+asyncio, iterations: 5, sleep: 1 took 1.01503 seconds
+Sync, iterations: 5, sleep: 2 took 10.00177 seconds
+Sync, iterations: 20, sleep: 0.5 took 10.00660 seconds
+Sync, iterations: 1, sleep: 2 took 2.00037 seconds
+Sync, iterations: 2, sleep: 1 took 2.00064 seconds
+asyncio, iterations: 5, sleep: 2 took 2.00471 seconds
+Sync, iterations: 20, sleep: 0.1 took 2.00696 seconds
+asyncio, iterations: 2, sleep: 2 took 2.00804 seconds
+asyncio, iterations: 1, sleep: 2 took 2.01276 seconds
+asyncio, iterations: 20, sleep: 2 took 2.01287 seconds
+Sync, iterations: 5, sleep: 0.5 took 2.50193 seconds
+Sync, iterations: 20, sleep: 1 took 20.00749 seconds
+Sync, iterations: 2, sleep: 2 took 4.00105 seconds
+Sync, iterations: 20, sleep: 2 took 40.00650 seconds
+Sync, iterations: 5, sleep: 1 took 5.00185 seconds
                                             </pre><br><span class="important">or, </span>if preferred read as a horse
                                         race:
                                         <div class="code">

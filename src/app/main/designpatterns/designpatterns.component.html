@@ -8,205 +8,272 @@
         <mat-card-content>
             <div class="commentgrid">
                 <div class="topics">
-                    <div>
-                        <h2>Concepts</h2>
-                        <ul>
-                            <li>What are the 3 A's in test driven development?<br>Writing Test Cases follow the 3A rule
-                                (Arrange, Act, Assert)<br><br>Arrange all necessary preconditions and inputs<br>Act on the
-                                object
-                                or method under test.<br>Assert that the expected results have occurred.</li>
-                            <li>What is solid?<br>
-                                <dl class="condensed">
-                                    <dt>S: Single responsibility principle</dt>
-                                    <dd>The idea behind the SRP is that every class, module, or function in a program should
-                                        have one responsibility/purpose in a program. As a commonly used definition, "every
-                                        class should have only one reason to change".</dd>
-                                    <dt>O: Open-closed principle</dt>
-                                    <dd>The open-closed principle states that software entities should be open for
-                                        extension, but closed for modification.</dd>
-                                    <dt>L: Liskov substitution principle</dt>
-                                    <dd>The Liskov substitution principle simply implies that when an instance of a class is
-                                        passed/extended to another class, the inheriting class should have a use case for
-                                        all the properties and behavior of the inherited class.</dd>
-                                    <dt>I: Interface segregation principle</dt>
-                                    <dd>The interface segregation principle states that the interface of a program should be
-                                        split in a way that the user/client would only have access to the necessary methods
-                                        related to their needs.</dd>
-                                    <dt>D: Dependency inversion principle</dt>
-                                    <dd>The dependency inversion principle states: High-level modules should not import
-                                        anything from low-level modules. Both should depend on abstractions (e.g.,
-                                        interfaces) and abstractions should not depend on details</dd>
-                                </dl>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <div>
-                            <h2>Design Patterns</h2>
-                            <dl>
-                                <dt>
-                                    <h3>Singleton</h3>
-                                </dt>
-                                <dd>- This pattern ensures only a single instance of an object is created. One use may be to
-                                    pass around configuration settings which we do not want multiple instances with possible
-                                    conflicting settings.</dd>
-                            </dl>
-                            <div>
-                                <h2>Example</h2>
-                                <div class="code">
-                                    <pre>
-        if (settings == null)
-            settings = new Settings();
-        else
-            return settings;
-                                </pre>
+                    <ul>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Concepts</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>What are the 3 A's in test driven development?<br>Writing Test Cases follow the 3A
+                                        rule
+                                        (Arrange, Act, Assert)<br><br>Arrange all necessary preconditions and inputs<br>Act
+                                        on
+                                        the
+                                        object
+                                        or method under test.<br>Assert that the expected results have occurred.</li>
+                                    <li>What is solid?<br>
+                                        <dl class="condensed">
+                                            <dt>S: Single responsibility principle</dt>
+                                            <dd>The idea behind the SRP is that every class, module, or function in a
+                                                program
+                                                should
+                                                have one responsibility/purpose in a program. As a commonly used definition,
+                                                "every
+                                                class should have only one reason to change".</dd>
+                                            <dt>O: Open-closed principle</dt>
+                                            <dd>The open-closed principle states that software entities should be open for
+                                                extension, but closed for modification.</dd>
+                                            <dt>L: Liskov substitution principle</dt>
+                                            <dd>The Liskov substitution principle simply implies that when an instance of a
+                                                class is
+                                                passed/extended to another class, the inheriting class should have a use
+                                                case
+                                                for
+                                                all the properties and behavior of the inherited class.</dd>
+                                            <dt>I: Interface segregation principle</dt>
+                                            <dd>The interface segregation principle states that the interface of a program
+                                                should be
+                                                split in a way that the user/client would only have access to the necessary
+                                                methods
+                                                related to their needs.</dd>
+                                            <dt>D: Dependency inversion principle</dt>
+                                            <dd>The dependency inversion principle states: High-level modules should not
+                                                import
+                                                anything from low-level modules. Both should depend on abstractions (e.g.,
+                                                interfaces) and abstractions should not depend on details</dd>
+                                        </dl>
+                                    </li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Design Patterns</mat-panel-title>
+                                    <mat-panel-subtitle>Builder is <span class="important">da bomb!</span></mat-panel-subtitle>
+                                </mat-expansion-panel-header>
+                                <div>
+                                    <h2></h2>
+                                    <dl>
+                                        <dt>
+                                            <h3>Singleton</h3>
+                                        </dt>
+                                        <dd>- This pattern ensures only a single instance of an object is created. One
+                                            use may
+                                            be to
+                                            pass around configuration settings which we do not want multiple instances
+                                            with
+                                            possible
+                                            conflicting settings.</dd>
+                                    </dl>
+                                    <div>
+                                        <h2>Example</h2>
+                                        <div class="code">
+                                            <pre>
+            if (settings == null)
+                settings = new Settings();
+            else
+                return settings;
+                                    </pre>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div>
-                            <dl>
-                                <dt>
-                                    <h3>Factory</h3>
-                                </dt>
-                                <dd>- Use a method to create an object instead of the new operator. This is nice if you have
-                                    logic that needs to be performed repeatedly.</dd>
-                            </dl>
-                            <div>
-                                <h2>Example</h2>
-                                <div class="code">
-                                    <pre>
-        class ButtonFactory &#123;
-            createButton(type: string): RaisedButton | FlatButton &#123;
-                if (type == "raised") &#123;
-                    return new RaisedButton();
-                &#125; else &#123;
-                    return new FlatButton();
+                                <div>
+                                    <dl>
+                                        <dt>
+                                            <h3>Factory</h3>
+                                        </dt>
+                                        <dd>- Use a method to create an object instead of the new operator. This is nice
+                                            if you
+                                            have
+                                            logic that needs to be performed repeatedly.</dd>
+                                    </dl>
+                                    <div>
+                                        <h2>Example</h2>
+                                        <div class="code">
+                                            <pre>
+            class ButtonFactory &#123;
+                createButton(type: string): RaisedButton | FlatButton &#123;
+                    if (type == "raised") &#123;
+                        return new RaisedButton();
+                    &#125; else &#123;
+                        return new FlatButton();
+                    &#125;
                 &#125;
             &#125;
+        
+            const factory = new ButtonFactory();
+            const btn1 = factory.createButton("flat");
+            const btn2 = factory.createButton("raised");
+                                    </pre>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <dl>
+                                        <dt>
+                                            <h3>Prototype (aka cloning)</h3>
+                                        </dt>
+                                        <dd>- This pattern is like inheritance but it inherits from object already
+                                            created
+                                            instead
+                                            of from a class</dd>
+                                    </dl>
+                                    <div>
+                                        <h2>Example</h2>
+                                        <div class="code">
+                                            <pre>
+        const dog = &#123;
+            sit() &#123;
+                return 'Good dog!';
+            &#125;
         &#125;
-    
-        const factory = new ButtonFactory();
-        const btn1 = factory.createButton("flat");
-        const btn2 = factory.createButton("raised");
+        
+        const roz = Object.create(dog, &#123;&#125;);
+        const hopper = Object.create(dog, &#123;&#125;);
+        roz.sit();
+        hopper.sit();
+        
                                 </pre>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div>
-                            <dl>
-                                <dt>
-                                    <h3>Prototype (aka cloning)</h3>
-                                </dt>
-                                <dd>- This pattern is like inheritance but it inherits from object already created instead
-                                    of from a class</dd>
-                            </dl>
-                            <div>
-                                <h2>Example</h2>
-                                <div class="code">
-                                    <pre>
-    const dog = &#123;
-        sit() &#123;
-            return 'Good dog!';
-        &#125;
-    &#125;
-    
-    const roz = Object.create(dog, &#123;&#125;);
-    const hopper = Object.create(dog, &#123;&#125;);
-    roz.sit();
-    hopper.sit();
-    
-                            </pre>
+                                <div>
+                                    <dl>
+                                        <dt>
+                                            <h3>Facade</h3>
+                                        </dt>
+                                        <dd>- This pattern is about hiding the details from the end user to simply usage
+                                        </dd>
+                                    </dl>
+                                    <div>
+                                        <h2>Example</h2>
+                                        <div class="code">
+                                            <pre>
+            // The complex class
+            class RainConditions &#123;
+                constructor() &#123;&#125;
+        
+                addRainQuantity(raindropsInSecs) &#123;
+                    this.raindrops = raindropsInSecs;
+                &#125;
+            &#125;
+        
+            // A simplified class
+            class Weather &#123;
+                private rain = new 
+                constructor() &#123;&#125;
+        
+                setRainDrizzle() &#123;
+                    rain.addRainQuantity(100);
+                &#125;
+        
+                setRainDownpour() &#123;
+                    rain.addRainQuantity(10000);
+                &#125;
+        
+                setRainMonsoon() &#123;
+                    rain.addRainQuantity(1000000);
+                &#125;
+            &#125;
+        
+            const weather = new Weather();
+            weather.setRainMonsoon();
+        
+        
+                                    </pre>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div>
-                            <dl>
-                                <dt>
-                                    <h3>Facade</h3>
-                                </dt>
-                                <dd>- This pattern is about hiding the details from the end user to simply usage</dd>
-                            </dl>
-                            <div>
-                                <h2>Example</h2>
-                                <div class="code">
-                                    <pre>
-        // The complex class
-        class RainConditions &#123;
+                                <div>
+                                    <dl>
+                                        <dt>
+                                            <h3>Builder</h3>
+                                        </dt>
+                                        <dd>- This pattern allows you to build an object in steps but you always get the
+                                            object
+                                            back
+                                        </dd>
+                                    </dl>
+                                    <div>
+                                        <h2>Example</h2>
+                                        <div class="code">
+                                            <pre>
+        class WeatherConditions &#123;
             constructor() &#123;&#125;
-    
-            addRainQuantity(raindropsInSecs) &#123;
-                this.raindrops = raindropsInSecs;
+        
+            addRain() &#123;
+                this.rain = true;
+                return this;
+            &#125;
+        
+            addThunder() &#123;
+                this.thunder = true;
+                return this;
+            &#125;
+        
+            addFrightening() &#123;
+                this.frightening = true;
+                return this;
             &#125;
         &#125;
-    
-        // A simplified class
-        class Weather &#123;
-            private rain = new 
-            constructor() &#123;&#125;
-    
-            setRainDrizzle() &#123;
-                rain.addRainQuantity(100);
-            &#125;
-    
-            setRainDownpour() &#123;
-                rain.addRainQuantity(10000);
-            &#125;
-    
-            setRainMonsoon() &#123;
-                rain.addRainQuantity(1000000);
-            &#125;
-        &#125;
-    
-        const weather = new Weather();
-        weather.setRainMonsoon();
-    
-    
+        
+        const todaysWeather = new WeatherhConditions('scary thunderstorm day');
+        
+        todaysWeather.addRain().addThunder().addFrightening();
+        
                                 </pre>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div>
-                            <dl>
-                                <dt>
-                                    <h3>Builder</h3>
-                                </dt>
-                                <dd>- This pattern allows you to build an object in steps but you always get the object back
-                                </dd>
-                            </dl>
-                            <div>
-                                <h2>Example</h2>
-                                <div class="code">
-                                    <pre>
-    class WeatherConditions &#123;
-        constructor() &#123;&#125;
-    
-        addRain() &#123;
-            this.rain = true;
-            return this;
-        &#125;
-    
-        addThunder() &#123;
-            this.thunder = true;
-            return this;
-        &#125;
-    
-        addFrightening() &#123;
-            this.frightening = true;
-            return this;
-        &#125;
-    &#125;
-    
-    const todaysWeather = new WeatherhConditions('scary thunderstorm day');
-    
-    todaysWeather.addRain().addThunder().addFrightening();
-    
-                            </pre>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Big O Notation</mat-panel-title>
+                                    <mat-panel-subtitle>Refers to the worst-case scenario for an algorithm.</mat-panel-subtitle>
+                                </mat-expansion-panel-header>
+                                <dl>
+                                    <dt>Constant Time O(1)</dt>
+                                    <dd>The execution time remains constant regardless of the input size. This is
+                                        rare but can occur for simple operations like accessing an element in a list by
+                                        index.
+                                    </dd>
+                                    <dt>Logarithmic Time O(log n)</dt>
+                                    <dd>The execution time grows logarithmically with the input size (n).
+                                        This is often seen in algorithms that involve searching sorted data structures
+                                        like
+                                        binary
+                                        search trees.</dd>
+                                    <dt>Linear Time O(n)</dt>
+                                    <dd>The execution time increases proportionally with the input size. This is
+                                        common in algorithms that iterate through the entire input data set once, like
+                                        calculating the
+                                        sum of elements in a list.</dd>
+                                    <dt>Quadratic Time O(n^2)</dt>
+                                    <dd>The execution time grows quadratically with the input size. This occurs
+                                        in algorithms that involve nested loops iterating over the input data, leading
+                                        to
+                                        potentially
+                                        many comparisons or calculations</dd>
+                                </dl>
+                            </mat-expansion-panel>
+                        </li>
+                    </ul>
+                    <div><app-comment></app-comment></div>
                 </div>
-                <div><app-comment></app-comment></div>
             </div>
         </mat-card-content>
     </mat-card>
