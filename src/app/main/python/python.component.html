@@ -118,28 +118,62 @@ def description(self, value):
                             <li>
                                 <mat-expansion-panel>
                                     <mat-expansion-panel-header>
-                                        <mat-panel-title>Threading Vs. Async</mat-panel-title>
+                                        <mat-panel-title>Threading vs. Async vs. multiprocessing</mat-panel-title>
                                     </mat-expansion-panel-header>
-                                    Definitions:<br>
+                                    Important definitions when discussing threading:<br>
                                     <dl>
+                                        <dt>Sync function</dt>
+                                        <dd>A &quot;blocking&quot; activity. Nothing else on the thread can proceed
+                                            until this returns. Sync functions are inconsiderate.
+                                        </dd>
                                         <dt>Async function</dt>
                                         <dd>Indicates that a function is a coroutine which can be waited upon (awaited).
                                             Async functions run within a single thread. They work by starting an "Event
                                             Loop," which allows them to work on other things while "awaiting" longer
                                             running tasks. See <a
                                                 href="https://docs.python.org/3/library/asyncio.html">asyncio</a></dd>
+                                        <dt>Registers</dt>
+                                        <dd>A processor register is a quickly accessible location available to a
+                                            computer's processor</dd>
+                                        <dt>Heap</dt>
+                                        <dd>Memory available to process</dd>
+                                        <dt>Stack</dt>
+                                        <dd>Memory set aside for this thread. Contents lost after thread ends.</dd>
                                         <dt>Threads</dt>
-                                        <dd>Allows you to run multiple threads in parallel. See <a
+                                        <dd>A thread has it's own registers and stack.
+                                            Allows you to run multiple threads in parallel. See <a
                                                 href="https://docs.python.org/3/library/concurrent.futures.html">concurrent.futures</a>
                                         </dd>
-                                        <dt>Processes</dt>
-                                        <dd>Threads run within a process. You may have a multi-process application,
-                                            which is a collection of processes. Browsers are often used as an example of
-                                            this as each tab is usually a different process, so if something terrible
-                                            happens to one tab, like you visit a malicious website, the other tabs will
-                                            remain functional. See <a
-                                                href="https://docs.python.org/3/library/multiprocessing.html">multiprocessing</a>
+                                        <dt>Multithreaded Applications</dt>
+                                        <dd>Multiple threads running in parallel. Threads can access shared process
+                                            information. See <a
+                                                href="https://docs.python.org/3/library/concurrent.futures.html">concurrent.futures</a>
                                         </dd>
+                                        <dt>Process</dt>
+                                        <dd>An instance of a program. Threads run within a process.
+                                        </dd>
+                                        <dt>Multiprocess Applications</dt>
+                                        <dd>Threads/multithreading is suitable for IO-bound situations - you need to
+                                            wait on a user interaction or a web app to return data and don't have to
+                                            stop other activities from occurring. Though Python can only execute one
+                                            thread at a time, if the operation is CPU-intensive, multiprocessing is the
+                                            way to go. If you have a four-core CPU using threading, each thread gets
+                                            slices of attention from one of the CPUs (but very fast); multiprocessing
+                                            gets an entire thread, so real concurrency is achieved. You may wish to have
+                                            an application containing multiple processes. Browsers are often used as an
+                                            example of multi-process applications, although in their case, it's also for
+                                            security. Each tab usually has a different process, so if something terrible
+                                            happens to one tab like you visit a malicious website, the other tabs will
+                                            remain functional.  See <a
+                                                href="https://docs.python.org/3/library/multiprocessing.html">multiprocessing</a>
+                                            <br><br><span class="comment">As processes do not share memory,
+                                                pipes, and queues are used to communicate between processes in
+                                                multi-process applications.</span>
+                                        </dd>
+                                        <dt>Pipes</dt>
+                                        <dd>Direction of communucation is unidirectional (one-way).</dd>
+                                        <dt>Queues</dt>
+                                        <dd>Bi-directional communcation</dd>
                                     </dl>
                                     <br><br>
                                     <ol>
@@ -252,7 +286,8 @@ Threading, 500, sleep .1 - executor.map took 4.22102 seconds
 Sync, 50, sleep took 5.03877 seconds
 Sync, 500, sleep took 50.19780 seconds
 Threading, 1000, sleep .1 - executor.map took 8.44001 seconds
-                                            </pre><br><span class="important">or, </span>if preferred read as a horse race:
+                                            </pre><br><span class="important">or, </span>if preferred read as a horse
+                                        race:
                                         <div class="code">
                                             <pre>
 
