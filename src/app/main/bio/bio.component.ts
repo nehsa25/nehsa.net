@@ -8,11 +8,12 @@ import { CommentComponent } from '../../shared-components/comment/comment.compon
 import { UserService } from '../../services/user.service';
 import { CommentType } from '../../types/comment.type';
 import { Subject } from 'rxjs';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-bio',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule, MatTooltipModule, MatIconModule, CommentComponent],
+  imports: [CommonModule, MatCardModule, RouterLink, MatButtonModule, MatTooltipModule, MatIconModule, CommentComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './bio.component.html',
   styleUrl: './bio.component.scss'
