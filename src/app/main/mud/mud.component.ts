@@ -346,8 +346,8 @@ export class MudComponent implements OnInit, OnDestroy {
         welcome += ` They were also highly social and encouraging environments. I met my wife playing MUD.<br><br>`;
         welcome += ` Die and the game may be over..<br><br>`;
         welcome += ` About NehsaMUD:<ul class=\"condensed\"><li>All the images are generated using StabilityAI. More information on that in the <a href=\"https://www.nehsa.net/#/aiimage\">AI Image Generation</a></li><li>All NPC and monster dialog is AI provided via <a href=\"https://www.nehsa.net/#/gemini\">Google Gemini</a>. Want to know what temperature bronze melts at?  I have no idea. Ask the blacksmith, he likely knows. Lonely? Find and chat with Princess Candie wandering around Town Smee. She can teach you to speak like someone of nobility.</li><li>All maps are generated programmatically, and in real-time as the user progresses the world using Dot and Pydot</li></ul>`;
-        welcome += ` Lastly, NehsaMUD is a side project.  I want to recreate an old game using modern technologies.  `;
-        welcome += ` It's in a perpetual state of &quot;mostly broken&quot;. Please adjust your expectations accordingly.<br>`;
+        welcome += ` Lastly, NehsaMUD is a side project.  We want to recreate an old game using modern technologies.  `;
+        welcome += ` It's currently in a perpetual state of &quot;mostly broken&quot;. Please adjust your expectations accordingly.<br>`;
         welcome += ` <h4 class="important">We hope you like it!</h4>`;
         if (data.message != "") {
           this.mudEvents += `${welcome}<br><br><span class=\"welcome-message\">${data.message}</span>`;
