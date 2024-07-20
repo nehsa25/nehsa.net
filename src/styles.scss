@@ -91,6 +91,10 @@ $theme-button-color: mat.get-color-from-palette($dark-primary-palette, 50);
 $theme-button-hover-background: mat.get-color-from-palette($dark-primary-palette, A700);
 $theme-button-hover-color: mat.get-color-from-palette($dark-primary-palette, 100);
 
+//primary color
+$theme-dark-primary-color:  mat.get-color-from-palette($dark-primary-palette, "primary");
+$theme-light-primary-color:  mat.get-color-from-palette($light-primary-palette, "primary");
+
 //links
 $theme-a-active: mat.get-color-from-palette($dark-primary-palette, 100);
 $theme-a-visited: mat.get-color-from-palette($dark-primary-palette, 200);
@@ -162,6 +166,8 @@ $theme-header-color: anqituewhite;
     --theme-background-light-gray: silver;
     --theme-background-gray: #222;
     --theme-background-light-purple: plum;
+    --theme-dark-primary-color: #{$theme-dark-primary-color};
+    --theme-light-primary-color: #{$theme-light-primary-color};
     --theme-code-background: #{$theme-code-background};
     --theme-code-color: #{$theme-code-color};
     --theme-note-background: #{$theme-note-background};
@@ -554,4 +560,17 @@ a:hover,
     font-family: "Bungee Spice", sans-serif;
     font-weight: 400;
     font-style: normal;
+}
+
+// expansion panel
+.mat-expansion-panel-header {
+    font-size: 1rem !important;
+}
+
+.mat-mdc-card-title {
+    color: #222 !important;
+}
+
+.mat-mdc-card-subtitle {
+    color: #444 !important;
 }

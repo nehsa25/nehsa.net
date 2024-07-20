@@ -377,7 +377,6 @@
     display: grid;
     height: 100%;
     grid-gap: 0;
-    color: #ff7f5b;
     max-width: 100%;
     overflow: hidden;
 }
@@ -504,11 +503,13 @@ a.panel-expanded {
 }
 
 .vampire {
-    background: #333
+    background: #333;
+    color: var(--theme-dark-primary-color);
 }
 
 .angel {
     background: whitesmoke;
+    color: var(--theme-light-primary-color);
 }
 
 .personname-light {

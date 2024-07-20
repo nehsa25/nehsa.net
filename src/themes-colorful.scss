@@ -9,6 +9,7 @@ $typography: mat.define-typography-config(
 );
 
 $dark-primary: (
+    "primary": pink,
     50 : #e0e9f5,
     100 : #b3c8e6,
     200 : #80a3d5,
@@ -79,6 +80,7 @@ $dark-accent-palette: mat.define-palette($dark-accent);
 
 
 $light-primary: (
+    "primary": #ff7f5b,
     50 : #fbf4fb,
     100 : #f5e3f5,
     200 : #eed0ee,
