@@ -375,6 +375,11 @@ td {
   padding: 1em;
 }
 
+#helpsection span {
+  font-size: inherit; 
+  color: azure;
+}
+
 #main {
   grid-area: main;
   background-color: black;

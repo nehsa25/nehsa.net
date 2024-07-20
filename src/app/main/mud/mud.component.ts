@@ -120,11 +120,11 @@ export class MudComponent implements OnInit, OnDestroy {
       // process the command
       this.processEvent(data)
 
-      // set focus to mud input
-      const mudInput = document.getElementById('mud-input')! as HTMLInputElement;
-      setTimeout(() => {
-        this.refocus(mudInput);
-      }, 0);
+      // // set focus to mud input
+      // const mudInput = document.getElementById('mud-input')! as HTMLInputElement;
+      // setTimeout(() => {
+      //   this.refocus(mudInput);
+      // }, 0);
     });
   }
 
