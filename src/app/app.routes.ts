@@ -46,10 +46,12 @@ import { IisComponent } from './main/iis/iis.component';
 import { GeminiComponent } from './main/gemini/gemini.component';
 import { RegexComponent } from './main/regex/regex.component';
 import { IdeComponent } from './main/ide/ide.component';
+import { BlogComponent } from './main/blog/blog.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: BioComponent },
     { path: 'agile', title: 'nehsa.net | Agile', component: AgileComponent },
+    { path: 'blog', title: 'nehsa.net | Blog', component: BlogComponent },
     { path: 'about', title: 'nehsa.net | About', component: BioComponent },
     { path: 'angular', title: 'nehsa.net | Angular', component: AngularComponent },
     { path: 'chef', title: 'nehsa.net | Chef', component: ChefComponent },
