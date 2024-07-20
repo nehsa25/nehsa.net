@@ -13,6 +13,72 @@
                             <li>
                                 <mat-expansion-panel>
                                     <mat-expansion-panel-header>
+                                        <mat-panel-title>Coding Conventions</mat-panel-title>
+                                        <mat-panel-subtitle><a
+                                                href="https://peps.python.org/pep-0008/">PEP8</a></mat-panel-subtitle>
+                                    </mat-expansion-panel-header>
+                                    <table>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th style="width: 300px;">Naming Convention</th>
+                                            <th>Examples</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Function</td>
+                                            <td>Use a lowercase word or words. Separate words by underscores to improve
+                                                readability.
+                                            </td>
+                                            <td>x, var, python_variable</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Variable</td>
+                                            <td>Use a lowercase single letter, word, or words. Separate words with
+                                                underscores to
+                                                improve readability.</td>
+                                            <td>function, python_function</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Class</td>
+                                            <td>Start each word with a capital letter. Don’t separate words with
+                                                underscores. This
+                                                style
+                                                is called camel case or Pascal case.</td>
+                                            <td>Model, PythonClass</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Method</td>
+                                            <td>Use a lowercase word or words. Separate words with underscores to
+                                                improve
+                                                readability.
+                                            </td>
+                                            <td>class_method, method</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Constant</td>
+                                            <td>Use an uppercase single letter, word, or words. Separate words with
+                                                underscores to
+                                                improve readability.</td>
+                                            <td>function, python_function</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Module</td>
+                                            <td>Use a short, lowercase word or words. Separate words with underscores to
+                                                improve
+                                                readability.</td>
+                                            <td>module.py, python_module.py</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Package</td>
+                                            <td>Use a short, lowercase word or words. Don’t separate words with
+                                                underscores.</td>
+                                            <td>package, pythonpackage</td>
+                                        </tr>
+                                    </table>
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
                                         <mat-panel-title>Types in Python</mat-panel-title>
                                         <mat-card-subtitle>Constructor is: <span class="code">def say_hello(name: str)
                                                 -> str:</span></mat-card-subtitle>
@@ -672,6 +738,9 @@ websockets.exceptions.ConnectionClosedOK: received 1005 (no status received [int
                                     <mat-expansion-panel-header>
                                         <mat-panel-title>Make a class JSON serializable</mat-panel-title>
                                     </mat-expansion-panel-header>
+                                    For both troubleshooting and sending traffic between hosts, I find it useful to
+                                    often take a complete class structure and dump it as a JSON string. In C#, I use <span class="code">JsonSerializer.Serialize(x);</span> (Core) or <span class="code">JsonConvert.SerializeObject(x);</span> (Standard).
+
                                     Make a class JSON serializable in Python<br>
                                     Take this class:
                                     <div class="code">
@@ -890,94 +959,41 @@ logger.debug(f"&#123;method_name&#125;: exit")
                         </ul>
                     </div>
                     <div>
-                        <h4><a href="https://realpython.com/python-pep8/">PEP8 Code Conventions</a></h4>
-                        <table>
-                            <tr>
-                                <th>Type</th>
-                                <th style="width: 300px;">Naming Convention</th>
-                                <th>Examples</th>
-                            </tr>
-                            <tr>
-                                <td>Function</td>
-                                <td>Use a lowercase word or words. Separate words by underscores to improve readability.
-                                </td>
-                                <td>x, var, python_variable</td>
-                            </tr>
-                            <tr>
-                                <td>Variable</td>
-                                <td>Use a lowercase single letter, word, or words. Separate words with underscores to
-                                    improve readability.</td>
-                                <td>function, python_function</td>
-                            </tr>
-                            <tr>
-                                <td>Class</td>
-                                <td>Start each word with a capital letter. Don’t separate words with underscores. This
-                                    style
-                                    is called camel case or Pascal case.</td>
-                                <td>Model, PythonClass</td>
-                            </tr>
-                            <tr>
-                                <td>Method</td>
-                                <td>Use a lowercase word or words. Separate words with underscores to improve
-                                    readability.
-                                </td>
-                                <td>class_method, method</td>
-                            </tr>
-                            <tr>
-                                <td>Constant</td>
-                                <td>Use an uppercase single letter, word, or words. Separate words with underscores to
-                                    improve readability.</td>
-                                <td>function, python_function</td>
-                            </tr>
-                            <tr>
-                                <td>Module</td>
-                                <td>Use a short, lowercase word or words. Separate words with underscores to improve
-                                    readability.</td>
-                                <td>module.py, python_module.py</td>
-                            </tr>
-                            <tr>
-                                <td>Package</td>
-                                <td>Use a short, lowercase word or words. Don’t separate words with underscores.</td>
-                                <td>package, pythonpackage</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div>
                         These are utility libraries I've written to ease miscellaneous tasks..
                         <dl>
-                            <dt>Helper functions for working with Excel</dt>
+                            <dt>Utility functions for working with Excel</dt>
                             <dd><a href="assets/libraries/excel_utils.py">excel_utils.py</a></dd>
-                            <dt>Helper functions for setting/deleting enviroment variables</dt>
+                            <dt>Utility functions for setting/deleting enviroment variables</dt>
                             <dd><a href="assets/libraries/envion_var_utils.py">envion_var_utils.py</a></dd>
-                            <dt>Helper functions for reading event logs</dt>
+                            <dt>Utility functions for reading event logs</dt>
                             <dd><a href="assets/libraries/event_log_utils.py">event_log_utils.py</a></dd>
-                            <dt>Helper functions for working with files</dt>
+                            <dt>Utility functions for working with files</dt>
                             <dd><a href="assets/libraries/file_utils.py">file_utils.py</a></dd>
                             <dt>Miscellaneous stuff... a sleep_for(seconds) and get_duration(start_time) function</dt>
                             <dd><a href="assets/libraries/helper_utils.py">helper_utils.py</a></dd>
-                            <dt>Helper functions for network-related functions</dt>
+                            <dt>Utility functions for network-related functions</dt>
                             <dd><a href="assets/libraries/ip_helpers.py">ip_helpers.py</a></dd>
-                            <dt>Helper functions for logging to file and optionally sending to MS Teams / Slack</dt>
+                            <dt>Utility functions for logging to file and optionally sending to MS Teams / Slack</dt>
                             <dd><a href="assets/libraries/log_utils.py">log_utils.py</a></dd>
-                            <dt>Helper functions for sending messages to MS Teams</dt>
+                            <dt>Utility functions for sending messages to MS Teams</dt>
                             <dd><a href="assets/libraries/msteams_utils.py">msteams_utils.py</a></dd>
                             <dt>Single is_windows_64bit function</dt>
                             <dd><a href="assets/libraries/platform_utils.py">platform_utils.py</a></dd>
-                            <dt>Helper functions for collecting process information</dt>
+                            <dt>Utility functions for collecting process information</dt>
                             <dd><a href="assets/libraries/process_utils.py">process_utils.py</a></dd>
-                            <dt>Helper functions for working with Pyunit</dt>
+                            <dt>Utility functions for working with Pyunit</dt>
                             <dd><a href="assets/libraries/pyunit_utils.py">pyunit_utils.py</a></dd>
-                            <dt>Helper functions for working with registry</dt>
+                            <dt>Utility functions for working with registry</dt>
                             <dd><a href="assets/libraries/registry_utils.py">registry_utils.py</a></dd>
-                            <dt>Helper functions for working with Selenium</dt>
+                            <dt>Utility functions for working with Selenium</dt>
                             <dd><a href="assets/libraries/selenium_utils.py">selenium_utils.py</a></dd>
-                            <dt>Helper functions for sending messages to Slack</dt>
+                            <dt>Utility functions for sending messages to Slack</dt>
                             <dd><a href="assets/libraries/slack_utils.py">slack_utils.py</a></dd>
-                            <dt>Helper functions for convert complicated structures into strings</dt>
+                            <dt>Utility functions for convert complicated structures into strings</dt>
                             <dd><a href="assets/libraries/string_utils.py">string_utils.py</a></dd>
-                            <dt>Helper functions for running commands</dt>
+                            <dt>Utility functions for running commands</dt>
                             <dd><a href="assets/libraries/subprocess_utils.py">subprocess_utils.py</a></dd>
-                            <dt>Helper functions for passing arguments to Python script</dt>
+                            <dt>Utility functions for passing arguments to Python script</dt>
                             <dd><a href="assets/libraries/sysargs_utils.py">sysargs_utils.py</a></dd>
                         </dl>
                     </div>

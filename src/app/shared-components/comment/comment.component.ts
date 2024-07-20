@@ -61,7 +61,7 @@ export class CommentComponent {
   ngOnInit() {
     this.username = this.userService.name;
     this.page = this.userService.page;
-    this.result = Math.random() < 0.5 ? 'Yes! Am I correct? Post a comment and let me know.' : 'Doh.. no, you will not. Am I correct? Post a comment and let me know.';
+    this.result = Math.random() < 0.5 ? 'Yes! Am I correct? Post a comment and let me know.' : 'No. You will not. Am I correct? Post a comment and let me know.';
     this._httpService.getComments(this.page).subscribe((data: any) => {
       let comments: Array<CommentType> = new Array<CommentType>();
       comments.push(data);
