@@ -12,6 +12,73 @@
                 <div class="topics">
                     <ul>
                         <li>
+                            <mat-expansion-panel expanded>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Working with HTML Elements</mat-panel-title>
+                                    <mat-panel-description>
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>
+                                        If you wish to affect <span class="importantish">all elements that have a certain class</span> (e.g. all span
+                                        elements
+                                        that have the class "code"):
+                                        <div class="code">
+                                            <pre>
+span.code &#123;
+    background-color: rebeccapurple !important;
+    color: silver;
+    font-family: Consolas;
+    border-radius: 5px;
+    padding: 3px 1em;
+    font-size: 1rem;
+    min-width: 400px;
+    max-width: 90%;
+    line-height: 5lvh !important;
+&#125;
+    </pre>
+
+                                        </div>
+                                    </li>
+                                    <li><span class="importantish">Multiple</span> classes can be specified via comma:
+                                        <div class="code">
+                                            <pre>
+h1, h2, h3, h4, h5, h6 &#123;
+    color: plum;
+&#125;
+                                        </pre>
+                                        </div>
+                                    </li>
+                                    <li>Element <span class="importantish">hierarchy</span> can be indicated using (&gt;):
+                                        <div class="code">
+                                            <pre>
+<div>CSS:
+div &#123;
+    background-color: teal;
+&#125;
+.blah>div &#123;
+    background-color: salmon;
+&#125;
+                                </div>
+                                <div>HTML:
+&lt;div class=&quot;blah&quot;&gt;
+    &lt;div&gt;I'm Salmon!&lt;/div&gt;
+&lt;/div&gt;
+&lt;div&gt;I'm Teal!&lt;/div&gt;
+                                </div>
+                                        </pre>
+                                            <div class="example">Example:
+                                                <div class="blah">
+                                                    <div>I'm Salmon!</div>
+                                                </div>
+                                                <div>I'm Teal!</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Theming</mat-panel-title>
@@ -193,7 +260,8 @@
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Fun with :before and :after</mat-panel-title>
-                                    <mat-panel-description>Allows you to add content before or after an element</mat-panel-description>
+                                    <mat-panel-description>Allows you to add content before or after an
+                                        element</mat-panel-description>
                                 </mat-expansion-panel-header>
                                 <div class="code">
                                     <pre>
@@ -735,97 +803,31 @@
                                     <mat-expansion-panel>
                                         <mat-expansion-panel-header>
                                             <mat-panel-title>align-self</mat-panel-title>
-                                            <mat-panel-description>If the element is a grid item, you can use align-self: center
+                                            <mat-panel-description>If the element is a grid item, you can use
+                                                align-self: center
                                             </mat-panel-description>
                                         </mat-expansion-panel-header>
-                                            <span class="impoartant">html</span><br>
-                                            <div class="code">
-<pre>
+                                        <span class="impoartant">html</span><br>
+                                        <div class="code">
+                                            <pre>
     &lt;div class="map-sub-btns"&gt;
         &lt;button mat-button (click)="enlargen()"&gt;&lt;mat-icon class="map-buttons-icons"&gt;expand&lt;/mat-icon&gt;&lt;/button&gt;
         &lt;button mat-button (click)="min()"&gt;&lt;mat-icon class="map-buttons-icons"&gt;close&lt;/mat-icon&gt;&lt;/button&gt;
     &lt;/div&gt;
 </pre>
-                                            </div><br><br>
-                                            <span class="impoartant">css</span><br>
-                                            <div class="code">
-<pre>
+                                        </div><br><br>
+                                        <span class="impoartant">css</span><br>
+                                        <div class="code">
+                                            <pre>
     .map-sub-btns &#123;
         align-self: center;
     &#125;
 </pre>
-                                            </div><br><br>Tada!<br>
-                                            <img mat-card-image src="assets/images/align_self.png" />
+                                        </div><br><br>Tada!<br>
+                                        <img mat-card-image src="assets/images/align_self.png" />
                                     </mat-expansion-panel>
                                 </li>
                             </ul>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Selecting Elements</mat-panel-title>
-                                    <mat-panel-description>
-                                    </mat-panel-description>
-                                </mat-expansion-panel-header>
-                                <ul>
-                                    <li>
-                                        If you wish to affect all elements that have a certain class (e.g. all span
-                                        elements
-                                        that have the class "code"):
-                                        <div class="code">
-                                            <pre>
-        span.code &#123;
-            background-color: rebeccapurple !important;
-            color: silver;
-            font-family: Consolas;
-            border-radius: 5px;
-            padding: 3px 1em;
-            font-size: 1rem;
-            min-width: 400px;
-            max-width: 90%;
-            line-height: 5lvh !important;
-        &#125;
-    </pre>
-
-                                        </div>
-                                    </li>
-                                    <li>Multiple classes can be specified via comma:
-                                        <div class="code">
-                                            <pre>
-            h1, h2, h3, h4, h5, h6 &#123;
-                color: plum;
-            &#125;
-                                        </pre>
-                                        </div>
-                                    </li>
-                                    <li>Hierarchy can be indicated using (&gt;):
-                                        <div class="code">
-                                            <pre>
-            <div>CSS:
-            div &#123;
-                background-color: teal;
-            &#125;
-            .blah>div &#123;
-                background-color: salmon;
-            &#125;
-                                            </div>
-                                            <div>HTML:
-            &lt;div class=&quot;blah&quot;&gt;
-                &lt;div&gt;I'm Salmon!&lt;/div&gt;
-            &lt;/div&gt;
-            &lt;div&gt;I'm Teal!&lt;/div&gt;
-                                            </div>
-                                        </pre>
-                                            <div class="example">Example:
-                                                <div class="blah">
-                                                    <div>I'm Salmon!</div>
-                                                </div>
-                                                <div>I'm Teal!</div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </mat-expansion-panel>
                         </li>
                     </ul>
                 </div>

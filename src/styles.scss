@@ -83,101 +83,123 @@ $theme-file-color: yellow;
 $theme-navbar-background: mat.get-color-from-palette($dark-primary-palette, 500);
 $theme-navbar-color: mat.get-color-from-palette($dark-primary-palette, 100);
 
-//button
-$theme-button-background: mat.get-color-from-palette($dark-primary-palette, 400);
-$theme-button-color: mat.get-color-from-palette($dark-primary-palette, 50);
+//buttons
+$theme-light-button-background-color: mat.get-color-from-palette($light-primary-palette, 400);
+$theme-dark-button-background-color: mat.get-color-from-palette($dark-primary-palette, 400);
+$theme-light-button-color: mat.get-color-from-palette($light-primary-palette, 50);
+$theme-dark-button-color: mat.get-color-from-palette($dark-primary-palette, 50);
 
-//button hover
-$theme-button-hover-background: mat.get-color-from-palette($dark-primary-palette, A700);
-$theme-button-hover-color: mat.get-color-from-palette($dark-primary-palette, 100);
+//buttons hover
+$theme-light-button-hover-background-color: mat.get-color-from-palette($light-primary-palette, A700);
+$theme-dark-button-hover-background-color: mat.get-color-from-palette($dark-primary-palette, A700);
+$theme-light-button-hover-color: mat.get-color-from-palette($light-primary-palette, 100);
+$theme-dark-button-hover-color: mat.get-color-from-palette($dark-primary-palette, 100);
 
 //primary color
-$theme-dark-primary-color:  mat.get-color-from-palette($dark-primary-palette, "primary");
-$theme-light-primary-color:  mat.get-color-from-palette($light-primary-palette, "primary");
+$theme-dark-primary-color: mat.get-color-from-palette($dark-primary-palette, "primary");
+$theme-light-primary-color: mat.get-color-from-palette($light-primary-palette, "primary");
 
 //links
-$theme-a-active: mat.get-color-from-palette($dark-primary-palette, 100);
-$theme-a-visited: mat.get-color-from-palette($dark-primary-palette, 200);
-$theme-a-hover: mat.get-color-from-palette($dark-primary-palette, 300);
-$theme-a-link: mat.get-color-from-palette($dark-primary-palette, 400);
+$theme-dark-a-active-color: mat.get-color-from-palette($dark-primary-palette, 100);
+$theme-light-a-active-color: mat.get-color-from-palette($light-primary-palette, 100);
+$theme-dark-a-visited-color: mat.get-color-from-palette($dark-primary-palette, 200);
+$theme-light-a-visited-color: mat.get-color-from-palette($light-primary-palette, 200);
+$theme-dark-a-hover-color: mat.get-color-from-palette($dark-primary-palette, 300);
+$theme-dark-a-link-color: mat.get-color-from-palette($dark-primary-palette, "link");
+$theme-light-a-link-color: mat.get-color-from-palette($light-primary-palette, "link");
 
 // pop color
 $theme-pop: royalblue;
 $theme-header-color: anqituewhite;
 
-@media (prefers-color-scheme: light) {
-    $theme-border-color: mat.get-color-from-palette($light-primary-palette, 500);
-    $theme-background: mat.get-color-from-palette($light-primary-palette, 50);
+// @media (prefers-color-scheme: light) {
+//     $theme-border-color: mat.get-color-from-palette($light-primary-palette, 500);
+//     $theme-background: mat.get-color-from-palette($light-primary-palette, 50);
 
-    // code
-    $theme-code-background: mat.get-color-from-palette($light-primary-palette, 300);
-    $theme-code-color: mat.get-color-from-palette($light-accent-palette, 800);
+//     // code
+//     $theme-code-background: mat.get-color-from-palette($light-primary-palette, 300);
+//     $theme-code-color: mat.get-color-from-palette($light-accent-palette, 800);
 
-    // comments
-    $theme-comment-background: mat.get-color-from-palette($light-primary-palette, 200);
-    $theme-comment-color: mat.get-color-from-palette($light-primary-palette, 400);
+//     // comments
+//     $theme-comment-background: mat.get-color-from-palette($light-primary-palette, 200);
+//     $theme-comment-color: mat.get-color-from-palette($light-primary-palette, 400);
 
-    //notes
-    $theme-note-background: mat.get-color-from-palette($light-primary-palette, 300);
-    $theme-note-color: mat.get-color-from-palette($light-primary-palette, 50);
+//     //notes
+//     $theme-note-background: mat.get-color-from-palette($light-primary-palette, 300);
+//     $theme-note-color: mat.get-color-from-palette($light-primary-palette, 50);
 
-    //answers
-    $theme-answer-background: mat.get-color-from-palette($light-primary-palette, 300);
-    $theme-answer-color: mat.get-color-from-palette($light-primary-palette, 50);
+//     //answers
+//     $theme-answer-background: mat.get-color-from-palette($light-primary-palette, 300);
+//     $theme-answer-color: mat.get-color-from-palette($light-primary-palette, 50);
 
-    //card
-    $theme-card-background: mat.get-color-from-palette($light-primary-palette, 200);
-    $theme-card-color: mat.get-color-from-palette($light-primary-palette, 400);
+//     //card
+//     $theme-card-background: mat.get-color-from-palette($light-primary-palette, 200);
+//     $theme-card-color: mat.get-color-from-palette($light-primary-palette, 400);
 
-    //table
-    $theme-table-background: mat.get-color-from-palette($light-primary-palette, 200);
-    $theme-table-color: mat.get-color-from-palette($light-primary-palette, 400);
+//     //table
+//     $theme-table-background: mat.get-color-from-palette($light-primary-palette, 200);
+//     $theme-table-color: mat.get-color-from-palette($light-primary-palette, 400);
 
-    //files
-    $theme-file-background: #454B1B;
-    $theme-file-color: yellow;
+//     //files
+//     $theme-file-background: #454B1B;
+//     $theme-file-color: yellow;
 
-    //navbar
-    $theme-navbar-background: mat.get-color-from-palette($light-primary-palette, 500);
-    $theme-navbar-color: mat.get-color-from-palette($light-primary-palette, 100);
+//     //navbar
+//     $theme-navbar-background: mat.get-color-from-palette($light-primary-palette, 500);
+//     $theme-navbar-color: mat.get-color-from-palette($light-primary-palette, 100);
 
-    //button
-    $theme-button-background: mat.get-color-from-palette($light-primary-palette, 400);
-    $theme-button-color: mat.get-color-from-palette($light-primary-palette, 50);
+//     //button
+//     $theme-button-background: mat.get-color-from-palette($light-primary-palette, 400);
+//     $theme-button-color: mat.get-color-from-palette($light-primary-palette, 50);
 
-    //button hover
-    $theme-button-hover-background: mat.get-color-from-palette($light-primary-palette, A700);
-    $theme-button-hover-color: mat.get-color-from-palette($light-primary-palette, 100);
+//     //button hover
+//     $theme-button-hover-background: mat.get-color-from-palette($light-primary-palette, A700);
+//     $theme-button-hover-color: mat.get-color-from-palette($light-primary-palette, 100);
 
-    //links
-    $theme-a-active: mat.get-color-from-palette($light-primary-palette, 100);
-    $theme-a-visited: mat.get-color-from-palette($light-primary-palette, 200);
-    $theme-a-hover: mat.get-color-from-palette($light-primary-palette, 300);
+//     //links
+//     $theme-a-active: mat.get-color-from-palette($light-primary-palette, 100);
+//     $theme-a-visited: mat.get-color-from-palette($light-primary-palette, 200);
+//     $theme-light-a-hover-color: mat.get-color-from-palette($light-primary-palette, 300);
 
-    // pop color
-    $theme-pop: royalblue;
-    $theme-header-color: maroon;
-}
+//     // pop color
+//     $theme-pop: royalblue;
+//     $theme-header-color: maroon;
+// }
 
 // these variables can be accessed in the global scope
 :root {
+    --theme-dark-primary-color: #{$theme-dark-primary-color};
+    --theme-light-primary-color: #{$theme-light-primary-color};
+    --theme-dark-a-link-color: #{$theme-dark-a-link-color};
+    --theme-light-a-link-color: #{$theme-light-a-link-color};
+    --theme-dark-button-background-color: #{$theme-dark-button-background-color};
+    --theme-light-button-background-color: #{$theme-light-button-background-color};
+    --theme-dark-button-color: #{$theme-dark-button-color};
+    --theme-light-button-color: #{$theme-light-button-color};
+    --theme-dark-button-hover-color: #{$theme-dark-button-hover-color};
+    --theme-light-button-hover-color: #{$theme-light-button-hover-color};
+    --theme-dark-button-hover-background-color: #{$theme-dark-button-hover-background-color};
+    --theme-light-button-hover-background-color: #{$theme-light-button-hover-background-color};
+    --theme-dark-a-visited: #{$theme-dark-button-color};
+    --theme-light-a-visited: #{$theme-light-button-color};
+    --theme-dark-a-hover: #{$theme-dark-button-hover-color};
+    --theme-light-a-hover: #{$theme-light-button-hover-color};
+    --theme-dark-a-active-color: #{$theme-dark-a-active-color};
+    --theme-light-a-active-color: #{$theme-light-a-active-color};
+
     --theme-border: #{$theme-border-color};
     --theme-background: #{$theme-background};
     --theme-background-light-gray: silver;
     --theme-background-gray: #222;
     --theme-background-light-purple: plum;
-    --theme-dark-primary-color: #{$theme-dark-primary-color};
-    --theme-light-primary-color: #{$theme-light-primary-color};
     --theme-code-background: #{$theme-code-background};
     --theme-code-color: #{$theme-code-color};
     --theme-note-background: #{$theme-note-background};
     --theme-note-color: #{$theme-note-color};
     --theme-comment-background: #{$theme-comment-background};
     --theme-comment-color: #{$theme-comment-color};
-    --theme-a-active: #{$theme-a-active};
-    --theme-a-visited: #{$theme-button-color};
-    --theme-a-hover: #{$theme-button-hover-color};
-    --theme-a-link: #{$theme-button-color};
+
+
     --theme-pop: #{$theme-pop};
     --theme-file-background: #{$theme-file-background};
     --theme-file-color: #{$theme-file-color};
@@ -188,10 +210,7 @@ $theme-header-color: anqituewhite;
     --theme-navbar-background: #{$theme-navbar-background};
     --theme-navbar-color: #{$theme-navbar-color};
     --theme-header-color: #{$theme-header-color};
-    --theme-button-color: #{$theme-button-color};
-    --theme-button-background: #{$theme-button-background};
-    --theme-button-hover-color: #{$theme-button-hover-color};
-    --theme-button-hover-background: #{$theme-button-hover-background};
+
 }
 
 div {
@@ -215,10 +234,6 @@ iframe {
     width: 100%;
     height: 500px;
     border: none;
-}
-
-li {
-    padding: 7px;
 }
 
 img {
@@ -290,6 +305,39 @@ h6 {
     font-size: 14px;
 }
 
+// code snippets
+.code {
+    background-color: var(--theme-code-background) !important;
+    color: var(--theme-code-color) !important;
+    font-family: Consolas;
+    border-radius: 5px;
+    padding: 3px 1em;
+    font-size: 1rem;
+    max-width: 90%;
+}
+
+.code-command {
+    background-color: var(--theme-code-background) !important;
+    color: var(--theme-code-color) !important;
+    font-family: Consolas;
+    border-radius: 5px;
+    padding: 1em;
+    margin-top: 1em;
+    display: inline-block;
+}
+
+// code divs
+div.code {
+    min-width: 400px;
+}
+
+div.code:hover {
+    color: var(--theme-pop);
+    -webkit-text-stroke-width: .5px;
+    -webkit-text-stroke-color: var(--theme-background-purple) !important;
+}
+
+// code spans
 span.code {
     background-color: var(--theme-code-background) !important;
     color: var(--theme-code-color) !important;
@@ -297,11 +345,18 @@ span.code {
     border-radius: 5px;
     padding: 3px 1em;
     font-size: 1rem;
-    min-width: 400px;
     max-width: 90%;
     line-height: 5lvh !important;
     display: inline-block;
 }
+
+span.code:hover {
+    color: var(--theme-pop);
+    -webkit-text-stroke-width: .5px;
+    -webkit-text-stroke-color: var(--theme-background-purple) !important;
+}
+
+
 
 ul.navbar-links>li:hover {
     color: var(--theme-background-purple) !important;
@@ -331,21 +386,17 @@ li>h4:hover {
     border-radius: 10px;
 }
 
-span.code:hover {
-    color: var(--theme-pop);
-    -webkit-text-stroke-width: .5px;
-    -webkit-text-stroke-color: var(--theme-background-purple) !important;
+// lists
+li {
+    padding: 7px;
+    font-size: 1rem;
 }
-
-div.code:hover {
-    color: var(--theme-pop);
-    -webkit-text-stroke-width: .5px;
-    -webkit-text-stroke-color: var(--theme-background-purple) !important;
-}
-
 .condensed li {
     padding: 0px;
 }
+
+// a
+
 
 .header {
     text-decoration: underline;
@@ -368,9 +419,9 @@ div.code:hover {
 
 .importantish {
     font-weight: bold;
-    color: #222;
-    -webkit-text-stroke: .2px white;
-    font-size: 1rem;
+    color: black;
+    -webkit-text-stroke: .2px orangered;
+    font-size: 1.1rem;
     line-height: 1.5;
 }
 
@@ -435,32 +486,11 @@ mat-card {
     color: var(--theme-card-color) !important;
 }
 
-.code {
-    background-color: var(--theme-code-background) !important;
-    color: var(--theme-code-color) !important;
-    font-family: Consolas;
-    border-radius: 5px;
-    padding: 3px 1em;
-    font-size: 1rem;
-    min-width: 400px;
-    max-width: 90%;
-}
-
 .note {
     background-color: var(--theme-note-background) !important;
     color: var(--theme-note-color) !important;
     font-weight: 400;
     font-size: small;
-}
-
-.code-command {
-    background-color: var(--theme-code-background) !important;
-    color: var(--theme-code-color) !important;
-    font-family: Consolas;
-    border-radius: 5px;
-    padding: 1em;
-    margin-top: 1em;
-    display: inline-block;
 }
 
 .comment {
@@ -490,27 +520,23 @@ mat-card {
 .ula {
     list-style-type: none;
     border-radius: 5px;
-    border: 1px solid var(--theme-border);
+    border: 1px solid var(--theme-border-color);
 }
 
 
 // Buttons and links
 a {
-    background-color: var(--theme-button-background) !important;
-    text-decoration: none !important;
-}
-
-a:link {
-    color: var(--theme-a-link) !important;
+    cursor: pointer !important;
+    text-decoration: underline !important;
 }
 
 a:active {
-    color: var(--theme-a-active) !important;
+    color: var(--theme-a-active-color) !important;
     font-weight: 600 !important;
 }
 
 a:visited {
-    color: var(--theme-a-visited) !important;
+    color: var(--theme-a-visited-color) !important;
 }
 
 a,
@@ -519,21 +545,8 @@ a,
 .mat-mdc-outlined-button,
 .mat-mdc-flat-button,
 .mat-mdc-unelevated-button {
-    cursor: pointer !important;
-    background-color: var(--theme-button-background) !important;
-    color: var(--theme-button-color) !important;
-    text-decoration: none !important;
+    cursor: pointer !important;  
     display: inline-block;
-}
-
-a:hover,
-.mat-mdc-button:hover,
-.mat-mdc-raised-button:hover,
-.mat-mdc-outlined-button:hover,
-.mat-mdc-flat-button:hover,
-.mat-mdc-unelevated-button:hover {
-    background-color: var(--theme-button-hover-background) !important;
-    color: var(--theme-button-hover-color) !important;
 }
 
 .question {
@@ -562,11 +575,22 @@ a:hover,
     font-style: normal;
 }
 
-// expansion panel
+// expansion-panel
 .mat-expansion-panel-header {
     font-size: 1rem !important;
 }
 
+.mat-expansion-panel-header-title {
+    color: inherit !important;
+}
+
+mat-panel-subtitle {
+    padding: 0 1em 0 0;
+    height: 100%;
+    place-content: center;
+}
+
+// mat-card
 .mat-mdc-card-title {
     color: #222 !important;
 }
@@ -574,3 +598,72 @@ a:hover,
 .mat-mdc-card-subtitle {
     color: #444 !important;
 }
+
+// theming
+.vampire {
+    background: #333;
+    color: var(--theme-dark-primary-color);
+}
+
+.angel {
+    background: whitesmoke;
+    color: var(--theme-light-primary-color);
+}
+
+.vampire a:link {
+    color: var(--theme-dark-a-link-color) !important;
+}
+
+
+.angel a:link {
+    color: var(--theme-light-a-link-color) !important;
+}
+
+.vampire a:link {
+    color: var(--theme-dark-a-link-color) !important;
+}
+
+
+.angel a:link {
+    color: var(--theme-light-a-link-color) !important;
+}
+
+.vampire .mat-mdc-button,
+.mat-mdc-raised-button,
+.mat-mdc-outlined-button,
+.mat-mdc-flat-button,
+.mat-mdc-unelevated-button {
+    background-color: var(--theme-dark-button-background-color) !important;
+    text-decoration: none !important;
+}
+
+.vampire a:hover,
+.mat-mdc-button:hover,
+.mat-mdc-raised-button:hover,
+.mat-mdc-outlined-button:hover,
+.mat-mdc-flat-button:hover,
+.mat-mdc-unelevated-button:hover {
+    background-color: var(--theme-dark-button-hover-background-color) !important;
+    color: var(--theme-dark-button-hover-color) !important;
+}
+
+.angel .mat-mdc-button,
+.mat-mdc-raised-button,
+.mat-mdc-outlined-button,
+.mat-mdc-flat-button,
+.mat-mdc-unelevated-button {
+    background-color: var(--theme-light-button-background-color) !important;
+    text-decoration: none !important;
+}
+
+.angel a:hover,
+.mat-mdc-button:hover,
+.mat-mdc-raised-button:hover,
+.mat-mdc-outlined-button:hover,
+.mat-mdc-flat-button:hover,
+.mat-mdc-unelevated-button:hover {
+    background-color: var(--theme-light-button-hover-background-color) !important;
+    color: var(--theme-light-button-hover-color-color) !important;
+}
+
+
