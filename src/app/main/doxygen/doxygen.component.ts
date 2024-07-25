@@ -4,11 +4,12 @@ import { CommentComponent } from '../../shared-components/comment/comment.compon
 import { UserService } from '../../services/user.service';
 import { CommentType } from '../../types/comment.type';
 import { Subject } from 'rxjs';
+import { MatExpansionModule, MatExpansionPanel } from '@angular/material/expansion';
 
 @Component({
   selector: 'app-doxygen',
   standalone: true,
-  imports: [MatCardModule, CommentComponent],
+  imports: [MatExpansionModule, MatCardModule, CommentComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './doxygen.component.html',
   styleUrl: './doxygen.component.scss'
