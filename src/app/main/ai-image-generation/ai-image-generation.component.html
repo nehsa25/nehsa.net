@@ -8,19 +8,23 @@
         <mat-card-content>
             <div class="commentgrid">
                 <div class="topics">
-                    <h4>Quick Start</h4>
-                    <ol>
-                        Choose a service with an API. All have different pricing/technolegies.
-                        <li>NehsaMUD is using this service: <a
-                                href="https://platform.stability.ai/docs/api-reference#tag/SDXL-and-SD1.6/operation/textToImage">stability.ai
-                                Text-to-image</a></li>
-                        <li>Instrument Backend (Python)
-                            <ul>
-                                <li>Submit the request:
-                                    <div class="code">
-                                        <pre>
-                                            class AIImage(Utility):
-    
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Quick Start</mat-panel-title>
+                            <mat-panel-description>
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <ol>
+                            Choose a service with an API. All have different pricing/technolegies.
+                            <li>NehsaMUD is using this service: <a
+                                    href="https://platform.stability.ai/docs/api-reference#tag/SDXL-and-SD1.6/operation/textToImage">stability.ai
+                                    Text-to-image</a></li>
+                            <li>Instrument Backend (Python)
+                                <ul>
+                                    <li>Submit the request:
+                                        <div class="code">
+                                            <pre>
+class AIImage(Utility):        
     &#64;staticmethod
     async def get_room_image(self, room_image_name, room_description):
         engine_id = "stable-diffusion-v1-6"
@@ -60,50 +64,124 @@
         for i, image in enumerate(data["artifacts"]):
             with open(room_image_name, "wb") as f:
                 f.write(base64.b64decode(image["base64"]))
-                                        </pre>
-                                    </div>
-
-                                </li>
-                            </ul>
-                        </li>
-                        <li>Instrument Frontend
-                            <ul>
-                                <li>Prepend "8-bit fantasy image." to the front of image to force a style preference
-                                </li>
-                            </ul>
-                        </li>
-                    </ol>
+</pre>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>Instrument Frontend
+                                <ul>
+                                    <li>Prepend "8-bit fantasy image." to the front of image to force a style preference
+                                    </li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </mat-expansion-panel>
                     <div>
                         <h3>Examples :)</h3>
                         <ul>
-                            <li><h4>The most cost effective options (perfect for this silly game)</h4>
-                                <span class="important">Prompt: "You find yourself within a majestic inn. The smell of
-                                    food and
-                                    wine permeates the air. A worn, well-kept fireplace burned softly in the corner.
-                                    There's a
-                                    shelf with a small assortment of books."
-                                </span><br>
-                                <div>
-                                    <img width="600" mat-card-image src="../../assets/images/aiimage.png" />
-                                </div>
+                            <li>
+                                <mat-expansion-panel expanded>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Example 1</mat-panel-title>
+                                        <mat-panel-description>
+                                            sd3: Princess Candie and Maximus the cat!
+                                        </mat-panel-description>
+                                    </mat-expansion-panel-header>
+                                    <span class="importantish">Prompt: "Princess Candie is visiting nobility from a neighboring kingdom to the distant west, across the Tarth sea. She is striking in a shimmering maroon gown."
+                                    </span><br><br>
+                                    <span class="importantish">Prompt: "Maximus is a overweight orange tabby cat with a white belly and paws. He has a small white patch on his nose and a long tail. He is friendly and will often follow you around and rub against your legs."
+                                    </span><br>
+                                    <div>
+                                        <img width="600" mat-card-image src="../../assets/images/candie.png" />
+                                    </div>
+                                </mat-expansion-panel>
                             </li>
-                            <li><h4>This is using the more fancy generation: https://api.stability.ai/v2beta/stable-image/generate/ultra<br>
-                                (I created about 4 style of these and ran out of my trial)</h4>
-                                <span class="important">Prompt: "You are in the blacksmith's back room.  A hot forge still burns smoldering coals."
-                                </span><br>
-                                <div>
-                                    <img width="600" mat-card-image src="../../assets/images/aiimage2.png" />
-                                </div>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Example 2</mat-panel-title>
+                                        <mat-panel-description>
+                                            stable-diffusion-v1-6: The most cost effective options
+                                        </mat-panel-description>
+                                    </mat-expansion-panel-header>
+                                    <span class="importantish">Prompt: "You find yourself within a majestic inn. The
+                                        smell
+                                        of
+                                        food and
+                                        wine permeates the air. A worn, well-kept fireplace burned softly in the
+                                        corner.
+                                        There's a
+                                        shelf with a small assortment of books."
+                                    </span><br>
+                                    <div>
+                                        <img width="600" mat-card-image src="../../assets/images/aiimage.png" />
+                                    </div>
+                                </mat-expansion-panel>
                             </li>
-                            <li><h4>This is using the more fancy generation: https://api.stability.ai/v2beta/stable-image/generate/ultra</h4>
-                                <span class="important">Prompt: "You are in the town square of the Town of Smee.  It's a large open cobblestone area with a bronze water fountain.  The fountain is in the shape of a large, ferocious dire wolf. Water jets from the foutain mouth in a small arc.  There's a festive feeling to the area and people and wagons bustle in all directions."
-                                </span><br>
-                                <div>
-                                    <img width="600" mat-card-image src="../../assets/images/aiimage3.png" />
-                                </div>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Example 3</mat-panel-title>
+                                        <mat-panel-description>
+                                            ultra: More fancy (and spendy) generation
+                                        </mat-panel-description>
+                                    </mat-expansion-panel-header>
+                                        (I created about 4 style of these and ran out of my trial)<br>
+                                    <span class="importantish">Prompt: "You are in the blacksmith's back room. A hot forge
+                                        still burns smoldering coals."
+                                    </span><br>
+                                    <div>
+                                        <img width="600" mat-card-image src="../../assets/images/aiimage2.png" />
+                                    </div>
+                                </mat-expansion-panel>
+
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Example 4</mat-panel-title>
+                                        <mat-panel-description>
+                                            ultra
+                                        </mat-panel-description>
+                                    </mat-expansion-panel-header>
+                                    <span class="importantish">Prompt: "You are in the town square of the Town of Smee.
+                                        It's a
+                                        large open cobblestone area with a bronze water fountain. The fountain is in the
+                                        shape of a large, ferocious dire wolf. Water jets from the foutain mouth in a
+                                        small
+                                        arc. There's a festive feeling to the area and people and wagons bustle in all
+                                        directions."
+                                    </span><br>
+                                    <div>
+                                        <img width="600" mat-card-image src="../../assets/images/aiimage3.png" />
+                                    </div>
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Example 4</mat-panel-title>
+                                        <mat-panel-description>
+                                            sd3: More in the middle, this is what I use for NehsaMUD.
+                                        </mat-panel-description>
+                                    </mat-expansion-panel-header>
+                                    This is using the more fancy generation:
+                                        https://api.stability.ai/v2beta/stable-image/generate/ultra
+                                    <span class="importantish">Prompt: "You are in the town square of the Town of Smee.
+                                        It's a
+                                        large open cobblestone area with a bronze water fountain. The fountain is in the
+                                        shape of a large, ferocious dire wolf. Water jets from the foutain mouth in a
+                                        small
+                                        arc. There's a festive feeling to the area and people and wagons bustle in all
+                                        directions."
+                                    </span><br>
+                                    <div>
+                                        <img width="600" mat-card-image src="../../assets/images/aiimage3.png" />
+                                    </div>
+                                </mat-expansion-panel>
                             </li>
                         </ul>
-
                     </div>
                 </div>
                 <div><app-comment></app-comment></div>

@@ -2,8 +2,11 @@
     <mat-card class="card">
         <mat-card-header>
             <mat-card-title>
-                <h1 data-testid="header-title">Software Development</h1>
+                <h1 data-testid="header-title">Software Development, Testing, SDLC!</h1>
             </mat-card-title>
+            <mat-card-subtitle>
+                Researching the *best* ways to develop software.
+            </mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
             <div class="commentgrid">
@@ -12,56 +15,156 @@
                         <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
-                                    <mat-panel-title>Concepts</mat-panel-title>
+                                    <mat-panel-title>TDD (and what I recommend instead)</mat-panel-title>
                                 </mat-expansion-panel-header>
+                                <br>
+                                WHat is TDD?
+                                <br><br>
+                                <div class="answer">You are not allowed to write any production code unless it is to
+                                    make a
+                                    failing unit test pass.
+                                </div><br>
+                                TDD is a great concept, but it is rarely utilized for any
+                                extended period in my experience
+                                <br><br>Although I fully stand behind the purpose of TDD and the benefits when
+                                it's implemented, there are challenges that I have yet to see overcome in real-world
+                                development teams. Mainly, TDD requires detail story specifications that are often
+                                unavailable
+                                early in the sprint for companies moving at high velocity. In an environment where speed
+                                is a necessary business component, TDD is frequently tried once and quickly
+                                abandoned.<br><br>
+
+                                Unit tests are not usually the best place to invest in test coverage either. Although
+                                unit tests are essential, they are less so than for system and integration tests. Due to
+                                their
+                                narrow focus, unit tests are more costly to implement and more likely to miss something.
+                                It's much better to start test efforts as broadly as possible by writing E2E
+                                (end-to-end) tests. These are quicker to implement and will catch things you didn't even
+                                think to test for. Five broad E2E tests that validate a user's experience will induce
+                                more confidence in the team than 1,000 passing unit tests.<br><br>
+
+                                My preference is to test at the integration level, and using a technology like PyTest or
+                                Playwright can provide a quick TDD-like experience. As elaboration closes and everyone
+                                has marching orders,
+                                it's also clear *exactly* what tests need to be implemented during the sprint to prove
+                                success.<br><br>Here's
+                                what I do:<br><br>
+                                A feature or story is requested to be developed by the product owner...<br>
                                 <ul>
-                                    <li>What are the 3 A's in test driven development?<br>Writing Test Cases follow the 3A
-                                        rule
-                                        (Arrange, Act, Assert)<br><br>Arrange all necessary preconditions and inputs<br>Act
-                                        on
-                                        the
-                                        object
-                                        or method under test.<br>Assert that the expected results have occurred.</li>
-                                    <li>What is solid?<br>
-                                        <dl class="condensed">
-                                            <dt>S: Single responsibility principle</dt>
-                                            <dd>The idea behind the SRP is that every class, module, or function in a
-                                                program
-                                                should
-                                                have one responsibility/purpose in a program. As a commonly used definition,
-                                                "every
-                                                class should have only one reason to change".</dd>
-                                            <dt>O: Open-closed principle</dt>
-                                            <dd>The open-closed principle states that software entities should be open for
-                                                extension, but closed for modification.</dd>
-                                            <dt>L: Liskov substitution principle</dt>
-                                            <dd>The Liskov substitution principle simply implies that when an instance of a
-                                                class is
-                                                passed/extended to another class, the inheriting class should have a use
-                                                case
-                                                for
-                                                all the properties and behavior of the inherited class.</dd>
-                                            <dt>I: Interface segregation principle</dt>
-                                            <dd>The interface segregation principle states that the interface of a program
-                                                should be
-                                                split in a way that the user/client would only have access to the necessary
-                                                methods
-                                                related to their needs.</dd>
-                                            <dt>D: Dependency inversion principle</dt>
-                                            <dd>The dependency inversion principle states: High-level modules should not
-                                                import
-                                                anything from low-level modules. Both should depend on abstractions (e.g.,
-                                                interfaces) and abstractions should not depend on details</dd>
-                                        </dl>
+                                    <li>During elaboration, we create test stubs (this is not a expecific
+                                        discussion at first on testing, just something people are asked to jot down if
+                                        they think of tests as we are discussing what the feature
+                                        needs to do)
+                                        <ul>
+                                            <li>In the form of:
+                                                <div class="code">
+                                                    <pre>
+&#64;pytest.mark.automated_not_implemented
+## Confirms the ... is ... when ...
+def test_usera_must_do_x():
+    pass
+
+&#64;pytest.mark.automated_not_implemented
+## Confirms the ... is ... when ...
+def test_user_not_in_support_cannot_do_y():
+    pass
+</pre>
+                                                </div>
+                                            </li>
+                                        </ul>
                                     </li>
+                                    <li>As part of story acceptance, these tests are demonstrated working</li>
                                 </ul>
+                                The advantage of a structure like this is that on day 1, you can run these fully
+                                working, stubbed E2E tests in a TDD structure (instead of FAILING, they will be SKIPPED;
+                                otherwise, the concept is the same).<br><br>
+
+                                This is done by using PyTest Markers:<br><br>
+
+                                Only by running test cases that have a marker of "<span
+                                    class="importantish">&#64;pytest.mark.automated</span>" will these tests all be
+                                "skipped"
+                                due to having a marker of "<span
+                                    class="importantish">&#64;pytest.mark.automated_not_implemented</span>." As tests
+                                are implemented, the "<span
+                                    class="importantish">&#64;pytest.mark.automated_not_implemented</span>" can be
+                                swapped with
+                                "<span class="importantish">&#64;pytest.mark.automated</span>," and the test will start
+                                to be run. SKIP will be replaced with PASS/FAIL.
+                                <br><br><span class="note">Using services like GitHub Copilot, Unit tests can be often created automatallicy using AI. A free test is a good test..</span>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>What are the 3 A's in test driven development?</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <span class="question">What are the 3 A's in test driven development?</span>
+                                <br>
+                                <div class="answer">Writing Test Cases follow the 3A rule
+                                    (Arrange, Act, Assert)<br>
+                                    <ol>
+                                        <li>Arrange all necessary preconditions and
+                                            inputs</li>
+                                        <li>Act on the object or method under test.</li>
+                                        <li>Assert that the expected
+                                            results have
+                                            occurred.</li>
+                                    </ol>
+                                </div>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>SOLID, MAN!</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                Solid is a mnumonic acronym for fix design principles intended to make code
+                                cleaner, and more flexible to future enhancements<br>
+                                <dl class="condensed">
+                                    <dt>S: Single responsibility principle</dt>
+                                    <dd>The idea behind the SRP is that every class, module, or function in a
+                                        program
+                                        should
+                                        have one responsibility/purpose in a program. As a commonly used
+                                        definition,
+                                        "every
+                                        class should have only one reason to change".</dd>
+                                    <dt>O: Open-closed principle</dt>
+                                    <dd>The open-closed principle states that software entities should be open
+                                        for
+                                        extension, but closed for modification.</dd>
+                                    <dt>L: Liskov substitution principle</dt>
+                                    <dd>The Liskov substitution principle simply implies that when an instance
+                                        of a
+                                        class is
+                                        passed/extended to another class, the inheriting class should have a use
+                                        case
+                                        for
+                                        all the properties and behavior of the inherited class.</dd>
+                                    <dt>I: Interface segregation principle</dt>
+                                    <dd>The interface segregation principle states that the interface of a
+                                        program
+                                        should be
+                                        split in a way that the user/client would only have access to the
+                                        necessary
+                                        methods
+                                        related to their needs.</dd>
+                                    <dt>D: Dependency inversion principle</dt>
+                                    <dd>The dependency inversion principle states: High-level modules should not
+                                        import
+                                        anything from low-level modules. Both should depend on abstractions
+                                        (e.g.,
+                                        interfaces) and abstractions should not depend on details</dd>
+                                </dl>
                             </mat-expansion-panel>
                         </li>
                         <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Design Patterns</mat-panel-title>
-                                    <mat-panel-subtitle>Builder is <span class="important">da bomb!</span></mat-panel-subtitle>
+                                    <mat-panel-subtitle>Builder is <span class="important">da
+                                            bomb!</span></mat-panel-subtitle>
                                 </mat-expansion-panel-header>
                                 <div>
                                     <h2></h2>
@@ -243,7 +346,8 @@
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Big O Notation</mat-panel-title>
-                                    <mat-panel-subtitle>Refers to the worst-case scenario for an algorithm.</mat-panel-subtitle>
+                                    <mat-panel-subtitle>Refers to the worst-case scenario for an
+                                        algorithm.</mat-panel-subtitle>
                                 </mat-expansion-panel-header>
                                 <dl>
                                     <dt>Constant Time O(1)</dt>

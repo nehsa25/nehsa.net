@@ -5,11 +5,12 @@ import { UserService } from '../../services/user.service';
 import { CommentType } from '../../types/comment.type';
 import { Subject } from 'rxjs';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-designpatterns',
   standalone: true,
-  imports: [MatCardModule, CommentComponent, MatExpansionModule],
+  imports: [MatIcon, MatCardModule, CommentComponent, MatExpansionModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './designpatterns.component.html',
   styleUrl: './designpatterns.component.scss'
