@@ -2,34 +2,94 @@
     <mat-card [class.card-dark]="userService.appIsDark()" [class.card-light]="!userService.appIsDark()">
         <mat-card-header>
             <mat-card-title>
-                <h1 data-testid="header-title">C# (.NET)</h1>
+                <h1 data-testid="header-title">C#!</h1>
             </mat-card-title>
         </mat-card-header>
         <mat-card-content>
             <div class="commentgrid">
                 <div class="topics">
-                    <div>                        
-                        <h3>General</h3>
-                        <ul>                            
-                            <li>Why C#?<br>C# continues to evolve but the language is very mature and has good community
-                                support</li>
-                            <li>What is the CLR?<br>CLR is the basic and Virtual Machine component of the .NET Framework. It
-                                is the run-time environment in the .NET Framework that runs the codes</li>
-                            <li>What is managed vs. unmanaged code?<br>Code that executes under the control of the runtime
-                                is called managed code. Conversely, code that runs outside the runtime is called unmanaged
-                                code. COM components, ActiveX interfaces, and Windows API functions are examples of
-                                unmanaged code.</li>
-                            <li>What is idempotency in REST?<br>Idempotency /īdem'pōt(ə)nt/ means that sending the same
-                                request multiple
-                                times will produce the same result, without changing the state of the server or the
-                                resource.</li>
-                            <li>What is an interface and how is it used?<br>Interfaces are a good way of specifying a
-                                contract that other people's code must meet. The main point is that interfaces is a layer of
-                                abstraction between code and unnecessary details.</li>
-                            <li>
-                                <h3>Access Modifiers</h3>
+                    <dl>
+                        <dt>Why C#?</dt>
+                        <dd>C# continues to evolve but the language is very mature and has good
+                            community
+                            support</dd>
+                        <dt>What is the CLR?</dt>
+                        <dd>CLR is the basic and Virtual Machine component of the .NET
+                            Framework. It
+                            is the run-time environment in the .NET Framework that runs the codes</dd>
+                        <dt>What is managed vs. unmanaged code?</dt>
+                        <dd>Code that executes under the control of
+                            the
+                            runtime
+                            is called managed code. Conversely, code that runs outside the runtime is called
+                            unmanaged
+                            code. COM components, ActiveX interfaces, and Windows API functions are examples
+                            of
+                            unmanaged code.</dd>
+                        <dt>What is idempotency in REST?</dt>
+                        <dd>Idempotency /īdem'pōt(ə)nt/ means that sending
+                            the
+                            same
+                            request multiple
+                            times will produce the same result, without changing the state of the server or
+                            the
+                            resource.</dd>
+                    </dl>
+                    <ul>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Interfaces</mat-panel-title>
+                                    <mat-panel-description>A contract that other people's code must
+                                        meet</mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <dl>
+                                    <dt>What is an interface and how is it used?</dt>
+                                    <dd>Interfaces are a good way of
+                                        specifying
+                                        a
+                                        contract that other people's code must meet. The main point is that interfaces
+                                        is a
+                                        layer of
+                                        abstraction between code and unnecessary details.</dd>
+                                </dl>
+                                An example of a built-in interface is <span class="importantish">IEnumerable</span>.
+                                This interface defines a contract for objects that can
+                                be enumerated over, meaning you
+                                can iterate through their elements.<br><br>
+                                Example:<br>
+                                <div class="code">
+<pre>
+    // Create a list of integers
+    List&lt;int&gt; numbers = new List&lt;int&gt; &#123; 1, 2, 3, 4, 5 &#125;;
+
+    // Iterate over the list using foreach, which implicitly uses IEnumerable
+    foreach (int number in numbers)
+    &#123;
+        Console.WriteLine(number);
+    &#125;
+</pre>
+                                        </div>
+
+                                        The definition of the class &quot;List&quot; is below and you can see how it inherits IEnumerable enabling this:<br>
+                                        <div class="code">
+<pre>
+public class List&lt;T&gt; : ICollection&lt;T&gt;, IEnumerable&lt;T&gt;, IEnumerable, IList&lt;T&gt;, IReadOnlyCollection&lt;T&gt;, IReadOnlyList&lt;T&gt;, ICollection, IList
+&#123;
+    ...
+&#125;
+</pre>
+                                        </div>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Access Modifiers</mat-panel-title>
+                                </mat-expansion-panel-header>
                                 All types and type members have an accessibility level. The
-                                accessibility level controls whether they can be used from other code in your assembly
+                                accessibility level controls whether they can be used from other code in your
+                                assembly
                                 or other assemblies.
                                 <table>
                                     <tr>
@@ -105,64 +165,518 @@
                                 </table>
                                 <dl>
                                     <dt>Derived class</dt>
-                                    <dd>When using inheritance, the inherited class is called the base class, and the
+                                    <dd>When using inheritance, the inherited class is called the base class, and
+                                        the
                                         inheriting class is called the derived class.</dd>
                                     <dt>assembly</dt>
                                     <dd>An assembly is a .dll or .exe created by compiling one or more .cs
                                         files in a single compilation.</dd>
                                 </dl>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>Coding Conventions</h3>
-                        <ul>
-                            <li>Use PascalCasing for class names and method names.</li>
-                            <li>Use camelCasing for method arguments and local variables.</li>
-                            <li>Do not use Hungarian notation.</li>
-                            <li>Use <span class="important">var</span> when the type is obvious from the right side of the assignment.</li>
-                            <li>Use <span class="important">const</span> for fields that are initialized once and never change.</li>
-                            <li>Use <span class="important">static</span> for methods that do not access instance data.</li>
-                            <li>Use <span class="important">this</span> for instance fields and methods.</li>
-                            <li>Use <span class="important">string.Empty</span> instead of <span class="important">""</span>.</li>
-                            <li>Use <span class="important">string.IsNullOrEmpty</span> instead of <span class="important">string == null || string == ""</span>.</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>Nuget</h3>
-                        <ul>
-                            <li>Forcefully reinstall a package (for example, if you need to get <span class="file">system.web.http.dll</span>):<br>
-                                From within VS Package Manager Console:
-                                <span class="code">update-package -reinstall Microsoft.AspNet.WebApi.Core</span>                                
-                            </li>
-                            <li>Get latest version of Nuget.exe: <span class="code">./nuget.exe update -self</span></li>
-                            <li>You get a message like this: "This project references NuGet package(s) that are missing on this computer."<br>
-                                <span class="code">./nuget.exe restore &lt;SOLUTION&gt;.sln</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>Entity Framework</h3>
-                        <ul>
-                            <li>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Coding Conventions</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>Use PascalCasing for class names and method names.</li>
+                                    <li>Use camelCasing for method arguments and local variables.</li>
+                                    <li>Do not use Hungarian notation.</li>
+                                    <li>Use <span class="important">var</span> when the type is obvious from the
+                                        right side of
+                                        the assignment.</li>
+                                    <li>Use <span class="important">const</span> for fields that are initialized
+                                        once and never
+                                        change.</li>
+                                    <li>Use <span class="important">static</span> for methods that do not access
+                                        instance data.
+                                    </li>
+                                    <li>Use <span class="important">this</span> for instance fields and methods.
+                                    </li>
+                                    <li>Use <span class="important">string.Empty</span> instead of <span
+                                            class="important">""</span>.</li>
+                                    <li>
+                                        Use <span class="important">string.IsNullOrEmpty</span> instead of <span
+                                            class="important">string == null || string == ""</span>.</li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Nuget</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>Forcefully reinstall a package (for example, if you need to get
+                                        <span class="file">system.web.http.dll</span>):<br>
+                                        From within VS Package Manager Console:
+                                        <span class="code">update-package -reinstall
+                                            Microsoft.AspNet.WebApi.Core</span>
+                                    </li>
+                                    <li>Get latest version of Nuget.exe: <span class="code">./nuget.exe
+                                            update -self</span></li>
+                                    <li>You get a message like this: "This project references NuGet
+                                        package(s) that are missing
+                                        on this computer."<br>
+                                        <span class="code">./nuget.exe restore &lt;SOLUTION&gt;.sln</span>
+                                    </li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Entity Framework</mat-panel-title>
+                                </mat-expansion-panel-header>
                                 <div>
                                     Eager Vs. Lazy Loading<br><br>
-                                    In one-to-many relations that you sure are used every where with main entity. Generally,
-                                    use eager loading When relations are not too complex and eager loading will reduce
+                                    In one-to-many relations that you sure are used every where with main
+                                    entity.
+                                    Generally,
+                                    use eager loading When relations are not too complex and eager loading
+                                    will reduce
                                     further queries on server.
                                     When to use lazy loading<br><br>
-                                    Almost on every "collection side" of one-to-many relations. like Articles of User or
+                                    Almost on every "collection side" of one-to-many relations. like
+                                    Articles of User or
                                     Products of a Category
                                     You exactly know that you will not need a property instantly.
                                     <dl>
                                         <dt>One-to-one relationships</dt>
-                                        <dd>one record in one table with a single record in the other table.</dd>
+                                        <dd>one record in one table with a single record in the other table.
+                                        </dd>
                                         <dt>One-to-many</dt>
-                                        <dd>A bidirectional relationship (can) exists. TableA may have a foreign key into
-                                            tableB, and tableB may have a foreign key into the associated record in tableA.
+                                        <dd>A bidirectional relationship (can) exists. TableA may have a
+                                            foreign key
+                                            into
+                                            tableB, and tableB may have a foreign key into the associated
+                                            record in
+                                            tableA.
                                         </dd>
                                     </dl>
                                 </div>
+                            </mat-expansion-panel>
+                        </li>
+                    </ul>
+                    <div>.NET Core-Specific
+                        <ul>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Installation</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    <ol>
+                                        <li>Download <a href="https://dotnet.microsoft.com/">.NET Core SDK</a></li>
+                                        <li>Install it</li>
+                                    </ol>
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Work with JSON</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    Since version 3.0.0, ASP.NET Core introduces a new serializer System.Text.Json (STJ)
+                                    out-of-the-box to replace Newtonsoft
+                                    <br>e.g.
+                                    <div class="code">string serializedObject = JsonSerializer.Serialize(x);</div>
+                                    <br>Vs.<br>
+                                    <div class="code">string serializedObject = JsonConvert.SerializeObject(x);</div>
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Change API Port</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    The port can be changed in properties\launchsettings.json
+                                    <div class="code">
+                                        <pre>
+&#123;
+    "$schema": "http://json.schemastore.org/launchsettings.json",
+    "iisSettings": &#123;
+        "windowsAuthentication": false,
+        "anonymousAuthentication": true,
+        "iisExpress": &#123;
+            "applicationUrl": "http://localhost:9919",
+            "sslPort": 44337
+        &#125;
+    &#125;,
+    "profiles": &#123;
+    &#125;,
+    "https": &#123;
+        "commandName": "Project",
+        "dotnetRunMessages": true,
+        "launchBrowser": true,
+        "launchUrl": "swagger",
+        "applicationUrl": "https://&lt;HOST&gt;:443",
+        "environmentVariables": &#123;
+            "ASPNETCORE_ENVIRONMENT": "Development"
+        &#125;
+    &#125;,
+    "IIS Express": &#123;
+        "commandName": "IISExpress",
+        "launchBrowser": true,
+        "launchUrl": "swagger",
+        "environmentVariables": &#123;
+            "ASPNETCORE_ENVIRONMENT": "Development"
+        &#125;
+    &#125;
+&#125;                                      
+</pre>
+                                    </div>
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Host a API</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    <div>
+                                        <h3>Create a new project web api within VS Code (using an API Controller, not
+                                            minimial API - see
+                                            below)</h3>
+                                        <ul>
+                                            <li>Within your project folder, create a "Controllers" folder
+                                                <ul>
+                                                    <li>Add <span class=file>MainController.cs</span>
+                                                        <div class="code">
+                                                            <pre>
+namespace NehsaNet.Controllers
+&#123;
+    [ApiController]
+    [Route("/")]
+    public class Main : ControllerBase
+    &#123;
+        [HttpGet]
+        [Route("/v1/quote")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public string GetQuote()
+        &#123;
+            return JsonSerializer.Serialize&lt;string&gt;(quotes[Random.Shared.Next(quotes.Count)]);
+        &#125;
+    &#125;
+&#125;
+                                                            </pre>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        Update <span class=file>Program.cs</span> to use it
+                                                        <div class="code">
+                                                            <pre>
+internal class Program
+&#123;
+    private static void Main(string[] args)
+    &#123;
+        var builder = WebApplication.CreateBuilder(args);
+        builder.Services.AddControllers();
+        var app = builder.Build();
+        app.UseRouting();
+        app.MapControllers();
+        app.Run();
+    &#125;
+&#125;
+</pre>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Minimial API Example</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    this style seems to be a pattern nowadays. I don't like it. It's
+                                    difficult to read and hard to modify.
+                                    <div class="code">
+                                        <pre>
+app.MapGet("/v1/quote", [SwaggerOperation(
+Summary = "Returns a single quote",
+Description = "A random quote is returned.  Because.")]
+[SwaggerResponse(200, "Success")]
+[SwaggerResponse(500, "An error occurred")] () =>
+&#123;
+    return JsonSerializer.Serialize&lt;string&gt;(quotes[Random.Shared.Next(quotes.Length)]);
+&#125;)
+.WithName("Quotes")
+.WithOpenApi();
+</pre>
+                                    </div>I much prefer this for readability:
+                                    <div class="code">
+                                        <pre>
+namespace NehsaNet.Controllers
+&#123;
+    [ApiController]
+    [Route("/")]
+    public class Main : ControllerBase
+    &#123;
+        [HttpGet]
+        [Route("/v1/quote")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public string GetQuote()
+        &#123;
+            return JsonSerializer.Serialize&lt;string&gt;(quotes[Random.Shared.Next(quotes.Count)]);
+        &#125;
+    &#125;
+&#125;             
+    </pre>
+                                    </div>
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Configure CORS Support</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    <ul>
+                                        <li>
+
+                                            Within <span class=file>program.cs</span>:
+                                            <div class="code">
+                                                <pre>
+    var  customOrigins = "_customOrigins";
+
+    builder.Services.AddCors(options =>
+    &#123;
+        options.AddPolicy(name: customOrigins,
+            policy  =>
+            &#123;
+                policy.WithOrigins("https://api.nehsa.net",
+                                    "http://localhost:4200");
+            &#125;);
+    &#125;);
+</pre>
+                                            </div>
+                                        </li>
+                                        <li>Use it:
+                                            <div class="code">
+                                                <pre>
+if (app.Environment.IsDevelopment())
+&#123;
+    app.UseSwagger();
+    app.UseSwaggerUI();
+    app.UseCors(customOrigins); <span class="comment"><-- Here</span>
+&#125;
+</pre>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Configure Swagger Support</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    <div>
+                                        <div class="code">
+                                            <pre>
+internal class Program
+&#123;
+    private static void Main(string[] args)
+    &#123;
+        var builder = WebApplication.CreateBuilder(args);
+        builder.Services.AddSwaggerGen();
+        var app = builder.Build();
+        app.UseSwagger();
+        app.UseSwaggerUI();
+        app.Run();   
+    &#125;
+&#125;
+</pre>
+                                            <div>
+                                                <h4>Example:</h4>
+                                                <div class="grid">
+                                                    <div>
+                                                        Swagger UI
+                                                        <iframe src="https://api.nehsa.net/swagger"
+                                                            title="OpenAPI Documenation"></iframe>
+                                                    </div>
+                                                    <div>
+                                                        swagger.json
+                                                        <iframe src="https://api.nehsa.net/swagger/v1/swagger.json"
+                                                            title="swagger.json file"></iframe>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Configure logging</mat-panel-title>
+                                    </mat-expansion-panel-header>
+
+                                    <ul>
+                                        <li>
+                                            <span class=file>Program.cs</span>
+                                            <div class="code">
+                                                <pre>
+internal class Program
+&#123;
+    private static void Main(string[] args)
+    &#123;
+        var builder = WebApplication.CreateBuilder(args);
+        IHost host = Host.CreateDefaultBuilder(args).Build();
+        var logger = host.Services.GetRequiredService&lt;ILogger&lt;Program&gt;&gt;();
+        logger.LogDebug("Host created.");
+        builder.Logging.ClearProviders();
+        builder.Logging.AddConsole();
+        builder.Logging.AddDebug();
+        builder.Services.AddLogging();
+        var app = builder.Build();
+        app.Run();   
+    &#125;
+&#125;
+</pre>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span class=file>appsettings.json.cs</span>
+                                            <div class="code">
+                                                <pre>
+"Logging": &#123;
+    "LogLevel": &#123;
+        "Default": "Debug",
+        "Microsoft": "Warning",
+        "Microsoft.Hosting.Lifetime": "Information"
+    &#125;,
+    "Console": &#123;
+        "FormatterName": "Console",
+        "FormatterOptions": &#123;
+            "SingleLine": true,
+            "IncludeScopes": true,
+            "TimestampFormat": "yyyy-MM-ddTHH:mm:ss : ",
+            "UseUtcTimestamp": true
+        &#125;
+    &#125;
+&#125;           
+</pre>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Compiling Source</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    <ol>
+                                        <li>Create <span class="file">.vscode\tasks.json</span>
+                                            <div class="code">
+                                                <pre>
+&#123;
+    "version": "2.0.0",
+    "tasks": [
+        &#123;
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+            "build",
+            "$&#123;workspaceFolder&#125;/nehsanet-app.csproj",
+            "/property:GenerateFullPaths=true",
+            "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        &#125;,
+        &#123;
+            "label": "publish",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+            "publish",
+            "$&#123;workspaceFolder&#125;/nehsanet-app.csproj",
+            "/property:GenerateFullPaths=true",
+            "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        &#125;,
+        &#123;
+            "label": "watch",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "watch",
+                "run",
+                "$&#123;workspaceFolder&#125;/nehsanet-app.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        &#125;
+    ]
+&#125;
+</pre>
+                                            </div>
+                                        </li>
+                                        <li>Create <span class="file">.vscode\launch.json</span>
+                                            <div class="code">
+                                                <pre>
+&#123;
+    "version": "0.2.0",
+    "configurations": [
+        &#123;
+            "name": ".NET Core Launch (web)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "$&#123;workspaceFolder&#125;/bin/Debug/net8.0/nehsanet-app.dll",
+            "args": [],
+            "cwd": "$&#123;workspaceFolder&#125;",
+            "stopAtEntry": false,
+            "env": &#123;
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            &#125;,
+            "sourceFileMap": &#123;
+                "/Views": "$&#123;workspaceFolder&#125;/Views"
+            &#125;
+        &#125;,
+        &#123;
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach"
+        &#125;
+    ]    
+&#125;
+</pre>
+                                            </div>
+                                        </li>
+                                    </ol>
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Healthchecks!</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    <div class="code">
+                                        <pre>
+internal class Program
+&#123;
+    private static void Main(string[] args)
+    &#123;
+        var builder = WebApplication.CreateBuilder(args);
+        builder.Services.AddHealthChecks();
+        var app = builder.Build();
+        app.Run();   
+        app.UseHealthChecks("/health");
+    &#125;
+&#125;
+</pre>
+                                    </div>
+                                    Access via /health:<br>
+                                    <img mat-card-image src="../../../assets/images/healthcheck.png"
+                                        alt="screenshot of api returning health" />
+                                </mat-expansion-panel>
                             </li>
                         </ul>
                     </div>

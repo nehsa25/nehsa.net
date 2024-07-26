@@ -5,11 +5,12 @@ import { CommentComponent } from '../../shared-components/comment/comment.compon
 import { UserService } from '../../services/user.service';
 import { CommentType } from '../../types/comment.type';
 import { Subject } from 'rxjs';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @Component({
   selector: 'app-c-sharp',
   standalone: true,
-  imports: [MatCardModule, MatIcon, CommentComponent],
+  imports: [MatCardModule, MatIcon, CommentComponent, MatExpansionModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './c-sharp.component.html',
   styleUrl: './c-sharp.component.scss'
