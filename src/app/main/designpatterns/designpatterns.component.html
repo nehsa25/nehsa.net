@@ -1,383 +1,440 @@
-<div>
-    <mat-card class="card">
-        <mat-card-header>
-            <mat-card-title>
-                <h1 data-testid="header-title">Software Development, Testing, SDLC!</h1>
-            </mat-card-title>
-            <mat-card-subtitle>
-                Software design is a evolving field where expertise and
-                continuous learning must coexist. I'm privileged to be a seasoned practitioner, and yet I have to always
-                be willing to learn and adapt to new technologies and methodologies.
-            </mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-            <div class="commentgrid">
-                <div class="topics">
-                    <ul>
-                        <li>
-                            <mat-expansion-panel expanded>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>TDD (and what I recommend instead)</mat-panel-title>
-                                </mat-expansion-panel-header>
-                                <br>
-                                What is TDD?
-                                <br><br>
-                                <div class="answer">You are not allowed to write any production code unless it is to
-                                    make a
-                                    failing unit test pass.
-                                </div><br>
-                                TDD is a great concept, but it is rarely utilized for any
-                                extended period in my experience
-                                <br><br>Although I fully support the idea behind TDD and its benefits when implemented, I
-                                have yet to see real-world development teams overcome the challenges to obtain promised
-                                value. In an environment where speed is a necessary business component, TDD is
-                                frequently tried once and quickly abandoned.<br><br>
-                                Unit tests, while essential, may only sometimes be the best investment for test
-                                coverage. System and integration tests, due to their broader focus, are often more
-                                cost-effective and less likely to miss critical issues. Starting test efforts with E2E
-                                (end-to-end) tests, which are quicker to implement and can uncover unforeseen issues,
-                                can provide a more comprehensive test coverage. Five well-designed E2E tests that
-                                validate a user's experience can instill more confidence in the team than a thousand
-                                passing unit tests of the nature (test_input_is_float). Another way to phrase it is if I
-                                was given 100 "Quality Points" to test a feature, I might spend 80 on E2E tests, 10 on
-                                security, 8 on performance and load, and 2 on unit tests. Actually, AI is perfect for
-                                writing unit tests, so 10 on performance, 0 on unit tests.<br><br>Side note, meet Lagoon the Duck:<br>
-                                <div class="lagoon"><div class="lagoon-feet"><div class="web"></div></div></div><br>OK, back to the topic at hand. (it's my website so we have ducks.)<br><br>
-                                My preference is to test at the integration level, and using a technology like Pytest or
-                                Playwright, I can provide a quick TDD-like experience. <br><br>For example, a feature or story is requested to be developed by the product owner...<br><br>
-                                <span class="node">"As a user, I want to be able to do X so that I can
-                                    Y."</span><br><br>
-                                <ul>
-                                    <li>During elaboration, as we're discussing what this story means in detail as a
-                                        group, we create test stubs of E2E tests (this is not a expecific
-                                        discussion at first on testing, just something people are asked to jot down if
-                                        they think of tests as we are discussing what the feature
-                                        needs to do)
-                                        <ul>
-                                            <li>In the form of:
-                                                <div class="code">
-                                                    <pre>
+<mat-card class="card">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Software Development, Testing, SDLC!</h1>
+        </mat-card-title>
+        <mat-card-subtitle>
+            Software design is a evolving field where expertise and
+            continuous learning must coexist. I'm privileged to be a seasoned practitioner, and yet I have to always
+            be willing to learn and adapt to new technologies and methodologies.
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                <ul>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>TDD (and what I recommend instead)</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <br>
+                            What is TDD?
+                            <br><br>
+                            <div class="answer">You are not allowed to write any production code unless it is to
+                                make a
+                                failing unit test pass.
+                            </div><br>
+                            TDD is a great concept, but it is rarely utilized for any
+                            extended period in my experience
+                            <br><br>Although I fully support the idea behind TDD and its benefits when implemented, I
+                            have yet to see real-world development teams overcome the challenges to obtain promised
+                            value. In an environment where speed is a necessary business component, TDD is
+                            frequently tried once and quickly abandoned.<br><br>
+                            Unit tests, while essential, may only sometimes be the best investment for test
+                            coverage. System and integration tests, due to their broader focus, are often more
+                            cost-effective and less likely to miss critical issues. Starting test efforts with E2E
+                            (end-to-end) tests, which are quicker to implement and can uncover unforeseen issues,
+                            can provide a more comprehensive test coverage. Five well-designed E2E tests that
+                            validate a user's experience can instill more confidence in the team than a thousand
+                            passing unit tests of the nature (test_input_is_float). Another way to phrase it is if I
+                            was given 100 "Quality Points" to test a feature, I might spend 80 on E2E tests, 10 on
+                            security, 8 on performance and load, and 2 on unit tests. Actually, AI is perfect for
+                            writing unit tests, so 10 on performance, 0 on unit tests.<br><br>Side note, meet Lagoon the
+                            Duck:<br>
+                            <div class="lagoon">
+                                <div class="lagoon-feet">
+                                    <div class="web"></div>
+                                </div>
+                            </div><br>OK, back to the topic at hand. (it's my website so we have ducks.)<br><br>
+                            My preference is to test at the integration level, and using a technology like Pytest or
+                            Playwright, I can provide a quick TDD-like experience. <br><br>For example, a feature or
+                            story is requested to be developed by the product owner...<br><br>
+                            <span class="node">"As a user, I want to be able to do X so that I can
+                                Y."</span><br><br>
+                            <ul>
+                                <li>During elaboration, as we're discussing what this story means in detail as a
+                                    group, we create test stubs of E2E tests (this is not a expecific
+                                    discussion at first on testing, just something people are asked to jot down if
+                                    they think of tests as we are discussing what the feature
+                                    needs to do)
+                                    <ul>
+                                        <li>In the form of:
+                                            <div class="code">
+                                                <pre>
 &#64;pytest.mark.automated_not_implemented
 ## Confirms the ... is ... when ...
 def test_usera_must_do_x():
-    pass <span class="comment"><mat-icon>arrow_back</mat-icon> Pass is simply a Python NOOP keyword that allows the code to compile. It's not causing the test to "pass."</span>
+pass <span class="comment"><mat-icon>arrow_back</mat-icon> Pass is simply a Python NOOP keyword that allows the code to compile. It's not causing the test to "pass."</span>
 
 &#64;pytest.mark.automated_not_implemented
 ## Confirms the ... is ... when ...
 def test_user_not_in_support_cannot_do_y():
-    pass
+pass
 </pre>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>As part of story acceptance, these tests are demonstrated working</li>
-                                </ul>
-                                The advantage of a structure like this is that on day 1, you can run these fully
-                                working, stubbed E2E tests in a TDD structure (instead of FAILING, they will be SKIPPED;
-                                otherwise, the concept is the same).<br><br>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>As part of story acceptance, these tests are demonstrated working</li>
+                            </ul>
+                            The advantage of a structure like this is that on day 1, you can run these fully
+                            working, stubbed E2E tests in a TDD structure (instead of FAILING, they will be SKIPPED;
+                            otherwise, the concept is the same).<br><br>
 
-                                This is done by using PyTest Markers:<br><br>
+                            This is done by using PyTest Markers:<br><br>
 
-                                Only by running test cases that have a marker of "<span
-                                    class="importantish">&#64;pytest.mark.automated</span>" will these tests all be
-                                "skipped"
-                                due to having a marker of "<span
-                                    class="importantish">&#64;pytest.mark.automated_not_implemented</span>." As tests
-                                are implemented, the "<span
-                                    class="importantish">&#64;pytest.mark.automated_not_implemented</span>" can be
-                                swapped with
-                                "<span class="importantish">&#64;pytest.mark.automated</span>," and the test will start
-                                to be run. SKIP will be replaced with PASS/FAIL.
-                                <br><br><span class="note">Using services like GitHub Copilot, Unit tests can be often
-                                    created automatallicy using AI. A free test is a good test..</span>
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>What are the 3 A's in test driven development?</mat-panel-title>
-                                </mat-expansion-panel-header>
-                                <span class="question">What are the 3 A's in test driven development?</span>
-                                <br>
-                                <div class="answer">Writing Test Cases follow the 3A rule
-                                    (Arrange, Act, Assert)<br>
-                                    <ol>
-                                        <li>Arrange all necessary preconditions and
-                                            inputs</li>
-                                        <li>Act on the object or method under test.</li>
-                                        <li>Assert that the expected
-                                            results have
-                                            occurred.</li>
-                                    </ol>
-                                </div>
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>SOLID, MAN!</mat-panel-title>
-                                </mat-expansion-panel-header>
-                                Solid is a mnumonic acronym for a set of design principles intended to make code
-                                cleaner, and more flexible to future enhancements<br>
-                                <dl class="condensed">
-                                    <dt>S: Single responsibility principle</dt>
-                                    <dd>The idea behind the SRP is that every class, module, or function in a
-                                        program
-                                        should
-                                        have one responsibility/purpose in a program. As a commonly used
-                                        definition,
-                                        "every
-                                        class should have only one reason to change".</dd>
-                                    <dt>O: Open-closed principle</dt>
-                                    <dd>The open-closed principle states that software entities should be open
-                                        for
-                                        extension, but closed for modification.</dd>
-                                    <dt>L: Liskov substitution principle</dt>
-                                    <dd>The Liskov substitution principle simply implies that when an instance
-                                        of a
-                                        class is
-                                        passed/extended to another class, the inheriting class should have a use
-                                        case
-                                        for
-                                        all the properties and behavior of the inherited class.</dd>
-                                    <dt>I: Interface segregation principle</dt>
-                                    <dd>The interface segregation principle states that the interface of a
-                                        program
-                                        should be
-                                        split in a way that the user/client would only have access to the
-                                        necessary
-                                        methods
-                                        related to their needs.</dd>
-                                    <dt>D: Dependency inversion principle</dt>
-                                    <dd>The dependency inversion principle states: High-level modules should not
-                                        import
-                                        anything from low-level modules. Both should depend on abstractions
-                                        (e.g.,
-                                        interfaces) and abstractions should not depend on details</dd>
-                                </dl>
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Design Patterns</mat-panel-title>
-                                    <mat-panel-subtitle>Builder is <span class="important">da
-                                            bomb!</span></mat-panel-subtitle>
-                                </mat-expansion-panel-header>
-                                <div>
-                                    <h2></h2>
-                                    <dl>
-                                        <dt>
-                                            <h3>Singleton</h3>
-                                        </dt>
-                                        <dd>- This pattern ensures only a single instance of an object is created. One
-                                            use may
-                                            be to
-                                            pass around configuration settings which we do not want multiple instances
-                                            with
-                                            possible
-                                            conflicting settings.</dd>
-                                    </dl>
-                                    <div>
-                                        Example
-                                        <div class="code">
-                                            <pre>
-            if (settings == null)
-                settings = new Settings();
-            else
-                return settings;
-                                    </pre>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <dl>
-                                        <dt>
-                                            <h3>Factory</h3>
-                                        </dt>
-                                        <dd>- Use a method to create an object instead of the new operator. This is nice
-                                            if you
-                                            have
-                                            logic that needs to be performed repeatedly.</dd>
-                                    </dl>
-                                    <div>
-                                        Example
-                                        <div class="code">
-                                            <pre>
-            class ButtonFactory &#123;
-                createButton(type: string): RaisedButton | FlatButton &#123;
-                    if (type == "raised") &#123;
-                        return new RaisedButton();
-                    &#125; else &#123;
-                        return new FlatButton();
-                    &#125;
-                &#125;
-            &#125;
-        
-            const factory = new ButtonFactory();
-            const btn1 = factory.createButton("flat");
-            const btn2 = factory.createButton("raised");
-                                    </pre>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <dl>
-                                        <dt>
-                                            <h3>Prototype (aka cloning)</h3>
-                                        </dt>
-                                        <dd>- This pattern is like inheritance but it inherits from object already
-                                            created
-                                            instead
-                                            of from a class</dd>
-                                    </dl>
-                                    <div>
-                                        Example
-                                        <div class="code">
-                                            <pre>
-        const dog = &#123;
-            sit() &#123;
-                return 'Good dog!';
-            &#125;
-        &#125;
-        
-        const roz = Object.create(dog, &#123;&#125;);
-        const hopper = Object.create(dog, &#123;&#125;);
-        roz.sit();
-        hopper.sit();
-        
-                                </pre>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <dl>
-                                        <dt>
-                                            <h3>Facade</h3>
-                                        </dt>
-                                        <dd>- This pattern is about hiding the details from the end user to simply usage
-                                        </dd>
-                                    </dl>
-                                    <div>
-                                        Example
-                                        <div class="code">
-                                            <pre>
-            // The complex class
-            class RainConditions &#123;
-                constructor() &#123;&#125;
-        
-                addRainQuantity(raindropsInSecs) &#123;
-                    this.raindrops = raindropsInSecs;
-                &#125;
-            &#125;
-        
-            // A simplified class
-            class Weather &#123;
-                private rain = new 
-                constructor() &#123;&#125;
-        
-                setRainDrizzle() &#123;
-                    rain.addRainQuantity(100);
-                &#125;
-        
-                setRainDownpour() &#123;
-                    rain.addRainQuantity(10000);
-                &#125;
-        
-                setRainMonsoon() &#123;
-                    rain.addRainQuantity(1000000);
-                &#125;
-            &#125;
-        
-            const weather = new Weather();
-            weather.setRainMonsoon();
-        
-        
-                                    </pre>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <dl>
-                                        <dt>
-                                            <h3>Builder</h3>
-                                        </dt>
-                                        <dd>- This pattern allows you to build an object in steps but you always get the
-                                            object
-                                            back
-                                        </dd>
-                                    </dl>
-                                    <div>
-                                        Example
-                                        <div class="code">
-                                            <pre>
-        class WeatherConditions &#123;
-            constructor() &#123;&#125;
-        
-            addRain() &#123;
-                this.rain = true;
-                return this;
-            &#125;
-        
-            addThunder() &#123;
-                this.thunder = true;
-                return this;
-            &#125;
-        
-            addFrightening() &#123;
-                this.frightening = true;
-                return this;
-            &#125;
-        &#125;
-        
-        const todaysWeather = new WeatherhConditions('scary thunderstorm day');
-        
-        todaysWeather.addRain().addThunder().addFrightening();
-        
-                                </pre>
-                                        </div>
-                                    </div>
-                                </div>
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Big O Notation</mat-panel-title>
-                                    <mat-panel-subtitle>Refers to the worst-case scenario for an
-                                        algorithm.</mat-panel-subtitle>
-                                </mat-expansion-panel-header>
+                            Only by running test cases that have a marker of "<span
+                                class="importantish">&#64;pytest.mark.automated</span>" will these tests all be
+                            "skipped"
+                            due to having a marker of "<span
+                                class="importantish">&#64;pytest.mark.automated_not_implemented</span>." As tests
+                            are implemented, the "<span
+                                class="importantish">&#64;pytest.mark.automated_not_implemented</span>" can be
+                            swapped with
+                            "<span class="importantish">&#64;pytest.mark.automated</span>," and the test will start
+                            to be run. SKIP will be replaced with PASS/FAIL.
+                            <br><br><span class="note">Using services like GitHub Copilot, Unit tests can be often
+                                created automatallicy using AI. A free test is a good test..</span>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>What are the 3 A's in test driven development?</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <span class="question">What are the 3 A's in test driven development?</span>
+                            <br>
+                            <div class="answer">Writing Test Cases follow the 3A rule
+                                (Arrange, Act, Assert)<br>
+                                <ol>
+                                    <li>Arrange all necessary preconditions and
+                                        inputs</li>
+                                    <li>Act on the object or method under test.</li>
+                                    <li>Assert that the expected
+                                        results have
+                                        occurred.</li>
+                                </ol>
+                            </div>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>SOLID, MAN!</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            Solid is a mnumonic acronym for a set of design principles intended to make code
+                            cleaner, and more flexible to future enhancements<br>
+                            <dl class="condensed">
+                                <dt>S: Single responsibility principle</dt>
+                                <dd>The idea behind the SRP is that every class, module, or function in a
+                                    program
+                                    should
+                                    have one responsibility/purpose in a program. As a commonly used
+                                    definition,
+                                    "every
+                                    class should have only one reason to change".</dd>
+                                <dt>O: Open-closed principle</dt>
+                                <dd>The open-closed principle states that software entities should be open
+                                    for
+                                    extension, but closed for modification.</dd>
+                                <dt>L: Liskov substitution principle</dt>
+                                <dd>The Liskov substitution principle simply implies that when an instance
+                                    of a
+                                    class is
+                                    passed/extended to another class, the inheriting class should have a use
+                                    case
+                                    for
+                                    all the properties and behavior of the inherited class.</dd>
+                                <dt>I: Interface segregation principle</dt>
+                                <dd>The interface segregation principle states that the interface of a
+                                    program
+                                    should be
+                                    split in a way that the user/client would only have access to the
+                                    necessary
+                                    methods
+                                    related to their needs.</dd>
+                                <dt>D: Dependency inversion principle</dt>
+                                <dd>The dependency inversion principle states: High-level modules should not
+                                    import
+                                    anything from low-level modules. Both should depend on abstractions
+                                    (e.g.,
+                                    interfaces) and abstractions should not depend on details</dd>
+                            </dl>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Design Patterns</mat-panel-title>
+                                <mat-panel-subtitle>Builder is <span class="important">da
+                                        bomb!</span></mat-panel-subtitle>
+                            </mat-expansion-panel-header>
+                            <div>
+                                <h2></h2>
                                 <dl>
-                                    <dt>Constant Time O(1)</dt>
-                                    <dd>The execution time remains constant regardless of the input size. This is
-                                        rare but can occur for simple operations like accessing an element in a list by
-                                        index.
-                                    </dd>
-                                    <dt>Logarithmic Time O(log n)</dt>
-                                    <dd>The execution time grows logarithmically with the input size (n).
-                                        This is often seen in algorithms that involve searching sorted data structures
-                                        like
-                                        binary
-                                        search trees.</dd>
-                                    <dt>Linear Time O(n)</dt>
-                                    <dd>The execution time increases proportionally with the input size. This is
-                                        common in algorithms that iterate through the entire input data set once, like
-                                        calculating the
-                                        sum of elements in a list.</dd>
-                                    <dt>Quadratic Time O(n^2)</dt>
-                                    <dd>The execution time grows quadratically with the input size. This occurs
-                                        in algorithms that involve nested loops iterating over the input data, leading
-                                        to
-                                        potentially
-                                        many comparisons or calculations</dd>
+                                    <dt>
+                                        <h3>Singleton</h3>
+                                    </dt>
+                                    <dd>- This pattern ensures only a single instance of an object is created. One
+                                        use may
+                                        be to
+                                        pass around configuration settings which we do not want multiple instances
+                                        with
+                                        possible
+                                        conflicting settings.</dd>
                                 </dl>
-                            </mat-expansion-panel>
-                        </li>
-                    </ul>
-                    <div><app-comment></app-comment></div>
-                </div>
+                                <div>
+                                    Example
+                                    <div class="code">
+                                        <pre>
+        if (settings == null)
+            settings = new Settings();
+        else
+            return settings;
+                                </pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <dl>
+                                    <dt>
+                                        <h3>Factory</h3>
+                                    </dt>
+                                    <dd>- Use a method to create an object instead of the new operator. This is nice
+                                        if you
+                                        have
+                                        logic that needs to be performed repeatedly.</dd>
+                                </dl>
+                                <div>
+                                    Example
+                                    <div class="code">
+                                        <pre>
+        class ButtonFactory &#123;
+            createButton(type: string): RaisedButton | FlatButton &#123;
+                if (type == "raised") &#123;
+                    return new RaisedButton();
+                &#125; else &#123;
+                    return new FlatButton();
+                &#125;
+            &#125;
+        &#125;
+    
+        const factory = new ButtonFactory();
+        const btn1 = factory.createButton("flat");
+        const btn2 = factory.createButton("raised");
+                                </pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <dl>
+                                    <dt>
+                                        <h3>Prototype (aka cloning)</h3>
+                                    </dt>
+                                    <dd>- This pattern is like inheritance but it inherits from object already
+                                        created
+                                        instead
+                                        of from a class</dd>
+                                </dl>
+                                <div>
+                                    Example
+                                    <div class="code">
+                                        <pre>
+    const dog = &#123;
+        sit() &#123;
+            return 'Good dog!';
+        &#125;
+    &#125;
+    
+    const roz = Object.create(dog, &#123;&#125;);
+    const hopper = Object.create(dog, &#123;&#125;);
+    roz.sit();
+    hopper.sit();
+    
+                            </pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <dl>
+                                    <dt>
+                                        <h3>Facade</h3>
+                                    </dt>
+                                    <dd>- This pattern is about hiding the details from the end user to simply usage
+                                    </dd>
+                                </dl>
+                                <div>
+                                    Example
+                                    <div class="code">
+                                        <pre>
+        // The complex class
+        class RainConditions &#123;
+            constructor() &#123;&#125;
+    
+            addRainQuantity(raindropsInSecs) &#123;
+                this.raindrops = raindropsInSecs;
+            &#125;
+        &#125;
+    
+        // A simplified class
+        class Weather &#123;
+            private rain = new 
+            constructor() &#123;&#125;
+    
+            setRainDrizzle() &#123;
+                rain.addRainQuantity(100);
+            &#125;
+    
+            setRainDownpour() &#123;
+                rain.addRainQuantity(10000);
+            &#125;
+    
+            setRainMonsoon() &#123;
+                rain.addRainQuantity(1000000);
+            &#125;
+        &#125;
+    
+        const weather = new Weather();
+        weather.setRainMonsoon();
+    
+    
+                                </pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <dl>
+                                    <dt>
+                                        <h3>Builder</h3>
+                                    </dt>
+                                    <dd>- This pattern allows you to build an object in steps but you always get the
+                                        object
+                                        back
+                                    </dd>
+                                </dl>
+                                <div>
+                                    Example
+                                    <div class="code">
+                                        <pre>
+    class WeatherConditions &#123;
+        constructor() &#123;&#125;
+    
+        addRain() &#123;
+            this.rain = true;
+            return this;
+        &#125;
+    
+        addThunder() &#123;
+            this.thunder = true;
+            return this;
+        &#125;
+    
+        addFrightening() &#123;
+            this.frightening = true;
+            return this;
+        &#125;
+    &#125;
+    
+    const todaysWeather = new WeatherhConditions('scary thunderstorm day');
+    
+    todaysWeather.addRain().addThunder().addFrightening();
+    
+                            </pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Big O Notation</mat-panel-title>
+                                <mat-panel-subtitle>Refers to the worst-case scenario for an
+                                    algorithm.</mat-panel-subtitle>
+                            </mat-expansion-panel-header>
+                            <dl>
+                                <dt>Constant Time O(1)</dt>
+                                <dd>The execution time remains constant regardless of the input size. This is
+                                    rare but can occur for simple operations like accessing an element in a list by
+                                    index.
+                                </dd>
+                                <dt>Logarithmic Time O(log n)</dt>
+                                <dd>The execution time grows logarithmically with the input size (n).
+                                    This is often seen in algorithms that involve searching sorted data structures
+                                    like
+                                    binary
+                                    search trees.</dd>
+                                <dt>Linear Time O(n)</dt>
+                                <dd>The execution time increases proportionally with the input size. This is
+                                    common in algorithms that iterate through the entire input data set once, like
+                                    calculating the
+                                    sum of elements in a list.</dd>
+                                <dt>Quadratic Time O(n^2)</dt>
+                                <dd>The execution time grows quadratically with the input size. This occurs
+                                    in algorithms that involve nested loops iterating over the input data, leading
+                                    to
+                                    potentially
+                                    many comparisons or calculations</dd>
+                            </dl>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>UML</mat-panel-title>
+                                <mat-panel-subtitle>Sequence Diagrams!</mat-panel-subtitle>
+                            </mat-expansion-panel-header>
+                            Sequence diagrams are a type of UML diagram that shows how objects interact in a time
+                            period. They are used to visualize the interactions between objects in a system.
+
+                            <div>
+                                For example, this is in the initial interaction when you visit this website and go to the About Me page:
+                                <div class="code">
+<pre>
+&#64;startuml
+actor User
+participant Website
+participant API
+participant Database
+
+User -> Website: "About Me"
+activate Website
+Website -> API: Get Quote
+activate API
+API -> Database: Fetch Quote
+activate Database
+Database --> API: QuoteData
+deactivate Database
+API -> Website: QuoteData
+Website -> API: Get User Information
+activate API
+API -> Database: Fetch UserData
+activate Database
+Database --> API: UserData
+deactivate Database
+API -> Website: UserData
+Website -> API: Check for comments
+activate API
+API -> Database: Check for Comments
+activate Database
+Database --> API: CommentData
+deactivate Database
+API -> Website: CommentData
+deactivate API
+Website -> User: Display Information
+deactivate Website
+&#64;enduml
+</pre>
+                                </div><br><br>
+                                Resulting in the following diagram:<br>
+                                <img src="../assets/images/uml_example.svg" alt="Sequence Diagram">
+                            </div>
+                        </mat-expansion-panel>
+                    </li>
+                </ul>
+                <div><app-comment></app-comment></div>
             </div>
-        </mat-card-content>
-    </mat-card>
-</div>
+        </div>
+    </mat-card-content>
+</mat-card>
