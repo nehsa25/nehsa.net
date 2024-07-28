@@ -31,22 +31,45 @@
     <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen"
         class="dh child" [innerHTML]="quote"></div>
     <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen"
-        class="theme child"><mat-icon (click)="themeChangeBtnClick(false)">light_mode</mat-icon><mat-slider class="colorSlider" max=1 min=0 step=1
-            discrete=false showTickMarks=false>
+        class="theme child"><mat-icon (click)="themeChangeBtnClick(false)">light_mode</mat-icon><mat-slider
+            class="colorSlider" max=1 min=0 step=1 discrete=false showTickMarks=false>
             <input matSliderThumb #slider [value]="darkmode_value" (change)="themeChange($event)">
         </mat-slider><mat-icon (click)="themeChangeBtnClick(true)">brightness_4</mat-icon>
     </div>
     <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen"
         class="title child">
         <mat-expansion-panel
-            [ngClass]="{'panel-expanded': expandedBio === true, 'panel-collapsed' : expandedBio === false }"
-            [expanded]="expandedBio" (click)="setExpand()" [hideToggle]="expandedBio">
+            [ngClass]="{'panel-expanded': expandedBio === true, 'panel-collapsed trek' : expandedBio === false }"
+            [expanded]="expandedBio" (click)="setExpand()">
             <mat-expansion-panel-header>
-                <mat-panel-title>
-                    <span [class.maintitle-dark]="userService.appIsDark()"
+                <mat-panel-title class="title child">
+
+                    <div *ngIf="this.expandedBio" [class.maintitle-dark]="userService.appIsDark()"
                         [class.maintitle-light]="!userService.appIsDark()">
-                        {{title}}
-                    </span>
+                        <div *ngIf="this.expandedBio">
+                            {{title}}
+                        </div>
+                    </div>
+                    <div *ngIf="!this.expandedBio" class="world" [class.maintitle-dark]="userService.appIsDark()"
+                        [class.maintitle-light]="!userService.appIsDark()">
+                        <!-- <div class="trees"></div> -->
+                        <div class="tree tree1"></div>
+                        <div class="tree tree2"></div>
+                        <div class="tree tree3"></div>
+                        <div class="tree tree4"></div>
+                        <div class="tree tree5"></div>
+                        <div class="tree tree6"></div>
+                        <div class="tree tree7"></div>
+                        <div class="tree tree8"></div>
+                        <div class="tree tree9"></div>
+                        <div class="tree tree10"></div>
+                        <div class="tree tree11"></div>
+                        <div class="tree tree12"></div>
+                        <div class="bobarea">
+                            <div class="bob-text">{{bobtext}} <mat-icon>arrow_forward</mat-icon></div>
+                            <div class="bob"></div>
+                        </div>
+                    </div>
                 </mat-panel-title>
             </mat-expansion-panel-header>
             <div class="subtitle" *ngIf="posTerms != ''" [innerHTML]="posTerms"></div>

@@ -4,7 +4,7 @@ import { NavbarComponent } from './shared-components/navbar/navbar.component';
 import { CornerListenerComponent } from './shared-components/corner-listener/corner-listener.component';
 import { MatIcon } from '@angular/material/icon';
 import { BreadcrumbComponent, BreadcrumbItemDirective } from 'xng-breadcrumb';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import { HttpService } from './services/http.service';
 import { version } from '../version';
 import { MatButtonModule } from '@angular/material/button';
@@ -16,8 +16,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { UserService } from './services/user.service';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import {MatSliderModule} from '@angular/material/slider';
-import { NgModel } from '@angular/forms';
+import { MatSliderModule } from '@angular/material/slider';
 
 @Component({
   selector: 'app-root',
@@ -35,7 +34,8 @@ import { NgModel } from '@angular/forms';
     MatTooltipModule,
     MatExpansionModule,
     MatSidenavModule,
-    MatSliderModule
+    MatSliderModule,
+    NgIf
   ],
   providers: [HttpService],
   templateUrl: './app.component.html',
@@ -56,6 +56,7 @@ export class AppComponent implements OnInit, OnDestroy {
   appIsDark = false;
   osIsDark = false;
   darkmode_value = 0; // slider value
+  bobtext = "This is Grumpy Bob. He is going on an adventure..";
 
   constructor(
     private ref: ChangeDetectorRef,
@@ -132,9 +133,9 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   themeChange(event: any) {
-    let slider_value = event.srcElement.value == 0 ? true: false;
+    let slider_value = event.srcElement.value == 0 ? true : false;
     console.log(slider_value);
-    if (slider_value==true) {
+    if (slider_value == true) {
       this.appIsDark = false;
       this.userService.setDarkMode(false);
     } else {
