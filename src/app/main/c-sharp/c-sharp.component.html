@@ -1,298 +1,621 @@
-<div>
-    <mat-card [class.card-dark]="userService.appIsDark()" [class.card-light]="!userService.appIsDark()">
-        <mat-card-header>
-            <mat-card-title>
-                <h1 data-testid="header-title">C#!</h1>
-            </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <div class="commentgrid">
-                <div class="topics">
-                    <dl>
-                        <dt>Why C#?</dt>
-                        <dd>C# continues to evolve but the language is very mature and has good
-                            community
-                            support</dd>
-                        <dt>What is the CLR?</dt>
-                        <dd>CLR is the basic and Virtual Machine component of the .NET
-                            Framework. It
-                            is the run-time environment in the .NET Framework that runs the codes</dd>
-                        <dt>What is managed vs. unmanaged code?</dt>
-                        <dd>Code that executes under the control of
-                            the
-                            runtime
-                            is called managed code. Conversely, code that runs outside the runtime is called
-                            unmanaged
-                            code. COM components, ActiveX interfaces, and Windows API functions are examples
-                            of
-                            unmanaged code.</dd>
-                        <dt>What is idempotency in REST?</dt>
-                        <dd>Idempotency /īdem'pōt(ə)nt/ means that sending
-                            the
-                            same
-                            request multiple
-                            times will produce the same result, without changing the state of the server or
-                            the
-                            resource.</dd>
-                    </dl>
-                    <ul>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Interfaces</mat-panel-title>
-                                    <mat-panel-description>A contract that other people's code must
-                                        meet</mat-panel-description>
-                                </mat-expansion-panel-header>
-                                <dl>
-                                    <dt>What is an interface and how is it used?</dt>
-                                    <dd>Interfaces are a good way of
-                                        specifying
-                                        a
-                                        contract that other people's code must meet. The main point is that interfaces
-                                        is a
-                                        layer of
-                                        abstraction between code and unnecessary details.</dd>
-                                </dl>
-                                An example of a built-in interface is <span class="importantish">IEnumerable</span>.
-                                This interface defines a contract for objects that can
-                                be enumerated over, meaning you
-                                can iterate through their elements.<br><br>
-                                Example:<br>
-                                <div class="code">
-<pre>
-    // Create a list of integers
-    List&lt;int&gt; numbers = new List&lt;int&gt; &#123; 1, 2, 3, 4, 5 &#125;;
+<mat-card [class.card-dark]="userService.appIsDark()" [class.card-light]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">C#!</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                <dl>
+                    <dt>Why C#?</dt>
+                    <dd>C# continues to evolve but the language is very mature and has good
+                        community
+                        support</dd>
+                    <dt>What is the CLR?</dt>
+                    <dd>CLR is the basic and Virtual Machine component of the .NET
+                        Framework. It
+                        is the run-time environment in the .NET Framework that runs the codes</dd>
+                    <dt>What is managed vs. unmanaged code?</dt>
+                    <dd>Code that executes under the control of
+                        the
+                        runtime
+                        is called managed code. Conversely, code that runs outside the runtime is called
+                        unmanaged
+                        code. COM components, ActiveX interfaces, and Windows API functions are examples
+                        of
+                        unmanaged code.</dd>
+                    <dt>What is idempotency in REST?</dt>
+                    <dd>Idempotency /īdem'pōt(ə)nt/ means that sending
+                        the
+                        same
+                        request multiple
+                        times will produce the same result, without changing the state of the server or
+                        the
+                        resource.</dd>
+                </dl>
+                <ul>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Interfaces</mat-panel-title>
+                                <mat-panel-description>A contract that other people's code must
+                                    meet</mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <dl>
+                                <dt>What is an interface and how is it used?</dt>
+                                <dd>Interfaces are a good way of
+                                    specifying
+                                    a
+                                    contract that other people's code must meet. The main point is that interfaces
+                                    is a
+                                    layer of
+                                    abstraction between code and unnecessary details.</dd>
+                            </dl>
+                            <div class="topics">
+                                <ul>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>An example of a built-in interface</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <div>
+                                                An example of a built-in interface is <span
+                                                    class="importantish">IEnumerable</span>.
+                                                This interface defines a contract for objects that can
+                                                be enumerated over, meaning you
+                                                can iterate through their elements.<br><br>
+                                                Example:<br>
+                                                <div class="code">
+                                                    <pre>
+// Create a list of integers
+List&lt;int&gt; numbers = new List&lt;int&gt; &#123; 1, 2, 3, 4, 5 &#125;;
 
-    // Iterate over the list using foreach, which implicitly uses IEnumerable
-    foreach (int number in numbers)
-    &#123;
-        Console.WriteLine(number);
-    &#125;
+// Iterate over the list using foreach, which implicitly uses IEnumerable
+foreach (int number in numbers)
+&#123;
+    Console.WriteLine(number);
+&#125;
 </pre>
-                                        </div>
+                                                </div>
 
-                                        The definition of the class &quot;List&quot; is below and you can see how it inherits IEnumerable enabling this:<br>
-                                        <div class="code">
-<pre>
+                                                The definition of the class &quot;List&quot; is below and you can see
+                                                how it
+                                                inherits IEnumerable enabling this:<br>
+                                                <div class="code">
+                                                    <pre>
 public class List&lt;T&gt; : ICollection&lt;T&gt;, IEnumerable&lt;T&gt;, IEnumerable, IList&lt;T&gt;, IReadOnlyCollection&lt;T&gt;, IReadOnlyList&lt;T&gt;, ICollection, IList
 &#123;
     ...
 &#125;
 </pre>
-                                        </div>
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Access Modifiers</mat-panel-title>
-                                </mat-expansion-panel-header>
-                                All types and type members have an accessibility level. The
-                                accessibility level controls whether they can be used from other code in your
-                                assembly
-                                or other assemblies.
-                                <table>
-                                    <tr>
-                                        <th>Caller's location</th>
-                                        <th>public</th>
-                                        <th>protected internal</th>
-                                        <th>protected</th>
-                                        <th>internal</th>
-                                        <th>protected private</th>
-                                        <th>private</th>
-                                        <th>file</th>
-                                    </tr>
-                                    <tr>
-                                        <td>Within the file</td>
-                                        <td><mat-icon>check</mat-icon></td>
-                                        <td><mat-icon>check</mat-icon></td>
-                                        <td><mat-icon>check</mat-icon></td>
-                                        <td><mat-icon>check</mat-icon></td>
-                                        <td><mat-icon>check</mat-icon></td>
-                                        <td><mat-icon>check</mat-icon></td>
-                                        <td><mat-icon>check</mat-icon></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Within the class</td>
-                                        <td><mat-icon>check</mat-icon></td>
-                                        <td><mat-icon>check</mat-icon></td>
-                                        <td><mat-icon>check</mat-icon></td>
-                                        <td><mat-icon>check</mat-icon></td>
-                                        <td><mat-icon>check</mat-icon></td>
-                                        <td><mat-icon>check</mat-icon></td>
-                                        <td><mat-icon>cancel</mat-icon></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Derived class (same assembly)</td>
-                                        <td><mat-icon>check</mat-icon></td>
-                                        <td><mat-icon>check</mat-icon></td>
-                                        <td><mat-icon>check</mat-icon></td>
-                                        <td><mat-icon>check</mat-icon></td>
-                                        <td><mat-icon>check</mat-icon></td>
-                                        <td><mat-icon>cancel</mat-icon></td>
-                                        <td><mat-icon>cancel</mat-icon></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Non-derived class (same assembly)</td>
-                                        <td><mat-icon>check</mat-icon></td>
-                                        <td><mat-icon>check</mat-icon></td>
-                                        <td><mat-icon>cancel</mat-icon></td>
-                                        <td><mat-icon>check</mat-icon></td>
-                                        <td><mat-icon>cancel</mat-icon></td>
-                                        <td><mat-icon>cancel</mat-icon></td>
-                                        <td><mat-icon>cancel</mat-icon></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Derived class (different assembly)</td>
-                                        <td><mat-icon>check</mat-icon></td>
-                                        <td><mat-icon>check</mat-icon></td>
-                                        <td><mat-icon>check</mat-icon></td>
-                                        <td><mat-icon>cancel</mat-icon></td>
-                                        <td><mat-icon>cancel</mat-icon></td>
-                                        <td><mat-icon>cancel</mat-icon></td>
-                                        <td><mat-icon>cancel</mat-icon></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Non-derived class (different assembly)</td>
-                                        <td><mat-icon>check</mat-icon></td>
-                                        <td><mat-icon>cancel</mat-icon></td>
-                                        <td><mat-icon>cancel</mat-icon></td>
-                                        <td><mat-icon>cancel</mat-icon></td>
-                                        <td><mat-icon>cancel</mat-icon></td>
-                                        <td><mat-icon>cancel</mat-icon></td>
-                                        <td><mat-icon>cancel</mat-icon></td>
-                                    </tr>
-                                </table>
-                                <dl>
-                                    <dt>Derived class</dt>
-                                    <dd>When using inheritance, the inherited class is called the base class, and
-                                        the
-                                        inheriting class is called the derived class.</dd>
-                                    <dt>assembly</dt>
-                                    <dd>An assembly is a .dll or .exe created by compiling one or more .cs
-                                        files in a single compilation.</dd>
-                                </dl>
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Coding Conventions</mat-panel-title>
-                                </mat-expansion-panel-header>
-                                <ul>
-                                    <li>Use PascalCasing for class names and method names.</li>
-                                    <li>Use camelCasing for method arguments and local variables.</li>
-                                    <li>Do not use Hungarian notation.</li>
-                                    <li>Use <span class="important">var</span> when the type is obvious from the
-                                        right side of
-                                        the assignment.</li>
-                                    <li>Use <span class="important">const</span> for fields that are initialized
-                                        once and never
-                                        change.</li>
-                                    <li>Use <span class="important">static</span> for methods that do not access
-                                        instance data.
+                                                </div>
+                                            </div>
+                                        </mat-expansion-panel>
                                     </li>
-                                    <li>Use <span class="important">this</span> for instance fields and methods.
-                                    </li>
-                                    <li>Use <span class="important">string.Empty</span> instead of <span
-                                            class="important">""</span>.</li>
                                     <li>
-                                        Use <span class="important">string.IsNullOrEmpty</span> instead of <span
-                                            class="important">string == null || string == ""</span>.</li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>A class interface looks like this</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <div class="code">
+                                                <pre>
+namespace scratch
+&#123;
+
+    public interface IFruit <span class="comment"><mat-icon>arrow_back</mat-icon> The contract</span>
+    &#123;
+        string Name &#123; get; set; &#125;
+        int Calories &#123; get; set; &#125;
+        bool IsPeelable &#123; get; set; &#125;
+
+        void Eat();
+        void Peel();
+        void Throw();
+    &#125;
+
+    public class Pumpkin : IFruit <span class="comment"><mat-icon>arrow_back</mat-icon> The implementation</span>
+    &#123;
+        private string _name = "Pumpkin";
+        private bool _isPeelable = true;
+        public string Name &#123; get; set; &#125;
+        public int Calories &#123; get; set; &#125;
+        public bool IsPeelable &#123; get; set; &#125;
+
+        public Pumpkin()
+        &#123;
+            Name = _name;
+            IsPeelable = _isPeelable;
+        &#125;
+
+        public void Eat()
+        &#123;
+            Console.WriteLine($"You eat a &#123;Name&#125;");
+        &#125;
+        public void Peel()
+        &#123;
+            if (IsPeelable)
+            &#123;
+                Console.WriteLine($"You peel a &#123;Name&#125;");
+            &#125;
+            else
+            &#123;
+                Console.WriteLine($"You can't peel a &#123;Name&#125;");
+            &#125;
+        &#125;
+
+        public void Throw()
+        &#123;
+            Console.WriteLine($"You throw a &#123;Name&#125;");
+        &#125;
+    &#125;
+
+    public class Strawberry : IFruit
+    &#123;
+        private string _name = "Strawberry";
+        private bool _isPeelable = false;
+        public string Name &#123; get; set; &#125;
+        public int Calories &#123; get; set; &#125;
+        public bool IsPeelable &#123; get; set; &#125;
+
+        public Strawberry()
+        &#123;
+            Name = _name;
+            IsPeelable = _isPeelable;
+        &#125;
+
+        public void Eat()
+        &#123;
+            Console.WriteLine($"You eat a &#123;Name&#125;");
+        &#125;
+
+            public void Peel()
+        &#123;
+            if (IsPeelable)
+            &#123;
+                Console.WriteLine($"You peel a &#123;Name&#125;");
+            &#125;
+            else
+            &#123;
+                Console.WriteLine($"You can't peel a &#123;Name&#125;");
+            &#125;
+        &#125;
+
+        public void Throw()
+        &#123;
+            Console.WriteLine($"You throw a &#123;Name&#125;");
+        &#125;
+    &#125;
+    public class Program <span class="comment"><mat-icon>arrow_back</mat-icon> The consumer</span>
+    &#123;
+        public static void Main()
+        &#123;
+            Pumpkin pumpkin = new();
+            Strawberry strawberry = new();
+
+            pumpkin.Eat();
+            pumpkin.Peel();
+            pumpkin.Throw();
+
+            strawberry.Eat();
+            strawberry.Peel();
+            strawberry.Throw();
+        &#125;
+    &#125;
+&#125;    
+</pre>
+                                            </div><br>
+                                            Running this produces the correct result:<br>
+                                            <div class="code">
+                                                <pre>
+PS C:\src\scratch> .\scratch.exe
+You eat a Pumpkin
+You peel a Pumpkin
+You throw a Pumpkin
+You eat a Strawberry
+You can't peel a Strawberry
+You throw a Strawberry
+</pre>
+                                            </div>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Enforcement</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <div>
+                                                The classes Pumpkin and Strawberry adhere to the contract defined in the
+                                                interface IFruit. This means that they must implement the properties and
+                                                methods defined in the interface.<br><br>Orange does not:<br>
+                                                <div class="code error">
+                                                    <pre>
+public class Orange : IFruit &#123;
+    public Orange() &#123;
+        
+    &#125;
+&#125;
+</pre>
+                                                </div>
+                                                Produces the error:<br>
+                                                <div class="code">
+                                                    <pre>
+C:\src\scratch\Scratch\Program.cs(88,27): error CS0535: 'Orange' does not implement interface member 'IFruit.Name' [C:\src\scratch\Scratch\scratch.csproj]
+C:\src\scratch\Scratch\Program.cs(88,27): error CS0535: 'Orange' does not implement interface member 'IFruit.Calories' [C:\src\scratch\Scratch\scratch.csproj]
+C:\src\scratch\Scratch\Program.cs(88,27): error CS0535: 'Orange' does not implement interface member 'IFruit.IsPeelable' [C:\src\scratch\Scratch\scratch.csproj]
+C:\src\scratch\Scratch\Program.cs(88,27): error CS0535: 'Orange' does not implement interface member 'IFruit.Eat()' [C:\src\scratch\Scratch\scratch.csproj]
+C:\src\scratch\Scratch\Program.cs(88,27): error CS0535: 'Orange' does not implement interface member 'IFruit.Peel()' [C:\src\scratch\Scratch\scratch.csproj]
+C:\src\scratch\Scratch\Program.cs(88,27): error CS0535: 'Orange' does not implement interface member 'IFruit.Throw()' [C:\src\scratch\Scratch\scratch.csproj]
+</pre>
+                                                </div>
+                                            </div>
+                                        </mat-expansion-panel>
+                                    </li>
                                 </ul>
+                            </div>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Abstract Classes</mat-panel-title>
+                                <mat-panel-description>Abstract classes are classes that cannot be
+                                    instantiated directly but can contain shared code</mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <div>
+                                Notice that in the interface example, we still have duplicate code in the "Peel"
+                                methods; it's not great. We cannot fix this in the interface directly since interfaces
+                                cannot ONLY define a contract, not the implementation details. Instead, we could use an
+                                abstract class as well for shared code:
+                                <div class="code">
+                                    <pre>
+namespace scratch
+&#123;
+
+    public interface IFruit
+    &#123;
+        string Name &#123; get; set; &#125;
+        int Calories &#123; get; set; &#125;
+        bool IsPeelable &#123; get; set; &#125;
+
+        void Eat();        
+        void Peel(); <span class="comment"><mat-icon>arrow_back</mat-icon> This is the method we want to share</span>
+        void Throw();
+    &#125;
+
+    public abstract class Fruit : IFruit <span class="comment"><mat-icon>arrow_back</mat-icon> An abstract class where we can have shared implementation code</span>
+    &#123;
+
+    public abstract void Peel(); <span class="comment"><mat-icon>arrow_back</mat-icon> This is the method we want to share</span>
+
+    protected static void PeelInternal(bool isPeelable, string name) <span class="comment"><mat-icon>arrow_back</mat-icon> The shared code</span>
+    &#123;
+        if (isPeelable)
+        &#123;
+            Console.WriteLine($"You peel a &#123;name&#125;.");
+        &#125;
+        else
+        &#123;
+            Console.WriteLine($"You cannot peel a &#123;name&#125;!");
+        &#125;
+    &#125;
+    &#125;
+
+    public class Pumpkin : Fruit, IFruit
+    &#123;
+        private string _name = "Pumpkin";
+        private bool _isPeelable = true;
+        public string Name &#123; get; set; &#125;
+        public int Calories &#123; get; set; &#125;
+        public bool IsPeelable &#123; get; set; &#125;
+
+        public Pumpkin()
+        &#123;
+            Name = _name;
+            IsPeelable = _isPeelable;
+        &#125;
+
+        public void Eat()
+        &#123;
+            Console.WriteLine($"You eat a &#123;Name&#125;");
+        &#125;
+
+        public override void Peel() <span class="comment"><mat-icon>arrow_back</mat-icon> Override the peel method so we can pass extra parameters</span>
+        &#123;
+            PeelInternal(_isPeelable, _name);
+        &#125;
+
+        public void Throw()
+        &#123;
+            Console.WriteLine($"You throw a &#123;Name&#125;");
+        &#125;
+    &#125;
+
+    public class Strawberry : Fruit, IFruit
+    &#123;
+        private string _name = "Strawberry";
+        private bool _isPeelable = false;
+        public string Name &#123; get; set; &#125;
+        public int Calories &#123; get; set; &#125;
+        public bool IsPeelable &#123; get; set; &#125;
+
+        public Strawberry()
+        &#123;
+            Name = _name;
+            IsPeelable = _isPeelable;
+        &#125;
+
+        public void Eat()
+        &#123;
+            Console.WriteLine($"You eat a &#123;Name&#125;");
+        &#125;
+
+        public override void Peel() <span class="comment"><mat-icon>arrow_back</mat-icon> Override the peel method so we can pass extra parameters</span>
+        &#123;
+            PeelInternal(_isPeelable, _name);
+        &#125;
+
+        public void Throw()
+        &#123;
+            Console.WriteLine($"You throw a &#123;Name&#125;");
+        &#125;
+    &#125;
+
+    public class Program
+    &#123;
+        public static void Main()
+        &#123;
+            Pumpkin pumpkin = new();
+            Strawberry strawberry = new();
+
+            pumpkin.Eat();
+            pumpkin.Peel();
+            pumpkin.Throw();
+
+            strawberry.Eat();
+            strawberry.Peel();
+            strawberry.Throw();
+        &#125;
+    &#125;
+&#125;    
+</pre>
+                                </div>
+                            </div>
+                            <span class="importantish">Sexy code..</span>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Access Modifiers</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            All types and type members have an accessibility level. The
+                            accessibility level controls whether they can be used from other code in your
+                            assembly
+                            or other assemblies.
+                            <table>
+                                <tr>
+                                    <th>Caller's location</th>
+                                    <th>public</th>
+                                    <th>protected internal</th>
+                                    <th>protected</th>
+                                    <th>internal</th>
+                                    <th>protected private</th>
+                                    <th>private</th>
+                                    <th>file</th>
+                                </tr>
+                                <tr>
+                                    <td>Within the file</td>
+                                    <td><mat-icon>check</mat-icon></td>
+                                    <td><mat-icon>check</mat-icon></td>
+                                    <td><mat-icon>check</mat-icon></td>
+                                    <td><mat-icon>check</mat-icon></td>
+                                    <td><mat-icon>check</mat-icon></td>
+                                    <td><mat-icon>check</mat-icon></td>
+                                    <td><mat-icon>check</mat-icon></td>
+                                </tr>
+                                <tr>
+                                    <td>Within the class</td>
+                                    <td><mat-icon>check</mat-icon></td>
+                                    <td><mat-icon>check</mat-icon></td>
+                                    <td><mat-icon>check</mat-icon></td>
+                                    <td><mat-icon>check</mat-icon></td>
+                                    <td><mat-icon>check</mat-icon></td>
+                                    <td><mat-icon>check</mat-icon></td>
+                                    <td><mat-icon>cancel</mat-icon></td>
+                                </tr>
+                                <tr>
+                                    <td>Derived class (same assembly)</td>
+                                    <td><mat-icon>check</mat-icon></td>
+                                    <td><mat-icon>check</mat-icon></td>
+                                    <td><mat-icon>check</mat-icon></td>
+                                    <td><mat-icon>check</mat-icon></td>
+                                    <td><mat-icon>check</mat-icon></td>
+                                    <td><mat-icon>cancel</mat-icon></td>
+                                    <td><mat-icon>cancel</mat-icon></td>
+                                </tr>
+                                <tr>
+                                    <td>Non-derived class (same assembly)</td>
+                                    <td><mat-icon>check</mat-icon></td>
+                                    <td><mat-icon>check</mat-icon></td>
+                                    <td><mat-icon>cancel</mat-icon></td>
+                                    <td><mat-icon>check</mat-icon></td>
+                                    <td><mat-icon>cancel</mat-icon></td>
+                                    <td><mat-icon>cancel</mat-icon></td>
+                                    <td><mat-icon>cancel</mat-icon></td>
+                                </tr>
+                                <tr>
+                                    <td>Derived class (different assembly)</td>
+                                    <td><mat-icon>check</mat-icon></td>
+                                    <td><mat-icon>check</mat-icon></td>
+                                    <td><mat-icon>check</mat-icon></td>
+                                    <td><mat-icon>cancel</mat-icon></td>
+                                    <td><mat-icon>cancel</mat-icon></td>
+                                    <td><mat-icon>cancel</mat-icon></td>
+                                    <td><mat-icon>cancel</mat-icon></td>
+                                </tr>
+                                <tr>
+                                    <td>Non-derived class (different assembly)</td>
+                                    <td><mat-icon>check</mat-icon></td>
+                                    <td><mat-icon>cancel</mat-icon></td>
+                                    <td><mat-icon>cancel</mat-icon></td>
+                                    <td><mat-icon>cancel</mat-icon></td>
+                                    <td><mat-icon>cancel</mat-icon></td>
+                                    <td><mat-icon>cancel</mat-icon></td>
+                                    <td><mat-icon>cancel</mat-icon></td>
+                                </tr>
+                            </table>
+                            <dl>
+                                <dt>Derived class</dt>
+                                <dd>When using inheritance, the inherited class is called the base class, and
+                                    the
+                                    inheriting class is called the derived class.</dd>
+                                <dt>assembly</dt>
+                                <dd>An assembly is a .dll or .exe created by compiling one or more .cs
+                                    files in a single compilation.</dd>
+                            </dl>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Coding Conventions</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li>Use PascalCasing for class names and method names.</li>
+                                <li>Use camelCasing for method arguments and local variables.</li>
+                                <li>Do not use Hungarian notation.</li>
+                                <li>Use <span class="important">var</span> when the type is obvious from the
+                                    right side of
+                                    the assignment.</li>
+                                <li>Use <span class="important">const</span> for fields that are initialized
+                                    once and never
+                                    change.</li>
+                                <li>Use <span class="important">static</span> for methods that do not access
+                                    instance data.
+                                </li>
+                                <li>Use <span class="important">this</span> for instance fields and methods.
+                                </li>
+                                <li>Use <span class="important">string.Empty</span> instead of <span
+                                        class="important">""</span>.</li>
+                                <li>
+                                    Use <span class="important">string.IsNullOrEmpty</span> instead of <span
+                                        class="important">string == null || string == ""</span>.</li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Nuget</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li>Forcefully reinstall a package (for example, if you need to get
+                                    <span class="file">system.web.http.dll</span>):<br>
+                                    From within VS Package Manager Console:
+                                    <span class="code">update-package -reinstall
+                                        Microsoft.AspNet.WebApi.Core</span>
+                                </li>
+                                <li>Get latest version of Nuget.exe: <span class="code">./nuget.exe
+                                        update -self</span></li>
+                                <li>You get a message like this: "This project references NuGet
+                                    package(s) that are missing
+                                    on this computer."<br>
+                                    <span class="code">./nuget.exe restore &lt;SOLUTION&gt;.sln</span>
+                                </li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Entity Framework</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <div>
+                                Eager Vs. Lazy Loading<br><br>
+                                In one-to-many relations that you sure are used every where with main
+                                entity.
+                                Generally,
+                                use eager loading When relations are not too complex and eager loading
+                                will reduce
+                                further queries on server.
+                                When to use lazy loading<br><br>
+                                Almost on every "collection side" of one-to-many relations. like
+                                Articles of User or
+                                Products of a Category
+                                You exactly know that you will not need a property instantly.
+                                <dl>
+                                    <dt>One-to-one relationships</dt>
+                                    <dd>one record in one table with a single record in the other table.
+                                    </dd>
+                                    <dt>One-to-many</dt>
+                                    <dd>A bidirectional relationship (can) exists. TableA may have a
+                                        foreign key
+                                        into
+                                        tableB, and tableB may have a foreign key into the associated
+                                        record in
+                                        tableA.
+                                    </dd>
+                                </dl>
+                            </div>
+                        </mat-expansion-panel>
+                    </li>
+                </ul>
+                <div>.NET Core-Specific
+                    <ul>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Installation</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ol>
+                                    <li>Download <a href="https://dotnet.microsoft.com/">.NET Core SDK</a></li>
+                                    <li>Install it</li>
+                                </ol>
                             </mat-expansion-panel>
                         </li>
                         <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
-                                    <mat-panel-title>Nuget</mat-panel-title>
+                                    <mat-panel-title>Create new project</mat-panel-title>
                                 </mat-expansion-panel-header>
-                                <ul>
-                                    <li>Forcefully reinstall a package (for example, if you need to get
-                                        <span class="file">system.web.http.dll</span>):<br>
-                                        From within VS Package Manager Console:
-                                        <span class="code">update-package -reinstall
-                                            Microsoft.AspNet.WebApi.Core</span>
-                                    </li>
-                                    <li>Get latest version of Nuget.exe: <span class="code">./nuget.exe
-                                            update -self</span></li>
-                                    <li>You get a message like this: "This project references NuGet
-                                        package(s) that are missing
-                                        on this computer."<br>
-                                        <span class="code">./nuget.exe restore &lt;SOLUTION&gt;.sln</span>
-                                    </li>
-                                </ul>
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Entity Framework</mat-panel-title>
-                                </mat-expansion-panel-header>
-                                <div>
-                                    Eager Vs. Lazy Loading<br><br>
-                                    In one-to-many relations that you sure are used every where with main
-                                    entity.
-                                    Generally,
-                                    use eager loading When relations are not too complex and eager loading
-                                    will reduce
-                                    further queries on server.
-                                    When to use lazy loading<br><br>
-                                    Almost on every "collection side" of one-to-many relations. like
-                                    Articles of User or
-                                    Products of a Category
-                                    You exactly know that you will not need a property instantly.
-                                    <dl>
-                                        <dt>One-to-one relationships</dt>
-                                        <dd>one record in one table with a single record in the other table.
-                                        </dd>
-                                        <dt>One-to-many</dt>
-                                        <dd>A bidirectional relationship (can) exists. TableA may have a
-                                            foreign key
-                                            into
-                                            tableB, and tableB may have a foreign key into the associated
-                                            record in
-                                            tableA.
-                                        </dd>
-                                    </dl>
+                                <span class="code">dotnet new console -o Scratch</span>
+                                <br>Creates a new console app in a folder called Scratch with a csproj file of:
+                                <div class="code">
+                                    <pre>
+&lt;Project Sdk="Microsoft.NET.Sdk"&gt;
+    &lt;PropertyGroup&gt;
+        &lt;OutputType&gt;Exe&lt;/OutputType&gt;
+        &lt;TargetFramework&gt;net8.0&lt;/TargetFramework&gt;
+        &lt;ImplicitUsings&gt;enable&lt;/ImplicitUsings&gt;
+        &lt;Nullable&gt;enable&lt;/Nullable&gt;
+    &lt;/PropertyGroup&gt;
+&lt;/Project&gt;                                              
+</pre>
                                 </div>
                             </mat-expansion-panel>
                         </li>
-                    </ul>
-                    <div>.NET Core-Specific
-                        <ul>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Installation</mat-panel-title>
-                                    </mat-expansion-panel-header>
-                                    <ol>
-                                        <li>Download <a href="https://dotnet.microsoft.com/">.NET Core SDK</a></li>
-                                        <li>Install it</li>
-                                    </ol>
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Work with JSON</mat-panel-title>
-                                    </mat-expansion-panel-header>
-                                    Since version 3.0.0, ASP.NET Core introduces a new serializer System.Text.Json (STJ)
-                                    out-of-the-box to replace Newtonsoft
-                                    <br>e.g.
-                                    <div class="code">string serializedObject = JsonSerializer.Serialize(x);</div>
-                                    <br>Vs.<br>
-                                    <div class="code">string serializedObject = JsonConvert.SerializeObject(x);</div>
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Change API Port</mat-panel-title>
-                                    </mat-expansion-panel-header>
-                                    The port can be changed in properties\launchsettings.json
-                                    <div class="code">
-                                        <pre>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Work with JSON</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                Since version 3.0.0, ASP.NET Core introduces a new serializer System.Text.Json (STJ)
+                                out-of-the-box to replace Newtonsoft
+                                <br>e.g.
+                                <div class="code">string serializedObject = JsonSerializer.Serialize(x);</div>
+                                <br>Vs.<br>
+                                <div class="code">string serializedObject = JsonConvert.SerializeObject(x);</div>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Change API Port</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                The port can be changed in properties\launchsettings.json
+                                <div class="code">
+                                    <pre>
 &#123;
     "$schema": "http://json.schemastore.org/launchsettings.json",
     "iisSettings": &#123;
@@ -325,24 +648,24 @@ public class List&lt;T&gt; : ICollection&lt;T&gt;, IEnumerable&lt;T&gt;, IEnumer
     &#125;
 &#125;                                      
 </pre>
-                                    </div>
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Host a API</mat-panel-title>
-                                    </mat-expansion-panel-header>
-                                    <div>
-                                        <h3>Create a new project web api within VS Code (using an API Controller, not
-                                            minimial API - see
-                                            below)</h3>
-                                        <ul>
-                                            <li>Within your project folder, create a "Controllers" folder
-                                                <ul>
-                                                    <li>Add <span class=file>MainController.cs</span>
-                                                        <div class="code">
-                                                            <pre>
+                                </div>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Host a API</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <div>
+                                    <h3>Create a new project web api within VS Code (using an API Controller, not
+                                        minimial API - see
+                                        below)</h3>
+                                    <ul>
+                                        <li>Within your project folder, create a "Controllers" folder
+                                            <ul>
+                                                <li>Add <span class=file>MainController.cs</span>
+                                                    <div class="code">
+                                                        <pre>
 namespace NehsaNet.Controllers
 &#123;
     [ApiController]
@@ -359,12 +682,12 @@ namespace NehsaNet.Controllers
     &#125;
 &#125;
                                                             </pre>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        Update <span class=file>Program.cs</span> to use it
-                                                        <div class="code">
-                                                            <pre>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    Update <span class=file>Program.cs</span> to use it
+                                                    <div class="code">
+                                                        <pre>
 internal class Program
 &#123;
     private static void Main(string[] args)
@@ -378,23 +701,23 @@ internal class Program
     &#125;
 &#125;
 </pre>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Minimial API Example</mat-panel-title>
-                                    </mat-expansion-panel-header>
-                                    this style seems to be a pattern nowadays. I don't like it. It's
-                                    difficult to read and hard to modify.
-                                    <div class="code">
-                                        <pre>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Minimial API Example</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                this style seems to be a pattern nowadays. I don't like it. It's
+                                difficult to read and hard to modify.
+                                <div class="code">
+                                    <pre>
 app.MapGet("/v1/quote", [SwaggerOperation(
 Summary = "Returns a single quote",
 Description = "A random quote is returned.  Because.")]
@@ -406,9 +729,9 @@ Description = "A random quote is returned.  Because.")]
 .WithName("Quotes")
 .WithOpenApi();
 </pre>
-                                    </div>I much prefer this for readability:
-                                    <div class="code">
-                                        <pre>
+                                </div>I much prefer this for readability:
+                                <div class="code">
+                                    <pre>
 namespace NehsaNet.Controllers
 &#123;
     [ApiController]
@@ -425,20 +748,20 @@ namespace NehsaNet.Controllers
     &#125;
 &#125;             
     </pre>
-                                    </div>
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Configure CORS Support</mat-panel-title>
-                                    </mat-expansion-panel-header>
-                                    <ul>
-                                        <li>
+                                </div>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Configure CORS Support</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>
 
-                                            Within <span class=file>program.cs</span>:
-                                            <div class="code">
-                                                <pre>
+                                        Within <span class=file>program.cs</span>:
+                                        <div class="code">
+                                            <pre>
     var  customOrigins = "_customOrigins";
 
     builder.Services.AddCors(options =>
@@ -451,11 +774,11 @@ namespace NehsaNet.Controllers
             &#125;);
     &#125;);
 </pre>
-                                            </div>
-                                        </li>
-                                        <li>Use it:
-                                            <div class="code">
-                                                <pre>
+                                        </div>
+                                    </li>
+                                    <li>Use it:
+                                        <div class="code">
+                                            <pre>
 if (app.Environment.IsDevelopment())
 &#123;
     app.UseSwagger();
@@ -463,19 +786,19 @@ if (app.Environment.IsDevelopment())
     app.UseCors(customOrigins); <span class="comment"><-- Here</span>
 &#125;
 </pre>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Configure Swagger Support</mat-panel-title>
-                                    </mat-expansion-panel-header>
-                                    <div>
-                                        <div class="code">
-                                            <pre>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Configure Swagger Support</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <div>
+                                    <div class="code">
+                                        <pre>
 internal class Program
 &#123;
     private static void Main(string[] args)
@@ -489,36 +812,36 @@ internal class Program
     &#125;
 &#125;
 </pre>
-                                            <div>
-                                                <h4>Example:</h4>
-                                                <div class="grid">
-                                                    <div>
-                                                        Swagger UI
-                                                        <iframe src="https://api.nehsa.net/swagger"
-                                                            title="OpenAPI Documenation"></iframe>
-                                                    </div>
-                                                    <div>
-                                                        swagger.json
-                                                        <iframe src="https://api.nehsa.net/swagger/v1/swagger.json"
-                                                            title="swagger.json file"></iframe>
-                                                    </div>
+                                        <div>
+                                            <h4>Example:</h4>
+                                            <div class="grid">
+                                                <div>
+                                                    Swagger UI
+                                                    <iframe src="https://api.nehsa.net/swagger"
+                                                        title="OpenAPI Documenation"></iframe>
+                                                </div>
+                                                <div>
+                                                    swagger.json
+                                                    <iframe src="https://api.nehsa.net/swagger/v1/swagger.json"
+                                                        title="swagger.json file"></iframe>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Configure logging</mat-panel-title>
-                                    </mat-expansion-panel-header>
+                                </div>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Configure logging</mat-panel-title>
+                                </mat-expansion-panel-header>
 
-                                    <ul>
-                                        <li>
-                                            <span class=file>Program.cs</span>
-                                            <div class="code">
-                                                <pre>
+                                <ul>
+                                    <li>
+                                        <span class=file>Program.cs</span>
+                                        <div class="code">
+                                            <pre>
 internal class Program
 &#123;
     private static void Main(string[] args)
@@ -536,12 +859,12 @@ internal class Program
     &#125;
 &#125;
 </pre>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <span class=file>appsettings.json.cs</span>
-                                            <div class="code">
-                                                <pre>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class=file>appsettings.json.cs</span>
+                                        <div class="code">
+                                            <pre>
 "Logging": &#123;
     "LogLevel": &#123;
         "Default": "Debug",
@@ -559,20 +882,20 @@ internal class Program
     &#125;
 &#125;           
 </pre>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Compiling Source</mat-panel-title>
-                                    </mat-expansion-panel-header>
-                                    <ol>
-                                        <li>Create <span class="file">.vscode\tasks.json</span>
-                                            <div class="code">
-                                                <pre>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Compiling Source</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ol>
+                                    <li>Create <span class="file">.vscode\tasks.json</span>
+                                        <div class="code">
+                                            <pre>
 &#123;
     "version": "2.0.0",
     "tasks": [
@@ -616,11 +939,11 @@ internal class Program
     ]
 &#125;
 </pre>
-                                            </div>
-                                        </li>
-                                        <li>Create <span class="file">.vscode\launch.json</span>
-                                            <div class="code">
-                                                <pre>
+                                        </div>
+                                    </li>
+                                    <li>Create <span class="file">.vscode\launch.json</span>
+                                        <div class="code">
+                                            <pre>
 &#123;
     "version": "0.2.0",
     "configurations": [
@@ -648,18 +971,18 @@ internal class Program
     ]    
 &#125;
 </pre>
-                                            </div>
-                                        </li>
-                                    </ol>
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Healthchecks!</mat-panel-title>
-                                    </mat-expansion-panel-header>
-                                    <div class="code">
-                                        <pre>
+                                        </div>
+                                    </li>
+                                </ol>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Healthchecks!</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <div class="code">
+                                    <pre>
 internal class Program
 &#123;
     private static void Main(string[] args)
@@ -672,17 +995,16 @@ internal class Program
     &#125;
 &#125;
 </pre>
-                                    </div>
-                                    Access via /health:<br>
-                                    <img mat-card-image src="../../../assets/images/healthcheck.png"
-                                        alt="screenshot of api returning health" />
-                                </mat-expansion-panel>
-                            </li>
-                        </ul>
-                    </div>
+                                </div>
+                                Access via /health:<br>
+                                <img mat-card-image src="../../../assets/images/healthcheck.png"
+                                    alt="screenshot of api returning health" />
+                            </mat-expansion-panel>
+                        </li>
+                    </ul>
                 </div>
-                <div><app-comment></app-comment></div>
             </div>
-        </mat-card-content>
-    </mat-card>
-</div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>
