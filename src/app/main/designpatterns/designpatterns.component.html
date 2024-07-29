@@ -380,25 +380,99 @@ pass
                         </mat-expansion-panel>
                     </li>
                     <li>
-                        <mat-expansion-panel>
+                        <mat-expansion-panel expanded>
                             <mat-expansion-panel-header>
-                                <mat-panel-title>Sequence Diagrams!</mat-panel-title>
+                                <mat-panel-title>Diagramming!</mat-panel-title>
                                 <mat-panel-subtitle>UML, OH MY!</mat-panel-subtitle>
                             </mat-expansion-panel-header>
-                            Sequence diagrams are a type of UML diagram that shows how objects interact in a time
-                            period. They are used to visualize the interactions between objects in a system.
+                            <ul>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>PlantUML</mat-panel-title>
+                                            <mat-panel-subtitle>PlantUML is a tool that allows you to create
+                                                diagrams using a text-based language.</mat-panel-subtitle>
+                                        </mat-expansion-panel-header>
+                                        <ul>
+                                            <li> PlantUML allows defining UML diagrams, some options of which
+                                                include:<br>
+                                                <dl>
+                                                    <dt>Class Diagram</dt>
+                                                    <dd>Class diagrams are a type of UML diagram that shows the
+                                                        structure of a
+                                                        system by
+                                                        defining the classes, attributes, and methods of the system.
+                                                    </dd>
+                                                    <dt>Sequence Diagram</dt>
+                                                    <dd>Sequence diagrams are a type of UML diagram that shows how
+                                                        objects
+                                                        interact in a time
+                                                        period. They are used to visualize the interactions between
+                                                        objects in a
+                                                        system.</dd>
+                                                    <dt>Activity Diagram</dt>
+                                                    <dd>Activity diagrams are a type of UML diagram that shows the flow
+                                                        of
+                                                        activities in a
+                                                        system. They are used to visualize the steps in a process or
+                                                        workflow.</dd>
+                                                </dl>
+                                            </li>
+                                            <li>Elements of a PlantUML document:<br>
+                                                <dl>
+                                                    <dt>&#64;startuml/&#64;enduml</dt>
+                                                    <dd>These tags define the start and end of the PlantUML
+                                                        document.</dd>
+                                                    <dt>actor</dt>
+                                                    <dd>Defines an actor in a use case diagram. e.g. User</dd>
+                                                    <dt>participant </dt>
+                                                    <dd>Defines a participant in a sequence diagram. e.g. API, WEBSITE, DATABASE</dd>
+                                                    <dt>-></dt>
+                                                    <dd>Defines a message between participants in a sequence diagram.
+                                                        e.g.
+                                                        User -> Website: "About Me"</dd>
+                                                    <dt>alt</dt>
+                                                    <dd>Defines an alternative flow in a sequence diagram. e.g. alt API
+                                                        Available</dd>
+                                                    <dt>else</dt>
+                                                    <dd>Defines an alternative flow in a sequence diagram. e.g. else API
+                                                        Unavailable</dd>
+                                                    <dt>activate/deactivate</dt>
+                                                    <dd>Activates or deactivates a participant in a sequence diagram.
+                                                        e.g.
+                                                        activate API</dd>
+                                                    <dt>partition</dt>
+                                                    <dd>Defines a partition in a sequence diagram. e.g. partition
+                                                        Website</dd>
+                                                    <dt>while</dt>
+                                                    <dd>Defines a loop in a sequence diagram. e.g. while API Available</dd>
+                                                </dl>
+                                            </li>
+                                        </ul>
+                                    </mat-expansion-panel>
+                                </li>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>Sequence diagrams</mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <span class="importantish">Sequence diagrams</span> are a type of UML diagram
+                                        that shows how objects interact in a time
+                                        period. They are used to visualize the interactions between objects in a system.
 
-                            <div>
-                                <ul>
-                                    <li>
-                                        <mat-expansion-panel>
-                                            <mat-expansion-panel-header>
-                                                <mat-panel-title>Initial interaction on www.nehsa.net</mat-panel-title>
-                                            </mat-expansion-panel-header>
-                                            For example, this is in the initial interaction when you visit this website
-                                            and go to the About Me page:
-                                            <div class="code">
-                                                <pre>
+                                        <div>
+                                            <ul>
+                                                <li>
+                                                    <mat-expansion-panel>
+                                                        <mat-expansion-panel-header>
+                                                            <mat-panel-title>Initial interaction on
+                                                                www.nehsa.net</mat-panel-title>
+                                                        </mat-expansion-panel-header>
+                                                        For example, this is in the initial interaction when you visit
+                                                        this website
+                                                        and go to the About Me page:
+                                                        <div class="code">
+                                                            <pre>
 &#64;startuml
 actor User
 participant Website
@@ -433,26 +507,30 @@ Website -> User: Display Information
 deactivate Website
 &#64;enduml
 </pre>
-                                            </div><br><br>
-                                            Resulting in the following diagram (svg image created on PlantUml.com):<br>
-                                            <img src="../assets/images/uml_example.svg" alt="Sequence Diagram">
-                                        </mat-expansion-panel>
-                                    </li>
-                                    <li>
-                                        <mat-expansion-panel>
-                                            <mat-expansion-panel-header>
-                                                <mat-panel-title>Advanced</mat-panel-title>
-                                                <mat-panel-description>Data flow, Parameter inputs, Error flow, Return
-                                                    values</mat-panel-description>
-                                            </mat-expansion-panel-header>
-                                            <ul>
+                                                        </div><br><br>
+                                                        Resulting in the following diagram (svg image created on
+                                                        PlantUml.com):<br>
+                                                        <img src="../assets/images/uml_example.svg"
+                                                            alt="Sequence Diagram">
+                                                    </mat-expansion-panel>
+                                                </li>
                                                 <li>
                                                     <mat-expansion-panel>
                                                         <mat-expansion-panel-header>
-                                                            <mat-panel-title>Parameters and data flow</mat-panel-title>
+                                                            <mat-panel-title>Advanced</mat-panel-title>
+                                                            <mat-panel-description>Data flow, Parameter inputs, Error
+                                                                flow, Return
+                                                                values</mat-panel-description>
                                                         </mat-expansion-panel-header>
-                                                        <div class="code">
-                                                            <pre>
+                                                        <ul>
+                                                            <li>
+                                                                <mat-expansion-panel>
+                                                                    <mat-expansion-panel-header>
+                                                                        <mat-panel-title>Parameters and data
+                                                                            flow</mat-panel-title>
+                                                                    </mat-expansion-panel-header>
+                                                                    <div class="code">
+                                                                        <pre>
 &#64;startuml
 actor User
 participant Website
@@ -489,19 +567,20 @@ Website -> User: Display Information
 deactivate Website
 &#64;enduml
 </pre>
-                                                        </div><br><br>
-                                                        Resulting in the following diagram (svg image created on PlantUml.com):<br>
-                                                        <img src="../assets/images/uml_example2.svg"
-                                                            alt="Sequence Diagram">
-                                                    </mat-expansion-panel>
-                                                </li>
-                                                <li>
-                                                    <mat-expansion-panel>
-                                                        <mat-expansion-panel-header>
-                                                            <mat-panel-title>Error Flow</mat-panel-title>
-                                                        </mat-expansion-panel-header>
-                                                        <div class="code">
-<pre>
+                                                                    </div><br><br>
+                                                                    Resulting in the following diagram (svg image
+                                                                    created on PlantUml.com):<br>
+                                                                    <img src="../assets/images/uml_example2.svg"
+                                                                        alt="Sequence Diagram">
+                                                                </mat-expansion-panel>
+                                                            </li>
+                                                            <li>
+                                                                <mat-expansion-panel>
+                                                                    <mat-expansion-panel-header>
+                                                                        <mat-panel-title>Error Flow</mat-panel-title>
+                                                                    </mat-expansion-panel-header>
+                                                                    <div class="code">
+                                                                        <pre>
 &#64;startuml
 actor User
 participant Website
@@ -556,18 +635,77 @@ Website -> User: Display Information
 deactivate Website
 &#64;enduml
 </pre>
-                                                        </div><br><br>
-                                                        Resulting in the following diagram (svg image created on PlantUml.com):<br>
-                                                        <img src="../assets/images/uml_example3.svg"
-                                                            alt="Sequence Diagram">
+                                                                    </div><br><br>
+                                                                    Resulting in the following diagram (svg image
+                                                                    created on PlantUml.com):<br>
+                                                                    <img src="../assets/images/uml_example3.svg"
+                                                                        alt="Sequence Diagram">
+                                                                </mat-expansion-panel>
+                                                            </li>
+                                                        </ul>
                                                     </mat-expansion-panel>
                                                 </li>
                                             </ul>
-                                        </mat-expansion-panel>
-                                    </li>
-                                </ul>
+                                        </div>
+                                    </mat-expansion-panel>
+                                </li>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>Class diagrams</mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <span class="importantish">Class diagrams</span> visually show the relationship between class objects
+                                        <div class="code">
+<pre>
+&#64;startuml
+class Player&#123;
+    - eye-color: string
+    - hair-color: string
+    - hair_length: int
+    - age: int
+    - experience: int
+    - race: Race
+    - class: Class
 
-                            </div>
+&#125;
+
+class Stats&#123;
+    - strngth: int
+    - intelligence: int
+    - wisdom: int
+&#125;
+class Race&#123;
+    - name: string
+    - description: string
+    - pointy_ears: boolean
+    - race_stats: Stats
+&#125;
+
+Player-- Race: Elf
+Race--Stats: Race-specific stats
+
+class Class&#123;
+    - name: String
+    - description: String
+    - class_stats: Stats
+&#125;
+Class--Stats: class-specific stats
+
+
+
+Player-- Class: Warrior
+&#64;enduml
+</pre>
+                                                                </div>
+                                                                <br><br>
+                                                                Resulting in the following diagram (svg image created on
+                                                                PlantUml.com):<br>
+                                                                <img src="../assets/images/uml_class_diagram.svg"
+                                                                    alt="Sequence Diagram">   
+
+                                    </mat-expansion-panel>
+                                </li>
+                            </ul>
                         </mat-expansion-panel>
                     </li>
                 </ul>
