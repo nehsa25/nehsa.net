@@ -56,7 +56,7 @@ export class AppComponent implements OnInit, OnDestroy {
   appIsDark = false;
   osIsDark = false;
   darkmode_value = 0; // slider value
-  bobtext = "This is Grumpy Bob. He is going on an adventure..";
+  bobtext = "This is Timoth&eacute;e. He is going on an adventure..";
 
   constructor(
     private ref: ChangeDetectorRef,

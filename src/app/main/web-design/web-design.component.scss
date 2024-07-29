@@ -1,3 +1,11 @@
+.card {
+    z-index: 200;
+}
+
+.topics {
+    z-index: 200;
+}
+
 .example-grid {
     display: grid;
     grid-template-columns: 100%;
@@ -17,7 +25,7 @@ table {
 
 .example>div {
     background-color: teal;
-    width: 250px; 
+    width: 250px;
     margin: 0 75px;
 }
 
@@ -47,4 +55,250 @@ table {
     -webkit-text-stroke: .5px white;
     font-size: 2rem;
     line-height: 1.5;
+}
+
+/* balls */
+.ball-container {
+    height: 600px;
+    width: 300px;
+    border: 1px solid crimson;
+    position: relative;
+    background-color: #999;
+}
+
+.ball {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.ball1 {
+    background-color: maroon;
+    border: 3px solid lime;
+    animation: bounce 5s infinite cubic-bezier(0.25, 0.8, 0.25, 0.2);
+    position: absolute;
+    bottom: 0px;
+    left: 50px;
+}
+
+.ball2 {
+    background-color: navy;
+    border: 3px dashed orange;
+    animation: bounce 5s infinite cubic-bezier(0.4, 0, 0.2, 1);
+    position: absolute;
+    bottom: 0px;
+    left: 100px;
+}
+
+.ball3 {
+    background-color: purple;
+    border: 3px dotted yellow;
+    animation: bounce 5s infinite cubic-bezier(0.4, 0.1, 0.8, 1);
+    position: absolute;
+    bottom: 0px;
+    left: 150px;
+}
+
+.ball4 {
+    background-color: teal;
+    border: 3px double fuchsia;
+    animation: bounce 5s infinite cubic-bezier(0.1, 1, 0.9, 0);
+    position: absolute;
+    bottom: 0px;
+    left: 200px;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-550px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* rain */
+.rain-container {
+    height: 300px;
+    width: 300px;
+    border: 1px solid crimson;
+    position: relative;
+    background-color: #999;
+    z-index: 101;
+}
+
+.spin-container {
+    height: 300px;
+    width: 300px;
+    border: 1px solid crimson;
+    position: relative;
+    background-color: #999;
+    z-index: 101;
+    text-align: center;
+}
+
+.spin-container>div {
+    position: absolute;
+    top: 50%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+}
+
+@keyframes rain {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(250px);
+        opacity: 0;
+    }
+}
+
+.rain-drop {
+    position: absolute;
+    width: 2px;
+    height: 20px;
+    z-index: 101;
+    animation: rain 2s linear infinite;
+    left: calc(var(--x) * 3px);
+    /* Random starting position */
+    animation-delay: calc(var(--y) * 0.1s);
+    /* Random delay */
+    z-index: 100;
+}
+
+.rain-drop:nth-child(1) {
+    --x: 23; --y: 12;
+    color: gray;
+}
+
+.rain-drop:nth-child(2) {
+    --x: 78; --y: 3;
+    color: tomato;
+}
+
+.rain-drop:nth-child(3) {
+    --x: 15; --y: 18;
+    color: fuchsia;
+}
+
+.rain-drop:nth-child(4) {
+    --x: 92; --y: 7;;
+    color: yellow;
+}
+
+.rain-drop:nth-child(5) {
+    --x: 45; --y: 5;
+    color: lime;
+}
+
+.rain-drop:nth-child(6) {
+    --x: 6; --y: 15;
+    color: Turquoise;
+}
+
+.rain-drop:nth-child(6) {
+    --x: 89; --y: 2;
+    color: Gray;
+}
+
+.rain-drop:nth-child(8) {
+    --x: 32; --y: 10;
+    color: Lavender;
+}
+
+.rain-drop:nth-child(9) {
+    --x: 57; --y: 17;
+    color: Purple;
+}
+
+.rain-drop:nth-child(10) {
+    --x: 1; --y: 8;
+    color: Orange;
+}
+
+/* rainbow text */
+.rainbow-text {
+    background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+    background-size: 600% 100%;
+    /* Adjust as needed */
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: rainbow-animation 10s linear infinite;
+}
+
+/* fade out */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.fading-text {
+    animation: fadeOut 5s linear infinite;
+}
+
+
+/* spinning text */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.spinning-text {
+    animation: spin 5s linear infinite;
+}
+
+/* bobbing text */
+@keyframes bob {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.bobbing-text {
+    animation: bob 10s linear infinite;
+}
+
+/* smoking text */
+@keyframes smoke {
+    0% {
+        text-shadow: 0 0 10px #222, 0 0 20px #222, 0 0 30px #222, 0 0 40px #222, 0 0 70px #222, 0 0 80px #222, 0 0 100px #222, 0 0 150px #222;
+    }
+
+    100% {
+        text-shadow: 0 0 5px #222, 0 0 10px #222, 0 0 15px #222, 0 0 20px #222, 0 0 35px #222, 0 0 40px #222, 0 0 50px #222, 0 0 75px #222;
+    }
+}
+
+.smoking-text {
+    animation: smoke 100s linear infinite;
 }

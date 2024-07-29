@@ -1,838 +1,1011 @@
-<div>
-    <mat-card class="card">
-        <mat-card-header>
-            <mat-card-title>
-                <h1 data-testid="header-title">Web Design / <span class="important">S</span>CSS</h1>
-            </mat-card-title>
-            <mat-card-subtitle>Large cross-section with the Angular page but this is focused on non-Angular aspects of
-                webdesign such as responsive design, creating favicons, ect</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-            <div class="commentgrid">
-                <div class="topics">
-                    <ul>
-                        <li>
-                            <mat-expansion-panel expanded>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Working with HTML Elements</mat-panel-title>
-                                    <mat-panel-description>
-                                    </mat-panel-description>
-                                </mat-expansion-panel-header>
-                                <ul>
-                                    <li>
-                                        If you wish to affect <span class="importantish">all elements that have a certain class</span> (e.g. all span
-                                        elements
-                                        that have the class "code"):
-                                        <div class="code">
-                                            <pre>
+<mat-card class="card">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Web Design / <span class="important">S</span>CSS</h1>
+        </mat-card-title>
+        <mat-card-subtitle>Large cross-section with the Angular page but this is focused on non-Angular aspects of
+            webdesign such as responsive design, creating favicons, ect</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                <ul>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Working with HTML Elements</mat-panel-title>
+                                <mat-panel-description>
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li>
+                                    If you wish to affect <span class="importantish">all elements that have a
+                                        certain class</span> (e.g. all span
+                                    elements
+                                    that have the class "code"):
+                                    <div class="code">
+                                        <pre>
 span.code &#123;
-    background-color: rebeccapurple !important;
-    color: silver;
-    font-family: Consolas;
-    border-radius: 5px;
-    padding: 3px 1em;
-    font-size: 1rem;
-    min-width: 400px;
-    max-width: 90%;
-    line-height: 5lvh !important;
+background-color: rebeccapurple !important;
+color: silver;
+font-family: Consolas;
+border-radius: 5px;
+padding: 3px 1em;
+font-size: 1rem;
+min-width: 400px;
+max-width: 90%;
+line-height: 5lvh !important;
 &#125;
-    </pre>
+</pre>
 
-                                        </div>
-                                    </li>
-                                    <li><span class="importantish">Multiple</span> classes can be specified via comma:
-                                        <div class="code">
-                                            <pre>
+                                    </div>
+                                </li>
+                                <li><span class="importantish">Multiple</span> classes can be specified via comma:
+                                    <div class="code">
+                                        <pre>
 h1, h2, h3, h4, h5, h6 &#123;
-    color: plum;
+color: plum;
 &#125;
-                                        </pre>
-                                        </div>
-                                    </li>
-                                    <li>Element <span class="importantish">hierarchy</span> can be indicated using (&gt;):
-                                        <div class="code">
-                                            <pre>
+                                    </pre>
+                                    </div>
+                                </li>
+                                <li>Element <span class="importantish">hierarchy</span> can be indicated using
+                                    (&gt;):
+                                    <div class="code">
+                                        <pre>
 <div>CSS:
 div &#123;
-    background-color: teal;
+background-color: teal;
 &#125;
 .blah>div &#123;
-    background-color: salmon;
+background-color: salmon;
 &#125;
-                                </div>
-                                <div>HTML:
+                            </div>
+                            <div>HTML:
 &lt;div class=&quot;blah&quot;&gt;
-    &lt;div&gt;I'm Salmon!&lt;/div&gt;
+&lt;div&gt;I'm Salmon!&lt;/div&gt;
 &lt;/div&gt;
 &lt;div&gt;I'm Teal!&lt;/div&gt;
-                                </div>
-                                        </pre>
-                                            <div class="example">Example:
-                                                <div class="blah">
-                                                    <div>I'm Salmon!</div>
-                                                </div>
-                                                <div>I'm Teal!</div>
+                            </div>
+                                    </pre>
+                                        <div class="example">Example:
+                                            <div class="blah">
+                                                <div>I'm Salmon!</div>
                                             </div>
+                                            <div>I'm Teal!</div>
                                         </div>
-                                    </li>
-                                </ul>
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Theming</mat-panel-title>
-                                </mat-expansion-panel-header>
-                                <ul>
-                                    <li>For Angular specific theming, see <button mat-stroked-button
-                                            routerLink="/angular">Angular</button></li>
-                                    <li>
-                                        <h4>I tend to start with three files</h4>
-                                        <dl>
-                                            <dt>styles.scss</dt>
-                                            <dd>Main file, imports other ones</dd>
-                                            <dt>themes.scss</dt>
-                                            <dd>Contains generic elements that exists across themes</dd>
-                                            <dt>theme-colorful.scss</dt>
-                                            <dd>A specific theme of colors/fonts</dd>
-                                        </dl>
-                                    </li>
-                                    <li>To work with the users darkmode preferences<br>
-                                        <img mat-card-image src="assets/images/light.png" /><br>
-                                        <img mat-card-image src="assets/images/dark.png" />
-                                        <ul>
-                                            <li>Create a section the sets base variables based on the OS preference:
-                                                <div class="code">
-                                                    <pre>
-    $theme-border-color: mat.get-color-from-palette($dark-primary-palette, 500);
-    $theme-background: mat.get-color-from-palette($dark-primary-palette, 50); 
-    
+                                    </div>
+                                </li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Theming</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li>For Angular specific theming, see <button mat-stroked-button
+                                        routerLink="/angular">Angular</button></li>
+                                <li>
+                                    <h4>I tend to start with three files</h4>
+                                    <dl>
+                                        <dt>styles.scss</dt>
+                                        <dd>Main file, imports other ones</dd>
+                                        <dt>themes.scss</dt>
+                                        <dd>Contains generic elements that exists across themes</dd>
+                                        <dt>theme-colorful.scss</dt>
+                                        <dd>A specific theme of colors/fonts</dd>
+                                    </dl>
+                                </li>
+                                <li>To work with the users darkmode preferences<br>
+                                    <img mat-card-image src="assets/images/light.png" /><br>
+                                    <img mat-card-image src="assets/images/dark.png" />
+                                    <ul>
+                                        <li>Create a section the sets base variables based on the OS preference:
+                                            <div class="code">
+                                                <pre>
+$theme-border-color: mat.get-color-from-palette($dark-primary-palette, 500);
+$theme-background: mat.get-color-from-palette($dark-primary-palette, 50); 
+
+// code
+$theme-code-background: mat.get-color-from-palette($dark-primary-palette, 300); 
+$theme-code-color: mat.get-color-from-palette($dark-accent-palette, 800); 
+
+// comments
+$theme-comment-background: mat.get-color-from-palette($dark-primary-palette, 200); 
+$theme-comment-color: mat.get-color-from-palette($dark-primary-palette, 400); 
+
+//notes
+$theme-note-background: mat.get-color-from-palette($dark-primary-palette, 300); 
+$theme-note-color: mat.get-color-from-palette($dark-primary-palette, 50); 
+
+//answers
+$theme-answer-background: mat.get-color-from-palette($dark-primary-palette, 300); 
+$theme-answer-color: mat.get-color-from-palette($dark-primary-palette, 50); 
+
+//card
+$theme-card-background: mat.get-color-from-palette($dark-accent-palette, 50); 
+$theme-card-color: #222;
+
+//table
+$theme-table-background: mat.get-color-from-palette($light-primary-palette, 200); 
+$theme-table-color: mat.get-color-from-palette($light-primary-palette, 400); 
+
+//files
+$theme-file-background: mat.get-color-from-palette($dark-primary-palette, 300); 
+$theme-file-color: yellow;
+
+//navbar
+$theme-navbar-background: mat.get-color-from-palette($dark-primary-palette, 500); 
+$theme-navbar-color: mat.get-color-from-palette($dark-primary-palette, 100); 
+
+//button
+$theme-button-background: mat.get-color-from-palette($dark-primary-palette, 400); 
+$theme-button-color: mat.get-color-from-palette($dark-primary-palette, 50); 
+
+//button hover
+$theme-button-hover-background: mat.get-color-from-palette($dark-primary-palette, A700); 
+$theme-button-hover-color: mat.get-color-from-palette($dark-primary-palette, 100); 
+
+//links
+$theme-a-active: mat.get-color-from-palette($dark-primary-palette, 100); 
+$theme-a-visited: mat.get-color-from-palette($dark-primary-palette, 200); 
+$theme-a-hover: mat.get-color-from-palette($dark-primary-palette, 300); 
+$theme-a-link: mat.get-color-from-palette($dark-primary-palette, 400); 
+
+// pop color
+$theme-pop: greenyellow;
+$theme-header-color: anqituewhite;
+
+&#64;media (prefers-color-scheme: light) &#123;
+    $theme-border-color: mat.get-color-from-palette($light-primary-palette, 500);
+    $theme-background: mat.get-color-from-palette($light-primary-palette, 50); 
+
     // code
-    $theme-code-background: mat.get-color-from-palette($dark-primary-palette, 300); 
-    $theme-code-color: mat.get-color-from-palette($dark-accent-palette, 800); 
-    
+    $theme-code-background: mat.get-color-from-palette($light-primary-palette, 300); 
+    $theme-code-color: mat.get-color-from-palette($light-accent-palette, 800); 
+
     // comments
-    $theme-comment-background: mat.get-color-from-palette($dark-primary-palette, 200); 
-    $theme-comment-color: mat.get-color-from-palette($dark-primary-palette, 400); 
-    
+    $theme-comment-background: mat.get-color-from-palette($light-primary-palette, 200); 
+    $theme-comment-color: mat.get-color-from-palette($light-primary-palette, 400); 
+
     //notes
-    $theme-note-background: mat.get-color-from-palette($dark-primary-palette, 300); 
-    $theme-note-color: mat.get-color-from-palette($dark-primary-palette, 50); 
-    
+    $theme-note-background: mat.get-color-from-palette($light-primary-palette, 300); 
+    $theme-note-color: mat.get-color-from-palette($light-primary-palette, 50); 
+
     //answers
-    $theme-answer-background: mat.get-color-from-palette($dark-primary-palette, 300); 
-    $theme-answer-color: mat.get-color-from-palette($dark-primary-palette, 50); 
-    
+    $theme-answer-background: mat.get-color-from-palette($light-primary-palette, 300); 
+    $theme-answer-color: mat.get-color-from-palette($light-primary-palette, 50); 
+
     //card
-    $theme-card-background: mat.get-color-from-palette($dark-accent-palette, 50); 
-    $theme-card-color: #222;
-    
+    $theme-card-background: mat.get-color-from-palette($light-primary-palette, 200); 
+    $theme-card-color: mat.get-color-from-palette($light-primary-palette, 400); 
+
     //table
     $theme-table-background: mat.get-color-from-palette($light-primary-palette, 200); 
     $theme-table-color: mat.get-color-from-palette($light-primary-palette, 400); 
-    
+
     //files
-    $theme-file-background: mat.get-color-from-palette($dark-primary-palette, 300); 
+    $theme-file-background: mat.get-color-from-palette($light-primary-palette, 300); 
     $theme-file-color: yellow;
-    
+
     //navbar
-    $theme-navbar-background: mat.get-color-from-palette($dark-primary-palette, 500); 
-    $theme-navbar-color: mat.get-color-from-palette($dark-primary-palette, 100); 
+    $theme-navbar-background: mat.get-color-from-palette($light-primary-palette, 500); 
+    $theme-navbar-color: mat.get-color-from-palette($light-primary-palette, 100);
     
     //button
-    $theme-button-background: mat.get-color-from-palette($dark-primary-palette, 400); 
-    $theme-button-color: mat.get-color-from-palette($dark-primary-palette, 50); 
-    
+    $theme-button-background: mat.get-color-from-palette($light-primary-palette, 400); 
+    $theme-button-color: mat.get-color-from-palette($light-primary-palette, 50); 
+
     //button hover
-    $theme-button-hover-background: mat.get-color-from-palette($dark-primary-palette, A700); 
-    $theme-button-hover-color: mat.get-color-from-palette($dark-primary-palette, 100); 
-    
+    $theme-button-hover-background: mat.get-color-from-palette($light-primary-palette, A700); 
+    $theme-button-hover-color: mat.get-color-from-palette($light-primary-palette, 100); 
+
     //links
-    $theme-a-active: mat.get-color-from-palette($dark-primary-palette, 100); 
-    $theme-a-visited: mat.get-color-from-palette($dark-primary-palette, 200); 
-    $theme-a-hover: mat.get-color-from-palette($dark-primary-palette, 300); 
-    $theme-a-link: mat.get-color-from-palette($dark-primary-palette, 400); 
-    
+    $theme-a-active: mat.get-color-from-palette($light-primary-palette, 100); 
+    $theme-a-visited: mat.get-color-from-palette($light-primary-palette, 200); 
+    $theme-a-hover: mat.get-color-from-palette($light-primary-palette, 300); 
+    $theme-a-link: mat.get-color-from-palette($light-primary-palette, 400); 
+
     // pop color
-    $theme-pop: greenyellow;
-    $theme-header-color: anqituewhite;
-    
-    &#64;media (prefers-color-scheme: light) &#123;
-        $theme-border-color: mat.get-color-from-palette($light-primary-palette, 500);
-        $theme-background: mat.get-color-from-palette($light-primary-palette, 50); 
-    
-        // code
-        $theme-code-background: mat.get-color-from-palette($light-primary-palette, 300); 
-        $theme-code-color: mat.get-color-from-palette($light-accent-palette, 800); 
-    
-        // comments
-        $theme-comment-background: mat.get-color-from-palette($light-primary-palette, 200); 
-        $theme-comment-color: mat.get-color-from-palette($light-primary-palette, 400); 
-    
-        //notes
-        $theme-note-background: mat.get-color-from-palette($light-primary-palette, 300); 
-        $theme-note-color: mat.get-color-from-palette($light-primary-palette, 50); 
-    
-        //answers
-        $theme-answer-background: mat.get-color-from-palette($light-primary-palette, 300); 
-        $theme-answer-color: mat.get-color-from-palette($light-primary-palette, 50); 
-    
-        //card
-        $theme-card-background: mat.get-color-from-palette($light-primary-palette, 200); 
-        $theme-card-color: mat.get-color-from-palette($light-primary-palette, 400); 
-    
-        //table
-        $theme-table-background: mat.get-color-from-palette($light-primary-palette, 200); 
-        $theme-table-color: mat.get-color-from-palette($light-primary-palette, 400); 
-    
-        //files
-        $theme-file-background: mat.get-color-from-palette($light-primary-palette, 300); 
-        $theme-file-color: yellow;
-    
-        //navbar
-        $theme-navbar-background: mat.get-color-from-palette($light-primary-palette, 500); 
-        $theme-navbar-color: mat.get-color-from-palette($light-primary-palette, 100);
-        
-        //button
-        $theme-button-background: mat.get-color-from-palette($light-primary-palette, 400); 
-        $theme-button-color: mat.get-color-from-palette($light-primary-palette, 50); 
-    
-        //button hover
-        $theme-button-hover-background: mat.get-color-from-palette($light-primary-palette, A700); 
-        $theme-button-hover-color: mat.get-color-from-palette($light-primary-palette, 100); 
-    
-        //links
-        $theme-a-active: mat.get-color-from-palette($light-primary-palette, 100); 
-        $theme-a-visited: mat.get-color-from-palette($light-primary-palette, 200); 
-        $theme-a-hover: mat.get-color-from-palette($light-primary-palette, 300); 
-        $theme-a-link: mat.get-color-from-palette($light-primary-palette, 400); 
-    
-        // pop color
-        $theme-pop: royalblue;
-        $theme-header-color: maroon;
-    &#125;
-                                                    </pre>
-                                                </div>
-                                            </li>
-                                            <li>These can be added as global variables that can be throughout your site.
-                                                <div class="code">
-                                                    <pre>
-    // these variables can be accessed in the global scope
-    :root &#123;
-        --theme-border: #&#123;$theme-border-color&#125;;
-        --theme-background: #&#123;$theme-background&#125;;
-        --theme-background-light-gray: silver;
-        --theme-background-gray: #222;
-        --theme-background-light-purple: plum;
-        --theme-code-background: #&#123;$theme-code-background&#125;;
-        --theme-code-color: #&#123;$theme-code-color&#125;;
-        --theme-note-background: #&#123;$theme-note-background&#125;;
-        --theme-note-color: #&#123;$theme-note-color&#125;;
-        --theme-comment-background: #&#123;$theme-comment-background&#125;;
-        --theme-comment-color: #&#123;$theme-comment-color&#125;;
-        --theme-a-active: #&#123;$theme-a-active&#125;;
-        --theme-a-visited: #&#123;$theme-a-visited&#125;;
-        --theme-a-hover: #&#123;$theme-a-hover&#125;;
-        --theme-a-link: #&#123;$theme-a-link&#125;;
-        --theme-pop: #&#123;$theme-pop&#125;;
-        --theme-file-background: #&#123;$theme-file-background&#125;;
-        --theme-file-color: #&#123;$theme-file-color&#125;;
-        --theme-card-background: #&#123;$theme-card-background&#125;;
-        --theme-card-color: #&#123;$theme-card-color&#125;;
-        --theme-table-background: #&#123;$theme-card-background&#125;;
-        --theme-table-color: #&#123;$theme-card-color&#125;;
-        --theme-navbar-background: #&#123;$theme-navbar-background&#125;;
-        --theme-navbar-color: #&#123;$theme-navbar-color&#125;;
-        --theme-header-color: #&#123;$theme-header-color&#125;;
-    &#125;
-                                                    </pre>
-                                                </div>
-                                            </li>
-                                            <div>Which can be referenced:
-                                                <span class="code">border: 1px solid var(--theme-border);</span>
+    $theme-pop: royalblue;
+    $theme-header-color: maroon;
+&#125;
+                                                </pre>
                                             </div>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Fun with :before and :after</mat-panel-title>
-                                    <mat-panel-description>Allows you to add content before or after an
-                                        element</mat-panel-description>
-                                </mat-expansion-panel-header>
-                                <div class="code">
-                                    <pre>
+                                        </li>
+                                        <li>These can be added as global variables that can be throughout your site.
+                                            <div class="code">
+                                                <pre>
+// these variables can be accessed in the global scope
+:root &#123;
+    --theme-border: #&#123;$theme-border-color&#125;;
+    --theme-background: #&#123;$theme-background&#125;;
+    --theme-background-light-gray: silver;
+    --theme-background-gray: #222;
+    --theme-background-light-purple: plum;
+    --theme-code-background: #&#123;$theme-code-background&#125;;
+    --theme-code-color: #&#123;$theme-code-color&#125;;
+    --theme-note-background: #&#123;$theme-note-background&#125;;
+    --theme-note-color: #&#123;$theme-note-color&#125;;
+    --theme-comment-background: #&#123;$theme-comment-background&#125;;
+    --theme-comment-color: #&#123;$theme-comment-color&#125;;
+    --theme-a-active: #&#123;$theme-a-active&#125;;
+    --theme-a-visited: #&#123;$theme-a-visited&#125;;
+    --theme-a-hover: #&#123;$theme-a-hover&#125;;
+    --theme-a-link: #&#123;$theme-a-link&#125;;
+    --theme-pop: #&#123;$theme-pop&#125;;
+    --theme-file-background: #&#123;$theme-file-background&#125;;
+    --theme-file-color: #&#123;$theme-file-color&#125;;
+    --theme-card-background: #&#123;$theme-card-background&#125;;
+    --theme-card-color: #&#123;$theme-card-color&#125;;
+    --theme-table-background: #&#123;$theme-card-background&#125;;
+    --theme-table-color: #&#123;$theme-card-color&#125;;
+    --theme-navbar-background: #&#123;$theme-navbar-background&#125;;
+    --theme-navbar-color: #&#123;$theme-navbar-color&#125;;
+    --theme-header-color: #&#123;$theme-header-color&#125;;
+&#125;
+                                                </pre>
+                                            </div>
+                                        </li>
+                                        <div>Which can be referenced:
+                                            <span class="code">border: 1px solid var(--theme-border);</span>
+                                        </div>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Fun with :before and :after</mat-panel-title>
+                                <mat-panel-description>Allows you to add content before or after an
+                                    element</mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <div class="code">
+                                <pre>
 .important:before &#123;
-    content: "<";
-    -webkit-text-stroke: .3px #222;
+content: "<";
+-webkit-text-stroke: .3px #222;
 &#125;
 
 .important:after &#123;
-    content: ">";
-    -webkit-text-stroke: .3px #222;
+content: ">";
+-webkit-text-stroke: .3px #222;
 &#125;
 
 .important &#123;
-    font-weight: bold;
-    color: orangered;
-    -webkit-text-stroke: .5px white;
-    font-size: 2rem;
-    line-height: 1.5;
+font-weight: bold;
+color: orangered;
+-webkit-text-stroke: .5px white;
+font-size: 2rem;
+line-height: 1.5;
 &#125;
-                                    </pre>
-                                </div>
+                                </pre>
+                            </div>
 
-                                <span class="importante">I'm super important text!</span>
+                            <span class="importante">I'm super important text!</span>
 
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Responsive Design</mat-panel-title>
-                                </mat-expansion-panel-header>
-                                <ul class="condensed">
-                                    <li>This website uses CSS Grids and media queries to handle responsive design. I use
-                                        the following media queries. It's important to start small and work up as
-                                        they cancel each other out..
-                                        <ul class="condensed">
-                                            <li>
-                                                <div class="code">
-                                                    <pre>
-    &#64;media (min-width: 0px) &#123;
-        .gridcols &#123;
-            grid-template-columns: min-content 1fr;
-        &#125;
-    
-        .app-main-expanded &#123;
-            grid-template-rows: repeat(8, min-content);
-            grid-template-columns: 1fr;
-            grid-template-areas:
-                "bread"
-                "dh"
-                "user_admin"
-                "title"
-                "body"
-                "navbar"
-                "contactme"
-                "footer";
-        &#125;
-    
-        .app-main-collapsed &#123;
-            grid-template-rows: repeat(8, min-content);
-            grid-template-columns: 1fr;
-            grid-template-areas:
-                "bread"
-                "dh"
-                "user_admin"
-                "title"
-                "body"
-                "navbar"
-                "contactme"
-                "footer";
-        &#125;
-    
-        .footer &#123;
-            grid-template-columns: 1fr;
-        &#125;
-    
-        .dh &#123;
-            text-align: left;
-        &#125;
-    
-        .navbar &#123;
-            overflow: auto;
-            height: 200px;
-        &#125;
-    
-        .user_admin &#123;
-            text-align: right;
-        &#125;
-    
-        .contactme &#123;
-            text-align: center;
-        &#125;
-    
-        .maintitle &#123;
-            font-size: 1.5rem;
-        &#125;
-    &#125;
-    
-    &#64;media (min-width: 576px) &#123;
-        .gridcols &#123;
-            grid-template-columns: min-content 1fr;
-        &#125;
-    
-        .app-main-expanded &#123;
-            grid-template-rows: repeat(8, min-content);
-            grid-template-columns: 1fr;
-            grid-template-areas:
-                "bread"
-                "dh"
-                "user_admin"
-                "title"
-                "body"
-                "navbar"
-                "contactme"
-                "footer";
-        &#125;
-    
-        .app-main-collapsed &#123;
-            grid-template-rows: repeat(8, min-content);
-            grid-template-columns: 1fr;
-            grid-template-areas:
-                "bread"
-                "dh"
-                "user_admin"
-                "title"
-                "body"
-                "navbar"
-                "contactme"
-                "footer";
-        &#125;
-    
-        .footer &#123;
-            grid-template-columns: 1fr;
-        &#125;
-    
-        .dh &#123;
-            text-align: left;
-        &#125;
-    
-        .navbar &#123;
-            height: 200px;
-            overflow: auto;;
-        &#125;
-    
-        .user_admin &#123;
-            text-align: right;
-        &#125;
-    
-        .contactme &#123;
-            text-align: center;
-        &#125;
-    
-        .maintitle &#123;
-            font-size: 1.5rem;
-        &#125;
-    &#125;
-    
-    &#64;media (min-width: 768px) &#123;
-        .gridcols &#123;
-            grid-template-columns: min-content 1fr;
-        &#125;
-    
-        .app-main-expanded &#123;
-            grid-template-rows: 7vh 21vh 69vh 6vh;
-            grid-template-columns: 225px 1fr;
-            grid-template-areas:
-                "bread title"
-                "user_admin body"
-                "navbar body"
-                "navbar body"
-                "navbar body"
-                "footer footer";
-        &#125;
-    
-        .app-main-collapsed &#123;
-            grid-template-rows: 7vh 5vh 85vh 3vh;
-            grid-template-columns: 225px 1fr;
-            grid-template-areas:
-                "bread title"
-                "user_admin body"
-                "navbar body"
-                "navbar body"
-                "navbar body"
-                "footer footer";
-        &#125;
-    
-        .footer &#123;
-            grid-template-columns: 1fr 1fr 1fr;
-        &#125;
-    
-        .dh &#123;
-            text-align: right;
-        &#125;
-    
-        .user_admin &#123;
-            text-align: right;
-        &#125;
-    
-        .navbar &#123;
-            height: 100%;
-            overflow: auto;;
-        &#125;
-    &#125;
-    
-    &#64;media (min-width: 992px) &#123;
-        .gridcols &#123;
-            grid-template-columns: min-content 1fr;
-        &#125;
-    
-        .app-main-expanded &#123;
-            grid-template-rows: 6vh 20vh 70vh 4vh;
-            grid-template-columns: 225px 1fr 1fr 225px;
-            grid-template-areas:
-                "bread dh dh user_admin"
-                "navbar title title title"
-                "navbar body body body"
-                "footer footer footer footer";
-        &#125;
-        .app-main-collapsed &#123;
-            grid-template-rows: 6vh 5vh 85vh 4vh;
-            grid-template-columns: 225px 1fr 1fr 225px;
-            grid-template-areas:
-                "bread dh dh user_admin"
-                "navbar title title title"
-                "navbar body body body"
-                "footer footer footer footer";
-        &#125;
-    
-        .footer &#123;
-            grid-template-columns: 1fr 1fr 1fr;
-        &#125;
-    
-        .dh &#123;
-            text-align: right;
-        &#125;
-    
-        .user_admin &#123;
-            text-align: right;
-        &#125;
-    
-        .navbar &#123;
-            height: 100%;
-            overflow: auto;;
-        &#125;
-    &#125;
-    
-    &#64;media (min-width: 1200px) &#123;
-        .gridcols &#123;
-            grid-template-columns: min-content 1fr;
-        &#125;
-    
-        .app-main-expanded &#123;
-            grid-template-rows: 6vh 20vh 70vh 4vh;
-            grid-template-columns: 225px 1fr 1fr 225px;
-            grid-template-areas:
-                "bread dh dh user_admin"
-                "navbar title title title"
-                "navbar body body body"
-                "footer footer footer footer";
-        &#125;
-        .app-main-collapsed &#123;
-            grid-template-rows: 6vh 5vh 85vh 4vh;
-            grid-template-columns: 225px 1fr 1fr 225px;
-            grid-template-areas:
-                "bread dh dh user_admin"
-                "navbar title title title"
-                "navbar body body body"
-                "footer footer footer footer";
-        &#125;
-    
-    
-        .footer &#123;
-            grid-template-columns: 1fr 1fr 1fr;
-        &#125;
-    
-        .dh &#123;
-            text-align: right;
-        &#125;
-    
-        .user_admin &#123;
-            text-align: right;
-        &#125;
-    
-        .navbar &#123;
-            height: 100%;
-            overflow: auto;;
-        &#125;
-    &#125;
-    
-    &#64;media (min-width: 1400px) &#123;
-        .gridcols &#123;
-            grid-template-columns: min-content 1fr;
-        &#125;
-    
-        .app-main-expanded &#123;
-            grid-template-rows: 6vh 20vh 70vh 4vh;
-            grid-template-columns: 225px 1fr 1fr 225px;
-            grid-template-areas:
-                "bread dh dh user_admin"
-                "navbar title title title"
-                "navbar body body body"
-                "footer footer footer footer";
-        &#125;
-        .app-main-collapsed &#123;
-            grid-template-rows: 6vh 5vh 85vh 4vh;
-            grid-template-columns: 225px 1fr 1fr 225px;
-            grid-template-areas:
-                "bread dh dh user_admin"
-                "navbar title title title"
-                "navbar body body body"
-                "footer footer footer footer";
-        &#125;
-    
-        .footer &#123;
-            grid-template-columns: 1fr 1fr 1fr;
-        &#125;
-    
-        .dh &#123;
-            text-align: right;
-        &#125;
-    
-        .user_admin &#123;
-            text-align: right;
-        &#125;
-    
-        .navbar &#123;
-            height: 100%;
-            overflow: auto;;
-        &#125;
-    &#125;
-                                                        </pre>
-                                                </div>
-
-
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Favicon</mat-panel-title>
-                                </mat-expansion-panel-header>
-                                <ul class="condensed">
-                                    <li>Get your image:<br><span class="note">(Google Gemini was used to create this
-                                            Australian Cattle Dog)</span>
-                                        <div>
-                                            <img mat-card-image src="assets/images/dog_favicon.jpg" />
-                                        </div>
-                                    </li>
-                                    <li>Take the image to a transparency removal site to create a
-                                        transparent .PNG file
-                                    </li>
-                                    <li>Take that images to an Online FavIcon generator.
-                                        <ul>
-                                            <li>Resize in in 3 sizes:
-                                                <ul class="condensed">
-                                                    <li>16x16
-                                                        <div>
-                                                            <img style="width: 16px;" mat-card-image
-                                                                src="assets/images/dog_favicon16.png" />
-                                                        </div>
-                                                    </li>
-                                                    <li>32x32
-                                                        <div>
-                                                            <img style="width: 32px;" mat-card-image
-                                                                src="assets/images/dog_favicon32.png" />
-                                                        </div>
-                                                    </li>
-                                                    <li>64x64
-                                                        <div>
-                                                            <img style="width: 64px;" mat-card-image
-                                                                src="assets/images/dog_favicon64.png" />
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                        </ul>
-                                    </li>
-                                    <li>Add the link to your css. In most cases, theses file need to be in the root of
-                                        the website but Angular needs them in the asset folder:
-                                        <div class="code">
-                                            <pre>
-    &lt;link rel="icon" type="image/x-icon" sizes="32x32" href="assets/images/favicon-32x32.png"&gt;
-    &lt;link rel="icon" type="image/x-icon" sizes="16x16" href="assets/images/favicon-16x16.png"&gt;
-    &lt;link rel="icon" type="image/x-icon" sizes="64x64" href="assets/images/favicon.ico"&gt;
-                                            </pre>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Relative Sizing</mat-panel-title>
-                                    <mat-panel-description>
-                                    </mat-panel-description>
-                                </mat-expansion-panel-header>
-                                <ul>
-                                    <li>svh <mat-icon>arrow_forward_ios</mat-icon> vh</li>
-                                    <li>rem for fonts</li>
-                                    <li>em for divs/containers</li>
-                                </ul>
-                            </mat-expansion-panel>
-                        </li>
-                        <li>Ways to center objects under different circumstances:
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>CSS Animations</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            Developer's log 77886.2, I've been working on a CSS animation for the past few days and
+                            awhile back. This is what I've discovered:
                             <ul>
-                                <li>
-                                    <mat-expansion-panel>
-                                        <mat-expansion-panel-header>
-                                            <mat-panel-title>Veritical align using &nbsp;<span class="important">margin:
-                                                    auto
-                                                    0;</span></mat-panel-title>
-                                            <mat-panel-description>If the child we wish to move is inside a div that is
-                                                using flex or grid, we can usually use an auto margin.
-                                            </mat-panel-description>
-                                        </mat-expansion-panel-header>
-                                        <div class="code">
+                                <li>The easiest way to work with anitmations in the shorthand "animation" CSS
+                                    property.<br>
+                                    <div class="code">
+                                        <pre>
+.bob-text &#123;
+padding: 1em;
+width: 400px;
+text-align: center;
+color: beige;
+z-index: 200;
+animation: fadeOut 10s ease-out forwards;
+&#125;
+</pre>
+                                        animation: fadeOut 10s ease-out forwards;
+                                        (animation: name duration timing-function delay iteration-count direction
+                                        fill-mode play-state;)
+                                    </div>
 
-                                            <div class="example-grid">
-                                                <div>
-                                                    <table>
-                                                        <tr>
-                                                            <td colspan="2">
-                                                                <div>
-                                                                    <div class="code">
-                                                                        <pre>
-        &lt;div style="display: grid; background-color: orchid; width: 100px; height: 100px;"&gt;
-            &lt;div style="background-color: red; width: 25px; height: 25px; margin: auto 0;"&gt;
-                &amp;nbsp;
-            &lt;/div&gt;
-        &lt;/div&gt;
-                                                                </pre>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <div>Parent of type <span class="important">display:
-                                                                        grid;</span>:
-                                                                </div>
-                                                                <div
-                                                                    style="background-color: orchid; width: 25px; height: 25px;">
-                                                                    &nbsp;
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <div>Child we wish to center:</div>
-                                                                <div
-                                                                    style="background-color: red; width: 25px; height: 25px;">
-                                                                    &nbsp;</div>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-                                                <div
-                                                    style="display: grid; background-color: orchid; width: 100px; height: 100px;">
-                                                    <div
-                                                        style="background-color: red; width: 25px; height: 25px; margin: auto 0;">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </mat-expansion-panel>
-                                </li>
-                                <li>
-                                    <mat-expansion-panel>
-                                        <mat-expansion-panel-header>
-                                            <mat-panel-title>Horitzonal align using &nbsp;<span
-                                                    class="important">margin: 0
-                                                    auto;</span></mat-panel-title>
-                                            <mat-panel-description>Same thing can be done horizontally
-                                            </mat-panel-description>
-                                        </mat-expansion-panel-header>
-                                        <div class="code">
-                                            <div class="example-grid">
-                                                <div>
-                                                    <table>
-                                                        <tr>
-                                                            <td colspan="2">
-                                                                <div>
-                                                                    <div class="code">
-                                                                        <pre>
-        &lt;div style="display: grid; background-color: orchid; width: 100px; height: 100px;"&gt;
-            &lt;div style="background-color: red; width: 25px; height: 25px; margin: 0 auto;"&gt;
-                &amp;nbsp;
-            &lt;/div&gt;
-        &lt;/div&gt;
-                                                                </pre>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <div>Parent of type <span class="important">display:
-                                                                        grid;</span>:
-                                                                </div>
-                                                                <div
-                                                                    style="background-color: orchid; width: 25px; height: 25px;">
-                                                                    &nbsp;
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <div>Child we wish to center:</div>
-                                                                <div
-                                                                    style="background-color: red; width: 25px; height: 25px;">
-                                                                    &nbsp;</div>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-                                                <div
-                                                    style="display: grid; background-color: orchid; width: 100px; height: 100px;">
-                                                    <div
-                                                        style="background-color: red; width: 25px; height: 25px; margin: 0 auto;">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </mat-expansion-panel>
-                                </li>
-                                <li>
-                                    <mat-expansion-panel>
-                                        <mat-expansion-panel-header>
-                                            <mat-panel-title>place-content</mat-panel-title>
-                                            <mat-panel-description>If the display:flex, you can use place-content to
-                                                center both vertically and horizontally.
-                                            </mat-panel-description>
-                                        </mat-expansion-panel-header>
-                                        Example here..
-                                    </mat-expansion-panel>
-                                </li>
-                                <li>
-                                    <mat-expansion-panel>
-                                        <mat-expansion-panel-header>
-                                            <mat-panel-title>align-self</mat-panel-title>
-                                            <mat-panel-description>If the element is a grid item, you can use
-                                                align-self: center
-                                            </mat-panel-description>
-                                        </mat-expansion-panel-header>
-                                        <span class="impoartant">html</span><br>
-                                        <div class="code">
-                                            <pre>
-    &lt;div class="map-sub-btns"&gt;
-        &lt;button mat-button (click)="enlargen()"&gt;&lt;mat-icon class="map-buttons-icons"&gt;expand&lt;/mat-icon&gt;&lt;/button&gt;
-        &lt;button mat-button (click)="min()"&gt;&lt;mat-icon class="map-buttons-icons"&gt;close&lt;/mat-icon&gt;&lt;/button&gt;
-    &lt;/div&gt;
+                                    <dl>
+                                        <dt>fadeOut</dt>
+                                        <dd>
+                                            The name of the CSS animation function. In this case, it keeps something
+                                            visible fully (no gradual disappearance) until the last 10% of the
+                                            animation duration, then fades out.<br>
+                                            <div class="code">
+                                                <pre>
+&#64;keyframes fadeOut &#123;
+0% &#123;
+    opacity: 1;
+&#125;
+
+90% &#123;
+    opacity: 1;
+&#125;
+
+100% &#123;
+    opacity: 0;
+&#125;
+&#125;
 </pre>
-                                        </div><br><br>
-                                        <span class="impoartant">css</span><br>
-                                        <div class="code">
-                                            <pre>
-    .map-sub-btns &#123;
-        align-self: center;
+                                            </div>
+
+
+                                        </dd>
+                                        <dt>10s</dt>
+                                        <dd>
+                                            The duration of the animation. In this case, it takes 10 seconds to
+                                            complete.
+                                        </dd>
+                                        <dt>ease-out</dt>
+                                        <dd>
+                                            The timing function. In this case, it starts fast and slows down at the
+                                            end. Other options include:
+                                            <dl>
+                                                <dt>ease-in</dt>
+                                                <dd>Starts slow and speeds up at the end</dd>
+                                                <dt>ease-in-out</dt>
+                                                <dd>Starts slow, speeds up, then slows down at the end</dd>
+                                                <dt>linear</dt>
+                                                <dd>Constant speed</dd>
+                                                <dt>step-start</dt>
+                                                <dd>Starts at the beginning of each step then jumps to the end</dd>
+                                                <dt>step-end</dt>
+                                                <dd>Starts at the end of each step then jumps to the beginning</dd>
+                                                <dt>steps(4, end)</dt>
+                                                <dd>4 steps, each starting at the end of the previous step</dd>
+                                                <dt>cubic-bezier(0.1, 0.7, 1.0, 0.1)</dt>
+                                                <dd>
+                                                    Custom cubic-bezier function<br><br>cubic-bezier(x1, y1, x2,
+                                                    y2):<br>
+                                                    Defines a curve based on four control points.<br>
+                                                    (x1, y1) is the control point for the starting end of the
+                                                    curve.<br>
+                                                    (x2, y2) is the control point for the ending end of the
+                                                    curve.<br>
+                                                    Both (x1, y1) and (x2, y2) must be between 0 and 1.<br>
+                                                    example:<br>
+                                                    <div class="ball-container">
+                                                        <div class="ball ball1"></div>
+                                                        <div class="ball ball2"></div>
+                                                        <div class="ball ball3"></div>
+                                                        <div class="ball ball4"></div>
+                                                    </div>
+                                                    <dl>
+                                                        <dt>green/red</dt>
+                                                        <dd>The slow start and end simulate the compression and
+                                                            decompression of the ball, while the quick middle
+                                                            represents the bounce itself.<br>animation: bounce 5s
+                                                            infinite cubic-bezier(0.25, 0.8, 0.25, 0.2);</dd>
+                                                        <dt>orange/blue</dt>
+                                                        <dd>Slow start but rapid acceleration<br>animation: bounce
+                                                            5s infinite cubic-bezier(0.4, 0,
+                                                            0.2, 1);</dd>
+                                                        <dt>yellow/purple</dt>
+                                                        <dd>Object is decelerating for the stop.<br>animation:
+                                                            bounce 5s infinite cubic-bezier(0.4,
+                                                            0.1, 0.8, 1);</dd>
+                                                        <dt>fuchsia/teal</dt>
+                                                        <dd>Elastic/springy type effect<br>animation: bounce 5s
+                                                            infinite cubic-bezier(0.1, 1,
+                                                            0.9, 0);</dd>
+                                                    </dl>
+                                                </dd>
+                                            </dl>
+                                        </dd>
+                                        <dt>forwards</dt>
+                                        <dd>
+                                            The number of times the animation will repeat. In this case, it will
+                                            repeat infinitely. Other options include:
+                                            <dl>
+                                                <dt>1</dt>
+                                                <dd>Runs once</dd>
+                                                <dt>2</dt>
+                                                <dd>Runs twice</dd>
+                                                <dt>forwards</dt>
+                                                <dd>Runs once and then stops at the end state</dd>
+                                                <dt>infinitely</dt>
+                                                <dd>Runs forever</dd>
+                                            </dl>
+                                        </dd>
+                                    </dl>
+
+                                </li>
+                                <li>To make an animation permanent, meaning the state will not revert back once the
+                                    animation is complete, use "forwards":
+                                    <span class="code">animation: fadeOut 10s ease-out forwards;</span>
+                            </ul>
+
+                            <div class="topics">
+                                Examples!
+                                <ul>
+                                    <li>
+                                        <div class="bobbing-text">I'm a bobbing text!</div>
+                                    </li>
+                                    <li>
+                                        <div class="smoking-text">I'm a smokey text!</div>
+                                    </li>
+                                    <li>
+                                        <div class="spin-container">
+                                            <div class="spinning-text">How's about some spinning text?</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="fading-text">I'm a fading text!</div>
+                                    </li>
+                                    <li>
+                                        <div class="rainbow-text">I'm a rainbow text!</div>
+                                    </li>
+                                    <li>Rain!
+                                        <div class="rain-container">
+                                            <div class="rain-drop"><mat-icon>water_drop</mat-icon></div>
+                                            <div class="rain-drop"><mat-icon>water_drop</mat-icon></div>
+                                            <div class="rain-drop"><mat-icon>water_drop</mat-icon></div>
+                                            <div class="rain-drop"><mat-icon>water_drop</mat-icon></div>
+                                            <div class="rain-drop"><mat-icon>water_drop</mat-icon></div>
+                                            <div class="rain-drop"><mat-icon>water_drop</mat-icon></div>
+                                            <div class="rain-drop"><mat-icon>water_drop</mat-icon></div>
+                                            <div class="rain-drop"><mat-icon>water_drop</mat-icon></div>
+                                            <div class="rain-drop"><mat-icon>water_drop</mat-icon></div>
+                                            <div class="rain-drop"><mat-icon>water_drop</mat-icon></div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Responsive Design</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul class="condensed">
+                                <li>This website uses CSS Grids and media queries to handle responsive design. I use
+                                    the following media queries. It's important to start small and work up as
+                                    they cancel each other out..
+                                    <ul class="condensed">
+                                        <li>
+                                            <div class="code">
+                                                <pre>
+&#64;media (min-width: 0px) &#123;
+    .gridcols &#123;
+        grid-template-columns: min-content 1fr;
     &#125;
-</pre>
-                                        </div><br><br>Tada!<br>
-                                        <img mat-card-image src="assets/images/align_self.png" />
-                                    </mat-expansion-panel>
+
+    .app-main-expanded &#123;
+        grid-template-rows: repeat(8, min-content);
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "bread"
+            "dh"
+            "user_admin"
+            "title"
+            "body"
+            "navbar"
+            "contactme"
+            "footer";
+    &#125;
+
+    .app-main-collapsed &#123;
+        grid-template-rows: repeat(8, min-content);
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "bread"
+            "dh"
+            "user_admin"
+            "title"
+            "body"
+            "navbar"
+            "contactme"
+            "footer";
+    &#125;
+
+    .footer &#123;
+        grid-template-columns: 1fr;
+    &#125;
+
+    .dh &#123;
+        text-align: left;
+    &#125;
+
+    .navbar &#123;
+        overflow: auto;
+        height: 200px;
+    &#125;
+
+    .user_admin &#123;
+        text-align: right;
+    &#125;
+
+    .contactme &#123;
+        text-align: center;
+    &#125;
+
+    .maintitle &#123;
+        font-size: 1.5rem;
+    &#125;
+&#125;
+
+&#64;media (min-width: 576px) &#123;
+    .gridcols &#123;
+        grid-template-columns: min-content 1fr;
+    &#125;
+
+    .app-main-expanded &#123;
+        grid-template-rows: repeat(8, min-content);
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "bread"
+            "dh"
+            "user_admin"
+            "title"
+            "body"
+            "navbar"
+            "contactme"
+            "footer";
+    &#125;
+
+    .app-main-collapsed &#123;
+        grid-template-rows: repeat(8, min-content);
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "bread"
+            "dh"
+            "user_admin"
+            "title"
+            "body"
+            "navbar"
+            "contactme"
+            "footer";
+    &#125;
+
+    .footer &#123;
+        grid-template-columns: 1fr;
+    &#125;
+
+    .dh &#123;
+        text-align: left;
+    &#125;
+
+    .navbar &#123;
+        height: 200px;
+        overflow: auto;;
+    &#125;
+
+    .user_admin &#123;
+        text-align: right;
+    &#125;
+
+    .contactme &#123;
+        text-align: center;
+    &#125;
+
+    .maintitle &#123;
+        font-size: 1.5rem;
+    &#125;
+&#125;
+
+&#64;media (min-width: 768px) &#123;
+    .gridcols &#123;
+        grid-template-columns: min-content 1fr;
+    &#125;
+
+    .app-main-expanded &#123;
+        grid-template-rows: 7vh 21vh 69vh 6vh;
+        grid-template-columns: 225px 1fr;
+        grid-template-areas:
+            "bread title"
+            "user_admin body"
+            "navbar body"
+            "navbar body"
+            "navbar body"
+            "footer footer";
+    &#125;
+
+    .app-main-collapsed &#123;
+        grid-template-rows: 7vh 5vh 85vh 3vh;
+        grid-template-columns: 225px 1fr;
+        grid-template-areas:
+            "bread title"
+            "user_admin body"
+            "navbar body"
+            "navbar body"
+            "navbar body"
+            "footer footer";
+    &#125;
+
+    .footer &#123;
+        grid-template-columns: 1fr 1fr 1fr;
+    &#125;
+
+    .dh &#123;
+        text-align: right;
+    &#125;
+
+    .user_admin &#123;
+        text-align: right;
+    &#125;
+
+    .navbar &#123;
+        height: 100%;
+        overflow: auto;;
+    &#125;
+&#125;
+
+&#64;media (min-width: 992px) &#123;
+    .gridcols &#123;
+        grid-template-columns: min-content 1fr;
+    &#125;
+
+    .app-main-expanded &#123;
+        grid-template-rows: 6vh 20vh 70vh 4vh;
+        grid-template-columns: 225px 1fr 1fr 225px;
+        grid-template-areas:
+            "bread dh dh user_admin"
+            "navbar title title title"
+            "navbar body body body"
+            "footer footer footer footer";
+    &#125;
+    .app-main-collapsed &#123;
+        grid-template-rows: 6vh 5vh 85vh 4vh;
+        grid-template-columns: 225px 1fr 1fr 225px;
+        grid-template-areas:
+            "bread dh dh user_admin"
+            "navbar title title title"
+            "navbar body body body"
+            "footer footer footer footer";
+    &#125;
+
+    .footer &#123;
+        grid-template-columns: 1fr 1fr 1fr;
+    &#125;
+
+    .dh &#123;
+        text-align: right;
+    &#125;
+
+    .user_admin &#123;
+        text-align: right;
+    &#125;
+
+    .navbar &#123;
+        height: 100%;
+        overflow: auto;;
+    &#125;
+&#125;
+
+&#64;media (min-width: 1200px) &#123;
+    .gridcols &#123;
+        grid-template-columns: min-content 1fr;
+    &#125;
+
+    .app-main-expanded &#123;
+        grid-template-rows: 6vh 20vh 70vh 4vh;
+        grid-template-columns: 225px 1fr 1fr 225px;
+        grid-template-areas:
+            "bread dh dh user_admin"
+            "navbar title title title"
+            "navbar body body body"
+            "footer footer footer footer";
+    &#125;
+    .app-main-collapsed &#123;
+        grid-template-rows: 6vh 5vh 85vh 4vh;
+        grid-template-columns: 225px 1fr 1fr 225px;
+        grid-template-areas:
+            "bread dh dh user_admin"
+            "navbar title title title"
+            "navbar body body body"
+            "footer footer footer footer";
+    &#125;
+
+
+    .footer &#123;
+        grid-template-columns: 1fr 1fr 1fr;
+    &#125;
+
+    .dh &#123;
+        text-align: right;
+    &#125;
+
+    .user_admin &#123;
+        text-align: right;
+    &#125;
+
+    .navbar &#123;
+        height: 100%;
+        overflow: auto;;
+    &#125;
+&#125;
+
+&#64;media (min-width: 1400px) &#123;
+    .gridcols &#123;
+        grid-template-columns: min-content 1fr;
+    &#125;
+
+    .app-main-expanded &#123;
+        grid-template-rows: 6vh 20vh 70vh 4vh;
+        grid-template-columns: 225px 1fr 1fr 225px;
+        grid-template-areas:
+            "bread dh dh user_admin"
+            "navbar title title title"
+            "navbar body body body"
+            "footer footer footer footer";
+    &#125;
+    .app-main-collapsed &#123;
+        grid-template-rows: 6vh 5vh 85vh 4vh;
+        grid-template-columns: 225px 1fr 1fr 225px;
+        grid-template-areas:
+            "bread dh dh user_admin"
+            "navbar title title title"
+            "navbar body body body"
+            "footer footer footer footer";
+    &#125;
+
+    .footer &#123;
+        grid-template-columns: 1fr 1fr 1fr;
+    &#125;
+
+    .dh &#123;
+        text-align: right;
+    &#125;
+
+    .user_admin &#123;
+        text-align: right;
+    &#125;
+
+    .navbar &#123;
+        height: 100%;
+        overflow: auto;;
+    &#125;
+&#125;
+                                                    </pre>
+                                            </div>
+
+
+                                        </li>
+                                    </ul>
                                 </li>
                             </ul>
-                        </li>
-                    </ul>
-                </div>
-                <div><app-comment></app-comment></div>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Favicon</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul class="condensed">
+                                <li>Get your image:<br><span class="note">(Google Gemini was used to create this
+                                        Australian Cattle Dog)</span>
+                                    <div>
+                                        <img mat-card-image src="assets/images/dog_favicon.jpg" />
+                                    </div>
+                                </li>
+                                <li>Take the image to a transparency removal site to create a
+                                    transparent .PNG file
+                                </li>
+                                <li>Take that images to an Online FavIcon generator.
+                                    <ul>
+                                        <li>Resize in in 3 sizes:
+                                            <ul class="condensed">
+                                                <li>16x16
+                                                    <div>
+                                                        <img style="width: 16px;" mat-card-image
+                                                            src="assets/images/dog_favicon16.png" />
+                                                    </div>
+                                                </li>
+                                                <li>32x32
+                                                    <div>
+                                                        <img style="width: 32px;" mat-card-image
+                                                            src="assets/images/dog_favicon32.png" />
+                                                    </div>
+                                                </li>
+                                                <li>64x64
+                                                    <div>
+                                                        <img style="width: 64px;" mat-card-image
+                                                            src="assets/images/dog_favicon64.png" />
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                    </ul>
+                                </li>
+                                <li>Add the link to your css. In most cases, theses file need to be in the root of
+                                    the website but Angular needs them in the asset folder:
+                                    <div class="code">
+                                        <pre>
+&lt;link rel="icon" type="image/x-icon" sizes="32x32" href="assets/images/favicon-32x32.png"&gt;
+&lt;link rel="icon" type="image/x-icon" sizes="16x16" href="assets/images/favicon-16x16.png"&gt;
+&lt;link rel="icon" type="image/x-icon" sizes="64x64" href="assets/images/favicon.ico"&gt;
+                                        </pre>
+                                    </div>
+                                </li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Relative Sizing</mat-panel-title>
+                                <mat-panel-description>
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li>svh <mat-icon>arrow_forward_ios</mat-icon> vh</li>
+                                <li>rem for fonts</li>
+                                <li>em for divs/containers</li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>Ways to center objects under different circumstances:
+                        <ul>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Veritical align using &nbsp;<span class="important">margin:
+                                                auto
+                                                0;</span></mat-panel-title>
+                                        <mat-panel-description>If the child we wish to move is inside a div that is
+                                            using flex or grid, we can usually use an auto margin.
+                                        </mat-panel-description>
+                                    </mat-expansion-panel-header>
+                                    <div class="code">
+
+                                        <div class="example-grid">
+                                            <div>
+                                                <table>
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <div>
+                                                                <div class="code">
+                                                                    <pre>
+    &lt;div style="display: grid; background-color: orchid; width: 100px; height: 100px;"&gt;
+        &lt;div style="background-color: red; width: 25px; height: 25px; margin: auto 0;"&gt;
+            &amp;nbsp;
+        &lt;/div&gt;
+    &lt;/div&gt;
+                                                            </pre>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div>Parent of type <span class="important">display:
+                                                                    grid;</span>:
+                                                            </div>
+                                                            <div
+                                                                style="background-color: orchid; width: 25px; height: 25px;">
+                                                                &nbsp;
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div>Child we wish to center:</div>
+                                                            <div
+                                                                style="background-color: red; width: 25px; height: 25px;">
+                                                                &nbsp;</div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div
+                                                style="display: grid; background-color: orchid; width: 100px; height: 100px;">
+                                                <div
+                                                    style="background-color: red; width: 25px; height: 25px; margin: auto 0;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Horitzonal align using &nbsp;<span class="important">margin: 0
+                                                auto;</span></mat-panel-title>
+                                        <mat-panel-description>Same thing can be done horizontally
+                                        </mat-panel-description>
+                                    </mat-expansion-panel-header>
+                                    <div class="code">
+                                        <div class="example-grid">
+                                            <div>
+                                                <table>
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <div>
+                                                                <div class="code">
+                                                                    <pre>
+    &lt;div style="display: grid; background-color: orchid; width: 100px; height: 100px;"&gt;
+        &lt;div style="background-color: red; width: 25px; height: 25px; margin: 0 auto;"&gt;
+            &amp;nbsp;
+        &lt;/div&gt;
+    &lt;/div&gt;
+                                                            </pre>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div>Parent of type <span class="important">display:
+                                                                    grid;</span>:
+                                                            </div>
+                                                            <div
+                                                                style="background-color: orchid; width: 25px; height: 25px;">
+                                                                &nbsp;
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div>Child we wish to center:</div>
+                                                            <div
+                                                                style="background-color: red; width: 25px; height: 25px;">
+                                                                &nbsp;</div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div
+                                                style="display: grid; background-color: orchid; width: 100px; height: 100px;">
+                                                <div
+                                                    style="background-color: red; width: 25px; height: 25px; margin: 0 auto;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>place-content</mat-panel-title>
+                                        <mat-panel-description>If the display:flex, you can use place-content to
+                                            center both vertically and horizontally.
+                                        </mat-panel-description>
+                                    </mat-expansion-panel-header>
+                                    Example here..
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>align-self</mat-panel-title>
+                                        <mat-panel-description>If the element is a grid item, you can use
+                                            align-self: center
+                                        </mat-panel-description>
+                                    </mat-expansion-panel-header>
+                                    <span class="impoartant">html</span><br>
+                                    <div class="code">
+                                        <pre>
+&lt;div class="map-sub-btns"&gt;
+    &lt;button mat-button (click)="enlargen()"&gt;&lt;mat-icon class="map-buttons-icons"&gt;expand&lt;/mat-icon&gt;&lt;/button&gt;
+    &lt;button mat-button (click)="min()"&gt;&lt;mat-icon class="map-buttons-icons"&gt;close&lt;/mat-icon&gt;&lt;/button&gt;
+&lt;/div&gt;
+</pre>
+                                    </div><br><br>
+                                    <span class="impoartant">css</span><br>
+                                    <div class="code">
+                                        <pre>
+.map-sub-btns &#123;
+    align-self: center;
+&#125;
+</pre>
+                                    </div><br><br>Tada!<br>
+                                    <img mat-card-image src="assets/images/align_self.png" />
+                                </mat-expansion-panel>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-        </mat-card-content>
-    </mat-card>
-</div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>

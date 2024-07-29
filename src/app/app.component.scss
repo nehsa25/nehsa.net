@@ -724,7 +724,7 @@ $base-size: .35rem;
     height: 4.8 * $base-size;
     top: .5 * $base-size;
     position: relative;
-    background-color: orangered;
+    background-color: #88CAFC;
     border-radius: calc(2.4 * $base-size / 1.8);
     border: 1px solid whitesmoke;
     animation: bob-animation 2s linear infinite;
@@ -740,7 +740,7 @@ $base-size: .35rem;
     width: 1 * $base-size;
     height: .8 * $base-size;
     border-radius: 50%;
-    background-color: #8E7618;
+    background-color: #9966CC;
     /* Adjust for eye color */
     border: 3px solid #FAFAFA;
 }
