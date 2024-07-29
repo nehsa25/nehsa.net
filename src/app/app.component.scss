@@ -535,142 +535,173 @@ $base-size: .35rem;
     background-image: url('../assets/images/tree.png');
     background-size: cover;
     background-color: inherit;
+    animation: move-tree 88s linear infinite;
+    z-index: 103;
+    width: 23px;
+    height: 23px;
+    top: 19px; 
 }
 
 .tree1 {
-    left: -150%;
-    /* Adjust position */
     animation: move-tree 13s linear infinite;
     z-index: 103;
     width: 35px;
     height: 35px;
+    top: 6px; 
 }
 
 .tree2 {
-    left: -130%;
-    /* Adjust position */
     animation: move-tree 17s linear infinite;
     z-index: 102;
     width: 40px;
     height: 40px;
+    top: 6px; 
 }
 
 .tree3 {
-    left: -40%;
-    /* Adjust position */
     animation: move-tree 110s linear infinite;
     z-index: 101;
-    bottom: 0;
+    top: 16px; 
     width: 25px;
     height: 25px;
 }
 
 .tree4 {
-    left: -150%;
-    /* Adjust position */
     animation: move-tree 12.7s linear infinite;
     z-index: 103;
     width: 35px;
     height: 35px;
-    bottom: 0;
+    top: 6px; 
 }
 
 .tree5 {
-    left: -130%;
-    /* Adjust position */
     animation: move-tree 15s linear infinite;
     z-index: 102;
     width: 35px;
     height: 35px;
-    bottom: 0;
+    top: 6px; 
 }
 
 .tree6 {
-    left: -40%;
-    /* Adjust position */
     animation: move-tree 19s linear infinite;
     z-index: 101;
     width: 30px;
     height: 30px;
-    bottom: 0;
+    top: 6px; 
 }
 
 .tree7 {
-    left: -150%;
-    /* Adjust position */
     animation: move-tree 12.9s linear infinite;
     z-index: 106;
     width: 35px;
     height: 35px;
-    bottom: 0;
+    top: 6px; 
 }
 
 .tree8 {
-    left: -130%;
-    /* Adjust position */
     animation: move-tree 16s linear infinite;
     z-index: 105;
-    width: 38px;
-    height: 38px;
-    bottom: 0;
+    width: 34px;
+    height: 34px;
+    top: 6px; 
 }
 
 .tree9 {
-    left: -40%;
-    /* Adjust position */
     animation: move-tree 115s linear infinite;
     z-index: 100;
     width: 15px;
     height: 15px;
-    bottom: 0;
+    top: 16px; 
 }
 
 .tree10 {
-    left: -150%;
-    /* Adjust position */
     animation: move-tree 12.3s linear infinite;
     z-index: 106;
-    width: 42px;
-    height: 42px;
-    bottom: 0;
+    width: 39px;
+    height: 39px;
+    top: 6px; 
 }
 
 .tree11 {
-    left: -130%;
-    /* Adjust position */
     animation: move-tree 18s linear infinite;
     z-index: 105;
-    width: 48px;
-    height: 48px;
-    bottom: 0;
+    width: 40px;
+    height: 40px;
+    top: 6px; 
 }
 
 .tree12 {
-    left: -40%;
-    /* Adjust position */
     animation: move-tree 19s linear infinite;
     z-index: 101;
     width: 30px;
     height: 30px;
-    bottom: 0;
+    top: 6px; 
 }
 
-// .trees {
-//     background-image: url('../assets/images/tree.png');
-//     background-repeat:repeat;
-//     height: 45px;
-//     width: 80%;
-//     z-index:102;
-// }
+.tree13 {
+    animation: move-tree 114s linear infinite;
+    z-index: 98;
+    width: 13px;
+    height: 13px;
+    top: 16px; 
+}
+
+.tree14 {
+    animation: move-tree 112s linear infinite;
+    z-index: 99;
+    width: 14px;
+    height: 14px;
+    top: 16px; 
+}
+
+.tree15 {
+    animation: move-tree 111s linear infinite;
+    z-index: 100;
+    width: 15px;
+    height: 15px;
+    top: 16px; 
+}
+
+.tree15 {
+    animation: move-tree 110s linear infinite;
+    z-index: 100;
+    width: 15px;
+    height: 15px;
+    top: 16px; 
+}
+
+.tree16 {
+    animation: move-tree 90s linear infinite;
+    z-index: 103;
+    width: 20px;
+    height: 20px;
+    top: 18px; 
+}
+
+.tree17 {
+    animation: move-tree 88s linear infinite;
+    z-index: 103;
+    width: 23px;
+    height: 23px;
+    top: 19px; 
+}
+
+.trees {
+    position: absolute;
+    background-image: url('../assets/images/smalltree.png');
+    background-repeat:repeat;
+    height: 45px;
+    width: 90%;
+    z-index:90;
+}
 
 
 .world {
     display: grid;
     width: 100%;
-    height: 35px;
     position: absolute;
     left: 0;
-    top: 0;
+    top: 0px; 
     margin-right: 3em;
     background-image: url('../assets/images/world.png');
     background-size: cover;
@@ -693,9 +724,9 @@ $base-size: .35rem;
     height: 4.8 * $base-size;
     top: .5 * $base-size;
     position: relative;
-    background-color: azure;
+    background-color: orangered;
     border-radius: calc(2.4 * $base-size / 1.8);
-    border: 1px solid hsl(0, 27%, 72%);
+    border: 1px solid whitesmoke;
     animation: bob-animation 2s linear infinite;
     z-index: 102;
 }
@@ -729,7 +760,7 @@ $base-size: .35rem;
     padding: 1em;
     width: 400px;
     text-align: center;
-    color: azure;
+    color: beige;
     z-index: 200;
     animation: fadeOut 10s ease-out forwards;
 }
@@ -762,6 +793,7 @@ $base-size: .35rem;
     0% {
         left: 0;
     }
+
     100% {
         left: calc(100% - 48px);
     }
@@ -783,10 +815,12 @@ $base-size: .35rem;
     0% {
         opacity: 1;
     }
+
     90% {
         opacity: 1;
     }
+
     100% {
-      opacity: 0;
+        opacity: 0;
     }
-  }
+}

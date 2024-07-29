@@ -382,16 +382,23 @@ pass
                     <li>
                         <mat-expansion-panel>
                             <mat-expansion-panel-header>
-                                <mat-panel-title>UML</mat-panel-title>
-                                <mat-panel-subtitle>Sequence Diagrams!</mat-panel-subtitle>
+                                <mat-panel-title>Sequence Diagrams!</mat-panel-title>
+                                <mat-panel-subtitle>UML, OH MY!</mat-panel-subtitle>
                             </mat-expansion-panel-header>
                             Sequence diagrams are a type of UML diagram that shows how objects interact in a time
                             period. They are used to visualize the interactions between objects in a system.
 
                             <div>
-                                For example, this is in the initial interaction when you visit this website and go to the About Me page:
-                                <div class="code">
-<pre>
+                                <ul>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Initial interaction on www.nehsa.net</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            For example, this is in the initial interaction when you visit this website
+                                            and go to the About Me page:
+                                            <div class="code">
+                                                <pre>
 &#64;startuml
 actor User
 participant Website
@@ -426,9 +433,140 @@ Website -> User: Display Information
 deactivate Website
 &#64;enduml
 </pre>
-                                </div><br><br>
-                                Resulting in the following diagram:<br>
-                                <img src="../assets/images/uml_example.svg" alt="Sequence Diagram">
+                                            </div><br><br>
+                                            Resulting in the following diagram (svg image created on PlantUml.com):<br>
+                                            <img src="../assets/images/uml_example.svg" alt="Sequence Diagram">
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Advanced</mat-panel-title>
+                                                <mat-panel-description>Data flow, Parameter inputs, Error flow, Return
+                                                    values</mat-panel-description>
+                                            </mat-expansion-panel-header>
+                                            <ul>
+                                                <li>
+                                                    <mat-expansion-panel>
+                                                        <mat-expansion-panel-header>
+                                                            <mat-panel-title>Parameters and data flow</mat-panel-title>
+                                                        </mat-expansion-panel-header>
+                                                        <div class="code">
+                                                            <pre>
+&#64;startuml
+actor User
+participant Website
+participant API
+participant Database
+
+User -> Website: "About Me"
+activate Website
+
+Website -> API: Get Quote [/v1/quote()]
+activate API
+API -> Website: returns quote
+deactivate API
+
+Website -> API: Get User Information [/v1/name/&#123;numToReturn&#125;]
+activate API
+API -> Website: returns [ &#123; name, about &#125; ]
+deactivate API
+
+Website -> API: Get Positive Adjectives [/v1/positiveadjective]
+activate API
+API -> Website: returns &#123; [ terms ] &#125;
+deactivate API
+
+Website -> API: Check for comments [/v1/comment/&#123;page&#125;/&#123;numberToReturn&#125;]
+activate API
+API -> Database: Check for Comments
+activate Database
+Database --> API: returns &#123; commentid, username, comment, page &#125;
+deactivate Database
+API -> Website: returns &#123; commentid, username, comment, page &#125;
+deactivate API
+Website -> User: Display Information
+deactivate Website
+&#64;enduml
+</pre>
+                                                        </div><br><br>
+                                                        Resulting in the following diagram (svg image created on PlantUml.com):<br>
+                                                        <img src="../assets/images/uml_example2.svg"
+                                                            alt="Sequence Diagram">
+                                                    </mat-expansion-panel>
+                                                </li>
+                                                <li>
+                                                    <mat-expansion-panel>
+                                                        <mat-expansion-panel-header>
+                                                            <mat-panel-title>Error Flow</mat-panel-title>
+                                                        </mat-expansion-panel-header>
+                                                        <div class="code">
+<pre>
+&#64;startuml
+actor User
+participant Website
+participant API
+participant Database
+
+User -> Website: "About Me"
+activate Website
+
+Website -> API: Get Quote [/v1/quote()]
+activate API
+alt API Available
+API -> Website: returns quote
+deactivate API
+else API Unavailable
+    API --> Website: APIError
+end
+
+
+Website -> API: Get User Information [/v1/name/&#123;numToReturn&#125;]
+activate API
+alt API Available
+API -> Website: returns [ &#123; name, about &#125; ]
+deactivate API
+else API Unavailable
+    API --> Website: APIError
+end
+
+Website -> API: Get Positive Adjectives [/v1/positiveadjective]
+activate API
+alt API Available
+API -> Website: returns &#123; [ terms ] &#125;
+deactivate API
+else API Unavailable
+    API --> Website: APIError
+end
+
+
+Website -> API: Check for comments [/v1/comment/&#123;page&#125;/&#123;numberToReturn&#125;]
+activate API
+alt API Available
+    API -> Database: CheckForComments(userId)
+    activate Database
+    Database --> API: CommentData &#123;comments&#125;
+    deactivate Database
+    API -> Website: returns &#123;commentid, username, comment, page&#125;
+else API Unavailable
+    API --> Website: APIError
+end
+deactivate API
+Website -> User: Display Information
+deactivate Website
+&#64;enduml
+</pre>
+                                                        </div><br><br>
+                                                        Resulting in the following diagram (svg image created on PlantUml.com):<br>
+                                                        <img src="../assets/images/uml_example3.svg"
+                                                            alt="Sequence Diagram">
+                                                    </mat-expansion-panel>
+                                                </li>
+                                            </ul>
+                                        </mat-expansion-panel>
+                                    </li>
+                                </ul>
+
                             </div>
                         </mat-expansion-panel>
                     </li>
