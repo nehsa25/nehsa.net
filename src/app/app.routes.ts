@@ -46,6 +46,7 @@ import { GeminiComponent } from './main/gemini/gemini.component';
 import { RegexComponent } from './main/regex/regex.component';
 import { IdeComponent } from './main/ide/ide.component';
 import { BlogComponent } from './main/blog/blog.component';
+import { MudMakingOfComponent } from './main/mud-making-of/mud-making-of.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: BioComponent },
@@ -69,6 +70,7 @@ export const routes: Routes = [
         path: 'school/ph207', title: 'nehsa.net | ph207',
         component: Ph207Component
     },
+    { path: 'makingofmud', title: 'nehsa.net | Making of NehsaMUD', component: MudMakingOfComponent },
     { path: 'npm', title: 'nehsa.net | npm', component: NpmComponent },
     { path: 'playwright', title: 'nehsa.net | Playwright', component: PlaywrightComponent },
     { path: 'doxy', title: 'nehsa.net | Doxygen', component: DoxygenComponent },
