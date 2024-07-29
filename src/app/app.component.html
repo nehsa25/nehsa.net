@@ -86,7 +86,7 @@
     <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen"
         class="navbar child"><app-navbar></app-navbar></div>
     <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" class="body child">
-        <router-outlet></router-outlet>
+        <router-outlet (activate)="onActivate($event)"></router-outlet>
     </div>
     <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" class="footer child">
         <div>nehsa.net &copy; 2024 - All Rights Reserved. Be kind.</div>
