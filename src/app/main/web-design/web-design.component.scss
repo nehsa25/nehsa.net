@@ -178,52 +178,63 @@ table {
 }
 
 .rain-drop:nth-child(1) {
-    --x: 23; --y: 12;
+    --x: 23;
+    --y: 12;
     color: gray;
 }
 
 .rain-drop:nth-child(2) {
-    --x: 78; --y: 3;
+    --x: 78;
+    --y: 3;
     color: tomato;
 }
 
 .rain-drop:nth-child(3) {
-    --x: 15; --y: 18;
+    --x: 15;
+    --y: 18;
     color: fuchsia;
 }
 
 .rain-drop:nth-child(4) {
-    --x: 92; --y: 7;;
+    --x: 92;
+    --y: 7;
+    ;
     color: yellow;
 }
 
 .rain-drop:nth-child(5) {
-    --x: 45; --y: 5;
+    --x: 45;
+    --y: 5;
     color: lime;
 }
 
 .rain-drop:nth-child(6) {
-    --x: 6; --y: 15;
+    --x: 6;
+    --y: 15;
     color: Turquoise;
 }
 
 .rain-drop:nth-child(6) {
-    --x: 89; --y: 2;
+    --x: 89;
+    --y: 2;
     color: Gray;
 }
 
 .rain-drop:nth-child(8) {
-    --x: 32; --y: 10;
+    --x: 32;
+    --y: 10;
     color: Lavender;
 }
 
 .rain-drop:nth-child(9) {
-    --x: 57; --y: 17;
+    --x: 57;
+    --y: 17;
     color: Purple;
 }
 
 .rain-drop:nth-child(10) {
-    --x: 1; --y: 8;
+    --x: 1;
+    --y: 8;
     color: Orange;
 }
 
@@ -301,4 +312,158 @@ table {
 
 .smoking-text {
     animation: smoke 100s linear infinite;
+}
+
+/* neon text */
+@keyframes neon {
+    0% {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff0055, 0 0 70px #ff0055, 0 0 80px #ff0055, 0 0 100px #ff0055, 0 0 150px #ff0055;
+    }
+
+    100% {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff0055, 0 0 35px #ff0055, 0 0 40px #ff0055, 0 0 50px #ff0055, 0 0 75px #ff0055;
+    }
+}
+
+.neon-text {
+    animation: neon 100s linear infinite;
+}
+
+/* owl */
+$owl-base-size: 10rem;
+
+.playstate-container {
+    width: 5 * $owl-base-size;
+    height: 5 * $owl-base-size;
+    border: 1px solid crimson;
+    position: relative;
+    background-color: #999;
+    z-index: 101;
+    text-align: center;
+}
+
+.playstate-container>button {
+    margin: 1rem;
+}
+
+/* main body */
+
+.owl {
+
+    margin: 1.5em auto;
+    position: relative;
+    width: 3 * $owl-base-size;
+    height: 4 * $owl-base-size;
+    border-radius: 70%;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+/* eye area */
+.owl-body::before {
+    content: "";
+    position: absolute;
+    top: .7 * $owl-base-size;
+    left: .4 * $owl-base-size;
+    width: 1.5 * $owl-base-size;
+    height: 1.5 * $owl-base-size;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: none;
+    border-top: 1px solid #777;
+    border-bottom: 1px solid #777;
+    border-left: 1px solid #777;
+    z-index: 9;
+}
+
+.owl-body::after {
+    content: "";
+    position: absolute;
+    top: .7 * $owl-base-size;
+    right: .4 * $owl-base-size;
+    width: 1.5 * $owl-base-size;
+    height: 1.5 * $owl-base-size;
+    border-radius: 50%;
+    border-left: 1px solid white;
+    border-top: 1px solid #777;
+    border-bottom: 1px solid #777;
+    border-right: 1px solid #777;
+    background-color: white;
+    z-index: 10;
+}
+
+.owl-left-ear {
+    position: absolute;
+    top: .2 * $owl-base-size;
+    left: .3 * $owl-base-size;
+    width: 1.6 * $owl-base-size;
+    height: 1.6 * $owl-base-size;
+    background-color: white;
+    z-index: 4;
+    rotate: 15deg;
+}
+
+.owl-right-ear {
+    position: absolute;
+    top: .2 * $owl-base-size;
+    left: 1.1 * $owl-base-size;
+    width: 1.6 * $owl-base-size;
+    height: 1.6 * $owl-base-size;
+    background-color: white;
+    z-index: 5;
+    rotate: 75deg;
+}
+
+.owl-left-eye {
+    position: absolute;
+    top: 1 * $owl-base-size;
+    left: .6 * $owl-base-size;
+    width: .6 * $owl-base-size;
+    height: .6 * $owl-base-size;
+    border-radius: 50%;
+    background-color: black;
+    border: none;
+    border-top: 1px solid lime;
+    border-bottom: 1px solid lime;
+    border-left: 1px solid lime;
+    z-index: 15;
+}
+
+.owl-right-eye {
+    position: absolute;
+    top: 1 * $owl-base-size;
+    left: 1.6 * $owl-base-size;
+    width: .6 * $owl-base-size;
+    height: .6 * $owl-base-size;
+    border-radius: 100%;
+    background-color: black;
+    border: none;
+    z-index: 15;
+    animation: blink 5s ease-in-out infinite;
+}
+
+.owl-beak {
+    position: absolute;
+    top: 1.8 * $owl-base-size;
+    left: 1.2 * $owl-base-size;
+    width: .5 * $owl-base-size;
+    height: .5 * $owl-base-size;
+    background-color: #F88017;
+    rotate: 45deg;
+    z-index: 8;
+}
+
+@keyframes blink {
+    0% {
+        height: .6 * $owl-base-size;
+    }
+
+    50% {
+        height: .1 * $owl-base-size;
+    }
+
+    100% {
+        height: .6 * $owl-base-size;
+    }
 }

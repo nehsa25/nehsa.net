@@ -414,6 +414,8 @@ animation: fadeOut 10s ease-out forwards;
                                                 <dd>Runs twice</dd>
                                                 <dt>forwards</dt>
                                                 <dd>Runs once and then stops at the end state</dd>
+                                                <dt>backwards</dt>
+                                                <dd>Runs once and then stops at the beginning state</dd>
                                                 <dt>infinitely</dt>
                                                 <dd>Runs forever</dd>
                                             </dl>
@@ -424,6 +426,25 @@ animation: fadeOut 10s ease-out forwards;
                                 <li>To make an animation permanent, meaning the state will not revert back once the
                                     animation is complete, use "forwards":
                                     <span class="code">animation: fadeOut 10s ease-out forwards;</span>
+                                </li>
+                                <li>
+                                    Working with play-state<br>
+                                    <div class="playstate-container">
+                                        <div class="playstate-text">
+                                            <div class="owl">
+                                                <div class="owl-body"></div>
+                                                <div class="owl-left-ear"></div>
+                                                <div class="owl-right-ear"></div>
+                                                <div class="owl-left-eye"></div>
+                                                <div class="owl-right-eye"  [style.animationPlayState]="playState"></div>
+                                                <div class="owl-beak"></div>
+                                            </div>
+                                        </div>
+                                        <button mat-stroked-button (click)="playStateStart()">Play</button>
+                                        <button mat-stroked-button (click)="playStatePause()">Pause</button>
+                                        <button mat-stroked-button (click)="playStateReverse()">Reverse</button>
+                                    </div>
+                                </li>
                             </ul>
 
                             <div class="topics">
@@ -441,7 +462,8 @@ animation: fadeOut 10s ease-out forwards;
                                         </div>
                                     </li>
                                     <li>
-                                        <div class="fading-text">I'm a fading text!</div>
+                                        <div class="fading-text">Like mist's crisp burning in the morning sun.. (I'm
+                                            fading away)</div>
                                     </li>
                                     <li>
                                         <div class="rainbow-text">I'm a rainbow text!</div>

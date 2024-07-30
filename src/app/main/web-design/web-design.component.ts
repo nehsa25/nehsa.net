@@ -14,5 +14,21 @@ import { RouterLink } from '@angular/router';
   styleUrl: './web-design.component.scss'
 })
 export class WebDesignComponent {
+  playState = "pause";
 
+  constructor() { }
+
+  ngOnInit() { }
+
+  playStateStart() {
+    this.playState = "running";
+  }
+
+  playStatePause() {
+    this.playState = "paused";
+  }
+
+  playStateReverse() {
+    this.playState = "reversed";
+  }
 }

@@ -3,8 +3,6 @@ import { MatCardModule } from '@angular/material/card';
 import { CommentComponent } from '../../shared-components/comment/comment.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { UserService } from '../../services/user.service';
-import { CommentType } from '../../types/comment.type';
-import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-angular',

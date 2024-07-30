@@ -17,6 +17,7 @@ import { UserService } from './services/user.service';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSliderModule } from '@angular/material/slider';
+import { FranticTim } from './types/tim.type';
 
 @Component({
   selector: 'app-root',
@@ -56,7 +57,9 @@ export class AppComponent implements OnInit, OnDestroy {
   appIsDark = false;
   osIsDark = false;
   darkmode_value = 0; // slider value
+  timText: Array<FranticTim> = new Array<FranticTim>();
   bobtext = "This is Timoth&eacute;e. He is going on an adventure..";
+
 
   constructor(
     private ref: ChangeDetectorRef,
@@ -69,6 +72,18 @@ export class AppComponent implements OnInit, OnDestroy {
     this.getQueries.push(getQuotes);
     this.getQueries.push(getName);
     this.getQueries.push(getPosTerms);
+
+    this.timText.push(new FranticTim("I'm Timoth&eacute;e and I'm going on an adventure!", .8));
+    this.timText.push(new FranticTim("Adventuring Timoth&eacute;e!", .9));
+    this.timText.push(new FranticTim("Can you smell that? That's high quality air right there.", 1));
+    this.timText.push(new FranticTim("Yup.. off adventuring.", 1));
+    this.timText.push(new FranticTim("I feed Gaston right?", .9));
+    this.timText.push(new FranticTim("I'm sure I fed Gaston", .8));
+    this.timText.push(new FranticTim("There's absolutely no way I would forget to feed Gaston", .5));
+    this.timText.push(new FranticTim("Crap.", .1, false));
+    this.timText.push(new FranticTim("I forgot to feed Gaston", 1.2, false));
+    this.timText.push(new FranticTim("I'm sorry Gaston, Timoth&eacute;e's coming!", 1.3, false));
+    this.timText.push(new FranticTim("GASTON!", 1.7, false));
   };
 
   ngOnInit() {
