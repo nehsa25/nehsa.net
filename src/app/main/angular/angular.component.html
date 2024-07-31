@@ -13,6 +13,33 @@
                             <li>
                                 <mat-expansion-panel>
                                     <mat-expansion-panel-header>
+                                        <mat-panel-title>Dynamic CSS (ngClass and whatnot)</mat-panel-title>
+                                        <mat-panel-description>
+                                        </mat-panel-description>
+                                    </mat-expansion-panel-header>
+                                    A few options allow for changes either the class or the style of an element. Here are a a few I use:
+                                    <ul>
+                                        <li>ngClass - Add or remove a class based on a condition
+                                            <div class="code">
+<pre>
+ &lt;div [class.bringmetothelight]="userService.appIsDark()" [class.entermeontodarkness]="!userService.appIsDark()"&gt;KAW POW!&lt;/div&gt;
+</pre>
+                                            </div>
+                                            </li>
+                                        <li>ngStyle - Add or remove a style based on a condition
+                                            <div class="code">
+<pre>
+&lt;div [ngStyle]="&#123;'background-color': userService.appIsDark() ? 'black' : 'white'&#125;"&gt;KAW POW!&lt;/div&gt;
+</pre>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
                                         <mat-panel-title>Form Validation</mat-panel-title>
                                         <mat-panel-description>
                                         </mat-panel-description>

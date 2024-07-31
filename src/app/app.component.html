@@ -52,6 +52,20 @@
                     </div>
                     <div *ngIf="!this.expandedBio" class="world" [class.maintitle-dark]="userService.appIsDark()"
                         [class.maintitle-light]="!userService.appIsDark()">
+                        <!-- <div class="image-container">
+                            <div class="image-wrapper1">
+                                <img src="../assets/images/smalltree.png" alt="Tree Image">
+                              </div>
+                              <div class="image-wrapper2">
+                                <img src="../assets/images/smalltree.png" alt="Tree Image">
+                              </div>
+                              <div class="image-wrapper3">
+                                <img src="../assets/images/smalltree.png" alt="Tree Image">
+                              </div>
+                              <div class="image-wrapper4">
+                                <img src="../assets/images/smalltree.png" alt="Tree Image">
+                              </div>
+                          </div> -->
                         <div class="trees"></div>
                         <div class="tree tree1"></div>
                         <div class="tree tree2"></div>
@@ -70,9 +84,16 @@
                         <div class="tree tree15"></div>
                         <div class="tree tree16"></div>
                         <div class="tree tree17"></div>
-                        <div class="bobarea">
-                            <div class="bob-text" [innerHtml]="bobtext"> <mat-icon>arrow_forward</mat-icon></div>
-                            <div class="bob"></div>
+                        <div [class.narratorarea-grid]="!timSpeaking"
+                            [class.timarea-grid]="timSpeaking"
+                            [class.timarea-grid-normal]="!timMovingRight"
+                            [class.timarea-grid-reversed]="timMovingRight">
+                            <div class="spacer1"></div>
+                            <div *ngIf="timSpeaking" class="column talk tim-text" [innerHTML]="timMessage"></div>
+                            <div *ngIf="!timSpeaking" class="column talk tim-text-narrator" [innerHTML]="timMessage"></div>
+                            <div class="spacer2"></div>
+                            <div class="tim"></div>
+                            <div class="spacer3"></div>
                         </div>
                     </div>
                 </mat-panel-title>

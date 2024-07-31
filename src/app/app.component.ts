@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, HostListener, Input, OnDestroy, OnInit } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './shared-components/navbar/navbar.component';
 import { CornerListenerComponent } from './shared-components/corner-listener/corner-listener.component';
@@ -18,6 +18,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSliderModule } from '@angular/material/slider';
 import { FranticTim } from './types/tim.type';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-root',
@@ -43,6 +44,7 @@ import { FranticTim } from './types/tim.type';
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit, OnDestroy {
+  @Input() duration = 10;  
   expandedBio = true;
   title = "Jesse Stone";
   quote = "";
@@ -57,33 +59,50 @@ export class AppComponent implements OnInit, OnDestroy {
   appIsDark = false;
   osIsDark = false;
   darkmode_value = 0; // slider value
-  timText: Array<FranticTim> = new Array<FranticTim>();
-  bobtext = "This is Timoth&eacute;e. He is going on an adventure..";
-
-
+  timMessages: Array<FranticTim> = new Array<FranticTim>();
+  timMessage = "";
+  showTimTest = false;
+  lastTimIndex = 0;
+  timSpeaking = false;
+  timMovingRight = false;
   constructor(
-    private ref: ChangeDetectorRef,
+    private ref: ChangeDetectorRef,    
     public httpClient: HttpService,
     public userService: UserService,
-    public nameDialog: MatDialog) {
+    public nameDialog: MatDialog,
+    ) {
     var getQuotes = this.httpClient.getQuote();
     var getName = this.httpClient.getNames(2);
     var getPosTerms = this.httpClient.getPosTerms();
     this.getQueries.push(getQuotes);
     this.getQueries.push(getName);
     this.getQueries.push(getPosTerms);
-
-    this.timText.push(new FranticTim("I'm Timoth&eacute;e and I'm going on an adventure!", .8));
-    this.timText.push(new FranticTim("Adventuring Timoth&eacute;e!", .9));
-    this.timText.push(new FranticTim("Can you smell that? That's high quality air right there.", 1));
-    this.timText.push(new FranticTim("Yup.. off adventuring.", 1));
-    this.timText.push(new FranticTim("I feed Gaston right?", .9));
-    this.timText.push(new FranticTim("I'm sure I fed Gaston", .8));
-    this.timText.push(new FranticTim("There's absolutely no way I would forget to feed Gaston", .5));
-    this.timText.push(new FranticTim("Crap.", .1, false));
-    this.timText.push(new FranticTim("I forgot to feed Gaston", 1.2, false));
-    this.timText.push(new FranticTim("I'm sorry Gaston, Timoth&eacute;e's coming!", 1.3, false));
-    this.timText.push(new FranticTim("GASTON!", 1.7, false));
+    this.timMessages.push(new FranticTim("Meet Timoth&eacute;e. He's off on an adventure..", .7, false, false, 1000 * 2));
+    this.timMessages.push(new FranticTim("Bonjour! I'm Timoth&eacute;e and I'm going on an adventure!", .8, false, true, 1000 * 10));
+    this.timMessages.push(new FranticTim("I'm &quot;Adventuring Timoth&eacute;e!&quot; Here we go! Whew!", .9, false, true, 1000 * 20));
+    this.timMessages.push(new FranticTim("Timoth&eacute;e takes in a large inhale of smell.", .9, false, false, 1000 * 24));
+    this.timMessages.push(new FranticTim("hmph. hhhmmmmmmmmmm.", 1, false, true, 1000 * 26));
+    this.timMessages.push(new FranticTim("Timoth&eacute;e exhales loudly. Riveting!", .9, false, false, 1000 * 28));
+    this.timMessages.push(new FranticTim("Can you smell that? The air is different here than at home..", 1, false, true, 1000 * 30));
+    this.timMessages.push(new FranticTim("This is AIR air.", 1, false, true, 1000 * 45));
+    this.timMessages.push(new FranticTim("Yup.. off adventuring..", 1, false, true, 1000 * 50));
+    this.timMessages.push(new FranticTim("Da-da-da-da-da-da-da Dum-dum-dum-dum-dum-dum Da-da-da-da DUM-DUM-DUM", 1, false, true, 1000 * 52));
+    this.timMessages.push(new FranticTim("I fed Gaston right?", .9, false, true, 1000 * 55));
+    this.timMessages.push(new FranticTim("I was packing my bag, then I went to the pantry..", .9, false, true, 1000 * 60));
+    this.timMessages.push(new FranticTim("Now, Timoth&eacute;e did feed Gaston before he left for adventure..", .9, false, false, 1000 * 65));
+    this.timMessages.push(new FranticTim("Gaston is happy, quite full, and is right now relaxing lackadaisically..", .9, false, false, 1000 * 67));
+    this.timMessages.push(new FranticTim("I'm sure I fed Gaston!", .8, false, true, 1000 * 75));
+    this.timMessages.push(new FranticTim("There is no way I would forget to feed Gaston. No way.", .5, false, true, 1000 * 80));
+    this.timMessages.push(new FranticTim("Crap.", .1, false, true, 1000 * 90));
+    this.timMessages.push(new FranticTim("CRAP.", .1, false, true, 1000 * 92));
+    this.timMessages.push(new FranticTim("CRAP!", .1, true, true, 1000 * 96));
+    this.timMessages.push(new FranticTim("GASTON!", 1.1, true, true, 1000 * 97));
+    this.timMessages.push(new FranticTim("I'm coming!", 1.2, true, true, 1000 * 100));
+    this.timMessages.push(new FranticTim("I'm sorry Gaston! Timoth&eacute;e's coming!", 1.3, true, true, 1000 * 110));
+    this.timMessages.push(new FranticTim("Ohh, poor thing!", .5, true, true, 1000 * 115));
+    this.timMessages.push(new FranticTim("GASTON!", 1.7, true, true, 1000 * 120));
+    this.timMessages.push(new FranticTim("GASTON!", 1.8, true, true, 1000 * 130));
+    this.timMessages.push(new FranticTim("WHEW! I KNEW I FED GASTON!", 1, false, true, 1000 * 150));
   };
 
   ngOnInit() {
@@ -120,6 +139,16 @@ export class AppComponent implements OnInit, OnDestroy {
     this.sleep(5000).then(() => {
       this.expandedBio = false;
       this.title = "";
+    });
+
+    this.timMessages.forEach((tim, index) => {
+      setTimeout(() => {
+        this.timMessage = tim.text;
+        this.timSpeaking = tim.fromTim;
+        this.duration = tim.speed + 5000;
+        this.timMovingRight = tim.movingRight;
+        this.ref.markForCheck();
+      }, tim.text_wait);
     });
   }
 
