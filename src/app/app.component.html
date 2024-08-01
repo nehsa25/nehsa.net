@@ -52,50 +52,118 @@
                     </div>
                     <div *ngIf="!this.expandedBio" class="world" [class.maintitle-dark]="userService.appIsDark()"
                         [class.maintitle-light]="!userService.appIsDark()">
-                        <!-- <div class="image-container">
-                            <div class="image-wrapper1">
-                                <img src="../assets/images/smalltree.png" alt="Tree Image">
-                              </div>
-                              <div class="image-wrapper2">
-                                <img src="../assets/images/smalltree.png" alt="Tree Image">
-                              </div>
-                              <div class="image-wrapper3">
-                                <img src="../assets/images/smalltree.png" alt="Tree Image">
-                              </div>
-                              <div class="image-wrapper4">
-                                <img src="../assets/images/smalltree.png" alt="Tree Image">
-                              </div>
-                          </div> -->
-                        <div class="trees" [style.animationPlayState]="playState"></div>
-                        <div class="tree tree1" [style.animationPlayState]="playState"></div>
-                        <div class="tree tree2" [style.animationPlayState]="playState"></div>
-                        <div class="tree tree3" [style.animationPlayState]="playState"></div>
-                        <div class="tree tree4" [style.animationPlayState]="playState"></div>
-                        <div class="tree tree5" [style.animationPlayState]="playState"></div>
-                        <div class="tree tree6" [style.animationPlayState]="playState"></div>
-                        <div class="tree tree7" [style.animationPlayState]="playState"></div>
-                        <div class="tree tree8" [style.animationPlayState]="playState"></div>
-                        <div class="tree tree9" [style.animationPlayState]="playState"></div>
-                        <div class="tree tree10" [style.animationPlayState]="playState"></div>
-                        <div class="tree tree11" [style.animationPlayState]="playState"></div>
-                        <div class="tree tree12" [style.animationPlayState]="playState"></div>
-                        <div class="tree tree13" [style.animationPlayState]="playState"></div>
-                        <div class="tree tree14" [style.animationPlayState]="playState"></div>
-                        <div class="tree tree15" [style.animationPlayState]="playState"></div>
-                        <div class="tree tree16" [style.animationPlayState]="playState"></div>
-                        <div class="tree tree17" [style.animationPlayState]="playState"></div>
-                        <div [class.narratorarea-grid]="!timSpeaking"
-                            [class.narratorarea-grid-normal]="!timSpeaking && !timMovingRight"
-                            [class.narratorarea-grid-reversed]="!timSpeaking && timMovingRight"
-                            [class.timarea-grid]="timSpeaking"
-                            [class.timarea-grid-normal]="!timMovingRight"
-                            [class.timarea-grid-reversed]="timMovingRight">
-                            <div class="pause-button-container"></div>
+  
+                        <div *ngFor="let tree of trees; let i = index" [style.width.px]="tree.width"
+                            [style.height.px]="tree.height" [style.zIndex]="tree.zindex" [style.top.px]="tree.top"
+                            [style.left.px]="tree.left" class="tree" [class.tree-normal]="tree.directionLeft"
+                            [class.tree-reverse]="!tree.directionLeft" [style.animationPlayState]="playState"
+                            [style.animationDuration]="tree.speed">
+                        </div>
+
+                        <!-- Tim normal -->
+                        <div *ngIf="timSpeaking && timMovingLeft" class="timarea-grid timarea-grid-normal">
+                            <div class="pause-button-container">
+                                <div> <button class="control-button" mat-icon-button (click)="pauseAnimation($event)">
+                                        <mat-icon>pause</mat-icon>
+                                    </button></div>
+                                <div> <button class="control-button" mat-icon-button (click)="reverseAnimation($event)">
+                                        <mat-icon>history</mat-icon>
+                                    </button></div>
+                                <div> <button class="control-button" mat-icon-button (click)="swapAnimation($event)">
+                                        <mat-icon>swap_horiz</mat-icon>
+                                    </button></div>
+                            </div>
                             <div class="narrator"></div>
-                            <div *ngIf="timSpeaking && timMessage != ''" class="column talk tim-text" [innerHTML]="timMessage"></div>
-                            <div *ngIf="!timSpeaking && timMessage != ''" class="column talk tim-text-narrator" [innerHTML]="timMessage"></div>
                             <div class="spacer"></div>
-                            <div class="tim"></div>
+                            <div *ngIf="timMessage == ''" [ngStyle]="{'background-color': 'inherit;'}"
+                                class="column talk" [innerHTML]="timMessage"></div>
+                            <div *ngIf="timMessage != ''" class="column talk tim-text" [innerHTML]="timMessage"></div>
+                            <div class="tim-container">
+                                <div class="tim">
+                                    <div class="eye"></div>
+                                    <div class="nose"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tim reverse-->
+                        <div *ngIf="timSpeaking && !timMovingLeft" class="timarea-grid timarea-grid-reverse">
+                            <div class="pause-button-container">
+                                <div> <button class="control-button" mat-icon-button (click)="pauseAnimation($event)">
+                                        <mat-icon>pause</mat-icon>
+                                    </button></div>
+                                <div> <button class="control-button" mat-icon-button (click)="reverseAnimation($event)">
+                                        <mat-icon>history</mat-icon>
+                                    </button></div>
+                                <div> <button class="control-button" mat-icon-button (click)="swapAnimation($event)">
+                                        <mat-icon>swap_horiz</mat-icon>
+                                    </button></div>
+                            </div>
+                            <div *ngIf="timMessage == ''" [ngStyle]="{'background-color': 'inherit;'}"
+                                class="column talk" [innerHTML]="timMessage"></div>
+                            <div *ngIf="timMessage != ''" class="column talk tim-text" [innerHTML]="timMessage"></div>
+                            <div class="narrator"></div>
+                            <div class="spacer"></div>
+                            <div class="tim-container">
+                                <div class="tim">
+                                    <div class="eye"></div>
+                                    <div class="nose"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Narrator -->
+                        <div *ngIf="!timSpeaking && timMovingLeft" class="narratorarea-grid narratorarea-grid-normal">
+                            <div class="pause-button-container">
+                                <div> <button class="control-button" mat-icon-button (click)="pauseAnimation($event)">
+                                        <mat-icon>pause</mat-icon>
+                                    </button></div>
+                                <div> <button class="control-button" mat-icon-button (click)="reverseAnimation($event)">
+                                        <mat-icon>history</mat-icon>
+                                    </button></div>
+                                <div> <button class="control-button" mat-icon-button (click)="swapAnimation($event)">
+                                        <mat-icon>swap_horiz</mat-icon>
+                                    </button></div>
+                            </div>
+                            <div *ngIf="timMessage == ''" [ngStyle]="{'background-color': 'inherit;'}"
+                                class="column narrator" [innerHTML]="timMessage"></div>
+                            <div *ngIf="timMessage != ''" class="column narrator tim-text-narrator"
+                                [innerHTML]="timMessage"></div>
+                            <div class="spacer"></div>
+                            <div class="talk"></div>
+                            <div class="tim-container">
+                                <div class="tim">
+                                    <div class="eye"></div>
+                                    <div class="nose"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Narrator reverse-->
+                        <div *ngIf="!timSpeaking && !timMovingLeft" class="narratorarea-grid narratorarea-grid-reverse">
+                            <div class="pause-button-container">
+                                <div> <button class="control-button" mat-icon-button (click)="pauseAnimation($event)">
+                                        <mat-icon>pause</mat-icon>
+                                    </button></div>
+                                <div> <button class="control-button" mat-icon-button (click)="reverseAnimation($event)">
+                                        <mat-icon>history</mat-icon>
+                                    </button></div>
+                                <div> <button class="control-button" mat-icon-button (click)="swapAnimation($event)">
+                                        <mat-icon>swap_horiz</mat-icon>
+                                    </button></div>
+                            </div>
+                            <div *ngIf="timMessage == ''" [ngStyle]="{'background-color': 'inherit;'}"
+                                class="column narrator" [innerHTML]="timMessage"></div>
+                            <div *ngIf="timMessage != ''" class="column narrator tim-text-narrator"
+                                [innerHTML]="timMessage"></div>
+                            <div class="talk"></div>
+                            <div class="spacer"></div>
+                            <div class="tim-container">
+                                <div class="tim">
+                                    <div class="eye"></div>
+                                    <div class="nose"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </mat-panel-title>

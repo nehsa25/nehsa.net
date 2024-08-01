@@ -532,10 +532,10 @@ $base-size: .35rem;
 .trees {
     position: absolute;
     background-image: url('../assets/images/smalltree.png');
-    background-repeat:repeat;
+    background-repeat: repeat;
     height: 45px;
     width: 100%;
-    z-index:10;
+    z-index: 10;
 }
 
 .image-container {
@@ -598,155 +598,16 @@ $base-size: .35rem;
     background-image: url('../assets/images/tree.png');
     background-size: cover;
     background-color: inherit;
-    animation: move-tree 88s linear infinite;
-    z-index: 90;
-    width: 23px;
-    height: 23px;
-    top: 19px;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
 
-.tree1 {
-    animation: move-tree 13s linear infinite;
-    z-index: 99;
-    width: 35px;
-    height: 35px;
-    top: 6px;
+.tree-normal {
+    animation-name: move-tree;
 }
 
-.tree2 {
-    animation: move-tree 17s linear infinite;
-    z-index: 102;
-    width: 40px;
-    height: 40px;
-    top: 6px;
-}
-
-.tree3 {
-    animation: move-tree 110s linear infinite;
-    z-index: 90;
-    top: 16px;
-    width: 25px;
-    height: 25px;
-}
-
-.tree4 {
-    animation: move-tree 12.7s linear infinite;
-    z-index: 99;
-    width: 35px;
-    height: 35px;
-    top: 6px;
-}
-
-.tree5 {
-    animation: move-tree 15s linear infinite;
-    z-index: 99;
-    width: 35px;
-    height: 35px;
-    top: 6px;
-}
-
-.tree6 {
-    animation: move-tree 19s linear infinite;
-    z-index: 98;
-    width: 30px;
-    height: 30px;
-    top: 6px;
-}
-
-.tree7 {
-    animation: move-tree 12.9s linear infinite;
-    z-index: 99;
-    width: 35px;
-    height: 35px;
-    top: 6px;
-}
-
-.tree8 {
-    animation: move-tree 16s linear infinite;
-    z-index: 98;
-    width: 34px;
-    height: 34px;
-    top: 6px;
-}
-
-.tree9 {
-    animation: move-tree 115s linear infinite;
-    z-index: 80;
-    width: 15px;
-    height: 15px;
-    top: 16px;
-}
-
-.tree10 {
-    animation: move-tree 12.3s linear infinite;
-    z-index: 106;
-    width: 39px;
-    height: 39px;
-    top: 6px;
-}
-
-.tree11 {
-    animation: move-tree 18s linear infinite;
-    z-index: 105;
-    width: 40px;
-    height: 40px;
-    top: 6px;
-}
-
-.tree12 {
-    animation: move-tree 19s linear infinite;
-    z-index: 95;
-    width: 30px;
-    height: 30px;
-    top: 6px;
-}
-
-.tree13 {
-    animation: move-tree 114s linear infinite;
-    z-index: 80;
-    width: 13px;
-    height: 13px;
-    top: 16px;
-}
-
-.tree14 {
-    animation: move-tree 112s linear infinite;
-    z-index: 82;
-    width: 14px;
-    height: 14px;
-    top: 16px;
-}
-
-.tree15 {
-    animation: move-tree 111s linear infinite;
-    z-index: 83;
-    width: 15px;
-    height: 15px;
-    top: 16px;
-}
-
-.tree15 {
-    animation: move-tree 110s linear infinite;
-    z-index: 80;
-    width: 15px;
-    height: 15px;
-    top: 16px;
-}
-
-.tree16 {
-    animation: move-tree 90s linear infinite;
-    z-index: 81;
-    width: 20px;
-    height: 20px;
-    top: 18px;
-}
-
-.tree17 {
-    animation: move-tree 88s linear infinite;
-    z-index: 89;
-    width: 23px;
-    height: 23px;
-    top: 19px;
+.tree-reverse {
+    animation-name: move-tree-reverse;
 }
 
 .world {
@@ -762,25 +623,40 @@ $base-size: .35rem;
     background-color: inherit;
 }
 
+.tim-container {
+    grid-area: tim;
+    width: 100%;
+    height: 50px;
+}
+
 /* main body */
 .tim {
     width: 2.6 * $base-size;
     height: 4.8 * $base-size;
-    top: .5 * $base-size;
     position: relative;
     background-color: #88CAFC;
     border-radius: calc(2.4 * $base-size / 1.8);
     border: 1px solid whitesmoke;
     animation: bob-animation 2s linear infinite;
     z-index: 102;
-    grid-area: tim;
     margin: 0 2em;
+    top: .6rem;
 }
 
 /* shared on tim-text and tim-text-narrator */
 .pause-button-container {
     grid-area: pause-button-container;
-    z-index:100;
+    z-index: 210;
+    width: 100%;
+    background-color: slategrey;
+    height: 50px;
+    border-radius: 0 0 15% 0;
+    display: grid;
+    grid-template-columns: 32px 32px 32px;
+}
+
+.control-button {
+    color: bisque;
 }
 
 .narrator {
@@ -808,9 +684,9 @@ $base-size: .35rem;
 .timarea-grid {
     display: grid;
     background-color: inherit;
-    width: 95%;
     position: relative;
     margin-left: auto;
+    width: 100%;
 }
 
 .timarea-grid div {
@@ -821,29 +697,16 @@ $base-size: .35rem;
     margin-right: auto;
 }
 
-/* the eye */
-.timarea-grid-normal .tim::before {
-    content: "";
-    position: absolute;
-    top: .5 * $base-size;
-    left: -.5 * $base-size;
-    width: 1 * $base-size;
-    height: .8 * $base-size;
-    border-radius: 50%;
-    background-color: #9966CC;
-    /* Adjust for eye color */
-    border: 3px solid #FAFAFA;
-}
 
 .timarea-grid-normal .tim::after {
     content: "";
-    position: absolute;
+    position: absolute !important;
     top: 1.5 * $base-size;
     left: -1 * $base-size;
-    width: 1 * $base-size;
+    width: 1 * $base-size !important;
     height: 1.8 * $base-size;
     border-radius: 50%;
-    background-color: inherit;
+    background-color: inherit !important;
 }
 
 .timarea-grid-normal .talk {
@@ -853,19 +716,22 @@ $base-size: .35rem;
 }
 
 .timarea-grid-normal {
-    grid-template-columns: 100px 50px 50px 1fr 50px 50px;
+    grid-template-columns: 125px 50px 50px 1fr 50px 50px;
     grid-template-areas: "pause-button-container narrator spacer1 talk tim spacer2";
+    place-items: normal;
 }
 
-.timarea-grid-reversed {
-    grid-template-columns: 100px 50px 1fr 50px 50px 50px;
+.timarea-grid-reverse {
+    grid-template-columns: 125px 50px 1fr 50px 50px 50px;
     grid-template-areas: "pause-button-container tim talk spacer1 narrator spacer2";
+    place-items: normal;
 }
 
-.timarea-grid-reversed .tim {
+.timarea-grid-reverse .tim {
     margin-left: auto;
 }
 
+.narratorarea-grid-normal,
 .narratorarea-grid {
     display: grid;
     background-color: inherit;
@@ -873,46 +739,76 @@ $base-size: .35rem;
     position: relative;
 }
 
+.narratorarea-grid-normal,
 .narratorarea-grid-normal {
-    grid-template-columns: 100px 50px 50px 1fr 50px 50px;
+    grid-template-columns: 125px 1fr 50px 50px 50px 50px;
     grid-template-areas: "pause-button-container narrator talk spacer1 tim spacer2";
+    place-items: start;
 }
 
-.narratorarea-grid-reversed {
-    grid-template-columns: 100px 50px 50px 1fr 50px 50px;
+.narratorarea-grid-reverse {
+    grid-template-columns: 125px 50px 50px 50px 1fr 50px;
     grid-template-areas: "pause-button-container tim spacer1 talk narrator spacer2";
+    place-items: end;
 }
 
 .narratorarea-grid div {
     grid-gap: 2px;
 }
 
-/* the eye */
-.timarea-grid-reversed .tim::before {
+// the eye
+.eye {
     content: "";
     position: absolute;
-    top: .5 * $base-size;
-    left: .5 * $base-size;
     width: 1 * $base-size;
+    // eye pupil color (the middle part)
+    background-color: #9966CC !important;
+    // eye sclera color (the white part)
+    border: 3px solid #FAFAFA;
     height: .8 * $base-size;
     border-radius: 50%;
-    background-color: #9966CC;
-    /* Adjust for eye color */
-    border: 3px solid #FAFAFA;
+    top: .5 * $base-size;
 }
 
-.timarea-grid-reversed .tim::after {
+// the eye when the tim is walking right
+.narratorarea-grid-reverse .eye,
+.timarea-grid-reverse .eye {
+    left: .5 * $base-size;
+}
+
+// the eye when tim is walking left 
+.narratorarea-grid-normal .eye,
+.timarea-grid-normal .eye {
+    left: -.6 * $base-size;
+}
+
+// the nose
+.nose {
     content: "";
     position: absolute;
-    top: 1.5 * $base-size;
-    left: .9rem;
     width: 1 * $base-size;
-    height: 1.8 * $base-size;
+    height: 1.6 * $base-size;
     border-radius: 50%;
     background-color: inherit;
+    top: .7rem;
 }
 
-.timarea-grid-reversed .talk {
+// the nose when tim is walking left
+.narratorarea-grid-normal .nose,
+.timarea-grid-normal .nose {
+    left: -.2rem;
+    border-left: 1px solid whitesmoke;
+}
+
+// the nose when tim is walking right
+.narratorarea-grid-reverse .nose,
+.timarea-grid-reverse .nose {
+    left: .8rem;
+    border-right: 1px solid whitesmoke;
+}
+
+.narratorarea-grid-reverse .talk,
+.timarea-grid-reverse .talk {
     margin-right: auto;
     width: max-content;
     height: fit-content;
@@ -923,6 +819,7 @@ $base-size: .35rem;
     color: beige;
     background-color: maroon;
     width: fit-content;
+    margin-left: 3em;
 }
 
 .tim-text-narrator {
@@ -932,6 +829,7 @@ $base-size: .35rem;
     width: max-content;
     height: fit-content;
     margin: auto 0;
+    margin-left: 3em;
 }
 
 /* tims rocking motion */
@@ -968,6 +866,16 @@ $base-size: .35rem;
     }
 }
 
+@keyframes move-tree-reverse {
+    0% {
+        left: calc(100% - 48px);
+    }
+
+    100% {
+        left: 0;
+    }
+}
+
 /* trek (color shift) */
 @keyframes trek-animation {
     0% {
@@ -978,6 +886,17 @@ $base-size: .35rem;
         background-position: -100% 50%;
     }
 }
+
+@keyframes trek-animation-reverse {
+    0% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 
 /* fade */
 @keyframes fadeOut {
