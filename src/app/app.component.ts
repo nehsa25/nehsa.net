@@ -89,7 +89,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.timMessages.push(new FranticTim("This is AIR air.", 1, false, true, 1000 * 40));
     this.timMessages.push(new FranticTim("Absolutely riveting!", .9, false, false, 1000 * 42));
     this.timMessages.push(new FranticTim("Yup.. off adventuring..", 1, false, true, 1000 * 45));
-    this.timMessages.push(new FranticTim("Timoth&eacute;e starts to hmm..", .9, false, false, 1000 * 47));
+    this.timMessages.push(new FranticTim("Timoth&eacute;e starts to hum..", .9, false, false, 1000 * 47));
     this.timMessages.push(new FranticTim("Da-da-da-da-da-da-da Dum-dum-dum-dum-dum-dum Da-da-da-da DUM-DUM-DUM", 1, false, true, 1000 * 52));
     this.timMessages.push(new FranticTim("Hmm-hmm-hmm-hmm-hmm-hmm HMM-Hmm-hmm Hm-hmm-hmm-hmm DUM-DUM-DUM", 1, false, true, 1000 * 55));
     this.timMessages.push(new FranticTim("I fed Gaston right?", .9, false, true, 1000 * 57));
@@ -109,7 +109,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.timMessages.push(new FranticTim("GASTON!", 1.7, true, true, 1000 * 120));
     this.timMessages.push(new FranticTim("GASTON!", 1.8, true, true, 1000 * 130));
     this.timMessages.push(new FranticTim("WHEW! I KNEW I FED GASTON!", 1, false, true, 1000 * 150));
-    this.timMessages.push(new FranticTim("Timoth&eacute;e starts to hmm again..", .9, false, false, 1000 * 152));
+    this.timMessages.push(new FranticTim("Timoth&eacute;e starts to hum again..", .9, false, false, 1000 * 152));
     this.timMessages.push(new FranticTim("Hmm-hmm-hmmmmmmmm-HMm-hmm!", 1, false, true, 1000 * 155));
     this.timMessages.push(new FranticTim("", 1, false, true, 1000 * 160));
   };
