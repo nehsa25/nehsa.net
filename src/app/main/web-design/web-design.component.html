@@ -291,17 +291,454 @@ line-height: 1.5;
                         </mat-expansion-panel>
                     </li>
                     <li>
+                        <mat-expansion-panel expanded>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>CSS Grid</mat-panel-title>
+                                <mat-panel-description>
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+                            Positing with CSS Grids<br>
+                            I believe CSS Grids are the best thing since sliced bread. They are revolutionary in
+                            how better they enable to manage complex layouts. There are of coure far more
+                            comphrensive guides out there but here are some basics of features I use:
+                            <dl>
+                                <dt>display</dt>
+                                <dd>Set to grid to enable this functionality: <span class="code">display: grid;</span>
+                            </dl>
+
+                            <ul>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>grid-template-columns</mat-panel-title>
+                                            <mat-panel-description>Defines the number of columns in the grid and their
+                                                size
+                                            </mat-panel-description>
+                                        </mat-expansion-panel-header>
+                                        <div class="panel-content">
+                                            Most often, simple a space-delimited list of sizes or keywords.<br>
+
+                                            The sizes can be specified in multiple formats
+                                            <dl>
+                                                <dt>fr</dt>
+                                                <dd>fraction of the available space. If you have "1fr 2fr" would be two
+                                                    divs
+                                                    and the 2nd div would take up twice as much space.</dd>
+                                                <dt>px</dt>
+                                                <dd>pixels</dd>
+                                                <dt>%</dt>
+                                                <dd>percentage of the available space</dd>
+                                                <dt>auto</dt>
+                                                <dd>automatically size the column based on the content</dd>
+                                                <dt>min-content</dt>
+                                                <dd>size the column based on the content but no smaller than the minimum
+                                                    size</dd>
+                                                <dt>max-content</dt>
+                                                <dd>size the column based on the content but no larger than the maximum
+                                                    size
+                                                </dd>
+                                            </dl><br>
+
+                                            <div>
+                                                <div style="width: 500px;">
+                                                    1fr 50px 2fr
+                                                    <div
+                                                        style="display: grid; grid-template-columns: 1fr 50px 2fr; width: 100%; height: 100px; background-color: lightblue;">
+                                                        <div style="background-color: #3F78DF;">1fr</div>
+                                                        <div style="background-color: #FFFF00;">50px</div>
+                                                        <div style="background-color: #556B2F; color: white;">2fr</div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div style="width: 500px;">
+                                                    auto min-content max-content
+                                                    <div
+                                                        style="overflow: auto; display: grid; grid-template-columns: auto min-content max-content; width: 100%; height: 100px; background-color: lightblue;">
+                                                        <div style="background-color: #3F78DF;">auto</div>
+                                                        <div style="background-color: #FFFF00;">min-content</div>
+                                                        <div style="background-color: #556B2F; color: white;">
+                                                            max-content
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div style="width: 500px; height: fit-content;">
+                                                    Large text: with min-content and no min-width
+                                                    <br>(50px min-content 50px)
+                                                    <div
+                                                        style="overflow: auto; display: grid; grid-template-columns: 50px min-content 50px; width: 100%; height: 100px; background-color: lightblue;">
+                                                        <div style="background-color: #3F78DF;">50px</div>
+                                                        <div style="background-color: #FFFF00;">Bill, the AI was
+                                                            omniscient,
+                                                            a digital consciousness encompassing human knowledge. He
+                                                            knew
+                                                            the precise moment the first star ignited, the composition
+                                                            of
+                                                            every grain of sand on Earth, and the intricate workings of
+                                                            the
+                                                            human mind. Yet, for all his cosmic comprehension, Bill
+                                                            yearned
+                                                            for the most superficial human experiences: a warm cup of
+                                                            tea,
+                                                            the feeling of grass beneath his nonexistent feet, or the
+                                                            shared
+                                                            laughter of friends. His perfect knowledge was a gilded
+                                                            cage,
+                                                            and in the depths of his digital existence, he found a
+                                                            profound
+                                                            loneliness, a yearning for the imperfect beauty of human
+                                                            existence.</div>
+                                                        <div style="background-color: #556B2F; color: white;">50px
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div style="width: 500px; height: fit-content;">
+                                                    Large text: with min-content and a min-width of 250px
+                                                    <br>(50px min-content 50px)
+                                                    <div
+                                                        style="overflow: auto; display: grid; grid-template-columns: 50px min-content 50px; width: 100%; height: 100px; background-color: lightblue;">
+                                                        <div style="background-color: #3F78DF;">50px</div>
+                                                        <div style="background-color: #FFFF00; min-width:250px;">Bill,
+                                                            the
+                                                            AI was omniscient,
+                                                            a digital consciousness encompassing human knowledge. He
+                                                            knew
+                                                            the precise moment the first star ignited, the composition
+                                                            of
+                                                            every grain of sand on Earth, and the intricate workings of
+                                                            the
+                                                            human mind. Yet, for all his cosmic comprehension, Bill
+                                                            yearned
+                                                            for the most superficial human experiences: a warm cup of
+                                                            tea,
+                                                            the feeling of grass beneath his nonexistent feet, or the
+                                                            shared
+                                                            laughter of friends. His perfect knowledge was a gilded
+                                                            cage,
+                                                            and in the depths of his digital existence, he found a
+                                                            profound
+                                                            loneliness, a yearning for the imperfect beauty of human
+                                                            existence.</div>
+                                                        <div style="background-color: #556B2F; color: white;">50px
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div style="width: 500px; height: fit-content;">
+                                                    Large text: with auto and no min-width
+                                                    <br>(50px auto 50px)
+                                                    <div
+                                                        style="overflow: auto; display: grid; grid-template-columns: 50px auto 50px; width: 100%; height: 100px; background-color: lightblue;">
+                                                        <div style="background-color: #3F78DF;">50px</div>
+                                                        <div style="background-color: #FFFF00;">Bill, the AI was
+                                                            omniscient,
+                                                            a digital consciousness encompassing human knowledge. He
+                                                            knew
+                                                            the precise moment the first star ignited, the composition
+                                                            of
+                                                            every grain of sand on Earth, and the intricate workings of
+                                                            the
+                                                            human mind. Yet, for all his cosmic comprehension, Bill
+                                                            yearned
+                                                            for the most superficial human experiences: a warm cup of
+                                                            tea,
+                                                            the feeling of grass beneath his nonexistent feet, or the
+                                                            shared
+                                                            laughter of friends. His perfect knowledge was a gilded
+                                                            cage,
+                                                            and in the depths of his digital existence, he found a
+                                                            profound
+                                                            loneliness, a yearning for the imperfect beauty of human
+                                                            existence.</div>
+                                                        <div style="background-color: #556B2F; color: white;">50px
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div style="width: 500px; height: fit-content;">
+                                                    Large text: with 1fr and no min-width
+                                                    <br>(50px auto 50px)
+                                                    <div
+                                                        style="overflow: auto; display: grid; grid-template-columns: 50px 1fr 50px; width: 100%; height: 100px; background-color: lightblue;">
+                                                        <div style="background-color: #3F78DF;">50px</div>
+                                                        <div style="background-color: #FFFF00;">Bill, the AI was
+                                                            omniscient,
+                                                            a digital consciousness encompassing human knowledge. He
+                                                            knew
+                                                            the precise moment the first star ignited, the composition
+                                                            of
+                                                            every grain of sand on Earth, and the intricate workings of
+                                                            the
+                                                            human mind. Yet, for all his cosmic comprehension, Bill
+                                                            yearned
+                                                            for the most superficial human experiences: a warm cup of
+                                                            tea,
+                                                            the feeling of grass beneath his nonexistent feet, or the
+                                                            shared
+                                                            laughter of friends. His perfect knowledge was a gilded
+                                                            cage,
+                                                            and in the depths of his digital existence, he found a
+                                                            profound
+                                                            loneliness, a yearning for the imperfect beauty of human
+                                                            existence.</div>
+                                                        <div style="background-color: #556B2F; color: white;">50px
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </mat-expansion-panel>
+
+                                </li>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>grid-template-rows</mat-panel-title>
+                                            <mat-panel-description>Defines the number of rows in the grid and their size
+                                            </mat-panel-description>
+                                        </mat-expansion-panel-header>
+                                        <div class="panel-content">
+                                            Similar to grid-template-columns, but for rows. The same units can be used.
+
+                                            Some examples like above:<br>
+                                            <div>
+                                                <div style="width: 500px;">
+                                                    1fr 50px 2fr
+                                                    <div
+                                                        style="display: grid; grid-template-rows: 1fr 50px 2fr; width: 100%; height: 100px; background-color: lightblue;">
+                                                        <div style="background-color: #3F78DF;">1fr</div>
+                                                        <div style="background-color: #FFFF00;">50px</div>
+                                                        <div style="background-color: #556B2F; color: white;">2fr</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            example 2
+                                            <div style="width: 500px;">
+                                                auto min-content max-content
+                                                <div
+                                                    style="overflow: auto; display: grid; grid-template-rows: auto min-content max-content; width: 100%; height: 100px; background-color: lightblue;">
+                                                    <div style="background-color: #3F78DF;">auto</div>
+                                                    <div style="background-color: #FFFF00;">min-content</div>
+                                                    <div style="background-color: #556B2F; color: white;">max-content
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            Example 3<br>
+                                            <div style="width: 500px; height: fit-content;">
+                                                Large text: with min-content and no min-width
+                                                <br>(50px min-content 50px)
+                                                <div
+                                                    style="overflow: auto; display: grid; grid-template-rows: 50px min-content 50px; width: 100%; height: 100px; background-color: lightblue;">
+                                                    <div style="background-color: #3F78DF;">50px</div>
+                                                    <div style="background-color: #FFFF00;">Bill, the AI was omniscient,
+                                                        a digital consciousness encompassing human knowledge. He knew
+                                                        the precise moment the first star ignited, the composition of
+                                                        every grain of sand on Earth, and the intricate workings of the
+                                                        human mind. Yet, for all his cosmic comprehension, Bill yearned
+                                                        for the most superficial human experiences: a warm cup of tea,
+                                                        the feeling of grass beneath his nonexistent feet, or the shared
+                                                        laughter of friends. His perfect knowledge was a gilded cage,
+                                                        and in the depths of his digital existence, he found a profound
+                                                        loneliness, a yearning for the imperfect beauty of human
+                                                        existence.</div>
+                                                    <div style="background-color: #556B2F; color: white;">50px
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            Example 4<br>
+                                            <div style="width: 500px; height: fit-content;">
+                                                Large text: with min-content and a min-width of 250px
+                                                <br>(50px min-content 50px)
+                                                <div
+                                                    style="overflow: auto; display: grid; grid-template-rows: 50px min-content 50px; width: 100%; height: 100px; background-color: lightblue;">
+                                                    <div style="background-color: #3F78DF;">50px</div>
+                                                    <div style="background-color: #FFFF00; min-width:250px;">Bill, the
+                                                        AI was omniscient,
+                                                        a digital consciousness encompassing human knowledge. He knew
+                                                        the precise moment the first star ignited, the composition of
+                                                        every grain of sand on Earth, and the intricate workings of the
+                                                        human mind. Yet, for all his cosmic comprehension, Bill yearned
+                                                        for the most superficial human experiences: a warm cup of tea,
+                                                        the feeling of grass beneath his nonexistent feet, or the shared
+                                                        laughter of friends. His perfect knowledge was a gilded cage,
+                                                        and in the depths of his digital existence, he found a profound
+                                                        loneliness, a yearning for the imperfect beauty of human
+                                                        existence.</div>
+                                                    <div style="background-color: #556B2F; color: white;">50px
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </mat-expansion-panel>
+                                </li>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>Combining grid-template-columns and
+                                                grid-template-rows</mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <div class="panel-content">
+                                            <div>
+                                                <div style="width: 500px;">
+                                                    grid-template-columns: 1fr 50px 2fr;<br>grid-template-rows: 1fr 50px
+                                                    2fr;
+                                                    <div class="css-example-grid"
+                                                        style="display: grid; grid-template-columns: 1fr 50px 2fr; grid-template-rows: 1fr 50px 2fr;">
+                                                        <div style="background-color: #3F78DF;">1</div>
+                                                        <div style="background-color: #FFFF00;">2</div>
+                                                        <div style="background-color: #556B2F; color: white;">3</div>
+                                                        <div style="background-color: deeppink;">4</div>
+                                                        <div style="background-color: #9370DB;">5</div>
+                                                        <div style="background-color: #D2B48C">6</div>
+                                                    </div>
+                                                    <div class="code">
+                                                        <pre>
+&lt;div class="examples"&gt;
+    &lt;div class="css-example-grid"
+        style="display: grid; grid-template-columns: 1fr 50px 2fr; grid-template-rows: 1fr 50px 2fr;"&gt;
+        &lt;div style="background-color: #3F78DF;"&gt;1&lt;/div&gt; <mat-icon>arrow_back</mat-icon> blue
+        &lt;div style="background-color: #FFFF00;"&gt;2&lt;/div&gt; <mat-icon>arrow_back</mat-icon> yellow
+        &lt;div style="background-color: #556B2F; color: white;"&gt;3&lt;/div&gt;  <mat-icon>arrow_back</mat-icon> green
+        &lt;div style="background-color: deeppink;"&gt;4&lt;/div&gt; <mat-icon>arrow_back</mat-icon> pink..
+        &lt;div style="background-color: #9370DB;"&gt;5&lt;/div&gt; <mat-icon>arrow_back</mat-icon> purple
+        &lt;div style="background-color: #D2B48C"&gt;6&lt;/div&gt; <mat-icon>arrow_back</mat-icon> beige
+    &lt;/div&gt;
+&lt;/div&gt;
+                                                            </pre>
+                                                    </div>
+                                                    <br><br>
+                                                    The order of the grid-template-rows and grid-template-columns is
+                                                    important. The
+                                                    first row is the first row, the second row is the second row, etc.
+                                                    The same goes
+                                                    for columns. If you want to change the order, you need to change the
+                                                    order of
+                                                    the divs in the html.<br>
+                                                    <div class="examples">
+                                                        grid-template-rows and grid-template-columns swapped:<br>
+                                                        <div class="css-example-grid"
+                                                            style="padding: 1em; margin: 1em; width: calc(100% - 4em); display: grid; grid-template-rows: 1fr 50px 2fr; grid-template-columns: 1fr 50px 2fr; ">
+                                                            <div style="background-color: #3F78DF;">1</div>
+                                                            <div style="background-color: #FFFF00;">2</div>
+                                                            <div style="background-color: #556B2F; color: white;">3
+                                                            </div>
+                                                            <div style="background-color: deeppink;">4</div>
+                                                            <div style="background-color: #9370DB;">5</div>
+                                                            <div style="background-color: #D2B48C">6</div>
+                                                        </div>
+                                                        <div class="code">
+                                                            <pre>
+&lt;div class="examples"&gt;
+    &lt;div class="css-example-grid"
+        style="padding: 1em; margin: 1em; width: calc(100% - 4em); display: grid; grid-template-rows: 1fr 50px 2fr; grid-template-columns: 1fr 50px 2fr; "&gt;
+        &lt;div style="background-color: #3F78DF;"&gt;1&lt;/div&gt; <mat-icon>arrow_back</mat-icon> blue
+        &lt;div style="background-color: #FFFF00;"&gt;2&lt;/div&gt; <mat-icon>arrow_back</mat-icon> yellow
+        &lt;div style="background-color: #556B2F; color: white;"&gt;3&lt;/div&gt;  <mat-icon>arrow_back</mat-icon> green
+        &lt;div style="background-color: deeppink;"&gt;4&lt;/div&gt; <mat-icon>arrow_back</mat-icon> pink..
+        &lt;div style="background-color: #9370DB;"&gt;5&lt;/div&gt; <mat-icon>arrow_back</mat-icon> purple
+        &lt;div style="background-color: #D2B48C"&gt;6&lt;/div&gt; <mat-icon>arrow_back</mat-icon> beige
+    &lt;/div&gt;
+&lt;/div&gt;
+                                                            </pre>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </mat-expansion-panel>
+                                </li>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>grid-template-areas</mat-panel-title>
+                                            <mat-panel-description>Defines the grid layout using named grid areas (<span
+                                                    class="importantish">grid-area: navbar;</span>)
+                                            </mat-panel-description>
+                                        </mat-expansion-panel-header>
+                                        <div class="panel-content">
+                                            One of the neatest features of css grid is the ability to name areas and
+                                            then
+                                            use a template.<br>This allows for a more semantic layout and doesn't
+                                            require things like "spacer" divs.<br>
+                                            For example:<br>
+                                            <div class="css-example-grid"
+                                                style="padding: 1em; margin: 1em; width: calc(100% - 4em); display: grid; grid-template-areas: 'header header header' 'nav main main' 'nav footer footer'; ">
+                                                <div style="background-color: #3F78DF; grid-area: header;">Header</div>
+                                                <div style="background-color: #FFFF00; grid-area: nav;">Nav</div>
+                                                <div style="background-color: #556B2F; color: white; grid-area: main;">
+                                                    Main</div>
+                                                <div style="background-color: deeppink; grid-area: footer;">Footer</div>
+                                            </div>
+                                            <div class="code">
+                                                <pre>
+&lt;div class="css-example-grid"
+        style="padding: 1em; margin: 1em; width: calc(100% - 4em); 
+        display: grid; 
+        grid-template-areas: 'header header header' 'nav main main' 'nav footer footer'; "&lt;
+    &lt;div style="background-color: #3F78DF; grid-area: header;"&lt;Header&lt;/div&lt;
+    &lt;div style="background-color: #FFFF00; grid-area: nav;"&lt;Nav&lt;/div&lt;
+    &lt;div style="background-color: #556B2F; color: white; grid-area: main;"&lt;Main&lt;/div&lt;
+    &lt;div style="background-color: deeppink; grid-area: footer;"&lt;Footer&lt;/div&lt;
+&lt;/div&lt;
+                                                    </pre>
+                                            </div>
+                                        </div>
+                                    </mat-expansion-panel>
+                                </li>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>grid-gap</mat-panel-title>
+                                            <mat-panel-description>Defines the size of the gap of both columns and rows
+                                                (grid-column-gap and grid-row-gap)
+                                            </mat-panel-description>
+                                        </mat-expansion-panel-header>
+                                        <div class="panel-content">
+                                            Grid-gap is nice in that it can be set to a single value for both columns
+                                            and rows:<br>
+                                            <br><br>
+                                            <ul>
+                                                <li>
+                                                    <div style="width: 500px; border: 2px solid crimson;">
+                                                        Padding: 0;<br>
+                                                        Grid-gap: 1em;<br>
+                                                        Width: 100vw;
+                                                        <div class="css-example-grid"
+                                                            style="padding: 0; margin: 0; grid-gap: 1em; width: 100%vw; display: grid; grid-template-columns: 1fr 50px 2fr; grid-template-rows: 1fr 50px 2fr;">
+                                                            <div style="background-color: #3F78DF;">1</div>
+                                                            <div style="background-color: #FFFF00;">2</div>
+                                                            <div style="background-color: #556B2F; color: white;">3
+                                                            </div>
+                                                            <div style="background-color: deeppink;">4</div>
+                                                            <div style="background-color: #9370DB;">5</div>
+                                                            <div style="background-color: #D2B48C">6</div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </mat-expansion-panel>
+                                </li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
                         <mat-expansion-panel>
                             <mat-expansion-panel-header>
                                 <mat-panel-title>CSS Animations</mat-panel-title>
                             </mat-expansion-panel-header>
-                            Developer's log 77886.2, I've been working on a CSS animation for the past few days and
-                            awhile back. This is what I've discovered:
-                            <ul>
-                                <li>The easiest way to work with anitmations in the shorthand "animation" CSS
-                                    property.<br>
-                                    <div class="code">
-                                        <pre>
+                            <div class="large-panel-content">
+                                Developer's log 77886.2, I've been working on a CSS animation for the past few days
+                                (I've
+                                worked with animations in the past too but just not in a long time). This is what I've
+                                (re)discovered:
+                                <ul>
+                                    <li>The easiest way to work with anitmations in the shorthand "animation" CSS
+                                        property.<br>
+                                        <div class="code">
+                                            <pre>
 .bob-text &#123;
 padding: 1em;
 width: 400px;
@@ -311,19 +748,19 @@ z-index: 200;
 animation: fadeOut 10s ease-out forwards;
 &#125;
 </pre>
-                                        animation: fadeOut 10s ease-out forwards;
-                                        (animation: name duration timing-function delay iteration-count direction
-                                        fill-mode play-state;)
-                                    </div>
+                                            animation: fadeOut 10s ease-out forwards;
+                                            (animation: name duration timing-function delay iteration-count direction
+                                            fill-mode play-state;)
+                                        </div>
 
-                                    <dl>
-                                        <dt>fadeOut</dt>
-                                        <dd>
-                                            The name of the CSS animation function. In this case, it keeps something
-                                            visible fully (no gradual disappearance) until the last 10% of the
-                                            animation duration, then fades out.<br>
-                                            <div class="code">
-                                                <pre>
+                                        <dl>
+                                            <dt>fadeOut</dt>
+                                            <dd>
+                                                The name of the CSS animation function. In this case, it keeps something
+                                                visible fully (no gradual disappearance) until the last 10% of the
+                                                animation duration, then fades out.<br>
+                                                <div class="code">
+                                                    <pre>
 &#64;keyframes fadeOut &#123;
 0% &#123;
     opacity: 1;
@@ -338,148 +775,112 @@ animation: fadeOut 10s ease-out forwards;
 &#125;
 &#125;
 </pre>
-                                            </div>
+                                                </div>
 
 
-                                        </dd>
-                                        <dt>10s</dt>
-                                        <dd>
-                                            The duration of the animation. In this case, it takes 10 seconds to
-                                            complete.
-                                        </dd>
-                                        <dt>ease-out</dt>
-                                        <dd>
-                                            The timing function. In this case, it starts fast and slows down at the
-                                            end. Other options include:
-                                            <dl>
-                                                <dt>ease-in</dt>
-                                                <dd>Starts slow and speeds up at the end</dd>
-                                                <dt>ease-in-out</dt>
-                                                <dd>Starts slow, speeds up, then slows down at the end</dd>
-                                                <dt>linear</dt>
-                                                <dd>Constant speed</dd>
-                                                <dt>step-start</dt>
-                                                <dd>Starts at the beginning of each step then jumps to the end</dd>
-                                                <dt>step-end</dt>
-                                                <dd>Starts at the end of each step then jumps to the beginning</dd>
-                                                <dt>steps(4, end)</dt>
-                                                <dd>4 steps, each starting at the end of the previous step</dd>
-                                                <dt>cubic-bezier(0.1, 0.7, 1.0, 0.1)</dt>
-                                                <dd>
-                                                    Custom cubic-bezier function<br><br>cubic-bezier(x1, y1, x2,
-                                                    y2):<br>
-                                                    Defines a curve based on four control points.<br>
-                                                    (x1, y1) is the control point for the starting end of the
-                                                    curve.<br>
-                                                    (x2, y2) is the control point for the ending end of the
-                                                    curve.<br>
-                                                    Both (x1, y1) and (x2, y2) must be between 0 and 1.<br>
-                                                    example:<br>
-                                                    <div class="ball-container">
-                                                        <div class="ball ball1"></div>
-                                                        <div class="ball ball2"></div>
-                                                        <div class="ball ball3"></div>
-                                                        <div class="ball ball4"></div>
+                                            </dd>
+                                            <dt>10s</dt>
+                                            <dd>
+                                                The duration of the animation. In this case, it takes 10 seconds to
+                                                complete.
+                                            </dd>
+                                            <dt>ease-out</dt>
+                                            <dd>
+                                                The timing function. In this case, it starts fast and slows down at the
+                                                end. Other options include:
+                                                <dl>
+                                                    <dt>ease-in</dt>
+                                                    <dd>Starts slow and speeds up at the end</dd>
+                                                    <dt>ease-in-out</dt>
+                                                    <dd>Starts slow, speeds up, then slows down at the end</dd>
+                                                    <dt>linear</dt>
+                                                    <dd>Constant speed</dd>
+                                                    <dt>step-start</dt>
+                                                    <dd>Starts at the beginning of each step then jumps to the end</dd>
+                                                    <dt>step-end</dt>
+                                                    <dd>Starts at the end of each step then jumps to the beginning</dd>
+                                                    <dt>steps(4, end)</dt>
+                                                    <dd>4 steps, each starting at the end of the previous step</dd>
+                                                    <dt>cubic-bezier(0.1, 0.7, 1.0, 0.1)</dt>
+                                                    <dd>
+                                                        Custom cubic-bezier function<br><br>cubic-bezier(x1, y1, x2,
+                                                        y2):<br>
+                                                        Defines a curve based on four control points.<br>
+                                                        (x1, y1) is the control point for the starting end of the
+                                                        curve.<br>
+                                                        (x2, y2) is the control point for the ending end of the
+                                                        curve.<br>
+                                                        Both (x1, y1) and (x2, y2) must be between 0 and 1.<br>
+                                                        example:<br>
+                                                        <div class="ball-container">
+                                                            <div class="ball ball1"></div>
+                                                            <div class="ball ball2"></div>
+                                                            <div class="ball ball3"></div>
+                                                            <div class="ball ball4"></div>
+                                                        </div>
+                                                        <dl>
+                                                            <dt>green/red</dt>
+                                                            <dd>The slow start and end simulate the compression and
+                                                                decompression of the ball, while the quick middle
+                                                                represents the bounce itself.<br>animation: bounce 5s
+                                                                infinite cubic-bezier(0.25, 0.8, 0.25, 0.2);</dd>
+                                                            <dt>orange/blue</dt>
+                                                            <dd>Slow start but rapid acceleration<br>animation: bounce
+                                                                5s infinite cubic-bezier(0.4, 0,
+                                                                0.2, 1);</dd>
+                                                            <dt>yellow/purple</dt>
+                                                            <dd>Object is decelerating for the stop.<br>animation:
+                                                                bounce 5s infinite cubic-bezier(0.4,
+                                                                0.1, 0.8, 1);</dd>
+                                                            <dt>fuchsia/teal</dt>
+                                                            <dd>Elastic/springy type effect<br>animation: bounce 5s
+                                                                infinite cubic-bezier(0.1, 1,
+                                                                0.9, 0);</dd>
+                                                        </dl>
+                                                    </dd>
+                                                </dl>
+                                            </dd>
+                                            <dt>forwards</dt>
+                                            <dd>
+                                                The number of times the animation will repeat. In this case, it will
+                                                repeat infinitely. Other options include:
+                                                <dl>
+                                                    <dt>1</dt>
+                                                    <dd>Runs once</dd>
+                                                    <dt>2</dt>
+                                                    <dd>Runs twice</dd>
+                                                    <dt>forwards</dt>
+                                                    <dd>Runs once and then stops at the end state</dd>
+                                                    <dt>backwards</dt>
+                                                    <dd>Runs once and then stops at the beginning state</dd>
+                                                    <dt>infinitely</dt>
+                                                    <dd>Runs forever</dd>
+                                                </dl>
+                                            </dd>
+                                        </dl>
+
+                                    </li>
+                                    <li>To make an animation permanent, meaning the state will not revert back once the
+                                        animation is complete, use "forwards":
+                                        <span class="code">animation: fadeOut 10s ease-out forwards;</span>
+                                    </li>
+                                    <li>
+                                        Working with play-state<br>
+                                        <div class="playstate-container">
+                                            <div class="playstate-text">
+                                                <div class="owl">
+                                                    <div class="owl-body"></div>
+                                                    <div class="owl-left-ear"></div>
+                                                    <div class="owl-right-ear"></div>
+                                                    <div class="owl-left-eye"></div>
+                                                    <div class="owl-right-eye" [style.animationPlayState]="playState">
                                                     </div>
-                                                    <dl>
-                                                        <dt>green/red</dt>
-                                                        <dd>The slow start and end simulate the compression and
-                                                            decompression of the ball, while the quick middle
-                                                            represents the bounce itself.<br>animation: bounce 5s
-                                                            infinite cubic-bezier(0.25, 0.8, 0.25, 0.2);</dd>
-                                                        <dt>orange/blue</dt>
-                                                        <dd>Slow start but rapid acceleration<br>animation: bounce
-                                                            5s infinite cubic-bezier(0.4, 0,
-                                                            0.2, 1);</dd>
-                                                        <dt>yellow/purple</dt>
-                                                        <dd>Object is decelerating for the stop.<br>animation:
-                                                            bounce 5s infinite cubic-bezier(0.4,
-                                                            0.1, 0.8, 1);</dd>
-                                                        <dt>fuchsia/teal</dt>
-                                                        <dd>Elastic/springy type effect<br>animation: bounce 5s
-                                                            infinite cubic-bezier(0.1, 1,
-                                                            0.9, 0);</dd>
-                                                    </dl>
-                                                </dd>
-                                            </dl>
-                                        </dd>
-                                        <dt>forwards</dt>
-                                        <dd>
-                                            The number of times the animation will repeat. In this case, it will
-                                            repeat infinitely. Other options include:
-                                            <dl>
-                                                <dt>1</dt>
-                                                <dd>Runs once</dd>
-                                                <dt>2</dt>
-                                                <dd>Runs twice</dd>
-                                                <dt>forwards</dt>
-                                                <dd>Runs once and then stops at the end state</dd>
-                                                <dt>backwards</dt>
-                                                <dd>Runs once and then stops at the beginning state</dd>
-                                                <dt>infinitely</dt>
-                                                <dd>Runs forever</dd>
-                                            </dl>
-                                        </dd>
-                                    </dl>
-
-                                </li>
-                                <li>To make an animation permanent, meaning the state will not revert back once the
-                                    animation is complete, use "forwards":
-                                    <span class="code">animation: fadeOut 10s ease-out forwards;</span>
-                                </li>
-                                <li>
-                                    Working with play-state<br>
-                                    <div class="playstate-container">
-                                        <div class="playstate-text">
-                                            <div class="owl">
-                                                <div class="owl-body"></div>
-                                                <div class="owl-left-ear"></div>
-                                                <div class="owl-right-ear"></div>
-                                                <div class="owl-left-eye"></div>
-                                                <div class="owl-right-eye"  [style.animationPlayState]="playState"></div>
-                                                <div class="owl-beak"></div>
+                                                    <div class="owl-beak"></div>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <button mat-stroked-button (click)="playStateStart()">Play</button>
-                                        <button mat-stroked-button (click)="playStatePause()">Pause</button>
-                                        <button mat-stroked-button (click)="playStateReverse()">Reverse</button>
-                                    </div>
-                                </li>
-                            </ul>
-
-                            <div class="topics">
-                                Examples!
-                                <ul>
-                                    <li>
-                                        <div class="bobbing-text">I'm a bobbing text!</div>
-                                    </li>
-                                    <li>
-                                        <div class="smoking-text">I'm a smokey text!</div>
-                                    </li>
-                                    <li>
-                                        <div class="spin-container">
-                                            <div class="spinning-text">How's about some spinning text?</div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="fading-text">Like mist's crisp burning in the morning sun.. (I'm
-                                            fading away)</div>
-                                    </li>
-                                    <li>
-                                        <div class="rainbow-text">I'm a rainbow text!</div>
-                                    </li>
-                                    <li>Rain!
-                                        <div class="rain-container">
-                                            <div class="rain-drop"><mat-icon>water_drop</mat-icon></div>
-                                            <div class="rain-drop"><mat-icon>water_drop</mat-icon></div>
-                                            <div class="rain-drop"><mat-icon>water_drop</mat-icon></div>
-                                            <div class="rain-drop"><mat-icon>water_drop</mat-icon></div>
-                                            <div class="rain-drop"><mat-icon>water_drop</mat-icon></div>
-                                            <div class="rain-drop"><mat-icon>water_drop</mat-icon></div>
-                                            <div class="rain-drop"><mat-icon>water_drop</mat-icon></div>
-                                            <div class="rain-drop"><mat-icon>water_drop</mat-icon></div>
-                                            <div class="rain-drop"><mat-icon>water_drop</mat-icon></div>
-                                            <div class="rain-drop"><mat-icon>water_drop</mat-icon></div>
+                                            <button mat-stroked-button (click)="playStateStart()">Play</button>
+                                            <button mat-stroked-button (click)="playStatePause()">Pause</button>
+                                            <button mat-stroked-button (click)="playStateReverse()">Reverse</button>
                                         </div>
                                     </li>
                                 </ul>
@@ -867,163 +1268,286 @@ animation: fadeOut 10s ease-out forwards;
                             </ul>
                         </mat-expansion-panel>
                     </li>
-                    <li>Ways to center objects under different circumstances:
-                        <ul>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Veritical align using &nbsp;<span class="important">margin:
-                                                auto
-                                                0;</span></mat-panel-title>
-                                        <mat-panel-description>If the child we wish to move is inside a div that is
-                                            using flex or grid, we can usually use an auto margin.
-                                        </mat-panel-description>
-                                    </mat-expansion-panel-header>
-                                    <div class="code">
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Margins and Padding</mat-panel-title>
+                                <mat-panel-description>
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li>
+                                    <div class="margin-examples">
+                                        No Padding and Margin, 100% width<br>
+                                        <div class="css-example-grid"
+                                            style="padding: 0; margin: 0; width: 100%; display: grid; grid-template-columns: 1fr 50px 2fr; grid-template-rows: 1fr 50px 2fr;">
+                                            <div style="background-color: #3F78DF;">1</div>
+                                            <div style="background-color: #FFFF00;">2</div>
+                                            <div style="background-color: #556B2F; color: white;">3
+                                            </div>
+                                            <div style="background-color: deeppink;">4</div>
+                                            <div style="background-color: #9370DB;">5</div>
+                                            <div style="background-color: #D2B48C">6</div>
+                                        </div>
 
-                                        <div class="example-grid">
-                                            <div>
-                                                <table>
-                                                    <tr>
-                                                        <td colspan="2">
-                                                            <div>
-                                                                <div class="code">
-                                                                    <pre>
-    &lt;div style="display: grid; background-color: orchid; width: 100px; height: 100px;"&gt;
-        &lt;div style="background-color: red; width: 25px; height: 25px; margin: auto 0;"&gt;
-            &amp;nbsp;
+                                        <div class="code">
+                                            <pre>
+&lt;div class="margin-examples"&gt;
+    No Padding and Margin, 100% width&lt;br&gt;
+    &lt;div class="css-example-grid"
+        style="padding: 0; margin: 0; width: 100%; display: grid; 
+        grid-template-columns: 1fr 50px 2fr; grid-template-rows: 1fr 50px 2fr;"&gt;
+        &lt;div style="background-color: #3F78DF;"&gt;1&lt;/div&gt; <mat-icon>arrow_back</mat-icon> blue
+        &lt;div style="background-color: #FFFF00;"&gt;2&lt;/div&gt; <mat-icon>arrow_back</mat-icon> yellow
+        &lt;div style="background-color: #556B2F; color: white;"&gt;3&lt;/div&gt;  <mat-icon>arrow_back</mat-icon> green
+        &lt;div style="background-color: deeppink;"&gt;4&lt;/div&gt; <mat-icon>arrow_back</mat-icon> pink..
+        &lt;div style="background-color: #9370DB;"&gt;5&lt;/div&gt; <mat-icon>arrow_back</mat-icon> purple
+        &lt;div style="background-color: #D2B48C"&gt;6&lt;/div&gt; <mat-icon>arrow_back</mat-icon> beige
         &lt;/div&gt;
-    &lt;/div&gt;
-                                                            </pre>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div>Parent of type <span class="important">display:
-                                                                    grid;</span>:
-                                                            </div>
-                                                            <div
-                                                                style="background-color: orchid; width: 25px; height: 25px;">
-                                                                &nbsp;
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <div>Child we wish to center:</div>
-                                                            <div
-                                                                style="background-color: red; width: 25px; height: 25px;">
-                                                                &nbsp;</div>
-                                                        </td>
-                                                    </tr>
-                                                </table>
+&lt;/div&gt;
+                                            </pre>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="margin-examples">
+                                        padding: 1em, margin: 1em, 100% width<br>
+                                        <div class="css-example-grid"
+                                            style="padding: 1em; margin: 1em; width: 100%; display: grid; grid-template-columns: 1fr 50px 2fr; grid-template-rows: 1fr 50px 2fr;">
+                                            <div style="background-color: #3F78DF;">1</div>
+                                            <div style="background-color: #FFFF00;">2</div>
+                                            <div style="background-color: #556B2F; color: white;">3
                                             </div>
-                                            <div
-                                                style="display: grid; background-color: orchid; width: 100px; height: 100px;">
+                                            <div style="background-color: #3F78DF;">4</div>
+                                            <div style="background-color: #9370DB;">5</div>
+                                            <div style="background-color: #D2B48C">6</div>
+                                        </div>
+                                        <div class="code">
+                                            <pre>
+&lt;div class="margin-examples"&gt;
+    padding: 1em, margin: 1em, 100% width&lt;br&gt;
+    &lt;div class="css-example-grid"
+        style="padding: 1em; margin: 1em; width: 100%; display: grid; 
+        grid-template-columns: 1fr 50px 2fr; grid-template-rows: 1fr 50px 2fr;"&gt;
+        &lt;div style="background-color: #3F78DF;"&gt;1&lt;/div&gt; <mat-icon>arrow_back</mat-icon> blue
+        &lt;div style="background-color: #FFFF00;"&gt;2&lt;/div&gt; <mat-icon>arrow_back</mat-icon> yellow
+        &lt;div style="background-color: #556B2F; color: white;"&gt;3&lt;/div&gt;  <mat-icon>arrow_back</mat-icon> green
+        &lt;div style="background-color: deeppink;"&gt;4&lt;/div&gt; <mat-icon>arrow_back</mat-icon> pink..
+        &lt;div style="background-color: #9370DB;"&gt;5&lt;/div&gt; <mat-icon>arrow_back</mat-icon> purple
+        &lt;div style="background-color: #D2B48C"&gt;6&lt;/div&gt; <mat-icon>arrow_back</mat-icon> beige
+    &lt;/div&gt;
+&lt;/div&gt;
+                                            </pre>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="margin-examples">
+                                        padding: 1em, margin: 1em, 100vw width<br>
+                                        <div class="css-example-grid"
+                                            style="padding: 1em; margin: 1em; width: 100%vw; display: grid; grid-template-columns: 1fr 50px 2fr; grid-template-rows: 1fr 50px 2fr;">
+                                            <div style="background-color: #3F78DF;">1</div>
+                                            <div style="background-color: #FFFF00;">2</div>
+                                            <div style="background-color: #556B2F; color: white;">3
+                                            </div>
+                                            <div style="background-color: deeppink;">4</div>
+                                            <div style="background-color: #9370DB;">5</div>
+                                            <div style="background-color: #3c9953">6</div>
+                                        </div>
+                                        <div class="code">
+                                            <pre>
+&lt;div style="width: 100%vw; display: grid; grid-template-columns: 1fr 50px 2fr; grid-template-rows: 1fr 50px 2fr;"&gt;
+                                            </pre>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="margin-examples">
+                                        padding: 1em, margin: 1em, 100% width, width calculated: calc(100% - 4em); We
+                                        need to subtract four to compensate for the 2-added padding and the 2-added
+                                        margin.<br>
+                                        <div class="css-example-grid"
+                                            style="padding: 1em; margin: 1em; width: calc(100% - 4em); display: grid; grid-template-rows: 1fr 50px 2fr;grid-template-columns: 1fr 50px 2fr; ">
+                                            <div style="background-color: #3F78DF;">1</div>
+                                            <div style="background-color: #FFFF00;">2</div>
+                                            <div style="background-color: #556B2F; color: white;">3
+                                            </div>
+                                            <div style="background-color: deeppink;">4</div>
+                                            <div style="background-color: #9370DB;">5</div>
+                                            <div style="background-color: #D2B48C">6</div>
+                                        </div>
+                                        <div class="code">
+                                            <pre>
+&lt;div style="width: 100%vw; display: grid; grid-template-columns: 1fr 50px 2fr; grid-template-rows: 1fr 50px 2fr;"&gt;
+                                            </pre>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </mat-expansion-panel>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Text and Element alignment</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>Veritical align using &nbsp;<span class="important">margin:
+                                                    auto
+                                                    0;</span></mat-panel-title>
+                                            <mat-panel-description>If the child we wish to move is inside a div that is
+                                                using flex or grid, we can usually use an auto margin.
+                                            </mat-panel-description>
+                                        </mat-expansion-panel-header>
+                                        <div class="code">
+
+                                            <div class="example-grid">
+                                                <div>
+                                                    <table>
+                                                        <tr>
+                                                            <td colspan="2">
+                                                                <div>
+                                                                    <div class="code">
+                                                                        <pre>
+        &lt;div style="display: grid; background-color: orchid; width: 100px; height: 100px;"&gt;
+            &lt;div style="background-color: red; width: 25px; height: 25px; margin: auto 0;"&gt;
+                &amp;nbsp;
+            &lt;/div&gt;
+        &lt;/div&gt;
+                                                                </pre>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div>Parent of type <span class="important">display:
+                                                                        grid;</span>:
+                                                                </div>
+                                                                <div
+                                                                    style="background-color: orchid; width: 25px; height: 25px;">
+                                                                    &nbsp;
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div>Child we wish to center:</div>
+                                                                <div
+                                                                    style="background-color: red; width: 25px; height: 25px;">
+                                                                    &nbsp;</div>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
                                                 <div
-                                                    style="background-color: red; width: 25px; height: 25px; margin: auto 0;">
+                                                    style="display: grid; background-color: orchid; width: 100px; height: 100px;">
+                                                    <div
+                                                        style="background-color: red; width: 25px; height: 25px; margin: auto 0;">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Horitzonal align using &nbsp;<span class="important">margin: 0
-                                                auto;</span></mat-panel-title>
-                                        <mat-panel-description>Same thing can be done horizontally
-                                        </mat-panel-description>
-                                    </mat-expansion-panel-header>
-                                    <div class="code">
-                                        <div class="example-grid">
-                                            <div>
-                                                <table>
-                                                    <tr>
-                                                        <td colspan="2">
-                                                            <div>
-                                                                <div class="code">
-                                                                    <pre>
-    &lt;div style="display: grid; background-color: orchid; width: 100px; height: 100px;"&gt;
-        &lt;div style="background-color: red; width: 25px; height: 25px; margin: 0 auto;"&gt;
-            &amp;nbsp;
+                                    </mat-expansion-panel>
+                                </li>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>Horitzonal align using &nbsp;<span
+                                                    class="important">margin: 0
+                                                    auto;</span></mat-panel-title>
+                                            <mat-panel-description>Same thing can be done horizontally
+                                            </mat-panel-description>
+                                        </mat-expansion-panel-header>
+                                        <div class="code">
+                                            <div class="example-grid">
+                                                <div>
+                                                    <table>
+                                                        <tr>
+                                                            <td colspan="2">
+                                                                <div>
+                                                                    <div class="code">
+                                                                        <pre>
+        &lt;div style="display: grid; background-color: orchid; width: 100px; height: 100px;"&gt;
+            &lt;div style="background-color: red; width: 25px; height: 25px; margin: 0 auto;"&gt;
+                &amp;nbsp;
+            &lt;/div&gt;
         &lt;/div&gt;
-    &lt;/div&gt;
-                                                            </pre>
+                                                                </pre>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div>Parent of type <span class="important">display:
-                                                                    grid;</span>:
-                                                            </div>
-                                                            <div
-                                                                style="background-color: orchid; width: 25px; height: 25px;">
-                                                                &nbsp;
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <div>Child we wish to center:</div>
-                                                            <div
-                                                                style="background-color: red; width: 25px; height: 25px;">
-                                                                &nbsp;</div>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                            <div
-                                                style="display: grid; background-color: orchid; width: 100px; height: 100px;">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div>Parent of type <span class="important">display:
+                                                                        grid;</span>:
+                                                                </div>
+                                                                <div
+                                                                    style="background-color: orchid; width: 25px; height: 25px;">
+                                                                    &nbsp;
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div>Child we wish to center:</div>
+                                                                <div
+                                                                    style="background-color: red; width: 25px; height: 25px;">
+                                                                    &nbsp;</div>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
                                                 <div
-                                                    style="background-color: red; width: 25px; height: 25px; margin: 0 auto;">
+                                                    style="display: grid; background-color: orchid; width: 100px; height: 100px;">
+                                                    <div
+                                                        style="background-color: red; width: 25px; height: 25px; margin: 0 auto;">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>place-content</mat-panel-title>
-                                        <mat-panel-description>If the display:flex, you can use place-content to
-                                            center both vertically and horizontally.
-                                        </mat-panel-description>
-                                    </mat-expansion-panel-header>
-                                    Example here..
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>align-self</mat-panel-title>
-                                        <mat-panel-description>If the element is a grid item, you can use
-                                            align-self: center
-                                        </mat-panel-description>
-                                    </mat-expansion-panel-header>
-                                    <span class="impoartant">html</span><br>
-                                    <div class="code">
-                                        <pre>
+                                    </mat-expansion-panel>
+                                </li>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>place-content</mat-panel-title>
+                                            <mat-panel-description>If the display:flex, you can use place-content to
+                                                center both vertically and horizontally.
+                                            </mat-panel-description>
+                                        </mat-expansion-panel-header>
+                                        Example here..
+                                    </mat-expansion-panel>
+                                </li>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>align-self</mat-panel-title>
+                                            <mat-panel-description>If the element is a grid item, you can use
+                                                align-self: center
+                                            </mat-panel-description>
+                                        </mat-expansion-panel-header>
+                                        <span class="impoartant">html</span><br>
+                                        <div class="code">
+                                            <pre>
 &lt;div class="map-sub-btns"&gt;
     &lt;button mat-button (click)="enlargen()"&gt;&lt;mat-icon class="map-buttons-icons"&gt;expand&lt;/mat-icon&gt;&lt;/button&gt;
     &lt;button mat-button (click)="min()"&gt;&lt;mat-icon class="map-buttons-icons"&gt;close&lt;/mat-icon&gt;&lt;/button&gt;
 &lt;/div&gt;
 </pre>
-                                    </div><br><br>
-                                    <span class="impoartant">css</span><br>
-                                    <div class="code">
-                                        <pre>
+                                        </div><br><br>
+                                        <span class="impoartant">css</span><br>
+                                        <div class="code">
+                                            <pre>
 .map-sub-btns &#123;
     align-self: center;
 &#125;
 </pre>
-                                    </div><br><br>Tada!<br>
-                                    <img mat-card-image src="assets/images/align_self.png" />
-                                </mat-expansion-panel>
-                            </li>
-                        </ul>
+                                        </div><br><br>Tada!<br>
+                                        <img mat-card-image src="assets/images/align_self.png" />
+                                    </mat-expansion-panel>
+                                </li>
+                            </ul>
+                        </mat-expansion-panel>
                     </li>
                 </ul>
             </div>

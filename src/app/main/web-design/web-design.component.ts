@@ -14,7 +14,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './web-design.component.scss'
 })
 export class WebDesignComponent {
-  playState = "pause";
+  playState = "paused";
 
   constructor() { }
 

@@ -66,34 +66,36 @@
                                 <img src="../assets/images/smalltree.png" alt="Tree Image">
                               </div>
                           </div> -->
-                        <div class="trees"></div>
-                        <div class="tree tree1"></div>
-                        <div class="tree tree2"></div>
-                        <div class="tree tree3"></div>
-                        <div class="tree tree4"></div>
-                        <div class="tree tree5"></div>
-                        <div class="tree tree6"></div>
-                        <div class="tree tree7"></div>
-                        <div class="tree tree8"></div>
-                        <div class="tree tree9"></div>
-                        <div class="tree tree10"></div>
-                        <div class="tree tree11"></div>
-                        <div class="tree tree12"></div>
-                        <div class="tree tree13"></div>
-                        <div class="tree tree14"></div>
-                        <div class="tree tree15"></div>
-                        <div class="tree tree16"></div>
-                        <div class="tree tree17"></div>
+                        <div class="trees" [style.animationPlayState]="playState"></div>
+                        <div class="tree tree1" [style.animationPlayState]="playState"></div>
+                        <div class="tree tree2" [style.animationPlayState]="playState"></div>
+                        <div class="tree tree3" [style.animationPlayState]="playState"></div>
+                        <div class="tree tree4" [style.animationPlayState]="playState"></div>
+                        <div class="tree tree5" [style.animationPlayState]="playState"></div>
+                        <div class="tree tree6" [style.animationPlayState]="playState"></div>
+                        <div class="tree tree7" [style.animationPlayState]="playState"></div>
+                        <div class="tree tree8" [style.animationPlayState]="playState"></div>
+                        <div class="tree tree9" [style.animationPlayState]="playState"></div>
+                        <div class="tree tree10" [style.animationPlayState]="playState"></div>
+                        <div class="tree tree11" [style.animationPlayState]="playState"></div>
+                        <div class="tree tree12" [style.animationPlayState]="playState"></div>
+                        <div class="tree tree13" [style.animationPlayState]="playState"></div>
+                        <div class="tree tree14" [style.animationPlayState]="playState"></div>
+                        <div class="tree tree15" [style.animationPlayState]="playState"></div>
+                        <div class="tree tree16" [style.animationPlayState]="playState"></div>
+                        <div class="tree tree17" [style.animationPlayState]="playState"></div>
                         <div [class.narratorarea-grid]="!timSpeaking"
+                            [class.narratorarea-grid-normal]="!timSpeaking && !timMovingRight"
+                            [class.narratorarea-grid-reversed]="!timSpeaking && timMovingRight"
                             [class.timarea-grid]="timSpeaking"
                             [class.timarea-grid-normal]="!timMovingRight"
                             [class.timarea-grid-reversed]="timMovingRight">
-                            <div class="spacer1"></div>
-                            <div *ngIf="timSpeaking" class="column talk tim-text" [innerHTML]="timMessage"></div>
-                            <div *ngIf="!timSpeaking" class="column talk tim-text-narrator" [innerHTML]="timMessage"></div>
-                            <div class="spacer2"></div>
+                            <div class="pause-button-container"></div>
+                            <div class="narrator"></div>
+                            <div *ngIf="timSpeaking && timMessage != ''" class="column talk tim-text" [innerHTML]="timMessage"></div>
+                            <div *ngIf="!timSpeaking && timMessage != ''" class="column talk tim-text-narrator" [innerHTML]="timMessage"></div>
+                            <div class="spacer"></div>
                             <div class="tim"></div>
-                            <div class="spacer3"></div>
                         </div>
                     </div>
                 </mat-panel-title>
