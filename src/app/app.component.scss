@@ -661,6 +661,7 @@ $base-size: .35rem;
 
 .narrator {
     grid-area: narrator;
+    z-index: 1000 !important;
 }
 
 .talk {

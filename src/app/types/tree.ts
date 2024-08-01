@@ -5,6 +5,7 @@ export class Tree {
     zindex: number = 0;
     top: number = 0;
     speed: string = "";
+    speedNumber: number = 0;
     directionLeft: boolean = true;
     left: number = 0;
 
@@ -43,5 +44,10 @@ export class Tree {
     getRandomNumberBetween(min: number, max: number, step: number = 1): number {
         const range = (max - min) / step;
         return Math.ceil(Math.random() * range) * step + min;
+    }
+
+    updateSpeed(speedBoost: number) {
+        this.speedNumber = speedBoost;
+        this.speed = this.speedNumber + speedBoost + 's';
     }
 }

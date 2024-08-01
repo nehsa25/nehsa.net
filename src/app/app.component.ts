@@ -70,6 +70,8 @@ export class AppComponent implements OnInit, OnDestroy {
   playState = "running";
   reversify = false;
   animationDuration = "10s";
+  directionLeft = true;
+  timSpeed = .7;
 
   constructor(
     private ref: ChangeDetectorRef,
@@ -86,7 +88,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
     // trees
     // width, height, zindex, top, directionLeft
-    for (let i = 0; i < 25; i++) {
+    for (let i = 0; i < 50; i++) {
       this.trees.push(new Tree(true));
     }
 
@@ -202,7 +204,7 @@ export class AppComponent implements OnInit, OnDestroy {
       behavior: 'smooth'
     });
   }
-
+  
   pauseAnimation(event: any) {
     this.playState == 'running' ? this.playState = 'paused' : this.playState = 'running';
     event.stopPropagation();

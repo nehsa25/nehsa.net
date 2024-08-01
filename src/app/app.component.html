@@ -55,8 +55,8 @@
   
                         <div *ngFor="let tree of trees; let i = index" [style.width.px]="tree.width"
                             [style.height.px]="tree.height" [style.zIndex]="tree.zindex" [style.top.px]="tree.top"
-                            [style.left.px]="tree.left" class="tree" [class.tree-normal]="tree.directionLeft"
-                            [class.tree-reverse]="!tree.directionLeft" [style.animationPlayState]="playState"
+                            [style.left.px]="tree.left" class="tree" [class.tree-normal]="!this.reversify"
+                            [class.tree-reverse]="this.reversify" [style.animationPlayState]="playState"
                             [style.animationDuration]="tree.speed">
                         </div>
 
