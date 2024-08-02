@@ -74,7 +74,7 @@
 
                         <!-- Tim normal -->
                         <div *ngIf="timSpeaking && timMovingLeft" class="timarea-grid timarea-grid-normal">
-                            <div class="pause-button-container">
+                            <div *ngIf="pausedExpanded" class="pause-button-container-expanded">
                                 <div>
                                     <button *ngIf="playState == 'running'" class="control-button" mat-icon-button
                                         (click)="pauseAnimation($event)">
@@ -93,6 +93,20 @@
                                 <div>
                                     <button class="control-button" mat-icon-button (click)="swapAnimation($event)">
                                         <mat-icon>swap_horiz</mat-icon>
+                                    </button>
+                                </div>
+                                <div>
+                                    <button class="control-button pause-expand-container" mat-icon-button (click)="expandControl($event)">
+                                        <mat-icon *ngIf="pausedExpanded">arrow_back_ios</mat-icon>
+                                        <mat-icon *ngIf="!pausedExpanded">arrow_forward_ios</mat-icon>
+                                    </button>
+                                </div>
+                            </div>
+                            <div *ngIf="!pausedExpanded" class="pause-button-container-collapse">
+                                <div>
+                                    <button class="control-button pause-expand-container" mat-icon-button (click)="expandControl($event)">
+                                        <mat-icon *ngIf="pausedExpanded">arrow_back_ios</mat-icon>
+                                        <mat-icon *ngIf="!pausedExpanded">arrow_forward_ios</mat-icon>
                                     </button>
                                 </div>
                             </div>
@@ -111,7 +125,7 @@
 
                         <!-- Tim reverse-->
                         <div *ngIf="timSpeaking && !timMovingLeft" class="timarea-grid timarea-grid-reverse">
-                            <div class="pause-button-container">
+                            <div *ngIf="pausedExpanded" class="pause-button-container-expanded">
                                 <div>
                                     <button *ngIf="playState == 'running'" class="control-button" mat-icon-button
                                         (click)="pauseAnimation($event)">
@@ -130,6 +144,20 @@
                                 <div>
                                     <button class="control-button" mat-icon-button (click)="swapAnimation($event)">
                                         <mat-icon>swap_horiz</mat-icon>
+                                    </button>
+                                </div>
+                                <div>
+                                    <button class="control-button pause-expand-container" mat-icon-button (click)="expandControl($event)">
+                                        <mat-icon *ngIf="pausedExpanded">arrow_back_ios</mat-icon>
+                                        <mat-icon *ngIf="!pausedExpanded">arrow_forward_ios</mat-icon>
+                                    </button>
+                                </div>
+                            </div>
+                            <div *ngIf="!pausedExpanded" class="pause-button-container-collapse">
+                                <div>
+                                    <button class="control-button pause-expand-container" mat-icon-button (click)="expandControl($event)">
+                                        <mat-icon *ngIf="pausedExpanded">arrow_back_ios</mat-icon>
+                                        <mat-icon *ngIf="!pausedExpanded">arrow_forward_ios</mat-icon>
                                     </button>
                                 </div>
                             </div>
@@ -148,7 +176,7 @@
 
                         <!-- Narrator -->
                         <div *ngIf="!timSpeaking && timMovingLeft" class="narratorarea-grid narratorarea-grid-normal">
-                            <div class="pause-button-container">
+                            <div *ngIf="pausedExpanded" class="pause-button-container-expanded">
                                 <div>
                                     <button *ngIf="playState == 'running'" class="control-button" mat-icon-button
                                         (click)="pauseAnimation($event)">
@@ -167,6 +195,20 @@
                                 <div>
                                     <button class="control-button" mat-icon-button (click)="swapAnimation($event)">
                                         <mat-icon>swap_horiz</mat-icon>
+                                    </button>
+                                </div>
+                                <div>
+                                    <button class="control-button pause-expand-container" mat-icon-button (click)="expandControl($event)">
+                                        <mat-icon *ngIf="pausedExpanded">arrow_back_ios</mat-icon>
+                                        <mat-icon *ngIf="!pausedExpanded">arrow_forward_ios</mat-icon>
+                                    </button>
+                                </div>
+                            </div>
+                            <div *ngIf="!pausedExpanded" class="pause-button-container-collapse">
+                                <div>
+                                    <button class="control-button pause-expand-container" mat-icon-button (click)="expandControl($event)">
+                                        <mat-icon *ngIf="pausedExpanded">arrow_back_ios</mat-icon>
+                                        <mat-icon *ngIf="!pausedExpanded">arrow_forward_ios</mat-icon>
                                     </button>
                                 </div>
                             </div>
@@ -186,7 +228,7 @@
 
                         <!-- Narrator reverse-->
                         <div *ngIf="!timSpeaking && !timMovingLeft" class="narratorarea-grid narratorarea-grid-reverse">
-                            <div class="pause-button-container">
+                            <div *ngIf="pausedExpanded" class="pause-button-container-expanded">
                                 <div>
                                     <button *ngIf="playState == 'running'" class="control-button" mat-icon-button
                                         (click)="pauseAnimation($event)">
@@ -205,6 +247,20 @@
                                 <div>
                                     <button class="control-button" mat-icon-button (click)="swapAnimation($event)">
                                         <mat-icon>swap_horiz</mat-icon>
+                                    </button>
+                                </div>
+                                <div>
+                                    <button class="control-button pause-expand-container" mat-icon-button (click)="expandControl($event)">
+                                        <mat-icon *ngIf="pausedExpanded">arrow_back_ios</mat-icon>
+                                        <mat-icon *ngIf="!pausedExpanded">arrow_forward_ios</mat-icon>
+                                    </button>
+                                </div>
+                            </div>
+                            <div *ngIf="!pausedExpanded" class="pause-button-container-collapse">
+                                <div>
+                                    <button class="control-button pause-expand-container" mat-icon-button (click)="expandControl($event)">
+                                        <mat-icon *ngIf="pausedExpanded">arrow_back_ios</mat-icon>
+                                        <mat-icon *ngIf="!pausedExpanded">arrow_forward_ios</mat-icon>
                                     </button>
                                 </div>
                             </div>
