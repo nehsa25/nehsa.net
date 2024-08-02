@@ -234,6 +234,11 @@ export class AppComponent implements OnInit, OnDestroy {
     event.stopPropagation();
   }
 
+  expandControl(event: any) {
+    this.pausedExpanded = this.pausedExpanded ? this.pausedExpanded = false : this.pausedExpanded = true;
+    event.stopPropagation();
+  }
+
   sleep(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
@@ -279,11 +284,6 @@ export class AppComponent implements OnInit, OnDestroy {
     } else {
       this.title = "";
     }
-  }
-
-  expandControl(event: any) {
-    this.pausedExpanded = this.pausedExpanded ? this.pausedExpanded = false : this.pausedExpanded = true;
-    event.stopPropagation();
   }
 
   calculateSpeed(x: number, y: number, width: number, height: number) {

@@ -14,11 +14,29 @@
                 <div class="topics">
                     <div>
                         <h4>Tips</h4>
-                        <dl>
-                            <dt>&#123;commonpf32&#125;</dt>
-                            <dd>Refers to Program Files (Typically, "C:\Program Files" on 32-bit Windows and "C:\Program
-                                Files (x86)" on 64-bit Windows.)</dd>
-                        </dl>
+                        <ul>
+                            <li>The Appid is the also the registry uninstall value.<br>
+                                e.g.<br>
+                                <span
+                                    class="importantish">AppId=&#123;&#123;9C9EC6D3-7159-4378-AF9C-BC1947D84598&#125;</span><br>
+                                correlates<br>to<br>
+                                <span
+                                    class="importantish">Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\&#123;9C9EC6D3-7159-4378-AF9C-BC1947D84598&#125;</span><br><br>
+                                If you don't see main uninstall spot, check the 32-bit registry (maybe it's built as x86):<br>
+                                <span
+                                    class="importantish">Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\&#123;9C9EC6D3-7159-4378-AF9C-BC1947D84598&#125;</span><br><br>
+                                if you don't see if there, check user registry:<br>
+                                <span
+                                    class="importantish">Computer\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\&#123;9C9EC6D3-7159-4378-AF9C-BC1947D84598&#125;</span><br><br>
+                                Finally, the user 32-bit registry:<br>
+                                <span
+                                    class="importantish">Computer\HKEY_CURRENT_USER\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\&#123;9C9EC6D3-7159-4378-AF9C-BC1947D84598&#125;</span><br><br>
+                                It's not installed.
+                            </li>
+                            <li>&#123;commonpf32&#125; - Refers to Program Files (Typically, "C:\Program Files" on
+                                32-bit Windows and "C:\Program
+                                Files (x86)" on 64-bit Windows.)</li>
+                        </ul>
                     </div>
                     <div class="topics">
                         <div>
