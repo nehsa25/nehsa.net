@@ -553,12 +553,12 @@ $base-size: .35rem;
     z-index: 10;
 }
 
-.cloud-normal {
-    animation: cloud-animation 250s linear infinite;
+.cloud-reverse {
+    animation: cloud-animation 350s linear infinite;
 }
 
-.cloud-reverse {
-    animation: cloud-animation-reversed 250s linear infinite;
+.cloud-normal {
+    animation: cloud-animation-reverse 350s linear infinite;
 }
 
 
@@ -671,12 +671,12 @@ $base-size: .35rem;
 .pause-button-container {
     grid-area: pause-button-container;
     z-index: 210;
-    width: 100%;
+    width: 150px;
     background-color: slategrey;
     height: 50px;
     border-radius: 0 0 15% 0;
     display: grid;
-    grid-template-columns: 32px 32px 32px;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .control-button {
@@ -741,13 +741,13 @@ $base-size: .35rem;
 }
 
 .timarea-grid-normal {
-    grid-template-columns: 125px 50px 50px 1fr 50px 50px;
+    grid-template-columns: 150px 50px 50px 1fr 50px 50px;
     grid-template-areas: "pause-button-container narrator spacer1 talk tim spacer2";
     place-items: normal;
 }
 
 .timarea-grid-reverse {
-    grid-template-columns: 125px 50px 1fr 50px 50px 50px;
+    grid-template-columns: 150px 50px 1fr 50px 50px 50px;
     grid-template-areas: "pause-button-container tim talk spacer1 narrator spacer2";
     place-items: normal;
 }
@@ -766,13 +766,13 @@ $base-size: .35rem;
 
 .narratorarea-grid-normal,
 .narratorarea-grid-normal {
-    grid-template-columns: 125px 1fr 50px 50px 50px 50px;
+    grid-template-columns: 150px 1fr 50px 50px 50px 50px;
     grid-template-areas: "pause-button-container narrator talk spacer1 tim spacer2";
     place-items: start;
 }
 
 .narratorarea-grid-reverse {
-    grid-template-columns: 125px 50px 50px 50px 1fr 50px;
+    grid-template-columns: 150px 50px 50px 50px 1fr 50px;
     grid-template-areas: "pause-button-container tim spacer1 talk narrator spacer2";
     place-items: end;
 }
@@ -896,14 +896,8 @@ $base-size: .35rem;
     100% {
         left: calc(100% - 28px);
     }
-    0% {
-        left: 0;
-    }
 }
 @keyframes cloud-animation-reverse {
-    0% {
-        left: calc(100% - 28px);
-    }
     100% {
         left: 0;
     }

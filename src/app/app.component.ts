@@ -20,6 +20,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { FranticTim } from './types/tim.type';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Tree } from './types/tree';
+import { Cloud } from './types/cloud';
 
 @Component({
   selector: 'app-root',
@@ -63,6 +64,7 @@ export class AppComponent implements OnInit, OnDestroy {
   darkmode_value = 0; // slider value
   timMessages: Array<FranticTim> = new Array<FranticTim>();
   trees = new Array<Tree>();
+  clouds = new Array<Cloud>();
   timMessage = "";
   showTimTest = false;
   lastTimIndex = 0;
@@ -88,13 +90,17 @@ export class AppComponent implements OnInit, OnDestroy {
     this.getQueries.push(getPosTerms);
 
     // trees
-    // width, height, zindex, top, directionLeft
     for (let i = 0; i <= 10; i++) {
       this.trees.push(new Tree(true));
     }
 
+    // clouds
+    for (let i = 0; i <= 2; i++) {
+      this.clouds.push(new Cloud(false));
+    }
+
     // text, speed, movingLeft, fromTim, text_wait
-    this.timMessages.push(new FranticTim("Meet Timoth&eacute;e. He's off on an adventure!", .7, true, false, 1000 * 2));
+    // this.timMessages.push(new FranticTim("Meet Timoth&eacute;e. He's off on an adventure!", .7, true, false, 1000 * 2));
     // this.timMessages.push(new FranticTim("Bonjour! I'm Timoth&eacute;e and I'm on an adventure!", .8, true, true, 1000 * 10));
     // this.timMessages.push(new FranticTim("I'm &quot;Adventuring Timoth&eacute;e!&quot; Whew!", .9, true, true, 1000 * 20));
     // this.timMessages.push(new FranticTim("Timoth&eacute;e takes in a large inhale of smell.", .9, true, false, 1000 * 24));
@@ -112,7 +118,7 @@ export class AppComponent implements OnInit, OnDestroy {
     // this.timMessages.push(new FranticTim("Now, Timoth&eacute;e did feed Gaston before he left for adventure..", .9, true, false, 1000 * 65));
     // this.timMessages.push(new FranticTim("Gaston is happy, quite full, and is right this moment relaxing lackadaisically..", .9, true, false, 1000 * 67));
     // this.timMessages.push(new FranticTim("I'm sure I fed Gaston!", .8, true, true, 1000 * 75));
-    // this.timMessages.push(new FranticTim("There is no way I would forget to feed Gaston. No way.", .5, true, true, 1000 * 80));
+    this.timMessages.push(new FranticTim("There is no way I would forget to feed Gaston. No way.", .5, true, true, 1000 * 1));
     // this.timMessages.push(new FranticTim("Crap.", .1, true, true, 1000 * 90));
     // this.timMessages.push(new FranticTim("CRAP.", .1, true, true, 1000 * 92));
     // this.timMessages.push(new FranticTim("CRAP!", .1, false, true, 1000 * 96));
