@@ -93,40 +93,40 @@ export class AppComponent implements OnInit, OnDestroy {
     }
 
     // text, speed, movingLeft, fromTim, text_wait
-    this.timMessages.push(new FranticTim("Meet Timoth&eacute;e. He's off on an adventure..", .7, true, false, 1000 * 2));
-    this.timMessages.push(new FranticTim("Bonjour! I'm Timoth&eacute;e and I'm going on an adventure!", .8, true, true, 1000 * 10));
-    this.timMessages.push(new FranticTim("I'm &quot;Adventuring Timoth&eacute;e!&quot; Whew!", .9, true, true, 1000 * 20));
-    this.timMessages.push(new FranticTim("Timoth&eacute;e takes in a large inhale of smell.", .9, true, false, 1000 * 24));
-    this.timMessages.push(new FranticTim("hmph. hhhmmmmmmmmmm. HHHMMMMM!!!", 1, true, true, 1000 * 26));
-    this.timMessages.push(new FranticTim("Timoth&eacute;e exhales loudly.", .9, true, false, 1000 * 28));
-    this.timMessages.push(new FranticTim("Can you smell that? The air is different!", 1, true, true, 1000 * 30));
-    this.timMessages.push(new FranticTim("This is AIR air.", 1, true, true, 1000 * 40));
-    this.timMessages.push(new FranticTim("Truly riveting!", .9, true, false, 1000 * 42));
-    this.timMessages.push(new FranticTim("Yup.. off adventuring..", 1, true, true, 1000 * 45));
-    this.timMessages.push(new FranticTim("Timoth&eacute;e starts to hum..", .9, true, false, 1000 * 47));
-    this.timMessages.push(new FranticTim("Da-da-da-da-da-da-da Dum-dum-dum-dum-dum-dum Da-da-da-da DUM-DUM-DUM", 1, true, true, 1000 * 52));
-    this.timMessages.push(new FranticTim("Hmm-hmm-hmm-hmm-hmm-hmm HMM-Hmm-hmm Hm-hmm-hmm-hmm DUM-DUM-DUM", 1, true, true, 1000 * 55));
-    this.timMessages.push(new FranticTim("I fed Gaston right?", .9, true, true, 1000 * 57));
-    this.timMessages.push(new FranticTim("I was packing my bag, then I went to the pantry..", .9, true, true, 1000 * 60));
-    this.timMessages.push(new FranticTim("Now, Timoth&eacute;e did feed Gaston before he left for adventure..", .9, true, false, 1000 * 65));
-    this.timMessages.push(new FranticTim("Gaston is happy, quite full, and is right this moment relaxing lackadaisically..", .9, true, false, 1000 * 67));
-    this.timMessages.push(new FranticTim("I'm sure I fed Gaston!", .8, true, true, 1000 * 75));
-    this.timMessages.push(new FranticTim("There is no way I would forget to feed Gaston. No way.", .5, true, true, 1000 * 80));
-    this.timMessages.push(new FranticTim("Crap.", .1, true, true, 1000 * 90));
-    this.timMessages.push(new FranticTim("CRAP.", .1, true, true, 1000 * 92));
-    this.timMessages.push(new FranticTim("CRAP!", .1, false, true, 1000 * 96));
-    this.timMessages.push(new FranticTim("GASTON!", 1.1, false, true, 1000 * 97));
-    this.timMessages.push(new FranticTim("I'm coming!", 1.2, false, true, 1000 * 100));
-    this.timMessages.push(new FranticTim("I'm sorry Gaston! Timoth&eacute;e's coming!", 1.3, false, true, 1000 * 110));
-    this.timMessages.push(new FranticTim("Ohh, poor thing!", .5, false, true, 1000 * 115));
-    this.timMessages.push(new FranticTim("Ohh, poor thing..", .5, false, false, 1000 * 117))
-    this.timMessages.push(new FranticTim("GASTON!", 1.7, false, true, 1000 * 120));
-    this.timMessages.push(new FranticTim("GASTON!", 1.8, false, true, 1000 * 130));
-    this.timMessages.push(new FranticTim("WHEW! I KNEW I FED GASTON!", 1, false, true, 1000 * 150));
-    this.timMessages.push(new FranticTim("Timoth&eacute;e starts to hum again..", .9, false, false, 1000 * 152));
-    this.timMessages.push(new FranticTim("Hmm-hmm-hmmmmmmmm-HMm-hmm!", 1, false, true, 1000 * 155));
-    this.timMessages.push(new FranticTim("fin.", 1, true, false, 1000 * 165));
-    this.timMessages.push(new FranticTim("", 1, false, true, 1000 * 170));
+    this.timMessages.push(new FranticTim("Meet Timoth&eacute;e. He's off on an adventure..", .7, false, true, 1000 * 2));
+    // this.timMessages.push(new FranticTim("Bonjour! I'm Timoth&eacute;e and I'm going on an adventure!", .8, true, true, 1000 * 10));
+    // this.timMessages.push(new FranticTim("I'm &quot;Adventuring Timoth&eacute;e!&quot; Whew!", .9, true, true, 1000 * 20));
+    // this.timMessages.push(new FranticTim("Timoth&eacute;e takes in a large inhale of smell.", .9, true, false, 1000 * 24));
+    // this.timMessages.push(new FranticTim("hmph. hhhmmmmmmmmmm. HHHMMMMM!!!", 1, true, true, 1000 * 26));
+    // this.timMessages.push(new FranticTim("Timoth&eacute;e exhales loudly.", .9, true, false, 1000 * 28));
+    // this.timMessages.push(new FranticTim("Can you smell that? The air is different out here!", 1, true, true, 1000 * 30));
+    // this.timMessages.push(new FranticTim("This is AIR air.", 1, true, true, 1000 * 40));
+    // this.timMessages.push(new FranticTim("Truly riveting!", .9, true, false, 1000 * 42));
+    // this.timMessages.push(new FranticTim("Yup.. off adventuring..", 1, true, true, 1000 * 45));
+    // this.timMessages.push(new FranticTim("Timoth&eacute;e starts to hum..", .9, true, false, 1000 * 47));
+    // this.timMessages.push(new FranticTim("Da-da-da-da-da-da-da Dum-dum-dum-dum-dum-dum Da-da-da-da DUM-DUM-DUM", 1, true, true, 1000 * 52));
+    // this.timMessages.push(new FranticTim("Hmm-hmm-hmm-hmm-hmm-hmm HMM-Hmm-hmm Hm-hmm-hmm-hmm DUM-DUM-DUM", 1, true, true, 1000 * 55));
+    // this.timMessages.push(new FranticTim("I fed Gaston right?", .9, true, true, 1000 * 57));
+    // this.timMessages.push(new FranticTim("I was packing my bag, then I went to the pantry..", .9, true, true, 1000 * 60));
+    // this.timMessages.push(new FranticTim("Now, Timoth&eacute;e did feed Gaston before he left for adventure..", .9, true, false, 1000 * 65));
+    // this.timMessages.push(new FranticTim("Gaston is happy, quite full, and is right this moment relaxing lackadaisically..", .9, true, false, 1000 * 67));
+    // this.timMessages.push(new FranticTim("I'm sure I fed Gaston!", .8, true, true, 1000 * 75));
+    // this.timMessages.push(new FranticTim("There is no way I would forget to feed Gaston. No way.", .5, true, true, 1000 * 80));
+    // this.timMessages.push(new FranticTim("Crap.", .1, true, true, 1000 * 90));
+    // this.timMessages.push(new FranticTim("CRAP.", .1, true, true, 1000 * 92));
+    // this.timMessages.push(new FranticTim("CRAP!", .1, false, true, 1000 * 96));
+    // this.timMessages.push(new FranticTim("GASTON!", 1.1, false, true, 1000 * 97));
+    // this.timMessages.push(new FranticTim("I'm coming!", 1.2, false, true, 1000 * 100));
+    // this.timMessages.push(new FranticTim("I'm sorry Gaston! Timoth&eacute;e's coming!", 1.3, false, true, 1000 * 110));
+    // this.timMessages.push(new FranticTim("Ohh, poor thing!", .5, false, true, 1000 * 115));
+    // this.timMessages.push(new FranticTim("Ohh, poor thing..", .5, false, false, 1000 * 117))
+    // this.timMessages.push(new FranticTim("GASTON!", 1.7, false, true, 1000 * 120));
+    // this.timMessages.push(new FranticTim("GASTON!", 1.8, false, true, 1000 * 130));
+    // this.timMessages.push(new FranticTim("WHEW! I KNEW I FED GASTON!", 1, false, true, 1000 * 150));
+    // this.timMessages.push(new FranticTim("Timoth&eacute;e starts to hum again..", .9, false, false, 1000 * 152));
+    // this.timMessages.push(new FranticTim("Hmm-hmm-hmmmmmmmm-HMm-hmm!", 1, false, true, 1000 * 155));
+    // this.timMessages.push(new FranticTim("fin.", 1, true, false, 1000 * 165));
+    // this.timMessages.push(new FranticTim("", 1, false, true, 1000 * 170));
   };
 
   ngOnInit() {
