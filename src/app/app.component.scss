@@ -860,7 +860,7 @@ $base-size: .35rem;
 }
 @keyframes cloud-animation-reverse {
     100% {
-        left: 0;
+        left: 0 - 28px;
     }
 
 }

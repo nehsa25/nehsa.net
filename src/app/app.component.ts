@@ -47,6 +47,7 @@ import { Cloud } from './types/cloud';
 })
 export class AppComponent implements OnInit, OnDestroy {
   @Input() duration = 10;
+  private _reversify = false;
   startPosition: number = 0;
   expandedBio = true;
   title = "Jesse Stone";
@@ -71,7 +72,6 @@ export class AppComponent implements OnInit, OnDestroy {
   timSpeaking = false;
   timMovingLeft = false;
   playState = "running";
-  reversify = false;
   animationDuration = "10s";
   timSpeed = .7;
   pausedExpanded = false;
@@ -138,6 +138,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.timMessages.push(new FranticTim("", 1, true, true, 1000 * 190));
   };
 
+  // Angular lifecycle hooks
   ngOnInit() {
     this.osIsDark = this.osCheckIsDark();
     this.appIsDark = this.userService.appIsDark();
@@ -186,7 +187,7 @@ export class AppComponent implements OnInit, OnDestroy {
         this.timSpeaking = tim.fromTim;
         this.duration = tim.speed + 5000;
         this.timMovingLeft = tim.movingLeft;
-        if (this.timMovingLeft) {
+        if (!this.timMovingLeft) {
           this.reversify = true;
         }
         this.ref.markForCheck();
@@ -199,7 +200,7 @@ export class AppComponent implements OnInit, OnDestroy {
           this.timSpeaking = tim.fromTim;
           this.duration = tim.speed + 5000;
           this.timMovingLeft = tim.movingLeft;
-          if (this.timMovingLeft) {
+          if (!this.timMovingLeft) {
             this.reversify = true;
           }
           this.ref.markForCheck();
@@ -211,6 +212,17 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
   }
 
+  // accessors
+  get reversify(): boolean {
+    console.log("I've been gotten! The horror! The horror! (value: " + this._reversify + ")");
+    return this._reversify;
+  }
+  set reversify(value: boolean) {
+    console.log("The thrill! The excitement! I've been set! (value: " + value + ")");
+    this._reversify = value;
+  }
+
+  // ensure we are at the top of the page
   onActivate(event: any) {
     window.scroll({
       top: 0,
@@ -219,6 +231,7 @@ export class AppComponent implements OnInit, OnDestroy {
     });
   }
 
+  // pause button controls
   pauseAnimation(event: any) {
     this.playState == 'running' ? this.playState = 'paused' : this.playState = 'running';
     event.stopPropagation();
