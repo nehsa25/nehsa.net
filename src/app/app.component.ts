@@ -94,8 +94,8 @@ export class AppComponent implements OnInit, OnDestroy {
     }
 
     // text, speed, movingLeft, fromTim, text_wait
-    this.timMessages.push(new FranticTim("Meet Timoth&eacute;e. He's off on an adventure..", .7, true, false, 1000 * 2));
-    // this.timMessages.push(new FranticTim("Bonjour! I'm Timoth&eacute;e and I'm going on an adventure!", .8, true, true, 1000 * 10));
+    this.timMessages.push(new FranticTim("Meet Timoth&eacute;e. He's off on an adventure!", .7, true, false, 1000 * 2));
+    // this.timMessages.push(new FranticTim("Bonjour! I'm Timoth&eacute;e and I'm on an adventure!", .8, true, true, 1000 * 10));
     // this.timMessages.push(new FranticTim("I'm &quot;Adventuring Timoth&eacute;e!&quot; Whew!", .9, true, true, 1000 * 20));
     // this.timMessages.push(new FranticTim("Timoth&eacute;e takes in a large inhale of smell.", .9, true, false, 1000 * 24));
     // this.timMessages.push(new FranticTim("hmph. hhhmmmmmmmmmm. HHHMMMMM!!!", 1, true, true, 1000 * 26));

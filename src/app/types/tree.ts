@@ -15,11 +15,11 @@ export class Tree {
 
         // width   
         this.width = this.width + this.getRandomNumberBetween(0.1, 50, 0.1);   
-        if(this.width < 20) {
-            this.width = 20;
+        if(this.width < 18) {
+            this.width = 18;
         } 
-        if(this.width > 50) {
-            this.width = 50;
+        if(this.width > 30) {
+            this.width = 30;
         }      
         this.height = this.width;
         this.zindex = Math.ceil(this.width) * 5;

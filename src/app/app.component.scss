@@ -532,7 +532,6 @@ $base-size: .35rem;
 .trees {
     position: absolute;
     background-image: url('../assets/images/smalltree.png');
-    background-repeat: repeat;
     height: 42px;
     width: 100%;
     z-index: 10;
@@ -545,6 +544,23 @@ $base-size: .35rem;
 .trees-reverse {
     animation:trek-animation-reversed 100s linear infinite;
 }
+
+.cloud {
+    position: absolute;
+    background-image: url('../assets/images/cloud.png');
+    height: 15px;
+    width: 28px;
+    z-index: 10;
+}
+
+.cloud-normal {
+    animation: cloud-animation 250s linear infinite;
+}
+
+.cloud-reverse {
+    animation: cloud-animation-reversed 250s linear infinite;
+}
+
 
 .image-container {
     height: 45px;
@@ -869,11 +885,29 @@ $base-size: .35rem;
         left: calc(100% - 48px);
     }
 }
-
 @keyframes move-tree-reverse {
     0% {
         left: calc(100% - 48px);
     }
+}
+
+/* moving cloud */
+@keyframes cloud-animation {
+    100% {
+        left: calc(100% - 28px);
+    }
+    0% {
+        left: 0;
+    }
+}
+@keyframes cloud-animation-reverse {
+    0% {
+        left: calc(100% - 28px);
+    }
+    100% {
+        left: 0;
+    }
+
 }
 
 /* trek (color shift) */

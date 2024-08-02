@@ -54,6 +54,9 @@
                         [class.maintitle-light]="!userService.appIsDark()">
                         <div class="trees" [class.trees-normal]="!this.reversify"
                         [class.trees-reverse]="this.reversify"></div>
+
+                        <div class="cloud" [class.cloud-normal]="!this.reversify"
+                        [class.cloud-reverse]="this.reversify"></div>
   
                         <div *ngFor="let tree of trees; let i = index" [style.width.px]="tree.width"
                             [style.height.px]="tree.height" [style.zIndex]="tree.zindex" [style.top.px]="tree.top"
