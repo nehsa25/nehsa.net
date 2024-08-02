@@ -24,6 +24,47 @@
 
                                 </ul>
                             </li>
+                            <li>
+                                <mat-expansion-panel expanded>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Accessors</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    I'm not steadfast in using accessors. They often lead to extra code lines that don't
+                                    need to be there. They can be helpful for a few things, though:
+                                    <ul>
+                                        <li>Getters can be used to calculate a value based on other values</li>
+                                        <li>Setters can be used to trigger an event when a value is changed</li>
+                                        <li>
+                                            Troubleshooting:<br>
+                                            <div class="code">
+                                                <pre>
+private _reversify = false;
+
+get reversify(): boolean &#123;
+    console.log("I've been gotten! The horror! The horror! " + this._reversify);
+    return this._reversify;
+&#125;
+
+set reversify(value: boolean) &#123;
+    console.log("The thrill! The excitement! I've been set! (value: " + value + ")");
+    this._reversify = value;
+&#125;
+
+// Usage
+this.reversify = true;
+Produces:
+The thrill! The excitement! I've been set! (value: true)
+
+console.log(this.reversify);
+Produces:
+I've been gotten! The horror! The horror! true
+</pre>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                </mat-expansion-panel>
+                            </li>
                         </ul>
                     </div>
                     <div>
