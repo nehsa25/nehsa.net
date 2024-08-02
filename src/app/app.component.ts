@@ -73,7 +73,6 @@ export class AppComponent implements OnInit, OnDestroy {
   playState = "running";
   reversify = false;
   animationDuration = "10s";
-  directionLeft = true;
   timSpeed = .7;
   pausedExpanded = false;
 
@@ -119,22 +118,24 @@ export class AppComponent implements OnInit, OnDestroy {
     this.timMessages.push(new FranticTim("Now, Timoth&eacute;e did feed Gaston before he left for adventure..", .9, true, false, 1000 * 65));
     this.timMessages.push(new FranticTim("Gaston is happy, quite full, and is right this moment relaxing lackadaisically..", .9, true, false, 1000 * 67));
     this.timMessages.push(new FranticTim("I'm sure I fed Gaston!", .8, true, true, 1000 * 75));
-    this.timMessages.push(new FranticTim("There is no way I would forget to feed Gaston. No way.", .5, true, true, 1000 * 1));
+    this.timMessages.push(new FranticTim("There is no way I would forget to feed Gaston. No way.", .5, true, true, 1000 * 77));
     this.timMessages.push(new FranticTim("Oh no.", .1, true, true, 1000 * 90));
     this.timMessages.push(new FranticTim("OHH NO.", .1, true, true, 1000 * 92));
     this.timMessages.push(new FranticTim("OHH NO!", .1, false, true, 1000 * 96));
-    this.timMessages.push(new FranticTim("GASTON!", 1.1, false, true, 1000 * 97));
+    this.timMessages.push(new FranticTim("GASTON! I'm coming home!", 1.1, false, true, 1000 * 97));
     this.timMessages.push(new FranticTim("I'm coming!", 1.2, false, true, 1000 * 100));
     this.timMessages.push(new FranticTim("I'm sorry Gaston! Timoth&eacute;e's coming!", 1.3, false, true, 1000 * 110));
-    this.timMessages.push(new FranticTim("Ohh, poor thing!", .5, false, true, 1000 * 115));
-    this.timMessages.push(new FranticTim("Ohh, poor thing..", .5, false, false, 1000 * 117))
+    this.timMessages.push(new FranticTim("Again, Gaston is fine. Happy for some alone time really.", .9, true, false, 1000 * 67));
+    this.timMessages.push(new FranticTim("Ohh, poor Gaston!", .5, false, true, 1000 * 115));
+    this.timMessages.push(new FranticTim("Ohh, poor Timoth&eacute;e..", .5, false, false, 1000 * 117))
     this.timMessages.push(new FranticTim("GASTON!", 1.7, false, true, 1000 * 120));
     this.timMessages.push(new FranticTim("GASTON!", 1.8, false, true, 1000 * 130));
-    this.timMessages.push(new FranticTim("WHEW! I KNEW I FED GASTON!", 1, false, true, 1000 * 150));
-    this.timMessages.push(new FranticTim("Timoth&eacute;e starts to hum again..", .9, false, false, 1000 * 152));
-    this.timMessages.push(new FranticTim("Hmm-hmm-hmmmmmmmm-HMm-hmm!", 1, false, true, 1000 * 155));
-    this.timMessages.push(new FranticTim("fin.", 1, true, false, 1000 * 165));
-    this.timMessages.push(new FranticTim("", 1, false, true, 1000 * 170));
+    this.timMessages.push(new FranticTim("WHEW! I KNEW I FED GASTON!", 1, true, true, 1000 * 150));
+    this.timMessages.push(new FranticTim("Timoth&eacute;e starts to hum again!", .9, true, false, 1000 * 152));
+    this.timMessages.push(new FranticTim("Hmm-hmm-hmmmmmmmm-HMm-hmm!", 1, true, true, 1000 * 155));
+    this.timMessages.push(new FranticTim("Fin.", 1, true, false, 1000 * 165));
+    this.timMessages.push(new FranticTim("Vere finitus. Fin.", 1, true, false, 1000 * 175));
+    this.timMessages.push(new FranticTim("", 1, true, true, 1000 * 190));
   };
 
   ngOnInit() {
@@ -165,7 +166,6 @@ export class AppComponent implements OnInit, OnDestroy {
       this.userService.name = this.names[0].Name;
       this.userService.about = this.names[0].About
       this.posTerms = next[2];
-      //this.getName2ndAttempt();
     });
 
     this.sleep(5000).then(() => {
@@ -186,6 +186,9 @@ export class AppComponent implements OnInit, OnDestroy {
         this.timSpeaking = tim.fromTim;
         this.duration = tim.speed + 5000;
         this.timMovingLeft = tim.movingLeft;
+        if (this.timMovingLeft) {
+          this.reversify = true;
+        }
         this.ref.markForCheck();
       }, tim.text_wait);
     });
@@ -196,6 +199,9 @@ export class AppComponent implements OnInit, OnDestroy {
           this.timSpeaking = tim.fromTim;
           this.duration = tim.speed + 5000;
           this.timMovingLeft = tim.movingLeft;
+          if (this.timMovingLeft) {
+            this.reversify = true;
+          }
           this.ref.markForCheck();
         }, tim.text_wait);
       });
@@ -212,7 +218,7 @@ export class AppComponent implements OnInit, OnDestroy {
       behavior: 'smooth'
     });
   }
-  
+
   pauseAnimation(event: any) {
     this.playState == 'running' ? this.playState = 'paused' : this.playState = 'running';
     event.stopPropagation();
