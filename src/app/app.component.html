@@ -52,6 +52,8 @@
                     </div>
                     <div *ngIf="!this.expandedBio" class="world" [class.maintitle-dark]="userService.appIsDark()"
                         [class.maintitle-light]="!userService.appIsDark()">
+                        <div class="trees" [class.trees-normal]="!this.reversify"
+                        [class.trees-reverse]="this.reversify"></div>
   
                         <div *ngFor="let tree of trees; let i = index" [style.width.px]="tree.width"
                             [style.height.px]="tree.height" [style.zIndex]="tree.zindex" [style.top.px]="tree.top"
@@ -63,9 +65,13 @@
                         <!-- Tim normal -->
                         <div *ngIf="timSpeaking && timMovingLeft" class="timarea-grid timarea-grid-normal">
                             <div class="pause-button-container">
-                                <div> <button class="control-button" mat-icon-button (click)="pauseAnimation($event)">
+                                <div> <button *ngIf="" class="control-button" mat-icon-button (click)="pauseAnimation($event)">
                                         <mat-icon>pause</mat-icon>
-                                    </button></div>
+                                    </button>
+                                    <button *ngIf="" class="control-button" mat-icon-button (click)="pauseAnimation($event)">
+                                        <mat-icon>resume</mat-icon>
+                                    </button>
+                                </div>
                                 <div> <button class="control-button" mat-icon-button (click)="reverseAnimation($event)">
                                         <mat-icon>history</mat-icon>
                                     </button></div>

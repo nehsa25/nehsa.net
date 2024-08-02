@@ -533,9 +533,17 @@ $base-size: .35rem;
     position: absolute;
     background-image: url('../assets/images/smalltree.png');
     background-repeat: repeat;
-    height: 45px;
+    height: 42px;
     width: 100%;
     z-index: 10;
+}
+
+.trees-normal {
+    animation: trek-animation 100s linear infinite;
+}
+
+.trees-reverse {
+    animation:trek-animation-reversed 100s linear infinite;
 }
 
 .image-container {
@@ -832,7 +840,6 @@ $base-size: .35rem;
     margin: auto 0;
     margin-left: 3em;
 }
-
 /* tims rocking motion */
 @keyframes bob-animation {
     0% {
@@ -858,10 +865,6 @@ $base-size: .35rem;
 
 /* moving tree */
 @keyframes move-tree {
-    0% {
-        left: 0;
-    }
-
     100% {
         left: calc(100% - 48px);
     }
@@ -871,14 +874,10 @@ $base-size: .35rem;
     0% {
         left: calc(100% - 48px);
     }
-
-    100% {
-        left: 0;
-    }
 }
 
 /* trek (color shift) */
-@keyframes trek-animation {
+@keyframes trek-animation-reverse {
     0% {
         background-position: 0% 50%;
     }
@@ -888,16 +887,15 @@ $base-size: .35rem;
     }
 }
 
-@keyframes trek-animation-reverse {
+@keyframes trek-animation {
     0% {
-        background-position: 100% 50%;
+      background-position: 0% 50%;
     }
-
+  
     100% {
-        background-position: 0% 50%;
+      background-position: 100% 50%;
     }
-}
-
+  }
 
 /* fade */
 @keyframes fadeOut {

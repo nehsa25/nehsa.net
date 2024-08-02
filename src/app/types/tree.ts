@@ -1,4 +1,6 @@
-// Tree - max 35px
+import { ElementRef } from "@angular/core";
+
+// Tree - max 50px
 export class Tree {
     width: number = 0;
     height: number = 0;
@@ -10,7 +12,15 @@ export class Tree {
     left: number = 0;
 
     constructor(directionLeft: boolean) {
-        this.width = this.getRandomNumberBetween(0.1, 35, 0.1);
+
+        // width   
+        this.width = this.width + this.getRandomNumberBetween(0.1, 50, 0.1);   
+        if(this.width < 20) {
+            this.width = 20;
+        } 
+        if(this.width > 50) {
+            this.width = 50;
+        }      
         this.height = this.width;
         this.zindex = Math.ceil(this.width) * 5;
         if (this.zindex > 200) {
@@ -27,14 +37,14 @@ export class Tree {
         }
 
         // left
-        this.left = this.getRandomNumberBetween(1, 600, .1);
+        this.left = this.getRandomNumberBetween(1, 1200, .1);
 
         this.directionLeft = directionLeft;
 
-        // max speed is if width is 35px
+        // max speed is if width is 50px
         const maxSpeed = 50; // Maximum speed
         const minSpeed = 30; // Minimum speed
-        const maxWidth = 35; // Maximum width
+        const maxWidth = 50; // Maximum width
         
         const speedFactor = Math.max(0, 1 - (this.width / maxWidth));
         this.speed = minSpeed + (speedFactor * (maxSpeed - minSpeed))  + 's';

@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, HostListener, Input, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, HostListener, Input, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './shared-components/navbar/navbar.component';
 import { CornerListenerComponent } from './shared-components/corner-listener/corner-listener.component';
@@ -46,6 +46,7 @@ import { Tree } from './types/tree';
 })
 export class AppComponent implements OnInit, OnDestroy {
   @Input() duration = 10;
+  startPosition: number = 0;
   expandedBio = true;
   title = "Jesse Stone";
   quote = "";
@@ -77,7 +78,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private ref: ChangeDetectorRef,
     public httpClient: HttpService,
     public userService: UserService,
-    public nameDialog: MatDialog,
+    public nameDialog: MatDialog
   ) {
     var getQuotes = this.httpClient.getQuote();
     var getName = this.httpClient.getNames(2);
@@ -88,12 +89,12 @@ export class AppComponent implements OnInit, OnDestroy {
 
     // trees
     // width, height, zindex, top, directionLeft
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i <= 10; i++) {
       this.trees.push(new Tree(true));
     }
 
     // text, speed, movingLeft, fromTim, text_wait
-    this.timMessages.push(new FranticTim("Meet Timoth&eacute;e. He's off on an adventure..", .7, false, true, 1000 * 2));
+    this.timMessages.push(new FranticTim("Meet Timoth&eacute;e. He's off on an adventure..", .7, true, false, 1000 * 2));
     // this.timMessages.push(new FranticTim("Bonjour! I'm Timoth&eacute;e and I'm going on an adventure!", .8, true, true, 1000 * 10));
     // this.timMessages.push(new FranticTim("I'm &quot;Adventuring Timoth&eacute;e!&quot; Whew!", .9, true, true, 1000 * 20));
     // this.timMessages.push(new FranticTim("Timoth&eacute;e takes in a large inhale of smell.", .9, true, false, 1000 * 24));
@@ -106,8 +107,8 @@ export class AppComponent implements OnInit, OnDestroy {
     // this.timMessages.push(new FranticTim("Timoth&eacute;e starts to hum..", .9, true, false, 1000 * 47));
     // this.timMessages.push(new FranticTim("Da-da-da-da-da-da-da Dum-dum-dum-dum-dum-dum Da-da-da-da DUM-DUM-DUM", 1, true, true, 1000 * 52));
     // this.timMessages.push(new FranticTim("Hmm-hmm-hmm-hmm-hmm-hmm HMM-Hmm-hmm Hm-hmm-hmm-hmm DUM-DUM-DUM", 1, true, true, 1000 * 55));
-    // this.timMessages.push(new FranticTim("I fed Gaston right?", .9, true, true, 1000 * 57));
-    // this.timMessages.push(new FranticTim("I was packing my bag, then I went to the pantry..", .9, true, true, 1000 * 60));
+    // this.timMessages.push(new FranticTim("Did I feed Gaston before I left!?", .9, true, true, 1000 * 57));
+    // this.timMessages.push(new FranticTim("I was packing my bag, the study, then I went to the pantry..", .9, true, true, 1000 * 60));
     // this.timMessages.push(new FranticTim("Now, Timoth&eacute;e did feed Gaston before he left for adventure..", .9, true, false, 1000 * 65));
     // this.timMessages.push(new FranticTim("Gaston is happy, quite full, and is right this moment relaxing lackadaisically..", .9, true, false, 1000 * 67));
     // this.timMessages.push(new FranticTim("I'm sure I fed Gaston!", .8, true, true, 1000 * 75));
