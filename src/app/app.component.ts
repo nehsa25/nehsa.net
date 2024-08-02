@@ -125,17 +125,20 @@ export class AppComponent implements OnInit, OnDestroy {
     this.timMessages.push(new FranticTim("GASTON! I'm coming home!", 1.1, false, true, 1000 * 97));
     this.timMessages.push(new FranticTim("I'm coming!", 1.2, false, true, 1000 * 100));
     this.timMessages.push(new FranticTim("I'm sorry Gaston! Timoth&eacute;e's coming!", 1.3, false, true, 1000 * 110));
-    this.timMessages.push(new FranticTim("Again, Gaston is fine. Happy for some alone time really.", .9, true, false, 1000 * 67));
-    this.timMessages.push(new FranticTim("Ohh, poor Gaston!", .5, false, true, 1000 * 115));
-    this.timMessages.push(new FranticTim("Ohh, poor Timoth&eacute;e..", .5, false, false, 1000 * 117))
-    this.timMessages.push(new FranticTim("GASTON!", 1.7, false, true, 1000 * 120));
-    this.timMessages.push(new FranticTim("GASTON!", 1.8, false, true, 1000 * 130));
-    this.timMessages.push(new FranticTim("WHEW! I KNEW I FED GASTON!", 1, true, true, 1000 * 150));
-    this.timMessages.push(new FranticTim("Timoth&eacute;e starts to hum again!", .9, true, false, 1000 * 152));
-    this.timMessages.push(new FranticTim("Hmm-hmm-hmmmmmmmm-HMm-hmm!", 1, true, true, 1000 * 155));
+    this.timMessages.push(new FranticTim("Again, Gaston is fine. Happy for some alone time really.", .9, true, false, 1000 * 113));
+    this.timMessages.push(new FranticTim("Ohh, poor Gaston!", .5, false, true, 1000 * 117));
+    this.timMessages.push(new FranticTim("Ohh, poor Timoth&eacute;e..", .5, false, false, 1000 * 120))
+    this.timMessages.push(new FranticTim("GASTON!", 1.7, false, true, 1000 * 125));
+    this.timMessages.push(new FranticTim("GASTON!!", 1.8, false, true, 1000 * 127));
+    this.timMessages.push(new FranticTim("WHEW! I KNEW I FED GASTON!", 1, true, true, 1000 * 130));
+    this.timMessages.push(new FranticTim("Glad that's settled. Timoth&eacute;e about to start huming again!", .9, true, false, 1000 * 135));
+    this.timMessages.push(new FranticTim("Hmm-hmm-hmmmmmmmm-HMm-hmm!", 1, true, true, 1000 * 137));
+    this.timMessages.push(new FranticTim("Bravo sir, bravo.", .9, true, false, 1000 * 135));
     this.timMessages.push(new FranticTim("Fin.", 1, true, false, 1000 * 165));
     this.timMessages.push(new FranticTim("Vere finitus. Fin.", 1, true, false, 1000 * 175));
-    this.timMessages.push(new FranticTim("", 1, true, true, 1000 * 190));
+    this.timMessages.push(new FranticTim("This has been a production of Jesse wanting to play with CSS animations. Copyright 2024 nehsa.net, All Right Reserved. Feed hungry people. Water thirty people. Support your local food bank.", 1, true, true, 1000 * 190));
+    this.timMessages.push(new FranticTim("", 1, true, false, 1000 * 195));
+    this.timMessages.push(new FranticTim("", 1, true, false, 1000 * 210));
   };
 
   // Angular lifecycle hooks
