@@ -542,7 +542,7 @@ $base-size: .35rem;
 }
 
 .trees-reverse {
-    animation:trek-animation-reversed 100s linear infinite;
+    animation: trek-animation-reversed 100s linear infinite;
 }
 
 .cloud {
@@ -622,6 +622,11 @@ $base-size: .35rem;
     display: grid;
     grid-gap: 2px;
     grid-template-columns: repeat(4, 45px);
+    grid-template-rows: repeat(2, 45px);
+    grid-template-areas: 
+        "pause-pause-button pause-reverse-button pause-swap-button pause-expand-button "
+        "pause-speed pause-speed pause-speed pause-expand-button";
+    position: fixed;
 }
 
 .pause-button-container-collapse {
@@ -640,7 +645,46 @@ $base-size: .35rem;
     background-color: #222;
 }
 
+.pause-expand-button {
+    background-color: #222;
+    grid-area: pause-expand-button;    
+}
+
+.pause-expand-button button {
+    margin: auto 0;
+}
+
+.pause-pause-button {
+    background-color: rgb(153, 172, 68);
+    grid-area: pause-pause-button;
+}
+
+.pause-reverse-button {
+    background-color: rgb(100, 68, 129);
+    grid-area: pause-reverse-button;
+}
+
+.pause-swap-button {
+    background-color: rgb(51, 153, 97);
+    grid-area: pause-swap-button;
+}
+
+.pause-speed {
+    background-color: red;
+    grid-area: pause-speed;
+}
+
+.control-button-container {
+    z-index: 210;
+    width: 45px;
+    height: 45px;
+    background-color: blueviolet;
+    border-radius: 0 0 15% 0;
+    display: grid;
+}
+
 .control-button {
+
     color: burlywood;
 }
 
@@ -817,6 +861,7 @@ $base-size: .35rem;
     margin: auto 0;
     margin-left: 3em;
 }
+
 /* tims rocking motion */
 @keyframes bob-animation {
     0% {
@@ -846,9 +891,14 @@ $base-size: .35rem;
         left: calc(100% - 48px);
     }
 }
+
 @keyframes move-tree-reverse {
     0% {
-        left: calc(100% - 48px);
+        left: 100%;
+    }
+
+    100% {
+        left: 0;
     }
 }
 
@@ -858,6 +908,7 @@ $base-size: .35rem;
         left: calc(100% - 28px);
     }
 }
+
 @keyframes cloud-animation-reverse {
     100% {
         left: 0 - 28px;
@@ -878,13 +929,13 @@ $base-size: .35rem;
 
 @keyframes trek-animation {
     0% {
-      background-position: 0% 50%;
+        background-position: 0% 50%;
     }
-  
+
     100% {
-      background-position: 100% 50%;
+        background-position: 100% 50%;
     }
-  }
+}
 
 /* fade */
 @keyframes fadeOut {

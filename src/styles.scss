@@ -417,6 +417,10 @@ li {
     line-height: 1.5;
 }
 
+.strikeout {
+    text-decoration: line-through;
+}
+
 .topics {
     display: grid;
     grid-template-rows: min-content;

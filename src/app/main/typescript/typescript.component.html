@@ -27,6 +27,24 @@
                             <li>
                                 <mat-expansion-panel expanded>
                                     <mat-expansion-panel-header>
+                                        <mat-panel-title>Constuctor</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    A constuctor in typescript is simply the keyword constructor:
+                                    <div class="code">
+                                        <pre>
+export class MyClass &#123;
+    constructor() &#123;
+        <span class="comment">// Constructor code here</span>
+    &#125;
+&#125;
+</pre>
+                                    </div>
+
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
                                         <mat-panel-title>Accessors</mat-panel-title>
                                     </mat-expansion-panel-header>
                                     I'm not steadfast in using accessors. They often lead to extra code lines that don't
@@ -68,8 +86,25 @@ I've been gotten! The horror! The horror! true
                         </ul>
                     </div>
                     <div>
-                        <h4>Common issues I run across</h4>
+                        <h4>Other tidbits..</h4>
                         <ul>
+                            <li>Using a <span class="important">&quot;loose-check&quot;</span>, you can test both null
+                                and undefined in one hit: <span class="code">if (x == null) &#123;
+                                    console.log("PeanutsAreOK!"); &#125; </span> &#123;<br><br>
+                                Javascript/TypeScript is the only language I've used that has a triple === <span
+                                    class="important">&quot;strict-check&quot;</span>
+                                comparison. A strict-check will only return true if the two values are the same type and
+                                the same value. If you use a strict-check, it will only be
+                                true for values set to null and will not return true for undefined variables: <span
+                                    class="code">if (x === null) &#123; console.log("WalnutsSuck!"); &#125; </span>
+                            </li>
+                            <li>Don't use negative names for boolean variables. e.g. this: <span class="code">const
+                                    isNotSet = true;</span> would be better as <span class="code">const isSet =
+                                    false;</span> </li>
+                            <li>Use "const" whenever possible when a variable is not intended to change instead of
+                                var/let</li>
+                            <li>var Vs. let &hyphen; var is function scoped, let is block scoped</li>
+                            <li>Pass Intellisense to VSCode: /** comment */ above function</li>
                             <li>
                                 Property '_answers' has no initializer and is not definitely assigned in the
                                 constructor.
@@ -90,25 +125,6 @@ I've been gotten! The horror! The horror! true
                                 e.g.:
                                 <span class="code">monsters: string[] = [];</span>
                             </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4>Other tidbits..</h4>
-                        <ul>
-                            <li>Using a <span class="important">&quot;loose-check&quot;</span>, you can test both null
-                                and undefined in one hit: <span class="code">if (x == null) &#123;
-                                    console.log("PeanutsAreOK!"); &#125; </span> &#123;<br><br>
-                                If you use a <span class="important">&quot;strict-check&quot;</span>, it will only be
-                                true for values set to null and will not return true for undefined variables: <span
-                                    class="code">if (x === null) &#123; console.log("WalnutsSuck!"); &#125; </span>
-                            </li>
-                            <li>Don't use negative names for boolean variables. e.g. this: <span class="code">const
-                                    isNotSet = true;</span> would be better as <span class="code">const isSet =
-                                    false;</span> </li>
-                            <li>Use "const" whenever possible when a variable is not intended to change instead of
-                                var/let</li>
-                            <li>var Vs. let &hyphen; var is function scoped, let is block scoped</li>
-                            <li>Pass Intellisense to VSCode: /** comment */ above function</li>
                         </ul>
                     </div>
                 </div>

@@ -72,9 +72,9 @@
                         </div>
 
                         <!-- Tim normal -->
-                        <div *ngIf="timSpeaking && timMovingLeft" class="timarea-grid timarea-grid-normal">
+                        <div *ngIf="fromTim && timMovingLeft" class="timarea-grid timarea-grid-normal">
                             <div *ngIf="pausedExpanded" class="pause-button-container-expanded">
-                                <div>
+                                <div class="pause-pause-button">
                                     <button *ngIf="playState == 'running'" class="control-button" mat-icon-button
                                         (click)="pauseAnimation($event)">
                                         <mat-icon>pause</mat-icon>
@@ -84,26 +84,27 @@
                                         <mat-icon>play_arrow</mat-icon>
                                     </button>
                                 </div>
-                                <div>
+                                <div class="pause-reverse-button">
                                     <button class="control-button" mat-icon-button (click)="reverseAnimation($event)">
                                         <mat-icon>history</mat-icon>
                                     </button>
                                 </div>
-                                <div>
+                                <div class="pause-swap-button">
                                     <button class="control-button" mat-icon-button (click)="swapAnimation($event)">
                                         <mat-icon>swap_horiz</mat-icon>
                                     </button>
                                 </div>
-                                <div>
-                                    <button class="control-button pause-expand-container" mat-icon-button (click)="expandControl($event)">
+                                <div class="pause-speed">Speed</div>
+                                <div class="pause-expand-button" (click)="expandControl($event)">
+                                    <button class="control-button pause-expand-container" mat-icon-button>
                                         <mat-icon *ngIf="pausedExpanded">arrow_back_ios</mat-icon>
                                         <mat-icon *ngIf="!pausedExpanded">arrow_forward_ios</mat-icon>
                                     </button>
                                 </div>
                             </div>
                             <div *ngIf="!pausedExpanded" class="pause-button-container-collapse">
-                                <div>
-                                    <button class="control-button pause-expand-container" mat-icon-button (click)="expandControl($event)">
+                                <div (click)="expandControl($event)">
+                                    <button class="control-button pause-expand-container" mat-icon-button>
                                         <mat-icon *ngIf="pausedExpanded">arrow_back_ios</mat-icon>
                                         <mat-icon *ngIf="!pausedExpanded">arrow_forward_ios</mat-icon>
                                     </button>
@@ -123,9 +124,9 @@
                         </div>
 
                         <!-- Tim reverse-->
-                        <div *ngIf="timSpeaking && !timMovingLeft" class="timarea-grid timarea-grid-reverse">
+                        <div *ngIf="fromTim && !timMovingLeft" class="timarea-grid timarea-grid-reverse">
                             <div *ngIf="pausedExpanded" class="pause-button-container-expanded">
-                                <div>
+                                <div class="pause-pause-button">
                                     <button *ngIf="playState == 'running'" class="control-button" mat-icon-button
                                         (click)="pauseAnimation($event)">
                                         <mat-icon>pause</mat-icon>
@@ -135,26 +136,27 @@
                                         <mat-icon>play_arrow</mat-icon>
                                     </button>
                                 </div>
-                                <div>
+                                <div class="pause-reverse-button">
                                     <button class="control-button" mat-icon-button (click)="reverseAnimation($event)">
                                         <mat-icon>history</mat-icon>
                                     </button>
                                 </div>
-                                <div>
+                                <div class="pause-swap-button">
                                     <button class="control-button" mat-icon-button (click)="swapAnimation($event)">
                                         <mat-icon>swap_horiz</mat-icon>
                                     </button>
                                 </div>
-                                <div>
-                                    <button class="control-button pause-expand-container" mat-icon-button (click)="expandControl($event)">
+                                <div class="pause-speed">Speed</div>
+                                <div class="pause-expand-button" (click)="expandControl($event)">
+                                    <button class="control-button pause-expand-container" mat-icon-button>
                                         <mat-icon *ngIf="pausedExpanded">arrow_back_ios</mat-icon>
                                         <mat-icon *ngIf="!pausedExpanded">arrow_forward_ios</mat-icon>
                                     </button>
                                 </div>
                             </div>
                             <div *ngIf="!pausedExpanded" class="pause-button-container-collapse">
-                                <div>
-                                    <button class="control-button pause-expand-container" mat-icon-button (click)="expandControl($event)">
+                                <div (click)="expandControl($event)">
+                                    <button class="control-button pause-expand-container" mat-icon-button>
                                         <mat-icon *ngIf="pausedExpanded">arrow_back_ios</mat-icon>
                                         <mat-icon *ngIf="!pausedExpanded">arrow_forward_ios</mat-icon>
                                     </button>
@@ -174,9 +176,9 @@
                         </div>
 
                         <!-- Narrator -->
-                        <div *ngIf="!timSpeaking && timMovingLeft" class="narratorarea-grid narratorarea-grid-normal">
+                        <div *ngIf="!fromTim && timMovingLeft" class="narratorarea-grid narratorarea-grid-normal">
                             <div *ngIf="pausedExpanded" class="pause-button-container-expanded">
-                                <div>
+                                <div class="pause-pause-button">
                                     <button *ngIf="playState == 'running'" class="control-button" mat-icon-button
                                         (click)="pauseAnimation($event)">
                                         <mat-icon>pause</mat-icon>
@@ -186,26 +188,27 @@
                                         <mat-icon>play_arrow</mat-icon>
                                     </button>
                                 </div>
-                                <div>
+                                <div class="pause-reverse-button">
                                     <button class="control-button" mat-icon-button (click)="reverseAnimation($event)">
                                         <mat-icon>history</mat-icon>
                                     </button>
                                 </div>
-                                <div>
+                                <div class="pause-swap-button">
                                     <button class="control-button" mat-icon-button (click)="swapAnimation($event)">
                                         <mat-icon>swap_horiz</mat-icon>
                                     </button>
                                 </div>
-                                <div>
-                                    <button class="control-button pause-expand-container" mat-icon-button (click)="expandControl($event)">
+                                <div class="pause-speed">Speed</div>
+                                <div class="pause-expand-button" (click)="expandControl($event)">
+                                    <button class="control-button pause-expand-container" mat-icon-button>
                                         <mat-icon *ngIf="pausedExpanded">arrow_back_ios</mat-icon>
                                         <mat-icon *ngIf="!pausedExpanded">arrow_forward_ios</mat-icon>
                                     </button>
                                 </div>
                             </div>
                             <div *ngIf="!pausedExpanded" class="pause-button-container-collapse">
-                                <div>
-                                    <button class="control-button pause-expand-container" mat-icon-button (click)="expandControl($event)">
+                                <div (click)="expandControl($event)">
+                                    <button class="control-button pause-expand-container" mat-icon-button>
                                         <mat-icon *ngIf="pausedExpanded">arrow_back_ios</mat-icon>
                                         <mat-icon *ngIf="!pausedExpanded">arrow_forward_ios</mat-icon>
                                     </button>
@@ -226,9 +229,9 @@
                         </div>
 
                         <!-- Narrator reverse-->
-                        <div *ngIf="!timSpeaking && !timMovingLeft" class="narratorarea-grid narratorarea-grid-reverse">
+                        <div *ngIf="!fromTim && !timMovingLeft" class="narratorarea-grid narratorarea-grid-reverse">
                             <div *ngIf="pausedExpanded" class="pause-button-container-expanded">
-                                <div>
+                                <div class="control-button-container pause-pause-button">
                                     <button *ngIf="playState == 'running'" class="control-button" mat-icon-button
                                         (click)="pauseAnimation($event)">
                                         <mat-icon>pause</mat-icon>
@@ -238,26 +241,27 @@
                                         <mat-icon>play_arrow</mat-icon>
                                     </button>
                                 </div>
-                                <div>
+                                <div class="control-button-container pause-reverse-button">
                                     <button class="control-button" mat-icon-button (click)="reverseAnimation($event)">
                                         <mat-icon>history</mat-icon>
                                     </button>
                                 </div>
-                                <div>
+                                <div class="control-button-container pause-swap-button">
                                     <button class="control-button" mat-icon-button (click)="swapAnimation($event)">
                                         <mat-icon>swap_horiz</mat-icon>
                                     </button>
                                 </div>
-                                <div>
-                                    <button class="control-button pause-expand-container" mat-icon-button (click)="expandControl($event)">
+                                <div class="control-button-container pause-speed">Speed</div>
+                                <div class="control-button-container pause-expand-button" (click)="expandControl($event)">
+                                    <button class="control-button pause-expand-container" mat-icon-button>
                                         <mat-icon *ngIf="pausedExpanded">arrow_back_ios</mat-icon>
                                         <mat-icon *ngIf="!pausedExpanded">arrow_forward_ios</mat-icon>
                                     </button>
                                 </div>
                             </div>
                             <div *ngIf="!pausedExpanded" class="pause-button-container-collapse"  style="place-self: normal;">
-                                <div>
-                                    <button class="control-button pause-expand-container" mat-icon-button (click)="expandControl($event)">
+                                <div (click)="expandControl($event)">
+                                    <button class="control-button pause-expand-container" mat-icon-button>
                                         <mat-icon *ngIf="pausedExpanded">arrow_back_ios</mat-icon>
                                         <mat-icon *ngIf="!pausedExpanded">arrow_forward_ios</mat-icon>
                                     </button>
