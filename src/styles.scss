@@ -383,6 +383,7 @@ li {
     padding: 7px;
     font-size: 1rem;
 }
+
 .condensed li {
     padding: 0px;
 }
@@ -541,7 +542,7 @@ a,
 .mat-mdc-outlined-button,
 .mat-mdc-flat-button,
 .mat-mdc-unelevated-button {
-    cursor: pointer !important;  
+    cursor: pointer !important;
     display: inline-block;
 }
 
@@ -661,3 +662,24 @@ mat-panel-subtitle {
     background-color: var(--theme-light-button-hover-background-color) !important;
     color: var(--theme-light-button-hover-color-color) !important;
 }
+
+// tables
+.min-table {
+    width: fit-content !important;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid var(--theme-border);
+}
+
+// dls
+dl {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    width:fit-content;
+  }
+  
+  dt {
+    font-style:oblique;
+    font-weight: normal;
+  }

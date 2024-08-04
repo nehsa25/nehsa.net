@@ -1,7 +1,7 @@
 <mat-card class="card">
     <mat-card-header>
         <mat-card-title>
-            <h1 data-testid="header-title">Web Design / <span class="importantish">S</span>CSS</h1>
+            <h1 data-testid="header-title">Web Design / <span class="important">(S)</span>CSS</h1>
         </mat-card-title>
         <mat-card-subtitle>Large cross-section with the Angular page but this is focused on non-Angular aspects of
             webdesign such as responsive design, creating favicons, ect</mat-card-subtitle>
@@ -149,6 +149,100 @@ background-color: salmon;
                                             </div>
                                             <div>I'm Teal!</div>
                                         </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Conditional CSS</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            There are a few ways to conditionally apply CSS (not considering JavaScript or
+                            Angular-specific methods):
+                            <ul>
+                                <li>Pseudo classes
+                                    <ul>
+                                        <li>hover</li>
+                                        <li>active</li>
+                                        <li>visited</li>
+                                        <li>focus</li>
+                                    </ul>
+
+                                    e.g. <div class="code">
+                                        <pre>
+
+
+&#123; 
+    a &#123;
+        color: blue; <span class="comment">// default color</span> 
+    &#125; 
+    a:hover &#123; 
+        color: red; <span class="comment">// hover color</span>
+    &#125;
+&#125;
+                                        </pre>
+                                    </div>
+                                </li>
+                                <li>Has &quot;:has()&quot; selector allows you to perform a CSS selection based on the content
+                                    of an element.
+                                    <div class="code">
+                                        <pre>
+.pause-container:has(img) &#123;
+    border: none; <span class="comment">// remove border if there is an image</span>
+&#125;
+</pre>
+                                    </div><br><br>
+                                    Browser Support:
+                                    <table mat-table class="min-table">
+                                        <tr mat-header-row>
+                                            <th>Browser</th>
+                                            <th>Support</th>
+                                        </tr>
+                                        <tr mat-row>
+                                            <td>Chrome</td>
+                                            <td>Yes</td>
+                                        </tr>
+                                        <tr mat-row>
+                                            <td>Firefox</td>
+                                            <td>Yes</td>
+                                        </tr>
+                                        <tr mat-row>
+                                            <td>Safari</td>
+                                            <td>*Mostly</td>
+                                        </tr>
+                                        <tr mat-row>
+                                            <td>Edge</td>
+                                            <td>Yes</td>
+                                        </tr>
+                                        <tr mat-row>
+                                            <td>Opera</td>
+                                            <td>Yes</td>
+                                        </tr>
+                                        <tr mat-row>
+                                            <td>Internet Explorer</td>
+                                            <td>No</td>
+                                        </tr>
+                                    </table>
+
+                                    <span>*Safari has partial support but doesn't support
+                                    pseudo-elements within the :has() selector. You cannot target elements
+                                    based on the presence of pseudo-elements like ::before or ::after.</span> 
+                                </li>
+                                <li>Media Queries
+                                    <ul>
+                                        <li>Allows you to apply CSS based on the device</li>
+                                        <li>Commonly used to make a site responsive (alter layout and sizes based on
+                                            device capabilities)</li>
+                                    </ul>
+                                    <div class="code">
+                                        <pre>
+&#64;media screen and (max-width: 600px) &#123;
+    body &#123;
+        background-color: lightblue; <span class="comment">// change background color if screen is less than 600px</span>
+    &#125;
+</pre>
                                     </div>
                                 </li>
                             </ul>
@@ -1551,7 +1645,8 @@ animation: fadeOut 10s ease-out forwards;
                                                 class="comment"><mat-icon>arrow_back</mat-icon>Horizontally
                                                 align</span><br>
                                             margin-left: 100%; <span
-                                                class="comment"><mat-icon>arrow_back</mat-icon>Pushes the element to the
+                                                class="comment"><mat-icon>arrow_back</mat-icon>Pushes
+                                                the element to the
                                                 right</span><br>
                                         </dd>
                                     </dl>
