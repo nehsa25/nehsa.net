@@ -101,44 +101,44 @@ export class AppComponent implements OnInit, OnDestroy {
 
     //text, speed, movingLeft, fromTim, text_wait
     this.timMessages.push(this.setEvent("Meet Timoth&eacute;e. He's off on an adventure!", .7, true, false, 1000 * 2));
-    this.timMessages.push(this.setEvent("Bonjour! I'm Timoth&eacute;e and I'm on an adventure!", .8, true, true, 1000 * 10));
-    this.timMessages.push(this.setEvent("I'm &quot;Adventuring Timoth&eacute;e!&quot; Whew!", .9, true, true, 1000 * 20));
-    this.timMessages.push(this.setEvent("Timoth&eacute;e takes in a large inhale of smell.", .9, true, false, 1000 * 24));
-    this.timMessages.push(this.setEvent("hmph. hhhmmmmmmmmmm. HHHMMMMM!!!", 1, true, true, 1000 * 26));
-    this.timMessages.push(this.setEvent("Timoth&eacute;e exhales loudly.", .9, true, false, 1000 * 28));
-    this.timMessages.push(this.setEvent("Can you smell that? The air is different out here!", 1, true, true, 1000 * 30));
-    this.timMessages.push(this.setEvent("This is AIR air.", 1, true, true, 1000 * 40));
-    this.timMessages.push(this.setEvent("Truly riveting!", .9, true, false, 1000 * 42));
-    this.timMessages.push(this.setEvent("Yup.. off adventuring..", 1, true, true, 1000 * 45));
-    this.timMessages.push(this.setEvent("Timoth&eacute;e starts to hum..", .9, true, false, 1000 * 47));
-    this.timMessages.push(this.setEvent("Da-da-da-da-da-da-da Dum-dum-dum-dum-dum-dum Da-da-da-da DUM-DUM-DUM", 1, true, true, 1000 * 52));
-    this.timMessages.push(this.setEvent("Hmm-hmm-hmm-hmm-hmm-hmm HMM-Hmm-hmm Hm-hmm-hmm-hmm DUM-DUM-DUM", 1, true, true, 1000 * 55));
-    this.timMessages.push(this.setEvent("Did I feed Gaston before I left!?", .9, true, true, 1000 * 57));
-    this.timMessages.push(this.setEvent("I was packing my bag, the study, then I went to the pantry..", .9, true, true, 1000 * 60));
-    this.timMessages.push(this.setEvent("Now, Timoth&eacute;e did feed Gaston before he left for adventure..", .9, true, false, 1000 * 65));
-    this.timMessages.push(this.setEvent("Gaston is happy, quite full, and is right this moment relaxing lackadaisically..", .9, true, false, 1000 * 67));
-    this.timMessages.push(this.setEvent("I'm sure I fed Gaston!", .8, true, true, 1000 * 75));
-    this.timMessages.push(this.setEvent("There is no way I would forget to feed Gaston. No way.", .5, true, true, 1000 * 77));
-    this.timMessages.push(this.setEvent("Oh no.", .1, true, true, 1000 * 90));
-    this.timMessages.push(this.setEvent("OHH NO.", .1, true, true, 1000 * 92));
-    this.timMessages.push(this.setEvent("OHH NO!", .1, false, true, 1000 * 96));
-    this.timMessages.push(this.setEvent("GASTON! I'm coming home!", 1.1, false, true, 1000 * 97));
-    this.timMessages.push(this.setEvent("I'm coming!", 1.2, false, true, 1000 * 100));
-    this.timMessages.push(this.setEvent("I'm sorry Gaston! Timoth&eacute;e's coming!", 1.3, false, true, 1000 * 110));
-    this.timMessages.push(this.setEvent("Again, Gaston is fine. Happy for some alone time, really.", .9, true, false, 1000 * 113));
-    this.timMessages.push(this.setEvent("Ohh, poor Gaston!", .5, false, true, 1000 * 117));
-    this.timMessages.push(this.setEvent("Ohh, poor Timoth&eacute;e..", .5, false, false, 1000 * 120))
-    this.timMessages.push(this.setEvent("GASTON!", 1.7, false, true, 1000 * 125));
-    this.timMessages.push(this.setEvent("GASTON!!", 1.8, false, true, 1000 * 127));
-    this.timMessages.push(this.setEvent("WHEW! I KNEW I FED GASTON!", 1, true, true, 1000 * 130));
-    this.timMessages.push(this.setEvent("Glad that's settled. Timoth&eacute;e about to start huming again!", .9, true, false, 1000 * 135));
-    this.timMessages.push(this.setEvent("Hmm-hmm-hmmmmmmmm-HMm-hmm!", 1, true, true, 1000 * 137));
-    this.timMessages.push(this.setEvent("Bravo sir, bravo.", .9, true, false, 1000 * 135));
-    this.timMessages.push(this.setEvent("Fin.", 1, true, false, 1000 * 165));
-    this.timMessages.push(this.setEvent("Vere finitus. Fin.", 1, true, false, 1000 * 175));
-    this.timMessages.push(this.setEvent("This has been a production of &quot;Jesse wanting to play with CSS animations.&quot;<br>Copyright 2024 nehsa.net, All Right Reserved. Feed hungry people. Water thirty people.", 1, true, true, 1000 * 190));
-    this.timMessages.push(this.setEvent("", 1, true, false, 1000 * 195));
-    this.timMessages.push(this.setEvent("", 1, true, false, 1000 * 210));
+    // this.timMessages.push(this.setEvent("Bonjour! I'm Timoth&eacute;e and I'm on an adventure!", .8, true, true, 1000 * 10));
+    // this.timMessages.push(this.setEvent("I'm &quot;Adventuring Timoth&eacute;e!&quot; Whew!", .9, true, true, 1000 * 20));
+    // this.timMessages.push(this.setEvent("Timoth&eacute;e takes in a large inhale of smell.", .9, true, false, 1000 * 24));
+    // this.timMessages.push(this.setEvent("hmph. hhhmmmmmmmmmm. HHHMMMMM!!!", 1, true, true, 1000 * 26));
+    // this.timMessages.push(this.setEvent("Timoth&eacute;e exhales loudly.", .9, true, false, 1000 * 28));
+    // this.timMessages.push(this.setEvent("Can you smell that? The air is different out here!", 1, true, true, 1000 * 30));
+    // this.timMessages.push(this.setEvent("This is AIR air.", 1, true, true, 1000 * 40));
+    // this.timMessages.push(this.setEvent("Truly riveting!", .9, true, false, 1000 * 42));
+    // this.timMessages.push(this.setEvent("Yup.. off adventuring..", 1, true, true, 1000 * 45));
+    // this.timMessages.push(this.setEvent("Timoth&eacute;e starts to hum..", .9, true, false, 1000 * 47));
+    // this.timMessages.push(this.setEvent("Da-da-da-da-da-da-da Dum-dum-dum-dum-dum-dum Da-da-da-da DUM-DUM-DUM", 1, true, true, 1000 * 52));
+    // this.timMessages.push(this.setEvent("Hmm-hmm-hmm-hmm-hmm-hmm HMM-Hmm-hmm Hm-hmm-hmm-hmm DUM-DUM-DUM", 1, true, true, 1000 * 55));
+    // this.timMessages.push(this.setEvent("Did I feed Gaston before I left!?", .9, true, true, 1000 * 57));
+    // this.timMessages.push(this.setEvent("I was packing my bag, the study, then I went to the pantry..", .9, true, true, 1000 * 60));
+    // this.timMessages.push(this.setEvent("Now, Timoth&eacute;e did feed Gaston before he left for adventure..", .9, true, false, 1000 * 65));
+    // this.timMessages.push(this.setEvent("Gaston is happy, quite full, and is right this moment relaxing lackadaisically..", .9, true, false, 1000 * 67));
+    // this.timMessages.push(this.setEvent("I'm sure I fed Gaston!", .8, true, true, 1000 * 75));
+    // this.timMessages.push(this.setEvent("There is no way I would forget to feed Gaston. No way.", .5, true, true, 1000 * 77));
+    // this.timMessages.push(this.setEvent("Oh no.", .1, true, true, 1000 * 90));
+    // this.timMessages.push(this.setEvent("OHH NO.", .1, true, true, 1000 * 92));
+    // this.timMessages.push(this.setEvent("OHH NO!", .1, false, true, 1000 * 96));
+    // this.timMessages.push(this.setEvent("GASTON! I'm coming home!", 1.1, false, true, 1000 * 97));
+    // this.timMessages.push(this.setEvent("I'm coming!", 1.2, false, true, 1000 * 100));
+    // this.timMessages.push(this.setEvent("I'm sorry Gaston! Timoth&eacute;e's coming!", 1.3, false, true, 1000 * 110));
+    // this.timMessages.push(this.setEvent("Again, Gaston is fine. Happy for some alone time, really.", .9, true, false, 1000 * 113));
+    // this.timMessages.push(this.setEvent("Ohh, poor Gaston!", .5, false, true, 1000 * 117));
+    // this.timMessages.push(this.setEvent("Ohh, poor Timoth&eacute;e..", .5, false, false, 1000 * 120))
+    // this.timMessages.push(this.setEvent("GASTON!", 1.7, false, true, 1000 * 125));
+    // this.timMessages.push(this.setEvent("GASTON!!", 1.8, false, true, 1000 * 127));
+    // this.timMessages.push(this.setEvent("WHEW! I KNEW I FED GASTON!", 1, true, true, 1000 * 130));
+    // this.timMessages.push(this.setEvent("Glad that's settled. Timoth&eacute;e about to start huming again!", .9, true, false, 1000 * 135));
+    // this.timMessages.push(this.setEvent("Hmm-hmm-hmmmmmmmm-HMm-hmm!", 1, true, true, 1000 * 137));
+    // this.timMessages.push(this.setEvent("Bravo sir, bravo.", .9, true, false, 1000 * 135));
+    // this.timMessages.push(this.setEvent("Fin.", 1, true, false, 1000 * 165));
+    // this.timMessages.push(this.setEvent("Vere finitus. Fin.", 1, true, false, 1000 * 175));
+    // this.timMessages.push(this.setEvent("This has been a production of &quot;Jesse wanting to play with CSS animations.&quot;<br>Copyright 2024 nehsa.net, All Right Reserved. Feed hungry people. Water thirty people.", 1, true, true, 1000 * 190));
+    // this.timMessages.push(this.setEvent("", 1, true, false, 1000 * 195));
+    // this.timMessages.push(this.setEvent("", 1, true, false, 1000 * 210));
   };
 
   // Angular lifecycle hooks
@@ -241,16 +241,32 @@ export class AppComponent implements OnInit, OnDestroy {
     event.stopPropagation();
   }
 
+  // hide story (to show pretty background)
+  hideStory(event: any) {
+    console.log("Hiding story");
+    event.stopPropagation();
+  }
+
+  // changes the speed of tim's animation
+  changeSpeed(event: any) {
+    this.timSpeed = event.srcElement.value;
+    this.animationDuration = this.timSpeed + 's';
+    event.stopPropagation();
+  }
+
+  // reverse tim's direction
   reverseAnimation(event: any) {
     this.reversify == true ? this.reversify = false : this.reversify = true;
     event.stopPropagation();
   }
 
+  // swap tim's direction
   swapAnimation(event: any) {
     this.timMovingLeft = !this.timMovingLeft;
     event.stopPropagation();
   }
 
+  // expand pause button controls
   expandControl(event: any) {
     this.pausedExpanded ? this.pausedExpanded = false : this.pausedExpanded = true;
     event.stopPropagation();

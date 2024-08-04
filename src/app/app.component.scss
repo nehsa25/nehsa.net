@@ -614,79 +614,93 @@ $base-size: .35rem;
 /* shared on tim-text and tim-text-narrator */
 .pause-button-container-expanded {
     grid-area: pause-button-container;
-    z-index: 210;
+    z-index: 1001;
+    /* above the tim */
     width: 160px;
     background-color: bisque;
-    height: 50px;
     border-radius: 0 0 15% 0;
-    display: grid;
-    grid-gap: 2px;
-    grid-template-columns: repeat(4, 45px);
-    grid-template-rows: repeat(2, 45px);
-    grid-template-areas: 
-        "pause-pause-button pause-reverse-button pause-swap-button pause-expand-button "
-        "pause-speed pause-speed pause-speed pause-expand-button";
     position: fixed;
+}
+
+.pause-table {
+    border: none;
+}
+
+.pause-button-container-expanded td {
+    border: 2px solid #000 !important;
 }
 
 .pause-button-container-collapse {
     grid-area: pause-button-container;
     z-index: 210;
     width: 45px;
-    height: 50px;
     background-color: slategray;
-    border-radius: 0 0 15% 0;
-    display: grid;
     grid-template-columns: 45px;
 }
 
-.pause-expand-container {
+.pause-button-container-collapse .pause-expand-container {
     border-radius: 0 0 15% 0;
     background-color: #222;
 }
 
-.pause-expand-button {
-    background-color: #222;
-    grid-area: pause-expand-button;    
-}
 
-.pause-expand-button button {
-    margin: auto 0;
-}
+// .pause-button-container-collapse {
+//     grid-area: pause-button-container;
+//     z-index: 210;
+//     width: 45px;
+//     height: 50px;
+//     background-color: slategray;
+//     border-radius: 0 0 15% 0;
+//     display: grid;
+//     grid-template-columns: 45px;
+// }
 
-.pause-pause-button {
-    background-color: rgb(153, 172, 68);
-    grid-area: pause-pause-button;
-}
-
-.pause-reverse-button {
-    background-color: rgb(100, 68, 129);
-    grid-area: pause-reverse-button;
-}
-
-.pause-swap-button {
-    background-color: rgb(51, 153, 97);
-    grid-area: pause-swap-button;
-}
-
-.pause-speed {
-    background-color: red;
-    grid-area: pause-speed;
-}
+// .pause-expand-container {
+//     border-radius: 0 0 15% 0;
+//     background-color: #222;
+// }
 
 .control-button-container {
     z-index: 210;
     width: 45px;
     height: 45px;
     background-color: blueviolet;
-    border-radius: 0 0 15% 0;
-    display: grid;
 }
 
 .control-button {
-
     color: burlywood;
+    padding: 10px;
 }
+
+.pause-expand {
+    background-color: #222;
+    border-radius: 0 0 15% 0;
+}
+
+.pause-hide-container {
+    background-color: #58A0D3 !important;
+}
+
+.pause-pause-container {
+    background-color: #000080 !important;
+}
+
+.pause-reverse-container {
+    background-color: rgb(100, 68, 129) !important;
+}
+
+.pause-swap-container {
+    background-color: rgb(51, 153, 97) !important;
+}
+
+.pause-speed-container {
+    background-color: #F2B8C8 !important;
+}
+
+.pause-expand-container {
+    border: none;
+}
+
 
 .narrator {
     grid-area: narrator;
