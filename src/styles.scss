@@ -7,33 +7,22 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-/* Remove default list styles */
-ul,
-ol {
-  list-style: none;
-}
-
-/* Set a baseline font size and line height */
-html {
-  font-size: 16px;
-  line-height: 1.5;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 /* Reset image and video styles */
 img,
 video {
-  display: block;
-  max-width: 100%;
-  height: auto;
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 
 html,
 body {
+    line-height: 1.5;
     margin: 0;
     font-family: monospace,
         "Helvetica Neue",
@@ -376,7 +365,11 @@ span.code:hover {
     -webkit-text-stroke-color: var(--theme-background-purple) !important;
 }
 
-
+.additional-note {
+    font-size: 0.8em;
+    color: #888;
+    margin-top: 10px;
+}
 
 ul.navbar-links>li:hover {
     color: var(--theme-background-purple) !important;
@@ -407,17 +400,51 @@ li>h4:hover {
 }
 
 // lists
+ol {
+    list-style-type: lower-alpha;
+}
+
+ul {
+    list-style-type: square;
+}
+
+ul,
+ol {
+    counter-reset: list-level;
+    margin: 4px 0 2px 1em;
+    line-height: 1.3;
+}
+
+ul ul,
+ol ol {
+    counter-increment: list-level;
+    margin: 4px 0 2px 1em;
+}
+
+
+ul li:nth-child(3n+1)>ul,
+ol li:nth-child(3n+1)>ol {
+    list-style-type: circle;
+}
+
+ul li:nth-child(3n+2)>ul,
+ol li:nth-child(3n+2)>ol {
+    list-style-type: square;
+}
+
+ul li:nth-child(3n+3)>ul,
+ol li:nth-child(3n+3)>ol {
+    list-style-type: disc;
+}
+
 li {
     padding: 7px;
     font-size: 1rem;
 }
 
 .condensed li {
-    padding: 0px;
+    padding: 1px 0 !important;
 }
-
-// a
-
 
 .header {
     text-decoration: underline;
@@ -704,10 +731,19 @@ dl {
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 10px;
-    width:fit-content;
-  }
-  
-  dt {
-    font-style:oblique;
+    width: fit-content;
+}
+
+dt {
+    font-style: oblique;
     font-weight: normal;
-  }
+}
+
+// examples
+.example-container {
+    width: 300px;
+    min-width: fit-content;
+    border: 1px solid black;
+    padding: 1em;
+    margin: 1em;
+}

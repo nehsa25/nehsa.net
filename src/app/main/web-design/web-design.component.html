@@ -54,11 +54,45 @@
                     <li>
                         <mat-expansion-panel>
                             <mat-expansion-panel-header>
+                                <mat-panel-title>The &quot;Position&quot; Property</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            Common positoning types and examples:<br>
+                            <dl>
+                                <dt>block</dt>
+                                <dd>Block-level elements are those that take up the full width available and have a line
+                                    break before and after the element.</dd>
+                                <dt>fixed</dt>
+                                <dd>Fixed elements are positioned relative to the browser window.<br>
+                                    <span class="importantish">Pro-tip:</span> Using a fixed positioning without a top,
+                                    left, right, or bottom property,
+                                    the element will be placed in the top left corner the nearest positioned ancestor.
+                                    This is similar to absolute position but can have an advantages:<br>
+                                    <ul>
+                                        <li>It will not scroll with the page</li>
+                                        <li>It will not be affected by other elements</li>
+                                        <li>It will not be clipped</li>
+                                    </ul>
+                                </dd>
+                                <dt>absolute</dt>
+                                <dd>Absolute elements are positioned relative to the nearest positioned ancestor.</dd>
+                                <dt>relative</dt>
+                                <dd>Relative elements are positioned relative to their normal position. These are often
+                                    floated left or right.</dd>
+                                <dt>sticky</dt>
+                                <dd>Sticky elements are positioned based on the user's scroll position. They are treated
+                                    as relatively positioned until they reach a certain point and then they are treated
+                                    as fixed.</dd>
+                            </dl>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
                                 <mat-panel-title>Starting with a clean slate</mat-panel-title>
                             </mat-expansion-panel-header>
                             To minimize the impact of browser defaults, I use the following to normalize things:
                             <div class="code">
-<pre>
+                                <pre>
 /* Reset basic box model */
 *,
 *::before,
@@ -101,35 +135,131 @@ video &#123;
                     <li>
                         <mat-expansion-panel>
                             <mat-expansion-panel-header>
-                                <mat-panel-title>The &quot;Position&quot; Property</mat-panel-title>
+                                <mat-panel-title>Lists (both ordered and unordered!)</mat-panel-title>
+                                <mat-panel-description>
+                                    Stuff I know about &lt;ul&gt;,&lt;ol&gt;,&lt;li&gt;, counter-reset, and
+                                    counter-increment
+                                </mat-panel-description>
                             </mat-expansion-panel-header>
-                            Common positoning types and examples:<br>
-                            <dl>
-                                <dt>block</dt>
-                                <dd>Block-level elements are those that take up the full width available and have a line
-                                    break before and after the element.</dd>
-                                <dt>fixed</dt>
-                                <dd>Fixed elements are positioned relative to the browser window.<br>
-                                    <span class="importantish">Pro-tip:</span> Using a fixed positioning without a top,
-                                    left, right, or bottom property,
-                                    the element will be placed in the top left corner the nearest positioned ancestor.
-                                    This is similar to absolute position but can have an advantages:<br>
-                                    <ul>
-                                        <li>It will not scroll with the page</li>
-                                        <li>It will not be affected by other elements</li>
-                                        <li>It will not be clipped</li>
-                                    </ul>
-                                </dd>
-                                <dt>absolute</dt>
-                                <dd>Absolute elements are positioned relative to the nearest positioned ancestor.</dd>
-                                <dt>relative</dt>
-                                <dd>Relative elements are positioned relative to their normal position. These are often
-                                    floated left or right.</dd>
-                                <dt>sticky</dt>
-                                <dd>Sticky elements are positioned based on the user's scroll position. They are treated
-                                    as relatively positioned until they reach a certain point and then they are treated
-                                    as fixed.</dd>
-                            </dl>
+                            <ul>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>Levaging counter-reset and
+                                                counter-increment</mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <div>
+                                            <ul>
+                                                <li>Initialization: When the CSS rule containing counter-reset:
+                                                    list-level;
+                                                    is applied to an element, a counter named "list-level" is created
+                                                    and
+                                                    set to 0.</li>
+                                                <li>Incrementing: The counter-increment: list-level; property is used to
+                                                    increase the value of the "list-level" counter by 1 for each element
+                                                    where it's applied.</li>
+                                                <li>Accessing the counter: The counter() function can be used within the
+                                                    content property to display the current value of the counter.</li>
+                                            </ul>
+
+                                            Example:
+                                            <div class="code">
+                                                <pre>
+ul li::before &#123;
+    content: counter(list-level) " > ";
+    counter-increment: list-level;
+    position: relative;
+    left: -1em;
+&#125;       
+
+ul &#123;
+    list-style-type: circle;
+    counter-reset: list-level;
+&#125;
+    
+ul ul &#123;
+    list-style-type: square;
+    counter-increment: list-level;
+&#125;
+</pre>
+                                            </div><br><br>
+                                            <span class="importantish">And, HTML like this:</span>
+                                            <div>
+                                                <pre>
+                                                    Outer
+&lt;ul&gt;
+    &lt;li&gt;Level One&lt;/li&gt;
+    &lt;li&gt;Level two - with Inner
+        &lt;ul&gt;
+            &lt;li&gt;one
+                &lt;ul&gt;
+                    Level three - with Inner
+                    &lt;li&gt;one&lt;/li&gt;
+                    &lt;li&gt;two&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;two&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Level three&lt;/li&gt;
+&lt;/ul&gt;
+                                                </pre>
+                                            </div><br>
+                                            In this example, the outer ul initializes the list-level counter to 0. The
+                                            inner
+                                            ul increments the list-level counter by 1, allowing you to differentiate
+                                            between
+                                            the two levels of lists.<br><br>
+                                            <span class="importantish">Producing:</span>
+                                            <div class="ul-example-container">
+                                                Outer
+                                                <ul class="ul-example condensed">
+                                                    <li>Level One</li>
+                                                    <li>Level two - with Inner
+                                                        <ul>
+                                                            <li>one
+                                                                <ul>
+                                                                    Level three - with Inner
+                                                                    <li>one</li>
+                                                                    <li>two</li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>two</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>Level three</li>
+                                                </ul>
+                                            </div>
+                                            <span class="additional-note">Note: I did remove the list-style-type
+                                                (circle, square) from the example as this would be on top of
+                                                them.</span>
+
+                                            <br><br>
+                                            <span class="importantish">Default (for reference):</span>
+                                            <div class="ul-example-container">
+                                                Outer
+                                                <ul class="condensed">
+                                                    <li>Level One</li>
+                                                    <li>Level two - with Inner
+                                                        <ul>
+                                                            <li>one
+                                                                <ul>
+                                                                    Level three - with Inner
+                                                                    <li>one</li>
+                                                                    <li>two</li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>two</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>Level three</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                    </mat-expansion-panel>
+                                </li>
+                            </ul>
                         </mat-expansion-panel>
                     </li>
                     <li>
@@ -137,6 +267,7 @@ video &#123;
                             <mat-expansion-panel-header>
                                 <mat-panel-title>Working with HTML Elements</mat-panel-title>
                                 <mat-panel-description>
+                                    &quot;>&quot;, &quot;*&quot;, &quot;,&quot;, and &quot;:not()&quot;
                                 </mat-panel-description>
                             </mat-expansion-panel-header>
                             <ul>
@@ -148,15 +279,15 @@ video &#123;
                                     <div class="code">
                                         <pre>
 span.code &#123;
-background-color: rebeccapurple !important;
-color: silver;
-font-family: Consolas;
-border-radius: 5px;
-padding: 3px 1em;
-font-size: 1rem;
-min-width: 400px;
-max-width: 90%;
-line-height: 5lvh !important;
+    background-color: rebeccapurple !important;
+    color: silver;
+    font-family: Consolas;
+    border-radius: 5px;
+    padding: 3px 1em;
+    font-size: 1rem;
+    min-width: 400px;
+    max-width: 90%;
+    line-height: 5lvh !important;
 &#125;
 </pre>
 
@@ -166,9 +297,48 @@ line-height: 5lvh !important;
                                     <div class="code">
                                         <pre>
 h1, h2, h3, h4, h5, h6 &#123;
-color: plum;
+    color: plum;
 &#125;
                                     </pre>
+                                    </div>
+                                </li>
+                                <li>
+                                    Select all direct children using the <span class="importantish">universal selector:
+                                        *</span>
+                                    <div class="code">
+                                        <pre>
+
+<span class="comment">// Make the parent class itself green</span>                          
+.parent &#123;
+    background-color: palegreen;
+    margin-left: 1em;
+&#125;
+
+<span class="comment">// Make all children of the parent class coral</span>
+.parent * &#123;
+    background-color: lightcoral;
+    margin-left: 1em;   
+&#125;
+
+<span class="comment">// Make all direct children of the parent class lightblue</span>
+.parent > * &#123;
+    background-color: lightblue;
+    margin-left: 1em;
+&#125;
+                                        </pre>
+                                    </div>
+                                    <br><br>
+                                    Producing:<br>
+                                    <div class="example-container">
+                                        <div class="parent">
+                                            <p>child paragraph</p>
+                                            <span>child span</span>
+                                            <div>child div
+                                                <p>grandchild paragraph</p>
+                                                <span>grandchild span</span>
+                                                <div>grandchild div</div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </li>
                                 <li>Element <span class="importantish">hierarchy</span> can be indicated using
