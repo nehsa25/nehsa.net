@@ -3,23 +3,6 @@
 @import './themes.scss';
 @import './lagoon.scss';
 
-/* Reset basic box model */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-/* Reset image and video styles */
-img,
-video {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-
 html,
 body {
     line-height: 1.5;
@@ -66,7 +49,12 @@ body {
         @include mat.sidenav-color($light-theme);
     }
 }
-
+img,
+video {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
 $theme-border-color: mat.get-color-from-palette($dark-primary-palette, 500);
 $theme-background: mat.get-color-from-palette($dark-primary-palette, 50);
 
