@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { CommentComponent } from '../../shared-components/comment/comment.component';
 import { MatCardModule } from '@angular/material/card';
-import { Subject } from 'rxjs';
 import { UserService } from '../../services/user.service';
-import { CommentType } from '../../types/comment.type';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @Component({
   selector: 'app-mysql',
   standalone: true,
-  imports: [CommentComponent, MatCardModule],
+  imports: [CommentComponent, MatCardModule, MatExpansionModule],
   templateUrl: './mysql.component.html',
   styleUrl: './mysql.component.scss'
 })
