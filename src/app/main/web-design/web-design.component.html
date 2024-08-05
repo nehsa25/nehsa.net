@@ -54,6 +54,53 @@
                     <li>
                         <mat-expansion-panel>
                             <mat-expansion-panel-header>
+                                <mat-panel-title>Starting with a clean slate</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            To minimize the impact of browser defaults, I use the following to normalize things:
+                            <div class="code">
+<pre>
+/* Reset basic box model */
+*,
+*::before,
+*::after &#123;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+&#125;
+
+/* Remove default list styles */
+ul,
+ol &#123;
+  list-style: none;
+&#125;
+
+/* Set a baseline font size and line height */
+html &#123;
+  font-size: 16px;
+  line-height: 1.5;
+&#125;
+
+/* Improve text rendering */
+body &#123;
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+&#125;
+
+/* Reset image and video styles */
+img,
+video &#123;
+  display: block;
+  max-width: 100%;
+  height: auto;
+&#125;
+</pre>
+                            </div>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
                                 <mat-panel-title>The &quot;Position&quot; Property</mat-panel-title>
                             </mat-expansion-panel-header>
                             Common positoning types and examples:<br>
@@ -185,7 +232,8 @@ background-color: salmon;
                                         </pre>
                                     </div>
                                 </li>
-                                <li>Has &quot;:has()&quot; selector allows you to perform a CSS selection based on the content
+                                <li>Has &quot;:has()&quot; selector allows you to perform a CSS selection based on the
+                                    content
                                     of an element.
                                     <div class="code">
                                         <pre>
@@ -227,8 +275,8 @@ background-color: salmon;
                                     </table>
 
                                     <span>*Safari has partial support but doesn't support
-                                    pseudo-elements within the :has() selector. You cannot target elements
-                                    based on the presence of pseudo-elements like ::before or ::after.</span> 
+                                        pseudo-elements within the :has() selector. You cannot target elements
+                                        based on the presence of pseudo-elements like ::before or ::after.</span>
                                 </li>
                                 <li>Media Queries
                                     <ul>

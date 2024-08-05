@@ -3,6 +3,34 @@
 @import './themes.scss';
 @import './lagoon.scss';
 
+/* Reset basic box model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove default list styles */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Set a baseline font size and line height */
+html {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Reset image and video styles */
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 
 html,
 body {

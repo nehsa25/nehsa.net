@@ -668,17 +668,25 @@ $base-size: .35rem;
 }
 
 .control-button {
-    color: burlywood;
+    color: #F7D68E;
     padding: 10px;
 }
 
 .pause-expand {
-    background-color: #222;
     border-radius: 0 0 15% 0;
+    width: 10px;
+}
+
+.pause-expand-container button {
+    color: #966F4B;
 }
 
 .pause-hide-container {
     background-color: #58A0D3 !important;
+}
+
+.pause-hide-container button {
+    color: #222;
 }
 
 .pause-pause-container {

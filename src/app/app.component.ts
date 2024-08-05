@@ -21,6 +21,7 @@ import { FranticTim } from './types/tim.type';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Tree } from './types/tree';
 import { Cloud } from './types/cloud';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-root',
@@ -80,7 +81,8 @@ export class AppComponent implements OnInit, OnDestroy {
     private ref: ChangeDetectorRef,
     public httpClient: HttpService,
     public userService: UserService,
-    public nameDialog: MatDialog
+    public nameDialog: MatDialog,
+    public snackBar: MatSnackBar
   ) {
     var getQuotes = this.httpClient.getQuote();
     var getName = this.httpClient.getNames(2);
@@ -98,6 +100,9 @@ export class AppComponent implements OnInit, OnDestroy {
     for (let i = 0; i <= 2; i++) {
       this.clouds.push(new Cloud(false));
     }
+
+    // tim reverse
+    //this.timMessages.push(this.setEvent("tim reverse", .8, false, true, 1000 * 10));
 
     //text, speed, movingLeft, fromTim, text_wait
     this.timMessages.push(this.setEvent("Meet Timoth&eacute;e. He's off on an adventure!", .7, true, false, 1000 * 2));
@@ -243,14 +248,18 @@ export class AppComponent implements OnInit, OnDestroy {
 
   // hide story (to show pretty background)
   hideStory(event: any) {
-    console.log("Hiding story");
+    this.snackBar.open("Hiding story - not implemented", "OK");
     event.stopPropagation();
   }
 
   // changes the speed of tim's animation
   changeSpeed(event: any) {
+    this.snackBar.open("changing speed - not implemented yet", "OK");
     this.timSpeed = event.srcElement.value;
     this.animationDuration = this.timSpeed + 's';
+  }
+
+  changeSpeedMouse(event: any) {
     event.stopPropagation();
   }
 
