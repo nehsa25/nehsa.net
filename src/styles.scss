@@ -353,7 +353,7 @@ span.code:hover {
     -webkit-text-stroke-color: var(--theme-background-purple) !important;
 }
 
-.additional-note {
+.additional-note, .additional-notes, .asterisk {
     font-size: 0.8em;
     color: #888;
     margin-top: 10px;
@@ -639,12 +639,12 @@ mat-panel-subtitle {
 
 // theming
 .vampire {
-    background: #333;
+    background-color: #333 !important;
     color: var(--theme-dark-primary-color);
 }
 
 .angel {
-    background: whitesmoke;
+    background-color: whitesmoke !important;
     color: var(--theme-light-primary-color);
 }
 
@@ -718,11 +718,13 @@ dl {
     grid-template-columns: 1fr auto;
     gap: 10px;
     width: fit-content;
+    padding: 1em;
 }
 
 dt {
     font-style: oblique;
     font-weight: normal;
+    width: 170px;
 }
 
 // examples

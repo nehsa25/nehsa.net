@@ -455,7 +455,7 @@
 
 .body {
     grid-area: body;
-    padding: 2px 0.5em;
+    padding: 15px 0.5em;
     align-items: baseline;
     overflow: auto;
 }
@@ -464,7 +464,7 @@
     grid-area: footer;
     text-align: center;
     width: 100%;
-    z-index: 999;
+    z-index: 9999;
     display: grid;
 }
 

@@ -47,6 +47,7 @@ import { RegexComponent } from './main/regex/regex.component';
 import { IdeComponent } from './main/ide/ide.component';
 import { BlogComponent } from './main/blog/blog.component';
 import { MudMakingOfComponent } from './main/mud-making-of/mud-making-of.component';
+import { WelcomeComponent } from './main/welcome/welcome.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: BioComponent },
@@ -74,6 +75,7 @@ export const routes: Routes = [
     { path: 'npm', title: 'nehsa.net | npm', component: NpmComponent },
     { path: 'playwright', title: 'nehsa.net | Playwright', component: PlaywrightComponent },
     { path: 'doxy', title: 'nehsa.net | Doxygen', component: DoxygenComponent },
+    { path: 'welcome', title: 'nehsa.net | Home', component: WelcomeComponent },
     { path: 'dot', title: 'nehsa.net | Dot / Graphwiz / Pydot', component: DotComponent },
     { path: 'ohai', title: 'nehsa.net | Ohai', component: OhaiComponent },
     { path: 'powershell', title: 'nehsa.net | Powershell', component: PowershellComponent },
@@ -107,5 +109,5 @@ export const routes: Routes = [
     { path: 'ide', title: 'nehsa.net | IDEs / Code Editors', component: IdeComponent },
     { path: 'iis', title: 'nehsa.net | IIS', component: IisComponent },
     { path: '', title: 'nehsa.net | Home', redirectTo: '/', pathMatch: 'full' },
-    { path: '**', component: BioComponent },
+    { path: '**', component: WelcomeComponent },
 ];
