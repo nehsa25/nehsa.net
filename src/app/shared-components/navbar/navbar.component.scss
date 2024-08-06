@@ -1,5 +1,8 @@
-@media (min-width: 481px) {
 
+@media (min-width: 0) {
+    .navbar {
+        margin-top: 2rem;
+    }
 }
 
 @media (min-width: 576px) {
@@ -29,6 +32,9 @@
 
 .navbar {
     overflow: auto;
+    display: grid;
+    grid-template-rows: min-content 1fr;
+    grid-gap: 1px;
 }
 
 .navbar-links {
@@ -63,7 +69,6 @@ ul {
     padding: 7px 1em;
     border-top: 1px solid greenyellow;
     border-bottom: 1px solid greenyellow;
-    margin: .5em auto 2em auto;
 }
 
 .featured-navbar-links li:hover {

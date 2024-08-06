@@ -1,26 +1,95 @@
+@media (min-width: 0) {
+    .welcome-heading {
+        font-size: 2rem;
+    }
+
+    .welcome-text {
+        font-size: .9rem;
+    }
+
+    .definitions-container {
+        font-size: 0.8rem;
+        margin: 0;
+        width: 90%;
+    }
+
+    .definitions {
+        font-size: 0.6rem;
+    }
+}
+
+@media (min-width: 576px) {
+    .welcome-heading {
+        font-size: 3.8rem;
+    }
+
+    .welcome-text {
+        font-size: 1.6rem;
+    }
+
+    .definitions-container {
+        font-size: 1.0rem;
+    }
+
+    .definitions {
+        font-size: 0.8rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .welcome-heading {
+        font-size: 4.8rem;
+    }
+
+    .welcome-text {
+        font-size: 1.8rem;
+    }
+
+    .definitions-container {
+        font-size: 1.1rem;
+        width: 70%;
+    }
+
+    .definitions {
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .welcome-heading {
+        font-size: 5.8rem;
+    }
+
+    .welcome-text {
+        font-size: 2.0rem;
+    }
+
+    .definitions-container {
+        font-size: 1.2rem;
+        margin: 0 auto;
+    }
+
+    .definitions {
+        font-size: 1.0rem;
+    }
+}
+
+@media (min-width: 1200px) {}
+
+@media (min-width: 1400px) {}
+
+
 ul {
     padding: 0;
     list-style: none;
 }
 
 .welcome-heading {
-    font-size: 6rem;
     font-weight: bold;
     line-height: 1.5;
 }
 
-.welcome-text {
-    font-size: 2rem;
-}
-
-.definitions-container {
-    font-size: 1.5rem;
-    width: 70%;
-    margin: 0 auto;
-}
-
 .definitions {
-    font-size: 1.2rem;
     font-family: sans-serif;
     border: 1px solid springgreen;
     text-align: left;
@@ -45,6 +114,14 @@ ul {
         height: 100vh;
     }
 
+    69% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: .7;
+    }
+
     79% {
         width: 100vw;
         height: 100vh;
@@ -53,24 +130,24 @@ ul {
     80% {
         width: 90vw;
         height: 90vh;
-        opacity: 0;
+        opacity: .2;
+        transform: translate(2vw, 2vw);
     }
 
     90% {
         width: 60vw;
         height: 60vh;
-        opacity: 0;
+        opacity: .7;
+
     }
 
     95% {
         width: 30vw;
         height: 30vh;
-        transform: translate(35vw, 35vh);
-        opacity: 0;
     }
 
     99% {
-        opacity: 0;
+        transform: translate(-2vw, -2vw);
     }
 
     100% {

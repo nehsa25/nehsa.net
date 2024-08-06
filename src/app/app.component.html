@@ -6,7 +6,7 @@
 'angel': userService.appIsDark() === false,
 }">
     <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen"
-        class="bread child">
+        class="bread">
         <div class="root"><a href="/">home></a></div>
         <div>
             <xng-breadcrumb [separator]="iconTemplate">
@@ -20,7 +20,7 @@
             </xng-breadcrumb>
         </div>
     </div>
-    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" class="user_admin child">
+    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" class="user_admin">
         <div *ngIf="this.userService.name != ''">
             <span [class.personname-dark]="userService.appIsDark()" [class.personname-light]="!userService.appIsDark()"
                 matTooltip="{{this.userService.about}}"
@@ -29,20 +29,20 @@
         </div>
     </div>
     <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen"
-        class="dh child" [innerHTML]="quote"></div>
+        class="dh" [innerHTML]="quote"></div>
     <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen"
-        class="theme child"><mat-icon (click)="themeChangeBtnClick(false)">light_mode</mat-icon><mat-slider
+        class="theme"><mat-icon (click)="themeChangeBtnClick(false)">light_mode</mat-icon><mat-slider
             class="colorSlider" max=1 min=0 step=1 discrete=false showTickMarks=false>
             <input matSliderThumb #slider [value]="darkmode_value" (change)="themeChange($event)">
         </mat-slider><mat-icon (click)="themeChangeBtnClick(true)">brightness_4</mat-icon>
     </div>
     <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen"
-        class="title child">
+        class="title">
         <mat-expansion-panel
             [ngClass]="{'panel-expanded': expandedBio === true, 'panel-collapsed trek' : expandedBio === false }"
             [expanded]="expandedBio" (click)="setExpand()">
             <mat-expansion-panel-header>
-                <mat-panel-title class="title child">
+                <mat-panel-title class="title">
 
                     <div *ngIf="this.expandedBio" [class.maintitle-dark]="userService.appIsDark()"
                         [class.maintitle-light]="!userService.appIsDark()">
@@ -360,14 +360,14 @@
         </mat-expansion-panel>
     </div>
     <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen"
-        class="contactme child">jesse.stone<wbr>&#64;nehsa.net
+        class="contactme">jesse.stone<wbr>&#64;nehsa.net
     </div>
     <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen"
-        class="navbar child"><app-navbar></app-navbar></div>
-    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" class="body child">
+        class="navbar"><app-navbar></app-navbar></div>
+    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" class="body">
         <router-outlet (activate)="onActivate($event)"></router-outlet>
     </div>
-    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" class="footer child">
+    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" class="footer">
         <div>nehsa.net &copy; 2024 - All Rights Reserved. Be kind.</div>
         <div>{{getBuild()}}</div>
         <!-- <div class="playwright">

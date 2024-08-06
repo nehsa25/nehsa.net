@@ -1,7 +1,7 @@
 @media (min-width: 0) {
     .main {
         text-align: left !important;
-        padding: 0;
+        padding: 2px;
     }
 
     .theme {
@@ -18,30 +18,35 @@
     }
 
     .app-main-expanded {
-        grid-template-rows: min-content min-content 70svh min-content min-content min-content min-content min-content;
+        grid-template-rows: min-content min-content 3fr 2fr min-content min-content min-content min-content;
         grid-template-columns: 1fr 1fr;
         grid-template-areas:
             "bread user_admin"
             "title title"
             "body body"
             "navbar navbar"
-            "theme theme"
             "contactme contactme"
             "dh dh"
+            "theme theme"
             "footer footer";
     }
 
+    // debug
+    // .app-main-collapsed div {
+    //     border: 1px solid teal;
+    // }
+
     .app-main-collapsed {
-        grid-template-rows: min-content min-content 70svh min-content min-content min-content min-content min-content;
+        grid-template-rows: min-content min-content 3fr 2fr min-content min-content min-content min-content;
         grid-template-columns: 1fr 1fr;
         grid-template-areas:
             "bread user_admin"
             "title title"
             "body body"
             "navbar navbar"
-            "theme theme"
             "contactme contactme"
             "dh dh"
+            "theme theme"
             "footer footer";
     }
 
@@ -55,7 +60,7 @@
 
     .navbar {
         overflow: auto;
-        height: 200px;
+        height: 100%;
     }
 
     .user_admin {
@@ -76,67 +81,7 @@
 }
 
 @media (min-width: 576px) {
-    .body {
-        height: inherit;
-    }
-
-    .gridcols {
-        grid-template-columns: min-content 1fr;
-    }
-
-    .app-main-expanded {
-        grid-template-rows: min-content min-content 70svh min-content min-content min-content min-content min-content;
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas:
-            "bread user_admin"
-            "title title"
-            "body body"
-            "navbar navbar"
-            "theme theme"
-            "contactme contactme"
-            "dh dh"
-            "footer footer";
-    }
-
-    .app-main-collapsed {
-        grid-template-rows: min-content min-content 70svh min-content min-content min-content min-content min-content;
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas:
-            "bread user_admin"
-            "title title"
-            "body body"
-            "navbar navbar"
-            "theme theme"
-            "contactme contactme"
-            "dh dh"
-            "footer footer";
-    }
-
-    .footer {
-        grid-template-columns: 1fr;
-    }
-
-    .dh {
-        text-align: left;
-    }
-
-    .navbar {
-        height: 200px;
-        overflow: auto;
-        ;
-    }
-
-    .user_admin {
-        text-align: right;
-    }
-
-    .contactme {
-        text-align: center;
-    }
-
-    .maintitle {
-        font-size: 1.5rem;
-    }
+    /* No specific changes for this breakpoint */
 }
 
 @media (min-width: 768px) {
@@ -146,34 +91,6 @@
 
     .gridcols {
         grid-template-columns: min-content 1fr;
-    }
-
-    .app-main-expanded {
-        grid-template-rows: min-content min-content 70svh min-content min-content min-content min-content min-content;
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas:
-            "bread user_admin"
-            "title title"
-            "body body"
-            "navbar navbar"
-            "theme theme"
-            "contactme contactme"
-            "dh dh"
-            "footer footer";
-    }
-
-    .app-main-collapsed {
-        grid-template-rows: min-content min-content 70svh min-content min-content min-content min-content min-content;
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas:
-            "bread user_admin"
-            "title title"
-            "body body"
-            "navbar navbar"
-            "theme theme"
-            "contactme contactme"
-            "dh dh"
-            "footer footer";
     }
 
     .footer {
@@ -191,7 +108,6 @@
     .navbar {
         height: 100%;
         overflow: auto;
-        ;
     }
 }
 
@@ -425,16 +341,16 @@
     white-space: wrap;
 }
 
-.child {
-    background-color: var(--theme-background-color);
-    align-items: center;
-    justify-content: center;
-}
+// .child {
+//     background-color: var(--theme-background-color);
+//     align-items: center;
+//     justify-content: center;
+// }
 
 .title {
     grid-area: title;
     color: white;
-    padding: 0 25px;
+    padding: 2px;
     width: 100%;
     height: 100%;
 }
@@ -488,13 +404,13 @@
 }
 
 .panel-collapsed {
-    width: 90%;
+    width: 100%;
     margin-top: 1em;
     background-color: var(--theme-background-color) !important;
 }
 
 .panel-expanded {
-    width: 90%;
+    width: 100%;
     margin: 1em !important;
 }
 

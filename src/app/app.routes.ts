@@ -50,7 +50,7 @@ import { MudMakingOfComponent } from './main/mud-making-of/mud-making-of.compone
 import { WelcomeComponent } from './main/welcome/welcome.component';
 
 export const routes: Routes = [
-    { path: '', title: 'nehsa.net | Home', component: BioComponent },
+    { path: '', title: 'nehsa.net | Home', component: WelcomeComponent },
     { path: 'agile', title: 'nehsa.net | Agile', component: AgileComponent },
     { path: 'blog', title: 'nehsa.net | Blog', component: BlogComponent },
     { path: 'about', title: 'nehsa.net | About', component: BioComponent },
