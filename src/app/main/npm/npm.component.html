@@ -1,59 +1,65 @@
-<div>
-    <mat-card class="card">
-        <mat-card-header>
-            <mat-card-title>
-                <h1 data-testid="header-title">npm</h1>
-            </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <div class="commentgrid">
-                <div class="topics">
-                    <div>
-                        <h3>Useful Files</h3>
-                        <ul>
-                            <li>package.json - Main configuration file for Node project.  Contains the dependencies and script hooks for running project.</li>
-                        </ul>                    
-                    </div>
-    
-                    <div>
-                        <h3>Useful Commands</h3>
-                        <span class="code">npm init (--yes)</span> - Initialize new Node project.  Creates package.json.<br><br>
-                        <span class="code">npm install -g npm&#64;latest</span> - Update NPM (Node Package Manager) to latest.<br><br>
-                        <span class="code">npm update -g npm</span> - Update Node to latest.<br><br>
-                        <span class="code">npm install</span> - Installs packages specified in packages.json if no package is specified.<br><br>
-                        <span class="code">npm audit fix</span> - Fixes easy security problems found in audit (excluding breaking changes).<br><br>
-                        <span class="code">npm run start</span> - Runs a script hook from packages.json, in this case, "start."<br><br>
-                        <span class="code code_lh">npm link</span> - Tell npm to install from local source.<br>
-                        E.g.<br>
-                        <ol>
-                            <li>From the base npm package folder, type <span class="code">npm link</span></li>
-                            <li>Type <span class="code">npm link</span> in a subfolder.  Useful for testing npm package before publishing!</li>
-                        </ol>
-                    </div>
-    
-                    <div>
-                        <h3>Packaging a new NPM package</h3>
-                        <ol>
-                            <li>Sign up for an NPM account at <a href="https://www.npmjs.com/">npmjs.com</a></li>
-                            <li>Create folder structure:
-                                    <ul class="condensed">
-                                        <li>&lt;packagename&gt;</li>
-                                        <ul>
-                                            <li>package</li>
-                                            <ul>
-                                                <li>&lt;The actual contents of the package&gt;</li>
-                                            </ul>
-                                            <li>test-folder</li>
-                                        </ul>                                    
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">npm</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                <div>
+                    <h3>Useful Files</h3>
+                    <ul>
+                        <li>package.json - Main configuration file for Node project. Contains the dependencies and
+                            script hooks for running project.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>Useful Commands</h3>
+                    <span class="code">npm init (--yes)</span> - Initialize new Node project. Creates
+                    package.json.<br><br>
+                    <span class="code">npm install -g npm&#64;latest</span> - Update NPM (Node Package Manager) to
+                    latest.<br><br>
+                    <span class="code">npm update -g npm</span> - Update Node to latest.<br><br>
+                    <span class="code">npm install</span> - Installs packages specified in packages.json if no package
+                    is specified.<br><br>
+                    <span class="code">npm audit fix</span> - Fixes easy security problems found in audit (excluding
+                    breaking changes).<br><br>
+                    <span class="code">npm run start</span> - Runs a script hook from packages.json, in this case,
+                    "start."<br><br>
+                    <span class="code code_lh">npm link</span> - Tell npm to install from local source.<br>
+                    E.g.<br>
+                    <ol>
+                        <li>From the base npm package folder, type <span class="code">npm link</span></li>
+                        <li>Type <span class="code">npm link</span> in a subfolder. Useful for testing npm package
+                            before publishing!</li>
+                    </ol>
+                </div>
+
+                <div>
+                    <h3>Packaging a new NPM package</h3>
+                    <ol>
+                        <li>Sign up for an NPM account at <a href="https://www.npmjs.com/">npmjs.com</a></li>
+                        <li>Create folder structure:
+                            <ul class="condensed">
+                                <li>&lt;packagename&gt;</li>
+                                <ul>
+                                    <li>package</li>
+                                    <ul>
+                                        <li>&lt;The actual contents of the package&gt;</li>
                                     </ul>
-                            </li>
-                        </ol>
-                    </div>
-    
-                    <div>
-                        <h3>Example package.json</h3>
-    
-    <pre>
+                                    <li>test-folder</li>
+                                </ul>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div>
+                    <h3>Example package.json</h3>
+
+                    <pre>
         &#123;
             "name": "nehsanet",
             "version": "0.0.0",
@@ -66,11 +72,10 @@
             &#x2775;
             &#x2775;
     </pre>
-    </div>
-    
                 </div>
-                <div><app-comment></app-comment></div>
+
             </div>
-        </mat-card-content>
-    </mat-card>
-</div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>

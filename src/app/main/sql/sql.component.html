@@ -1,23 +1,22 @@
-<div>
-    <mat-card class="card">
-        <mat-card-header>
-            <mat-card-title>
-                <h1 data-testid="header-title">SQL</h1>
-            </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <div class="commentgrid">
-                <div class="topics">
-                    <div>
-                        <ul>
-                            <li>Trim contents of a field to 50 characters:
-                                <div class="answer code">select SUBSTRING (&lt;COLUMN TO TRIM&gt;, 1, 50) from &lt;SCHEMA&gt;.&lt;TABLE&gt;</div>
-                            </li>
-                        </ul>
-                    </div>
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">SQL</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                <div>
+                    <ul>
+                        <li>Trim contents of a field to 50 characters:
+                            <div class="answer code">select SUBSTRING (&lt;COLUMN TO TRIM&gt;, 1, 50) from
+                                &lt;SCHEMA&gt;.&lt;TABLE&gt;</div>
+                        </li>
+                    </ul>
                 </div>
-                <div><app-comment></app-comment></div>
             </div>
-        </mat-card-content>
-    </mat-card>
-</div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>

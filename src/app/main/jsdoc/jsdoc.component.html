@@ -1,45 +1,45 @@
-<div>
-    <mat-card class="card">
-        <mat-card-header>
-            <mat-card-title>
-                <h1 data-testid="header-title">jsdoc</h1>
-            </mat-card-title>
-            <mat-card-subtitle>
-                <h3>An API documentation generator for JavaScript: <a
-                        href="https://github.com/jsdoc/jsdoc">https://github.com/jsdoc/jsdoc</a></h3>
-            </mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-            <div class="commentgrid">
-                <div class="topics">
-                    <div>
-                        <h3>Installation</h3>
-                        <span class="code">npm install --save-dev jsdoc</span> - To install the latest version on npm
-                        locally and save it in your package's package.json file<br><br>
-                    </div>
-                    <div>
-                        <h3>Syntax</h3>
-                        <span class="code">/** */</span> - Annotate to start<br><br>
-                    </div>
-                    <div>
-                        <h3>Example</h3>
-    
-                        <div class="code jsdocexample"><div>
-                            <pre style="background-color: white; word-wrap: break-word;">
-        /**
-        * &amp;function /api/v1/contactme
-        * &amp;param &#123;&#123;body: string&#x2775;&#x2775; req - The body.subject and body.body of the request is JSON format.  e.g. &#123; body.subject = 'test subject', body.body = 'test body' &#x2775;
-        * &amp;return &#123;boolean&#x2775; res - The result from the api
-        */
-    </pre></div>
-                            <div>
-                                <img width="600px" src="../../../assets/images/jsdoc.png" />
-                            </div>
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">jsdoc</h1>
+        </mat-card-title>
+        <mat-card-subtitle>
+            <h3>An API documentation generator for JavaScript: <a
+                    href="https://github.com/jsdoc/jsdoc">https://github.com/jsdoc/jsdoc</a></h3>
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                <div>
+                    <h3>Installation</h3>
+                    <span class="code">npm install --save-dev jsdoc</span> - To install the latest version on npm
+                    locally and save it in your package's package.json file<br><br>
+                </div>
+                <div>
+                    <h3>Syntax</h3>
+                    <span class="code">/** */</span> - Annotate to start<br><br>
+                </div>
+                <div>
+                    <h3>Example</h3>
+
+                    <div class="code jsdocexample">
+                        <div>
+                    <pre style="background-color: white; word-wrap: break-word;">
+/**
+* &amp;function /api/v1/contactme
+* &amp;param &#123;&#123;body: string&#x2775;&#x2775; req - The body.subject and body.body of the request is JSON format.  e.g. &#123; body.subject = 'test subject', body.body = 'test body' &#x2775;
+* &amp;return &#123;boolean&#x2775; res - The result from the api
+*/
+</pre>
+                        </div>
+                        <div>
+                            <img width="600px" src="../../../assets/images/jsdoc.png" />
                         </div>
                     </div>
                 </div>
-                <div><app-comment></app-comment></div>
             </div>
-        </mat-card-content>
-    </mat-card>
-</div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>

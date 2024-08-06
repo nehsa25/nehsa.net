@@ -1,22 +1,22 @@
-<div>
-    <mat-card class="card">
-        <mat-card-header>
-            <mat-card-title>
-                <h1 data-testid="header-title">Google Cloud Platform (gcp)</h1>
-            </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <div class="commentgrid">
-                <div class="topics">
-                    <h3>Important Commands</h3>
-                    <ul>
-                        <li><span class="code">gcloud run deploy --image nehsa/nehsanet:latest</span> - Uploads container to cloud</li>
-                        <li><span class="code">gcloud config set run/region us-central1</span> - Set region to prevent being prompted
-                        <li><span class="code">gcloud cheat-sheet</span> - Uploads container to cloud</li>                    
-                    </ul>         
-                </div>
-                <div><app-comment></app-comment></div>
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Google Cloud Platform (gcp)</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                <h3>Important Commands</h3>
+                <ul>
+                    <li><span class="code">gcloud run deploy --image nehsa/nehsanet:latest</span> - Uploads container to
+                        cloud</li>
+                    <li><span class="code">gcloud config set run/region us-central1</span> - Set region to prevent being
+                        prompted
+                    <li><span class="code">gcloud cheat-sheet</span> - Uploads container to cloud</li>
+                </ul>
             </div>
-        </mat-card-content>
-    </mat-card>
-</div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>

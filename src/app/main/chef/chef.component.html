@@ -1,71 +1,70 @@
-<div>
-    <mat-card class="card">
-        <mat-card-header>
-            <mat-card-title>
-                <h1 data-testid="header-title">Chef</h1>
-            </mat-card-title>
-            <mat-card-subtitle>
-                <h3>Configures machines based on defined recipes</h3>
-            </mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-            <div class="commentgrid">
-                <div class="topics">
-                    <div>
-                        <h3>Important Commands</h3>
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Chef</h1>
+        </mat-card-title>
+        <mat-card-subtitle>
+            <h3>Configures machines based on defined recipes</h3>
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                <div>
+                    <h3>Important Commands</h3>
+                    <ul class="condensed">
+                        <li><span class="code">knife cookbook upload &lt;cookbook&gt;</span> - Upload cookbook to
+                            the
+                            server</li>
+                        <li><span class="code">chef-client -o &lt;cookbook&gt;:&lt;recipe&gt;</span> - Run a recipe
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Important Paths</h3>
+                    <ul class="condensed">
+                        <li><span class="code">C:\Users\&lt;you&gt;\.chef</span> - Contains configuration (knife.rb,
+                            pem
+                            files, trusted certs)</li>
+                        <li><span class="code">C:\Chef</span> - Chef-client configuration and logs</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Cookbook Hierarchy</h3>
+                    I've found good success in the following setup. Relationships can be defined via the <span
+                        class="file">metadata.rb</span> file via "depends."
+                    <ul class="condensed">
+                        <li>'website' cookbook depends on 'test'</li>
+                        <li>'test' depends on 'app'</li>
+                        <li>'app' depends on 'installs'</li>
+                        <li>'installs' depends on 'lab'</li>
+                        <li>'lab' depends on 'chocolatey' and 'slack-handler'</li>
+                    </ul>
+                    <dl>
+                        <dt>website</dt>
+                        <dd>Builds the website that arounds configuration and insight into Lab activities every 5
+                            minutes</dd>
+                        <dt>test</dt>
+                        <dd>Understands how to configure machines and execute tests (Pytest, Playwright, cunit,
+                            nunit, etc)</dd>
+                        <dt>app</dt>
+                        <dd>Everything about the application under test</dd>
+                        <dt>installs</dt>
+                        <dd>Every dependencies. For example, installing Notepad++, or Wireshark</dd>
+                        <dt>lab</dt>
+                        <dd>Anything machine or OS-specific</dd>
+                    </dl>
+                </div>
+                <div>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Sending messages to Slack</mat-panel-title>
+                        </mat-expansion-panel-header>
                         <ul class="condensed">
-                            <li><span class="code">knife cookbook upload &lt;cookbook&gt;</span> - Upload cookbook to
-                                the
-                                server</li>
-                            <li><span class="code">chef-client -o &lt;cookbook&gt;:&lt;recipe&gt;</span> - Run a recipe
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>Important Paths</h3>
-                        <ul class="condensed">
-                            <li><span class="code">C:\Users\&lt;you&gt;\.chef</span> - Contains configuration (knife.rb,
-                                pem
-                                files, trusted certs)</li>
-                            <li><span class="code">C:\Chef</span> - Chef-client configuration and logs</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>Cookbook Hierarchy</h3>
-                        I've found good success in the following setup. Relationships can be defined via the <span
-                            class="file">metadata.rb</span> file via "depends."
-                        <ul class="condensed">
-                            <li>'website' cookbook depends on 'test'</li>
-                            <li>'test' depends on 'app'</li>
-                            <li>'app' depends on 'installs'</li>
-                            <li>'installs' depends on 'lab'</li>
-                            <li>'lab' depends on 'chocolatey' and 'slack-handler'</li>
-                        </ul>
-                        <dl>
-                            <dt>website</dt>
-                            <dd>Builds the website that arounds configuration and insight into Lab activities every 5
-                                minutes</dd>
-                            <dt>test</dt>
-                            <dd>Understands how to configure machines and execute tests (Pytest, Playwright, cunit,
-                                nunit, etc)</dd>
-                            <dt>app</dt>
-                            <dd>Everything about the application under test</dd>
-                            <dt>installs</dt>
-                            <dd>Every dependencies. For example, installing Notepad++, or Wireshark</dd>
-                            <dt>lab</dt>
-                            <dd>Anything machine or OS-specific</dd>
-                        </dl>
-                    </div>
-                    <div>
-                        <mat-expansion-panel>
-                            <mat-expansion-panel-header>
-                                <mat-panel-title>Sending messages to Slack</mat-panel-title>
-                            </mat-expansion-panel-header>
-                            <ul class="condensed">
-                                <li>
-                                    Slack Handler (recipes\slack_handler.rb)
-                                    <div class="code">
-                                        <pre>
+                            <li>
+                                Slack Handler (recipes\slack_handler.rb)
+                                <div class="code">
+                                    <pre>
         # Cookbook:: slack_handler
         # Recipe:: default
         
@@ -135,11 +134,11 @@
             end
         end                                
                                         </pre>
-                                    </div>
-                                </li>
-                                <li>Library (libraries\slack.rb)
-                                    <div class="code">
-                                        <pre>
+                                </div>
+                            </li>
+                            <li>Library (libraries\slack.rb)
+                                <div class="code">
+                                    <pre>
         require 'socket'
     
         class Chef::Handler::Slack < Chef::Handler
@@ -244,43 +243,43 @@
             end
         end
                                         </pre>
-                                    </div>
-                                </li>
-                            </ul>
-                        </mat-expansion-panel>
-                    </div>
-                    <div>
-                        <mat-expansion-panel>
-                            <mat-expansion-panel-header>
-                                <mat-panel-title>Implement your own Chef UI</mat-panel-title>
-                            </mat-expansion-panel-header>
-                            When I started adopting Chef, the UI at the time was buggy and Chef
-                            Support (this was "Opscode" support via the their Slack channel) suggested it not be used (I
-                            was trying to use the attribute feature and they
-                            were inconsistently being saved). For this reason, I went down this path and it's
-                            worked great...
-                            <ul class="condensed">
-                                <li>Build UI that saves JSON to a shared location. I actually use Chef itself to build
-                                    the website using knife commands to gather key information. e.g. <span
-                                        class="code">knife recipe list</span>
-                                    <ul class="condensed">
-                                        <li>Recipes can be dragged from left<mat-icon>arrow_forward</mat-icon>right to
-                                            configure how a machine should run<br>
-                                            <img width="600" mat-card-image src="assets/images/lab_config1.png"
-                                                alt="Config page for configuring lab hosts" />
-                                        </li>
-                                        <li>Common configurations are built into the prior page but anything can be
-                                            adjusted here<br>
-                                            <img width="600" mat-card-image src="assets/images/lab_config2.png"
-                                                alt="Config page for configuring lab hosts" />
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>Create script to run Chef which first pulls this file and launches chef-client using
-                                    the -j attribute
-                                    Example:
-                                    <div class="code">
-                                        <pre>
+                                </div>
+                            </li>
+                        </ul>
+                    </mat-expansion-panel>
+                </div>
+                <div>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Implement your own Chef UI</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        When I started adopting Chef, the UI at the time was buggy and Chef
+                        Support (this was "Opscode" support via the their Slack channel) suggested it not be used (I
+                        was trying to use the attribute feature and they
+                        were inconsistently being saved). For this reason, I went down this path and it's
+                        worked great...
+                        <ul class="condensed">
+                            <li>Build UI that saves JSON to a shared location. I actually use Chef itself to build
+                                the website using knife commands to gather key information. e.g. <span
+                                    class="code">knife recipe list</span>
+                                <ul class="condensed">
+                                    <li>Recipes can be dragged from left<mat-icon>arrow_forward</mat-icon>right to
+                                        configure how a machine should run<br>
+                                        <img width="600" mat-card-image src="assets/images/lab_config1.png"
+                                            alt="Config page for configuring lab hosts" />
+                                    </li>
+                                    <li>Common configurations are built into the prior page but anything can be
+                                        adjusted here<br>
+                                        <img width="600" mat-card-image src="assets/images/lab_config2.png"
+                                            alt="Config page for configuring lab hosts" />
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>Create script to run Chef which first pulls this file and launches chef-client using
+                                the -j attribute
+                                Example:
+                                <div class="code">
+                                    <pre>
     $start = get-date;
 
     # ensure we have the latest profile loaded
@@ -624,12 +623,12 @@
             &#125;
     &#125;                                      
                                     </pre>
-                                    </div>
-                                </li>
-                                <li>Create scheduled task that always gets above script so if you screw it up, the
-                                    machines can fix themselves
-                                    <div class="code">
-                                        <pre>
+                                </div>
+                            </li>
+                            <li>Create scheduled task that always gets above script so if you screw it up, the
+                                machines can fix themselves
+                                <div class="code">
+                                    <pre>
     # This script should not rely on any functions within $profile.  If there's an issue with the profile we need to still be able to run this script to update it.
     # DON'T USE THE POWERSHELL PROFILE FUNCTIONALITY AS WE NEED THIS SCRIPT TO RUN NO MATTER WHAT.
     # DON'T USE VARIABLES SUCH AS: $node_json
@@ -825,24 +824,24 @@
                                             
 
                                         </pre>
-                                    </div>
-                                </li>
-                            </ul>
-                        </mat-expansion-panel>
-                    </div>
-                    <div>
-                        <mat-expansion-panel>
-                            <mat-expansion-panel-header>
-                                <mat-panel-title>Gather custom data via OHAI</mat-panel-title>
-                            </mat-expansion-panel-header>
-                            Chef runs a utility called OHAI to gather system information required for it to run. We can
-                            also use this same service to gather other information. I run OHAI separate via a custom
-                            Python desktop tray application to prevent slowing down Chef runs.
-                            <ul class="condensed">
-                                <li>
-                                    <span class="file">chef_ohai.rb</span>
-                                    <div class="code">
-                                        <pre>
+                                </div>
+                            </li>
+                        </ul>
+                    </mat-expansion-panel>
+                </div>
+                <div>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Gather custom data via OHAI</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        Chef runs a utility called OHAI to gather system information required for it to run. We can
+                        also use this same service to gather other information. I run OHAI separate via a custom
+                        Python desktop tray application to prevent slowing down Chef runs.
+                        <ul class="condensed">
+                            <li>
+                                <span class="file">chef_ohai.rb</span>
+                                <div class="code">
+                                    <pre>
     Ohai.plugin(:Chef) do
     provides 'chef'
 
@@ -879,13 +878,13 @@
     end
 end
                                         </pre>
-                                    </div>
+                                </div>
 
-                                </li>
-                                <li>
-                                    <span class="file">windows_ohai.rb</span>
-                                    <div class="code">
-                                        <pre>
+                            </li>
+                            <li>
+                                <span class="file">windows_ohai.rb</span>
+                                <div class="code">
+                                    <pre>
     require 'open3'
 
     Ohai.plugin(:ExtraWinData) do
@@ -912,16 +911,15 @@ end
         end
     end
                                         </pre>
-                                    </div>
+                                </div>
 
-                                </li>
-                            </ul>
+                            </li>
+                        </ul>
 
-                        </mat-expansion-panel>
-                    </div>
+                    </mat-expansion-panel>
                 </div>
-                <div><app-comment></app-comment></div>
             </div>
-        </mat-card-content>
-    </mat-card>
-</div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>

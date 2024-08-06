@@ -1,32 +1,30 @@
-<div>
-    <mat-card class="card">
-        <mat-card-header>
-            <mat-card-title>
-                <h1 data-testid="header-title">git</h1>
-            </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <div class="commentgrid">
-                <div class="topics">
-                    <div>
-                        <h3>Important Commands</h3>
-                        <ul>
-                            <li><span class="code">git restore .</span> - Revert everyting back to original</li>
-                        </ul>
-                    </div><br><br>
-                    <div>
-                        <h3>Pull Requests - Sync upsteam</h3>
-                        <ol>
-                            <li>git remove add upstream https://github.com/nehsa25/nehsa.net.git</li>
-                            <li>Now, at any time, use <span class="code">git fetch upstream</span> to pull any new changes
-                            </li>
-                            <li>If there are some, use <span class="code">git rebase upstream</span> to add changes on top
-                                of your work</li>
-                        </ol>
-                    </div>
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">git</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                <div>
+                    <h3>Important Commands</h3>
+                    <ul>
+                        <li><span class="code">git restore .</span> - Revert everyting back to original</li>
+                    </ul>
+                </div><br><br>
+                <div>
+                    <h3>Pull Requests - Sync upsteam</h3>
+                    <ol>
+                        <li>git remove add upstream https://github.com/nehsa25/nehsa.net.git</li>
+                        <li>Now, at any time, use <span class="code">git fetch upstream</span> to pull any new changes
+                        </li>
+                        <li>If there are some, use <span class="code">git rebase upstream</span> to add changes on top
+                            of your work</li>
+                    </ol>
                 </div>
-                <div><app-comment></app-comment></div>
             </div>
-        </mat-card-content>
-    </mat-card>
-</div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>

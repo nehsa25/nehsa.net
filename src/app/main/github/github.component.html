@@ -1,139 +1,137 @@
-<div>
-    <mat-card class="card">
-        <mat-card-header>
-            <mat-card-title>
-                <h1 data-testid="header-title">Github</h1>
-            </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <div class="commentgrid">
-                <div class="topics">
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Github</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                <div>
+                    <h3>Pull Requests</h3>
+                    <h4>(contribute to another developers code base)</h4>
+                    <ol>
+                        <li>Find the repo you wish to contribute to</li>
+                        <li>Fork their repo (to make a copy of their repo in your repo)</li>
+                        <li>Clone your local fork to pull it down locally</li>
+                        <li>Use <span class="code">git checkout &lt;NewBranch&gt;</span> to create a new branch</li>
+                        <li>&lt;Make your changes... add/commit them&gt;</li>
+                        <li>Use <span class="code">git push origin &lt;NewBranch&gt; to put it back to Github</span>
+                        </li>
+                        <li>Now, you'll see the changes in your fork and have a button to create to <span
+                                class="code">Compare & pull request</span> button to open a new pull request</li>
+                        <li>If all is well, you're PR is merged and all is done</li>
+                    </ol>
+                </div>
+                <div>
+                    <h3>Example Github Workflow</h3>
                     <div>
-                        <h3>Pull Requests</h3>
-                        <h4>(contribute to another developers code base)</h4>
-                        <ol>
-                            <li>Find the repo you wish to contribute to</li>
-                            <li>Fork their repo (to make a copy of their repo in your repo)</li>
-                            <li>Clone your local fork to pull it down locally</li>
-                            <li>Use <span class="code">git checkout &lt;NewBranch&gt;</span> to create a new branch</li>
-                            <li>&lt;Make your changes... add/commit them&gt;</li>
-                            <li>Use <span class="code">git push origin &lt;NewBranch&gt; to put it back to Github</span>
-                            </li>
-                            <li>Now, you'll see the changes in your fork and have a button to create to <span
-                                    class="code">Compare & pull request</span> button to open a new pull request</li>
-                            <li>If all is well, you're PR is merged and all is done</li>
-                        </ol>
-                    </div>
-                    <div>
-                        <h3>Example Github Workflow</h3>
-                        <div>
-                            <ol class="condensed">
-                                <li>Ned contributes by submitting a pull request...</li>
+                        <ol class="condensed">
+                            <li>Ned contributes by submitting a pull request...</li>
+                            <ol>
+                                <li>Unit and E2E tests are executed in a Docker container</li>
+                                <li>If 100%,</li>
                                 <ol>
-                                    <li>Unit and E2E tests are executed in a Docker container</li>
-                                    <li>If 100%,</li>
+                                    <li>PR merged (The CI in CI/CD)</li>
+                                    <li>Release notes updated</li>
+                                    <li>Version updated</li>
+                                    <li>Unit, E2E, regression/long running tests executed on merged code (in a Docker
+                                        container)
+                                    </li>
+                                    <li>If 100%, </li>
                                     <ol>
-                                        <li>PR merged (The CI in CI/CD)</li>
-                                        <li>Release notes updated</li>
-                                        <li>Version updated</li>
-                                        <li>Unit, E2E, regression/long running tests executed on merged code (in a Docker
-                                            container)
-                                        </li>
-                                        <li>If 100%, </li>
+                                        <li>The change is deployed to Production. (The CD in CI/CD)</li>
                                         <ol>
-                                            <li>The change is deployed to Production. (The CD in CI/CD)</li>
-                                            <ol>
-                                                <li>Smoke test performed in Production</li>
-                                                <li>Feature Enabled. Woohoo! Highfive Ned.</li>
-                                            </ol>
+                                            <li>Smoke test performed in Production</li>
+                                            <li>Feature Enabled. Woohoo! Highfive Ned.</li>
                                         </ol>
                                     </ol>
                                 </ol>
                             </ol>
-    
-                        </div>
+                        </ol>
+
+                    </div>
+                    <div>
+
                         <div>
-    
+                            <h3>Github Actions: Playwright - run on successful deployment</h3>
+                            <span>(Actions are in response to events such as PR created, Contributor joined, Issue
+                                created,
+                                PR
+                                merged)</span>
+
                             <div>
-                                <h3>Github Actions: Playwright - run on successful deployment</h3>
-                                <span>(Actions are in response to events such as PR created, Contributor joined, Issue
-                                    created,
-                                    PR
-                                    merged)</span>
-    
-                                <div>
-                                    <h4>Example workflow</h4>
-                                    <span>A workflow is a series of actions. For example, 3-6 are separate actions.</span>
-                                    <ol class="condensed">
-                                        <li>Listen for an event (PR Merged)</li>
-                                        <li>Trigger appropiate workflow</li>
-                                        <li>Sort the issue</li>
-                                        <li>Assign issue to contributor</li>
-                                        <li>Catagorize it</li>
-                                        <li>Test the reproduces the issue</li>
-                                    </ol>
-                                </div>
-    
-                                <div>
-                                    <h4>Example GitHub Action</h4>
-                                    <pre>
-        name: Super CI/CD Workflow
-    
-        on:
-            push:
-                branches: [ feature_branch, master ]
-            pull_request:
-                branches: [ master ]
-        jobs:
-        build: 
-        runs-on: $&#123;&#123;matrix.os&#x2775;&#x2775;
-        strategy: <span class="comment" style="background-color: inherit;">#&lt;-- Build on each environment.</span>
-            matrix:
-                os: [ubuntu-latest, windows-latest, macOS-latest]
-        test:
-            timeout-minutes: 60
-            runs-on: ubuntu-latest
-    
-            if: github.event.deployment_status.state == 'success'
-            steps:
-            - uses: actions/checkout&#64;v4 <span class="comment" style="background-color: inherit;">#&lt;-- check out the repo using OOB v4 checkout action</span>
-            - name: setup node <span class="comment" style="background-color: inherit;">#&lt;-- setup node.js</span>
-              uses: actions/setup-node&#64;v4 
-            - name: Build/push Docker Image<span class="comment" style="background-color: inherit;">#&lt;-- login to Docker</span>
-              uses: docker/login-action&amp;v3
-              with:
-                username: $&#123;&#123; secrets.DOCKERHUB_USERNAME &#x2775;&#x2775;
-                password: $&#123;&#123; secrets.DOCKERHUB_TOKEN &#x2775;&#x2775;
-            -
-              name: Build and push
-              uses: docker/build-push-action&amp;v5  <span class="comment" style="background-color: inherit;">#&lt;-- Build/Push to Docker</span>
-              with:
-                image: nehsa/nehsanet
-                registry: docker.io
-                push: true
-                tags: user/app:latest
-            with:
-                node-version: 18
-            - name: Install dependencies
-            run: npm ci
-            - name: Install Playwright
-            run: npx playwright install --with-deps
-            - name: Run Playwright tests
-            run: npx playwright test
-            env:
-                PLAYWRIGHT_TEST_BASE_URL: $&#123;&#123; github.event.deployment_status.target_url &#x2775;&#x2775;
-    
-            publish:
-                needs: test <span class="comment" style="background-color: inherit;">#&lt;-- Denotes it requires test to complete</span>
-                                </pre>
-                                </div>
-    
+                                <h4>Example workflow</h4>
+                                <span>A workflow is a series of actions. For example, 3-6 are separate actions.</span>
+                                <ol class="condensed">
+                                    <li>Listen for an event (PR Merged)</li>
+                                    <li>Trigger appropiate workflow</li>
+                                    <li>Sort the issue</li>
+                                    <li>Assign issue to contributor</li>
+                                    <li>Catagorize it</li>
+                                    <li>Test the reproduces the issue</li>
+                                </ol>
                             </div>
+
+                            <div>
+                                <h4>Example GitHub Action</h4>
+                        <pre>
+name: Super CI/CD Workflow
+
+on:
+    push:
+        branches: [ feature_branch, master ]
+    pull_request:
+        branches: [ master ]
+jobs:
+build: 
+runs-on: $&#123;&#123;matrix.os&#x2775;&#x2775;
+strategy: <span class="comment" style="background-color: inherit;">#&lt;-- Build on each environment.</span>
+    matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+
+    if: github.event.deployment_status.state == 'success'
+    steps:
+    - uses: actions/checkout&#64;v4 <span class="comment" style="background-color: inherit;">#&lt;-- check out the repo using OOB v4 checkout action</span>
+    - name: setup node <span class="comment" style="background-color: inherit;">#&lt;-- setup node.js</span>
+        uses: actions/setup-node&#64;v4 
+    - name: Build/push Docker Image<span class="comment" style="background-color: inherit;">#&lt;-- login to Docker</span>
+        uses: docker/login-action&amp;v3
+        with:
+        username: $&#123;&#123; secrets.DOCKERHUB_USERNAME &#x2775;&#x2775;
+        password: $&#123;&#123; secrets.DOCKERHUB_TOKEN &#x2775;&#x2775;
+    -
+        name: Build and push
+        uses: docker/build-push-action&amp;v5  <span class="comment" style="background-color: inherit;">#&lt;-- Build/Push to Docker</span>
+        with:
+        image: nehsa/nehsanet
+        registry: docker.io
+        push: true
+        tags: user/app:latest
+    with:
+        node-version: 18
+    - name: Install dependencies
+    run: npm ci
+    - name: Install Playwright
+    run: npx playwright install --with-deps
+    - name: Run Playwright tests
+    run: npx playwright test
+    env:
+        PLAYWRIGHT_TEST_BASE_URL: $&#123;&#123; github.event.deployment_status.target_url &#x2775;&#x2775;
+
+    publish:
+        needs: test <span class="comment" style="background-color: inherit;">#&lt;-- Denotes it requires test to complete</span>
+                        </pre>
+                            </div>
+
                         </div>
                     </div>
                 </div>
-                <div><app-comment></app-comment></div>
             </div>
-        </mat-card-content>
-    </mat-card>
-</div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>

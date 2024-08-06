@@ -1,4 +1,4 @@
-<div class="main">
+<div class="main" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
     <mat-stepper headerPosition="bottom" labelPosition="bottom" [linear]="isLinear" #stepper>
         <mat-step [stepControl]="formGroup1">
             <form [formGroup]="formGroup1">

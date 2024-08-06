@@ -1,862 +1,860 @@
-<div>
-    <mat-card class="card">
-        <mat-card-header>
-            <mat-card-title>
-                <h1 data-testid="header-title">ENGR-102</h1>
-            </mat-card-title>
-            <mat-card-subtitle>
-                <h3>Design Engineering and Problem Solving</h3>
-            </mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-            <div class="commentgrid">
-                <div class="topics">
-                    <div>
-                        <h3>Definitions</h3>
-                        <dl>
-                            <dt>Inductive Reasoning</dt>
-                            <dd>Inductive inferences start with observations and arrive and
-                                general conclusions. E.g. Every time I wear blue shoes, people are nicer to me.</dd>
-                            <dt>Deductive Reasoning</dt>
-                            <dd>Deductive inferences do the reverse. They start with general
-                                knowledge and predict a specific observation. For example, If I know a computer
-                                needs
-                                power to turn on, I can deduce it will not work without power.</dd>
-                            <dt>Scientific Method</dt>
-                            <dd>Using systematic reasoning. The real purpose of scientific method is to make sure Nature
-                                hasn't
-                                misled you into thinking you know something you don't actually know. The main skill is in
-                                stating absolutely no more than you are positive you
-                                know.<br><br>
-                                E.g. a log broken down into six
-                                categories:
-                                <ol class="condensed">
-                                    <li>statement of the problem</li>
-                                    <li>hypotheses as to the cause of the problem</li>
-                                    <li>experiments designed to test each hypothesis</li>
-                                    <li>predicted results of the
-                                        experiments</li>
-                                    <li>observed results of the experiments</li>
-                                    <li>conclusions from the results of the
-                                        experiments</li>
-                                </ol>
-                            </dd>
-                            <dt>Verification</dt>
-                            <dd>A process that confirms that the product or service meets the original requirements</dd>
-                            <dt>Validation</dt>
-                            <dd>Determines whether or not it works</dd>
-                            <dt>Pseudocode</dt>
-                            <dd>To convey an algorithm using fake but easily understood code</dd>
-                            <dt>Usability</dt>
-                            <dd>How quickly a user can reach their goal with a product</dd>
-                            <dt>Discoverability</dt>
-                            <dd>How an affordance is conveyed to the user</dd>
-                            <dt>Flowchart</dt>
-                            <dd>Convey algorithm grpahically
-                                <ul class="condensed">
-                                    <li>Start/Stop - Oval</li>
-                                    <li>Proceed to next step - Arrow</li>
-                                    <li>Perform Computation - Rectangle</li>
-                                    <li>Get Input - Skewed Rectangle</li>
-                                    <li>Conditional - Diamond</li>
-                                </ul>
-                            </dd>
-                        </dl>
-                    </div>
-                    <div>
-                        <h3>Quotes re:a great software engineer</h3>
-                        <ul>
-                            <li>Top Traits:<br> Pays attention to coding details, such as error handling, memory,
-                                performance, style<br>
-                                Must Mentally capable of handling complexity; can comprehend multiple interacting
-                                software components<br>Must Continuously improving: improves themselves, their product, or
-                                their surroundings</li>
-                            <li>Great engineers distinguished themselves by making others’ jobs easier, helping
-                                them to make their decisions more efficiently (or, at minimum, they did not make them
-                                worse).</li>
-                            <li class="quote">That is something that can't be taught. I think it's something a person just
-                                has to
-                                have [...] They don't need any outside motivation. They just go [...] They have just
-                                an inner desire to succeed, and I don't know why. It's not necessarily for the money,
-                                it's not necessarily for the recognition. It's just that whatever it is they do, they want
-                                to do it extremely well [...] I've seen a lot of smart people that have none of these
-                                characteristics [...] — Principal Dev Lead<br>
-                                <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
-                                    Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
-                                    (1), p.322-352</span>
-                            </li>
-                            <li class="quote">The way [this great software engineer] just kind of touches people, just
-                                dissolves
-                                conflicts right there [...] that magic to make people respect him. That’s fun magic, I
-                                think that not everyone possesses. — Senior SDE<br>
-                                <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
-                                    Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
-                                    (1), p.322-352</span>
-                            </li>
-                            <li class="quote">The style [...] always, an idea, and it was all clean [...] very concise. Just
-                                looking at it,
-                                you can say, “Okay, this guy, he knew what he was doing.” [...] There’s no extra stuff.
-                                Everything is minimally necessary and sufficient as it should be. It’s well thought out
-                                off screen. — Senior SDE<br>
-                                <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
-                                    Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
-                                    (1), p.322-352</span>
-                            </li>
-                            <li class="quote">Another strong driver is the respect of our peers, which you won’t get by
-                                writing
-                                shoddy code [...] — Principal SDE<br>
-                                <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
-                                    Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
-                                    (1), p.322-352</span>
-                            </li>
-                            <li class="quote">This code is performance critical, compatibility sensitive, and is used in a
-                                huge variety
-                                of contexts. If a developer fails to handle an error, some customer will hit it, and we
-                                will likely need to issue a hotfix; if a developer implements an inefficient algorithm
-                                (O(N2) is not ok) [...] consumes memory excessively in some environment [...]etc. —
-                                Principal SDE<br>
-                                <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
-                                    Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
-                                    (1), p.322-352</span>
-                            </li>
-                            <li class="quote">Most useful software has to be highly tolerant of incorrect usage by the user
-                                / caller
-                                above it, and interacting with the supporting code below it [...] Developers who cannot
-                                handle complexity tend to always be fixing bugs or having to do “another” release
-                                to take into account situations they had not thought of [...] — Principal SDE<br>
-                                <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
-                                    Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
-                                    (1), p.322-352</span>
-                            </li>
-                            <li class="quote">As the technology/technique evolves and better tools come along, the
-                                open-minded
-                                developer picks up on these and is willing to apply them to be more productive /
-                                effective [...] without an effort to continuously improve [...] developers will soon find
-                                themselves lagging behind the industry and/or state-of-the-art with technology and
-                                technique. — Principal SDE Lead<br>
-                                <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
-                                    Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
-                                    (1), p.322-352</span>
-                            </li>
-                            <li class="quote">Lying to yourself is much easier in my profession than in any other profession
-                                I know
-                                [...] It’s so easy to think that you know the topic and miss (subconsciously ignore)
-                                evidence that contradicts your “knowledge.” Great developer [...] simultaneously knows
-                                a lot and questions everything he knows. — Principal SDE<br>
-                                <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
-                                    Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
-                                    (1), p.322-352</span>
-                            </li>
-                            <li class="quote">This has happened to me any number of times [...] a team which had such a
-                                component
-                                would “lie” to me about its availability and maturity in order to get me to be a user
-                                and justify their own existence to management [...] — Principal<br>
-                                <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
-                                    Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
-                                    (1), p.322-352</span>
-                            </li>
-                            <li class="quote">For the hardworking attribute, informants believe that needing to
-                                work more than an 8-hour day may be indicative of poor planning or unsustainable software
-                                engineering practices:<br>
-                                [...] workload for a developer is a function of management and planning happening
-                                above that developer. Usually long working hours are needed, because the planning
-                                was not good, the decisions made during the project lifecycle were bad, the change
-                                management wasn’t “agile” enough. — SDE2<br>
-                                <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
-                                    Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
-                                    (1), p.322-352</span>
-                            </li>
-                            <li class="quote">[...] that feels like imposing your will on someone else [...] other devs
-                                pushing their
-                                ideas through by controlling the conversation or talking over other people give me
-                                a negative gut reaction to that particular attribute. Ideas should stand on their own
-                                merits, not on how well / how strongly they’re sold. — Senior SDE<br>
-                                <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
-                                    Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
-                                    (1), p.322-352</span>
-                            </li>
-                            <li class="quote">Our evaluation system(s) have always emphasized developers that deliver on the
-                                organizational goals of the company [...] more experienced developers are likely to
-                                understand, that alignment with the company goals delivers greater rewards. —
-                                Principal SDE Manager<br>
-                                <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
-                                    Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
-                                    (1), p.322-352</span>
-                            </li>
-                            <li class="quote">20 years of experience managing engineers in startups and big companies alike
-                                [...]
-                                No matter how talented, sharp minded and skillful one is, if they are not hardworking
-                                (i.e. willing to work long hours to meet deadlines / deliverables) they will not succeed
-                                [...] — Partner SDE Lead<br>
-                                <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
-                                    Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
-                                    (1), p.322-352</span>
-                            </li>
-                            <li class="quote">Knowledgeable" and "Informed" only come from experience. This is all about
-                                breadth and exposure to lots of situations that let you generalize to new ones [...] you
-                                learn to be less confident that you immediately know the best answer to a problem.
-                                You actually become more flexible and are willing to trade off among goals you might
-                                not even have considered earlier in your career [...] It takes a while for most people to
-                                really appreciate the big picture and to be able to make decisions based on a broader
-                                context [...] — Architect<br>
-                                <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
-                                    Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
-                                    (1), p.322-352</span>
-                            </li>
-                            <li class="quote">Nobody can stay at the top without “improving” because the next wave of
-                                technology
-                                will soon obsolete [sic] whatever was at the top. — Partner SDE
-                                <br>
-                                <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
-                                    Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
-                                    (1), p.322-352</span>
-                            </li>
-                            <li class="quote">You cannot be great if you are constantly re-inventing the wheel or using out
-                                of date
-                                tools/processes. — Senior SDE<br>
-                                <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
-                                    Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
-                                    (1), p.322-352</span>
-                            </li>
-                            <li class="quote">Good engineers MUST know the process of execution and follow it. Each
-                                project/product/team may have a different process, but a good engineer must be aware
-                                of it and follow it, or start a discussion if he/she thinks the process should be changed
-                                [...] — Senior SDE Lead<br>
-                                <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
-                                    Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
-                                    (1), p.322-352</span>
-                            </li>
-                            <li class="quote">Unlearning. That's like, the things that I used to do five years ago that make
-                                me
-                                successful don't matter anymore; in fact, they can get me into trouble right now [...] I
-                                start to get to a point where I would assess [an engineer's] ability to unlearn. After a
-                                while, like two thirds or three quarters of what you know is still valuable, quarter to
-                                a third is the wrong thing [...] — Technical Fellow<br>
-                                <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
-                                    Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
-                                    (1), p.322-352</span>
-                            </li>
-                            <li class="quote">A curiosity [...] how things work, why things work, the way they work, having
-                                that
-                                curiosity is probably a good trait that a good engineer would have. Wanting to tear
-                                something apart, figure out how it works, and understand the why’s. — Principal Dev
-                                Lead
-                                <br>
-                                <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
-                                    Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
-                                    (1), p.322-352</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>Notes</h3>
-                        <ul>
-                            <li>
-                                <ul>
-                                    <li class="condensed">The Design Process
-                                        <ol>
-                                            <li>For whom are you designing?</li>
-                                            <li>What do they care about?</li>
-                                            <li>What constrains this design space?</li>
-                                            <li>What are some potential solutions?</li>
-                                            <li>Which solution best meets stakeholder needs and constraints?</li>
-                                            <li>How can I best communicate my solution?</li>
-                                            <li>How effective is the solution?</li>
-                                        </ol>
-                                    </li>
-                                    <li class="condensed">Breaking Down Complex Problems. Create an outline that lists:
-                                        <ol>
-                                            <li>Identifying requirements</li>
-                                            <li>The steps needed to meed those requirements</li>
-                                        </ol>
-                                    </li>
-                                    <li>Algoithms - Algorithms are abstracted procedures. Any sequence of steps leading to a
-                                        specific outcome can be considered an algorithm.</li>
-                                </ul>
-                            </li>
-                            <li>Data
-                                <ol class="condensed">
-                                    <li>Describe how data is stored by computers
-                                        <ul class="condensed">
-                                            <li>How does the base 2 numeral system work?</li>
-                                            <li>How do I count in binary?</li>
-                                            <li>How can I convert numbers between bases?</li>
-                                            <li>What tradeoffs are furnished by the choice of number base when representing
-                                                information?</li>
-                                        </ul>
-                                    </li>
-                                    <li>Represent statements using Boolean Algebra and Truth Tables
-                                        <ul class="condensed">
-                                            <li>What are the basic Boolean operators?</li>
-                                            <li>How do I build a truth table for a given number of inputs to match a
-                                                high-level
-                                                description?</li>
-                                            <li>How do I compose a Boolean expression from a truth table?</li>
-                                        </ul>
-                                    </li>
-                                    <li>Binary / bit (binary digit)
-                                        <ul class="condensed">
-                                            <li>Counting in Binary
-                                                <ul class="condensed">
-                                                    <li>Just like in base10, once you fill up your column, you must move
-                                                        into
-                                                        next
-                                                        <pre>
-        0
-        1
-        2
-        3
-        4
-        5
-        6
-        7
-        8
-        9
-        10
-    
-        Is the same as:
-        00
-        01
-        02
-        03
-        04
-        05
-        06
-        07
-        08
-        09
-        10 &lt;-- The 9 rolls back to a 0 but we increment the next column and we get 10 (1,0 base<sup>10</sup>)!
-        
-        In Binary:
-        00
-        01 
-        10 &lt;-- The 1 rolls back to a 0 but we increment the next column and we get 1,0 base<sup>2</sup>
-        11
-       100 &lt;-- The 1 rolls back to a 0 but we increment the next column and we get 1,0,0 base<sup>2</sup>
-       101
-                                                    </pre>
-    
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li>Multiples of bits</li>
-                                            <ul class="condensed">
-                                                <li>BIT == [0,1]</li>
-                                                <li>BYTE == 8 bits == 256 characters
-                                                    (&#9634;&#9634;&#9634;&#9634;&#9634;&#9634;&#9634;&#9634; ==
-                                                    2<sup>8</sup>
-                                                    == 256)
-                                                </li>
-                                                <li>KILOBYTE == 1,000 bytes</li>
-                                                <li>MEGABYTE == 1,000,000 bytes</li>
-                                                <li>GIGABYTE == 1,000,000,000 bytes</li>
-                                                <li>TERABYTE == 1,000,000,000,000 bytes</li>
-                                                <li>PETABYTE == 1,000,000,000,000,000 bytes</li>
-                                                <li>EXABYTE &nbsp;== 1,000,000,000,000,000,000 bytes. An exabyte could fit 1
-                                                    million terabytes of data. That's about the same as the volume ratio of
-                                                    the
-                                                    sun to the earth.</li>
-                                            </ul>
-                                        </ul>
-                                    </li>
-                                    <li>BASE10 Columns
-                                        <ul class="condensed">
-                                            <li>1 column: 0-9 (10 different numbers, i.e. 10<sup>1</sup>)</li>
-                                            <li>2 columns: 0-99 (10<sup>2</sup>)</li>
-                                            <li>3 columns: 0-999 (10<sup>3</sup>)</li>
-                                        </ul>
-                                    </li>
-                                    <li>BINARY Columns (2<sup>0</sup> = 1, 2<sup>1</sup> = 2, 2<sup>2</sup> = 4,
-                                        2<sup>3</sup> =
-                                        8, 2<sup>4</sup> = 16, and so forth)
-                                        <ul class="condensed">
-                                            <li>1 column (ones)</li>
-                                            <li>2 column (twos)</li>
-                                            <li>3 column (fours)</li>
-                                        </ul>
-                                    </li>
-                                    <li>BASE16 Columns (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F)
-                                        <ul class="condensed">
-                                            <li>1 column (ones)</li>
-                                            <li>2 column (twos)</li>
-                                            <li>3 column (fours)</li>
-                                        </ul>
-                                    </li>
-                                    <li>BASE 16 example
-                                        <pre>
-        0x1        ==        1
-        0xF        ==        15
-        0xFF       ==        255
-        0xFFF      ==        4095
-        0x1000     ==        4096
-                                    </pre>
-                                    </li>
-                                    <li>HTML Color code: #FF0000 == Red value is maxed out at FF (255), while the Green and
-                                        Blue
-                                        values are 0.
-                                        <ul class="condensed">
-                                            <li>From that, it can be deduced:
-                                                <ul class="condensed">GREEN == #00FF00;</ul>
-                                                <ul class="condensed">BLUE == #0000FF;</ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        Binary Algebra - Boolean Algebra is a formal method for performing operations on
-                                        binary values.
-                                        <ul class="condensed">
-                                            <li>Operators</li>
-                                            <ol>
-                                                <li>&#x2227; - AND (&amp;#x2227)</li>
-                                                <li>&#x2228; - OR (&amp;#x2228)</li>
-                                                <li>&#xac; - NOT (&amp;#xac;) - Turn any Boolean value into its opposite
-                                                    counterpart
-                                                </li>
-                                            </ol>
-                                            <li>Examples
-                                                <pre>
-                0 &#x2227; 0 = 0 (False &#x2227; False = False)
-                0 &#x2227; 1 = 0 (False &#x2227; True = False)
-                1 &#x2227; 0 = 0 (True &#x2227; False = False)
-                1 &#x2227; 1 = 1 (True &#x2227; True = True)
-                0 &#x2228; 0 = 0 (False &#x2228; False = False)
-                0 &#x2228; 1 = 1 (False &#x2228; True = True)
-                1 &#x2228; 0 = 1 (True &#x2228; False = True)
-                1 &#x2228; 1 = 1 (True &#x2228; True = True)
-                &#xac;0 = 1 (Not 0 is True)
-                &#xac;1 = 0 (Not 1 is False)
-                &#xac;False = True (Not False is True)
-                &#xac;True = False (Not True is False)
-                &#xac;Off = On (Not off is True)
-                &#xac;On = Off (Not On is False)
-                                            </pre>
-                                            </li>
-                                            <li>&quot;3 &lt; 2&quot; &#x2228; &quot;5 * 1 = 5&quot; == False &#x2228; True
-                                                == True</li>
-                                            <li>&quot; 'Oregon' has 6 letters&quot; &#x2227; &quot; 'tacocat' is 'tacocat'
-                                                backwards&quot; == True &#x2227; True == True</li>
-                                            <li>
-                                                <ul>
-                                                    <li>A = Blue Heeler is another name for an Australian Cattle Dog = True
-                                                        = 1</li>
-                                                    <li>B = Planet orbits are ellipses = True = 1</li>
-                                                    <li>C = Radio waves are a type of radiation = True = 1</li>
-                                                    <li>D = Bicycles have three wheels = False = 0</li>
-                                                    <li>Expressions
-                                                        <ol>
-                                                            <li>(A &#x2228; &#xac;B) &#x2228; (&#xac;C &#x2228; D) = True =
-                                                                1
-                                                                <ul>
-                                                                    <li>(1 &#x2228; 0) &#x2228; (0 &#x2228; 0)</li>
-                                                                    <li>1 &#x2228; 0</li>
-                                                                    <li>= 1</li>
-                                                                </ul>
-                                                            </li>
-                                                            <li>(A &#x2227; &#xac;B) &#x2227; (&#xac;C &#x2227; &#xac;D) =
-                                                                False = 0
-                                                                <ul>
-                                                                    <li>(1 &#x2227; 0) &#x2227; (0 &#x2228; 1)</li>
-                                                                    <li>1 &#x2227; 0</li>
-                                                                    <li>= 0</li>
-                                                                </ul>
-                                                            </li>
-                                                        </ol>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        Truth Tables - Truth Tables are a way of visualizing every possible scenario for a
-                                        given number
-                                        of Boolean inputs. How do we get all of the possible combinations of input values?
-                                        The easiest
-                                        way is to simply count in binary.
-                                        <br><br>NOT &#xac;<table mat-table>
-                                            <tr>
-                                                <th>A</th>
-                                                <th>&#xac;A</th>
-                                            </tr>
-                                            <tr>
-                                                <td>0</td>
-                                                <td>&#xac;0=1</td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>&#xac;1=0</td>
-                                            </tr>
-                                        </table><br>
-                                        All this table says is, &quot;If A is 0, &#xac;A is 1. If A is 1, &#xac;A is
-                                        0&quot;. Since A is
-                                        the only input here and A only has two possible values, we only need to have two
-                                        rows to show
-                                        all possible contingencies. We can assign any statement to the variable A and solve,
-                                        e.g.<br>
-                                        A = Clark Kent is Superman<br><br>
-    
-                                        Solve as:
-                                        &#xac;A = &#xac;True = False
-    
-                                        <br><br>
-                                        <table mat-table>
-                                            <tr>
-                                                <th>A</th>
-                                                <th>B</th>
-                                                <th>A&#x2227;B</th>
-                                            </tr>
-                                            <tr>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>0&#x2227;0=0</td>
-                                            </tr>
-                                            <tr>
-                                                <td>0</td>
-                                                <td>1</td>
-                                                <td>0&#x2227;1=0</td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>0</td>
-                                                <td>1&#x2227;0=0</td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1&#x2227;1=1</td>
-                                            </tr>
-                                        </table><br>
-                                        A = Dogs are canines<br>
-                                        B = Cats are canines<br>
-                                        Since A in this instance is True and B is False, when we substitute the values back
-                                        into the
-                                        expression we get<br>
-                                        Solve as:
-                                        A &#x2227; B = 1 &#x2227; 0 = 0
-                                    </li>
-                                    <li>Idempotent Law (pronounced "eye-dem-POHtent") - This basically means that any input
-                                        "ANDed" or
-                                        "ORed" with itself is equal to itself. i.e.
-                                        0&#x2227;0=0,
-                                        1&#x2227;1=1,
-                                        0&#x2228;0=0,
-                                        1&#x2228;1=1
-                                    </li>
-                                    <li>Identity Law - This law says that any input ANDed with False will be False, and any
-                                        input ANDed
-                                        with
-                                        True will be equal to itself.
-                                        A&#x2227;0=0
-                                        A&#x2227;1=A
-                                    </li>
-                                    <li>Complement Law - This law states that anything ANDed with its own complement (i.e.
-                                        its negated
-                                        self)
-                                        is False, and anything ORed with its complement is True. In other words, any
-                                        statement which has
-                                        the
-                                        same input as both simultaneously True and False must be False (which should make
-                                        intuitive
-                                        sense,
-                                        since it's impossible). And any statement which says that an input is either True or
-                                        False is
-                                        True
-                                        (since, in a Boolean expression, that's all any input can be, meaning it's redundant
-                                        to state
-                                        it).
-                                    </li>
-                                    <li>Involution Law - Any input negated twice (or any even number of times, in fact) is
-                                        equivalent to
-                                        the
-                                        original input.
-                                    </li>
-                                    <li>Commutative Law - This law basically means that the order of operands doesn't change
-                                        the
-                                        expression,
-                                        as long as the operators are the same.
-                                    </li>
-                                    <li>Associative Law - This law allows you to combine operands in different groupings as
-                                        long as all
-                                        the
-                                        operators are the same.
-                                    </li>
-                                    <li>Distributive Law
-                                    </li>
-                                    <li>Absorption and Redundancy - These involve a bit of "hand-waving" at this level,
-                                        because we
-                                        aren't
-                                        going to explain why these equivalencies are true. (If you take discrete math
-                                        classes in the
-                                        future
-                                        then you'll learn more about them, and I certainly would encourage you to think
-                                        through them,
-                                        but we
-                                        won't try to prove any of them in this class.) For now you can think of them as
-                                        "cheats" that
-                                        you
-                                        can use to simplify expressions when you recognize them.<br>
-                                        A &#x2228; (A &#x2227; B) = A<br>
-                                        A &#x2227; (A &#x2228; B) = A<br>
-                                        (A &#x2227; B) &#x2228; (A &#x2227; B) = A<br>
-                                        (A &#x2228; B) (A &#x2228; B) = A<br>
-                                        A &#x2228; (A &#x2227; B) = A &#x2228; B <br>
-                                        A &#x2227; (A &#x2228; B) = A &#x2227; B
-                                    </li>
-                                </ol>
-                            </li>
-                            <li>Logic
-                                <ul class="condensed">
-                                    <li>Learning Outcomes:
-                                        <ul>
-                                            <li>Classify examples of inductive and deductive reasoning
-                                                <ul>
-                                                    <li>What is the difference between inductive and deductive reasoning?
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li>Recognize logic gate symbols and solve them as functions given Boolean
-                                                inputs.
-                                                <ul>
-                                                    <li>Which Boolean Algebra operators correspond with which logic gates?
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li>Substitute truth values of statements into variables
-                                                <ul>
-                                                    <li>How do I use substitution to compute the output of a logic gate with
-                                                        variable
-                                                        inputs?</li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                Combine logic gates to form circuits and verify the circuit via truth tables
-                                                and
-                                                tracing.
-                                                <ul>
-                                                    <li>How do I model complex statements using logic gates?</li>
-                                                    <li>How can I verify that a circuit emulates a specific expression
-                                                        correctly?</li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li> A Python function that calls the gates provided in the Python exploration in
-                                        the
-                                        section "Logic Gates as Functions". (You can copy the modifications you made to
-                                        the
-                                        Snippet code and paste it into the discussion).
-                                        <h4>Output Q is False when exactly 2 of the 3 inputs are True (and True
-                                            otherwise.)</h4>
-                                        <div class="code">
-                                            <pre>
-                        def gate_and(input1, input2):
-                            """ an AND gate (input1 ^ input2) """  
-                            gate1 = input1 and input2
-                            return bool(gate1)
-                    
-                                        
-                        def gate_or(input1, input2):
-                            """ an OR gate (input1 v input2) """
-                            gate1 = input1 or input2
-                            return bool(gate1)                          
-                    
-                    
-                        def gate_xor(input1, input2):
-                            """ an XOR gate ( (input1 ^ -input2) v (-input1 ^ input2)) """
-                            gate1 = input1 and not input2
-                            gate2 = input2 and not input1
-                            return bool(gate1 or gate2)                     
-                    
-                    
-                        def gate_nand(input1, input2):
-                            """ a NAND gate (-(input1 ^ input2)) """
-                            gate1 = not(input1 and input2)
-                            return bool(gate1)
-                    
-                                                            
-                        def gate_nor(input1, input2):
-                            """ a NOR gate (-(input1 v input2)) """
-                            gate1 = not(input1 or input2)
-                            return bool(gate1)
-                    
-                                                            
-                        def gate_not(input1):
-                            """ a NOT gate (-input1) """
-                            return bool(not input1)
-                    
-                    
-                        def CheckInput(A, B, C):
-                            """~((A ^ B ^ ~C) v (A ^ C ^ ~B) v (B ^ C ^ ~A))"""
-                            gate1 = gate_and(gate_and(A, B), gate_not(C))
-                            gate2 = gate_and(gate_and(A, C), gate_not(B))
-                            gate3 = gate_and(gate_and(B, C), gate_not(A))
-                            gate4 = gate_or(gate1, gate_or(gate2, gate3))
-                            gate5 = gate_not(gate4)
-                    
-                            return gate5
-                    
-                        print(CheckInput(True, True, True))
-                        print(CheckInput(False, False, False))
-                        print(CheckInput(True, False, True))
-                        print(CheckInput(True, True, False))
-                        print(CheckInput(False, True, True))
-                                                </pre>
-                                        </div>
-                                    </li>
-                                    <li>Create a Truth Table for this expression:
-                                        <h4>A &#x2227; &#xac;(B &#x2227; C)</h4>
-                                        <table>
-                                            <tr>
-                                                <th>A</th>
-                                                <th>B</th>
-                                                <th>C</th>
-                                                <th>Expected</th>
-                                                <th>Actual</th>
-                                                <th>A &#x2227; &#xac;(B &#x2227; C)</th>
-                                            </tr>
-                                            <tr>
-                                                <td>True</td>
-                                                <td>True</td>
-                                                <td>True</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>True &#x2227; &#xac;(True &#x2227; True) = 0</td>
-                                            </tr>
-                                            <tr>
-                                                <td>False</td>
-                                                <td>False</td>
-                                                <td>False</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>False &#x2227; &#xac;(False &#x2227; False) = 0</td>
-                                            </tr>
-                                            <tr>
-                                                <td>True</td>
-                                                <td>True</td>
-                                                <td>False</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>True &#x2227; &#xac;(True &#x2227; False) = 1</td>
-                                            </tr>
-                                            <tr>
-                                                <td>True</td>
-                                                <td>False</td>
-                                                <td>True</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>True &#x2227; &#xac;(False &#x2227; False) = 1</td>
-                                            </tr>
-                                            <tr>
-                                                <td>False</td>
-                                                <td>True</td>
-                                                <td>True</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>False &#x2227; &#xac;(True &#x2227; True) = 0</td>
-                                            </tr>
-                                            <tr>
-                                                <td>True</td>
-                                                <td>False</td>
-                                                <td>False</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>True &#x2227; &#xac;(False &#x2227; False) = 1</td>
-                                            </tr>
-                                            <tr>
-                                                <td>False</td>
-                                                <td>False</td>
-                                                <td>True</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>False &#x2227; &#xac;(False &#x2227; True) = 0</td>
-                                            </tr>
-                                            <tr>
-                                                <td>False</td>
-                                                <td>True</td>
-                                                <td>False</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>False &#x2227; &#xac;(True &#x2227; False) = 0</td>
-                                            </tr>
-                                        </table>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                Emulate a circuit that takes in 4 inputs (A, B, C, D) and whose output Q is True only when
-                                exactly 1 of the 4 inputs is False.
-                                <img src="assets/images/engr102-circuit.png" />
-                            </li>
-                            <li>
-                                <h4>Hardware</h4>
-                                <ul class="condensed">
-                                    <li>
-                                        Moore's law - The number of transistors on a microchip doubles every two years.
-                                    </li>
-                                    <li>CPU
-                                        <ul>
-                                            <li>MIPS: Millions of Instructions Per Second</li>
-                                            <li>FLOPS: FLoating point Operations Per Second. Current record is 1.1. exaFLOPs
-                                                (1.1. quitillion FLOPS)</li>
-                                        </ul>
-                                    </li>
-                                    <li>Transitor
-                                        <ul>
-                                            <li>Intel makes a 14 naometer-wide microprocessor transistors. Six million of
-                                                them would fix in the period at the end of this sentence.</li>
-                                        </ul>
-                                    </li>
-                                    <li>RAM
-                                        <ul>
-                                            <li>is volatile</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                Languages
-                                <ul>
-                                    <li>Python is an example of an interpreted language. If you were to write a program in
-                                        Python, you would not need to compile it. Instead, you would run the source code
-                                        through an interpreter, which would read the code line by line and execute it. If
-                                        there were syntax errors in the code, they would interrupt the execution process and
-                                        your program would not run.</li>
-                                    <li>C++ is an example of a compiled language. If you were to write a program in C++, you
-                                        would need to use a compiler to compile that source code into machine code. The
-                                        compiled code, called an object file, would be linked with other object files in the
-                                        C++ library, and those files together would be made into an executable file. This
-                                        whole process is called building an executable. If there were syntax errors in the
-                                        code, they would interrupt the compilation process and your program would not be
-                                        made into an object file. If the build succeeded, you could then run the executable
-                                        file.</li>
-                                </ul>
-                                <h4>Low and High Level Languages (from high to low)</h4>
-                                <ol class="condensed">
-                                    <li>English</li>
-                                    <li>Pseudocode</li>
-                                    <li>Python, C#, C++</li>
-                                    <li>Rust</li>
-                                    <li>Assembly
-    
-                                        <div class="code">
-                                            <pre>
-        MOV AL, 1h        ; Load AL with immediate value 1
-        MOV CL, 2h        ; Load CL with immediate value 2
-        MOV DL, 3h        ; Load DL with immediate value 3
-        MOV EAX, [EBX]	  ; Move the 4 bytes in memory at the address contained in EBX into EAX
-        MOV [ESI+EAX], CL ; Move the contents of CL into the byte at address ESI+EAX
-        MOV DS, DX        ; Move the contents of DX into segment register DS
-                                                    </pre>
-                                        </div>
-    
-                                    </li>
-                                    <li>Binary</li>
-                                </ol>
-                            </li>
-                        </ul>
-                    </div>
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">ENGR-102</h1>
+        </mat-card-title>
+        <mat-card-subtitle>
+            <h3>Design Engineering and Problem Solving</h3>
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                <div>
+                    <h3>Definitions</h3>
+                    <dl>
+                        <dt>Inductive Reasoning</dt>
+                        <dd>Inductive inferences start with observations and arrive and
+                            general conclusions. E.g. Every time I wear blue shoes, people are nicer to me.</dd>
+                        <dt>Deductive Reasoning</dt>
+                        <dd>Deductive inferences do the reverse. They start with general
+                            knowledge and predict a specific observation. For example, If I know a computer
+                            needs
+                            power to turn on, I can deduce it will not work without power.</dd>
+                        <dt>Scientific Method</dt>
+                        <dd>Using systematic reasoning. The real purpose of scientific method is to make sure Nature
+                            hasn't
+                            misled you into thinking you know something you don't actually know. The main skill is in
+                            stating absolutely no more than you are positive you
+                            know.<br><br>
+                            E.g. a log broken down into six
+                            categories:
+                            <ol class="condensed">
+                                <li>statement of the problem</li>
+                                <li>hypotheses as to the cause of the problem</li>
+                                <li>experiments designed to test each hypothesis</li>
+                                <li>predicted results of the
+                                    experiments</li>
+                                <li>observed results of the experiments</li>
+                                <li>conclusions from the results of the
+                                    experiments</li>
+                            </ol>
+                        </dd>
+                        <dt>Verification</dt>
+                        <dd>A process that confirms that the product or service meets the original requirements</dd>
+                        <dt>Validation</dt>
+                        <dd>Determines whether or not it works</dd>
+                        <dt>Pseudocode</dt>
+                        <dd>To convey an algorithm using fake but easily understood code</dd>
+                        <dt>Usability</dt>
+                        <dd>How quickly a user can reach their goal with a product</dd>
+                        <dt>Discoverability</dt>
+                        <dd>How an affordance is conveyed to the user</dd>
+                        <dt>Flowchart</dt>
+                        <dd>Convey algorithm grpahically
+                            <ul class="condensed">
+                                <li>Start/Stop - Oval</li>
+                                <li>Proceed to next step - Arrow</li>
+                                <li>Perform Computation - Rectangle</li>
+                                <li>Get Input - Skewed Rectangle</li>
+                                <li>Conditional - Diamond</li>
+                            </ul>
+                        </dd>
+                    </dl>
                 </div>
-                <div><app-comment></app-comment></div>
+                <div>
+                    <h3>Quotes re:a great software engineer</h3>
+                    <ul>
+                        <li>Top Traits:<br> Pays attention to coding details, such as error handling, memory,
+                            performance, style<br>
+                            Must Mentally capable of handling complexity; can comprehend multiple interacting
+                            software components<br>Must Continuously improving: improves themselves, their product, or
+                            their surroundings</li>
+                        <li>Great engineers distinguished themselves by making others’ jobs easier, helping
+                            them to make their decisions more efficiently (or, at minimum, they did not make them
+                            worse).</li>
+                        <li class="quote">That is something that can't be taught. I think it's something a person just
+                            has to
+                            have [...] They don't need any outside motivation. They just go [...] They have just
+                            an inner desire to succeed, and I don't know why. It's not necessarily for the money,
+                            it's not necessarily for the recognition. It's just that whatever it is they do, they want
+                            to do it extremely well [...] I've seen a lot of smart people that have none of these
+                            characteristics [...] — Principal Dev Lead<br>
+                            <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
+                                Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
+                                (1), p.322-352</span>
+                        </li>
+                        <li class="quote">The way [this great software engineer] just kind of touches people, just
+                            dissolves
+                            conflicts right there [...] that magic to make people respect him. That’s fun magic, I
+                            think that not everyone possesses. — Senior SDE<br>
+                            <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
+                                Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
+                                (1), p.322-352</span>
+                        </li>
+                        <li class="quote">The style [...] always, an idea, and it was all clean [...] very concise. Just
+                            looking at it,
+                            you can say, “Okay, this guy, he knew what he was doing.” [...] There’s no extra stuff.
+                            Everything is minimally necessary and sufficient as it should be. It’s well thought out
+                            off screen. — Senior SDE<br>
+                            <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
+                                Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
+                                (1), p.322-352</span>
+                        </li>
+                        <li class="quote">Another strong driver is the respect of our peers, which you won’t get by
+                            writing
+                            shoddy code [...] — Principal SDE<br>
+                            <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
+                                Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
+                                (1), p.322-352</span>
+                        </li>
+                        <li class="quote">This code is performance critical, compatibility sensitive, and is used in a
+                            huge variety
+                            of contexts. If a developer fails to handle an error, some customer will hit it, and we
+                            will likely need to issue a hotfix; if a developer implements an inefficient algorithm
+                            (O(N2) is not ok) [...] consumes memory excessively in some environment [...]etc. —
+                            Principal SDE<br>
+                            <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
+                                Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
+                                (1), p.322-352</span>
+                        </li>
+                        <li class="quote">Most useful software has to be highly tolerant of incorrect usage by the user
+                            / caller
+                            above it, and interacting with the supporting code below it [...] Developers who cannot
+                            handle complexity tend to always be fixing bugs or having to do “another” release
+                            to take into account situations they had not thought of [...] — Principal SDE<br>
+                            <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
+                                Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
+                                (1), p.322-352</span>
+                        </li>
+                        <li class="quote">As the technology/technique evolves and better tools come along, the
+                            open-minded
+                            developer picks up on these and is willing to apply them to be more productive /
+                            effective [...] without an effort to continuously improve [...] developers will soon find
+                            themselves lagging behind the industry and/or state-of-the-art with technology and
+                            technique. — Principal SDE Lead<br>
+                            <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
+                                Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
+                                (1), p.322-352</span>
+                        </li>
+                        <li class="quote">Lying to yourself is much easier in my profession than in any other profession
+                            I know
+                            [...] It’s so easy to think that you know the topic and miss (subconsciously ignore)
+                            evidence that contradicts your “knowledge.” Great developer [...] simultaneously knows
+                            a lot and questions everything he knows. — Principal SDE<br>
+                            <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
+                                Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
+                                (1), p.322-352</span>
+                        </li>
+                        <li class="quote">This has happened to me any number of times [...] a team which had such a
+                            component
+                            would “lie” to me about its availability and maturity in order to get me to be a user
+                            and justify their own existence to management [...] — Principal<br>
+                            <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
+                                Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
+                                (1), p.322-352</span>
+                        </li>
+                        <li class="quote">For the hardworking attribute, informants believe that needing to
+                            work more than an 8-hour day may be indicative of poor planning or unsustainable software
+                            engineering practices:<br>
+                            [...] workload for a developer is a function of management and planning happening
+                            above that developer. Usually long working hours are needed, because the planning
+                            was not good, the decisions made during the project lifecycle were bad, the change
+                            management wasn’t “agile” enough. — SDE2<br>
+                            <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
+                                Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
+                                (1), p.322-352</span>
+                        </li>
+                        <li class="quote">[...] that feels like imposing your will on someone else [...] other devs
+                            pushing their
+                            ideas through by controlling the conversation or talking over other people give me
+                            a negative gut reaction to that particular attribute. Ideas should stand on their own
+                            merits, not on how well / how strongly they’re sold. — Senior SDE<br>
+                            <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
+                                Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
+                                (1), p.322-352</span>
+                        </li>
+                        <li class="quote">Our evaluation system(s) have always emphasized developers that deliver on the
+                            organizational goals of the company [...] more experienced developers are likely to
+                            understand, that alignment with the company goals delivers greater rewards. —
+                            Principal SDE Manager<br>
+                            <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
+                                Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
+                                (1), p.322-352</span>
+                        </li>
+                        <li class="quote">20 years of experience managing engineers in startups and big companies alike
+                            [...]
+                            No matter how talented, sharp minded and skillful one is, if they are not hardworking
+                            (i.e. willing to work long hours to meet deadlines / deliverables) they will not succeed
+                            [...] — Partner SDE Lead<br>
+                            <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
+                                Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
+                                (1), p.322-352</span>
+                        </li>
+                        <li class="quote">Knowledgeable" and "Informed" only come from experience. This is all about
+                            breadth and exposure to lots of situations that let you generalize to new ones [...] you
+                            learn to be less confident that you immediately know the best answer to a problem.
+                            You actually become more flexible and are willing to trade off among goals you might
+                            not even have considered earlier in your career [...] It takes a while for most people to
+                            really appreciate the big picture and to be able to make decisions based on a broader
+                            context [...] — Architect<br>
+                            <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
+                                Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
+                                (1), p.322-352</span>
+                        </li>
+                        <li class="quote">Nobody can stay at the top without “improving” because the next wave of
+                            technology
+                            will soon obsolete [sic] whatever was at the top. — Partner SDE
+                            <br>
+                            <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
+                                Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
+                                (1), p.322-352</span>
+                        </li>
+                        <li class="quote">You cannot be great if you are constantly re-inventing the wheel or using out
+                            of date
+                            tools/processes. — Senior SDE<br>
+                            <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
+                                Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
+                                (1), p.322-352</span>
+                        </li>
+                        <li class="quote">Good engineers MUST know the process of execution and follow it. Each
+                            project/product/team may have a different process, but a good engineer must be aware
+                            of it and follow it, or start a discussion if he/she thinks the process should be changed
+                            [...] — Senior SDE Lead<br>
+                            <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
+                                Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
+                                (1), p.322-352</span>
+                        </li>
+                        <li class="quote">Unlearning. That's like, the things that I used to do five years ago that make
+                            me
+                            successful don't matter anymore; in fact, they can get me into trouble right now [...] I
+                            start to get to a point where I would assess [an engineer's] ability to unlearn. After a
+                            while, like two thirds or three quarters of what you know is still valuable, quarter to
+                            a third is the wrong thing [...] — Technical Fellow<br>
+                            <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
+                                Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
+                                (1), p.322-352</span>
+                        </li>
+                        <li class="quote">A curiosity [...] how things work, why things work, the way they work, having
+                            that
+                            curiosity is probably a good trait that a good engineer would have. Wanting to tear
+                            something apart, figure out how it works, and understand the why’s. — Principal Dev
+                            Lead
+                            <br>
+                            <span class="credit">What distinguishes great software engineers? Paul Luo Li, Amy J. Ko,
+                                Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
+                                (1), p.322-352</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Notes</h3>
+                    <ul>
+                        <li>
+                            <ul>
+                                <li class="condensed">The Design Process
+                                    <ol>
+                                        <li>For whom are you designing?</li>
+                                        <li>What do they care about?</li>
+                                        <li>What constrains this design space?</li>
+                                        <li>What are some potential solutions?</li>
+                                        <li>Which solution best meets stakeholder needs and constraints?</li>
+                                        <li>How can I best communicate my solution?</li>
+                                        <li>How effective is the solution?</li>
+                                    </ol>
+                                </li>
+                                <li class="condensed">Breaking Down Complex Problems. Create an outline that lists:
+                                    <ol>
+                                        <li>Identifying requirements</li>
+                                        <li>The steps needed to meed those requirements</li>
+                                    </ol>
+                                </li>
+                                <li>Algoithms - Algorithms are abstracted procedures. Any sequence of steps leading to a
+                                    specific outcome can be considered an algorithm.</li>
+                            </ul>
+                        </li>
+                        <li>Data
+                            <ol class="condensed">
+                                <li>Describe how data is stored by computers
+                                    <ul class="condensed">
+                                        <li>How does the base 2 numeral system work?</li>
+                                        <li>How do I count in binary?</li>
+                                        <li>How can I convert numbers between bases?</li>
+                                        <li>What tradeoffs are furnished by the choice of number base when representing
+                                            information?</li>
+                                    </ul>
+                                </li>
+                                <li>Represent statements using Boolean Algebra and Truth Tables
+                                    <ul class="condensed">
+                                        <li>What are the basic Boolean operators?</li>
+                                        <li>How do I build a truth table for a given number of inputs to match a
+                                            high-level
+                                            description?</li>
+                                        <li>How do I compose a Boolean expression from a truth table?</li>
+                                    </ul>
+                                </li>
+                                <li>Binary / bit (binary digit)
+                                    <ul class="condensed">
+                                        <li>Counting in Binary
+                                            <ul class="condensed">
+                                                <li>Just like in base10, once you fill up your column, you must move
+                                                    into
+                                                    next
+                                            <pre>
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+Is the same as:
+00
+01
+02
+03
+04
+05
+06
+07
+08
+09
+10 &lt;-- The 9 rolls back to a 0 but we increment the next column and we get 10 (1,0 base<sup>10</sup>)!
+
+In Binary:
+00
+01 
+10 &lt;-- The 1 rolls back to a 0 but we increment the next column and we get 1,0 base<sup>2</sup>
+11
+100 &lt;-- The 1 rolls back to a 0 but we increment the next column and we get 1,0,0 base<sup>2</sup>
+101
+                                            </pre>
+
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>Multiples of bits</li>
+                                        <ul class="condensed">
+                                            <li>BIT == [0,1]</li>
+                                            <li>BYTE == 8 bits == 256 characters
+                                                (&#9634;&#9634;&#9634;&#9634;&#9634;&#9634;&#9634;&#9634; ==
+                                                2<sup>8</sup>
+                                                == 256)
+                                            </li>
+                                            <li>KILOBYTE == 1,000 bytes</li>
+                                            <li>MEGABYTE == 1,000,000 bytes</li>
+                                            <li>GIGABYTE == 1,000,000,000 bytes</li>
+                                            <li>TERABYTE == 1,000,000,000,000 bytes</li>
+                                            <li>PETABYTE == 1,000,000,000,000,000 bytes</li>
+                                            <li>EXABYTE &nbsp;== 1,000,000,000,000,000,000 bytes. An exabyte could fit 1
+                                                million terabytes of data. That's about the same as the volume ratio of
+                                                the
+                                                sun to the earth.</li>
+                                        </ul>
+                                    </ul>
+                                </li>
+                                <li>BASE10 Columns
+                                    <ul class="condensed">
+                                        <li>1 column: 0-9 (10 different numbers, i.e. 10<sup>1</sup>)</li>
+                                        <li>2 columns: 0-99 (10<sup>2</sup>)</li>
+                                        <li>3 columns: 0-999 (10<sup>3</sup>)</li>
+                                    </ul>
+                                </li>
+                                <li>BINARY Columns (2<sup>0</sup> = 1, 2<sup>1</sup> = 2, 2<sup>2</sup> = 4,
+                                    2<sup>3</sup> =
+                                    8, 2<sup>4</sup> = 16, and so forth)
+                                    <ul class="condensed">
+                                        <li>1 column (ones)</li>
+                                        <li>2 column (twos)</li>
+                                        <li>3 column (fours)</li>
+                                    </ul>
+                                </li>
+                                <li>BASE16 Columns (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F)
+                                    <ul class="condensed">
+                                        <li>1 column (ones)</li>
+                                        <li>2 column (twos)</li>
+                                        <li>3 column (fours)</li>
+                                    </ul>
+                                </li>
+                                <li>BASE 16 example
+                            <pre>
+0x1        ==        1
+0xF        ==        15
+0xFF       ==        255
+0xFFF      ==        4095
+0x1000     ==        4096
+                            </pre>
+                                </li>
+                                <li>HTML Color code: #FF0000 == Red value is maxed out at FF (255), while the Green and
+                                    Blue
+                                    values are 0.
+                                    <ul class="condensed">
+                                        <li>From that, it can be deduced:
+                                            <ul class="condensed">GREEN == #00FF00;</ul>
+                                            <ul class="condensed">BLUE == #0000FF;</ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    Binary Algebra - Boolean Algebra is a formal method for performing operations on
+                                    binary values.
+                                    <ul class="condensed">
+                                        <li>Operators</li>
+                                        <ol>
+                                            <li>&#x2227; - AND (&amp;#x2227)</li>
+                                            <li>&#x2228; - OR (&amp;#x2228)</li>
+                                            <li>&#xac; - NOT (&amp;#xac;) - Turn any Boolean value into its opposite
+                                                counterpart
+                                            </li>
+                                        </ol>
+                                        <li>Examples
+                            <pre>
+0 &#x2227; 0 = 0 (False &#x2227; False = False)
+0 &#x2227; 1 = 0 (False &#x2227; True = False)
+1 &#x2227; 0 = 0 (True &#x2227; False = False)
+1 &#x2227; 1 = 1 (True &#x2227; True = True)
+0 &#x2228; 0 = 0 (False &#x2228; False = False)
+0 &#x2228; 1 = 1 (False &#x2228; True = True)
+1 &#x2228; 0 = 1 (True &#x2228; False = True)
+1 &#x2228; 1 = 1 (True &#x2228; True = True)
+&#xac;0 = 1 (Not 0 is True)
+&#xac;1 = 0 (Not 1 is False)
+&#xac;False = True (Not False is True)
+&#xac;True = False (Not True is False)
+&#xac;Off = On (Not off is True)
+&#xac;On = Off (Not On is False)
+                            </pre>
+                                        </li>
+                                        <li>&quot;3 &lt; 2&quot; &#x2228; &quot;5 * 1 = 5&quot; == False &#x2228; True
+                                            == True</li>
+                                        <li>&quot; 'Oregon' has 6 letters&quot; &#x2227; &quot; 'tacocat' is 'tacocat'
+                                            backwards&quot; == True &#x2227; True == True</li>
+                                        <li>
+                                            <ul>
+                                                <li>A = Blue Heeler is another name for an Australian Cattle Dog = True
+                                                    = 1</li>
+                                                <li>B = Planet orbits are ellipses = True = 1</li>
+                                                <li>C = Radio waves are a type of radiation = True = 1</li>
+                                                <li>D = Bicycles have three wheels = False = 0</li>
+                                                <li>Expressions
+                                                    <ol>
+                                                        <li>(A &#x2228; &#xac;B) &#x2228; (&#xac;C &#x2228; D) = True =
+                                                            1
+                                                            <ul>
+                                                                <li>(1 &#x2228; 0) &#x2228; (0 &#x2228; 0)</li>
+                                                                <li>1 &#x2228; 0</li>
+                                                                <li>= 1</li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>(A &#x2227; &#xac;B) &#x2227; (&#xac;C &#x2227; &#xac;D) =
+                                                            False = 0
+                                                            <ul>
+                                                                <li>(1 &#x2227; 0) &#x2227; (0 &#x2228; 1)</li>
+                                                                <li>1 &#x2227; 0</li>
+                                                                <li>= 0</li>
+                                                            </ul>
+                                                        </li>
+                                                    </ol>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    Truth Tables - Truth Tables are a way of visualizing every possible scenario for a
+                                    given number
+                                    of Boolean inputs. How do we get all of the possible combinations of input values?
+                                    The easiest
+                                    way is to simply count in binary.
+                                    <br><br>NOT &#xac;<table mat-table>
+                                        <tr>
+                                            <th>A</th>
+                                            <th>&#xac;A</th>
+                                        </tr>
+                                        <tr>
+                                            <td>0</td>
+                                            <td>&#xac;0=1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>&#xac;1=0</td>
+                                        </tr>
+                                    </table><br>
+                                    All this table says is, &quot;If A is 0, &#xac;A is 1. If A is 1, &#xac;A is
+                                    0&quot;. Since A is
+                                    the only input here and A only has two possible values, we only need to have two
+                                    rows to show
+                                    all possible contingencies. We can assign any statement to the variable A and solve,
+                                    e.g.<br>
+                                    A = Clark Kent is Superman<br><br>
+
+                                    Solve as:
+                                    &#xac;A = &#xac;True = False
+
+                                    <br><br>
+                                    <table mat-table>
+                                        <tr>
+                                            <th>A</th>
+                                            <th>B</th>
+                                            <th>A&#x2227;B</th>
+                                        </tr>
+                                        <tr>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>0&#x2227;0=0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>0</td>
+                                            <td>1</td>
+                                            <td>0&#x2227;1=0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>0</td>
+                                            <td>1&#x2227;0=0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>1&#x2227;1=1</td>
+                                        </tr>
+                                    </table><br>
+                                    A = Dogs are canines<br>
+                                    B = Cats are canines<br>
+                                    Since A in this instance is True and B is False, when we substitute the values back
+                                    into the
+                                    expression we get<br>
+                                    Solve as:
+                                    A &#x2227; B = 1 &#x2227; 0 = 0
+                                </li>
+                                <li>Idempotent Law (pronounced "eye-dem-POHtent") - This basically means that any input
+                                    "ANDed" or
+                                    "ORed" with itself is equal to itself. i.e.
+                                    0&#x2227;0=0,
+                                    1&#x2227;1=1,
+                                    0&#x2228;0=0,
+                                    1&#x2228;1=1
+                                </li>
+                                <li>Identity Law - This law says that any input ANDed with False will be False, and any
+                                    input ANDed
+                                    with
+                                    True will be equal to itself.
+                                    A&#x2227;0=0
+                                    A&#x2227;1=A
+                                </li>
+                                <li>Complement Law - This law states that anything ANDed with its own complement (i.e.
+                                    its negated
+                                    self)
+                                    is False, and anything ORed with its complement is True. In other words, any
+                                    statement which has
+                                    the
+                                    same input as both simultaneously True and False must be False (which should make
+                                    intuitive
+                                    sense,
+                                    since it's impossible). And any statement which says that an input is either True or
+                                    False is
+                                    True
+                                    (since, in a Boolean expression, that's all any input can be, meaning it's redundant
+                                    to state
+                                    it).
+                                </li>
+                                <li>Involution Law - Any input negated twice (or any even number of times, in fact) is
+                                    equivalent to
+                                    the
+                                    original input.
+                                </li>
+                                <li>Commutative Law - This law basically means that the order of operands doesn't change
+                                    the
+                                    expression,
+                                    as long as the operators are the same.
+                                </li>
+                                <li>Associative Law - This law allows you to combine operands in different groupings as
+                                    long as all
+                                    the
+                                    operators are the same.
+                                </li>
+                                <li>Distributive Law
+                                </li>
+                                <li>Absorption and Redundancy - These involve a bit of "hand-waving" at this level,
+                                    because we
+                                    aren't
+                                    going to explain why these equivalencies are true. (If you take discrete math
+                                    classes in the
+                                    future
+                                    then you'll learn more about them, and I certainly would encourage you to think
+                                    through them,
+                                    but we
+                                    won't try to prove any of them in this class.) For now you can think of them as
+                                    "cheats" that
+                                    you
+                                    can use to simplify expressions when you recognize them.<br>
+                                    A &#x2228; (A &#x2227; B) = A<br>
+                                    A &#x2227; (A &#x2228; B) = A<br>
+                                    (A &#x2227; B) &#x2228; (A &#x2227; B) = A<br>
+                                    (A &#x2228; B) (A &#x2228; B) = A<br>
+                                    A &#x2228; (A &#x2227; B) = A &#x2228; B <br>
+                                    A &#x2227; (A &#x2228; B) = A &#x2227; B
+                                </li>
+                            </ol>
+                        </li>
+                        <li>Logic
+                            <ul class="condensed">
+                                <li>Learning Outcomes:
+                                    <ul>
+                                        <li>Classify examples of inductive and deductive reasoning
+                                            <ul>
+                                                <li>What is the difference between inductive and deductive reasoning?
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>Recognize logic gate symbols and solve them as functions given Boolean
+                                            inputs.
+                                            <ul>
+                                                <li>Which Boolean Algebra operators correspond with which logic gates?
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>Substitute truth values of statements into variables
+                                            <ul>
+                                                <li>How do I use substitution to compute the output of a logic gate with
+                                                    variable
+                                                    inputs?</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            Combine logic gates to form circuits and verify the circuit via truth tables
+                                            and
+                                            tracing.
+                                            <ul>
+                                                <li>How do I model complex statements using logic gates?</li>
+                                                <li>How can I verify that a circuit emulates a specific expression
+                                                    correctly?</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li> A Python function that calls the gates provided in the Python exploration in
+                                    the
+                                    section "Logic Gates as Functions". (You can copy the modifications you made to
+                                    the
+                                    Snippet code and paste it into the discussion).
+                                    <h4>Output Q is False when exactly 2 of the 3 inputs are True (and True
+                                        otherwise.)</h4>
+                                    <div class="code">
+                <pre>
+def gate_and(input1, input2):
+    """ an AND gate (input1 ^ input2) """  
+    gate1 = input1 and input2
+    return bool(gate1)
+
+                
+def gate_or(input1, input2):
+    """ an OR gate (input1 v input2) """
+    gate1 = input1 or input2
+    return bool(gate1)                          
+
+
+def gate_xor(input1, input2):
+    """ an XOR gate ( (input1 ^ -input2) v (-input1 ^ input2)) """
+    gate1 = input1 and not input2
+    gate2 = input2 and not input1
+    return bool(gate1 or gate2)                     
+
+
+def gate_nand(input1, input2):
+    """ a NAND gate (-(input1 ^ input2)) """
+    gate1 = not(input1 and input2)
+    return bool(gate1)
+
+                                    
+def gate_nor(input1, input2):
+    """ a NOR gate (-(input1 v input2)) """
+    gate1 = not(input1 or input2)
+    return bool(gate1)
+
+                                    
+def gate_not(input1):
+    """ a NOT gate (-input1) """
+    return bool(not input1)
+
+
+def CheckInput(A, B, C):
+    """~((A ^ B ^ ~C) v (A ^ C ^ ~B) v (B ^ C ^ ~A))"""
+    gate1 = gate_and(gate_and(A, B), gate_not(C))
+    gate2 = gate_and(gate_and(A, C), gate_not(B))
+    gate3 = gate_and(gate_and(B, C), gate_not(A))
+    gate4 = gate_or(gate1, gate_or(gate2, gate3))
+    gate5 = gate_not(gate4)
+
+    return gate5
+
+print(CheckInput(True, True, True))
+print(CheckInput(False, False, False))
+print(CheckInput(True, False, True))
+print(CheckInput(True, True, False))
+print(CheckInput(False, True, True))
+                        </pre>
+                                    </div>
+                                </li>
+                                <li>Create a Truth Table for this expression:
+                                    <h4>A &#x2227; &#xac;(B &#x2227; C)</h4>
+                                    <table>
+                                        <tr>
+                                            <th>A</th>
+                                            <th>B</th>
+                                            <th>C</th>
+                                            <th>Expected</th>
+                                            <th>Actual</th>
+                                            <th>A &#x2227; &#xac;(B &#x2227; C)</th>
+                                        </tr>
+                                        <tr>
+                                            <td>True</td>
+                                            <td>True</td>
+                                            <td>True</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>True &#x2227; &#xac;(True &#x2227; True) = 0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>False</td>
+                                            <td>False</td>
+                                            <td>False</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>False &#x2227; &#xac;(False &#x2227; False) = 0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>True</td>
+                                            <td>True</td>
+                                            <td>False</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>True &#x2227; &#xac;(True &#x2227; False) = 1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>True</td>
+                                            <td>False</td>
+                                            <td>True</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>True &#x2227; &#xac;(False &#x2227; False) = 1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>False</td>
+                                            <td>True</td>
+                                            <td>True</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>False &#x2227; &#xac;(True &#x2227; True) = 0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>True</td>
+                                            <td>False</td>
+                                            <td>False</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>True &#x2227; &#xac;(False &#x2227; False) = 1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>False</td>
+                                            <td>False</td>
+                                            <td>True</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>False &#x2227; &#xac;(False &#x2227; True) = 0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>False</td>
+                                            <td>True</td>
+                                            <td>False</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>False &#x2227; &#xac;(True &#x2227; False) = 0</td>
+                                        </tr>
+                                    </table>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            Emulate a circuit that takes in 4 inputs (A, B, C, D) and whose output Q is True only when
+                            exactly 1 of the 4 inputs is False.
+                            <img src="assets/images/engr102-circuit.png" />
+                        </li>
+                        <li>
+                            <h4>Hardware</h4>
+                            <ul class="condensed">
+                                <li>
+                                    Moore's law - The number of transistors on a microchip doubles every two years.
+                                </li>
+                                <li>CPU
+                                    <ul>
+                                        <li>MIPS: Millions of Instructions Per Second</li>
+                                        <li>FLOPS: FLoating point Operations Per Second. Current record is 1.1. exaFLOPs
+                                            (1.1. quitillion FLOPS)</li>
+                                    </ul>
+                                </li>
+                                <li>Transitor
+                                    <ul>
+                                        <li>Intel makes a 14 naometer-wide microprocessor transistors. Six million of
+                                            them would fix in the period at the end of this sentence.</li>
+                                    </ul>
+                                </li>
+                                <li>RAM
+                                    <ul>
+                                        <li>is volatile</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            Languages
+                            <ul>
+                                <li>Python is an example of an interpreted language. If you were to write a program in
+                                    Python, you would not need to compile it. Instead, you would run the source code
+                                    through an interpreter, which would read the code line by line and execute it. If
+                                    there were syntax errors in the code, they would interrupt the execution process and
+                                    your program would not run.</li>
+                                <li>C++ is an example of a compiled language. If you were to write a program in C++, you
+                                    would need to use a compiler to compile that source code into machine code. The
+                                    compiled code, called an object file, would be linked with other object files in the
+                                    C++ library, and those files together would be made into an executable file. This
+                                    whole process is called building an executable. If there were syntax errors in the
+                                    code, they would interrupt the compilation process and your program would not be
+                                    made into an object file. If the build succeeded, you could then run the executable
+                                    file.</li>
+                            </ul>
+                            <h4>Low and High Level Languages (from high to low)</h4>
+                            <ol class="condensed">
+                                <li>English</li>
+                                <li>Pseudocode</li>
+                                <li>Python, C#, C++</li>
+                                <li>Rust</li>
+                                <li>Assembly
+
+                                    <div class="code">
+                                <pre>
+MOV AL, 1h        ; Load AL with immediate value 1
+MOV CL, 2h        ; Load CL with immediate value 2
+MOV DL, 3h        ; Load DL with immediate value 3
+MOV EAX, [EBX]	  ; Move the 4 bytes in memory at the address contained in EBX into EAX
+MOV [ESI+EAX], CL ; Move the contents of CL into the byte at address ESI+EAX
+MOV DS, DX        ; Move the contents of DX into segment register DS
+                                            </pre>
+                                    </div>
+
+                                </li>
+                                <li>Binary</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </mat-card-content>
-    </mat-card>
-</div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>

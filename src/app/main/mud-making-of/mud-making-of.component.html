@@ -1,4 +1,4 @@
-<mat-card class="card">
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
     <mat-card-header>
         <mat-card-title>
             <h1 data-testid="header-title">Making of NehsaMUD</h1>

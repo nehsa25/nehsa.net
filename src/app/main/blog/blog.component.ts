@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommentComponent } from '../../shared-components/comment/comment.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-blog',
@@ -11,5 +12,5 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './blog.component.scss'
 })
 export class BlogComponent {
-
+  constructor(public userService: UserService) { }
 }

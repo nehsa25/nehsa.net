@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommentComponent } from '../../shared-components/comment/comment.component';
 import { MatCardModule } from '@angular/material/card';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-ide',
@@ -10,5 +11,5 @@ import { MatCardModule } from '@angular/material/card';
   styleUrl: './ide.component.scss'
 })
 export class IdeComponent {
-
+  constructor(public userService: UserService) { }
 }

@@ -1,4 +1,4 @@
-<div class="welcome-container">
+<div class="welcome-container" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
     <div class="welcome-heading">Welcome!</div>
     <ul>
         <li>

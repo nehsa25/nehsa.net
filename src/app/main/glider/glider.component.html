@@ -1,171 +1,169 @@
-<div>
-    <mat-card class="card">
-        <mat-card-header>
-            <mat-card-title>
-                <h1 data-testid="header-title">Glider AI Test</h1>
-            </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <div class="commentgrid">
-                <div class="topics">
-                    <div>
-                        I've been invited to participate in an assessment for <span class="ass-name">NMLS Senior
-                            SDET</span> through a provider called &quot;<a
-                            href="https://glider.ai/">Glider</a>&quot;<br><br>
-                        I scored 35/100. :(<br><br>
-                        I have not used Java for more than a decade, and back then used Groovy more than Java. I'm not
-                        overly sad.
-                        <br><br>
-                        The coding challenge test was fun and I *nearly* had it.
-                        <div class="code">Given the words Samsung and Zebra, alter every even indexed character by
-                            increasing it's alphanumeric index by 3.<br>
-                            <span class="comment">e.g. Samsung should be Sdmvurg</span>
-                        </div>
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Glider AI Test</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                <div>
+                    I've been invited to participate in an assessment for <span class="ass-name">NMLS Senior
+                        SDET</span> through a provider called &quot;<a
+                        href="https://glider.ai/">Glider</a>&quot;<br><br>
+                    I scored 35/100. :(<br><br>
+                    I have not used Java for more than a decade, and back then used Groovy more than Java. I'm not
+                    overly sad.
+                    <br><br>
+                    The coding challenge test was fun and I *nearly* had it.
+                    <div class="code">Given the words Samsung and Zebra, alter every even indexed character by
+                        increasing it's alphanumeric index by 3.<br>
+                        <span class="comment">e.g. Samsung should be Sdmvurg</span>
+                    </div>
 
-                        <br>In my defense, I tried with Java
-                        first as that was the "preferred" language. I didn't get far
-                        with Java so I switched to TypeScript. I got significantly further with Typescript but
-                        decided the only way
-                        I'd have a chance of completing the test in time would be to use Python. When the test ended, my
-                        logic with Python worked fully the first of
-                        the two words but I hadn't had a chance to account for the index rolling over for the 2nd word
-                        before the test ended. Another 2 minutes and I think I would have had a fully working solution..
-                        <br><br>
-                        Other areas of focus:
-                        <br>
-                        <ul class="condensed">
-                            <li>Computer science fundamentals - algorithm design, problem solving, complexity analysis
-                                and
-                                data structures.</li>
-                            <li>Testing process, test types, test design and testing methodologies</li>
-                            <li>Experience in designing and developing automation frameworks and test suites</li>
-                            <li>SQL development</li>
-                            <li>API testing</li>
-                        </ul>
-                        <br><br>
-                        Test Outline:
-                        <table>
-                            <tr>
-                                <th>Section</th>
-                                <th>Time (minutes)</th>
-                                <th># Questions</th>
-                            </tr>
-                            <tr>
-                                <td>Java Questions</td>
-                                <td>21</td>
-                                <td>5</td>
-                            </tr>
-                            <tr>
-                                <td>General Questions</td>
-                                <td>21</td>
-                                <td>5</td>
-                            </tr>
-                            <tr>
-                                <td>SQL</td>
-                                <td>16</td>
-                                <td>2</td>
-                            </tr>
-                            <tr>
-                                <td>Java Code</td>
-                                <td>21</td>
-                                <td>1</td>
-                            </tr>
-                            <tr>
-                                <td>Explain Java</td>
-                                <td>11</td>
-                                <td>1</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div>
-                        <h2>Java Questions</h2>
-                        <table>
-                            <tr>
-                                <th>Section</th>
-                                <th>Time (minutes)</th>
-                                <th># Questions</th>
-                            </tr>
-                            <tr>
-                                <td>Java Questions</td>
-                                <td>21 minutes</td>
-                                <td>5</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div>
-                        <h2>General Questions</h2>
-                        <table>
-                            <tr>
-                                <th>Section</th>
-                                <th>Time (minutes)</th>
-                                <th># Questions</th>
-                            </tr>
-                            <tr>
-                                <td>General Questions</td>
-                                <td>21 minutes</td>
-                                <td>5</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div>
-                        <h2>SQL</h2>
-                        <table>
-                            <tr>
-                                <th>Section</th>
-                                <th>Time (minutes)</th>
-                                <th># Questions</th>
-                            </tr>
-                            <tr>
-                                <td>SQL</td>
-                                <td>16 minutes</td>
-                                <td>2</td>
-                            </tr>
-                        </table>
-                        I scored 0/6 although I don't know why. The two questions were both easy. Something along the
-                        lines of group by a certain column where another criteria must be met.<br><br>
-                        e.g.<br>
-                        <div class="code">
-                            <pre>
+                    <br>In my defense, I tried with Java
+                    first as that was the "preferred" language. I didn't get far
+                    with Java so I switched to TypeScript. I got significantly further with Typescript but
+                    decided the only way
+                    I'd have a chance of completing the test in time would be to use Python. When the test ended, my
+                    logic with Python worked fully the first of
+                    the two words but I hadn't had a chance to account for the index rolling over for the 2nd word
+                    before the test ended. Another 2 minutes and I think I would have had a fully working solution..
+                    <br><br>
+                    Other areas of focus:
+                    <br>
+                    <ul class="condensed">
+                        <li>Computer science fundamentals - algorithm design, problem solving, complexity analysis
+                            and
+                            data structures.</li>
+                        <li>Testing process, test types, test design and testing methodologies</li>
+                        <li>Experience in designing and developing automation frameworks and test suites</li>
+                        <li>SQL development</li>
+                        <li>API testing</li>
+                    </ul>
+                    <br><br>
+                    Test Outline:
+                    <table>
+                        <tr>
+                            <th>Section</th>
+                            <th>Time (minutes)</th>
+                            <th># Questions</th>
+                        </tr>
+                        <tr>
+                            <td>Java Questions</td>
+                            <td>21</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>General Questions</td>
+                            <td>21</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>SQL</td>
+                            <td>16</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>Java Code</td>
+                            <td>21</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>Explain Java</td>
+                            <td>11</td>
+                            <td>1</td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <h2>Java Questions</h2>
+                    <table>
+                        <tr>
+                            <th>Section</th>
+                            <th>Time (minutes)</th>
+                            <th># Questions</th>
+                        </tr>
+                        <tr>
+                            <td>Java Questions</td>
+                            <td>21 minutes</td>
+                            <td>5</td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <h2>General Questions</h2>
+                    <table>
+                        <tr>
+                            <th>Section</th>
+                            <th>Time (minutes)</th>
+                            <th># Questions</th>
+                        </tr>
+                        <tr>
+                            <td>General Questions</td>
+                            <td>21 minutes</td>
+                            <td>5</td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <h2>SQL</h2>
+                    <table>
+                        <tr>
+                            <th>Section</th>
+                            <th>Time (minutes)</th>
+                            <th># Questions</th>
+                        </tr>
+                        <tr>
+                            <td>SQL</td>
+                            <td>16 minutes</td>
+                            <td>2</td>
+                        </tr>
+                    </table>
+                    I scored 0/6 although I don't know why. The two questions were both easy. Something along the
+                    lines of group by a certain column where another criteria must be met.<br><br>
+                    e.g.<br>
+                    <div class="code">
+                        <pre>
     select player, count(country)
     group by country
     having count(country) > 2
                             </pre>
-                        </div>
-                    </div>
-                    <div>
-                        <h2>Java Code</h2>
-                        <table>
-                            <tr>
-                                <th>Section</th>
-                                <th>Time (minutes)</th>
-                                <th># Questions</th>
-                            </tr>
-                            <tr>
-                                <td>Java Code</td>
-                                <td>21</td>
-                                <td>1</td>
-                            </tr>
-                        </table>
-                        This is going to be a code challenge. No specific details are provided.
-                    </div>
-                    <div>
-                        <h2>Explain Java</h2>
-                        <table>
-                            <tr>
-                                <th>Section</th>
-                                <th>Time (minutes)</th>
-                                <th># Questions</th>
-                            </tr>
-                            <tr>
-                                <td>Explain Java</td>
-                                <td>11</td>
-                                <td>1</td>
-                            </tr>
-                        </table>
                     </div>
                 </div>
-                <div><app-comment></app-comment></div>
+                <div>
+                    <h2>Java Code</h2>
+                    <table>
+                        <tr>
+                            <th>Section</th>
+                            <th>Time (minutes)</th>
+                            <th># Questions</th>
+                        </tr>
+                        <tr>
+                            <td>Java Code</td>
+                            <td>21</td>
+                            <td>1</td>
+                        </tr>
+                    </table>
+                    This is going to be a code challenge. No specific details are provided.
+                </div>
+                <div>
+                    <h2>Explain Java</h2>
+                    <table>
+                        <tr>
+                            <th>Section</th>
+                            <th>Time (minutes)</th>
+                            <th># Questions</th>
+                        </tr>
+                        <tr>
+                            <td>Explain Java</td>
+                            <td>11</td>
+                            <td>1</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
-        </mat-card-content>
-    </mat-card>
-</div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>

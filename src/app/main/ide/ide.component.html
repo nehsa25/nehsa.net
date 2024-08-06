@@ -1,25 +1,24 @@
-<div>
-    <mat-card class="card">
-        <mat-card-header>
-            <mat-card-title>
-                <h1 data-testid="header-title">IDEs / Code Editors</h1>
-            </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <div class="commentgrid">
-                <div class="topics">
-                    <div><h3>VS Code</h3>
-                        <ul class="condensed">
-                            <li>VS Code Settings and Best Practices
-                                <ul>
-                                    <li>Enable: Insert spaces when pressing TAB</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">IDEs / Code Editors</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                <div>
+                    <h3>VS Code</h3>
+                    <ul class="condensed">
+                        <li>VS Code Settings and Best Practices
+                            <ul>
+                                <li>Enable: Insert spaces when pressing TAB</li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
-                <div><app-comment></app-comment></div>
             </div>
-        </mat-card-content>
-    </mat-card>
-</div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>

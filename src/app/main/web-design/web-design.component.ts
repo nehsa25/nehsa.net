@@ -5,6 +5,7 @@ import { MatExpansionModule, MatExpansionPanel } from '@angular/material/expansi
 import { MatIcon } from '@angular/material/icon';
 import { MatButton } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-web-design',
@@ -16,7 +17,7 @@ import { RouterLink } from '@angular/router';
 export class WebDesignComponent {
   playState = "paused";
 
-  constructor() { }
+  constructor(public userService: UserService) { }
 
   ngOnInit() { }
 

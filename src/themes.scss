@@ -16,3 +16,107 @@ $light-theme: mat.define-dark-theme((color: (theme-type: light,
                 warn: $light-warn-palette ),
             density: -1,
             typography: $typography ));
+
+// theming
+.vampire {
+    background-color: #333 !important;
+    color: #B7D1B1;
+}
+
+.vampire .topics {
+    background-color: #333 !important;
+    color: #B7D1B1;
+}
+
+.vampire h1, h2, h3, h4, h5, h6 {
+    color: #B7D1B1;
+}
+
+.vampire mat-card {
+    background-color: #333344 !important;
+}
+
+.vampire mat-expansion-panel {
+    background-color: #444455 !important;
+    color: #B7D1B1;
+}
+
+.vampire mat-card-subtitle {
+    background-color: #333344 !important;
+    color: #A3BD9D !important;
+}
+
+.vampire mat-card-subtitle {
+    background-color: #333344 !important;
+    color: #B7D1B1 !important;
+}
+
+.vampire ul {
+    background-color: #333 !important;
+    color: #B7D1B1;
+}
+
+.vampire li {
+    background-color: #333 !important;
+}
+
+.angel {
+    background-color: whitesmoke !important;
+    color: var(--theme-light-primary-color);
+}
+
+.vampire a:link {
+    color: var(--theme-dark-a-link-color) !important;
+}
+
+
+.angel a:link {
+    color: var(--theme-light-a-link-color) !important;
+}
+
+.vampire a:link {
+    color: var(--theme-dark-a-link-color) !important;
+}
+
+
+.angel a:link {
+    color: var(--theme-light-a-link-color) !important;
+}
+
+.vampire .mat-mdc-button,
+.mat-mdc-raised-button,
+.mat-mdc-outlined-button,
+.mat-mdc-flat-button,
+.mat-mdc-unelevated-button {
+    background-color: var(--theme-dark-button-background-color) !important;
+    text-decoration: none !important;
+}
+
+.vampire a:hover,
+.mat-mdc-button:hover,
+.mat-mdc-raised-button:hover,
+.mat-mdc-outlined-button:hover,
+.mat-mdc-flat-button:hover,
+.mat-mdc-unelevated-button:hover {
+    background-color: var(--theme-dark-button-hover-background-color) !important;
+    color: var(--theme-dark-button-hover-color) !important;
+}
+
+.angel .mat-mdc-button,
+.mat-mdc-raised-button,
+.mat-mdc-outlined-button,
+.mat-mdc-flat-button,
+.mat-mdc-unelevated-button {
+    background-color: var(--theme-light-button-background-color) !important;
+    text-decoration: none !important;
+}
+
+.angel a:hover,
+.mat-mdc-button:hover,
+.mat-mdc-raised-button:hover,
+.mat-mdc-outlined-button:hover,
+.mat-mdc-flat-button:hover,
+.mat-mdc-unelevated-button:hover {
+    background-color: var(--theme-light-button-hover-background-color) !important;
+    color: var(--theme-light-button-hover-color-color) !important;
+}

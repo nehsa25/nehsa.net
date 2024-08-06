@@ -1,24 +1,23 @@
-<div>
-    <mat-card class="card">
-        <mat-card-header>
-            <mat-card-title>
-                <h1 data-testid="header-title">AsyncIO / Websockets</h1>
-            </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <div class="commentgrid">
-                <div class="topics">
-                    <div>
-                        <ul>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Setup new Async Loop</mat-panel-title>
-                                        <mat-panel-description>
-                                        </mat-panel-description>
-                                    </mat-expansion-panel-header>
-                                    <div class="code">
-                                        <pre>
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">AsyncIO / Websockets</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                <div>
+                    <ul>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Setup new Async Loop</mat-panel-title>
+                                    <mat-panel-description>
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <div class="code">
+                                    <pre>
     class SyncClass:
         def start_async_method(self, room_image_name, room_description, player):
             start_server = self.generate_room_image(room_image_name, room_description, player)
@@ -28,152 +27,151 @@
         async def generate_room_image(self, room_image_name, room_description, player):
             <span class="comment"># do stuff</span>
 </pre>
-                                    </div>
-                                </mat-expansion-panel>
-                            </li>
+                                </div>
+                            </mat-expansion-panel>
+                        </li>
 
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Create a Async class tha runs forever</mat-panel-title>
-                                        <mat-panel-description>
-                                        </mat-panel-description>
-                                    </mat-expansion-panel-header>
-                                    <div class="code">
-                                        <pre>
-    async def setup_world_events(self):
-        if self.breeze_task is None:
-            self.breeze_task = asyncio.create_task(self.breeze())
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Create a Async class tha runs forever</mat-panel-title>
+                                    <mat-panel-description>
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <div class="code">
+                                <pre>
+async def setup_world_events(self):
+    if self.breeze_task is None:
+        self.breeze_task = asyncio.create_task(self.breeze())
 </pre>
-                                    </div>
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Do something asynchronously and do not block but continue once
-                                            it's finished</mat-panel-title>
-                                        <mat-panel-description>
-                                        </mat-panel-description>
-                                    </mat-expansion-panel-header>
-                                    <div class="code">result = <span class="important">await</span> something(); <span
-                                            class="comment"># the await keyword is
-                                            important.<br>Without it, only the routine of what *would* run will be
-                                            returned immediately and we would continue without waiting for the actual
-                                            execution.</span>
-                                    </div>
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Start websocket server with valid SSL support</mat-panel-title>
-                                        <mat-panel-description>
-                                        </mat-panel-description>
-                                    </mat-expansion-panel-header>
-                                    <div class="code">
-                                        <pre>
-    ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
-    ssl_context.load_cert_chain(
-        "c:/secretarea/certificate.pem", "c:/secretarea/private.key"
-    )
-    start_server = websockets.serve(
-        m.main, host, port, max_size=9000000, ssl=ssl_context
-    )
+                                </div>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Do something asynchronously and do not block but continue once
+                                        it's finished</mat-panel-title>
+                                    <mat-panel-description>
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <div class="code">result = <span class="important">await</span> something(); <span
+                                        class="comment"># the await keyword is
+                                        important.<br>Without it, only the routine of what *would* run will be
+                                        returned immediately and we would continue without waiting for the actual
+                                        execution.</span>
+                                </div>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Start websocket server with valid SSL support</mat-panel-title>
+                                    <mat-panel-description>
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <div class="code">
+                                <pre>
+ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+ssl_context.load_cert_chain(
+    "c:/secretarea/certificate.pem", "c:/secretarea/private.key"
+)
+start_server = websockets.serve(
+    m.main, host, port, max_size=9000000, ssl=ssl_context
+)
 </pre>
-                                    </div>
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Start a new Async Loop within a thread</mat-panel-title>
-                                        <mat-panel-description>
-                                        </mat-panel-description>
-                                    </mat-expansion-panel-header>
-                                    <h4>AsyncIO Class</h4>
-                                    <div class="code">
-                                        <pre>
-    class Map(Utility):
-        def start_async(self, argument):
-            start_server = self.generate_map(argument)
-            loop = asyncio.new_event_loop() <span class="comment"># Use <span class="important">asyncio.new_event_loop()</span> instead of <span class="important">asyncio.get_event_loop()</span></span><br>
-            loop.run_until_complete(start_server)
+                                </div>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Start a new Async Loop within a thread</mat-panel-title>
+                                    <mat-panel-description>
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <h4>AsyncIO Class</h4>
+                                <div class="code">
+                                <pre>
+class Map(Utility):
+    def start_async(self, argument):
+        start_server = self.generate_map(argument)
+        loop = asyncio.new_event_loop() <span class="comment"># Use <span class="important">asyncio.new_event_loop()</span> instead of <span class="important">asyncio.get_event_loop()</span></span><br>
+        loop.run_until_complete(start_server)
 
-        async def generate_map(self, argument):
-            <span class="comment"># do stuff</span><br>
+    async def generate_map(self, argument):
+        <span class="comment"># do stuff</span><br>
 </pre>
-                                    </div><br>
-                                    <h4>How to call it</h4>
-                                    <div class="code">
+                                </div><br>
+                                <h4>How to call it</h4>
+                                <div class="code">
+                                <pre>
+map_thread = Thread(target = world.map.start_async, args = (new_room, map_image_name, player, world))
+map_thread.start()
+</pre>
+                                </div>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Working with locking / critical sections</mat-panel-title>
+                                    <mat-panel-description>
+                                        Locking ensures a given activity is ran to completion before allowing
+                                        something else to do the same thing/alter the same critical section of
+                                        information.
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>
+                                        Setup a new type for our lock:
+                                        <div class="code">
                                         <pre>
-    map_thread = Thread(target = world.map.start_async, args = (new_room, map_image_name, player, world))
-    map_thread.start()
-</pre>
-                                    </div>
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Working with locking / critical sections</mat-panel-title>
-                                        <mat-panel-description>
-                                            Locking ensures a given activity is ran to completion before allowing
-                                            something else to do the same thing/alter the same critical section of
-                                            information.
-                                        </mat-panel-description>
-                                    </mat-expansion-panel-header>
-                                    <ul>
-                                        <li>
-                                            Setup a new type for our lock:
-                                            <div class="code">
-<pre>
-    import asyncio
+import asyncio
 
-    class NpcWanderLock:
-        npc = None
-        lock = None
-        
-        def __init__(self, npc):
-            self.npc = npc
-            <span class="important">self.lock = asyncio.Lock()</span>
+class NpcWanderLock:
+    npc = None
+    lock = None
+    
+    def __init__(self, npc):
+        self.npc = npc
+        <span class="important">self.lock = asyncio.Lock()</span>
 </pre>
-                                            </div>
-                                        </li>
-                                        <li>Create a need for locking, such as a loop that creates threads:
-                                            <div class="code">
-<pre>
-    for npc in self.environments.townsmee.npcs.npcs:  
-        await asyncio.create_task(self.npc_wander(npc))
+                                        </div>
+                                    </li>
+                                    <li>Create a need for locking, such as a loop that creates threads:
+                                        <div class="code">
+                                        <pre>
+for npc in self.environments.townsmee.npcs.npcs:  
+    await asyncio.create_task(self.npc_wander(npc))
 </pre>
-                                            </div>
-                                        </li>
-                                        <li>Use the lock within the task:
-                                            <div class="code">
-<pre>
-    async def npc_wander(self, npc):
-        npclock = NpcWanderLock(npc) <span class="comment">Seems this should be global so I'm not sure why this works..</span>
-        <span class="important">async with npclock.lock:</span>
-            await asyncio.sleep(rand)
-            await npc.wander(self)
+                                        </div>
+                                    </li>
+                                    <li>Use the lock within the task:
+                                        <div class="code">
+                                        <pre>
+async def npc_wander(self, npc):
+    npclock = NpcWanderLock(npc) <span class="comment">Seems this should be global so I'm not sure why this works..</span>
+    <span class="important">async with npclock.lock:</span>
+        await asyncio.sleep(rand)
+        await npc.wander(self)
 </pre>
-                                            </div><br>
-                                            Voila, we have locking!!
-                                        </li>
-                                    </ul>
-                                </mat-expansion-panel>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>Troubleshooting:
-                        <ul>
-                            <li>no running event loop: Event look likely hasn't started up yet so cannot accept tasks
-                            </li>
-                        </ul>
-                    </div>
+                                        </div><br>
+                                        Voila, we have locking!!
+                                    </li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                    </ul>
                 </div>
-                <div><app-comment></app-comment></div>
+                <div>Troubleshooting:
+                    <ul>
+                        <li>no running event loop: Event look likely hasn't started up yet so cannot accept tasks
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </mat-card-content>
-    </mat-card>
-</div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>

@@ -1,28 +1,26 @@
-<div>
-    <mat-card class="card">
-        <mat-card-header>
-            <mat-card-title>
-                <h1 data-testid="header-title">Regular Expressions</h1>
-            </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <div class="commentgrid">
-                <div class="topics">Random and wholly imcomplete regex I've needed from time to time..
-                    <ul class="condensed">
-                        <li>Need to grab the contents of the svg viewbox:<br>
-                            <span class="code">
-                                &lt;svg viewBox="0.00 0.00 4073.38 488.75" xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"&gt;&lt;/svg&gt;
-                            </span><br><br>
-                            Regex:<br>
-                            <span class="code">/viewBox="([^"]+)"/</span> - Captures one or more characters that are not
-                            a double quote (").<br><br>
-                            Results in a single match: 0.00 0.00 4073.38 488.75
-                        </li>
-                    </ul>
-                </div>
-                <div><app-comment></app-comment></div>
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Regular Expressions</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">Random and wholly imcomplete regex I've needed from time to time..
+                <ul class="condensed">
+                    <li>Need to grab the contents of the svg viewbox:<br>
+                        <span class="code">
+                            &lt;svg viewBox="0.00 0.00 4073.38 488.75" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink"&gt;&lt;/svg&gt;
+                        </span><br><br>
+                        Regex:<br>
+                        <span class="code">/viewBox="([^"]+)"/</span> - Captures one or more characters that are not
+                        a double quote (").<br><br>
+                        Results in a single match: 0.00 0.00 4073.38 488.75
+                    </li>
+                </ul>
             </div>
-        </mat-card-content>
-    </mat-card>
-</div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>

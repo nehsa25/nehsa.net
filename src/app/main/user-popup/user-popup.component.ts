@@ -74,7 +74,7 @@ export class UserPopupComponent {
     private _formBuilder: FormBuilder,
     public userDialog: MatDialogRef<UserPopupComponent>,
     private _snackbar: MatSnackBar,
-    private _userService: UserService,
+    public userService: UserService,
     @Inject(MAT_DIALOG_DATA) public data:
       {
         names: Array<NameAboutType>

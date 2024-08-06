@@ -1,371 +1,369 @@
-<div>
-    <mat-card class="card">
-        <mat-card-header>
-            <mat-card-title>
-                <h1 data-testid="header-title">Inno Setup</h1>
-            </mat-card-title>
-            <mat-card-subtitle>From <a href="https://jrsoftware.org/">jrsoftware.org</a> - Inno Setup is a free
-                installer for Windows programs by Jordan Russell and Martijn Laan. First introduced in 1997, Inno Setup
-                today rivals and even surpasses many commercial installers in feature set and
-                stability.</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-            <div class="commentgrid">
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Inno Setup</h1>
+        </mat-card-title>
+        <mat-card-subtitle>From <a href="https://jrsoftware.org/">jrsoftware.org</a> - Inno Setup is a free
+            installer for Windows programs by Jordan Russell and Martijn Laan. First introduced in 1997, Inno Setup
+            today rivals and even surpasses many commercial installers in feature set and
+            stability.</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                <div>
+                    <h4>INNO Keywords/System Parameters</h4>
+                    <dl>
+                        <dt>AppName</dt>
+                        <dd>The name of the application. The value of this directive is also used as the default
+                            value for the AppId,
+                            VersionInfoDescription, and VersionInfoProductName directives if those are not
+                            specified.</dd>
+                        <dt>appid</dt>
+                        <dd>
+                            <br>
+                            <span class="additional-notes">The Appid is the also the registry uninstall value.
+                                e.g.<br>
+                                <span
+                                    class="importantish">AppId=&#123;&#123;9C9EC6D3-7159-4378-AF9C-BC1947D84598&#125;</span><br>
+                                correlates<br>to<br>
+                                <span
+                                    class="importantish">Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\&#123;9C9EC6D3-7159-4378-AF9C-BC1947D84598&#125;</span><br><br>
+                                If you don't see main uninstall spot, check the 32-bit registry (maybe it's built as
+                                x86):<br>
+                                <span
+                                    class="importantish">Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\&#123;9C9EC6D3-7159-4378-AF9C-BC1947D84598&#125;</span><br><br>
+                                if you don't see if there, check user registry:<br>
+                                <span
+                                    class="importantish">Computer\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\&#123;9C9EC6D3-7159-4378-AF9C-BC1947D84598&#125;</span><br><br>
+                                Finally, the user 32-bit registry:<br>
+                                <span
+                                    class="importantish">Computer\HKEY_CURRENT_USER\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\&#123;9C9EC6D3-7159-4378-AF9C-BC1947D84598&#125;</span><br><br>
+                                It's not installed.</span>
+                        </dd>
+                        <dt>&#123;commonpf32&#125;</dt>
+                        <dd>Refers to Program Files (Typically, "C:\Program Files" on
+                            32-bit Windows and "C:\Program
+                            Files (x86)" on 64-bit Windows.)
+                        </dd>
+                        <dt>&#123;commonpf64&#125;</dt>
+                        <dd>C:\Program Files
+                        </dd>
+                        <dt>&#123;tmp&#125;</dt>
+                        <dd>Temporary directory used by Setup or Uninstall. This is not the value of the user's TEMP
+                            environment variable. It is a subdirectory of the user's temporary directory which is
+                            created by Setup or Uninstall at startup (with a name like
+                            "C:\WINDOWS\TEMP\IS-xxxxx.tmp").
+                        </dd>
+                        <dt>&#123;localappdata&#125;</dt>
+                        <dd>The path to the current user's local (non-roaming) Application Data folder. For example,
+                            "C:\Documents and Settings\username\Local Settings\Application Data" on Windows XP/2000
+                            and "C:\Users\username\AppData\Local" on Windows Vista and later.
+                        </dd>
+                    </dl>
+                </div>
+                <div>
+                    <h4>INNO UI</h4>
+                    <img src="../../../assets/images/inno1.png" alt="Inno UI">
+                </div>
                 <div class="topics">
-                    <div>
-                        <h4>INNO Keywords/System Parameters</h4>
-                        <dl>
-                            <dt>AppName</dt>
-                            <dd>The name of the application. The value of this directive is also used as the default
-                                value for the AppId,
-                                VersionInfoDescription, and VersionInfoProductName directives if those are not
-                                specified.</dd>
-                            <dt>appid</dt>
-                            <dd>
-                                <br>
-                                <span class="additional-notes">The Appid is the also the registry uninstall value.
-                                    e.g.<br>
-                                    <span
-                                        class="importantish">AppId=&#123;&#123;9C9EC6D3-7159-4378-AF9C-BC1947D84598&#125;</span><br>
-                                    correlates<br>to<br>
-                                    <span
-                                        class="importantish">Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\&#123;9C9EC6D3-7159-4378-AF9C-BC1947D84598&#125;</span><br><br>
-                                    If you don't see main uninstall spot, check the 32-bit registry (maybe it's built as
-                                    x86):<br>
-                                    <span
-                                        class="importantish">Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\&#123;9C9EC6D3-7159-4378-AF9C-BC1947D84598&#125;</span><br><br>
-                                    if you don't see if there, check user registry:<br>
-                                    <span
-                                        class="importantish">Computer\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\&#123;9C9EC6D3-7159-4378-AF9C-BC1947D84598&#125;</span><br><br>
-                                    Finally, the user 32-bit registry:<br>
-                                    <span
-                                        class="importantish">Computer\HKEY_CURRENT_USER\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\&#123;9C9EC6D3-7159-4378-AF9C-BC1947D84598&#125;</span><br><br>
-                                    It's not installed.</span>
-                            </dd>
-                            <dt>&#123;commonpf32&#125;</dt>
-                            <dd>Refers to Program Files (Typically, "C:\Program Files" on
-                                32-bit Windows and "C:\Program
-                                Files (x86)" on 64-bit Windows.)
-                            </dd>
-                            <dt>&#123;commonpf64&#125;</dt>
-                            <dd>C:\Program Files
-                            </dd>
-                            <dt>&#123;tmp&#125;</dt>
-                            <dd>Temporary directory used by Setup or Uninstall. This is not the value of the user's TEMP
-                                environment variable. It is a subdirectory of the user's temporary directory which is
-                                created by Setup or Uninstall at startup (with a name like
-                                "C:\WINDOWS\TEMP\IS-xxxxx.tmp").
-                            </dd>
-                            <dt>&#123;localappdata&#125;</dt>
-                            <dd>The path to the current user's local (non-roaming) Application Data folder. For example,
-                                "C:\Documents and Settings\username\Local Settings\Application Data" on Windows XP/2000
-                                and "C:\Users\username\AppData\Local" on Windows Vista and later.
-                            </dd>
-                        </dl>
-                    </div>
-                    <div>
-                        <h4>INNO UI</h4>
-                        <img src="../../../assets/images/inno1.png" alt="Inno UI">
-                    </div>
-                    <div class="topics">
-                        <ul>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Changing Uninstall Location</mat-panel-title>
-                                        <mat-panel-description>locatation of unins000.exe
-                                        </mat-panel-description>
-                                    </mat-expansion-panel-header>
-                                    <dl>
-                                        <dt>
-                                            UninstallFilesDir</dt>
-                                        <dd>Specifies the directory where the "unins*.*" files for the uninstaller are
-                                            stored.<br><br>
-                                            Example, <span
-                                                class="code">UninstallFilesDir=&#123;localappdata&#125;\myapp</span>
-                                            will place unins000.exe in the user's local app data folder under myapp.
-                                        </dd>
-                                    </dl>
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Example Inno Script</mat-panel-title>
-                                        <mat-panel-description>Inno installers are created via .iss files (Inno Setup
-                                            Scripts).
-                                        </mat-panel-description>
-                                    </mat-expansion-panel-header>
-                                    <div class="code">
-                                        <pre>
-    #include "C:\Program Files\Inno Download Plugin\idp.iss" <span class="comment"><mat-icon class="arrowback">arrow_back</mat-icon>This example uses a plugin by Mitrich Software (ipd.iss).  This plugin allows suport for downloading files within setup.</span>
-    
-    #define MyAppName "&lt;APPLICATION NAME WITHIN ADD/REMOVE PROGRAMS&gt;" <span class="comment">(Super Application)</span>
-    #define MyAppVersion GetFileVersion("&lt;AN APPLICATION TO GET FILE VERSION FROM&gt;") <span class="comment">(release\app.exe)</span>
-    #define MyAppPublisher "&lt;PUBLISHER NAME&gt;" <span class="comment">(nehsa.net Corporation)</span>
-    #define MyAppURL "&lt;WEBSITE&gt;" <span class="comment">(https://www.nehsa.net)</span>
-    #define MyAppExeName "&lt;INSTALLED APPLICATION NAME&gt;" <span class="comment">(app.exe)</span>
-    
-    [Setup]
-    AppId=&#123;&#123;82b565e0-2944-413b-addb-d67fd9fb1a92&#125;
-    AppName=&#123;#MyAppName&#125;
-    AppVersion=&#123;#MyAppVersion&#125;
-    AppVerName=&#123;#MyAppName&#125;
-    AppPublisher=&#123;#MyAppPublisher&#125;
-    AppPublisherURL=&#123;#MyAppURL&#125;
-    AppSupportURL=&#123;#MyAppURL&#125;
-    AppUpdatesURL=&#123;#MyAppURL&#125;
-    DefaultDirName=&#123;commonpf32&#125;\INtime
-    CreateAppDir=no
-    OutputBaseFilename=&lt;SETUP FILENAME WITHOUT EXTENSION&gt; <span class="comment">(app_setup.exe)</span>
-    AppModifyPath="&#123;code:CustomFunction&#125;\bin\AppBackup\&#123;OutputBaseFilename&#125;.exe" /modify=1
-    SetupIconFile=gear.ico
-    Compression=lzma
-    SolidCompression=yes
-    WizardStyle=modern
-    
-    [Languages]
-    Name: "english"; MessagesFile: "compiler:Default.isl"
+                    <ul>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Changing Uninstall Location</mat-panel-title>
+                                    <mat-panel-description>locatation of unins000.exe
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <dl>
+                                    <dt>
+                                        UninstallFilesDir</dt>
+                                    <dd>Specifies the directory where the "unins*.*" files for the uninstaller are
+                                        stored.<br><br>
+                                        Example, <span
+                                            class="code">UninstallFilesDir=&#123;localappdata&#125;\myapp</span>
+                                        will place unins000.exe in the user's local app data folder under myapp.
+                                    </dd>
+                                </dl>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Example Inno Script</mat-panel-title>
+                                    <mat-panel-description>Inno installers are created via .iss files (Inno Setup
+                                        Scripts).
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <div class="code">
+                                <pre>
+#include "C:\Program Files\Inno Download Plugin\idp.iss" <span class="comment"><mat-icon class="arrowback">arrow_back</mat-icon>This example uses a plugin by Mitrich Software (ipd.iss).  This plugin allows suport for downloading files within setup.</span>
 
-    [Files] <span class="comment">The individual files to place on the destination machine.  The can be from local or network locations</span>
-    Source: "Release\localfile\file1"; DestDir: "&#123;code:CustomFunction&#125;\bin"; DestName: "Appgui.exe"; Flags: ignoreversion; BeforeInstall: BackupBeforeInstall
-    Source: "\\networkshare\file2"; DestDir: "&#123;code:CustomFunction&#125;\bin"; Flags: ignoreversion; BeforeInstall: BackupBeforeInstall
-    Source: "Newtonsoft.Json.dll"; DestDir: "&#123;code:CustomFunction&#125;\bin"; StrongAssemblyName: "&#123;GetAssemblyStrongName('Newtonsoft.Json.dll')&#125;"; Flags: ignoreversion; BeforeInstall: BackupBeforeInstall
-    
-    [Run]
-    Filename: "&#123;tmp&#125;\VS2008sp1_vcredist_x86.exe"; Parameters: "/q /norestart"; \
-        Check: VC2008x86RedistNeedsInstall(); \
-        Flags: waituntilterminated; \
-        StatusMsg: "Installing VC++ 2008 x86 Redistributable";
-    Filename: "&#123;tmp&#125;\VC_redist.x86.exe"; Parameters: "/q /norestart"; \
-        Check: VCRedistNeedsInstall(); \
-        Flags: waituntilterminated; \
-        StatusMsg: "Installing VC++ 2015-2022 x86 Redistributable";
-    
-    [UninstallRun]
-    Filename: "&#123;cmd&#125;"; Parameters: "/C ""taskkill /im Appgui.exe /f /t"
-    Filename: "&#123;cmd&#125;"; Parameters: "/C ""taskkill /im App.exe /f /t"
-    
-    
-    [Code]
-    function CustomFunction(Param: String): String;
-    var testpath: String;
-    begin    
-        if not RegQueryStringValue(HKEY_LOCAL_MACHINE, 'SOFTWARE\WOW6432Node\&lt;PUBLISHER&gt;\&lt;APPLICATION&gt;', 'InstallPath', testpath) then 
+#define MyAppName "&lt;APPLICATION NAME WITHIN ADD/REMOVE PROGRAMS&gt;" <span class="comment">(Super Application)</span>
+#define MyAppVersion GetFileVersion("&lt;AN APPLICATION TO GET FILE VERSION FROM&gt;") <span class="comment">(release\app.exe)</span>
+#define MyAppPublisher "&lt;PUBLISHER NAME&gt;" <span class="comment">(nehsa.net Corporation)</span>
+#define MyAppURL "&lt;WEBSITE&gt;" <span class="comment">(https://www.nehsa.net)</span>
+#define MyAppExeName "&lt;INSTALLED APPLICATION NAME&gt;" <span class="comment">(app.exe)</span>
+
+[Setup]
+AppId=&#123;&#123;82b565e0-2944-413b-addb-d67fd9fb1a92&#125;
+AppName=&#123;#MyAppName&#125;
+AppVersion=&#123;#MyAppVersion&#125;
+AppVerName=&#123;#MyAppName&#125;
+AppPublisher=&#123;#MyAppPublisher&#125;
+AppPublisherURL=&#123;#MyAppURL&#125;
+AppSupportURL=&#123;#MyAppURL&#125;
+AppUpdatesURL=&#123;#MyAppURL&#125;
+DefaultDirName=&#123;commonpf32&#125;\INtime
+CreateAppDir=no
+OutputBaseFilename=&lt;SETUP FILENAME WITHOUT EXTENSION&gt; <span class="comment">(app_setup.exe)</span>
+AppModifyPath="&#123;code:CustomFunction&#125;\bin\AppBackup\&#123;OutputBaseFilename&#125;.exe" /modify=1
+SetupIconFile=gear.ico
+Compression=lzma
+SolidCompression=yes
+WizardStyle=modern
+
+[Languages]
+Name: "english"; MessagesFile: "compiler:Default.isl"
+
+[Files] <span class="comment">The individual files to place on the destination machine.  The can be from local or network locations</span>
+Source: "Release\localfile\file1"; DestDir: "&#123;code:CustomFunction&#125;\bin"; DestName: "Appgui.exe"; Flags: ignoreversion; BeforeInstall: BackupBeforeInstall
+Source: "\\networkshare\file2"; DestDir: "&#123;code:CustomFunction&#125;\bin"; Flags: ignoreversion; BeforeInstall: BackupBeforeInstall
+Source: "Newtonsoft.Json.dll"; DestDir: "&#123;code:CustomFunction&#125;\bin"; StrongAssemblyName: "&#123;GetAssemblyStrongName('Newtonsoft.Json.dll')&#125;"; Flags: ignoreversion; BeforeInstall: BackupBeforeInstall
+
+[Run]
+Filename: "&#123;tmp&#125;\VS2008sp1_vcredist_x86.exe"; Parameters: "/q /norestart"; \
+    Check: VC2008x86RedistNeedsInstall(); \
+    Flags: waituntilterminated; \
+    StatusMsg: "Installing VC++ 2008 x86 Redistributable";
+Filename: "&#123;tmp&#125;\VC_redist.x86.exe"; Parameters: "/q /norestart"; \
+    Check: VCRedistNeedsInstall(); \
+    Flags: waituntilterminated; \
+    StatusMsg: "Installing VC++ 2015-2022 x86 Redistributable";
+
+[UninstallRun]
+Filename: "&#123;cmd&#125;"; Parameters: "/C ""taskkill /im Appgui.exe /f /t"
+Filename: "&#123;cmd&#125;"; Parameters: "/C ""taskkill /im App.exe /f /t"
+
+
+[Code]
+function CustomFunction(Param: String): String;
+var testpath: String;
+begin    
+    if not RegQueryStringValue(HKEY_LOCAL_MACHINE, 'SOFTWARE\WOW6432Node\&lt;PUBLISHER&gt;\&lt;APPLICATION&gt;', 'InstallPath', testpath) then 
+    begin
+        if not RegQueryStringValue(HKEY_LOCAL_MACHINE, 'SOFTWARE\&lt;PUBLISHER&gt;\&lt;APPLICATION&gt;', 'InstallPath', testpath) then 
+        testpath := 'C:\Program Files (x86)';
         begin
-            if not RegQueryStringValue(HKEY_LOCAL_MACHINE, 'SOFTWARE\&lt;PUBLISHER&gt;\&lt;APPLICATION&gt;', 'InstallPath', testpath) then 
-            testpath := 'C:\Program Files (x86)';
-            begin
-                if not DirExists(testpath) then testpath := 'C:\Program Files';
-            end;
-            testpath := testpath  + '\INtime';
+            if not DirExists(testpath) then testpath := 'C:\Program Files';
         end;
-        Result := testpath 
+        testpath := testpath  + '\INtime';
     end;
-    
-    function VCRedistNeedsInstall(): Boolean;
-    var vcver: String;
+    Result := testpath 
+end;
+
+function VCRedistNeedsInstall(): Boolean;
+var vcver: String;
+begin
+    Log('Checking VC++ 2015-2022 version..');
+    Result := True;
+    if RegQueryStringValue(
+        HKEY_LOCAL_MACHINE,
+        'SOFTWARE\Microsoft\VisualStudio\14.0\VC\Runtimes\x86',
+        'Version', vcver) then
     begin
-        Log('Checking VC++ 2015-2022 version..');
-        Result := True;
-        if RegQueryStringValue(
-            HKEY_LOCAL_MACHINE,
-            'SOFTWARE\Microsoft\VisualStudio\14.0\VC\Runtimes\x86',
-            'Version', vcver) then
+    Log('VC++ 2015-2022 Redistributable Version ' + vcver);
+    Result := (CompareStr(vcver, 'v14.32.31332.00')<0);
+    end;
+end;
+
+function VC2008x86RedistNeedsInstall(): Boolean;
+var vcver: String;
+begin
+Log('Checking VC++ 2008 x86 Redistributable Version..');
+    Result := True;
+    if RegQueryStringValue(
+        HKEY_LOCAL_MACHINE,
+        'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\&#123;9A25302D-30C0-39D9-BD6F-21E6EC160475&#125;',
+        'DisplayVersion', vcver) then
+    begin
+    Log('VC++ 2008 x86 Redistributable Version: ' + vcver);
+    Result := (CompareStr(vcver, '9.0.30729')<0);
+    end;
+end;
+
+function Framework48IsNotInstalled(): Boolean;
+var
+    bSuccess: Boolean;
+    regVersion: Cardinal;
+begin
+    Result := True;
+bSuccess := RegQueryDWordValue(HKLM, 'Software\Microsoft\NET Framework Setup\NDP\v4\Full', 'Release', regVersion);
+    if (True = bSuccess) and (regVersion >= 528040) then begin
+    Result := False;
+    end;
+end;
+
+procedure InitializeWizard;
+begin
+    if Framework48IsNotInstalled() then
+    begin
+    idpAddFile('https://go.microsoft.com/fwlink/?linkid=2088631', ExpandConstant('&#123;tmp&#125;\NetFrameworkInstaller.exe'));
+    idpDownloadAfter(wpReady);
+    end;
+end;
+
+procedure InstallFramework;
+var
+    StatusText: string;
+    ResultCode: Integer;
+begin
+    StatusText := WizardForm.StatusLabel.Caption;
+    WizardForm.StatusLabel.Caption := 'Installing .NET Framework 4.8. This might take a few minutes...';
+    WizardForm.ProgressGauge.Style := npbstMarquee;
+    try
+    if not Exec(ExpandConstant('&#123;tmp&#125;\NetFrameworkInstaller.exe'), '/passive /norestart', '', SW_SHOW, ewWaitUntilTerminated, ResultCode) then
+    begin
+        MsgBox('.NET installation failed with code: ' + IntToStr(ResultCode) + '.', mbError, MB_OK);
+    end;
+    finally
+    WizardForm.StatusLabel.Caption := StatusText;
+    WizardForm.ProgressGauge.Style := npbstNormal;
+    DeleteFile(ExpandConstant('&#123;tmp&#125;\NetFrameworkInstaller.exe'));
+    end;
+end;
+
+procedure CurStepChanged(CurStep: TSetupStep);
+    var path: String;
+    var srcpath: String;
+    var destpath: String;
+begin
+    case CurStep of
+    ssPostInstall:
         begin
-        Log('VC++ 2015-2022 Redistributable Version ' + vcver);
-        Result := (CompareStr(vcver, 'v14.32.31332.00')<0);
-        end;
-    end;
-    
-    function VC2008x86RedistNeedsInstall(): Boolean;
-    var vcver: String;
-    begin
-    Log('Checking VC++ 2008 x86 Redistributable Version..');
-        Result := True;
-        if RegQueryStringValue(
-            HKEY_LOCAL_MACHINE,
-            'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\&#123;9A25302D-30C0-39D9-BD6F-21E6EC160475&#125;',
-            'DisplayVersion', vcver) then
-        begin
-        Log('VC++ 2008 x86 Redistributable Version: ' + vcver);
-        Result := (CompareStr(vcver, '9.0.30729')<0);
-        end;
-    end;
-    
-    function Framework48IsNotInstalled(): Boolean;
-    var
-        bSuccess: Boolean;
-        regVersion: Cardinal;
-    begin
-        Result := True;
-    bSuccess := RegQueryDWordValue(HKLM, 'Software\Microsoft\NET Framework Setup\NDP\v4\Full', 'Release', regVersion);
-        if (True = bSuccess) and (regVersion >= 528040) then begin
-        Result := False;
-        end;
-    end;
-    
-    procedure InitializeWizard;
-    begin
         if Framework48IsNotInstalled() then
         begin
-        idpAddFile('https://go.microsoft.com/fwlink/?linkid=2088631', ExpandConstant('&#123;tmp&#125;\NetFrameworkInstaller.exe'));
-        idpDownloadAfter(wpReady);
+            InstallFramework();
+        end;
         end;
     end;
-    
-    procedure InstallFramework;
-    var
-        StatusText: string;
-        ResultCode: Integer;
+end;
+
+function GetLastError: Cardinal;
+    external 'GetLastError&#64;kernel32.dll stdcall';
+
+function GetAssemblyStrongName(FileName: string): string;
+var
+    TmpFileName: string;
+    Args: string;
+    StrongName: AnsiString;
+    ResultCode: Integer;
+begin
+    TmpFileName := ExpandConstant('&#123;tmp&#125;') + '\strong_name.txt';
+    Args :=
+    Format('-ExecutionPolicy Unrestricted -Command "Set-Content -Path "%s" -NoNewline ' +
+            '-Value ([Reflection.Assembly]::ReflectionOnlyLoadFrom(''%s'')).FullName"', [
+            TmpFileName, FileName]);
+    if (not Exec('powershell.exe', Args, '', SW_HIDE, ewWaitUntilTerminated, ResultCode)) or
+        (ResultCode <> 0) or
+        (not LoadStringFromFile(TmpFileName, StrongName)) then
     begin
-        StatusText := WizardForm.StatusLabel.Caption;
-        WizardForm.StatusLabel.Caption := 'Installing .NET Framework 4.8. This might take a few minutes...';
-        WizardForm.ProgressGauge.Style := npbstMarquee;
-        try
-        if not Exec(ExpandConstant('&#123;tmp&#125;\NetFrameworkInstaller.exe'), '/passive /norestart', '', SW_SHOW, ewWaitUntilTerminated, ResultCode) then
-        begin
-            MsgBox('.NET installation failed with code: ' + IntToStr(ResultCode) + '.', mbError, MB_OK);
-        end;
-        finally
-        WizardForm.StatusLabel.Caption := StatusText;
-        WizardForm.ProgressGauge.Style := npbstNormal;
-        DeleteFile(ExpandConstant('&#123;tmp&#125;\NetFrameworkInstaller.exe'));
-        end;
-    end;
-    
-    procedure CurStepChanged(CurStep: TSetupStep);
-        var path: String;
-        var srcpath: String;
-        var destpath: String;
+    RaiseException(Format('Error retrieving strong name of "%s"', [FileName]));
+    end;  
+    Result := StrongName;
+    DeleteFile(TmpFileName);
+end;
+
+function InitializeSetup(): Boolean;
+    var path: String;
+    var testpath: String;
+    var srcpath: String;
+    var destpath: String;
+begin    
+    testpath := CustomFunction('');
+    if not RegQueryStringValue(HKEY_LOCAL_MACHINE, 'SOFTWARE\WOW6432Node\&lt;PUBLISHER&gt;\&lt;APPLICATION&gt;', 'InstallPath', testpath) then 
     begin
-        case CurStep of
-        ssPostInstall:
+        if not RegQueryStringValue(HKEY_LOCAL_MACHINE, 'SOFTWARE\&lt;PUBLISHER&gt;\&lt;APPLICATION&gt;', 'InstallPath', testpath) then 
+        begin                
+        if MsgBox('Are you sure you wish to install?', mbConfirmation, MB_YESNO) = IDNO then
             begin
-            if Framework48IsNotInstalled() then
-            begin
-                InstallFramework();
-            end;
-            end;
-        end;
-    end;
-    
-    function GetLastError: Cardinal;
-        external 'GetLastError&#64;kernel32.dll stdcall';
-    
-    function GetAssemblyStrongName(FileName: string): string;
-    var
-        TmpFileName: string;
-        Args: string;
-        StrongName: AnsiString;
-        ResultCode: Integer;
-    begin
-        TmpFileName := ExpandConstant('&#123;tmp&#125;') + '\strong_name.txt';
-        Args :=
-        Format('-ExecutionPolicy Unrestricted -Command "Set-Content -Path "%s" -NoNewline ' +
-                '-Value ([Reflection.Assembly]::ReflectionOnlyLoadFrom(''%s'')).FullName"', [
-                TmpFileName, FileName]);
-        if (not Exec('powershell.exe', Args, '', SW_HIDE, ewWaitUntilTerminated, ResultCode)) or
-            (ResultCode <> 0) or
-            (not LoadStringFromFile(TmpFileName, StrongName)) then
-        begin
-        RaiseException(Format('Error retrieving strong name of "%s"', [FileName]));
-        end;  
-        Result := StrongName;
-        DeleteFile(TmpFileName);
-    end;
-    
-    function InitializeSetup(): Boolean;
-        var path: String;
-        var testpath: String;
-        var srcpath: String;
-        var destpath: String;
-    begin    
-        testpath := CustomFunction('');
-        if not RegQueryStringValue(HKEY_LOCAL_MACHINE, 'SOFTWARE\WOW6432Node\&lt;PUBLISHER&gt;\&lt;APPLICATION&gt;', 'InstallPath', testpath) then 
-        begin
-            if not RegQueryStringValue(HKEY_LOCAL_MACHINE, 'SOFTWARE\&lt;PUBLISHER&gt;\&lt;APPLICATION&gt;', 'InstallPath', testpath) then 
-            begin                
-            if MsgBox('Are you sure you wish to install?', mbConfirmation, MB_YESNO) = IDNO then
-                begin
-                MsgBox('Closing Setup.', mbError, MB_OK);
-                Abort;
-                end
-            else 
-            begin
-                CreateDir(testpath);
-                CreateDir(testpath + '\bin');
+            MsgBox('Closing Setup.', mbError, MB_OK);
+            Abort;
             end
-            end
-        end;
-        Result := true;
+        else 
+        begin
+            CreateDir(testpath);
+            CreateDir(testpath + '\bin');
+        end
+        end
     end;
-    
-    function BackupFolderPath: string;
+    Result := true;
+end;
+
+function BackupFolderPath: string;
+begin
+    Result := CustomFunction('') + '\bin\AppBackup';
+end;
+
+procedure BackupBeforeInstall;
+var
+    SourcePath: string;
+    DestPath: string;
+begin
+    if not DirExists(BackupFolderPath) then
     begin
-        Result := CustomFunction('') + '\bin\AppBackup';
+    Log('Creating ' + BackupFolderPath);
+    CreateDir(BackupFolderPath);
     end;
-    
-    procedure BackupBeforeInstall;
-    var
-        SourcePath: string;
-        DestPath: string;
+
+    SourcePath := ExpandConstant(CurrentFileName);
+    DestPath := BackupFolderPath + '\' + ExtractFileName(SourcePath);
+    Log(Format('Backing up %s to %s', [SourcePath, DestPath]));
+    if not FileCopy(SourcePath, BackupFolderPath + '\' + ExtractFileName(CurrentFileName), False) then
     begin
-        if not DirExists(BackupFolderPath) then
-        begin
-        Log('Creating ' + BackupFolderPath);
-        CreateDir(BackupFolderPath);
-        end;
-    
-        SourcePath := ExpandConstant(CurrentFileName);
-        DestPath := BackupFolderPath + '\' + ExtractFileName(SourcePath);
-        Log(Format('Backing up %s to %s', [SourcePath, DestPath]));
-        if not FileCopy(SourcePath, BackupFolderPath + '\' + ExtractFileName(CurrentFileName), False) then
-        begin
-        Log('Backup failed');
-        end;
+    Log('Backup failed');
     end;
-    
-    procedure CurUninstallStepChanged(CurUninstallStep: TUninstallStep);
-    var
-        FindRec: TFindRec;
-        SourceDir: string;
-        SourcePath: string;
-        DestDir: string;
-        DestPath: string;
+end;
+
+procedure CurUninstallStepChanged(CurUninstallStep: TUninstallStep);
+var
+    FindRec: TFindRec;
+    SourceDir: string;
+    SourcePath: string;
+    DestDir: string;
+    DestPath: string;
+begin
+    if CurUninstallStep = usPostUninstall then
     begin
-        if CurUninstallStep = usPostUninstall then
+    SourceDir := BackupFolderPath;
+    DestDir := CustomFunction('');
+    if FindFirst(SourceDir + '\*.*', FindRec) then
+    begin
+        repeat
+        if (FindRec.Name <> '.') and (FindRec.Name <> '..') then
         begin
-        SourceDir := BackupFolderPath;
-        DestDir := CustomFunction('');
-        if FindFirst(SourceDir + '\*.*', FindRec) then
-        begin
-            repeat
-            if (FindRec.Name <> '.') and (FindRec.Name <> '..') then
+            SourcePath := SourceDir + '\' + FindRec.Name;
+            DestPath := DestDir + '\bin\' + FindRec.Name
+            Log(Format('Restoring %s to %s', [SourcePath, DestPath]));
+            if not RenameFile(SourcePath, DestPath) then
             begin
-                SourcePath := SourceDir + '\' + FindRec.Name;
-                DestPath := DestDir + '\bin\' + FindRec.Name
-                Log(Format('Restoring %s to %s', [SourcePath, DestPath]));
-                if not RenameFile(SourcePath, DestPath) then
-                begin
-                Log('Restore failed');
-                end;
+            Log('Restore failed');
             end;
-            until not FindNext(FindRec);
-        end;  
-        FindClose(FindRec);
-        RemoveDir(SourceDir);
         end;
-    end;                        
+        until not FindNext(FindRec);
+    end;  
+    FindClose(FindRec);
+    RemoveDir(SourceDir);
+    end;
+end;                        
 </pre>
-                                    </div>
-                                </mat-expansion-panel>
-                            </li>
-                        </ul>
-                    </div>
+                                </div>
+                            </mat-expansion-panel>
+                        </li>
+                    </ul>
                 </div>
-                <div><app-comment></app-comment></div>
             </div>
-        </mat-card-content>
-    </mat-card>
-</div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>

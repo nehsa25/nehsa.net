@@ -1,53 +1,52 @@
-<div>
-    <mat-card class="card">
-        <mat-card-header>
-            <mat-card-title>
-                <h1 data-testid="header-title">MySQL</h1>
-            </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <div class="commentgrid">
-                <div class="topics">
-                    <div>
-                        <ul>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Setup Docker</mat-panel-title>
-                                    </mat-expansion-panel-header>
-                                    <ul>
-                                        <li>Get latest imagest:<br>
-                                            <div class="code">docker pull ubuntu/mysql</div>
-                                        </li>
-                                        <li>
-                                            Run it:<br>
-                                            <div class="code">docker run -d --name mysql-container -e TZ=UTC -p
-                                                3306:3306
-                                                -e
-                                                MYSQL_ROOT_PASSWORD=&lt;PASSWORD&gt; ubuntu/mysql:latest</div>
-                                        </li>
-                                        <li>We now have a SQL server install running to the outside world on port <span
-                                                class="important">3306</span>:<br><br><br>
-                                            <span class="code-command">docker ps</span>
-                                            <div class="code">
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">MySQL</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                <div>
+                    <ul>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Setup Docker</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>Get latest imagest:<br>
+                                        <div class="code">docker pull ubuntu/mysql</div>
+                                    </li>
+                                    <li>
+                                        Run it:<br>
+                                        <div class="code">docker run -d --name mysql-container -e TZ=UTC -p
+                                            3306:3306
+                                            -e
+                                            MYSQL_ROOT_PASSWORD=&lt;PASSWORD&gt; ubuntu/mysql:latest</div>
+                                    </li>
+                                    <li>We now have a SQL server install running to the outside world on port <span
+                                            class="important">3306</span>:<br><br><br>
+                                        <span class="code-command">docker ps</span>
+                                        <div class="code">
 
-                                                <pre>
+                                            <pre>
 CONTAINER ID   IMAGE                 COMMAND                  CREATED          STATUS          PORTS                                NAMES
 6d2a74d5914f   ubuntu/mysql:latest   "docker-entrypoint.s…"   17 minutes ago   Up 17 minutes   33060/tcp, 0.0.0.0:3306->3306/tcp   mysql-container
                                 </pre>
-                                            </div>
-                                        </li>
-                                        <li>Get MySQL Workbench
-                                            <ul class="condensed">
-                                                <li>Install client only</li>
-                                            </ul>
-                                        </li>
-                                        <li>Configure .NET Core support<br><br>
-                                            <ul>
-                                                <li>
-                                                    <span class="code-command">dotnet add package MySqlConnector</span>
-                                                    <div class="code">
-                                                        <pre>
+                                        </div>
+                                    </li>
+                                    <li>Get MySQL Workbench
+                                        <ul class="condensed">
+                                            <li>Install client only</li>
+                                        </ul>
+                                    </li>
+                                    <li>Configure .NET Core support<br><br>
+                                        <ul>
+                                            <li>
+                                                <span class="code-command">dotnet add package MySqlConnector</span>
+                                                <div class="code">
+                                                    <pre>
 Determining projects to restore...
 ...
 info : Adding PackageReference for package 'MySqlConnector' into project 'C:\src\&lt;PROJECT&gt;\&lt;PROJECT&gt;.csproj'.
@@ -58,22 +57,22 @@ info : Generating MSBuild file C:\src\&lt;PROJECT&gt;\obj\&lt;PROJECT&gt;.csproj
 info : Writing assets file to disk. Path: C:\src\&lt;PROJECT&gt;\obj\project.assets.json
 log  : Restored C:\src\&lt;PROJECT&gt;\&lt;PROJECT&gt;.csproj (in 1.72 sec).
                                         </pre>
-                                                    </div>
-                                                </li>
-                                                <li>Add connection string to appsettings.json:
-                                                    <div class="code">
-                                                        <pre>
+                                                </div>
+                                            </li>
+                                            <li>Add connection string to appsettings.json:
+                                                <div class="code">
+                                                    <pre>
 "ConnectionStrings": &#123;
     "Default": "Server=&lt;YOURSERVER&gt;;Port=&lt;PORT&gt;User ID=&lt;USERID&gt;;Password=&lt;PASSWORD&gt;;Database=&lt;YOURDATABASE&gt;"
 &#125;,
                                             </pre>
-                                                    </div>
-                                                </li>
-                                                <li>Install MySqlConnector.DependencyInjection:<br><br>
-                                                    <span class="code-command">dotnet add package
-                                                        MySqlConnector.DependencyInjection</span>
-                                                    <div class="code">
-                                                        <pre>
+                                                </div>
+                                            </li>
+                                            <li>Install MySqlConnector.DependencyInjection:<br><br>
+                                                <span class="code-command">dotnet add package
+                                                    MySqlConnector.DependencyInjection</span>
+                                                <div class="code">
+                                                    <pre>
 Determining projects to restore...
 ...
 info : Adding PackageReference for package 'MySqlConnector.DependencyInjection' into project 'C:\src\&lt;PROJECT&gt;\&lt;PROJECT&gt;.csproj'.
@@ -83,83 +82,82 @@ info : PackageReference for package 'MySqlConnector.DependencyInjection' version
 info : Writing assets file to disk. Path: C:\src\&lt;PROJECT&gt;\obj\project.assets.json
 log  : Restored C:\src\&lt;PROJECT&gt;\&lt;PROJECT&gt;.csproj (in 1.22 sec)
                                         </pre>
-                                                    </div>
-                                                </li>
-                                                <li>Update appsetings.json again and add:<br>
-                                                    <div class="code">
-                                                        builder.Services.AddMySqlDataSource(builder.Configuration.GetConnectionString("Default")!);
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Setup Database</mat-panel-title>
-                                    </mat-expansion-panel-header>
-                            <li>Setup database
-                                <ul>
-                                    <li>Connect via MySQL Workbench</li>
-                                    <li>
-                                        Create the new database:<br>
-                                        <div class="code">create schema &lt;DATABASE NAME&gt;</div>
+                                                </div>
+                                            </li>
+                                            <li>Update appsetings.json again and add:<br>
+                                                <div class="code">
+                                                    builder.Services.AddMySqlDataSource(builder.Configuration.GetConnectionString("Default")!);
+                                                </div>
+                                            </li>
+                                        </ul>
                                     </li>
-                                    <li>Ensure you're viewing "Schemas," click "Refresh" to see your new schema</li>
-                                    <li>Create a new type by expanding the schema and right-clicking on Tables</li>
-                                    <li>Click "Apply" to generate the new table</li>
                                 </ul>
-                            </li>
                             </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Troubleshooting</mat-panel-title>
-                                    </mat-expansion-panel-header>
-                                    <ul>
-                                        <li> <mat-expansion-panel>
-                                                <mat-expansion-panel-header>
-                                                    <mat-panel-title>Connectivity To/From API (C#
-                                                        Core)</mat-panel-title>
-                                                </mat-expansion-panel-header>
-                                                <ul>
-                                                    <li>Can you ping it? (from API server)<br>
-                                                        Find the database connection details in the <span
-                                                            class="file">appsettings.json</span>
-                                                        <div class="code">
-                                                            <pre>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Setup Database</mat-panel-title>
+                                </mat-expansion-panel-header>
+                        <li>Setup database
+                            <ul>
+                                <li>Connect via MySQL Workbench</li>
+                                <li>
+                                    Create the new database:<br>
+                                    <div class="code">create schema &lt;DATABASE NAME&gt;</div>
+                                </li>
+                                <li>Ensure you're viewing "Schemas," click "Refresh" to see your new schema</li>
+                                <li>Create a new type by expanding the schema and right-clicking on Tables</li>
+                                <li>Click "Apply" to generate the new table</li>
+                            </ul>
+                        </li>
+                        </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Troubleshooting</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li> <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Connectivity To/From API (C#
+                                                    Core)</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <ul>
+                                                <li>Can you ping it? (from API server)<br>
+                                                    Find the database connection details in the <span
+                                                        class="file">appsettings.json</span>
+                                                    <div class="code">
+                                                        <pre>
 "ConnectionStrings": &#123;
     "Default": "Server=<span class="importantish">&lt;IP/Host&gt;</span>;User ID=<span class="importantish">&lt;USERNAME&gt;</span>;Password='<span class="importantish">&lt;PASSWORD&gt;</span>';Port=<span class="importantish">&lt;PORT&gt;</span>;Database=<span class="importantish">&lt;DATABASE&gt;</span>"
 &#125;
 </pre>
-                                                        </div>
-                                                    </li>
-                                                    <li>Can you connect to the docker image? (from DB server)<br><span
-                                                            class="code">docker
-                                                            exec -it -u <span
-                                                                class="importantish">&lt;USERNAME&gt;</span>
-                                                            /bin/bash </span>
-                                                    </li>
-                                                    <li>Can you connect to the database from DB server (localhost)?
-                                                        <ul>
-                                                            <li>
-                                                                <mat-expansion-panel>
-                                                                    <mat-expansion-panel-header>
-                                                                        <mat-panel-title>using &quot;mysql
-                                                                            shell&quot;</mat-panel-title>
-                                                                    </mat-expansion-panel-header>
-                                                                    <ul>
-                                                                        <li>Open MySQL Shell (installed with MySQL
-                                                                            Workbench) (and
-                                                                            open it)</li>
-                                                                        <li>Run <span class="code">\connect
-                                                                                root&#64;localhost</span>
-                                                                            <span class="result">
-                                                                                <div class="code">
-                                                                                    <pre>
+                                                    </div>
+                                                </li>
+                                                <li>Can you connect to the docker image? (from DB server)<br><span
+                                                        class="code">docker
+                                                        exec -it -u <span class="importantish">&lt;USERNAME&gt;</span>
+                                                        /bin/bash </span>
+                                                </li>
+                                                <li>Can you connect to the database from DB server (localhost)?
+                                                    <ul>
+                                                        <li>
+                                                            <mat-expansion-panel>
+                                                                <mat-expansion-panel-header>
+                                                                    <mat-panel-title>using &quot;mysql
+                                                                        shell&quot;</mat-panel-title>
+                                                                </mat-expansion-panel-header>
+                                                                <ul>
+                                                                    <li>Open MySQL Shell (installed with MySQL
+                                                                        Workbench) (and
+                                                                        open it)</li>
+                                                                    <li>Run <span class="code">\connect
+                                                                            root&#64;localhost</span>
+                                                                        <span class="result">
+                                                                            <div class="code">
+                                                                                <pre>
 \connect root&#64;localhost:3306
 Creating a session to 'root&#64;localhost:3306'
 Please provide the password for 'root&#64;localhost:30306': **********
@@ -168,45 +166,45 @@ Fetching schema names for auto-completion... Press ^C to stop.
 Your MySQL connection id is 37
 Server version: 8.0.37-0ubuntu0.22.04.3 (Ubuntu)
 </pre>
-                                                                                </div>
-                                                                            </span>
-                                                                        </li>
-                                                                    </ul>
-                                                                </mat-expansion-panel>
-                                                            </li>
-                                                            <li>
-                                                                <mat-expansion-panel>
-                                                                    <mat-expansion-panel-header>
-                                                                        <mat-panel-title>using
-                                                                            &quot;mysql&quot;</mat-panel-title>
-                                                                    </mat-expansion-panel-header>
-                                                                    <ul>
-                                                                        <li>Log into system:<br><br>
-                                                                            <ul>
-                                                                                <li>
-                                                                                    <span class="code-command">docker
-                                                                                        ps</span>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <div class="code">docker exec -it -u
-                                                                                        root 944 /bin/bash</div>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </li>
-                                                                        <li>Install MySQL Client<br>
-                                                                            <div class="code">apt-get install
-                                                                                default-mysql-client/stable</div>
-                                                                        </li>
-                                                                        <li>Verify you can connect:<br><br>
-                                                                            <span class="code-command">mysql -u
-                                                                                &lt;USERNAME&gt; -p'&lt;PASSWORD&gt;' -h
-                                                                                &lt;HOSTNAME OR IP&gt; -P &lt;PORT&gt;
-                                                                                -D &lt;DATABASE NAME&gt; <span
-                                                                                    class="comment">note the password is
-                                                                                    touching
-                                                                                    -p, that's important.</span></span>
-                                                                            <div class="code">
-                                                                                <pre>
+                                                                            </div>
+                                                                        </span>
+                                                                    </li>
+                                                                </ul>
+                                                            </mat-expansion-panel>
+                                                        </li>
+                                                        <li>
+                                                            <mat-expansion-panel>
+                                                                <mat-expansion-panel-header>
+                                                                    <mat-panel-title>using
+                                                                        &quot;mysql&quot;</mat-panel-title>
+                                                                </mat-expansion-panel-header>
+                                                                <ul>
+                                                                    <li>Log into system:<br><br>
+                                                                        <ul>
+                                                                            <li>
+                                                                                <span class="code-command">docker
+                                                                                    ps</span>
+                                                                            </li>
+                                                                            <li>
+                                                                                <div class="code">docker exec -it -u
+                                                                                    root 944 /bin/bash</div>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </li>
+                                                                    <li>Install MySQL Client<br>
+                                                                        <div class="code">apt-get install
+                                                                            default-mysql-client/stable</div>
+                                                                    </li>
+                                                                    <li>Verify you can connect:<br><br>
+                                                                        <span class="code-command">mysql -u
+                                                                            &lt;USERNAME&gt; -p'&lt;PASSWORD&gt;' -h
+                                                                            &lt;HOSTNAME OR IP&gt; -P &lt;PORT&gt;
+                                                                            -D &lt;DATABASE NAME&gt; <span
+                                                                                class="comment">note the password is
+                                                                                touching
+                                                                                -p, that's important.</span></span>
+                                                                        <div class="code">
+                                                                            <pre>
 Reading table information for completion of table and column names
 You can turn off this feature to get a quicker startup with -A
 
@@ -220,36 +218,36 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
 MySQL [&lt;DATABASE NAME&gt;]>
                                         </pre>
-                                                                            </div>
-                                                                        </li>
-                                                                    </ul>
-                                                                </mat-expansion-panel>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                    <li>Can you connect to the database from API server?<span
-                                                            class="code">\connect root&#64;<span
-                                                                class="importantish">&lt;IP/Host&gt;</span>:<span
-                                                                class="importantish">&lt;PORT&gt;</span></span>
-                                                    </li>
-                                                </ul>
-                                            </mat-expansion-panel>
-                                        </li>
-                                    </ul>
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Using MySQL Shell</mat-panel-title>
-                                    </mat-expansion-panel-header>
-                                    <div>
-                                        <h4>Using MySQL Shell</h4>
-                                        <dl>
-                                            <dt>Connect to a database</dt>
-                                            <dd>
-                                                <div class="code">
-                                                    <pre>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </mat-expansion-panel>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>Can you connect to the database from API server?<span
+                                                        class="code">\connect root&#64;<span
+                                                            class="importantish">&lt;IP/Host&gt;</span>:<span
+                                                            class="importantish">&lt;PORT&gt;</span></span>
+                                                </li>
+                                            </ul>
+                                        </mat-expansion-panel>
+                                    </li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Using MySQL Shell</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <div>
+                                    <h4>Using MySQL Shell</h4>
+                                    <dl>
+                                        <dt>Connect to a database</dt>
+                                        <dd>
+                                            <div class="code">
+                                                <pre>
 \connect root&#64;localhost:3306
 Creating a session to 'root&#64;localhost:3306'
 Please provide the password for 'root&#64;localhost:30306': **********
@@ -258,21 +256,21 @@ Fetching schema names for auto-completion... Press ^C to stop.
 Your MySQL connection id is 37
 Server version: 8.0.37-0ubuntu0.22.04.3 (Ubuntu)
 </pre>
-                                                </div>
-                                            </dd>
-                                            <dt>Change Schema</dt>
-                                            <dd>
-                                                <div class="code">
-                                                    <pre>
+                                            </div>
+                                        </dd>
+                                        <dt>Change Schema</dt>
+                                        <dd>
+                                            <div class="code">
+                                                <pre>
 \use &lt;DATABASE&gt;
 Default schema set to `&lt;DATABASE&gt;`.
 </pre>
-                                                </div>
-                                            </dd>
-                                            <dt>Run a query (in this case: Show all tables)</dt>
-                                            <dd>
-                                                <div class="code">
-                                                    <pre>
+                                            </div>
+                                        </dd>
+                                        <dt>Run a query (in this case: Show all tables)</dt>
+                                        <dd>
+                                            <div class="code">
+                                                <pre>
 \sql show tables;
 Fetching global names, object names from `&lt;DATABASE&gt;`
 +----------------------+
@@ -283,17 +281,16 @@ Fetching global names, object names from `&lt;DATABASE&gt;`
 +----------------------+
 2 rows in set (0.0013 sec)
                                 </pre>
-                                                </div>
-                                            </dd>
-                                        </dl>
-                                    </div>
-                                </mat-expansion-panel>
-                            </li>
-                        </ul>
-                    </div>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </mat-expansion-panel>
+                        </li>
+                    </ul>
                 </div>
-                <div><app-comment></app-comment></div>
             </div>
-        </mat-card-content>
-    </mat-card>
-</div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>

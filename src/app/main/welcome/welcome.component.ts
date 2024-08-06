@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
+import { UserService } from '../../services/user.service';
 declare var anime: any;
 
 @Component({
@@ -11,7 +12,7 @@ declare var anime: any;
   styleUrl: './welcome.component.scss'
 })
 export class WelcomeComponent {
-  constructor() {
+  constructor(public userService: UserService) {
 
   }
 
