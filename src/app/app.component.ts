@@ -76,6 +76,7 @@ export class AppComponent implements OnInit, OnDestroy {
   animationDuration = "10s";
   timSpeed = .7;
   pausedExpanded = false;
+  isStoryHidden = false;
 
   constructor(
     private ref: ChangeDetectorRef,
@@ -248,7 +249,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   // hide story (to show pretty background)
   hideStory(event: any) {
-    this.snackBar.open("Hiding story - not implemented", "OK");
+    this.isStoryHidden == true ? this.isStoryHidden = false : this.isStoryHidden = true;
     event.stopPropagation();
   }
 

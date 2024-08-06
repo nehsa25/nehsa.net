@@ -7,7 +7,7 @@
 }">
     <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen"
         class="bread">
-        <div class="root"><a href="/">home></a></div>
+        <div class="bread-root"><a href="/">home></a></div>
         <div>
             <xng-breadcrumb [separator]="iconTemplate">
                 <ng-template #iconTemplate>
@@ -50,7 +50,7 @@
                             {{title}}
                         </div>
                     </div>
-                    <div *ngIf="!this.expandedBio" class="world" [class.maintitle-dark]="userService.appIsDark()"
+                    <div *ngIf="!this.expandedBio && !this.isStoryHidden" class="world" [class.maintitle-dark]="userService.appIsDark()"
                         [class.maintitle-light]="!userService.appIsDark()">
                         <!-- row of trees -->
                         <div [style.animationPlayState]="playState" class="trees" [class.trees-normal]="!this.reversify"
