@@ -385,6 +385,34 @@ pass
                                 <mat-panel-title>Diagramming!</mat-panel-title>
                                 <mat-panel-subtitle>UML, OH MY!</mat-panel-subtitle>
                             </mat-expansion-panel-header>
+                            <dl>
+                                <dt>UML</dt>
+                                <dd>(Unified Modeling Language) is a standardized visual language used for modeling
+                                    software systems.</dd>
+                                <dt>Class Diagram</dt>
+                                <dd>Class diagrams are a type of UML diagram that shows the
+                                    structure of a
+                                    system by
+                                    defining the classes, attributes, and methods of the system.
+                                </dd>
+                                <dt>Sequence Diagram</dt>
+                                <dd>Sequence diagrams are a type of UML diagram that shows how
+                                    objects
+                                    interact in a time
+                                    period. They are used to visualize the interactions between
+                                    objects in a
+                                    system.</dd>
+                                <dt>Activity Diagram</dt>
+                                <dd>Activity diagrams are a type of UML diagram that shows the flow
+                                    of
+                                    activities in a
+                                    system. They are used to visualize the steps in a process or
+                                    workflow.</dd>
+                                <dt>PlantUML</dt>
+                                <dd>is a tool that generates diagrams from a simple text description. It supports a
+                                    variety of diagram types, including UML diagrams, but also goes beyond UML to offer
+                                    other types like flowcharts, activity diagrams, and more.</dd>
+                            </dl>
                             <ul>
                                 <li>
                                     <mat-expansion-panel>
@@ -394,29 +422,8 @@ pass
                                                 diagrams using a text-based language.</mat-panel-subtitle>
                                         </mat-expansion-panel-header>
                                         <ul>
-                                            <li> PlantUML allows defining UML diagrams, some options of which
-                                                include:<br>
-                                                <dl>
-                                                    <dt>Class Diagram</dt>
-                                                    <dd>Class diagrams are a type of UML diagram that shows the
-                                                        structure of a
-                                                        system by
-                                                        defining the classes, attributes, and methods of the system.
-                                                    </dd>
-                                                    <dt>Sequence Diagram</dt>
-                                                    <dd>Sequence diagrams are a type of UML diagram that shows how
-                                                        objects
-                                                        interact in a time
-                                                        period. They are used to visualize the interactions between
-                                                        objects in a
-                                                        system.</dd>
-                                                    <dt>Activity Diagram</dt>
-                                                    <dd>Activity diagrams are a type of UML diagram that shows the flow
-                                                        of
-                                                        activities in a
-                                                        system. They are used to visualize the steps in a process or
-                                                        workflow.</dd>
-                                                </dl>
+                                            <li>Uses a text-based syntax to generate UML diagrams and other types of
+                                                diagrams.
                                             </li>
                                             <li>Elements of a PlantUML document:<br>
                                                 <dl>
@@ -426,7 +433,8 @@ pass
                                                     <dt>actor</dt>
                                                     <dd>Defines an actor in a use case diagram. e.g. User</dd>
                                                     <dt>participant </dt>
-                                                    <dd>Defines a participant in a sequence diagram. e.g. API, WEBSITE, DATABASE</dd>
+                                                    <dd>Defines a participant in a sequence diagram. e.g. API, WEBSITE,
+                                                        DATABASE</dd>
                                                     <dt>-></dt>
                                                     <dd>Defines a message between participants in a sequence diagram.
                                                         e.g.
@@ -445,7 +453,8 @@ pass
                                                     <dd>Defines a partition in a sequence diagram. e.g. partition
                                                         Website</dd>
                                                     <dt>while</dt>
-                                                    <dd>Defines a loop in a sequence diagram. e.g. while API Available</dd>
+                                                    <dd>Defines a loop in a sequence diagram. e.g. while API Available
+                                                    </dd>
                                                 </dl>
                                             </li>
                                         </ul>
@@ -654,9 +663,10 @@ deactivate Website
                                         <mat-expansion-panel-header>
                                             <mat-panel-title>Class diagrams</mat-panel-title>
                                         </mat-expansion-panel-header>
-                                        <span class="importantish">Class diagrams</span> visually show the relationship between class objects
+                                        <span class="importantish">Class diagrams</span> visually show the relationship
+                                        between class objects
                                         <div class="code">
-<pre>
+                                            <pre>
 &#64;startuml
 class Player&#123;
     - eye-color: string
@@ -696,12 +706,11 @@ Class--Stats: class-specific stats
 Player-- Class: Warrior
 &#64;enduml
 </pre>
-                                                                </div>
-                                                                <br><br>
-                                                                Resulting in the following diagram (svg image created on
-                                                                PlantUml.com):<br>
-                                                                <img src="../assets/images/uml_class_diagram.svg"
-                                                                    alt="Sequence Diagram">   
+                                        </div>
+                                        <br><br>
+                                        Resulting in the following diagram (svg image created on
+                                        PlantUml.com):<br>
+                                        <img src="../assets/images/uml_class_diagram.svg" alt="Sequence Diagram">
 
                                     </mat-expansion-panel>
                                 </li>

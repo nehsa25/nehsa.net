@@ -1,7 +1,10 @@
 <mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
     <mat-card-header>
         <mat-card-title>
-            <h1 data-testid="header-title">About</h1>
+            <div class="bioheader">
+                <h2>Jesse Stone</h2>
+                <h3>Software Engineer</h3>
+            </div>
         </mat-card-title>
     </mat-card-header>
     <mat-card-content>
@@ -9,66 +12,86 @@
             <div class="bodybiogrid">
                 <div class="biowrapper" style="max-width: 800px">
                     <div class="bio">
-                        <img class="mainimg" mat-card-image src="assets/images/me.png"
-                            alt="Photo of a Jesse Stone and dog Roswaal (Roz)" /><br>
+
+                        <div class="img-grid">
+                            <div>
+                                <img class="mainimg" mat-card-image src="assets/images/me.png"
+                                    alt="Photo of a Jesse Stone and dog Roswaal (Roz)" />
+                            </div>
+                            <div>
+                                <div class="doghover" *ngIf="this.doghover">
+                                    <span class="funarrow"><mat-icon>arrow_back</mat-icon>This guy</span>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
                         "Never done learning," best sums me up. Education should never end, and I am always eager to
                         educate myself and hone my ability to manage, develop, and test high-quality code.<br><br>
-                        Current areas of focus:
-                        <ul class="condensed">
-                            <li>Software Design
-                                <ul>
-                                    <li>UML</li>
-                                    <li>Design Patterns</li>
-                                    <li>Threading, Multiprocessing, Locking, Asyncio</li>
-                                </ul>
-                            </li>
-                            <li>Highly resiliant cloud deployment with geographically-dispersed/load-balanced UIs
-                            </li>
-                            <li>Docker, containerization, working within containers</li>
-                            <li>CI/CD w/integrated E2E testing using Playwright & Pytest</li>
-                            <li><a routerLink="/mud">NehsaMUD</a> - This project is something my son and I are
-                                pursuing together. It is a
-                                text-based game/interactive novel reminiscing of a type of game I played in my
-                                childhood called "MUD" - a multi-user dungeon. The MUDs I played as a child were
-                                pre-internet! You connected to them via a modem and played on someone's BBS
-                                (bulletin board system).
-                                <ul>
-                                    <li>Stability AI for generating images
-                                        <ul>
-                                            <li>Rooms/Environment</li>
-                                            <li>Player Characters</li>
-                                            <li>NPCs</li>
-                                            <li>Items</li>
-                                            <li>Monsters</li>
-                                        </ul>
-                                    </li>
-                                    <li>Google Gemini is used for all NPC dialog. I love the idea of finding a
-                                        gardener in the game and getting real-world gardening tips from them on when
-                                        and how to garden. If you asked a blacksmith the same questions, he'd also
-                                        offer information, but it'll likely be lacking in detail or even completely
-                                        wrong. You are speaking with a blacksmith who has no experience in
-                                        gardening.
-                                    </li>
-                                    <li>websockets</li>
-                                    <li>Asyncio is used for for input events monitoring</li>
-                                    <li>Threading is used for background tasks</li>
-                                    <li>Multiprocessing is used for high cpu itensive tasks (map generations)</li>
-                                </ul> that dot for map generations
-                            </li>
-                        </ul><br>This silly website is used for just that. To the left are technologies and tools I
-                        have experience with. Each topic area has varying states of completeness, as I only update
-                        content occasionally. If you see anything of value and want to see more of it, add a comment
-                        and let me know! I would like to make a second version of this website using React because.
+
+                        <span (mouseover)="doghover=true" (mouseout)="doghover=false">Also, I have the bestest dog
+                            Roz.</span><br><br>
+
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Current areas of focus:</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul class="condensed">
+                                <li>Software Design
+                                    <ul>
+                                        <li>UML</li>
+                                        <li>Design Patterns</li>
+                                        <li>Threading, Multiprocessing, Locking, Asyncio</li>
+                                    </ul>
+                                </li>
+                                <li>Highly resiliant cloud deployment with geographically-dispersed/load-balanced UIs
+                                </li>
+                                <li>Docker, containerization, working within containers</li>
+                                <li>CI/CD w/integrated E2E testing using Playwright & Pytest</li>
+                                <li><a routerLink="/mud">NehsaMUD</a> - This project is something my son and I are
+                                    pursuing together. It is a
+                                    text-based game/interactive novel reminiscing of a type of game I played in my
+                                    childhood called "MUD" - a multi-user dungeon. The MUDs I played as a child were
+                                    pre-internet! You connected to them via a modem and played on someone's BBS
+                                    (bulletin board system).
+                                    <ul>
+                                        <li>Stability AI for generating images
+                                            <ul>
+                                                <li>Rooms/Environment</li>
+                                                <li>Player Characters</li>
+                                                <li>NPCs</li>
+                                                <li>Items</li>
+                                                <li>Monsters</li>
+                                            </ul>
+                                        </li>
+                                        <li>Google Gemini is used for all NPC dialog. I love the idea of finding a
+                                            gardener in the game and getting real-world gardening tips from them on when
+                                            and how to garden. If you asked a blacksmith the same questions, he'd also
+                                            offer information, but it'll likely be lacking in detail or even completely
+                                            wrong. You are speaking with a blacksmith who has no experience in
+                                            gardening.
+                                        </li>
+                                        <li>websockets</li>
+                                        <li>Asyncio is used for for input events monitoring</li>
+                                        <li>Threading is used for background tasks</li>
+                                        <li>Multiprocessing is used for high cpu itensive tasks (map generations)</li>
+                                    </ul> that dot for map generations
+                                </li>
+                            </ul><br>This silly website is used for just that. To the left are technologies and tools I
+                            have experience with. Each topic area has varying states of completeness, as I only update
+                            content occasionally. If you see anything of value and want to see more of it, add a comment
+                            and let me know! I would like to make a second version of this website using React because.
+                        </mat-expansion-panel>
                         <br>
                         <br>More about me here: <a target="_blank" mat-button
                             href="https://www.linkedin.com/in/jessestone/">LinkedIn Profile</a>
+
                         <br><br>
-                        <span (mouseover)="doghover=true" (mouseout)="doghover=false">Also, I have the bestest dog
-                            Roz.</span>
+                        Stuff that's likely only of interest to me:
+                        <ul>
+                            <li><button mat-button routerLink="/grammar">Writing / Grammar</button></li>
+                            <li><button mat-button routerLink="/school">School</button></li>
+                        </ul>
                     </div>
-                </div>
-                <div *ngIf="this.doghover">
-                    <span class="funarrow"><mat-icon>arrow_back</mat-icon>This guy</span>
                 </div>
             </div>
             <div><app-comment></app-comment></div>

@@ -1,0 +1,62 @@
+.lightning-container {
+    width: 100%;
+    animation: gradient-animation 15s ease infinite;
+
+}
+
+.lightning {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    color: black;
+    width: 100px;
+    height: 40px;
+    font-size: 30px;
+    animation: lightning-animation 3s linear infinite;
+}
+
+.outlined-text {
+    color: yellow;
+    -webkit-text-stroke-width: .8px;
+    -webkit-text-stroke-color: #4B0082;
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-color: teal;
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-color: black;
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes lightning-animation {
+    0% {
+        opacity: 0;
+        left: 0;
+    }
+    30% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 1;
+        left: 60%;
+    }
+    90% {
+        opacity: 1;
+        left: 90%;
+    }
+    91% {
+        opacity: 0;
+        left: 91%;
+    }
+    100% {
+        opacity: 0;
+        left: 100%;
+    }
+}

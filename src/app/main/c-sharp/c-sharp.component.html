@@ -561,6 +561,58 @@ namespace scratch
                         </mat-expansion-panel>
                     </li>
                 </ul>
+                <div>Enity Framework
+                    <div>
+                        Troubleshooting:<br>
+                        <ul>
+                            <li>db.SaveChanges() exception: String or binary data would be truncated.
+                                General Tips:<br>
+                                <ul>
+                                    <li>Check the length of the column in the database</li>
+                                    <li>Check the length of the data being saved</li>
+                                    <li>Check the data being saved for special characters</li>
+                                </ul><br><br>
+
+                                Specific things to do:<br>
+                                <ol>
+                                    <li>Some code to help you troubleshoot:<br>
+                                        <div class="code">
+                                        <pre>
+try
+&#123;
+    // ... your code to save data
+
+&#125;
+catch (DbUpdateException ex)
+&#123;
+    // Cast the inner exception to retrieve more details
+    var sqlException = ex.InnerException as SqlException;
+    if (sqlException != null)
+    &#123;
+        // Check for specific error codes or messages to identify the column
+        // ...
+    &#125;
+
+    // Log detailed information
+    var entityEntry = context.ChangeTracker.Entries().SingleOrDefault(e => !e.State.Equals(EntityState.Unchanged));
+    if (entityEntry != null)
+    &#123;
+        var entity = entityEntry.Entity;
+        // Log entity type, property values, and exception details
+    &#125;
+
+    // Handle the exception, e.g., log the error or display a user-friendly message
+    Console.WriteLine(ex.Message);
+&#125;
+                                    </pre>
+                                        </div>
+                                    </li>
+                                </ol>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
                 <div>.NET Core-Specific
                     <ul>
                         <li>

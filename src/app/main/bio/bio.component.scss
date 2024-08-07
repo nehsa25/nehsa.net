@@ -1,17 +1,7 @@
-@media screen and (min-width: 0px) and (max-width: 799px) {
-    .mainimg {
-        width: 500px;
-    }
-}
-
-@media screen and (min-width: 799px) {
-    .mainimg {
-        width: 800px;
-    }
-}
-
 .mainimg {
-    border-radius: 10px;
+    border: 2px ridge var(--theme-border);
+    border-radius: 2px !important;
+    width: 350px;
 }
 
 .bodybiogrid {
@@ -23,4 +13,15 @@
 .funarrow {
     align-items: center;
     display: flex;
+}
+
+.img-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+.doghover {
+    width: 100%;
+    animation: gradient-animation 15s ease infinite;
 }

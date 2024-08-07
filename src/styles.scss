@@ -37,7 +37,11 @@
 
 }
 
-@media (min-width: 992px) {}
+@media (min-width: 992px) {
+    dt {
+        width: 150px;
+    }
+}
 
 @media (min-width: 1200px) {}
 
@@ -660,6 +664,14 @@ a,
 }
 
 // expansion-panel
+.mat-expansion-panel {
+    border: 1px solid var(--theme-border);
+    border-radius: 5px;
+    margin: 1em;
+    width: 100%;
+    max-width: 100%;
+}
+
 .mat-expansion-panel-header {
     font-size: 1rem !important;
 }
@@ -696,11 +708,13 @@ dl {
     display: grid;
     grid-template-columns: 1fr auto;
     width: fit-content;
+    grid-gap: 1rem;
 }
 
 dt {
     font-style: oblique;
     font-weight: normal;
+    text-align: right;
 }
 
 
