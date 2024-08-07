@@ -135,7 +135,7 @@ $theme-file-color: yellow;
 
 //navbar
 $theme-navbar-background: mat.get-color-from-palette($dark-primary-palette, 500);
-$theme-navbar-color: mat.get-color-from-palette($dark-primary-palette, 100);
+$theme-navbar-color: mat.get-color-from-palette($dark-primary-palette, A100);
 
 //buttons
 $theme-light-button-background-color: mat.get-color-from-palette($light-primary-palette, 400);
@@ -162,63 +162,15 @@ $theme-dark-a-hover-color: mat.get-color-from-palette($dark-primary-palette, 300
 $theme-dark-a-link-color: mat.get-color-from-palette($dark-primary-palette, "link");
 $theme-light-a-link-color: mat.get-color-from-palette($light-primary-palette, "link");
 
+// images
+img {
+    border: 2px ridge var(--theme-border);
+    border-radius: 2px;
+}
+
 // pop color
 $theme-pop: deepskyblue;
 $theme-header-color: anqituewhite;
-
-// @media (prefers-color-scheme: light) {
-//     $theme-border-color: mat.get-color-from-palette($light-primary-palette, 500);
-//     $theme-background: mat.get-color-from-palette($light-primary-palette, 50);
-
-//     // code
-//     $theme-code-background: mat.get-color-from-palette($light-primary-palette, 300);
-//     $theme-code-color: mat.get-color-from-palette($light-accent-palette, 800);
-
-//     // comments
-//     $theme-comment-background: mat.get-color-from-palette($light-primary-palette, 200);
-//     $theme-comment-color: mat.get-color-from-palette($light-primary-palette, 400);
-
-//     //notes
-//     $theme-note-background: mat.get-color-from-palette($light-primary-palette, 300);
-//     $theme-note-color: mat.get-color-from-palette($light-primary-palette, 50);
-
-//     //answers
-//     $theme-answer-background: mat.get-color-from-palette($light-primary-palette, 300);
-//     $theme-answer-color: mat.get-color-from-palette($light-primary-palette, 50);
-
-//     //card
-//     $theme-card-background: mat.get-color-from-palette($light-primary-palette, 200);
-//     $theme-card-color: mat.get-color-from-palette($light-primary-palette, 400);
-
-//     //table
-//     $theme-table-background: mat.get-color-from-palette($light-primary-palette, 200);
-//     $theme-table-color: mat.get-color-from-palette($light-primary-palette, 400);
-
-//     //files
-//     $theme-file-background: #454B1B;
-//     $theme-file-color: yellow;
-
-//     //navbar
-//     $theme-navbar-background: mat.get-color-from-palette($light-primary-palette, 500);
-//     $theme-navbar-color: mat.get-color-from-palette($light-primary-palette, 100);
-
-//     //button
-//     $theme-button-background: mat.get-color-from-palette($light-primary-palette, 400);
-//     $theme-button-color: mat.get-color-from-palette($light-primary-palette, 50);
-
-//     //button hover
-//     $theme-button-hover-background: mat.get-color-from-palette($light-primary-palette, A700);
-//     $theme-button-hover-color: mat.get-color-from-palette($light-primary-palette, 100);
-
-//     //links
-//     $theme-a-active: mat.get-color-from-palette($light-primary-palette, 100);
-//     $theme-a-visited: mat.get-color-from-palette($light-primary-palette, 200);
-//     $theme-light-a-hover-color: mat.get-color-from-palette($light-primary-palette, 300);
-
-//     // pop color
-//     $theme-pop: royalblue;
-//     $theme-header-color: maroon;
-// }
 
 // these variables can be accessed in the global scope
 :root {

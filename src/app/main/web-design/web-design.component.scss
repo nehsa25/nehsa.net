@@ -6,6 +6,18 @@
     z-index: 200;
 }
 
+.contrast {
+    padding: 1em;
+    height: 400px;
+    width: 300px;
+}
+
+.contrast img {
+    height: 350px;;
+    width: fit-content;
+    margin: 1em auto;
+}
+
 // list examples
 .ul-example-container {
     width: 300px; 

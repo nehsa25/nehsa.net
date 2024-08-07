@@ -13,6 +13,141 @@
                     <li>
                         <mat-expansion-panel>
                             <mat-expansion-panel-header>
+                                <mat-panel-title>Accessibility / ADA Design</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <dl>
+                                <dt>Color Contrast</dt>
+                                <dd>Color contrast is important for users with visual impairments. The Web Content
+                                    Accessibility Guidelines (WCAG) recommend a contrast ratio of at least 4.5:1 for
+                                    normal text and 3:1 for large text.</dd>
+                                <dt>Alt Text for Images</dt>
+                                <dd>Alt text is important for users who are visually impaired and rely on screen readers
+                                    to navigate the web. Alt text provides a description of an image, allowing users to
+                                    understand its content even if they can't see it.</dd>
+                                <dt>Keyboard Navigation</dt>
+                                <dd>Keyboard navigation is essential for users who are unable to use a mouse. To ensure
+                                    that your website is accessible to all users, be sure to provide keyboard shortcuts
+                                    and navigation options.</dd>
+
+                                <dt>Responsive Design</dt>
+                                <dd>Responsive design is essential for creating a website that looks good on all
+                                    devices.</dd>
+                            </dl>
+                            <ul>
+                                <li>
+                                    <mat-expansion-panel expanded>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>Color Contrast</mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <div>The Web
+                                            Content Accessibility Guidelines (WCAG) recommend a contrast ratio of at
+                                            least 4.5:1 for normal text and 3:1 for large text.
+
+                                            There are several standards for color contrast, but the most common is the
+                                            WCAG 2.0 which requires a contrast ratio of at least 4.5:1 for normal text
+                                            and 3:1 for large text. This ensures that text is readable and
+                                            distinguishable from the background color.
+
+                                            WCAG Level AAA requires a contrast ratio of at least 7:1 for normal text and
+                                            4.5:1 for large text.
+                                            <br><br>
+
+                                            Example of the navbar naviation with both light and dark mode
+                                            <span class="importantish">which meets WCAG Level AAA</span>
+                                            specifications:<br><br>
+                                            <div class="contrast" style="background-color: #f5f5f5; width: 100%;">
+                                                <div style="color: #9E2200">Light Mode:</div>
+                                                <img src="..\..\..\assets\images\lightmode.png" alt="Light Mode" />
+                                            </div><br>
+                                            <br>
+                                            <div class="contrast" style="background-color: #383838; width: 100%;">
+                                                <div style="color: #b7d1b1">Dark Mode:</div>
+                                                <img src="..\..\..\assets\images\darkmode.png" alt="Dark Mode" />
+                                            </div><br>
+
+                                            (I am using <a href="https://webaim.org/resources/contrastchecker/"
+                                                target="_blank">WebAIM Contrast Checker</a> to validate the contrast
+                                            ratio)
+                                        </div>
+                                    </mat-expansion-panel>
+                                </li>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>Alt Text for Images</mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <div>
+                                            <p>Alt text is important for users who are visually impaired and rely on
+                                                screen readers to navigate the web. Alt text provides a description of
+                                                an
+                                                image, allowing users to understand its content even if they can't see
+                                                it.</p>
+                                            <p>When adding alt text to an image, be sure to provide a concise and
+                                                accurate description of the image. Avoid using generic phrases like
+                                                "image" or "photo" and instead describe the content of the image in
+                                                detail.</p>
+                                            <p>Alt text should be added to all images on your website, including
+                                                decorative images and images used as links. This will help ensure that
+                                                your content is accessible to all users.</p>
+                                        </div>
+                                    </mat-expansion-panel>
+                                </li>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>Keyboard Navigation</mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <div>
+                                            <p>Keyboard navigation is essential for users who are unable to use a
+                                                mouse. To ensure that your website is accessible to all users, be sure
+                                                to
+                                                provide keyboard shortcuts and navigation options.</p>
+                                            <p>When designing your website, consider the following:</p>
+                                            <ul>
+                                                <li>Use semantic HTML elements to create a logical tab order</li>
+                                                <li>Provide keyboard shortcuts for common actions</li>
+                                                <li>Ensure that all interactive elements are accessible via the keyboard
+                                                </li>
+                                                <li>Test your website using only the keyboard to ensure that all
+                                                    functionality is available</li>
+                                            </ul>
+                                            <p>By providing keyboard navigation options, you can make your website more
+                                                accessible to users with disabilities and ensure that everyone can
+                                                navigate your site easily.</p>
+                                        </div>
+                                    </mat-expansion-panel>
+                                </li>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>Responsive Design</mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <div>
+                                            <p>Responsive design is essential for creating a website that looks good
+                                                on all devices. With the increasing use of smartphones and tablets, it's
+                                                important to ensure that your website is accessible on a variety of
+                                                screen sizes.</p>
+                                            <p>When designing a responsive website, consider the following:</p>
+                                            <ul>
+                                                <li>Use media queries to adjust the layout of your website based on
+                                                    screen size</li>
+                                                <li>Optimize images and videos for different screen resolutions</li>
+                                                <li>Ensure that text is readable on all devices</li>
+                                                <li>Test your website on different devices to ensure that it looks good
+                                                    on all screen sizes</li>
+                                            </ul>
+                                            <p>By creating a responsive website, you can provide a better user
+                                                experience for all visitors, regardless of the device they are using to
+                                                access your site.</p>
+                                        </div>
+                                    </mat-expansion-panel>
+                                </li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
                                 <mat-panel-title>The &quot;Display&quot; Property</mat-panel-title>
                             </mat-expansion-panel-header>
                             Display property is used to change the layout of an element. The most common values are:
@@ -83,6 +218,171 @@
                                     as relatively positioned until they reach a certain point and then they are treated
                                     as fixed.</dd>
                             </dl>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Website Usability Metrics: Web Vitals (LCP, FID, and
+                                    CLS)</mat-panel-title>
+                            </mat-expansion-panel-header>Website usability metrics are essential to ensure your website
+                            is user-friendly and provides a good user experience. This website's primary purpose is as a
+                            testbed to better understand and implement design best practices.
+                            <br><br>
+                            Common ones are:<br>
+                            <dl>
+                                <dt>Largest Contentful Paint (LCP)</dt>
+                                <dd>Measures loading performance. To provide a good user experience, LCP should occur
+                                    within 2.5 seconds of when the page first starts loading. A slow LCP can result in a
+                                    poor user experience and potentially drive visitors away from a website.</dd>
+                                <dt>Cumulative Layout Shift (CLS)</dt>
+                                <dd>CLS measures the visual stability of a webpage. It calculates the sum of all
+                                    individual layout shift scores for any unexpected layout shifts that occur during a
+                                    page's lifespan. A good aim for CLS is a score less than 0.1.</dd>
+                                <dt>First Input Delay (FID)</dt>
+                                <dd>FID is a measure of interactivity. It measures the time from when a user first
+                                    interacts with a page (e.g., clicks something) to the time when
+                                    the browser responds to that interaction. A good FID score is less than 100
+                                    milliseconds.</dd>
+                            </dl>
+
+                            <ul>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>Largest Contentful Paint</mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <ul>
+                                            <li>How to calculate your LPC: Super Duper Easy! Hovering over the LCP event
+                                                will providing the timing information as
+                                                well as highlight the element chosen as the LCP.
+                                                <ul class="condensed">
+                                                    <li>Open Chrome DevTools< (Likely F12)</li>
+                                                    <li>Go to the Performance panel</li>
+                                                    <li>Reload the page</li>
+                                                    <li>Look for the LCP event in the waterfall chart
+
+                                                        <img src="..\..\..\assets\images\lcp.png" alt="LCP Event"
+                                                            class="image" />
+                                                        <span class="additional-note">On my Bio page, this is considered
+                                                            the LCP by Google at the time was 661ms. <span
+                                                                class="importantish">Yay!</span>(aim for less than
+                                                            2.5s)</span>
+
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>How to improve your LPC?
+                                                <ul class="condensed">
+                                                    <li>Optimize images: Reduce image sizes and use efficient formats.
+                                                    </li>
+                                                    <li>Prioritize above-the-fold content: Ensure critical content loads
+                                                        quickly.</li>
+                                                    <li>Use a Content Delivery Network (CDN): Improve image and resource
+                                                        loading times.</li>
+                                                    <li>Minimize render-blocking resources: Remove or defer scripts that
+                                                        block rendering.</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </mat-expansion-panel>
+                                </li>
+                                <li>
+                                    <mat-expansion-panel expanded>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>First Input Delay (FID)</mat-panel-title>
+                                        </mat-expansion-panel-header>Jesse to add an example..
+                                    </mat-expansion-panel>
+                                </li>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>Cumulative Layout Shift</mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <ul>
+                                            <li>How to calculate your CLS:.
+                                                <ul class="condensed">
+                                                    <li>Open Chrome DevTools< (Likely F12)</li>
+                                                    <li>Go to the Performance panel</li>
+                                                    <li>Reload the page</li>
+                                                    <li>Look for the <span class="background-color: plum;">Layout
+                                                            Shift</span> events
+
+                                                        <img src="..\..\..\assets\images\cls1.png"
+                                                            alt="CLS layout events" class="image" />
+                                                        <span class="additional-note">On my Bio page, we had two layout
+                                                            shifts, the first score 0.0007091s and second score,
+                                                            0.002906 for a total of
+                                                            0.0036151.<span class="importantish">Yay!</span> (aim for
+                                                            less than 0.1)</span>
+                                                    </li>
+                                                </ul>
+                                                Selecting an event will provide more information:
+                                                <dl>
+                                                    <dt>Score 0.002906</dt>
+                                                    <dd>The score of the selected layout shift</dd>
+                                                    <dt>Cumulative Score 0.003615</dt>
+                                                    <dd>Indicates the total CLS score for the page up to that point in
+                                                        the page load. It's the sum of all individual layout shift
+                                                        scores.<span class="importantish">No Math!</span></dd>
+                                                </dl>
+                                            </li>
+                                            <li>How to improve your CLS?
+                                                <ul class="condensed">
+                                                    <li>Reserve space for ads or embeds: Prevent layout shifts by
+                                                        allocating space for these elements before they load.</li>
+                                                    <li>Optimize images: Use appropriate image formats and sizes to
+                                                        prevent layout shifts caused by image loading.</li>
+                                                    <li>Avoid dynamic content changes: Minimize changes to the layout
+                                                        after the page has loaded.</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </mat-expansion-panel>
+                                </li>
+                                <li><mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>Validation</mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        Playwright can be used to validate the metrics of a page. This can be done by
+                                        doing something such as:
+                                        <div class="code">
+                                            <pre>
+import &#123; test, expect &#125; from '&#64;playwright/test';
+
+test.describe('LCP Validation', () => &#123;
+    // Pages to test
+    const routes = ['/', '/about', '/products'];
+
+    for (const route of routes) &#123;
+    test(`LCP for $&#123;route&#125; should be less than 2.5s`, async (&#123; page &#125;) => &#123;
+        await page.goto(route);
+
+        // Wait for initial page load
+        await page.waitForLoadState('networkidle');
+
+        // Measure LCP
+        const metrics = await page.evaluate(() => &#123;
+        return new Promise(resolve => &#123;
+            import('web-vitals').then((&#123; getLCP &#125;) => &#123;
+            getLCP(result => &#123;
+                resolve(result.value);
+            &#125;);
+            &#125;);
+        &#125;);
+        &#125;);
+
+        // Assert LCP
+        expect(metrics).toBeLessThanOrEqual(2.5);
+    &#125;);
+    &#125;
+&#125;);
+                                            </pre>
+                                        </div>
+                                    </mat-expansion-panel>
+
+                                </li>
+                            </ul>
                         </mat-expansion-panel>
                     </li>
                     <li>
