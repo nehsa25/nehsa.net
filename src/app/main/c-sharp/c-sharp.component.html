@@ -36,6 +36,55 @@
                 </dl>
                 <ul>
                     <li>
+                        <mat-expansion-panel expanded>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Coding Conventions</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li>Use PascalCasing for class names and method names.</li>
+                                <li>Use camelCasing for method arguments and local variables.</li>
+                                <li>Do not use Hungarian notation.</li>
+                                <li>Use <span class="important">var</span> when the type is obvious from the
+                                    right side of
+                                    the assignment.</li>
+                                <li>Use <span class="important">const</span> for fields that are initialized
+                                    once and never
+                                    change.</li>
+                                <li>Use <span class="important">static</span> for methods that do not access
+                                    instance data.
+                                </li>
+                                <li>Use <span class="important">this</span> for instance fields and methods.
+                                </li>
+                                <li>Use <span class="important">string.Empty</span> instead of <span
+                                        class="important">""</span>.</li>
+                                <li>
+                                    Use <span class="important">string.IsNullOrEmpty</span> instead of <span
+                                        class="important">string == null || string == ""</span>.</li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Accessors</mat-panel-title>
+                            </mat-expansion-panel-header>
+<div class="code">
+    <pre>
+public class Person
+&#123;
+    private string _name;
+
+    public string Name
+    &#123;
+        get &#123; return _name; &#125;
+        set &#123; _name = value; &#125;
+    &#125;
+&#125;
+    </pre>
+</div>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
                         <mat-expansion-panel>
                             <mat-expansion-panel-header>
                                 <mat-panel-title>Interfaces</mat-panel-title>
@@ -479,34 +528,6 @@ namespace scratch
                     <li>
                         <mat-expansion-panel>
                             <mat-expansion-panel-header>
-                                <mat-panel-title>Coding Conventions</mat-panel-title>
-                            </mat-expansion-panel-header>
-                            <ul>
-                                <li>Use PascalCasing for class names and method names.</li>
-                                <li>Use camelCasing for method arguments and local variables.</li>
-                                <li>Do not use Hungarian notation.</li>
-                                <li>Use <span class="important">var</span> when the type is obvious from the
-                                    right side of
-                                    the assignment.</li>
-                                <li>Use <span class="important">const</span> for fields that are initialized
-                                    once and never
-                                    change.</li>
-                                <li>Use <span class="important">static</span> for methods that do not access
-                                    instance data.
-                                </li>
-                                <li>Use <span class="important">this</span> for instance fields and methods.
-                                </li>
-                                <li>Use <span class="important">string.Empty</span> instead of <span
-                                        class="important">""</span>.</li>
-                                <li>
-                                    Use <span class="important">string.IsNullOrEmpty</span> instead of <span
-                                        class="important">string == null || string == ""</span>.</li>
-                            </ul>
-                        </mat-expansion-panel>
-                    </li>
-                    <li>
-                        <mat-expansion-panel>
-                            <mat-expansion-panel-header>
                                 <mat-panel-title>Nuget</mat-panel-title>
                             </mat-expansion-panel-header>
                             <ul>
@@ -577,41 +598,43 @@ namespace scratch
                                 <ol>
                                     <li>Some code to help you troubleshoot:<br>
                                         <div class="code">
-                                        <pre>
+<pre>
 try
 &#123;
-    // ... your code to save data
-
+    int records = db.SaveChanges();
+    return records;
 &#125;
-catch (DbUpdateException ex)
+catch (System.Data.Entity.Validation.DbEntityValidationException ex)
 &#123;
-    // Cast the inner exception to retrieve more details
-    var sqlException = ex.InnerException as SqlException;
+    var msg = $"DbEntityValidationException - &#123;Environment.NewLine&#125;&#123;Environment.NewLine&#125;";
+    var sqlException = ex.InnerException.InnerException as SqlException;
     if (sqlException != null)
     &#123;
-        // Check for specific error codes or messages to identify the column
-        // ...
+        msg += $"SQL Exception: &#123;sqlException.Message&#125;&#123;Environment.NewLine&#125;&#123;Environment.NewLine&#125;";
     &#125;
 
-    // Log detailed information
-    var entityEntry = context.ChangeTracker.Entries().SingleOrDefault(e => !e.State.Equals(EntityState.Unchanged));
-    if (entityEntry != null)
-    &#123;
-        var entity = entityEntry.Entity;
-        // Log entity type, property values, and exception details
-    &#125;
-
-    // Handle the exception, e.g., log the error or display a user-friendly message
-    Console.WriteLine(ex.Message);
+    msg += $"&#123;Environment.NewLine&#125;&#123;Environment.NewLine&#125;Exception Message: &#123;ex.Message&#125;";
+    throw new Exception(msg);
 &#125;
-                                    </pre>
+catch (System.Data.Entity.Infrastructure.DbUpdateException ex)
+&#123;
+    var msg = $"DbUpdateException - &#123;Environment.NewLine&#125;&#123;Environment.NewLine&#125;";
+    var sqlException = ex.InnerException.InnerException as SqlException;
+    if (sqlException != null)
+    &#123;
+        msg += $"SQL Exception: &#123;sqlException.Message&#125;&#123;Environment.NewLine&#125;&#123;Environment.NewLine&#125;";
+    &#125;
+
+    msg += $"&#123;Environment.NewLine&#125;&#123;Environment.NewLine&#125;Exception Message: &#123;ex.Message&#125;";
+    throw new Exception(msg);
+&#125;
+</pre>
                                         </div>
                                     </li>
                                 </ol>
                             </li>
                         </ul>
                     </div>
-
                 </div>
                 <div>.NET Core-Specific
                     <ul>
