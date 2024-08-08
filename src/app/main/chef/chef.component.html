@@ -4,920 +4,992 @@
             <h1 data-testid="header-title">Chef</h1>
         </mat-card-title>
         <mat-card-subtitle>
-            <h3>Configures machines based on defined recipes</h3>
+            <h3>Configures machines based on defined recipes... scripted infrastructure.<br>
+                I found it's a great backbone for faciliating running tests of various CUnit, NUnit, Pytest, Playwright on a variety of known a prioratary operation systems</h3>
         </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
         <div class="commentgrid">
             <div class="topics">
-                <div>
-                    <h3>Important Commands</h3>
-                    <ul class="condensed">
-                        <li><span class="code">knife cookbook upload &lt;cookbook&gt;</span> - Upload cookbook to
-                            the
-                            server</li>
-                        <li><span class="code">chef-client -o &lt;cookbook&gt;:&lt;recipe&gt;</span> - Run a recipe
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Important Paths</h3>
-                    <ul class="condensed">
-                        <li><span class="code">C:\Users\&lt;you&gt;\.chef</span> - Contains configuration (knife.rb,
-                            pem
-                            files, trusted certs)</li>
-                        <li><span class="code">C:\Chef</span> - Chef-client configuration and logs</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Cookbook Hierarchy</h3>
-                    I've found good success in the following setup. Relationships can be defined via the <span
-                        class="file">metadata.rb</span> file via "depends."
-                    <ul class="condensed">
-                        <li>'website' cookbook depends on 'test'</li>
-                        <li>'test' depends on 'app'</li>
-                        <li>'app' depends on 'installs'</li>
-                        <li>'installs' depends on 'lab'</li>
-                        <li>'lab' depends on 'chocolatey' and 'slack-handler'</li>
-                    </ul>
-                    <dl>
-                        <dt>website</dt>
-                        <dd>Builds the website that arounds configuration and insight into Lab activities every 5
-                            minutes</dd>
-                        <dt>test</dt>
-                        <dd>Understands how to configure machines and execute tests (Pytest, Playwright, cunit,
-                            nunit, etc)</dd>
-                        <dt>app</dt>
-                        <dd>Everything about the application under test</dd>
-                        <dt>installs</dt>
-                        <dd>Every dependencies. For example, installing Notepad++, or Wireshark</dd>
-                        <dt>lab</dt>
-                        <dd>Anything machine or OS-specific</dd>
-                    </dl>
-                </div>
-                <div>
-                    <mat-expansion-panel>
-                        <mat-expansion-panel-header>
-                            <mat-panel-title>Sending messages to Slack</mat-panel-title>
-                        </mat-expansion-panel-header>
-                        <ul class="condensed">
-                            <li>
-                                Slack Handler (recipes\slack_handler.rb)
-                                <div class="code">
-                                    <pre>
-        # Cookbook:: slack_handler
-        # Recipe:: default
-        
-        require 'net/http'
-        require 'uri'
-        require 'json'
-        require 'net/http'
-        require 'uri'
-        require 'nokogiri'
-        
-        # db creds
-        credentials = data_bag_item('&lt;APP&GT;', '&lt;USERNAME&GT;')
-        
-        Chef.event_handler do
-            on :run_failed do |exception|
-                true_fail = true
-                run_failed_message = "Run failed: #&#123;exception.to_s&#125;"
-                Chef::Log.error("The Chef Run failed: #&#123;run_failed_message&#125;, true_fail: #&#123;true_fail.to_s&#125;")
-            
-                if exception.to_s.include?("Rebooting server at")
-                    Chef::Handler::Slack.new.send_message(text: run_failed_message) 
-                else
-                    unless exception.to_s == "exit"
-                    Chef::Handler::Slack.new.send_message_to_qa_auto_errors_channel(text: run_failed_message)
-                    end   
-                end
-            end
-            
-            on :recipe_file_load_failed do |exception|
-                message = "#&#123;Chef.run_context.node.name.upcase&#125;: recipe_file_load_failed failed: \"#&#123;exception.inspect&#125;\""
-                Chef::Handler::Slack.new.send_message(text: message)
-            end
-        
-            on :lwrp_file_load_failed do |exception|
-                message = "#&#123;Chef.run_context.node.name.upcase&#125;: lwrp_file_load_failed failed: \"#&#123;exception.inspect&#125;\""
-                Chef::Handler::Slack.new.send_message(text: message)
-            end
-        
-            on :library_file_load_failed do |exception|
-                message = "#&#123;Chef.run_context.node.name.upcase&#125;: library_file_load_failed failed: \"#&#123;exception.inspect&#125;\""
-                Chef::Handler::Slack.new.send_message(text: message)
-            end
-        
-            on :cookbook_sync_failed do |exception|
-                message = "#&#123;Chef.run_context.node.name.upcase&#125;: cookbook_sync_failed failed: \"#&#123;exception.inspect&#125;\""
-                Chef::Handler::Slack.new.send_message(text: message)
-            end
-        
-            on :cookbook_resolution_failed do |exception|
-                message = "#&#123;Chef.run_context.node.name.upcase&#125;: cookbook_resolution_failed failed: \"#&#123;exception.inspect&#125;\""
-                Chef::Handler::Slack.new.send_message(text: message)
-            end
-        
-            on :run_list_expand_failed do |exception|
-                message = "#&#123;Chef.run_context.node.name.upcase&#125;: run_list_expand_failed failed: \"#&#123;exception.inspect&#125;\""
-                Chef::Handler::Slack.new.send_message(text: message)
-            end
-        
-            on :node_load_failed do |exception|
-                message = "#&#123;Chef.run_context.node.name.upcase&#125;: node_load_failed failed: \"#&#123;exception.inspect&#125;\""
-                Chef::Handler::Slack.new.send_message(text: message)
-            end
-        
-            on :registration_failed do |exception|
-                message = "#&#123;Chef.run_context.node.name.upcase&#125;: registration_failed failed: \"#&#123;exception.inspect&#125;\""
-                Chef::Handler::Slack.new.send_message(text: message)
-            end
-        end                                
-                                        </pre>
-                                </div>
-                            </li>
-                            <li>Library (libraries\slack.rb)
-                                <div class="code">
-                                    <pre>
-        require 'socket'
-    
-        class Chef::Handler::Slack < Chef::Handler
-            &#64;&#64;channels = [
-            &#123; :channel_name => 'qa-automation', :channel_type => 'slack', :channel_url => 'https://hooks.slack.com/services/&lt;YOURCHANNEL&gt;' &#125;,
-            &#123; :channel_name => 'build', :channel_type => 'slack', :channel_url => 'https://hooks.slack.com/services/&lt;YOURCHANNEL&gt;' &#125;,
-            &#123; :channel_name => 'qa-automation-results', :channel_type => 'slack', :channel_url => 'https://hooks.slack.com/services/&lt;YOURCHANNEL&gt;' &#125;,
-            &#123; :channel_name => 'qa-automation-errors', :channel_type => 'slack', :channel_url => 'https://hooks.slack.com/services/&lt;YOURCHANNEL&gt;' &#125;,
-            ]
-            &#64;&#64;SUCCESS_COLOR = '1d800e'
-            &#64;&#64;FAIL_COLOR = 'ee3224'
-            
-            def send_msg_to_channel(msg, channel, color=&#64;&#64;SUCCESS_COLOR)
-                begin
-                    message = msg.dup
-                    puts "channel: #&#123;channel&#125;"
-                    uri = URI.parse(channel[:channel_url])
-                    header = &#123; 'Content-Type': 'text/json' &#125;
-                    hostname = Socket.gethostname.upcase
-                    new_msg = "#&#123;hostname&#125;: #&#123;message[:text]&#125;"
-                    message[:text] = new_msg
-                    message = message.to_json
-                    puts "SUBMITTING: #&#123;message&#125;"
-            
-                    # Create the HTTP objects
-                    http = Net::HTTP.new(uri.host, uri.port)
-                    http.use_ssl = true
-                    request = Net::HTTP::Post.new(uri.request_uri, header)
-                    request.body = message
-            
-                    # Send the request
-                    response = http.request(request)
-            
-                    # we don't care if this fails for now..
-                    # raise response.body unless response.body == 'ok'
-                    puts "response from channel \"#&#123;channel.inspect&#125;\": #&#123;response.body&#125;"
-                rescue Exception => ex
-                    puts ex.inspect
-                end
-            end
-        
-            def send_message_to_teams_qa_auto_channel(msg, color=&#64;&#64;SUCCESS_COLOR)
-                success = '$False'
-                if color == '1d800e'
-                    success = '$True'
-                end
-                msg = msg[:text]
-                msg = msg.gsub(/\r\n/, '__br__')
-                msg = msg.gsub(/\n/, '__br__')
-                msg = msg.gsub(/&gt;/, '__gt__')
-                msg = msg.gsub(/&lt;/, '__lt__')
-                msg = msg.gsub(/&/, '__amp__')
-                msg = msg.gsub(/"/, '__quot__')
-                cmd = ". $profile; send_msg -msg \"#&#123;msg&#125;\" -success #&#123;success&#125; -source \"Ruby (Chef)\"";
-                # puts "Running: #&#123;cmd&#125;"
-                # out = Chef::Resource::SlackUtils.run_ps_cmd(cmd)
-                # puts "Chef::Resource::SlackUtils.run_ps_cmd response -\nstdout: #&#123;out.stdout&#125;\nstderr: #&#123;out.stderr&#125;\ncommand: #&#123;out.command&#125;"
-            end
-        
-            def send_message_to_qa_auto_channel(msg, color=&#64;&#64;SUCCESS_COLOR)
-                Chef::Log.info(msg[:text]) # log the request
-            
-                self.send_message_to_teams_qa_auto_channel(msg, color=color)
-            
-                channel = &#64;&#64;channels.select &#123; |channel| channel[:channel_name] == 'qa-automation' &#125;[0]
-                self.send_msg_to_channel(msg, channel, color=color)    
-            end
-        
-            def send_message_to_build_channel(msg, color=&#64;&#64;SUCCESS_COLOR)
-                Chef::Log.info(msg[:text]) # log the request
-            
-                #always send to qa auto
-                self.send_message_to_qa_auto_channel(msg, color=color)
-                
-                channel = &#64;&#64;channels.select &#123; |channel| channel[:channel_name] == 'build' &#125;[0]
-                self.send_msg_to_channel(msg, channel, color=color)
-            end
-        
-            def send_message_to_qa_auto_results_channel(msg, color=&#64;&#64;SUCCESS_COLOR)
-                Chef::Log.info(msg[:text]) # log the request
-            
-                #always send to qa auto
-                self.send_message_to_qa_auto_channel(msg, color=color)
-                
-                channel = &#64;&#64;channels.select &#123; |channel| channel[:channel_name] == 'qa-automation-results' &#125;[0]
-                self.send_msg_to_channel(msg, channel, color=color)
-            end 
-        
-            def send_message_to_qa_auto_errors_channel(msg, color=&#64;&#64;FAIL_COLOR)
-                Chef::Log.error(msg[:text]) # log an error
-            
-                #always send to qa auto
-                self.send_message_to_qa_auto_channel(msg, color=color)
-                
-                channel = &#64;&#64;channels.select &#123; |channel| channel[:channel_name] == 'qa-automation-errors' &#125;[0]
-                self.send_msg_to_channel(msg, channel, color=color)
-            end  
-        
-            # default to qa-automation
-            def send_message(msg, color=&#64;&#64;SUCCESS_COLOR)
-                self.send_message_to_qa_auto_channel(msg, color=color)
-            end
-        end
-                                        </pre>
-                                </div>
-                            </li>
-                        </ul>
-                    </mat-expansion-panel>
-                </div>
-                <div>
-                    <mat-expansion-panel>
-                        <mat-expansion-panel-header>
-                            <mat-panel-title>Implement your own Chef UI</mat-panel-title>
-                        </mat-expansion-panel-header>
-                        When I started adopting Chef, the UI at the time was buggy and Chef
-                        Support (this was "Opscode" support via the their Slack channel) suggested it not be used (I
-                        was trying to use the attribute feature and they
-                        were inconsistently being saved). For this reason, I went down this path and it's
-                        worked great...
-                        <ul class="condensed">
-                            <li>Build UI that saves JSON to a shared location. I actually use Chef itself to build
-                                the website using knife commands to gather key information. e.g. <span
-                                    class="code">knife recipe list</span>
-                                <ul class="condensed">
-                                    <li>Recipes can be dragged from left<mat-icon>arrow_forward</mat-icon>right to
-                                        configure how a machine should run<br>
-                                        <img width="600" mat-card-image src="assets/images/lab_config1.png"
-                                            alt="Config page for configuring lab hosts" />
-                                    </li>
-                                    <li>Common configurations are built into the prior page but anything can be
-                                        adjusted here<br>
-                                        <img width="600" mat-card-image src="assets/images/lab_config2.png"
-                                            alt="Config page for configuring lab hosts" />
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>Create script to run Chef which first pulls this file and launches chef-client using
-                                the -j attribute
-                                Example:
-                                <div class="code">
-                                    <pre>
-    $start = get-date;
+                <ul>
+                    <li>
+                        <mat-expansion-panel expanded>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Important Commands</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul class="condensed">
+                                <li><span class="code">knife cookbook upload &lt;cookbook&gt;</span> - Upload cookbook
+                                    to
+                                    the
+                                    server</li>
+                                <li><span class="code">chef-client -o &lt;cookbook&gt;:&lt;recipe&gt;</span> - Run a
+                                    recipe
+                                </li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel expanded>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Important Paths</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul class="condensed">
+                                <li><span class="code">C:\Users\&lt;you&gt;\.chef</span> - Contains configuration
+                                    (knife.rb,
+                                    pem
+                                    files, trusted certs)</li>
+                                <li><span class="code">C:\Chef</span> - Chef-client configuration and logs</li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Example using Chef's data bag feature for credentials</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            A credential can been added to the secure data bag with the following command:<br>
+                            <div class="code">
+                                <pre>
+PS C:\src> knife data bag create &lt;ORG&gt; &lt;USERNAME&gt;
+Created data_bag[&lt;ORG&gt;]
+Created data_bag_item[&lt;ORG&gt;/&lt;USERNAME&gt;]
+</pre>
+                            </div><br>
 
-    # ensure we have the latest profile loaded
-    . $profile;
-    
-    $final_message = "`n";
-    $run_method = $args[0];
-    $chef_node_json = "<%=node['install_directory']-%>\<%=node.name-%>.json";
-    $local_ohai_json = "<%=node['install_directory']-%>\<%=node.name-%>_ohai.json";
-    $plugin_directory = "c:\chef\ohai\plugins";
-    $chef_log = "c:\chef\chef-client.log";
-    $initial_chef_run_complete_touch = "<%=node['install_directory']-%>\first_chef_runlist_complete.touch";
-    $last_chef_run_complete_touch = "<%=node['install_directory']-%>\last_chef_runlist_complete.touch";
-    
-    $we_ran = $false; 
-    $run_fog_check = $<%=(node['run_fog_check']).to_s-%>;
-    $run_errors = "<%=node['install_directory']-%>\run_errors.txt";
-    $app_installed = app_installed;
-    
-    $update_vsAll = $false;
-    if ("<%=node['update_vsAll']-%>" -ne "") &#123;
-            $update_vsAll = $<%=(node['update_vsAll']).to_s-%>;  
-    &#125;
-    
-    # START - lab_base - Executes the role[lab_base] (only on test machines)
-    $lab_base_script_cmd = "chef-client -A -o role[lab_base] -j $chef_node_json --minimal-ohai -l <%=node['chef_client_log_level']-%> -L <%=node['chef_client_log_location']-%>";  
-    $lab_base_desc = "Chef `"lab_base`" Role";
-    $lab_base_touch_file = "<%=node['install_directory']-%>\lab_base.touch";
-    
-    # START - COMMON TOOLS - Executes the role[common_tools] which installs commonly used tools such as NotePad++
-    $commontools_script_cmd = "chef-client -A -o role[common_tools] -j $chef_node_json --minimal-ohai -l <%=node['chef_client_log_level']-%> -L <%=node['chef_client_log_location']-%>";
-    $commontools_desc = "Chef `"common_tools`" Role";
-    $commontools_touch_file = "<%=node['install_directory']-%>\common_tools.touch";
-    
-    # START - CLEANUP - Runs first as it deletes old stuff to ensure a fresh state at the start of each day
-    $cleanup_script_cmd = "chef-client -A -o publisher-lab::cleanup -j $chef_node_json --minimal-ohai -l <%=node['chef_client_log_level']-%> -L <%=node['chef_client_log_location']-%>"; 
-    $cleanup_desc = "Lab Cleanup Script";
-    $cleanup_touch_file = "<%=node['install_directory']-%>\cleanup.touch";
-    
-    # START - UPDATE VSALL
-    $update_vsAll_script_cmd = "chef-client -A -o publisher-lab::update_vsAll -j $chef_node_json --minimal-ohai -l <%=node['chef_client_log_level']-%> -L <%=node['chef_client_log_location']-%>"; 
-    $update_vsAll_desc = "Update Visual Studio All";
-    $update_vsAll_touch_file = "<%=node['install_directory']-%>\update_vsAll_chef.touch";
-    
-    # START - PIP
-    $pip_script_cmd = "python -m pip install --upgrade pip";  
-    $pip_script_desc = "Update Pip";
-    
-    # START - NODE ATTRIBUTES - Chef "remembers" attributes from previous runs in some situations.  This can cause problems so this script ensure key attributes are reset so only what's in the $node_json is used.
-    $knife_nodeattr_script_cmd = "knife exec <%=node['install_directory']-%>\update_node_attributes.rb --config ~\.chef\config.rb";
-    $knife_nodeattr_script_desc = "Update Chef Node Attributes";
-    
-    # START - SET DEBUG ATTRIBUTE - Chef "remembers" attributes from previous runs in some situations.  This can cause problems so this script ensure key attributes are reset so only what's in the $node_json is used.
-    $knife_setdebug_script_cmd = "knife node attribute set <%=node.name-%> chef_run_mode debug --config ~\.chef\config.rb";
-    $knife_setdebug_script_desc = "Setting chef_run_mode = 'debug'";
-    
-    # START - RUN CHEF DEBUG - Run Chef in debug mode (more output)
-    $run_chef_debug_cmd = "chef-client -A -j $chef_node_json -l debug -L <%=node['chef_client_log_location']-%>";
-    $run_chef_debug_desc = "Running Chef with debug logging!";
-    
-    # START - RUN CHEF NORMAL - Run Chef with normal logging
-    $run_chef_normal_cmd = "chef-client -A -j $chef_node_json -l <%=node['chef_client_log_level']-%> -L <%=node['chef_client_log_location']-%>";
-    $run_chef_normal_desc = "Main chef-client run!";
-    
-    # START - SET WALLPAPER
-    $setwallpaper_cmd = "python <%=node['install_directory']-%>\set_background\set_wallpaper.py --ohai=$local_ohai_json";
-    $setwallpaper_desc = "Update wallpaper!";
-    
-    # contains lists of tests considers/executed
-    $tests_executed = "c:\tests\files\tests_executed.txt";
-    
-    try &#123;
-            if (exist $tests_executed) &#123;
-                remove-item $tests_executed
-            &#125;
-    
-            # START - GET CRITICAL OHAI PLUGINS
-            if (!exist $plugin_directory) &#123;
-                write-host "Creating $plugin_directory folder for custom OHAI plugins..." -foregroundcolor $text_color_info
-                new-item $plugin_directory -itemtype directory
-            &#125;
-    
-            write-host "Deleting custom app OHAI plugins from $&#123;plugin_directory&#125;: del -v $&#123;plugin_directory&#125;\*.rb" -foregroundcolor $text_color_info
-            remove-item -v $plugin_directory\*.rb
-    
-            write-host "Copying app_ohai.rb plugin to $plugin_directory" -foregroundcolor $text_color_info
-            copy-item -force \\lab\ohai_data\ohai_plugins\app_ohai.rb -Destination $plugin_directory
-    
-            write-host "Copying windows_ohai.rb plugin to $plugin_directory" -foregroundcolor $text_color_info
-            copy-item -force \\lab\ohai_data\ohai_plugins\windows_ohai.rb -Destination $plugin_directory
-    
-            write-host "Copying chef_ohai.rb plugin to $plugin_directory" -foregroundcolor $text_color_info;
-            copy-item -force \\lab\ohai_data\ohai_plugins\chef_ohai.rb -Destination $plugin_directory
-            ((get-content -path $plugin_directory\chef_ohai.rb -Raw) -replace 'c:/tests/files','<%=node['install_directory']-%>' -replace '\\', '/') | set-content -path $plugin_directory\chef_ohai.rb
-    
-            # run update_node_attributes - deletes any saved attribute data in Chef
-            run_script -script_cmd $knife_nodeattr_script_cmd -script_desc $knife_nodeattr_script_desc;
-    
-            # only the lab machines run in this mode by default (it's slower as it collects a lot more information)
-            if ($run_method -eq 'normal') &#123;
-    
-                # Allows ability to quickly turn off lab machines automation
-                $lab_under_maintenance = $<%=(node['lab_maintenance']).to_s-%>;
-                <%
-                    is_test_machine = false
-                    found_machine = false
-                    node['machines'].each do |machine|
-                        puts "Checking: #&#123;machine[:machine_name]&#125;"
-                        if machine[:machine_name].downcase == node.name.downcase
-                                found_machine = true
-                                is_test_machine = machine[:test_machine]
-                                break
+                            The username and password can be added to the data bag with the following command:<br>
+                            <div class="code">
+                                <pre>
+PS C:\src> knife data bag edit &lt;ORG&gt; &lt;USERNAME&gt;
+</pre>
+                            </div>
+                            <span class="additional-note">This will open the data bag in your default editor. Add your
+                                password information here! For it to be a secure data bag, the data bag must be
+                                encrypted. and requires a secret which
+                                adds slightly more complexity as you then need to store the secret somewhere (a secret
+                                management system or at least outside Chef).</span><br>
+
+                            <div class="code">
+                                <pre>
+PS C:\src> knife data bag show &lt;ORG&gt; &lt;USERNAME&gt;
+id:       &lt;USER_ID&gt;
+password: &lt;USER_PASSWORD&gt;
+username: &lt;USER_USERNAME&gt;
+</pre>
+                            </div>
+
+                            Finally, this can be used like this:
+                            <div class="code">
+                                <pre>
+credentials = data_bag_item('&lt;ORG&gt;', '&lt;USERNAME&gt;')
+username = credentials['username']
+password = credentials['password']
+</pre>
+                            </div>
+
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Cookbook Organization and Dependency Hierarchy</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            I've found good success in the following setup. Relationships can be defined via the <span
+                                class="file">metadata.rb</span> file via "depends."
+                            <ul class="condensed">
+                                <li>'website' cookbook depends on 'test'</li>
+                                <li>'test' depends on 'app'</li>
+                                <li>'app' depends on 'installs'</li>
+                                <li>'installs' depends on 'lab'</li>
+                                <li>'lab' depends on 'chocolatey' and 'slack-handler'</li>
+                            </ul>
+                            <dl>
+                                <dt>website</dt>
+                                <dd>Builds the website that arounds configuration and insight into Lab activities every
+                                    5
+                                    minutes</dd>
+                                <dt>test</dt>
+                                <dd>Understands how to configure machines and execute tests (Pytest, Playwright, cunit,
+                                    nunit, etc)</dd>
+                                <dt>app</dt>
+                                <dd>Everything about the application under test</dd>
+                                <dt>installs</dt>
+                                <dd>Every dependencies. For example, installing Notepad++, or Wireshark</dd>
+                                <dt>lab</dt>
+                                <dd>Anything machine or OS-specific</dd>
+                            </dl>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Sending messages to Slack</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul class="condensed">
+                                <li>
+                                    Slack Handler (recipes\slack_handler.rb)
+                                    <div class="code">
+                                        <pre>
+                # Cookbook:: slack_handler
+                # Recipe:: default
+                
+                require 'net/http'
+                require 'uri'
+                require 'json'
+                require 'net/http'
+                require 'uri'
+                require 'nokogiri'
+                
+                # db creds
+                credentials = data_bag_item('&lt;APP&GT;', '&lt;USERNAME&GT;')
+                
+                Chef.event_handler do
+                    on :run_failed do |exception|
+                        true_fail = true
+                        run_failed_message = "Run failed: #&#123;exception.to_s&#125;"
+                        Chef::Log.error("The Chef Run failed: #&#123;run_failed_message&#125;, true_fail: #&#123;true_fail.to_s&#125;")
+                    
+                        if exception.to_s.include?("Rebooting server at")
+                            Chef::Handler::Slack.new.send_message(text: run_failed_message) 
+                        else
+                            unless exception.to_s == "exit"
+                            Chef::Handler::Slack.new.send_message_to_qa_auto_errors_channel(text: run_failed_message)
+                            end   
                         end
                     end
-                %>
-                $found_machine = $<%=(found_machine).to_s-%>;
-                if ($found_machine -eq $true) &#123;
-                    $is_test_machine = $<%=(is_test_machine).to_s-%>;
-                &#125; else &#123;
-                    $msg = "<%=node.name.upcase-%> is not in our list of Chef machines.  To correct, add machine to publisher-lab->default.rb.  Setting is_test_machine = false!";
+                    
+                    on :recipe_file_load_failed do |exception|
+                        message = "#&#123;Chef.run_context.node.name.upcase&#125;: recipe_file_load_failed failed: \"#&#123;exception.inspect&#125;\""
+                        Chef::Handler::Slack.new.send_message(text: message)
+                    end
+                
+                    on :lwrp_file_load_failed do |exception|
+                        message = "#&#123;Chef.run_context.node.name.upcase&#125;: lwrp_file_load_failed failed: \"#&#123;exception.inspect&#125;\""
+                        Chef::Handler::Slack.new.send_message(text: message)
+                    end
+                
+                    on :library_file_load_failed do |exception|
+                        message = "#&#123;Chef.run_context.node.name.upcase&#125;: library_file_load_failed failed: \"#&#123;exception.inspect&#125;\""
+                        Chef::Handler::Slack.new.send_message(text: message)
+                    end
+                
+                    on :cookbook_sync_failed do |exception|
+                        message = "#&#123;Chef.run_context.node.name.upcase&#125;: cookbook_sync_failed failed: \"#&#123;exception.inspect&#125;\""
+                        Chef::Handler::Slack.new.send_message(text: message)
+                    end
+                
+                    on :cookbook_resolution_failed do |exception|
+                        message = "#&#123;Chef.run_context.node.name.upcase&#125;: cookbook_resolution_failed failed: \"#&#123;exception.inspect&#125;\""
+                        Chef::Handler::Slack.new.send_message(text: message)
+                    end
+                
+                    on :run_list_expand_failed do |exception|
+                        message = "#&#123;Chef.run_context.node.name.upcase&#125;: run_list_expand_failed failed: \"#&#123;exception.inspect&#125;\""
+                        Chef::Handler::Slack.new.send_message(text: message)
+                    end
+                
+                    on :node_load_failed do |exception|
+                        message = "#&#123;Chef.run_context.node.name.upcase&#125;: node_load_failed failed: \"#&#123;exception.inspect&#125;\""
+                        Chef::Handler::Slack.new.send_message(text: message)
+                    end
+                
+                    on :registration_failed do |exception|
+                        message = "#&#123;Chef.run_context.node.name.upcase&#125;: registration_failed failed: \"#&#123;exception.inspect&#125;\""
+                        Chef::Handler::Slack.new.send_message(text: message)
+                    end
+                end                                
+                                                </pre>
+                                    </div>
+                                </li>
+                                <li>Library (libraries\slack.rb)
+                                    <div class="code">
+                                        <pre>
+                require 'socket'
+            
+                class Chef::Handler::Slack < Chef::Handler
+                    &#64;&#64;channels = [
+                    &#123; :channel_name => 'qa-automation', :channel_type => 'slack', :channel_url => 'https://hooks.slack.com/services/&lt;YOURCHANNEL&gt;' &#125;,
+                    &#123; :channel_name => 'build', :channel_type => 'slack', :channel_url => 'https://hooks.slack.com/services/&lt;YOURCHANNEL&gt;' &#125;,
+                    &#123; :channel_name => 'qa-automation-results', :channel_type => 'slack', :channel_url => 'https://hooks.slack.com/services/&lt;YOURCHANNEL&gt;' &#125;,
+                    &#123; :channel_name => 'qa-automation-errors', :channel_type => 'slack', :channel_url => 'https://hooks.slack.com/services/&lt;YOURCHANNEL&gt;' &#125;,
+                    ]
+                    &#64;&#64;SUCCESS_COLOR = '1d800e'
+                    &#64;&#64;FAIL_COLOR = 'ee3224'
+                    
+                    def send_msg_to_channel(msg, channel, color=&#64;&#64;SUCCESS_COLOR)
+                        begin
+                            message = msg.dup
+                            puts "channel: #&#123;channel&#125;"
+                            uri = URI.parse(channel[:channel_url])
+                            header = &#123; 'Content-Type': 'text/json' &#125;
+                            hostname = Socket.gethostname.upcase
+                            new_msg = "#&#123;hostname&#125;: #&#123;message[:text]&#125;"
+                            message[:text] = new_msg
+                            message = message.to_json
+                            puts "SUBMITTING: #&#123;message&#125;"
+                    
+                            # Create the HTTP objects
+                            http = Net::HTTP.new(uri.host, uri.port)
+                            http.use_ssl = true
+                            request = Net::HTTP::Post.new(uri.request_uri, header)
+                            request.body = message
+                    
+                            # Send the request
+                            response = http.request(request)
+                    
+                            # we don't care if this fails for now..
+                            # raise response.body unless response.body == 'ok'
+                            puts "response from channel \"#&#123;channel.inspect&#125;\": #&#123;response.body&#125;"
+                        rescue Exception => ex
+                            puts ex.inspect
+                        end
+                    end
+                
+                    def send_message_to_teams_qa_auto_channel(msg, color=&#64;&#64;SUCCESS_COLOR)
+                        success = '$False'
+                        if color == '1d800e'
+                            success = '$True'
+                        end
+                        msg = msg[:text]
+                        msg = msg.gsub(/\r\n/, '__br__')
+                        msg = msg.gsub(/\n/, '__br__')
+                        msg = msg.gsub(/&gt;/, '__gt__')
+                        msg = msg.gsub(/&lt;/, '__lt__')
+                        msg = msg.gsub(/&/, '__amp__')
+                        msg = msg.gsub(/"/, '__quot__')
+                        cmd = ". $profile; send_msg -msg \"#&#123;msg&#125;\" -success #&#123;success&#125; -source \"Ruby (Chef)\"";
+                        # puts "Running: #&#123;cmd&#125;"
+                        # out = Chef::Resource::SlackUtils.run_ps_cmd(cmd)
+                        # puts "Chef::Resource::SlackUtils.run_ps_cmd response -\nstdout: #&#123;out.stdout&#125;\nstderr: #&#123;out.stderr&#125;\ncommand: #&#123;out.command&#125;"
+                    end
+                
+                    def send_message_to_qa_auto_channel(msg, color=&#64;&#64;SUCCESS_COLOR)
+                        Chef::Log.info(msg[:text]) # log the request
+                    
+                        self.send_message_to_teams_qa_auto_channel(msg, color=color)
+                    
+                        channel = &#64;&#64;channels.select &#123; |channel| channel[:channel_name] == 'qa-automation' &#125;[0]
+                        self.send_msg_to_channel(msg, channel, color=color)    
+                    end
+                
+                    def send_message_to_build_channel(msg, color=&#64;&#64;SUCCESS_COLOR)
+                        Chef::Log.info(msg[:text]) # log the request
+                    
+                        #always send to qa auto
+                        self.send_message_to_qa_auto_channel(msg, color=color)
+                        
+                        channel = &#64;&#64;channels.select &#123; |channel| channel[:channel_name] == 'build' &#125;[0]
+                        self.send_msg_to_channel(msg, channel, color=color)
+                    end
+                
+                    def send_message_to_qa_auto_results_channel(msg, color=&#64;&#64;SUCCESS_COLOR)
+                        Chef::Log.info(msg[:text]) # log the request
+                    
+                        #always send to qa auto
+                        self.send_message_to_qa_auto_channel(msg, color=color)
+                        
+                        channel = &#64;&#64;channels.select &#123; |channel| channel[:channel_name] == 'qa-automation-results' &#125;[0]
+                        self.send_msg_to_channel(msg, channel, color=color)
+                    end 
+                
+                    def send_message_to_qa_auto_errors_channel(msg, color=&#64;&#64;FAIL_COLOR)
+                        Chef::Log.error(msg[:text]) # log an error
+                    
+                        #always send to qa auto
+                        self.send_message_to_qa_auto_channel(msg, color=color)
+                        
+                        channel = &#64;&#64;channels.select &#123; |channel| channel[:channel_name] == 'qa-automation-errors' &#125;[0]
+                        self.send_msg_to_channel(msg, channel, color=color)
+                    end  
+                
+                    # default to qa-automation
+                    def send_message(msg, color=&#64;&#64;SUCCESS_COLOR)
+                        self.send_message_to_qa_auto_channel(msg, color=color)
+                    end
+                end
+                                                </pre>
+                                    </div>
+                                </li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Implement your own Chef UI</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            When I started adopting Chef, the UI at the time was buggy and Chef
+                            Support (this was "Opscode" support via the their Slack channel) suggested it not be
+                            used (I
+                            was trying to use the attribute feature and they
+                            were inconsistently being saved). For this reason, I went down this path and it's
+                            worked great...
+                            <ul class="condensed">
+                                <li>Build UI that saves JSON to a shared location. I actually use Chef itself to
+                                    build
+                                    the website using knife commands to gather key information. e.g. <span
+                                        class="code">knife recipe list</span>
+                                    <ul class="condensed">
+                                        <li>Recipes can be dragged from left<mat-icon>arrow_forward</mat-icon>right
+                                            to
+                                            configure how a machine should run<br>
+                                            <img width="600" mat-card-image src="assets/images/lab_config1.png"
+                                                alt="Config page for configuring lab hosts" />
+                                        </li>
+                                        <li>Common configurations are built into the prior page but anything can be
+                                            adjusted here<br>
+                                            <img width="600" mat-card-image src="assets/images/lab_config2.png"
+                                                alt="Config page for configuring lab hosts" />
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>Create script to run Chef which first pulls this file and launches chef-client
+                                    using
+                                    the -j attribute
+                                    Example:
+                                    <div class="code">
+                                        <pre>
+$start = get-date;
+
+# ensure we have the latest profile loaded
+. $profile;
+
+$final_message = "`n";
+$run_method = $args[0];
+$chef_node_json = "<%=node['install_directory']-%>\<%=node.name-%>.json";
+$local_ohai_json = "<%=node['install_directory']-%>\<%=node.name-%>_ohai.json";
+$plugin_directory = "c:\chef\ohai\plugins";
+$chef_log = "c:\chef\chef-client.log";
+$initial_chef_run_complete_touch = "<%=node['install_directory']-%>\first_chef_runlist_complete.touch";
+$last_chef_run_complete_touch = "<%=node['install_directory']-%>\last_chef_runlist_complete.touch";
+
+$we_ran = $false; 
+$run_fog_check = $<%=(node['run_fog_check']).to_s-%>;
+$run_errors = "<%=node['install_directory']-%>\run_errors.txt";
+$app_installed = app_installed;
+
+$update_vsAll = $false;
+if ("<%=node['update_vsAll']-%>" -ne "") &#123;
+        $update_vsAll = $<%=(node['update_vsAll']).to_s-%>;  
+&#125;
+
+# START - lab_base - Executes the role[lab_base] (only on test machines)
+$lab_base_script_cmd = "chef-client -A -o role[lab_base] -j $chef_node_json --minimal-ohai -l <%=node['chef_client_log_level']-%> -L <%=node['chef_client_log_location']-%>";  
+$lab_base_desc = "Chef `"lab_base`" Role";
+$lab_base_touch_file = "<%=node['install_directory']-%>\lab_base.touch";
+
+# START - COMMON TOOLS - Executes the role[common_tools] which installs commonly used tools such as NotePad++
+$commontools_script_cmd = "chef-client -A -o role[common_tools] -j $chef_node_json --minimal-ohai -l <%=node['chef_client_log_level']-%> -L <%=node['chef_client_log_location']-%>";
+$commontools_desc = "Chef `"common_tools`" Role";
+$commontools_touch_file = "<%=node['install_directory']-%>\common_tools.touch";
+
+# START - CLEANUP - Runs first as it deletes old stuff to ensure a fresh state at the start of each day
+$cleanup_script_cmd = "chef-client -A -o publisher-lab::cleanup -j $chef_node_json --minimal-ohai -l <%=node['chef_client_log_level']-%> -L <%=node['chef_client_log_location']-%>"; 
+$cleanup_desc = "Lab Cleanup Script";
+$cleanup_touch_file = "<%=node['install_directory']-%>\cleanup.touch";
+
+# START - UPDATE VSALL
+$update_vsAll_script_cmd = "chef-client -A -o publisher-lab::update_vsAll -j $chef_node_json --minimal-ohai -l <%=node['chef_client_log_level']-%> -L <%=node['chef_client_log_location']-%>"; 
+$update_vsAll_desc = "Update Visual Studio All";
+$update_vsAll_touch_file = "<%=node['install_directory']-%>\update_vsAll_chef.touch";
+
+# START - PIP
+$pip_script_cmd = "python -m pip install --upgrade pip";  
+$pip_script_desc = "Update Pip";
+
+# START - NODE ATTRIBUTES - Chef "remembers" attributes from previous runs in some situations.  This can cause problems so this script ensure key attributes are reset so only what's in the $node_json is used.
+$knife_nodeattr_script_cmd = "knife exec <%=node['install_directory']-%>\update_node_attributes.rb --config ~\.chef\config.rb";
+$knife_nodeattr_script_desc = "Update Chef Node Attributes";
+
+# START - SET DEBUG ATTRIBUTE - Chef "remembers" attributes from previous runs in some situations.  This can cause problems so this script ensure key attributes are reset so only what's in the $node_json is used.
+$knife_setdebug_script_cmd = "knife node attribute set <%=node.name-%> chef_run_mode debug --config ~\.chef\config.rb";
+$knife_setdebug_script_desc = "Setting chef_run_mode = 'debug'";
+
+# START - RUN CHEF DEBUG - Run Chef in debug mode (more output)
+$run_chef_debug_cmd = "chef-client -A -j $chef_node_json -l debug -L <%=node['chef_client_log_location']-%>";
+$run_chef_debug_desc = "Running Chef with debug logging!";
+
+# START - RUN CHEF NORMAL - Run Chef with normal logging
+$run_chef_normal_cmd = "chef-client -A -j $chef_node_json -l <%=node['chef_client_log_level']-%> -L <%=node['chef_client_log_location']-%>";
+$run_chef_normal_desc = "Main chef-client run!";
+
+# START - SET WALLPAPER
+$setwallpaper_cmd = "python <%=node['install_directory']-%>\set_background\set_wallpaper.py --ohai=$local_ohai_json";
+$setwallpaper_desc = "Update wallpaper!";
+
+# contains lists of tests considers/executed
+$tests_executed = "c:\tests\files\tests_executed.txt";
+
+try &#123;
+        if (exist $tests_executed) &#123;
+            remove-item $tests_executed
+        &#125;
+
+        # START - GET CRITICAL OHAI PLUGINS
+        if (!exist $plugin_directory) &#123;
+            write-host "Creating $plugin_directory folder for custom OHAI plugins..." -foregroundcolor $text_color_info
+            new-item $plugin_directory -itemtype directory
+        &#125;
+
+        write-host "Deleting custom app OHAI plugins from $&#123;plugin_directory&#125;: del -v $&#123;plugin_directory&#125;\*.rb" -foregroundcolor $text_color_info
+        remove-item -v $plugin_directory\*.rb
+
+        write-host "Copying app_ohai.rb plugin to $plugin_directory" -foregroundcolor $text_color_info
+        copy-item -force \\lab\ohai_data\ohai_plugins\app_ohai.rb -Destination $plugin_directory
+
+        write-host "Copying windows_ohai.rb plugin to $plugin_directory" -foregroundcolor $text_color_info
+        copy-item -force \\lab\ohai_data\ohai_plugins\windows_ohai.rb -Destination $plugin_directory
+
+        write-host "Copying chef_ohai.rb plugin to $plugin_directory" -foregroundcolor $text_color_info;
+        copy-item -force \\lab\ohai_data\ohai_plugins\chef_ohai.rb -Destination $plugin_directory
+        ((get-content -path $plugin_directory\chef_ohai.rb -Raw) -replace 'c:/tests/files','<%=node['install_directory']-%>' -replace '\\', '/') | set-content -path $plugin_directory\chef_ohai.rb
+
+        # run update_node_attributes - deletes any saved attribute data in Chef
+        run_script -script_cmd $knife_nodeattr_script_cmd -script_desc $knife_nodeattr_script_desc;
+
+        # only the lab machines run in this mode by default (it's slower as it collects a lot more information)
+        if ($run_method -eq 'normal') &#123;
+
+            # Allows ability to quickly turn off lab machines automation
+            $lab_under_maintenance = $<%=(node['lab_maintenance']).to_s-%>;
+            <%
+                is_test_machine = false
+                found_machine = false
+                node['machines'].each do |machine|
+                    puts "Checking: #&#123;machine[:machine_name]&#125;"
+                    if machine[:machine_name].downcase == node.name.downcase
+                            found_machine = true
+                            is_test_machine = machine[:test_machine]
+                            break
+                    end
+                end
+            %>
+            $found_machine = $<%=(found_machine).to_s-%>;
+            if ($found_machine -eq $true) &#123;
+                $is_test_machine = $<%=(is_test_machine).to_s-%>;
+            &#125; else &#123;
+                $msg = "<%=node.name.upcase-%> is not in our list of Chef machines.  To correct, add machine to publisher-lab->default.rb.  Setting is_test_machine = false!";
+                $final_message += "- $msg`n";
+                write-host $msg -foregroundcolor $text_color_warn; 
+
+                # assuming we are not a test machine if this machine is not in list of machines
+                $is_test_machine = $false;
+            &#125;
+
+            # check if we have an active FOG task
+            if ($run_fog_check -eq $true) &#123;
+                # if (((exist $done_touch) -and (check_for_fog_deploy -eq $true)) -or (check_for_fog_capture -eq $true)) &#123;              
+                if ((check_for_fog_deploy) -eq $true -or (check_for_fog_capture) -eq $true) &#123;   
+                    $msg = "A pending FOG task was found for this machine.  Running cleanup and rebooting to begin deployment!";
                     $final_message += "- $msg`n";
-                    write-host $msg -foregroundcolor $text_color_warn; 
-    
-                    # assuming we are not a test machine if this machine is not in list of machines
-                    $is_test_machine = $false;
-                &#125;
-    
-                # check if we have an active FOG task
-                if ($run_fog_check -eq $true) &#123;
-                    # if (((exist $done_touch) -and (check_for_fog_deploy -eq $true)) -or (check_for_fog_capture -eq $true)) &#123;              
-                    if ((check_for_fog_deploy) -eq $true -or (check_for_fog_capture) -eq $true) &#123;   
-                        $msg = "A pending FOG task was found for this machine.  Running cleanup and rebooting to begin deployment!";
-                        $final_message += "- $msg`n";
-                        send_slack_msg -msg $msg;
-                        write-host $msg -foregroundcolor $text_color_warn;
-    
-                        # run cleanup
-                        run_script -script_cmd $cleanup_script_cmd -script_desc $cleanup_desc;
-    
-                        # save last chef log
-                        open_network_connection
-                        copy-item -force -Path $chef_log -Destination "\\network\TestResults\Logs\<%=node.name-%>.log"
-    
-                        # reboot to start FOG task
-                        reboot;
-                    &#125; else &#123;
-                        write-host "No FOG deploy or capture tasks found." -foregroundcolor $text_color_warn;
-                    &#125;
-                &#125;
-    
-                # Check if we need to restart     
-                # run_script -script_cmd $run_chef_restart_cmd -script_desc $run_chef_restart_desc;
-                $restart_needed = check_for_windows_restart;
-                if ($restart_needed -eq $true) &#123;
-                    $msg = "Windows is requesting a reboot... rebooting now!";
-                    write-host $msg -foregroundcolor $text_color_warn;
                     send_slack_msg -msg $msg;
-    
-                    # reboot!
+                    write-host $msg -foregroundcolor $text_color_warn;
+
+                    # run cleanup
+                    run_script -script_cmd $cleanup_script_cmd -script_desc $cleanup_desc;
+
+                    # save last chef log
+                    open_network_connection
+                    copy-item -force -Path $chef_log -Destination "\\network\TestResults\Logs\<%=node.name-%>.log"
+
+                    # reboot to start FOG task
                     reboot;
                 &#125; else &#123;
-                    $msg = "Windows does not require a restart!";
-                    write-host $msg;
-                    $final_message += "- $msg`n";
+                    write-host "No FOG deploy or capture tasks found." -foregroundcolor $text_color_warn;
                 &#125;
-    
-                # Update pip - this is a chicken and egg scenario, on a new machine, we won't have pip yet here but 
-                # on existing machine, we may fail if we don't run this first
-                # so wrapping in a try/catch
-                try &#123;
-                    run_script -script_cmd $pip_script_cmd -script_desc $pip_script_desc;
-                &#125; catch &#123; &#125;
-    
-                # UPDATE VISUAL STUDIO
-                #if ($update_vs2017 -eq $true) &#123;
-                #     write-host "Updating VS2017..." -foregroundcolor $text_color_info;
-                #     run_script -script_cmd $update_vs2017_script_cmd -script_desc $update_vs2017_desc;
-                #&#125;
-    
-                #if ($update_vs2019 -eq $true) &#123;
-                #     write-host "Updating VS2019..." -foregroundcolor $text_color_info;
-                #     run_script -script_cmd $update_vs2019_script_cmd -script_desc $update_vs2019_desc;
-                #&#125;
-    
-                if ($update_vsAll -eq $true) &#123;
-                    write-host "Updating VS20XX ..." -foregroundcolor $text_color_info;
-                    run_script -script_cmd $update_vsAll_script_cmd -script_desc $update_vsAll_desc;
-                &#125;
-    
-                # if the cleanup touch doesn't exist, is older then 10 days, and app is not installed
-                write-host "Checking whether cleanup file needs to run..." -foregroundcolor $text_color_info;
-                if ($app_installed -eq $false) &#123;
-                    # We delete this here and not in the cleanup script as this file is in use while the cleanup script runts
-                    if (exist $chef_log) &#123;
-                        write-host "Deleting $chef_log..." -foregroundcolor $text_color_warn;
-                        remove-item $chef_log;
-                    &#125;
-    
-                    # run cleanup                    
-                    run_script -script_cmd $cleanup_script_cmd -script_desc $cleanup_desc -touch_file $cleanup_touch_file -delete_old_touch_file $false;
-                &#125;
-    
-                if ($is_test_machine -eq $true) &#123;
-                    # run base
-                    run_script -script_cmd $lab_base_script_cmd -script_desc $lab_base_desc -touch_file $lab_base_touch_file;
-    
-                    # run common_tools
-                    run_script -script_cmd $commontools_script_cmd -script_desc $commontools_desc -touch_file $commontools_touch_file;
-    
-                    # set wallpaper
-                    run_script -script_cmd $setwallpaper_cmd -script_desc $setwallpaper_desc;
-                &#125; else &#123;
-                    $msg = "Skipping role[lab_base] as <%=node.name.upcase-%> is not specified as a test machine!";
-                    write-host $msg -foregroundcolor $text_color_warn;
-                    $final_message += "- $msg`n";
-                &#125;
-    
-                write-host "Refreshing Windows environment variables" -foregroundcolor $text_color_info;
-                refreshenv;
             &#125;
-    
-            # check for setup errors
-            if (exist $error_log_path) &#123;
-                $errors = get-content $error_log_path;
-                $msg = "Something bad happened -`nDETAILS:`n$errors";
-                $final_message += "$msg`n";
-    
-                # Add to our global error file
-                add-content -path $run_errors -value $errors;
-    
-                # delete the current error log
-                remove-item $error_log_path
-            &#125;
-    
-            # START - BEGIN MAIN RUN
-    
-            # Ensure lab not under maintenance
-            if ($lab_under_maintenance -eq $true) &#123;
-                $run_msg += "<%=node.name.upcase-%> cannot run because lab is under maintenance.`n";
-                $run_msg += "app installed: $(invoke-expression 'app_installed')`n";
-                $run_msg += "Base ran: $(exist $lab_base_touch_file)`n";
-                $run_msg += "Common tools ran: $(exist $commontools_touch_file)`n";
-                $run_msg += "chef-client version: $(invoke-expression 'chef-client --version')`n";
-                $run_msg += "EXITING RUN!";
-                $final_message += "- $run_msg`n";
-                write-error $run_msg;
+
+            # Check if we need to restart     
+            # run_script -script_cmd $run_chef_restart_cmd -script_desc $run_chef_restart_desc;
+            $restart_needed = check_for_windows_restart;
+            if ($restart_needed -eq $true) &#123;
+                $msg = "Windows is requesting a reboot... rebooting now!";
+                write-host $msg -foregroundcolor $text_color_warn;
+                send_slack_msg -msg $msg;
+
+                # reboot!
+                reboot;
             &#125; else &#123;
-                $we_ran = $true;
-    
-                $run_chef_cmd = $run_chef_normal_cmd;
-                $run_chef_desc = $run_chef_normal_desc;          
-                if ($run_method -eq 'debug') &#123;
-                    write-host "Debug mode set." -foregroundcolor $text_color_info;
-            
-                    # set debug attribute
-                    $msg = "Setting node attribute `"chef_debug_run`" == true!";
-                    write-host $msg -foregroundcolor $text_color_info;
-                    $final_message += "- $msg`n";
-                    run_script -script_cmd $knife_setdebug_script_cmd -script_desc $knife_setdebug_script_desc;
-            
-                    # run chef-client in debug mode
-                    $run_chef_cmd = $run_chef_debug_cmd;
-                    $run_chef_desc = $run_chef_debug_desc;
-                &#125;
-                
-                # MAIN RUN
-                run_script -script_cmd $run_chef_cmd -script_desc $run_chef_desc;
-    
-                # set either our initial or last touch file
-                if (exist $initial_chef_run_complete_touch) &#123;  
-                    # The "done" touch file ($initial_chef_run_complete_touch) has been already created.  Updating `"$last_chef_run_complete_touch`" timestamp instead!        
-                    touch $last_chef_run_complete_touch;
-                &#125; else &#123;
-                    $msg = "All Chef tasks for this machine have been completed! Huzzah!";
-                    write-host $msg -foregroundcolor $text_color_info;
-                    $final_message += "- $msg`n";
-                    touch $initial_chef_run_complete_touch;
-                &#125;
-                # END - BEGIN MAIN RUN
+                $msg = "Windows does not require a restart!";
+                write-host $msg;
+                $final_message += "- $msg`n";
             &#125;
-    
-            # check for main run errors
-            if (exist $error_log_path) &#123;
-                $errors = get-content $error_log_path;
-                $msg = "Something bad happened -`nDETAILS:`n$errors";
-                $final_message += "$msg`n";
-    
-                # Add to our global error file
-                add-content -path $run_errors -value $errors;
-    
-                # delete the current error log
-                remove-item $error_log_path
-            &#125;
-    &#125; catch &#123;
-            $e = $_.Exception;
-            $line = $_.InvocationInfo.ScriptLineNumber;
-            $msg = $e.Message;
-            $err_msg = "An exception was caught within run_chef.ps1...`nError message: $msg`nLine number: $line";
-            write-error $err_msg;
-            $final_message += "- $err_msg`n";
-    
-            # log error
-            write-error -msg $err_msg;
-    
-            # maybe we need to update pip
-            write-host "Maybe updating pip will help..." -foregroundcolor $text_color_warn;
-            run_script -script_cmd $pip_script_cmd -script_desc $pip_script_desc;
-    
-            # re-throw the error
-            throw $err_msg;
-    &#125; finally &#123;
-            if ($run_method -eq 'normal') &#123;
-                # START - SET WALLPAPER
-                if ($is_test_machine -eq $true) &#123;
-                    run_script -script_cmd $setwallpaper_cmd -script_desc $setwallpaper_desc;
-                    $final_message += "- Updated machine wallpaper`n"
-                &#125;
-            &#125;
-            if ($we_ran -eq $true) &#123;
-                if (exist $error_log_path) &#123;
-                    $errors = get-content $error_log_path;
-                    $final_message = "Chef Run had an issue:`n$errors`n(duration: $run_duration)";
-    
-                    # Add to our global error file
-                    add-content -path $run_errors -value $errors;
-    
-                    # delete the current error log
-                    remove-item $error_log_path
-    
-                    write-host $final_message -foregroundcolor $text_color_error;
-                    send_slack_msg -msg $final_message -channel 'qa-automation-errors';
-                &#125; else &#123;
-                    write-host $final_message -foregroundcolor $text_color_warn;
-                &#125;
-                new-timespan -start $start -end $(get-date);
-                if (exist $tests_executed) &#123;
-                    get-content $tests_executed;
-                &#125;
-            &#125; else &#123;
-                write-host "Not sending Slack message since we did not run..." -foregroundcolor $text_color_info;
-            &#125;
-    &#125;                                      
-                                    </pre>
-                                </div>
-                            </li>
-                            <li>Create scheduled task that always gets above script so if you screw it up, the
-                                machines can fix themselves
-                                <div class="code">
-                                    <pre>
-    # This script should not rely on any functions within $profile.  If there's an issue with the profile we need to still be able to run this script to update it.
-    # DON'T USE THE POWERSHELL PROFILE FUNCTIONALITY AS WE NEED THIS SCRIPT TO RUN NO MATTER WHAT.
-    # DON'T USE VARIABLES SUCH AS: $node_json
-    # DON'T USE FUNCTIONS LIKE write-stuff, exist (TODO: replace with "Test-Path -option AllScope -Force")
 
-    $keep_window_open = $true;
-
-    try &#123;  
-        if ($env:keep_window_open -eq $false) &#123;
-        write-host "Setting keep_window_open to false as script called from cc!" -ForegroundColor 'DarkGreen';
-        $keep_window_open = $false;
-
-        # resetting it back to true
-        $env:keep_window_open = $true;
-        &#125;
-        
-        # This is duplicated for PowerShell profile.  if there's a problem with the PowerShell profile, 
-        # we still need this functionality.
-        function not-exist &#123; -not (Test-Path $args) &#125;
-        Set-Alias !exist not-exist -option AllScope -Force
-        Set-Alias exist Test-Path -option AllScope -Force
-
-        $chef_node_json = "<%=node['install_directory']-%>\<%=node.name-%>.json";
-        $chef_get_scripts_cmd = "chef-client -A -o role[get_chef_scripts] -j $chef_node_json";
-        $stay_running_touch = "<%=node['install_directory']-%>\ps_stay_running.touch";
-        $done_touch = "<%=node['install_directory']-%>\<%=node['chef_done']-%>";
-        $ohai_file_plugin = 'C:\chef\ohai\plugins\app_file_ohai.rb';
-
-        # ensure file ohai plugin is removed as it takes a long time to run
-        if (exist $ohai_file_plugin) &#123;
-            write-host "Removing $ohai_file_plugin" -foregroundcolor $text_color_warn;
-            remove-item 'C:\chef\ohai\plugins\app_file_ohai.rb'
-        &#125;
-
-        # check if chef-client is running
-        $chef_running = get-process ruby -erroraction silentlycontinue;
-        if ($chef_running -eq $null) &#123;
-        # get our run_method
-        $run_method = $args[0];
-        if ('' -eq $run_method -or $null -eq $run_method) &#123;
-            $run_method = 'normal';
-        &#125; 
-
-        if ($run_method -eq 'normal' -or $run_method -eq 'debug' -or $run_method -eq 'fast' -or $run_method -eq 'full') &#123;
-            write-host "Running chef-client at $(Get-Date) in $run_method mode! (Tip - use `"cc debug`" for more logging, or `"cc fast`" for a speedy experience)" -ForegroundColor 'DarkGreen';
-        &#125; else &#123;
-            write-host "You passed an invalid run method." -ForegroundColor 'Red';
-            write-host "The options are:" -ForegroundColor 'Red';
-            write-host "cc  - Normal execution" -ForegroundColor 'Red';
-            write-host "cc debug - Extra debug logging" -ForegroundColor 'Red';
-            write-host "cc fast - Only runs core stuff before calling Chef" -ForegroundColor 'Red';
-            write-host "cc full - runs the same full process as the scheduled task" -ForegroundColor 'Red';
-            exit;
-        &#125;
-
-        # allow previous run to exit
-        if (exist $stay_running_touch) &#123;
-            write-host "Deleting $stay_running_touch so that the previous Chef run can exit.  Sleeping 3 seconds!" -ForegroundColor 'DarkGreen';
-            Remove-Item $stay_running_touch;
-            start-sleep -seconds 3; # double the time of the loop to ensure the prevous run closes before this run continues..
-        &#125;
-
-        # create our tests directory
-        if (!exist <%=node['install_directory']-%>) &#123;
-            write-host "Creating <%=node['install_directory']-%> folder to hold any files we need..." -ForegroundColor 'DarkGreen';
-            new-item <%=node['install_directory']-%> -itemtype directory;
-        &#125;
-
-        # get chef config
-        $remote_json_file = "\\lab\nodes\<%=node.name-%>.json";
-        if (exist($remote_json_file)) &#123;
-            # delete node config json if it exists to ensure we always use latest
-            if(exist $chef_node_json) &#123;        
-            $new_chksum = 0;
-            $current_chksum = 0;
-            # it's possible we don't have checksum yet so this could fail which we don't care about..
+            # Update pip - this is a chicken and egg scenario, on a new machine, we won't have pip yet here but 
+            # on existing machine, we may fail if we don't run this first
+            # so wrapping in a try/catch
             try &#123;
-                $new_chksum = checksum $remote_json_file;
-                $current_chksum = checksum $chef_node_json;
-            &#125; catch &#123; &#125;        
-            if (($current_chksum -ne $new_chksum) -and (exist $done_touch)) &#123;
-                write-host "A new node configuration file at `"$remote_json_file`" is different then our current configuration at `"$chef_node_json`" and we have already indicated we've completed all tasks for this machine.  Removing our `"Done`" at `"$done_touch`" touch file." -ForegroundColor 'Yellow';
-                Remove-Item $done_touch;
+                run_script -script_cmd $pip_script_cmd -script_desc $pip_script_desc;
+            &#125; catch &#123; &#125;
+
+            # UPDATE VISUAL STUDIO
+            #if ($update_vs2017 -eq $true) &#123;
+            #     write-host "Updating VS2017..." -foregroundcolor $text_color_info;
+            #     run_script -script_cmd $update_vs2017_script_cmd -script_desc $update_vs2017_desc;
+            #&#125;
+
+            #if ($update_vs2019 -eq $true) &#123;
+            #     write-host "Updating VS2019..." -foregroundcolor $text_color_info;
+            #     run_script -script_cmd $update_vs2019_script_cmd -script_desc $update_vs2019_desc;
+            #&#125;
+
+            if ($update_vsAll -eq $true) &#123;
+                write-host "Updating VS20XX ..." -foregroundcolor $text_color_info;
+                run_script -script_cmd $update_vsAll_script_cmd -script_desc $update_vsAll_desc;
             &#125;
-            write-host "Deleting $chef_node_json so we get get the latest node configuration settings" -ForegroundColor 'DarkGreen';
-            Remove-Item $chef_node_json;
+
+            # if the cleanup touch doesn't exist, is older then 10 days, and app is not installed
+            write-host "Checking whether cleanup file needs to run..." -foregroundcolor $text_color_info;
+            if ($app_installed -eq $false) &#123;
+                # We delete this here and not in the cleanup script as this file is in use while the cleanup script runts
+                if (exist $chef_log) &#123;
+                    write-host "Deleting $chef_log..." -foregroundcolor $text_color_warn;
+                    remove-item $chef_log;
+                &#125;
+
+                # run cleanup                    
+                run_script -script_cmd $cleanup_script_cmd -script_desc $cleanup_desc -touch_file $cleanup_touch_file -delete_old_touch_file $false;
             &#125;
-            write-host "$remote_json_file to $chef_node_json" -ForegroundColor 'DarkGreen';
-            copy-item -force $remote_json_file -Destination $chef_node_json;
+
+            if ($is_test_machine -eq $true) &#123;
+                # run base
+                run_script -script_cmd $lab_base_script_cmd -script_desc $lab_base_desc -touch_file $lab_base_touch_file;
+
+                # run common_tools
+                run_script -script_cmd $commontools_script_cmd -script_desc $commontools_desc -touch_file $commontools_touch_file;
+
+                # set wallpaper
+                run_script -script_cmd $setwallpaper_cmd -script_desc $setwallpaper_desc;
+            &#125; else &#123;
+                $msg = "Skipping role[lab_base] as <%=node.name.upcase-%> is not specified as a test machine!";
+                write-host $msg -foregroundcolor $text_color_warn;
+                $final_message += "- $msg`n";
+            &#125;
+
+            write-host "Refreshing Windows environment variables" -foregroundcolor $text_color_info;
+            refreshenv;
+        &#125;
+
+        # check for setup errors
+        if (exist $error_log_path) &#123;
+            $errors = get-content $error_log_path;
+            $msg = "Something bad happened -`nDETAILS:`n$errors";
+            $final_message += "$msg`n";
+
+            # Add to our global error file
+            add-content -path $run_errors -value $errors;
+
+            # delete the current error log
+            remove-item $error_log_path
+        &#125;
+
+        # START - BEGIN MAIN RUN
+
+        # Ensure lab not under maintenance
+        if ($lab_under_maintenance -eq $true) &#123;
+            $run_msg += "<%=node.name.upcase-%> cannot run because lab is under maintenance.`n";
+            $run_msg += "app installed: $(invoke-expression 'app_installed')`n";
+            $run_msg += "Base ran: $(exist $lab_base_touch_file)`n";
+            $run_msg += "Common tools ran: $(exist $commontools_touch_file)`n";
+            $run_msg += "chef-client version: $(invoke-expression 'chef-client --version')`n";
+            $run_msg += "EXITING RUN!";
+            $final_message += "- $run_msg`n";
+            write-error $run_msg;
         &#125; else &#123;
-            write-host "This machine has not yet has it's default json file created yet.  This should happen in the next few minutes... aborting run!" -ForegroundColor 'DarkGreen';
-            exit 0;
-        &#125;
+            $we_ran = $true;
 
-        if ($run_method -ne 'fast' -and $run_method -ne 'debug') &#123;
-            # check if time service is running
-            $running_services = (net start) | Out-String;
-            if (-Not ($running_services -match "Windows Time")) &#123;
-                write-host "starting service" -ForegroundColor 'DarkGreen';
-                net start w32time;
+            $run_chef_cmd = $run_chef_normal_cmd;
+            $run_chef_desc = $run_chef_normal_desc;          
+            if ($run_method -eq 'debug') &#123;
+                write-host "Debug mode set." -foregroundcolor $text_color_info;
+        
+                # set debug attribute
+                $msg = "Setting node attribute `"chef_debug_run`" == true!";
+                write-host $msg -foregroundcolor $text_color_info;
+                $final_message += "- $msg`n";
+                run_script -script_cmd $knife_setdebug_script_cmd -script_desc $knife_setdebug_script_desc;
+        
+                # run chef-client in debug mode
+                $run_chef_cmd = $run_chef_debug_cmd;
+                $run_chef_desc = $run_chef_debug_desc;
             &#125;
+            
+            # MAIN RUN
+            run_script -script_cmd $run_chef_cmd -script_desc $run_chef_desc;
 
-            write-host "Syncing time..." -ForegroundColor 'DarkGreen';
-            $original_time = get-date;
-            W32tm /resync /force;
-            $new_time = get-date;
-            write-host "Previous time: $original_time, New time: $new_time" -ForegroundColor 'DarkGreen';
-
-            # update our sync log with new time stamps
-            "$original_time, $new_time" >> <%=node['install_directory']-%>\time_sync.txt;
-
-            # get current run_first checksum (so we know if we need to exit if run_first.ps1 changes)
-            $checksum_installed = $false;
-            if (exist "C:\ProgramData\chocolatey\bin\choco.exe") &#123;
-            $checksum_installed = (choco list --local-only | select-string -pattern 'checksum').matches.success
-            $pre_runfirst_checksum = $null;
-            if ($checksum_installed -eq $true) &#123;
-                $pre_runfirst_checksum = checksum <%=node['install_directory']-%>\run_first.ps1
-                write-host "Storing run_first.ps1 checksum prior to checking for updated files: $pre_runfirst_checksum" -ForegroundColor 'DarkGreen';
-            &#125;
-            &#125;
-
-            # get the latest Chef scripts
-            write-host "Retrieving latest script run_chef.ps1 script via: chef-client -A -o role[get_chef_scripts] -j $chef_node_json --minimal-ohai" -ForegroundColor 'DarkGreen';
-            invoke-expression $chef_get_scripts_cmd;
-
-            # get the post checksum
-            if ($checksum_installed -eq $true) &#123;
-            $post_runfirst_checksum = checksum <%=node['install_directory']-%>\run_first.ps1
-            write-host "Storing run_first.ps1 post checksum updating files to see if we need to stop script due to changes: post is: $post_runfirst_checksum (pre was: $pre_runfirst_checksum)" -ForegroundColor 'DarkGreen';
-            if ($pre_runfirst_checksum -eq $post_runfirst_checksum) &#123;
-                write-host "No changes for run_first.ps1.  Proceeding!" -ForegroundColor 'DarkGreen';
+            # set either our initial or last touch file
+            if (exist $initial_chef_run_complete_touch) &#123;  
+                # The "done" touch file ($initial_chef_run_complete_touch) has been already created.  Updating `"$last_chef_run_complete_touch`" timestamp instead!        
+                touch $last_chef_run_complete_touch;
             &#125; else &#123;
-                write-host "The run_first.ps1 script (which we're current running right now) has changed (previous: $pre_runfirst_checksum, now: $post_runfirst_checksum).  We need to exit and run with the latest changes.  Exiting!  (feel free to kick off Chef again!)" -ForegroundColor 'Yellow';
-                exit 0;
+                $msg = "All Chef tasks for this machine have been completed! Huzzah!";
+                write-host $msg -foregroundcolor $text_color_info;
+                $final_message += "- $msg`n";
+                touch $initial_chef_run_complete_touch;
             &#125;
-            &#125; else &#123;
-            write-host "checksum isn't installed on this machine so we cannot check whether run_first.ps1 has changed.  Proceeding!  Fingers crossed..." -ForegroundColor 'Yellow';
-            &#125;
-
-            # refresh the profile
-            $env:show_ps_profile = 'true';
-            . $profile;
+            # END - BEGIN MAIN RUN
         &#125;
 
-        write-host "Calling run_chef.ps1 (cmd: run_chef.ps1 $run_method)" -ForegroundColor 'DarkGreen';
-        <%=node['install_directory']-%>\run_chef.ps1 $run_method;
+        # check for main run errors
+        if (exist $error_log_path) &#123;
+            $errors = get-content $error_log_path;
+            $msg = "Something bad happened -`nDETAILS:`n$errors";
+            $final_message += "$msg`n";
+
+            # Add to our global error file
+            add-content -path $run_errors -value $errors;
+
+            # delete the current error log
+            remove-item $error_log_path
         &#125;
-        else &#123;
-        write-host "Chef-client is already running.  Exiting." -ForegroundColor 'Red';
-        $keep_window_open = $false;
-        &#125;
-    &#125; catch &#123;
+&#125; catch &#123;
         $e = $_.Exception;
         $line = $_.InvocationInfo.ScriptLineNumber;
         $msg = $e.Message;
-        $err_msg = "run_first.ps1 ended in disaster...  utter disaster...`nError: $e"; 
+        $err_msg = "An exception was caught within run_chef.ps1...`nError message: $msg`nLine number: $line";
+        write-error $err_msg;
+        $final_message += "- $err_msg`n";
 
-        # maybe we need to update scripts
-        Invoke-Expression $chef_get_scripts_cmd;
+        # log error
+        write-error -msg $err_msg;
 
-        # send failure message
-        write-host $err_msg -ForegroundColor 'Red';
-        send_slack_error -msg $err_msg;
-    &#125; finally &#123;
-        if ($env:keep_window_open -eq $false) &#123;
-        write-host "Setting keep_window_open to false as script called from cc!" -ForegroundColor 'DarkGreen';
-        $keep_window_open = $false;
+        # maybe we need to update pip
+        write-host "Maybe updating pip will help..." -foregroundcolor $text_color_warn;
+        run_script -script_cmd $pip_script_cmd -script_desc $pip_script_desc;
 
-        # resetting it back to true
-        $env:keep_window_open = $true;
-        &#125;
-        # keep the window open until the next run starts so we have a chance to see what's going on
-        if ($keep_window_open -eq $true) &#123;
-        write-host "`nAll done!  This window is going to stick around until the next Chef run starts or 90 seconds have passed.  Feel free to close it!" -ForegroundColor 'White'
-        touch $stay_running_touch;
-        $iterations = 0;  
-        do
-        &#123;
-            if ($iterations -ge 90 -or $<%=node['chef_scripts_stay_open']-%> -ne $true) &#123;
-            write-host "90 seconds have passed.  Exiting!" -ForegroundColor 'White';
-            # let that sink in for a couple seconds
-            start-sleep -seconds 2;
-            break;
+        # re-throw the error
+        throw $err_msg;
+&#125; finally &#123;
+        if ($run_method -eq 'normal') &#123;
+            # START - SET WALLPAPER
+            if ($is_test_machine -eq $true) &#123;
+                run_script -script_cmd $setwallpaper_cmd -script_desc $setwallpaper_desc;
+                $final_message += "- Updated machine wallpaper`n"
             &#125;
-            start-sleep -seconds 1;
-            $iterations += 1;
-            &#125; while (exist $stay_running_touch) 
         &#125;
-        write-host "`nAll done." -ForegroundColor 'White';
-        start-sleep -seconds 1;
+        if ($we_ran -eq $true) &#123;
+            if (exist $error_log_path) &#123;
+                $errors = get-content $error_log_path;
+                $final_message = "Chef Run had an issue:`n$errors`n(duration: $run_duration)";
+
+                # Add to our global error file
+                add-content -path $run_errors -value $errors;
+
+                # delete the current error log
+                remove-item $error_log_path
+
+                write-host $final_message -foregroundcolor $text_color_error;
+                send_slack_msg -msg $final_message -channel 'qa-automation-errors';
+            &#125; else &#123;
+                write-host $final_message -foregroundcolor $text_color_warn;
+            &#125;
+            new-timespan -start $start -end $(get-date);
+            if (exist $tests_executed) &#123;
+                get-content $tests_executed;
+            &#125;
+        &#125; else &#123;
+            write-host "Not sending Slack message since we did not run..." -foregroundcolor $text_color_info;
+        &#125;
+&#125;                                      
+                                </pre>
+                                    </div>
+                                </li>
+                                <li>Create scheduled task that always gets above script so if you screw it up, the
+                                    machines can fix themselves
+                                    <div class="code">
+                                        <pre>
+# This script should not rely on any functions within $profile.  If there's an issue with the profile we need to still be able to run this script to update it.
+# DON'T USE THE POWERSHELL PROFILE FUNCTIONALITY AS WE NEED THIS SCRIPT TO RUN NO MATTER WHAT.
+# DON'T USE VARIABLES SUCH AS: $node_json
+# DON'T USE FUNCTIONS LIKE write-stuff, exist (TODO: replace with "Test-Path -option AllScope -Force")
+
+$keep_window_open = $true;
+
+try &#123;  
+    if ($env:keep_window_open -eq $false) &#123;
+    write-host "Setting keep_window_open to false as script called from cc!" -ForegroundColor 'DarkGreen';
+    $keep_window_open = $false;
+
+    # resetting it back to true
+    $env:keep_window_open = $true;
     &#125;
-                                            
+    
+    # This is duplicated for PowerShell profile.  if there's a problem with the PowerShell profile, 
+    # we still need this functionality.
+    function not-exist &#123; -not (Test-Path $args) &#125;
+    Set-Alias !exist not-exist -option AllScope -Force
+    Set-Alias exist Test-Path -option AllScope -Force
 
-                                        </pre>
-                                </div>
-                            </li>
-                        </ul>
-                    </mat-expansion-panel>
-                </div>
-                <div>
-                    <mat-expansion-panel>
-                        <mat-expansion-panel-header>
-                            <mat-panel-title>Gather custom data via OHAI</mat-panel-title>
-                        </mat-expansion-panel-header>
-                        Chef runs a utility called OHAI to gather system information required for it to run. We can
-                        also use this same service to gather other information. I run OHAI separate via a custom
-                        Python desktop tray application to prevent slowing down Chef runs.
-                        <ul class="condensed">
-                            <li>
-                                <span class="file">chef_ohai.rb</span>
-                                <div class="code">
-                                    <pre>
-    Ohai.plugin(:Chef) do
-    provides 'chef'
+    $chef_node_json = "<%=node['install_directory']-%>\<%=node.name-%>.json";
+    $chef_get_scripts_cmd = "chef-client -A -o role[get_chef_scripts] -j $chef_node_json";
+    $stay_running_touch = "<%=node['install_directory']-%>\ps_stay_running.touch";
+    $done_touch = "<%=node['install_directory']-%>\<%=node['chef_done']-%>";
+    $ohai_file_plugin = 'C:\chef\ohai\plugins\app_file_ohai.rb';
 
-    def get_chef_json(install_dir)
-        chef_json_path = ::File.join(install_dir, "#&#123;Socket.gethostname.upcase&#125;.json")
-                Ohai::Log.info("Capturing node json config at #&#123;chef_json_path&#125;")
-        chef_json = "n/a"
-        if ::File.exist?(chef_json_path)
-            chef_json = IO.read(chef_json_path)
-            Ohai::Log.info("...chef_json:\n#&#123;chef_json&#125;")
-        end
-        return chef_json
+    # ensure file ohai plugin is removed as it takes a long time to run
+    if (exist $ohai_file_plugin) &#123;
+        write-host "Removing $ohai_file_plugin" -foregroundcolor $text_color_warn;
+        remove-item 'C:\chef\ohai\plugins\app_file_ohai.rb'
+    &#125;
+
+    # check if chef-client is running
+    $chef_running = get-process ruby -erroraction silentlycontinue;
+    if ($chef_running -eq $null) &#123;
+    # get our run_method
+    $run_method = $args[0];
+    if ('' -eq $run_method -or $null -eq $run_method) &#123;
+        $run_method = 'normal';
+    &#125; 
+
+    if ($run_method -eq 'normal' -or $run_method -eq 'debug' -or $run_method -eq 'fast' -or $run_method -eq 'full') &#123;
+        write-host "Running chef-client at $(Get-Date) in $run_method mode! (Tip - use `"cc debug`" for more logging, or `"cc fast`" for a speedy experience)" -ForegroundColor 'DarkGreen';
+    &#125; else &#123;
+        write-host "You passed an invalid run method." -ForegroundColor 'Red';
+        write-host "The options are:" -ForegroundColor 'Red';
+        write-host "cc  - Normal execution" -ForegroundColor 'Red';
+        write-host "cc debug - Extra debug logging" -ForegroundColor 'Red';
+        write-host "cc fast - Only runs core stuff before calling Chef" -ForegroundColor 'Red';
+        write-host "cc full - runs the same full process as the scheduled task" -ForegroundColor 'Red';
+        exit;
+    &#125;
+
+    # allow previous run to exit
+    if (exist $stay_running_touch) &#123;
+        write-host "Deleting $stay_running_touch so that the previous Chef run can exit.  Sleeping 3 seconds!" -ForegroundColor 'DarkGreen';
+        Remove-Item $stay_running_touch;
+        start-sleep -seconds 3; # double the time of the loop to ensure the prevous run closes before this run continues..
+    &#125;
+
+    # create our tests directory
+    if (!exist <%=node['install_directory']-%>) &#123;
+        write-host "Creating <%=node['install_directory']-%> folder to hold any files we need..." -ForegroundColor 'DarkGreen';
+        new-item <%=node['install_directory']-%> -itemtype directory;
+    &#125;
+
+    # get chef config
+    $remote_json_file = "\\lab\nodes\<%=node.name-%>.json";
+    if (exist($remote_json_file)) &#123;
+        # delete node config json if it exists to ensure we always use latest
+        if(exist $chef_node_json) &#123;        
+        $new_chksum = 0;
+        $current_chksum = 0;
+        # it's possible we don't have checksum yet so this could fail which we don't care about..
+        try &#123;
+            $new_chksum = checksum $remote_json_file;
+            $current_chksum = checksum $chef_node_json;
+        &#125; catch &#123; &#125;        
+        if (($current_chksum -ne $new_chksum) -and (exist $done_touch)) &#123;
+            write-host "A new node configuration file at `"$remote_json_file`" is different then our current configuration at `"$chef_node_json`" and we have already indicated we've completed all tasks for this machine.  Removing our `"Done`" at `"$done_touch`" touch file." -ForegroundColor 'Yellow';
+            Remove-Item $done_touch;
+        &#125;
+        write-host "Deleting $chef_node_json so we get get the latest node configuration settings" -ForegroundColor 'DarkGreen';
+        Remove-Item $chef_node_json;
+        &#125;
+        write-host "$remote_json_file to $chef_node_json" -ForegroundColor 'DarkGreen';
+        copy-item -force $remote_json_file -Destination $chef_node_json;
+    &#125; else &#123;
+        write-host "This machine has not yet has it's default json file created yet.  This should happen in the next few minutes... aborting run!" -ForegroundColor 'DarkGreen';
+        exit 0;
+    &#125;
+
+    if ($run_method -ne 'fast' -and $run_method -ne 'debug') &#123;
+        # check if time service is running
+        $running_services = (net start) | Out-String;
+        if (-Not ($running_services -match "Windows Time")) &#123;
+            write-host "starting service" -ForegroundColor 'DarkGreen';
+            net start w32time;
+        &#125;
+
+        write-host "Syncing time..." -ForegroundColor 'DarkGreen';
+        $original_time = get-date;
+        W32tm /resync /force;
+        $new_time = get-date;
+        write-host "Previous time: $original_time, New time: $new_time" -ForegroundColor 'DarkGreen';
+
+        # update our sync log with new time stamps
+        "$original_time, $new_time" >> <%=node['install_directory']-%>\time_sync.txt;
+
+        # get current run_first checksum (so we know if we need to exit if run_first.ps1 changes)
+        $checksum_installed = $false;
+        if (exist "C:\ProgramData\chocolatey\bin\choco.exe") &#123;
+        $checksum_installed = (choco list --local-only | select-string -pattern 'checksum').matches.success
+        $pre_runfirst_checksum = $null;
+        if ($checksum_installed -eq $true) &#123;
+            $pre_runfirst_checksum = checksum <%=node['install_directory']-%>\run_first.ps1
+            write-host "Storing run_first.ps1 checksum prior to checking for updated files: $pre_runfirst_checksum" -ForegroundColor 'DarkGreen';
+        &#125;
+        &#125;
+
+        # get the latest Chef scripts
+        write-host "Retrieving latest script run_chef.ps1 script via: chef-client -A -o role[get_chef_scripts] -j $chef_node_json --minimal-ohai" -ForegroundColor 'DarkGreen';
+        invoke-expression $chef_get_scripts_cmd;
+
+        # get the post checksum
+        if ($checksum_installed -eq $true) &#123;
+        $post_runfirst_checksum = checksum <%=node['install_directory']-%>\run_first.ps1
+        write-host "Storing run_first.ps1 post checksum updating files to see if we need to stop script due to changes: post is: $post_runfirst_checksum (pre was: $pre_runfirst_checksum)" -ForegroundColor 'DarkGreen';
+        if ($pre_runfirst_checksum -eq $post_runfirst_checksum) &#123;
+            write-host "No changes for run_first.ps1.  Proceeding!" -ForegroundColor 'DarkGreen';
+        &#125; else &#123;
+            write-host "The run_first.ps1 script (which we're current running right now) has changed (previous: $pre_runfirst_checksum, now: $post_runfirst_checksum).  We need to exit and run with the latest changes.  Exiting!  (feel free to kick off Chef again!)" -ForegroundColor 'Yellow';
+            exit 0;
+        &#125;
+        &#125; else &#123;
+        write-host "checksum isn't installed on this machine so we cannot check whether run_first.ps1 has changed.  Proceeding!  Fingers crossed..." -ForegroundColor 'Yellow';
+        &#125;
+
+        # refresh the profile
+        $env:show_ps_profile = 'true';
+        . $profile;
+    &#125;
+
+    write-host "Calling run_chef.ps1 (cmd: run_chef.ps1 $run_method)" -ForegroundColor 'DarkGreen';
+    <%=node['install_directory']-%>\run_chef.ps1 $run_method;
+    &#125;
+    else &#123;
+    write-host "Chef-client is already running.  Exiting." -ForegroundColor 'Red';
+    $keep_window_open = $false;
+    &#125;
+&#125; catch &#123;
+    $e = $_.Exception;
+    $line = $_.InvocationInfo.ScriptLineNumber;
+    $msg = $e.Message;
+    $err_msg = "run_first.ps1 ended in disaster...  utter disaster...`nError: $e"; 
+
+    # maybe we need to update scripts
+    Invoke-Expression $chef_get_scripts_cmd;
+
+    # send failure message
+    write-host $err_msg -ForegroundColor 'Red';
+    send_slack_error -msg $err_msg;
+&#125; finally &#123;
+    if ($env:keep_window_open -eq $false) &#123;
+    write-host "Setting keep_window_open to false as script called from cc!" -ForegroundColor 'DarkGreen';
+    $keep_window_open = $false;
+
+    # resetting it back to true
+    $env:keep_window_open = $true;
+    &#125;
+    # keep the window open until the next run starts so we have a chance to see what's going on
+    if ($keep_window_open -eq $true) &#123;
+    write-host "`nAll done!  This window is going to stick around until the next Chef run starts or 90 seconds have passed.  Feel free to close it!" -ForegroundColor 'White'
+    touch $stay_running_touch;
+    $iterations = 0;  
+    do
+    &#123;
+        if ($iterations -ge 90 -or $<%=node['chef_scripts_stay_open']-%> -ne $true) &#123;
+        write-host "90 seconds have passed.  Exiting!" -ForegroundColor 'White';
+        # let that sink in for a couple seconds
+        start-sleep -seconds 2;
+        break;
+        &#125;
+        start-sleep -seconds 1;
+        $iterations += 1;
+        &#125; while (exist $stay_running_touch) 
+    &#125;
+    write-host "`nAll done." -ForegroundColor 'White';
+    start-sleep -seconds 1;
+&#125;
+                                        
+
+                                    </pre>
+                                    </div>
+                                </li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <div>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Gather custom data via OHAI</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                Chef runs a utility called OHAI to gather system information required for it to run. We
+                                can
+                                also use this same service to gather other information. I run OHAI separate via a custom
+                                Python desktop tray application to prevent slowing down Chef runs.
+                                <ul class="condensed">
+                                    <li>
+                                        <span class="file">chef_ohai.rb</span>
+                                        <div class="code">
+                                            <pre>
+Ohai.plugin(:Chef) do
+provides 'chef'
+
+def get_chef_json(install_dir)
+    chef_json_path = ::File.join(install_dir, "#&#123;Socket.gethostname.upcase&#125;.json")
+            Ohai::Log.info("Capturing node json config at #&#123;chef_json_path&#125;")
+    chef_json = "n/a"
+    if ::File.exist?(chef_json_path)
+        chef_json = IO.read(chef_json_path)
+        Ohai::Log.info("...chef_json:\n#&#123;chef_json&#125;")
     end
+    return chef_json
+end
 
-    # stores an array of any touch files we find which indicate the state of the machine
-    def get_touch_files(install_dir)       
-                Ohai::Log.info("Retrieving touch files for machine state info at: #&#123;install_dir&#125;")
-                touch_files = ::Dir.entries(install_dir).select &#123; |f| f.end_with?('.touch') &#125;
-                Ohai::Log.info("...touch_files:\n#&#123;touch_files&#125;")
-        return touch_files
-    end
+# stores an array of any touch files we find which indicate the state of the machine
+def get_touch_files(install_dir)       
+            Ohai::Log.info("Retrieving touch files for machine state info at: #&#123;install_dir&#125;")
+            touch_files = ::Dir.entries(install_dir).select &#123; |f| f.end_with?('.touch') &#125;
+            Ohai::Log.info("...touch_files:\n#&#123;touch_files&#125;")
+    return touch_files
+end
 
-    collect_data(:windows) do   
-        begin
-            Ohai::Log.info("Running chef_ohai.rb...")
-            chef Mash.new
-                        install_dir = "c:/tests/files"
-            ::Dir.mkdir(install_dir) unless ::File.exist?(install_dir)
-            chef[:chef_json] = get_chef_json(install_dir)
-            chef[:touch_files] = get_touch_files(install_dir)
-        rescue StandardError => e
-            Ohai::Log.warn("A problem occurred collecting data for chef_ohai.rb: #&#123;e.message&#125;")
-        end
+collect_data(:windows) do   
+    begin
+        Ohai::Log.info("Running chef_ohai.rb...")
+        chef Mash.new
+                    install_dir = "c:/tests/files"
+        ::Dir.mkdir(install_dir) unless ::File.exist?(install_dir)
+        chef[:chef_json] = get_chef_json(install_dir)
+        chef[:touch_files] = get_touch_files(install_dir)
+    rescue StandardError => e
+        Ohai::Log.warn("A problem occurred collecting data for chef_ohai.rb: #&#123;e.message&#125;")
     end
 end
-                                        </pre>
-                                </div>
+end
+                                                </pre>
+                                        </div>
 
-                            </li>
-                            <li>
-                                <span class="file">windows_ohai.rb</span>
-                                <div class="code">
-                                    <pre>
-    require 'open3'
+                                    </li>
+                                    <li>
+                                        <span class="file">windows_ohai.rb</span>
+                                        <div class="code">
+                                            <pre>
+require 'open3'
 
-    Ohai.plugin(:ExtraWinData) do
-        provides 'win'   
-    
-        def get_build()
-            display_ver = ""
-    
-            begin
-                Win32::Registry::HKEY_LOCAL_MACHINE.open('SOFTWARE\Microsoft\Windows NT\CurrentVersion') do |reg|
-                    display_ver = reg['DisplayVersion']   
-                end
-            rescue StandardError => e
-                Ohai::Log.warn("A problem occurred getting Win10 DisplayVersion")
+Ohai.plugin(:ExtraWinData) do
+    provides 'win'   
+
+    def get_build()
+        display_ver = ""
+
+        begin
+            Win32::Registry::HKEY_LOCAL_MACHINE.open('SOFTWARE\Microsoft\Windows NT\CurrentVersion') do |reg|
+                display_ver = reg['DisplayVersion']   
             end
-    
-            return display_ver
+        rescue StandardError => e
+            Ohai::Log.warn("A problem occurred getting Win10 DisplayVersion")
         end
-    
-        collect_data(:windows) do
-            Ohai::Log.info("Running windows_ohai.rb...")
-            win Mash.new
-            win[:build] = get_build()
-        end
+
+        return display_ver
     end
-                                        </pre>
-                                </div>
 
-                            </li>
-                        </ul>
+    collect_data(:windows) do
+        Ohai::Log.info("Running windows_ohai.rb...")
+        win Mash.new
+        win[:build] = get_build()
+    end
+end
+                                                </pre>
+                                        </div>
 
-                    </mat-expansion-panel>
-                </div>
+                                    </li>
+                                </ul>
+
+                            </mat-expansion-panel>
+                        </div>
+                    </li>
+                </ul>
             </div>
             <div><app-comment></app-comment></div>
         </div>

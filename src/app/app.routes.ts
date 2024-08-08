@@ -48,6 +48,8 @@ import { IdeComponent } from './main/ide/ide.component';
 import { BlogComponent } from './main/blog/blog.component';
 import { MudMakingOfComponent } from './main/mud-making-of/mud-making-of.component';
 import { WelcomeComponent } from './main/welcome/welcome.component';
+import { TestingComponent } from './main/testing/testing.component';
+import { SecurityComponent } from './main/security/security.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: WelcomeComponent },
@@ -60,6 +62,8 @@ export const routes: Routes = [
     { path: 'docker', title: 'nehsa.net | Docker', component: DockerComponent },
     { path: 'pytest', title: 'nehsa.net | Pytest', component: PytestComponent },
     { path: 'typescript', title: 'nehsa.net | TypeScript', component: TypescriptComponent },
+    { path: 'testing', title: 'nehsa.net | Testing', component: TestingComponent },
+    { path: 'security', title: 'nehsa.net | Security', component: SecurityComponent },
     {
         path: 'school', title: 'nehsa.net | School', component: SchoolComponent,
     },

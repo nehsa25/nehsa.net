@@ -90,6 +90,35 @@
                                                 decorative images and images used as links. This will help ensure that
                                                 your content is accessible to all users.</p>
                                         </div>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Playwright Example</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <div>
+                                                <p>Playwright can be used to validate the alt text of images on a page.
+                                                    This can be done by doing something such as:</p>
+                                                <div class="code">
+<pre>
+import &#123; expect, test &#125; from '&#64;playwright/test';
+
+test('all images have alt text', async (&#123; page &#125;) => &#123;
+    // go to site
+    await page.goto('https://www.nehsa.net');
+
+    // get all images on the page
+    const images = await page.$$('img');
+
+    // check that each image has alt text
+    for (const image of images) &#123;
+    const altText = await image.getAttribute('alt');
+    expect(altText).not.toBeNull();
+    expect(altText).not.toBe('');
+    &#125;
+&#125;);
+</pre>  
+                                                </div>
+                                            </div>
+                                        </mat-expansion-panel>
                                     </mat-expansion-panel>
                                 </li>
                                 <li>
@@ -342,7 +371,7 @@
                                 </li>
                                 <li><mat-expansion-panel>
                                         <mat-expansion-panel-header>
-                                            <mat-panel-title>Validation</mat-panel-title>
+                                            <mat-panel-title>Validation Strategies</mat-panel-title>
                                         </mat-expansion-panel-header>
                                         Playwright can be used to validate the metrics of a page. This can be done by
                                         doing something such as:

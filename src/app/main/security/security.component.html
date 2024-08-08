@@ -1,0 +1,129 @@
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Security</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div>Cybersecurity is a hotbed right now due to the state of the world and constant reports
+                of organizations being hacked or ransomed. It's a continuous race of the nefarious attempting to take or
+                break what's not theirs <span style="text-decoration:underline; padding: 0; margin: 0; display: inline;">and the cybersecurity heroes who try to protect us all.</span><br><br>
+
+                Security has been a large part of my professional career, and I know first-hand the badness that can
+                happen. I was involved in a ransomware situation (as the ransomee). The hackers encrypted every file on
+                my company servers. Only when paid was a tool provided to unencrypt the file. After being confirmed safe
+                by our engaged security consultant, we used the tool provided by the hackers to recover our data.<br><br>
+
+                (The decryption tool provided was so bad that it crashed every few operations. I assisted by automating
+                the process. I created a script that re-launched the application when it crashed and navigated the GUI
+                programically. This allowed us to kick off the recovery script a single time on each machine affected to
+                recover all files.)<br><br>
+
+                Here are some of the things I do:<br>
+                <ul class="condensed">
+                    <li>In a periodic meeting, discuss the <a href="https://owasp.org/www-project-top-ten/">OSWAP Top
+                            Ten</a>. Bring it up, but do not say anything. Scroll
+                        slowly while maintaining eye contact with each team member. </li>
+                    <li>Use a security tools to scan your assets. These quick scans can often provide a lot of good
+                        information. I have experience with these ones:
+                        <dl>
+                            <dt>Burp Suite</dt>
+                            <dd>Tool for testing web application security (Proxy interception, vulnerability scanning,
+                                intrusion testing amongst other feature).</dd>
+                            <dt>nmap</dt>
+                            <dd>A network scanning tool (port scanning amongst other things)</dd>
+                            <dt>wireshark</dt>
+                            <dd>Similar to nmap, but with a GUI and more focus on packet capture and analysis</dd>
+                        </dl>
+                    </li>
+                    <li>Use a credential manager - do not check-in username/passwords in source!<br><br>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Example using Chef's data bag feature</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            A credential can been added to the secure data bag with the following command:<br>
+                            <div class="code">
+                                <pre>
+PS C:\src> knife data bag create &lt;ORG&gt; &lt;USERNAME&gt;
+Created data_bag[&lt;ORG&gt;]
+Created data_bag_item[&lt;ORG&gt;/&lt;USERNAME&gt;]
+</pre>
+                            </div><br>
+
+                            The username and password can be added to the data bag with the following command:<br>
+                            <div class="code">
+                                <pre>
+PS C:\src> knife data bag edit &lt;ORG&gt; &lt;USERNAME&gt;
+</pre>
+                            </div>
+                            <span class="additional-note">This will open the data bag in your default editor. Add your
+                                password information here! For it to be a secure data bag, the data bag must be
+                                encrypted. and requires a secret which
+                                adds slightly more complexity as you then need to store the secret somewhere (a secret
+                                management system or at least outside Chef).</span><br>
+
+                            <div class="code">
+                                <pre>
+PS C:\src> knife data bag show &lt;ORG&gt; &lt;USERNAME&gt;
+id:       &lt;USER_ID&gt;
+password: &lt;USER_PASSWORD&gt;
+username: &lt;USER_USERNAME&gt;
+</pre>
+                            </div>
+
+                            Finally, this can be used like this:
+                            <div class="code">
+                                <pre>
+credentials = data_bag_item('&lt;ORG&gt;', '&lt;USERNAME&gt;')
+username = credentials['username']
+password = credentials['password']
+</pre>
+                            </div>
+
+                        </mat-expansion-panel>
+                    </li>
+                    <li>Use a password manager - do not use the same password for multiple sites!</li>
+                    <li>Use the cloud where possible - they have more resources to protect your data than you do</li>
+                    <li>Have a data (and database) recovery plan</li>
+                    <li>In a periodic meeting, role-play worst-case scenarios and what you would do:
+                        <ul>
+                            <li>Someone nefarious has obtained all your user's username & passwords</li>
+                            <li>All your files have been encrypted and there's a ransomware request asking for money or
+                                all your data will be released onto the dark web (or just deleted).</li>
+                            <li>Hackers have obtained your employees security numbers</li>
+                        </ul>
+                    </li>
+                    <li>Have a incident response plan:
+                        <ul>
+                            <li>Who needs to be involved?</li>
+                            <li>What are the steps?
+                                <ol class="condensed">
+                                    <li>Detection</li>
+                                    <li>Analysis</li>
+                                    <li>Containment</li>
+                                    <li>Eradication</li>
+                                    <li>Recovery</li>
+                                    <li>Lessons Learned</li>
+                                </ol>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>
+
+In a weekly meeting, discuss the OSWAP Top Ten.
+Use a security tools to scan your assets. These quick scans can often provide a lot of good information. I have
+experience with these ones:
+Burp Suite
+Tool for testing web application security (Proxy interception, vulnerability scanning, intrusion testing amongst other
+feature).
+nmap
+A network scanning tool (port scanning amongst other things)
+wireshark
+Similar to nmap, but with a GUI and more focus on packet capture and analysis
+Use a credential manager - do not check-in username/passwords!

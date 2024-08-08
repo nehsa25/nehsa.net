@@ -1,0 +1,24 @@
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Testing</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">Although this section has a large cross-section with other pages, it is devoted to testing activities.
+
+                Related information:
+                Development
+                Web Design
+                Playwright
+                Pytest
+                
+                
+                
+                
+            </div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>

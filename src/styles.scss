@@ -165,7 +165,7 @@ $theme-light-a-link-color: mat.get-color-from-palette($light-primary-palette, "l
 // images
 img {
     border: 2px ridge var(--theme-border);
-    border-radius: 2px;
+    border-radius: 5px;
 }
 
 // pop color
@@ -355,9 +355,11 @@ span.code:hover {
 .additional-note,
 .additional-notes,
 .asterisk {
+    max-width: 90%;
     font-size: 0.8em;
     color: #888;
-    margin-top: .4rem;
+    margin: .4rem 0 .4rem 0;
+    display: block;
 }
 
 ul.navbar-links>li:hover {
@@ -681,4 +683,14 @@ dt {
     border: 1px solid black;
     padding: 1em;
     margin: 1em;
+}
+
+.example {
+    background-color: var(--theme-code-background) !important;
+    color: var(--theme-code-color) !important;
+    font-family: Consolas;
+    border-radius: 5px;
+    padding: 1em;
+    margin-top: 1em;
+    display: inline-block;
 }
