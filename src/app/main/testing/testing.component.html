@@ -6,17 +6,271 @@
     </mat-card-header>
     <mat-card-content>
         <div class="commentgrid">
-            <div class="topics">Although this section has a large cross-section with other pages, it is devoted to testing activities.
+            <div class="topics">
+                <div>
+                    Testing is complex. We have unit tests, integration/system
+                    tests, black-box tests,
+                    white-box tests, and security tests, to name a few - some requiring unique skill sets and
+                    disciplines. Tests can be manual (a person needs to move a mouse) or automated. They may run
+                    nightly, once a release, when a new code change is committed to the local code repository, or when a
+                    new code change is pushed to the shared code repository.<br><br>
 
-                Related information:
-                Development
-                Web Design
-                Playwright
-                Pytest
-                
-                
-                
-                
+                    One of the first realizations a new tester encounters is that testing everything is impossible. The
+                    question then is, where do you focus your efforts? The goal is to test enough to ensure the software
+                    is high quality and meets the requirements of the business and your users.<br><br>
+
+                    Although I did not come up with the strategy, a way I like to think of it is that for every feature,
+                    you have "100 quality points" to spend. You can spend them on unit testing, integration testing,
+                    system testing, acceptance testing, etc. The key is to spend them wisely.
+                    For example, if your feature is critical to the business, you may want to spend more points on
+                    acceptance testing. If your feature is complex and has many moving parts, you should pay more points
+                    on integration testing. If your feature is simple and isolated, you should spend more points on unit
+                    testing.<br><br>
+
+                    The following table provides a brief overview of some common
+                    testing
+                    strategies, their strengths, and weaknesses:<br>
+                    <div style="max-width: 90%;">
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Testing Strategies</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <table mat-table>
+                                <thead>
+                                    <tr>
+                                        <th>Testing Strategy</th>
+                                        <th>SDLC Phase</th>
+                                        <th>Strengths</th>
+                                        <th>Weaknesses</th>
+                                        <th>Quantifying Coverage</th>
+                                    </tr>
+                                </thead>
+                                <tr>
+                                    <td>Unit Testing</td>
+                                    <td>Development</td>
+                                    <td>Isolates code, fast feedback, easy to establish code coverage</td>
+                                    <td>Limited to individual units, doesn't test integration</td>
+                                    <td>Code coverage percentage (e.g., 80%)</td>
+                                </tr>
+                                <tr>
+                                    <td>Integration,<br>System Testing</td>
+                                    <td>Integration</td>
+                                    <td>Verifies component interactions, identifies interface issues, overall system
+                                        functionality, meets requirements</td>
+                                    <td>Can be complex to set up, time-consuming</td>
+                                    <td>Requirement coverage (percentage of requirements tested)</td>
+                                </tr>
+                                <tr>
+                                    <td>Acceptance Testing</td>
+                                    <td>Testing/Deployment</td>
+                                    <td>Verifies user satisfaction, aligns with business needs</td>
+                                    <td>Subjective, can be delayed</td>
+                                    <td>User satisfaction surveys, feature usage metrics</td>
+                                </tr>
+                                <tr>
+                                    <td>Smoke Testing</td>
+                                    <td>All phases</td>
+                                    <td>Quick sanity check, identifies critical issues early</td>
+                                    <td>Limited scope, doesn't guarantee quality</td>
+                                    <td>Pass/fail rate, time to detect critical defects</td>
+                                </tr>
+                                <tr>
+                                    <td>Regression Testing</td>
+                                    <td>All phases</td>
+                                    <td>Ensures new changes don't break existing functionality</td>
+                                    <td>Can be time-consuming and expensive</td>
+                                    <td>Test case coverage, defect recurrence rate</td>
+                                </tr>
+                                <tr>
+                                    <td>Performance,<br>Load,<br>Stress Testing</td>
+                                    <td>Testing/Deployment</td>
+                                    <td>Evaluates system performance under load, identifies bottlenecks</td>
+                                    <td>Requires specialized tools and expertise</td>
+                                    <td>Response time, throughput, resource utilization</td>
+                                </tr>
+                                <tr>
+                                    <td>Security Testing</td>
+                                    <td>All phases</td>
+                                    <td>Identifies vulnerabilities, protects against threats</td>
+                                    <td>Can be complex and requires specialized skills</td>
+                                    <td>Number of vulnerabilities found, compliance with security standards</td>
+                                </tr>
+                                <tr>
+                                    <td>Usability Testing</td>
+                                    <td>Design/Testing</td>
+                                    <td>Evaluates user experience, identifies usability issues</td>
+                                    <td>Subjective, depends on user feedback</td>
+                                    <td>User satisfaction scores, task completion rates</td>
+                                </tr>
+                            </table>
+                        </mat-expansion-panel>
+                    </div><br><br>
+
+                    <span class="importantish">Automated testing</span> is a critical part of modern
+                    software development. It's simply not scaleable to test everything manually in a high-velocity
+                    development environment as new features are introduced.<br><br>
+
+                    I am a proponent of leveraging existing test frameworks and tools to write automated tests. By
+                    adopting a framework, you enforce patterns and readability to help you maintain your tests as you
+                    make future changes and enhancements.
+
+                    <h4>How do you pick a test framework?</h4>
+                    Choosing a testing framework can be daunting, but it should allow for flexibility. Why? Every
+                    framework
+                    has it's pros/cons and learning curve, by clearly focusing on the feature under test to determine
+                    the framework to use, we can make a more informed decision and ensure the highest quality
+                    tests.<br><br>
+                    e.g., In a .NET application, we may choose NUnit or Pytest as our testing technology. Both are
+                    excellent test
+                    frameworks with broad support and critical features like test parameterization. If it's an Angular
+                    app, I'd likely use Playwright for integration tests and spec.ts files and TypeScript for unit
+                    tests.
+
+                    <h4>My spin on TDD</h4>
+                    Although I support anything that emphasizes testing in the development process, TDD is a somewhat
+                    mystical concept. While everyone wants it, I've yet to see it heavily implemented in real-world
+                    situations.<br><br>
+
+                    While traditional TDD focuses on unit testing (strict TDD: You are not allowed to write any
+                    production code unless it is to make a failing unit test pass), I find this impractical in most
+                    scenarios, and the quality of the tests that come from it is questionable as to whether they'd ever
+                    catch a bug.<br><br>
+
+                    Instead, I focus on STDD (I'm sure I just coined it: System Test Driven Development).<br><br>
+
+                    The gist:<br>
+                    <ul class="condensed">
+                        <li>Prior to elaboration of a new feature, provide a "test stub" to all parties:
+                            <div class="code">
+                                <pre>
+## Test Summary
+#
+# Test Steps:
+# -# step 1..
+# -# step 2..
+# -# Confirm x
+def test_that_&lt;action&gt;_&lt;expected_result&gt;():
+    pass
+</pre>
+                            </div>
+                            <span class="additional-note">The &quot;pass&quot; keyboard in Python is a no-op keyboard to
+                                simply allow the code to compile without error. We are not making the test
+                                pass.</span><br>
+                        </li>
+                        <li>As the feature is discussed, if anyone on the team thinks of a test that should be
+                            performed, they quickly fill out a test stub. In most cases, this can be done individually
+                            by the person as tests are thought of and not a specific discussion requiring the whole
+                            team.</li>
+                        <li>At the end of elaboration, all tests are reviewed:
+                            <ul>
+                                <li>Duplicated are consolidated</li>
+                                <li>An initial deleniation whether the test will be manual or automated</li>
+                                <li>Ranks in priority amongst other tests</li>
+                                <li>Any missing tests are added</li>
+                            </ul>
+
+                            This is now the agreed upon test plan for the feature and it includes input from all
+                            parties. Story acceptance is clear: Are these tests passing?
+                        </li>
+                    </ul>
+                    <h4>Choosing a TCM or Quality Dashboard</h4>
+                    An often understated responsibility of the tester is reporting status outward—to your
+                    immediate
+                    team, stakeholders, and maybe crucial clients. To accomplish this, we need the data to be
+                    meticulously organized and readily available.<br><br>
+
+                    I tend to look for TCMs with good APIs and create an "automation-reader" that understands
+                    all
+                    the
+                    various test frameworks in use and can consolidate them into a single spot for consumption.
+                    This
+                    allows for a dashboard where all data is centralized.<br><br>
+
+                    Essential information I want a Quality Dashboard to answer:<br>
+                    <ul class="condensed">
+                        <li>Is testing complete?</li>
+                        <li>Are we on track to release?</li>
+                        <li>What is our quality confidence?</li>
+                        <li>What is our code coverage?</li>
+                        <li>What is the % change from the last time we looked at the data?</li>
+                    </ul>
+
+                    <h4>Picking the right metrics</h4>
+                    Establishing good metrics is critical for the project's success. Arbitrary metrics, such as the
+                    number of test cases created or bugs found, may not be helpful. Are the tests good? Were the bugs
+                    found essential and needing to be fixed?<br><br>
+
+                    I advocate for more quantifiable metrics, such as &quot;Total Containment Effectiveness&quot; (TCE),
+                    to
+                    represent overall quality.<br><br>
+
+                    <ul>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Total Containment Effectiveness (TCE)</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                Here's how TCE works:<br>
+                                Pre-release defects are found before the software is released to production.<br>
+                                Post-release defects: These are defects discovered after the software is in
+                                production.<br><br>
+                                The formula for TCE is:<br>
+                                <div class="code">TCE = (Pre-release Defects) / (Pre-release Defects + Post-release
+                                    Defects)</div>
+                                <br><br>
+                                TCE can then be trended release-over-release:<br>
+                                <span class="importantish">Increasing TCE</span> indicates improvements in quality
+                                assurance and
+                                defect prevention.<br>
+                                <span class="importantish">Decreasing TCE</span> signals potential issues in the
+                                development or
+                                testing process requiring closer
+                                examination.
+                                <br>You can refine further by only considering critical defects such as severity 1 and 2
+                                issues
+                                only.
+                            </mat-expansion-panel>
+                            <span class="additional-note">A high TCE means you are finding your bugs, not your users.</span>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Mean Time Between Failures (MTBF)</mat-panel-title>
+                                </mat-expansion-panel-header>In some cases, TCE is not enough. For example, if your
+                                product has a slow adoption rate when new features are released, you may not see a
+                                significant change in TCE. In this case, you may want to consider other metrics such as
+                                &quot;Mean Time Between Features&quot;:<br><br>
+
+                                Here's how MTBF works:<br>The average time a system operates
+                                before a failure occurs.<br><br>
+                                The formula for MTBF is:<br>
+                                <div class="code">Total operational hours / Number of failures</div>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Mean Time To Repair (MTTR)</mat-panel-title>
+                                </mat-expansion-panel-header>Here's how MTTR works:<br>The average time it takes to restore a system to operation after a failure.<br><br>
+                                The formula for MTTR is:<br>
+                                <div class="code">Total repair time / Number of repairs</div>
+                            </mat-expansion-panel>
+                            <span class="additional-note">A high MTBF and a low MTTR indicate a highly reliable and efficient system.</span>
+                        </li>
+                    </ul>
+                    
+                </div>
+                <div>
+                    This section is heavily interconnected with other pages. It is devoted to testing activities and
+                    hopes to tie everything together. Related information:
+                    <ul>
+                        <li><button mat-stroked-button routerLink="/design">Development</button></li>
+                        <li><button mat-stroked-button routerLink="/webdesign">Web Design</button></li>
+                        <li><button mat-stroked-button routerLink="/playwright">Playwright</button></li>
+                        <li><button mat-stroked-button routerLink="/pytest">Pytest</button></li>
+                        <li><button mat-stroked-button routerLink="/security">Security</button></li>
+                    </ul><br><br>
+                </div>
             </div>
             <div><app-comment></app-comment></div>
         </div>
