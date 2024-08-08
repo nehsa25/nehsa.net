@@ -11,66 +11,104 @@
         <div class="commentgrid">
             <div class="topics">
                 <div>
-                    Project management and specifically software engineering methodologies are a big part of successful
-                    software company. I've spent a large portion of
-                    my professional career in conversations/meetups/conferences about them. Agile is the main one in
-                    demand now. I have assisted several organizations
-                    in moving from the "traditional" waterfall methodologies to Agile or at least to more
-                    iterative development patterns and smaller releases.<br><br>In most cases, what we end up with is
-                    a mini-waterfall. All the same issues are present, just less pronounced. - it's
-                    better, but
-                    not great.
-                    <br><br>
-                    To me, only a few key elements are needed for a successful Agile team..<br>
-                    <ul class="condensed">
-                        <li>Teams must be self-contained and have all team members necessary to do the work. The
-                            moment
-                            If you start having people with a split focus across projects, quality, and velocity will
-                            suffer.
-                            Expecting a tester to swoop in and test with thoroughness at the end of a sprint when their
-                            focus has been elsewhere the duration is asking for lackluster results, an unhappy tester,
-                            and all-around sadness.
-                        </li>
-                        <li>Story points are not a "rough" 4 hours of development hours. The purpose of story points is
-                            <span class="important">relative-sizing</span>. It's for the team to be able to discuss
-                            amongst themselves on
-                            effort. Let's say you have a 3
-                            members: Bob, Joe, Sally. As they work on the same project sprint after sprint, they will
-                            start to be able to discuss work in terms of story points.<br><br>
-                            e.g. If feature AZY was 3 story points last sprint and feature DSS is similar in complexity,
-                            it could be 3 points as well. This allows *everyone* on the team to discuss the effort, not
-                            only
-                            the developer who is familiar with the inner workings of the code. Joe may have no coding
-                            ability but can still participate if the conversation is structured like this.<ul>
-                                <li>Another key difference is story points should be determined as a group and include
-                                    all aspects of the story. They are not development hours only.</li>
+                    I've spent much of my professional career in conversations, meetups, and conferences about Agile and
+                    project management. The project management processes are as important as the coding itself to ensure
+                    we're building the right thing and at the highest level of quality.<br><br>
+
+                    I have assisted several organizations in moving from waterfall processes to Agile development
+                    practices or at least to more iterative development patterns. Often, I see organizations spend a
+                    long time in a hybrid "mini-waterfall" state. The desire is to "be Agile," but there's a fear of
+                    drastically changing from known procedures, so we end up in a hybrid state. We're releasing more
+                    frequently, but the structure of the teams and processes remain much the same. Hence, we have the
+                    same problems and deficits in quality.<br><br>
+
+                    I make the following delineation:<br>
+                    <dl>
+                        <dt>Waterfall</dt>
+                        <dd>Linear development of a large set of features. The features are designed, developed, and
+                            then tested, and only when everything is ready does a "release" occur.</dd>
+                        <dt>Mini-waterfall</dt>
+                        <dd>Is essentially the same as a waterfall, but with more frequent
+                            releases (i.e., perhaps quarterly instead of yearly). The development process remains
+                            linear, and teams
+                            are still segregated. This distinction helps to clarify the nuances between the two styles,
+                            ensuring
+                            a deeper understanding of the iterative development landscape. We're not utiliziing all the
+                            processes that allow us to "be Agile."</dd>
+                        <dt>Iterative/Agile</dt>
+                        <dd>Only a few key elements are needed for a successful iterative development:
+                            <ul class="condensed">
+                                <li>Self-contained teams—One critical element for successful iterative development is
+                                    the team's structure. When team members are split across projects, the quality and
+                                    velocity of
+                                    work suffer. For instance, expecting a tester to deliver thorough validation and
+                                    find bugs at the end of a sprint when their focus has been elsewhere or they were
+                                    not included in elaboration is a recipe for disappointment and subpar outcomes.</li>
+                                <li>Features are broken up into user stories. "As a portal user, I need to
+                                    download X from Y." This allows development to focus solely on fulfilling this
+                                    requirement,
+                                    and once
+                                    tested, the story can be released in isolation and provide value to the end user.
+                                </li>
+                                <li>Stories are sized via story points, not development hours. The reason:
+                                    While development hours and story points may seem similar (I've been at
+                                    organizations that insisted on a 1 story point = 4 development hours silliness, for
+                                    example). This shows a misunderstanding of the purpose of story points.<br><br>
+
+                                    Development hours are provided by a developer with detailed knowledge of the
+                                    underlying code. He imagines the code in his head and goes, "Well, Bob, I believe
+                                    that's about 4 hours of development."<br><br>
+
+                                    All is well and good, except how much testing is then needed? Does it require a lot
+                                    of documentation? Training? A coding task may be minor but has huge testing
+                                    implications.<br><br>
+
+                                    Story points have a new name because they're intended to differ from development
+                                    hours. They focus on relative complexity, and require no knowledge of the code
+                                    itself. All members of the team may
+                                    not be able to
+                                    speak to the development hours of a feature written in a complex coding language,
+                                    but if the team as a whole worked on user story "A" and is now tasked to develop
+                                    user story "B," they can make some correlations:<br><br>
+
+                                    Well, if user story "A" was 3 points, story "B" would be 5 - more data validation is
+                                    required, and we'll need to train the support team. Now, regardless of their
+                                    knowledge of the actual code, every team member can participate in planning. The
+                                    number we come up with is the "DONE DONE" number - the story has been developed and
+                                    tested!<br><br>
+
+                                    Story points get a bad rap. For example, I see the memes of using 20-sided dice to
+                                    determine story points. Still, when used correctly, they can help the team reach
+                                    common ground for discussing the complexity of a feature.
+                                </li>
+                                <li>Stories are prioritized in a groomed backlog. We take from the top for each release
+                                    (sprint)
+                                    until
+                                    the sprint is full. If the team is ahead of schedule, they can pull in additional
+                                    stories
+                                    during
+                                    the
+                                    sprint; if behind schedule, anything not complete at the end of the sprint goes back
+                                    into
+                                    the
+                                    backlog to be prioritized again.</li>
+                                <li>Stories, once started are completed before moving on</li>
+                                <li>Burn down is key. This is a burn down of story points within a sprint and is the
+                                    best
+                                    indication if changes are required to make deadlines with high quality. As stories
+                                    are worked to completion and "DONE DONE" when complete, we can subtract their story
+                                    points from the total allocated from teh sprint and have a perfect indication if
+                                    we're on track. A good burn-down is a consistent </li>
                             </ul>
-                        </li>
-                        <li>Work items to completion before moving on</li>
-                        <li>Stub out tests while your talking in Elaboration.<br>This could be something like this:<br>
-                            <div class="code">
-                                <pre>
-    &#64;pytest.mark.parametrize("num_users",
-    [
-        1, 10, 50, 100, 250
-    ])
-    ## Confirms number of users concurrent access
-    def test_number_users_submitting_request(num_users, license_test_data, logger):
-        pass
-</pre>
-                            </div>This test could be test to executed from day 1 and be "stubbed out" and ready for code
-                            to
-                            be added during the sprint to test this aspect of the feature.
-                        </li>
-                        <li>Do not split test tasks from development tasks. It's solely a means to trick ourselves into
-                            thinking we're further along than we are. Features are complete when they've been
-                            tested. At best splitting testing makes metrics *appear* better, at worst, it
-                            causes less testing to occur as once testing tasks are broken out from the feature, it's
-                            easy to
-                            de-prioritize them for new feature work.</li>
-                        <li>Burn down is key. This is a burn down of story points within a sprint and is the best
-                            indication if changes are required to make deadlines with high quality.</li>
-                    </ul>
+                        </dd>
+                    </dl>
+                    <span class="importantish">Do not split test tasks from development tasks. It's solely a means to
+                        trick ourselves into
+                        thinking we're further along than we are. Features are complete when they've been
+                        tested. At best splitting testing makes metrics *appear* better, at worst, it
+                        causes less testing to occur as once testing tasks are broken out from the feature, it's
+                        easy to
+                        de-prioritize them for new feature work.</span>
                 </div>
                 <div>
                     <h3>Presentations I've given on Agile</h3>
