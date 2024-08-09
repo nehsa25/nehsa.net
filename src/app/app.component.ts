@@ -22,6 +22,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { Tree } from './types/tree';
 import { Cloud } from './types/cloud';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { CometComponent } from './shared-components/comet/comet.component';
 
 @Component({
   selector: 'app-root',
@@ -40,7 +41,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     MatExpansionModule,
     MatSidenavModule,
     MatSliderModule,
-    NgIf
+    NgIf, 
+    CometComponent
   ],
   providers: [HttpService],
   templateUrl: './app.component.html',

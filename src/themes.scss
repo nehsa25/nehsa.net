@@ -17,6 +17,8 @@ $light-theme: mat.define-dark-theme((color: (theme-type: light,
             density: -1,
             typography: $typography ));
 
+@include mat.all-component-themes($dark-theme);
+
 // theming
 .vampire {
     background-color: #383838 !important;

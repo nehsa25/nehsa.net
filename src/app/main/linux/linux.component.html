@@ -1,0 +1,56 @@
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Linux</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">A random assortment of stuff I commonly need to look up:<br>
+                <ul>
+                    <li>Create Symbolic Link:
+                        <div class="code"><span class="importantish">ln</span>
+                            <pre>
+/app# ln -s /usr/bin/python3.11 /usr/bin/python
+root&#64;aa3978da43f5:/app# ls -al /usr/bin/python*
+lrwxrwxrwx 1 root root      19 Aug  9 15:00 /usr/bin/python -> /usr/bin/python3.11
+-rwxr-xr-x 1 root root 6839928 May  2 11:59 /usr/bin/python3.11
+</pre>
+                        </div>
+                    </li>
+                    <li>Get machine information:
+                        <div class="code"><span class="importantish">uname -a</span>
+                            <pre>
+PS C:\src> uname -a
+WindowsNT ideapad5-pc 2 6 x86
+</pre>
+                        </div>
+                    </li>
+                    <li>Get OS information:
+                        <div class="code"><span class="importantish">/etc/os-release</span>
+                            <pre>
+/app# cat /etc/os-release
+PRETTY_NAME="Debian GNU/Linux 12 (bookworm)"
+NAME="Debian GNU/Linux"
+VERSION_ID="12"
+VERSION="12 (bookworm)"
+VERSION_CODENAME=bookworm
+ID=debian
+HOME_URL="https://www.debian.org/"
+SUPPORT_URL="https://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"
+</pre>
+                        </div>
+                        <div class="code"><span class="importantish">/etc/debian_version (Debian-specific):</span>
+                            <pre>
+/app# cat /etc/debian_version
+12.6
+</pre>
+                        </div>
+                    </li>                
+                </ul>
+            </div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>

@@ -68,8 +68,8 @@
                             <mat-expansion-panel-header>
                                 <mat-panel-title>Accessors</mat-panel-title>
                             </mat-expansion-panel-header>
-<div class="code">
-    <pre>
+                            <div class="code">
+                                <pre>
 public class Person
 &#123;
     private string _name;
@@ -81,7 +81,7 @@ public class Person
     &#125;
 &#125;
     </pre>
-</div>
+                            </div>
                         </mat-expansion-panel>
                     </li>
                     <li>
@@ -552,90 +552,107 @@ namespace scratch
                             <mat-expansion-panel-header>
                                 <mat-panel-title>Entity Framework</mat-panel-title>
                             </mat-expansion-panel-header>
-                            <div>
-                                Eager Vs. Lazy Loading<br><br>
-                                In one-to-many relations that you sure are used every where with main
-                                entity.
-                                Generally,
-                                use eager loading When relations are not too complex and eager loading
-                                will reduce
-                                further queries on server.
-                                When to use lazy loading<br><br>
-                                Almost on every "collection side" of one-to-many relations. like
-                                Articles of User or
-                                Products of a Category
-                                You exactly know that you will not need a property instantly.
-                                <dl>
-                                    <dt>One-to-one relationships</dt>
-                                    <dd>one record in one table with a single record in the other table.
-                                    </dd>
-                                    <dt>One-to-many</dt>
-                                    <dd>A bidirectional relationship (can) exists. TableA may have a
-                                        foreign key
-                                        into
-                                        tableB, and tableB may have a foreign key into the associated
-                                        record in
-                                        tableA.
-                                    </dd>
-                                </dl>
-                            </div>
+                            <ul>
+                                <li>
+                                    <div>
+                                        Eager Vs. Lazy Loading<br><br>
+                                        In one-to-many relations that you sure are used every where with main
+                                        entity.
+                                        Generally,
+                                        use eager loading When relations are not too complex and eager loading
+                                        will reduce
+                                        further queries on server.
+                                        When to use lazy loading<br><br>
+                                        Almost on every "collection side" of one-to-many relations. like
+                                        Articles of User or
+                                        Products of a Category
+                                        You exactly know that you will not need a property instantly.
+                                        <dl>
+                                            <dt>One-to-one relationships</dt>
+                                            <dd>one record in one table with a single record in the other table.
+                                            </dd>
+                                            <dt>One-to-many</dt>
+                                            <dd>A bidirectional relationship (can) exists. TableA may have a
+                                                foreign key
+                                                into
+                                                tableB, and tableB may have a foreign key into the associated
+                                                record in
+                                                tableA.
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Troubleshooting</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            Troubleshooting:<br>
+                                            <ul>
+                                                <li>db.SaveChanges() exception: String or binary data would be
+                                                    truncated.
+                                                    General Tips:<br>
+                                                    <ul>
+                                                        <li>Check the length of the column in the database</li>
+                                                        <li>Check the length of the data being saved</li>
+                                                        <li>Check the data being saved for special characters</li>
+                                                    </ul><br><br>
+
+                                                    Specific things to do:<br>
+                                                    <ol>
+                                                        <li>Some code to help you troubleshoot:<br>
+                                                            <div class="code">
+                                                                <pre>
+private static int SaveChanges(EntitlementsContext db)
+&#123;
+    try
+    &#123;
+        return db.SaveChanges();
+    &#125;
+    catch (System.Data.Entity.Validation.DbEntityValidationException ex)  <span class="comment">// <mat-icon>arrow_back</mat-icon>DbEntityValidationException..</span>
+    &#123;
+        var msg = $"DbEntityValidationException - &#123;Environment.NewLine&#125;&#123;Environment.NewLine&#125;";
+        var sqlException = ex.InnerException.InnerException as SqlException;
+        if (sqlException != null)
+        &#123;
+            msg += $"SQL Exception: &#123;sqlException.Message&#125;&#123;Environment.NewLine&#125;&#123;Environment.NewLine&#125;";
+        &#125;
+
+        msg += $"&#123;Environment.NewLine&#125;&#123;Environment.NewLine&#125;Exception Message: &#123;ex.Message&#125;";
+        Console.WriteLine(msg);
+        //throw new Exception(msg); <span class="comment">// <mat-icon>arrow_back</mat-icon>Optionally, throw the exception.</span>
+        return 0;
+    &#125;
+    catch (System.Data.Entity.Infrastructure.DbUpdateException ex) <span class="comment">// <mat-icon>arrow_back</mat-icon>DBUpdateExceptions..</span>
+    &#123;
+        var msg = $"DbUpdateException - &#123;Environment.NewLine&#125;&#123;Environment.NewLine&#125;";
+        var sqlException = ex.InnerException.InnerException as SqlException;
+        if (sqlException != null)
+        &#123;
+            msg += $"SQL Exception: &#123;sqlException.Message&#125;&#123;Environment.NewLine&#125;&#123;Environment.NewLine&#125;";
+        &#125;
+
+        msg += $"&#123;Environment.NewLine&#125;&#123;Environment.NewLine&#125;Exception Message: &#123;ex.Message&#125;";
+        Console.WriteLine(msg);
+        //throw new Exception(msg); <span class="comment">// <mat-icon>arrow_back</mat-icon>Optionally, throw the exception.</span>
+        return 0;
+    &#125;
+&#125;
+</pre>
+                                                            </div>
+                                                        </li>
+                                                    </ol>
+                                                </li>
+                                            </ul>
+                                        </mat-expansion-panel>
+                                    </div>
+                                </li>
+                            </ul>
+
                         </mat-expansion-panel>
                     </li>
                 </ul>
-                <div>Enity Framework
-                    <div>
-                        Troubleshooting:<br>
-                        <ul>
-                            <li>db.SaveChanges() exception: String or binary data would be truncated.
-                                General Tips:<br>
-                                <ul>
-                                    <li>Check the length of the column in the database</li>
-                                    <li>Check the length of the data being saved</li>
-                                    <li>Check the data being saved for special characters</li>
-                                </ul><br><br>
-
-                                Specific things to do:<br>
-                                <ol>
-                                    <li>Some code to help you troubleshoot:<br>
-                                        <div class="code">
-<pre>
-try
-&#123;
-    int records = db.SaveChanges();
-    return records;
-&#125;
-catch (System.Data.Entity.Validation.DbEntityValidationException ex)
-&#123;
-    var msg = $"DbEntityValidationException - &#123;Environment.NewLine&#125;&#123;Environment.NewLine&#125;";
-    var sqlException = ex.InnerException.InnerException as SqlException;
-    if (sqlException != null)
-    &#123;
-        msg += $"SQL Exception: &#123;sqlException.Message&#125;&#123;Environment.NewLine&#125;&#123;Environment.NewLine&#125;";
-    &#125;
-
-    msg += $"&#123;Environment.NewLine&#125;&#123;Environment.NewLine&#125;Exception Message: &#123;ex.Message&#125;";
-    throw new Exception(msg);
-&#125;
-catch (System.Data.Entity.Infrastructure.DbUpdateException ex)
-&#123;
-    var msg = $"DbUpdateException - &#123;Environment.NewLine&#125;&#123;Environment.NewLine&#125;";
-    var sqlException = ex.InnerException.InnerException as SqlException;
-    if (sqlException != null)
-    &#123;
-        msg += $"SQL Exception: &#123;sqlException.Message&#125;&#123;Environment.NewLine&#125;&#123;Environment.NewLine&#125;";
-    &#125;
-
-    msg += $"&#123;Environment.NewLine&#125;&#123;Environment.NewLine&#125;Exception Message: &#123;ex.Message&#125;";
-    throw new Exception(msg);
-&#125;
-</pre>
-                                        </div>
-                                    </li>
-                                </ol>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
                 <div>.NET Core-Specific
                     <ul>
                         <li>
@@ -673,7 +690,7 @@ catch (System.Data.Entity.Infrastructure.DbUpdateException ex)
                         <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
-                                    <mat-panel-title>Work with JSON</mat-panel-title>
+                                    <mat-panel-title>Working with JSON</mat-panel-title>
                                 </mat-expansion-panel-header>
                                 Since version 3.0.0, ASP.NET Core introduces a new serializer System.Text.Json (STJ)
                                 out-of-the-box to replace Newtonsoft
@@ -681,6 +698,22 @@ catch (System.Data.Entity.Infrastructure.DbUpdateException ex)
                                 <div class="code">string serializedObject = JsonSerializer.Serialize(x);</div>
                                 <br>Vs.<br>
                                 <div class="code">string serializedObject = JsonConvert.SerializeObject(x);</div>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>readonly vs const</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <dl>
+                                    <dt>readonly</dt>
+                                    <dd>Use read-only for values that need to be determined at runtime or for more
+                                        complex objects that should be immutable after creation. It is common practice
+                                        to set this in the constructor.</dd>
+                                    <dt>const</dt>
+                                    <dd>For values that are known at compile time and will never change, such as
+                                        mathematical constants or configuration values.</dd>
+                                </dl>
                             </mat-expansion-panel>
                         </li>
                         <li>
