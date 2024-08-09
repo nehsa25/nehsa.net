@@ -50,6 +50,8 @@ import { MudMakingOfComponent } from './main/mud-making-of/mud-making-of.compone
 import { WelcomeComponent } from './main/welcome/welcome.component';
 import { TestingComponent } from './main/testing/testing.component';
 import { SecurityComponent } from './main/security/security.component';
+import { WellLifeComponent } from './main/jobs/well-life/well-life.component';
+import { LinuxComponent } from './main/linux/linux.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: WelcomeComponent },
@@ -63,6 +65,8 @@ export const routes: Routes = [
     { path: 'pytest', title: 'nehsa.net | Pytest', component: PytestComponent },
     { path: 'typescript', title: 'nehsa.net | TypeScript', component: TypescriptComponent },
     { path: 'testing', title: 'nehsa.net | Testing', component: TestingComponent },
+    { path: 'linux', title: 'nehsa.net | Linux', component: LinuxComponent },
+    { path: 'well-life', title: 'nehsa.net | Job Interview', component: WellLifeComponent },
     { path: 'security', title: 'nehsa.net | Security', component: SecurityComponent },
     {
         path: 'school', title: 'nehsa.net | School', component: SchoolComponent,
