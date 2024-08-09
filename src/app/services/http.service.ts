@@ -4,6 +4,8 @@ import { ContactType } from '../types/contact.type';
 import { AddUserType } from '../types/adduser.type';
 import { NameType } from '../types/name.type';
 import { AiImageType } from '../types/aiimage.type';
+import { AIQuestion } from '../types/ai.type';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class HttpService {
@@ -22,6 +24,7 @@ export class HttpService {
     stabilityaiUrl = `https://api.stability.ai/v1/generation/stable-diffusion-v1-6/text-to-image`;
     dbhealth = 'https://api.nehsa.net/v1/dbhealth';
     commentUrl = 'https://api.nehsa.net/v1/comment';
+    aiQuestion = 'https://api.nehsa.net/v1/ai';
 
     /** 
      * Posts the contact me form to API
@@ -69,7 +72,12 @@ export class HttpService {
         return this.http.get(`${this.nameUrl}/${numToReturn}`);
     }
 
-    /** Returns a random list of positive adjectives */  
+    /** Asks an AI questions */ 
+    postAIQuestion(body: AIQuestion): Observable<AIQuestion>  {
+        return this.http.post<any>(this.aiQuestion, body);
+    }
+
+     /** Returns a random list of positive adjectives */  
     getPosTerms() {
         return this.http.get(this.posAdjUrl);
     }

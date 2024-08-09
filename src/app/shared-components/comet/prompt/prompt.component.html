@@ -1,0 +1,12 @@
+<div class="prompt" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <div class="input-container">
+        <h4>Please enter your message below. Press <span class="key">Enter</span> to submit or <span
+                class="key">Esc</span> to cancel.</h4>
+        <div class="input">
+            <mat-form-field class="example-form-field">
+                <mat-label color="accent">How can I help?</mat-label>
+                <textarea rows="1" #prompt matInput (keyup.enter)="submit(prompt)" (keyup.escape)="cancel()"></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+</div>
