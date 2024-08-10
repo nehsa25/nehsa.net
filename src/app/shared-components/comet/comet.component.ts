@@ -18,6 +18,7 @@ import { AIQuestion } from '../../types/ai.type';
 export class CometComponent implements OnInit {
   cometWait = 5000;
   cometCurrentMessage = "Woof.";
+  lastAnsweredMessage: string = "";
   answered = false;
   answer: string = "";
   readonly dialog = inject(MatDialog);
@@ -41,7 +42,10 @@ export class CometComponent implements OnInit {
 
   ngOnInit() {
     this.cometMessages.forEach((msg) => {
-      if (!this.answered) {
+      if (this.answered) {
+        this.cometCurrentMessage = this.lastAnsweredMessage;;
+        this.ref.markForCheck();
+      } else {
         setTimeout(() => {
           this.cometCurrentMessage = msg.text;
           this.ref.markForCheck();
@@ -66,6 +70,7 @@ export class CometComponent implements OnInit {
         this.httpClient.postAIQuestion(question).subscribe(result => {
           let r: AIQuestion = result as AIQuestion;
           this.cometCurrentMessage = r.answer.toString();
+          this.lastAnsweredMessage = r.answer.toString();
           this.answered = true;
           this.ref.markForCheck();
         });

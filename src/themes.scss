@@ -1,4 +1,3 @@
-
 @use '@angular/material' as mat;
 @include mat.core();
 @import './themes-colorful.scss';
@@ -20,6 +19,13 @@ $light-theme: mat.define-dark-theme((color: (theme-type: light,
 @include mat.all-component-themes($dark-theme);
 
 // theming
+.vampire-with-border {
+    border-left: 7px solid var(--theme-dark-primary-color) !important;
+    border-right: 7px solid var(--theme-dark-primary-color) !important;
+    border-top: 2px solid var(--theme-dark-primary-color) !important;
+    border-bottom: 2px solid var(--theme-dark-primary-color) !important;
+}
+
 .vampire {
     background-color: #383838 !important;
     color: #B7D1B1;
@@ -30,7 +36,12 @@ $light-theme: mat.define-dark-theme((color: (theme-type: light,
     color: #B7D1B1;
 }
 
-.vampire h1, h2, h3, h4, h5, h6 {
+.vampire h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     color: #B7D1B1;
 }
 
@@ -62,6 +73,37 @@ $light-theme: mat.define-dark-theme((color: (theme-type: light,
     background-color: #383838 !important;
 }
 
+.vampire div {
+    background-color: transparent;
+    color: #B7D1B1;
+}
+
+// forms
+.vampire .mat-mdc-form-field {
+    background-color: #333344;
+    color: #B7D1B1;
+}
+
+.vampire .mat-mdc-floating-label {
+    background-color: #333344;
+    color: #B7D1B1;
+}
+
+.mdc-text-field--outlined {
+    color: lime !important;
+}
+
+.mdc-text-field--focused {
+    color: purple !important;
+} 
+
+.angel-with-border {
+    border-left: 7px solid var(--theme-light-primary-color) !important;
+    border-right: 7px solid var(--theme-light-primary-color) !important;
+    border-top: 2px solid var(--theme-light-primary-color) !important;
+    border-bottom: 2px solid var(--theme-light-primary-color) !important;
+}
+
 .angel {
     background-color: whitesmoke !important;
     color: var(--theme-light-primary-color);
@@ -83,6 +125,22 @@ $light-theme: mat.define-dark-theme((color: (theme-type: light,
 
 .angel a:link {
     color: var(--theme-light-a-link-color) !important;
+}
+
+.angel div {
+    background-color: transparent;
+    color: var(--theme-light-primary-color);
+}
+
+// forms
+.angel .mat-mdc-form-field {
+    background-color: whitesmoke;
+    color: var(--theme-light-primary-color);
+}
+
+.angel .mat-mdc-floating-label {
+    background-color: whitesmoke;
+    color: var(--theme-light-primary-color);
 }
 
 .vampire .mat-mdc-button,

@@ -351,6 +351,19 @@ span.code:hover {
     -webkit-text-stroke-color: var(--theme-background-purple) !important;
 }
 
+// forms
+.mat-mdc-form-field {
+    width: 100%;
+    margin: 5px;
+    position: relative;
+    overflow: hidden !important;
+}
+
+.mat-mdc-floating-label {
+    padding: 4px 0 !important;
+}
+
+
 .additional-note,
 .additional-notes,
 .asterisk {
