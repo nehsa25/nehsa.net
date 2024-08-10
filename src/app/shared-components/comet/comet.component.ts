@@ -42,15 +42,14 @@ export class CometComponent implements OnInit {
 
   ngOnInit() {
     this.cometMessages.forEach((msg) => {
-      if (this.answered) {
-        this.cometCurrentMessage = this.lastAnsweredMessage;;
-        this.ref.markForCheck();
-      } else {
         setTimeout(() => {
-          this.cometCurrentMessage = msg.text;
+          if (this.answered) {
+            this.cometCurrentMessage = this.lastAnsweredMessage;;
+          } else {
+            this.cometCurrentMessage = msg.text;
+          }
           this.ref.markForCheck();
         }, msg.delay);
-      };
     });
   }
 
@@ -65,6 +64,7 @@ export class CometComponent implements OnInit {
       if (result != "") {
         let question = new AIQuestion();
         question.question = result;
+        question.previousAnswer = this.lastAnsweredMessage;
         this.cometCurrentMessage = "Woof! Please Wait..."
         this.ref.markForCheck();
         this.httpClient.postAIQuestion(question).subscribe(result => {
