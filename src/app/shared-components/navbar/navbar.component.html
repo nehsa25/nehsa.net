@@ -1,5 +1,6 @@
 <div class="black-theme navbar" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
-  <ul class="navbar-links featured-navbar-links" [class.featured-navbar-links-dark]="userService.appIsDark()" [class.featured-navbar-links-light]="!userService.appIsDark()">
+  <ul class="navbar-links featured-navbar-links" [class.featured-navbar-links-dark]="userService.appIsDark()"
+    [class.featured-navbar-links-light]="!userService.appIsDark()">
     <li class="featured bungee-spice-regular" routerLink="/mud">NehsaMUD</li>
   </ul>
   <ul class="navbar-links norm-navbar-links">
@@ -18,6 +19,7 @@
     <li class="norm" routerLink="/gemini">Gemini (Google)</li>
     <li class="norm" routerLink="/git">git</li>
     <li class="norm" routerLink="/github">github</li>
+    <li class="norm" routerLink="/go">go</li>
     <li class="norm" routerLink="/welcome">Home</li>
     <li class="norm" routerLink="/ide">IDEs</li>
     <li class="norm" routerLink="/iis">IIS</li>
@@ -30,7 +32,7 @@
     <li class="norm" routerLink="/mud">mud</li>
     <li class="norm" routerLink="/makingofmud">mud (making of)</li>
     <li class="norm" routerLink="/mysql">mysql</li>
-    <li class="norm" routerLink="/npm">npm</li>    
+    <li class="norm" routerLink="/npm">npm</li>
     <li class="norm" routerLink="/ohai">Ohai</li>
     <li class="norm" routerLink="/playwright">Playwright</li>
     <li class="norm" routerLink="/powershell">Powershell</li>

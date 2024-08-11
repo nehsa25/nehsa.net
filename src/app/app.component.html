@@ -50,7 +50,8 @@
                             {{title}}
                         </div>
                     </div>
-                    <div *ngIf="!this.expandedBio && !this.isStoryHidden" class="world" [class.maintitle-dark]="userService.appIsDark()"
+                    <div *ngIf="!this.expandedBio && !this.isStoryHidden" class="world"
+                        [class.maintitle-dark]="userService.appIsDark()"
                         [class.maintitle-light]="!userService.appIsDark()">
                         <!-- row of trees -->
                         <div [style.animationPlayState]="playState" class="trees" [class.trees-normal]="!this.reversify"
@@ -180,7 +181,8 @@
                                     <tr>
                                         <td colspan="2" class="control-button-container pause-speed-container">
                                             <label>Speed</label><input type="range" min="0" max="100" step="1"
-                                                value="50" (change)="changeSpeed($event)" (click)="changeSpeedMouse($event)" />
+                                                value="50" (change)="changeSpeed($event)"
+                                                (click)="changeSpeedMouse($event)" />
                                         </td>
                                         <td class="control-button-container pause-hide-container">
                                             <button class="control-button" (click)="hideStory($event)" mat-icon-button>

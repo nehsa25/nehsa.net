@@ -145,7 +145,7 @@ $theme-dark-button-color: mat.get-color-from-palette($dark-primary-palette, 50);
 
 //buttons hover
 $theme-light-button-hover-background-color: mat.get-color-from-palette($light-primary-palette, A700);
-$theme-dark-button-hover-background-color: mat.get-color-from-palette($dark-primary-palette, A700);
+$theme-dark-button-hover-background-color: mat.get-color-from-palette($dark-primary-palette, 900);
 $theme-light-button-hover-color: mat.get-color-from-palette($light-primary-palette, 100);
 $theme-dark-button-hover-color: mat.get-color-from-palette($dark-primary-palette, 100);
 
@@ -333,7 +333,7 @@ div.code:hover {
 }
 
 // code spans
-span.code {
+span.code,code {
     background-color: var(--theme-code-background) !important;
     color: var(--theme-code-color) !important;
     font-family: Consolas;
@@ -585,12 +585,7 @@ a {
 }
 
 a:active {
-    color: var(--theme-a-active-color) !important;
     font-weight: 600 !important;
-}
-
-a:visited {
-    color: var(--theme-a-visited-color) !important;
 }
 
 a,
@@ -689,7 +684,7 @@ dt {
 
 
 // examples
-.example-container {
+.example-container, .terminal-result, .result, .cmd {
     width: 18.75rem;
     min-width: fit-content;
     border: 1px solid black;
@@ -697,7 +692,7 @@ dt {
     margin: 1em;
 }
 
-.example {
+.example  {
     background-color: var(--theme-code-background) !important;
     color: var(--theme-code-color) !important;
     font-family: Consolas;
@@ -706,3 +701,15 @@ dt {
     margin-top: 1em;
     display: inline-block;
 }
+
+// good/bad
+.good {
+    color: springgreen;
+    font-weight: 600;
+}
+
+.bad {
+    color: red;
+    font-weight: 600;
+}
+

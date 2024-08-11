@@ -52,6 +52,8 @@ import { TestingComponent } from './main/testing/testing.component';
 import { SecurityComponent } from './main/security/security.component';
 import { WellLifeComponent } from './main/jobs/well-life/well-life.component';
 import { LinuxComponent } from './main/linux/linux.component';
+import { JobsComponent } from './main/jobs/jobs.component';
+import { GoComponent } from './main/go/go.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: WelcomeComponent },
@@ -66,7 +68,9 @@ export const routes: Routes = [
     { path: 'typescript', title: 'nehsa.net | TypeScript', component: TypescriptComponent },
     { path: 'testing', title: 'nehsa.net | Testing', component: TestingComponent },
     { path: 'linux', title: 'nehsa.net | Linux', component: LinuxComponent },
-    { path: 'well-life', title: 'nehsa.net | Job Interview', component: WellLifeComponent },
+    { path: 'go', title: 'nehsa.net | Golang', component: GoComponent },
+    { path: 'jobs/', title: 'nehsa.net | Jobs', component: JobsComponent },
+    { path: 'jobs/welllife', title: 'nehsa.net | Well-life', component: WellLifeComponent },
     { path: 'security', title: 'nehsa.net | Security', component: SecurityComponent },
     {
         path: 'school', title: 'nehsa.net | School', component: SchoolComponent,

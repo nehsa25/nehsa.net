@@ -4,13 +4,12 @@
 // -1 - 4 - the closeness..
 $density: -1;
 
-$typography: mat.define-typography-config(
-    $font-family: 'monospace, "Helvetica Neue", sans-serif', 
-);
+$typography: mat.define-typography-config($font-family: 'monospace, "Helvetica Neue", sans-serif',
+    );
 
 $dark-primary: (
     "primary": pink,
-    "link": rgb(22, 20, 20),
+    "link": "#7F7F7F",
     50 : #ffece9,
     100 : #ffd0c8,
     200 : #ffb1a3,
@@ -25,8 +24,7 @@ $dark-primary: (
     A200 : #ffffff,
     A400 : #ffd3cf,
     A700 : #ffbcb6,
-    contrast: (
-        50 : #000000,
+    contrast: (50 : #000000,
         100 : #000000,
         200 : #000000,
         300 : #000000,
@@ -60,8 +58,7 @@ $dark-accent: (
     A200 : #762bff,
     A400 : #5700f7,
     A700 : #4e00de,
-    contrast: (
-        50 : #000000,
+    contrast: (50 : #000000,
         100 : #000000,
         200 : #000000,
         300 : #ffffff,
@@ -82,7 +79,7 @@ $dark-accent-palette: mat.define-palette($dark-accent);
 
 $light-primary: (
     "primary": #9E2200,
-    "link": "#50C878",
+    "link": "#7F7F7F",
     50 : #fbf4fb,
     100 : #f5e3f5,
     200 : #eed0ee,

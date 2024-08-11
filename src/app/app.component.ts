@@ -41,7 +41,7 @@ import { CometComponent } from './shared-components/comet/comet.component';
     MatExpansionModule,
     MatSidenavModule,
     MatSliderModule,
-    NgIf, 
+    NgIf,
     CometComponent
   ],
   providers: [HttpService],
@@ -85,7 +85,8 @@ export class AppComponent implements OnInit, OnDestroy {
     public httpClient: HttpService,
     public userService: UserService,
     public nameDialog: MatDialog,
-    public snackBar: MatSnackBar
+    public snackBar: MatSnackBar,
+    private changeDetectorRef: ChangeDetectorRef
   ) {
     var getQuotes = this.httpClient.getQuote();
     var getName = this.httpClient.getNames(2);
@@ -320,6 +321,7 @@ export class AppComponent implements OnInit, OnDestroy {
   themeChangeBtnClick(darkMode: boolean) {
     this.darkmode_value = darkMode ? 1 : 0;
     this.userService.setDarkMode(darkMode);
+    this.changeDetectorRef.detectChanges();
   }
 
   setExpand() {

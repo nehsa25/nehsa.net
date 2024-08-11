@@ -5,11 +5,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { RouterLink } from '@angular/router';
 import { UserService } from '../../../services/user.service';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-well-life',
   standalone: true,
-  imports: [MatCardModule, CommentComponent, MatButtonModule, RouterLink, MatExpansionModule],
+  imports: [MatCardModule, CommentComponent, MatButtonModule, RouterLink, MatExpansionModule, MatIcon],
   templateUrl: './well-life.component.html',
   styleUrl: './well-life.component.scss'
 })

@@ -11,26 +11,39 @@
                     <div class="topics">
                         <ul>
                             <li>
-                                <mat-expansion-panel>
+                                <mat-expansion-panel expanded>
                                     <mat-expansion-panel-header>
                                         <mat-panel-title>Tips..</mat-panel-title>
                                     </mat-expansion-panel-header>
                                     <ul>
-                                        Working with HTML elements:
-                                        <dl>
-                                            <dt>Do something on an event. e.g. (click)="clickfunc()"</dt>
-                                            <dd>()</dd>
-                                            <dt>Right-hand side of the assignment is a dynamic expression.</dt>
-                                            <dd>[]</dd>
-                                            <dt>Associate with a variable</dt>
-                                            <dd>[ngModel]="variable"</dd>
-                                            <dt>Display a variable using interpolation</dt>
-                                            <dd>
-                                                <p [innerHtml]="'<span>{{variable to display}}</span>'"></p>
-                                            </dd>
-                                            <dt>Embed a "data-testid" attribute in element after build</dt>
-                                            <dd>[attr.data-testid]="'edit-frozen-' + i"</dd>
-                                        </dl>
+                                        <li>
+                                            Working with HTML elements:
+                                            <dl>
+                                                <dt>Do something on an event. e.g. (click)="clickfunc()"</dt>
+                                                <dd>()</dd>
+                                                <dt>Right-hand side of the assignment is a dynamic expression.</dt>
+                                                <dd>[]</dd>
+                                                <dt>Associate with a variable</dt>
+                                                <dd>[ngModel]="variable"</dd>
+                                                <dt>Display a variable using interpolation</dt>
+                                                <dd>
+                                                    <p [innerHtml]="'<span>{{variable to display}}</span>'"></p>
+                                                </dd>
+                                                <dt>Embed a "data-testid" attribute in element after build</dt>
+                                                <dd>[attr.data-testid]="'edit-frozen-' + i"</dd>
+                                            </dl>
+                                        </li>
+                                        <li>
+                                            <mat-expansion-panel>
+                                                <mat-expansion-panel-header>
+                                                    <mat-panel-title>Case Matters!</mat-panel-title>
+                                                </mat-expansion-panel-header>
+                                                <mat-icon class="good">check</mat-icon><span class="code">&lt;a
+                                                    routerLink="/python"&gt;Python&lt;/a&gt;</span><br><br>
+                                                <mat-icon class="bad">close</mat-icon><span class="code">&lt;a
+                                                    routerlink="/python"&gt;Python&lt;/a&gt;</span>
+                                            </mat-expansion-panel>
+                                        </li>
                                         <li>
                                             <mat-expansion-panel>
                                                 <mat-expansion-panel-header>
@@ -42,27 +55,6 @@
 
                                                 <br><br>
                                                 Jesse to add an example here forthwith.
-                                            </mat-expansion-panel>
-                                        </li>
-                                        <li>
-                                            <mat-expansion-panel>
-                                                <mat-expansion-panel-header>
-                                                    <mat-panel-title>Troubleshooting</mat-panel-title>
-                                                </mat-expansion-panel-header>
-                                                <ul>
-                                                    <li>
-                                                        <span class="problem">Error: "Can't bind to 'ngModel' since it
-                                                            isn't a known property of 'input'"</span>
-                                                        <span class="solution">
-                                                            <div class="code">
-                                                                <pre>
-Import
-FormsModule
-</pre>
-                                                            </div>
-                                                        </span>
-                                                    </li>
-                                                </ul>
                                             </mat-expansion-panel>
                                         </li>
                                         <li>
@@ -179,6 +171,27 @@ public showBlueBg: boolean = false;
                                                 </ul>
                                             </mat-expansion-panel>
                                         </li>
+                                        <li>
+                                            <mat-expansion-panel>
+                                                <mat-expansion-panel-header>
+                                                    <mat-panel-title>Troubleshooting</mat-panel-title>
+                                                </mat-expansion-panel-header>
+                                                <ul>
+                                                    <li>
+                                                        <span class="problem">Error: "Can't bind to 'ngModel' since it
+                                                            isn't a known property of 'input'"</span>
+                                                        <span class="solution">
+                                                            <div class="code">
+                                                                <pre>
+Import
+FormsModule
+</pre>
+                                                            </div>
+                                                        </span>
+                                                    </li>
+                                                </ul>
+                                            </mat-expansion-panel>
+                                        </li>
                                     </ul>
                                     <div>
                                         <h3>Important Files</h3>
@@ -187,23 +200,27 @@ public showBlueBg: boolean = false;
                                             <li>packages.json - NPM packages to install for application.</li>
                                         </ul>
                                     </div>
-                
+
                                     <div>
                                         <h3>Useful Commands</h3>
                                         <ul class="condensed">
-                                            <li><span class="code">npm install</span> - Install all files necessary to run the Angular
+                                            <li><span class="code">npm install</span> - Install all files necessary to
+                                                run the Angular
                                                 project.</li>
-                                            <li><span class="code">ng serve -o</span> - Runs app locally. The -o opens it in your
+                                            <li><span class="code">ng serve -o</span> - Runs app locally. The -o opens
+                                                it in your
                                                 browser.
                                             </li>
-                                            <li><span class="code">ng build --configuration development/production</span> - Build for
+                                            <li><span class="code">ng build --configuration
+                                                    development/production</span> - Build for
                                                 deployments. Output in /dist folder.</li>
-                                            <li><span class="code">ng add &#64;angular/material</span> - Installs Material. This method
+                                            <li><span class="code">ng add &#64;angular/material</span> - Installs
+                                                Material. This method
                                                 is
                                                 preferred for npm install as it performs additional initialization.</li>
                                         </ul>
                                     </div>
-                
+
                                     <div>
                                         <h3>Useful Links</h3>
                                         <ul class="condensed">

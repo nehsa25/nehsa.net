@@ -13,16 +13,16 @@ export class UserService {
 
 
     setDarkMode(value: boolean) {
-      this._isDark = value;
+        this._isDark = value;
     }
 
     navigateTo(routerlink: string) {
         console.log("Navigating to " + routerlink);
         this.router.navigate([routerlink]);
     }
-  
+
     appIsDark(): boolean {
-      return this._isDark;
+        return this._isDark;
     }
 
     get name(): string {

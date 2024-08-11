@@ -1,0 +1,216 @@
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Go</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                I've been learning Go(lang) slowly for a while now. As it has undeniable use cases for RestAPI and
+                microservices that I wanted to explore.
+
+                <ul>
+                    <li>
+                        <h4>Tips</h4>
+                        <ul>
+                            <li>String interpolation <code>fmt.Sprintf()</code> or <code>fmt.Printf</code><br><br>
+                                Example: <code>fmt.Sprintf("Hello, %s!", name)</code>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Installation</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ol>
+                                <li>Go to Go's to get the installer (<mat-icon>sentiment_very_satisfied</mat-icon>):
+                                    https://go.dev/dl/</li>
+                                <li>Run the installer...</li>
+                                <li>Install the Go extension for VSCode</li>
+                            </ol>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Basics / Go Concepts</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li>Basic Commands</li>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>HelloWorld Example</mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <ul>
+                                            <li>Create a <span class="file">main.go</span> by running <code>go mod init main && go mod
+                                                    tidy</code></li>
+                                            <li>Define a <span class="function">main()</span> function</li>
+                                            <li>Use <span class="function">fmt.Println()</span> to output to the console
+                                            </li>
+                                            <li>Example code:
+                                                <div class="code">
+                                                    <pre>
+package main
+
+import "fmt"
+
+func main() &#123;
+    fmt.Println("Hello, World!")
+&#125;
+</pre>
+                                                </div><br><br>
+
+                                                Results in:<br>
+                                                <div class="terminal-result">
+                                                    <pre>
+PS C:\src> go run .\main.go
+Hello, World!
+</pre>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </mat-expansion-panel>
+
+                                </li>
+                                <li> <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>Variables</mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <dl>
+                                            <dt>var</dt>
+                                            <dd>Declares a variable</dd>
+                                            <dt>:=</dt>
+                                            <dd>Assigns a value to a variable</dd>
+                                            <dt>const</dt>
+                                            <dd>Declares a constant</dd>
+                                            <dt>int</dt>
+                                            <dd>Integer</dd>
+                                            <dt>float64</dt>
+                                            <dd>Float</dd>
+                                            <dt>string</dt>
+                                            <dd>String</dd>
+                                            <dt>bool</dt>
+                                            <dd>Boolean</dd>
+                                        </dl>
+                                    </mat-expansion-panel>
+                                </li>
+                                <li> <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>Modules</mat-panel-title>
+                                            <mat-panel-description>A Go module is a collection of related Go packages
+                                                that can be versioned and shared with other
+                                                developers.</mat-panel-description>
+                                        </mat-expansion-panel-header>
+                                        A module as a self-contained unit of code that can be
+                                        independently developed, tested, and distributed. It's a way to organize
+                                        and manage your Go code effectively. Modules are versioned, so you can
+                                        specify which version of a module you want to use in your code.
+                                        <ul>
+                                            <li>Use <code>go mod init</code> to create a new module</li>
+                                            <li>Use <code>go mod tidy</code> to clean up the module and remove unused
+                                                dependencies</li>
+                                            <li>Use <code>go mod vendor</code> to create a vendor directory. This is
+                                                useful if you want to
+                                                include dependencies in your project and not rely on the internet to
+                                                fetch them.</li>
+                                        </ul><br><br>
+                                        Module example:
+                                        <div class="result">
+                                            <pre>
+module example.com/mymodule
+
+require (
+        golang.org/x/net/context v1.0.0
+)
+</pre>
+                                        </div>
+                                        Benefits of Using Modules
+                                        <ul>
+                                            <li>Improved dependency management: Easily add, remove, and update
+                                                dependencies.</li>
+                                            <li>Enhanced code organization: Structure your code into reusable modules.
+                                            </li>
+                                            <li>Better reproducibility: Ensure consistent builds across different
+                                                environments.</li>
+                                            <li>Facilitates package sharing: Share your code with others as a module
+                                            </li>
+                                        </ul>
+                                    </mat-expansion-panel></li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Compiling & Debugging</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li>From a terminal
+                                    <ul>
+                                        <li>Run <code>go build</code> to compile your code and create .exe!</li>
+                                        <li>Run <code>go test</code> to test your code</li>
+                                        <li>Run <code>go run</code> to run your code</li>
+                                    </ul>
+                                <li>
+                                <li>From VSCode
+                                    <ul>
+                                        <li>Press F5 to run your code</li>
+                                        <li>Press Ctrl+Shift+D to debug your code</li>
+                                        <li>Press Ctrl+Shift+T to run your tests</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Testing</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li>Use the <code>testing</code> package</li>
+                                <li>Write tests in a file named <span class="file">main_test.go</span><br><br>
+
+                                    Example Test for a function named <span class="function">HelloWorld()</span>:
+                                    <div class="code">
+                                        <pre>
+package main
+
+import (
+        "testing"
+)
+
+func TestHelloWorld(t *testing.T) &#123;
+        // Replace with your actual function that prints "Hello, World!"
+        expectedOutput := "Hello, World!\n"
+        // Replace with the actual function call to get the output
+        actualOutput := getHelloWorldOutput()
+
+        if actualOutput != expectedOutput &#123;
+                t.Errorf("Expected output: %s, but got: %s", expectedOutput, actualOutput)
+        &#125;
+&#125;
+</pre>
+                                    </div>
+                                </li>
+                                <li>Use the <code>go test</code> command to run your tests</li>
+                            </ul><br><br>
+                            <img style="width: 1509px; height: 374px;" src="../../../assets/images/go-test.png" alt="Go Test" />
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Building a microservice that returns the weather</mat-panel-title>
+                            </mat-expansion-panel-header>Jesse to add content here
+
+                        </mat-expansion-panel>
+                </ul>
+            </div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>

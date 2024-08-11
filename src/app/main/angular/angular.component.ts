@@ -3,11 +3,12 @@ import { MatCardModule } from '@angular/material/card';
 import { CommentComponent } from '../../shared-components/comment/comment.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { UserService } from '../../services/user.service';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-angular',
   standalone: true,
-  imports: [MatCardModule, CommentComponent, MatExpansionModule],
+  imports: [MatCardModule, CommentComponent, MatExpansionModule, MatIcon],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './angular.component.html',
   styleUrl: './angular.component.scss'
@@ -18,9 +19,9 @@ export class AngularComponent {
 
   constructor(
     public userService: UserService
-  ) {}
+  ) { }
 
-  ngOnInit() { 
+  ngOnInit() {
     this.userService.page = this._page_name;
   }
 }
