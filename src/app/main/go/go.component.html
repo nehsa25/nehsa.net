@@ -12,12 +12,19 @@
 
                 <ul>
                     <li>
-                        <h4>Tips</h4>
-                        <ul>
-                            <li>String interpolation <code>fmt.Sprintf()</code> or <code>fmt.Printf</code><br><br>
-                                Example: <code>fmt.Sprintf("Hello, %s!", name)</code>
-                            </li>
-                        </ul>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Tips</mat-panel-title>
+                            </mat-expansion-panel-header>
+
+                            <ul>
+                                <li>Create a new variable :=, assign to existing =</li>
+                                <li>Install a package from Github: <code>go get -u github.com/gin-gonic/gin</code></li>
+                                <li>String interpolation <code>fmt.Sprintf()</code> or <code>fmt.Printf</code><br><br>
+                                    Example: <code>fmt.Sprintf("Hello, %s!", name)</code>
+                                </li>
+                            </ul>
+                        </mat-expansion-panel>
                     </li>
                     <li>
                         <mat-expansion-panel>
@@ -198,16 +205,76 @@ func TestHelloWorld(t *testing.T) &#123;
                                 </li>
                                 <li>Use the <code>go test</code> command to run your tests</li>
                             </ul><br><br>
-                            <img style="width: 1509px; height: 374px;" src="../../../assets/images/go-test.png" alt="Go Test" />
+                            <img style="width: 1509px; height: 374px;" src="../../../assets/images/go-test.png"
+                                alt="Go Test" />
                         </mat-expansion-panel>
                     </li>
                     <li>
-                        <mat-expansion-panel>
+                        <mat-expansion-panel expanded>
                             <mat-expansion-panel-header>
                                 <mat-panel-title>Building a microservice that returns the weather</mat-panel-title>
-                            </mat-expansion-panel-header>Jesse to add content here
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li>Create package to accept the HTTP calls and make the weather calls to OpenWeatherMap.<br><br>
+                                    OpenWeatherMap endpoint:<br>
+                                    https://api.openweathermap.org/data/2.5/weather?q=&lt;CITY&gt;&appid=&lt;APIKEY&gt;&units=&lt;UNITS&gt;<br>
+                                    <ul>
+                                        <li>Run <code>go get -u github.com/gin-gonic/gin</code></li>
+                                        <li>Import the package in your code</li>
+                                        <li>Create package to make the weather calls to OpenWeatherMap API
+                                            <div class="code">
+                                                <pre>
+HERE
+</pre>
+                                            </div>
+                                        </li>
+                                        <li>Install dependencies: <code>go mod init main && go mod tidy</code></li>
+                                        <li>Test it works: <div class="code">
+                                                <pre>
+go run .\weather.go
+PS C:\src> (invoke-webrequest http://localhost:8080/weather/portland?unit=metric).Content
+Clouds
+PS C:\src> (invoke-webrequest http://localhost:8080/weather/lasvegas?unit=imperial).Content
+Clear
+</pre>
+                                            </div>
+                                    </ul>
+                                </li>
+                                <li>Create Docker to run the service
+                                    <ul class="condensed">
+                                        <li>Create dockerfile:
+                                            <div class="code">
+                                                <pre>
+# Use a Golang image
+FROM golang:1.20-alpine
+WORKDIR /app
 
+# Copy go modules to the working directory
+COPY go.mod go.sum ./
+
+# Download any dependencies
+RUN go mod download
+
+# Copy the rest of the application code
+COPY . .
+
+# Build the Go application
+RUN go build -o main .
+
+# Expose port 8080
+EXPOSE 8080
+
+# Command to run when the container starts
+CMD ["./main"]
+</pre>
+                                            </div>
+                                        </li>
+                                        <li>Build it: <code>docker build -t weather-microservice-gin .</code></li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </mat-expansion-panel>
+                    </li>
                 </ul>
             </div>
             <div><app-comment></app-comment></div>
