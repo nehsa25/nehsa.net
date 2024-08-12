@@ -1,0 +1,275 @@
+.vampire-with-border {
+    border-left: 7px solid var(--theme-dark-primary-color) !important;
+    border-right: 7px solid var(--theme-dark-primary-color) !important;
+    border-top: 2px solid var(--theme-dark-primary-color) !important;
+    border-bottom: 2px solid var(--theme-dark-primary-color) !important;
+}
+
+.vampire {
+    background-color: #383838 !important;
+    color: #B7D1B1;
+}
+
+.vampire .topics {
+    background-color: #383838 !important;
+    color: #B7D1B1;
+}
+
+// slider notches
+.vampire .colorSlider .mat-mdc-slider .mdc-slider__tick-mark--active,
+.mat-mdc-slider .mdc-slider__tick-mark--inactive {
+    background-color: var(--theme-dark-primary-color);
+}
+
+.vampire h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #B7D1B1;
+}
+
+.vampire mat-card {
+    background-color: #333344 !important;
+}
+
+.vampire mat-expansion-panel {
+    background-color: #444455 !important;
+    color: #B7D1B1;
+}
+
+.vampire mat-card-subtitle {
+    background-color: #333344 !important;
+    color: #A3BD9D !important;
+}
+
+.vampire mat-card-subtitle {
+    background-color: #333344 !important;
+    color: #B7D1B1 !important;
+}
+
+.vampire .good {
+    color: springgreen;
+}
+
+.vampire .bad {
+    color: red;
+}
+
+.vampire table,
+th,
+td {
+    background-color: var(--theme-table-background) !important;
+    color: var(--theme-table-color) !important;
+    border: 1px solid var(--theme-border);
+}
+
+.vampire .example-container,
+.terminal-result,
+.result,
+.cmd {
+    border: 1px solid black;
+}
+
+.vampire .example {
+    background-color: var(--theme-dark-code-background) !important;
+    color: var(--theme-dark-code-color) !important;
+}
+
+// lists
+.vampire ul {
+    background-color: #383838 !important;
+    color: #B7D1B1;
+}
+
+.vampire li {
+    background-color: #383838 !important;
+}
+
+// divs
+.vampire div {
+    background-color: transparent;
+    color: #B7D1B1;
+}
+
+// forms
+.vampire .mat-mdc-form-field {
+    background-color: #333344;
+    color: #B7D1B1;
+}
+
+.vampire .mat-mdc-floating-label {
+    background-color: #333344;
+    color: #B7D1B1;
+}
+
+/* Track */
+.vampire ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px var(--theme-background-light-gray);
+}
+
+/* Handle */
+.vampire ::-webkit-scrollbar-thumb {
+    background: var(--theme-background-light-gray);
+}
+
+/* Handle on hover */
+.vampire ::-webkit-scrollbar-thumb:hover {
+    background: var(--theme-background-gray);
+}
+
+.vampire h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--theme-header-color);
+}
+
+.vampire .code {
+    background-color: var(--theme-dark-code-background) !important;
+    color: var(--theme-dark-code-color) !important;
+}
+
+.vampire .code-command {
+    background-color: var(--theme-dark-code-background) !important;
+    color: var(--theme-dark-code-color) !important;
+}
+
+.vampire div.code:hover {
+    color: var(--theme-pop);
+    -webkit-text-stroke-color: var(--theme-background-purple) !important;
+}
+
+.vampire span.code,
+code {
+    background-color: var(--theme-dark-code-background) !important;
+    color: var(--theme-dark-code-color) !important;
+}
+
+.vampire span.code:hover {
+    color: var(--theme-pop);
+    -webkit-text-stroke-color: var(--theme-background-purple) !important;
+}
+
+.vampire .additional-note,
+.additional-notes,
+.asterisk {
+    color: #888;
+}
+
+.vampire ul.navbar-links>li:hover {
+    color: var(--theme-background-purple) !important;
+    -webkit-text-stroke-color: var(--theme-background-purple) !important;
+}
+
+.vampire mat-panel-title:hover {
+    color: var(--theme-background-light);
+    -webkit-text-stroke-color: var(--theme-background-purple) !important;
+}
+
+.vampire li>h3:hover {
+    color: var(--theme-background-light);
+    -webkit-text-stroke-color: var(--theme-background-purple) !important;
+}
+
+.vampire li>h4:hover {
+    color: var(--theme-pop);
+    -webkit-text-stroke-color: var(--theme-background-purple) !important;
+}
+
+.vampire a:link, a:visited, a:active {
+    color: #222;
+}
+
+.vampire .mat-mdc-button,
+.mat-mdc-raised-button,
+.mat-mdc-outlined-button,
+.mat-mdc-flat-button,
+.mat-mdc-unelevated-button {
+    background-color: var(--theme-light-button-background-color) !important;
+    color: #222 !important;
+    text-decoration: none !important;
+}
+
+.vampire a:hover,
+.mat-mdc-button:hover,
+.mat-mdc-raised-button:hover,
+.mat-mdc-outlined-button:hover,
+.mat-mdc-flat-button:hover,
+.mat-mdc-unelevated-button:hover {
+    background-color: var(--theme-light-button-hover-background-color) !important;
+    color: #222;
+}
+$dark-primary: (
+    "primary": pink,
+    "link": "#7F7F7F",
+    "code-background": "#D4AC0D",
+    "code-color": "#222",  
+    50 : #ffece9,
+    100 : #ffd0c8,
+    200 : #ffb1a3,
+    300 : #ff927e,
+    400 : #ff7a63,
+    500 : #ff6347,
+    600 : #ff5b40,
+    700 : #ff5137,
+    800 : #ff472f,
+    900 : #ff3520,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffd3cf,
+    A700 : #ffbcb6,
+    contrast: (50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+$dark-primary-palette: mat.define-palette($dark-primary);
+
+/* For use in src/lib/core/theming/_palette.scss */
+$dark-accent: (
+    50 : #e6e4e9,
+    100 : #c0bac8,
+    200 : #978da3,
+    300 : #6d5f7e,
+    400 : #4d3c63,
+    500 : #2e1a47,
+    600 : #291740,
+    700 : #231337,
+    800 : #1d0f2f,
+    900 : #120820,
+    A100 : #975eff,
+    A200 : #762bff,
+    A400 : #5700f7,
+    A700 : #4e00de,
+    contrast: (50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+$dark-accent-palette: mat.define-palette($dark-accent);

@@ -31,8 +31,8 @@
     <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen"
         class="dh" [innerHTML]="quote"></div>
     <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen"
-        class="theme"><mat-icon (click)="themeChangeBtnClick(false)">light_mode</mat-icon><mat-slider
-            class="colorSlider" max=1 min=0 step=1 discrete=false showTickMarks=false>
+        class="theme"><mat-icon (click)="themeChangeBtnClick(false)">light_mode</mat-icon>
+        <mat-slider class="colorSlider" max=1 min=0 step=1 discrete=false showTickMarks=true>
             <input matSliderThumb #slider [value]="darkmode_value" (change)="themeChange($event)">
         </mat-slider><mat-icon (click)="themeChangeBtnClick(true)">brightness_4</mat-icon>
     </div>

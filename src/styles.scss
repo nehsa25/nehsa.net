@@ -1,8 +1,33 @@
 @use '@angular/material' as mat;
-@include mat.core();
-@import './themes.scss';
-@import './lagoon.scss';
 
+// -1 - 4 - the closeness..
+$density: -1;
+
+$typography: mat.define-typography-config($font-family: 'monospace, "Helvetica Neue", sans-serif',
+    );
+
+@include mat.core();
+
+@import './styles/dark.scss';
+@import './styles/colorful.scss';
+@import './styles/assets/lagoon.scss';
+
+$dark-theme: mat.define-light-theme((color: (theme-type: dark,
+                primary: $light-primary-palette,
+                accent: $light-accent-palette,
+                warn: $light-warn-palette ),
+            density: -1,
+            typography: $typography ));
+
+$light-theme: mat.define-dark-theme((color: (theme-type: light,
+                primary: $dark-primary-palette,
+                accent: $dark-accent-palette,
+                warn: $light-warn-palette ),
+            density: -1,
+            typography: $typography ));
+
+@include mat.all-component-themes($light-theme);
+@include mat.all-component-themes($dark-theme);
 
 @media (min-width: 0) {
     dl {
@@ -48,66 +73,45 @@
 
 @media (min-width: 1400px) {}
 
-html,
-body {
-    line-height: 1.5;
-    margin: 0;
-    font-family: monospace,
-        "Helvetica Neue",
-        sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-    height: 100%;
-    font-size: 1rem;
-    background-color: var(--theme-background-gray);
+@include mat.core-theme($dark-theme);
+@include mat.button-theme($dark-theme);
+@include mat.card-theme($dark-theme);
+@include mat.checkbox-theme($dark-theme);
+@include mat.dialog-theme($dark-theme);
+@include mat.icon-theme($dark-theme);
+@include mat.input-theme($dark-theme);
+@include mat.list-theme($dark-theme);
+@include mat.menu-theme($dark-theme);
+@include mat.radio-theme($dark-theme);
+@include mat.select-theme($dark-theme);
+@include mat.sidenav-theme($dark-theme);
 
-    // Apply the dark theme by default
-    background-color: var(--theme-background-gray);
-    @include mat.core-theme($dark-theme);
-    @include mat.button-theme($dark-theme);
-    @include mat.card-theme($dark-theme);
-    @include mat.checkbox-theme($dark-theme);
-    @include mat.dialog-theme($dark-theme);
-    @include mat.icon-theme($dark-theme);
-    @include mat.input-theme($dark-theme);
-    @include mat.list-theme($dark-theme);
-    @include mat.menu-theme($dark-theme);
-    @include mat.radio-theme($dark-theme);
-    @include mat.select-theme($dark-theme);
-    @include mat.sidenav-theme($dark-theme);
-
-    // Apply the light theme only when the user prefers light themes. (the -color mixins are used to apply the color palette without redefining the entire theme)
-    @media (prefers-color-scheme: light) {
-        background-color: var(--theme-background-light);
-        @include mat.core-color($light-theme);
-        @include mat.button-color($light-theme);
-        @include mat.card-color($light-theme);
-        @include mat.checkbox-color($light-theme);
-        @include mat.dialog-color($light-theme);
-        @include mat.icon-color($light-theme);
-        @include mat.input-color($light-theme);
-        @include mat.list-color($light-theme);
-        @include mat.menu-color($light-theme);
-        @include mat.radio-color($light-theme);
-        @include mat.select-color($light-theme);
-        @include mat.sidenav-color($light-theme);
-    }
-}
-
-img,
-video {
-    display: block;
-    max-width: 100%;
-    height: auto;
+// Apply the light theme only when the user prefers light themes. (the -color mixins are used to apply the color palette without redefining the entire theme)
+@media (prefers-color-scheme: light) {
+    @include mat.core-color($light-theme);
+    @include mat.button-color($light-theme);
+    @include mat.card-color($light-theme);
+    @include mat.checkbox-color($light-theme);
+    @include mat.dialog-color($light-theme);
+    @include mat.icon-color($light-theme);
+    @include mat.input-color($light-theme);
+    @include mat.list-color($light-theme);
+    @include mat.menu-color($light-theme);
+    @include mat.radio-color($light-theme);
+    @include mat.select-color($light-theme);
+    @include mat.sidenav-color($light-theme);
 }
 
 $theme-border-color: mat.get-color-from-palette($dark-primary-palette, 500);
 $theme-background: mat.get-color-from-palette($dark-primary-palette, 50);
 
-// code
-$theme-code-background: mat.get-color-from-palette($dark-primary-palette, 300);
-$theme-code-color: mat.get-color-from-palette($dark-accent-palette, 800);
+// code -light
+$theme-light-code-background: mat.get-color-from-palette($dark-primary-palette, "code-background");
+$theme-light-code-color: mat.get-color-from-palette($dark-accent-palette, "code-color");
+
+// code -dark
+$theme-dark-code-background: mat.get-color-from-palette($light-primary-palette, "code-background");
+$theme-dark-code-color: mat.get-color-from-palette($light-primary-palette, "code-color");
 
 // comments
 $theme-comment-background: mat.get-color-from-palette($dark-primary-palette, 200);
@@ -138,7 +142,7 @@ $theme-navbar-background: mat.get-color-from-palette($dark-primary-palette, 500)
 $theme-navbar-color: mat.get-color-from-palette($dark-primary-palette, A100);
 
 //buttons
-$theme-light-button-background-color: mat.get-color-from-palette($light-primary-palette, 400);
+$theme-light-button-background-color: mat.get-color-from-palette($light-primary-palette, 900);
 $theme-dark-button-background-color: mat.get-color-from-palette($dark-primary-palette, 400);
 $theme-light-button-color: mat.get-color-from-palette($light-primary-palette, 50);
 $theme-dark-button-color: mat.get-color-from-palette($dark-primary-palette, 50);
@@ -193,13 +197,17 @@ $theme-header-color: anqituewhite;
     --theme-dark-a-active-color: #{$theme-dark-a-active-color};
     --theme-light-a-active-color: #{$theme-light-a-active-color};
 
+    --theme-light-code-background: #{$theme-light-code-background};
+    --theme-light-code-color: #{$theme-light-code-color};
+
+    --theme-dark-code-background: #{$theme-dark-code-background};
+    --theme-dark-code-color: #{$theme-dark-code-color};
+
     --theme-border: #{$theme-border-color};
     --theme-background: #{$theme-background};
     --theme-background-light-gray: silver;
     --theme-background-gray: #222;
     --theme-background-light-purple: plum;
-    --theme-code-background: #{$theme-code-background};
-    --theme-code-color: #{$theme-code-color};
     --theme-note-background: #{$theme-note-background};
     --theme-note-color: #{$theme-note-color};
     --theme-comment-background: #{$theme-comment-background};
@@ -218,12 +226,33 @@ $theme-header-color: anqituewhite;
     --theme-header-color: #{$theme-header-color};
 }
 
+html,
+body {
+    line-height: 1.5;
+    margin: 0;
+    font-family: monospace,
+        "Helvetica Neue",
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    height: 100%;
+    font-size: 1rem;
+    background-color: var(--theme-background-gray);
+}
+
+img,
+video {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
 
 div {
     line-height: 1.2em;
     font-size: 1rem;
 }
-
 
 iframe {
     width: 100%;
@@ -243,19 +272,12 @@ img {
 
 /* Track */
 ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px var(--theme-background-light-gray);
     border-radius: 5px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: var(--theme-background-light-gray);
     border-radius: 5px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: var(--theme-background-gray);
 }
 
 pre {
@@ -269,9 +291,6 @@ wbr:after {
 table,
 th,
 td {
-    background-color: var(--theme-table-background) !important;
-    color: var(--theme-table-color) !important;
-    border: 1px solid var(--theme-border);
     border-collapse: collapse;
     padding: 5px 1em;
 }
@@ -285,14 +304,6 @@ dt {
     font-weight: 700;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color: var(--theme-header-color);
-}
 
 .mat-step-header .mat-step-icon {
     background-color: $theme-background;
@@ -302,8 +313,6 @@ h6 {
 
 // code snippets
 .code {
-    background-color: var(--theme-code-background) !important;
-    color: var(--theme-code-color) !important;
     font-family: Consolas;
     border-radius: 5px;
     padding: 3px 1em;
@@ -312,8 +321,6 @@ h6 {
 }
 
 .code-command {
-    background-color: var(--theme-code-background) !important;
-    color: var(--theme-code-color) !important;
     font-family: Consolas;
     border-radius: 5px;
     padding: 1em;
@@ -327,15 +334,12 @@ div.code {
 }
 
 div.code:hover {
-    color: var(--theme-pop);
     -webkit-text-stroke-width: .5px;
-    -webkit-text-stroke-color: var(--theme-background-purple) !important;
 }
 
 // code spans
-span.code,code {
-    background-color: var(--theme-code-background) !important;
-    color: var(--theme-code-color) !important;
+span.code,
+code {
     font-family: Consolas;
     border-radius: 5px;
     padding: 3px 1em;
@@ -346,9 +350,7 @@ span.code,code {
 }
 
 span.code:hover {
-    color: var(--theme-pop);
     -webkit-text-stroke-width: .5px;
-    -webkit-text-stroke-color: var(--theme-background-purple) !important;
 }
 
 // forms
@@ -363,42 +365,32 @@ span.code:hover {
     padding: 4px 0 !important;
 }
 
-
 .additional-note,
 .additional-notes,
 .asterisk {
     max-width: 90%;
     font-size: 0.8em;
-    color: #888;
     margin: .4rem 0 .4rem 0;
     display: block;
 }
 
 ul.navbar-links>li:hover {
-    color: var(--theme-background-purple) !important;
     -webkit-text-stroke-width: .1px;
-    -webkit-text-stroke-color: var(--theme-background-purple) !important;
     border-radius: .4rem;
 }
 
 mat-panel-title:hover {
-    color: var(--theme-background-light);
     -webkit-text-stroke-width: .5px;
-    -webkit-text-stroke-color: var(--theme-background-purple) !important;
     border-radius: .4rem;
 }
 
 li>h3:hover {
-    color: var(--theme-background-light);
     -webkit-text-stroke-width: .5px;
-    -webkit-text-stroke-color: var(--theme-background-purple) !important;
     border-radius: .4rem;
 }
 
 li>h4:hover {
-    color: var(--theme-pop);
     -webkit-text-stroke-width: .5px;
-    -webkit-text-stroke-color: var(--theme-background-purple) !important;
     border-radius: .4rem;
 }
 
@@ -461,16 +453,12 @@ li {
 
 .important {
     font-weight: bold;
-    color: black;
-    -webkit-text-stroke: .2px orangered;
     font-size: 2rem;
     line-height: 1.5;
 }
 
 .importantish {
     font-weight: bold;
-    color: black;
-    -webkit-text-stroke: .2px orangered;
     font-size: 1.1rem;
     line-height: 1.5;
 }
@@ -488,7 +476,6 @@ li {
 }
 
 .topics>div {
-    border: 1px solid var(--theme-border);
     padding: 1em;
 }
 
@@ -511,8 +498,6 @@ li {
 }
 
 .file {
-    background-color: var(--theme-file-background) !important;
-    color: var(--theme-file-color) !important;
     font-size: 1.5rem;
     font-weight: 600;
     font-variant: small-caps;
@@ -522,59 +507,31 @@ li {
 }
 
 .answer {
-    background-color: var(--theme-answer-background) !important;
-    color: var(--theme-answer-color) !important;
-    border: 1px solid var(--theme-border);
     padding: 3px 2em;
     margin: 0 2em;
     width: 600px;
 }
 
-mat-card {
-    background-color: var(--theme-card-background) !important;
-    color: var(--theme-card-color) !important;
-}
-
-.card {
-    background-color: var(--theme-card-background) !important;
-    color: var(--theme-card-color) !important;
-}
-
 .note {
-    background-color: var(--theme-note-background) !important;
-    color: var(--theme-note-color) !important;
     font-weight: 400;
     font-size: small;
 }
 
 .comment {
-    background-color: var(--theme-comment-background) !important;
-    color: var(--theme-comment-color) !important;
     font-family: Consolas;
     padding: .5em;
     display: inline-block;
-}
-
-.comment-arrow {
-    color: cornflowerblue;
-}
-
-.paginators {
-    background-color: var(--theme-table-background) !important;
-    color: var(--theme-table-color) !important;
 }
 
 // lists
 .olq {
     list-style-type: lower-alpha;
     border-radius: 5px;
-    border: 1px solid var(--theme-border);
 }
 
 .ula {
     list-style-type: none;
     border-radius: 5px;
-    border: 1px solid var(--theme-border-color);
 }
 
 
@@ -602,35 +559,15 @@ a,
     font-style: italic;
 }
 
-// makes the question_mark icon bigger and a nice green
+// makes the question_mark icon bigger
 .questionmark {
-    color: var(--theme-pop);
     font-size: 1.5rem !important;
     font-weight: 600;
     height: 1.5rem !important;
     width: 1.5rem !important;
 }
 
-// custom fonts
-.tiny5-regular {
-    font-family: "Tiny5", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.bungee-spice-regular {
-    font-family: "Bungee Spice", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-// expansion-panel
-// body-background: #E3E1D9;
-// card-background: #fef9ed;
-// card-border: #fe6c47;
-
 .mat-expansion-panel {
-    border: 1px solid var(--theme-border);
     border-radius: 5px;
     margin: 1em;
     width: 100%;
@@ -641,31 +578,10 @@ a,
     font-size: 1rem !important;
 }
 
-.mat-expansion-panel-header-title {
-    color: inherit !important;
-}
-
 mat-panel-subtitle {
     padding: 0 1em 0 0;
     height: 100%;
     place-content: center;
-}
-
-// mat-card
-.mat-mdc-card-title {
-    color: #222 !important;
-}
-
-.mat-mdc-card-subtitle {
-    color: #444 !important;
-}
-
-// tables
-.min-table {
-    width: fit-content !important;
-    border-collapse: collapse;
-    border-spacing: 0;
-    border: 1px solid var(--theme-border);
 }
 
 // dls
@@ -682,19 +598,18 @@ dt {
     text-align: right;
 }
 
-
-// examples
-.example-container, .terminal-result, .result, .cmd {
+// custom stuff
+.example-container,
+.terminal-result,
+.result,
+.cmd {
     width: 18.75rem;
     min-width: fit-content;
-    border: 1px solid black;
     padding: 1em;
     margin: 1em;
 }
 
-.example  {
-    background-color: var(--theme-code-background) !important;
-    color: var(--theme-code-color) !important;
+.example {
     font-family: Consolas;
     border-radius: 5px;
     padding: 1em;
@@ -702,14 +617,36 @@ dt {
     display: inline-block;
 }
 
-// good/bad
 .good {
-    color: springgreen;
     font-weight: 600;
 }
 
 .bad {
-    color: red;
     font-weight: 600;
 }
 
+.min-table {
+    width: fit-content !important;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+// custom fonts
+.tiny5-regular {
+    font-family: "Tiny5", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.bungee-spice-regular {
+    font-family: "Bungee Spice", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+// notches
+.colorSlider .mat-mdc-slider .mdc-slider__tick-mark--active,
+.mat-mdc-slider .mdc-slider__tick-mark--inactive {
+    height: 4px !important;
+    width: 6px !important;
+}
