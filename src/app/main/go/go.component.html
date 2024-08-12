@@ -215,18 +215,17 @@ func TestHelloWorld(t *testing.T) &#123;
                                 <mat-panel-title>Building a microservice that returns the weather</mat-panel-title>
                             </mat-expansion-panel-header>
                             <ul>
-                                <li>Create package to accept the HTTP calls and make the weather calls to OpenWeatherMap.<br><br>
+                                <li>Create package to accept the HTTP calls and make the weather calls to
+                                    OpenWeatherMap.<br><br>
                                     OpenWeatherMap endpoint:<br>
                                     https://api.openweathermap.org/data/2.5/weather?q=&lt;CITY&gt;&appid=&lt;APIKEY&gt;&units=&lt;UNITS&gt;<br>
                                     <ul>
                                         <li>Run <code>go get -u github.com/gin-gonic/gin</code></li>
                                         <li>Import the package in your code</li>
-                                        <li>Create package to make the weather calls to OpenWeatherMap API
-                                            <div class="code">
-                                                <pre>
-HERE
-</pre>
-                                            </div>
+                                        <li>Create package to make the weather calls to OpenWeatherMap API:<br>
+                                            <a
+                                                href="https://github.com/nehsa25/weather-microservice-go-gin/blob/main/weather.go">weather-microservice-go-gin (Github)
+                                            </a>
                                         </li>
                                         <li>Install dependencies: <code>go mod init main && go mod tidy</code></li>
                                         <li>Test it works: <div class="code">
