@@ -20,6 +20,7 @@
                             <ul>
                                 <li>Create a new variable :=, assign to existing =</li>
                                 <li>Install a package from Github: <code>go get -u github.com/gin-gonic/gin</code></li>
+                                <li>Casting</li>
                                 <li>String interpolation <code>fmt.Sprintf()</code> or <code>fmt.Printf</code><br><br>
                                     Example: <code>fmt.Sprintf("Hello, %s!", name)</code>
                                 </li>
@@ -42,46 +43,10 @@
                     <li>
                         <mat-expansion-panel>
                             <mat-expansion-panel-header>
-                                <mat-panel-title>Basics / Go Concepts</mat-panel-title>
+                                <mat-panel-title>Basics</mat-panel-title>
                             </mat-expansion-panel-header>
                             <ul>
                                 <li>Basic Commands</li>
-                                <li>
-                                    <mat-expansion-panel>
-                                        <mat-expansion-panel-header>
-                                            <mat-panel-title>HelloWorld Example</mat-panel-title>
-                                        </mat-expansion-panel-header>
-                                        <ul>
-                                            <li>Create a <span class="file">main.go</span> by running <code>go mod init main && go mod
-                                                    tidy</code></li>
-                                            <li>Define a <span class="function">main()</span> function</li>
-                                            <li>Use <span class="function">fmt.Println()</span> to output to the console
-                                            </li>
-                                            <li>Example code:
-                                                <div class="code">
-                                                    <pre>
-package main
-
-import "fmt"
-
-func main() &#123;
-    fmt.Println("Hello, World!")
-&#125;
-</pre>
-                                                </div><br><br>
-
-                                                Results in:<br>
-                                                <div class="terminal-result">
-                                                    <pre>
-PS C:\src> go run .\main.go
-Hello, World!
-</pre>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </mat-expansion-panel>
-
-                                </li>
                                 <li> <mat-expansion-panel>
                                         <mat-expansion-panel-header>
                                             <mat-panel-title>Variables</mat-panel-title>
@@ -102,6 +67,39 @@ Hello, World!
                                             <dt>bool</dt>
                                             <dd>Boolean</dd>
                                         </dl>
+                                    </mat-expansion-panel>
+                                </li>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>Casting</mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        Messages such as <span class="example">cannot use jsonData (variable of type
+                                            []byte) as
+                                            string value in return statement</span> can be resolved by casting the
+                                        variable to the
+                                        correct type.<br><br>
+                                        <div class="code">
+                                            <pre>
+<span class="comment">// Convert []byte to string</span>
+jsonDataString := string(&lt;[]BYTE DATA]&gt;)
+
+<span class="comment">// Convert string to []byte</span>
+[]byte(&lt;STRING DATA&gt;)
+
+<span class="comment">// Convert int to string</span>
+strconv.Itoa(&lt;INT DATA&gt;)
+
+<span class="comment">// Convert string to int</span>
+strconv.Atoi(&lt;STRING DATA&gt;)
+
+<span class="comment">// Numeric types cannot be directly converting to strings. We need to use sprintf to convert float to string:</span>
+tempString := fmt.Sprintf("%.2f", &lt;FLOAT DATA&gt;)
+
+<span class="comment">// Convert string to float</span>
+strconv.ParseFloat(&lt;STRING DATA&gt;, 64)
+</pre>
+                                        </div>
                                     </mat-expansion-panel>
                                 </li>
                                 <li> <mat-expansion-panel>
@@ -145,7 +143,73 @@ require (
                                             <li>Facilitates package sharing: Share your code with others as a module
                                             </li>
                                         </ul>
-                                    </mat-expansion-panel></li>
+                                    </mat-expansion-panel>
+                                </li>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>Switches</mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <div class="code">
+                                            <pre>
+var weatherCondition string = weatherData.Weather[0].Main // Assuming weatherData is defined elsewhere
+switch weatherCondition &#123;
+    case "cloudy":
+        art = "☁️"
+    case "rain":
+        art = "🌧️"
+    case "snow":
+        art = "❄️"
+    case "clear":
+        art = "☀️"
+    case "sunny":
+        art = "☀️"
+    case "thunderstorm":
+        art = "⛈️"
+    case "mist":
+        art = "🌫️"
+    default:
+        art = ""
+&#125;
+</pre>
+                                        </div>
+                                    </mat-expansion-panel>
+                                </li>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>HelloWorld Example</mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <ul>
+                                            <li>Create a <span class="file">main.go</span> by running <code>go mod init main && go mod
+                                                tidy</code></li>
+                                            <li>Define a <span class="function">main()</span> function</li>
+                                            <li>Use <span class="function">fmt.Println()</span> to output to the console
+                                            </li>
+                                            <li>Example code:
+                                                <div class="code">
+                                                    <pre>
+package main
+
+import "fmt"
+
+func main() &#123;
+fmt.Println("Hello, World!")
+&#125;
+</pre>
+                                                </div><br><br>
+
+                                                Results in:<br>
+                                                <div class="terminal-result">
+                                                    <pre>
+PS C:\src> go run .\main.go
+Hello, World!
+</pre>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </mat-expansion-panel>
+                                </li>
                             </ul>
                         </mat-expansion-panel>
                     </li>
@@ -224,7 +288,8 @@ func TestHelloWorld(t *testing.T) &#123;
                                         <li>Import the package in your code</li>
                                         <li>Create package to make the weather calls to OpenWeatherMap API:<br>
                                             <a
-                                                href="https://github.com/nehsa25/weather-microservice-go-gin/blob/main/weather.go">weather-microservice-go-gin (Github)
+                                                href="https://github.com/nehsa25/weather-microservice-go-gin/blob/main/weather.go">weather-microservice-go-gin
+                                                (Github)
                                             </a>
                                         </li>
                                         <li>Install dependencies: <code>go mod init main && go mod tidy</code></li>
@@ -268,8 +333,59 @@ CMD ["./main"]
 </pre>
                                             </div>
                                         </li>
-                                        <li>Build it: <code>docker build -t weather-microservice-gin .</code></li>
+                                        <li>Build it:
+                                            <code>docker build . -t nehsa/ascii-weather:$build --platform linux/amd64;</code>
+                                        </li>
+                                        <li>Push it: <code>docker push nehsa/ascii-weather:$build;docker push</code>
+                                        </li>
+                                        <li>Deploy it:
+                                            <code>docker pull nehsa/ascii-weather:latest && docker run -p 8080:8080 nehsa/ascii-weather:latest</code>
+                                        </li>
                                     </ul>
+                                </li>
+                                <li>Try it..
+                                    <div class="try-grid">
+                                        <div>
+                                            <form>
+                                                <mat-form-field>
+                                                    <mat-label>City</mat-label>
+                                                    <input matInput type="text" name="city" [(ngModel)]="city">
+                                                    @if (city) {
+                                                    <button matSuffix mat-stroked-button aria-label="Clear"
+                                                        (click)="city=''">
+                                                        <mat-icon>close</mat-icon>
+                                                    </button>
+                                                    }
+                                                </mat-form-field>
+                                                <mat-form-field>
+                                                    <mat-label>Units</mat-label>
+                                                    <mat-select [formControl]="unit" [(value)]="unit">
+                                                        @for (unit of units; track unit) {
+                                                        <mat-option [value]="unit">{{unit}}</mat-option>
+                                                        }
+                                                    </mat-select>
+                                                </mat-form-field>
+                                                <mat-form-field>
+                                                    <mat-label>Type</mat-label>
+                                                    <mat-select [formControl]="type" [(value)]="type">
+                                                        @for (type of types; track type) {
+                                                        <mat-option [value]="type">{{type}}</mat-option>
+                                                        }
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </form>
+                                        </div>
+                                        <div>{{weather}}</div>
+                                        <div><button mat-stroked-button [disabled]="isLoading || !city"
+                                                (click)="getWeather()">
+                                                <div class="button-grid">
+                                                    <div>{{buttonName}}</div>
+                                                    <div><mat-spinner *ngIf="isLoading" diameter="20"></mat-spinner>
+                                                    </div>
+                                                </div>
+                                            </button></div>
+                                        <div></div>
+                                    </div>
                                 </li>
                             </ul>
                         </mat-expansion-panel>

@@ -24,13 +24,13 @@ export class HttpService {
     stabilityaiUrl = `https://api.stability.ai/v1/generation/stable-diffusion-v1-6/text-to-image`;
     dbhealth = 'https://api.nehsa.net/v1/dbhealth';
     commentUrl = 'https://api.nehsa.net/v1/comment';
-    aiQuestion = 'https://api.nehsa.net/v1/ai';
+    aiQuestionUrl = 'https://api.nehsa.net/v1/ai';
 
     /** 
      * Posts the contact me form to API
      * @param {ContactType} body - The body to the message
      * @returns {object} - The response from the API
-     * */  
+     * */
     postContactMe(body: ContactType) {
         return this.http.post<ContactType>(this.contactmeUrl, body);
     }
@@ -39,56 +39,62 @@ export class HttpService {
      * Posts the contact me form to API
      * @param {AddUserType} body - The body to the message
      * @returns {object} - The response from the API
-     * */  
+     * */
     postAddUser(body: AddUserType) {
         return this.http.post<AddUserType>(this.addUserUrl, body);
     }
 
-    /** Returns the quote */  
+    /** Returns the quote */
     getQuote() {
         return this.http.get(this.quoteUrl);
     }
 
-    /** Returns the comments for a page */  
+    /** Returns the comments for a page */
     getComments(page_name: string, numToReturn: number = 5) {
         let url = `${this.commentUrl}/${page_name}/${numToReturn}`;
         return this.http.get(url);
     }
-    getDBHealth() { 
+    getDBHealth() {
         return this.http.get(this.dbhealth);
     }
 
-    postComment(body: any) { 
+    postComment(body: any) {
         return this.http.post(this.commentUrl, body);
     }
 
-    /** Returns a random name */  
+    /** Returns a random name */
     getName() {
         return this.http.get(this.nameUrl);
     }
 
-    /** Returns the specified number random names */  
+    /** Returns a weather */
+    getWeather(city: string, units: string = 'imperial', typeStyle: string = 'words') {
+        const getWeatherUrl = `https://api.nehsa.net/v1/getweather/${city}/${units}/${typeStyle}`;
+        return this.http.get(getWeatherUrl);
+    }
+
+    /** Returns the specified number random names */
     getNames(numToReturn: number) {
         return this.http.get(`${this.nameUrl}/${numToReturn}`);
     }
 
-    /** Asks an AI questions */ 
-    postAIQuestion(body: AIQuestion): Observable<AIQuestion>  {
-        return this.http.post<any>(this.aiQuestion, body);
+    /** Asks an AI questions */
+    postAIQuestion(body: AIQuestion): Observable<AIQuestion> {
+        return this.http.post<any>(this.aiQuestionUrl, body);
     }
 
-     /** Returns a random list of positive adjectives */  
+    /** Returns a random list of positive adjectives */
     getPosTerms() {
         return this.http.get(this.posAdjUrl);
     }
 
-    /** updates name */  
+    /** updates name */
     updateName(name: string) {
-        let user:NameType = new NameType();
+        let user: NameType = new NameType();
         user.Name = name;
         return this.http.post(this.nameUrl, user);
     }
-  
+
     getAiImage(image: AiImageType) {
         const bearer = "sk-aIIMUE6NJeYvXfmJ83d8T6Rqueur7hOjT07hskStmrnB7khw";
 
