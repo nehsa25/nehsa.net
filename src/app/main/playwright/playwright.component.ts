@@ -4,11 +4,13 @@ import { CommentComponent } from '../../shared-components/comment/comment.compon
 import { Subject } from 'rxjs';
 import { UserService } from '../../services/user.service';
 import { CommentType } from '../../types/comment.type';
+import { RouterLink } from '@angular/router';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @Component({
   selector: 'app-playwright',
   standalone: true,
-  imports: [MatCardModule, CommentComponent],
+  imports: [MatCardModule, CommentComponent, RouterLink, MatExpansionModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './playwright.component.html',
   styleUrl: './playwright.component.scss'

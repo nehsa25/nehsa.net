@@ -11,5 +11,5 @@ import { UserService } from '../../services/user.service';
   styleUrl: './mud-making-of.component.scss'
 })
 export class MudMakingOfComponent {
-  constructor(public userService: UserService) { }
+  constructor(public userService: UserService) { this.userService.page = "mud-making-of"; }
 }

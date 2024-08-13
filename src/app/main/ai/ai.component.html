@@ -1,0 +1,97 @@
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">AI</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                This is an overview page for all things AI but has links to specific areas of interest. It contains
+                my experience and knowledge working with various AI technologies, including prompts, AI Image
+                Generation, Adding intelligence to NPCs / Website AI Bots, and building generative AI.
+                <div>Related Content:
+                    <ul class="condensed">
+                        <li><a routerLink="/aiimage">Stability AI (AI Image Generation)</a></li>
+                        <li><a routerLink="/gemini">Google Gemini (Used for Comet bot and NPC dialog)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <ul>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Working with Prompts</mat-panel-title>
+                                    <mat-panel-description>
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                Tips and tricks for working with prompts in AI.
+                                <ul>
+                                    <li>Be specific. <span class="importantish">Tell me about australian cattle dogs and
+                                            how they differ from other breeds</span> will get you better result than
+                                        <span class="importantish">Tell me about dogs</span>
+                                    </li>
+                                    <li>What tone and perspective are you looking for?
+                                        <span class="importantish">Write a 3 sentence horror story about Timoth&eacute;e and Gaston.
+                                            Reply as a retired Appalachian sewist visiting Utah.</span>
+                                        is better than <span class="importantish">Write a 3 sentence horror story about
+                                            Timoth&eacute;e and Gaston.</span><br><br>Gemimi Answer:<br>
+                                        <div class="answer">Well, I never did much care for them fancy city folk names,
+                                            Timoth&eacute;e and Gaston. Seemed like something out of a fairy tale, all
+                                            fancy and
+                                            whatnot. But when them two showed up in my little Utah town, I knew
+                                            somethin' was amiss. Their eyes, they was hollow, like lookin' into a
+                                            bottomless well. And then the folks started disappearin', one by one, just
+                                            like they was swallowed by the earth.</div>
+                                            </li>
+                                            <li>Set limits and return types. e.g. provide x examples, return results as a csv</li>
+                                </ul>
+
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Build a website bot like Comet</mat-panel-title>
+                                    <mat-panel-description>
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>Jesse should add content for this..
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Building Generative AI</mat-panel-title>
+                                    <mat-panel-description>Jesse should add content for this..
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>AI Image Generation</mat-panel-title>
+                                    <mat-panel-description>
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <a routerLink="/aiimage">See AI Image Generation</a>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Adding intelligence to NPCs</mat-panel-title>
+                                    <mat-panel-description>
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <a routerLink="/gemini">See Google Gemini</a>
+                            </mat-expansion-panel>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>

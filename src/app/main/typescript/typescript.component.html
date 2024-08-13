@@ -7,24 +7,82 @@
     <mat-card-content>
         <div class="commentgrid">
             <div class="topics">
-                <h2>Best Practices</h2>
+                <div>Related Content:
+                    <ul class="condensed">
+                        <li><a routerLink="/angular">Angular / Material</a></li>
+                        <li><a routerLink="/playwright">Playwright</a></li>
+                        <li><a routerLink="/webdesign">Web Design</a></li>
+                    </ul>
+                </div>
                 <div>
                     <ul>
-                        <li>Use private variables when possible. (public is needed if referenced via HTML)</li>
-                        <li>
-                            <ul>
-                                <h4>Naming Conventions</h4>
-                                <li>Upper case with underscore (_) between multiple words</li>
-                                <li>Use camelCase for variable and function names</li>
-                                <li>Use camelCase of class members, interface members, methods and methods
-                                    parameters</li>
-                                <li>Use PascalCase for class names and interface names.</li>
-                                <li>Use PascalCase for enums and camelCase for enum members</li>
-
-                            </ul>
-                        </li>
                         <li>
                             <mat-expansion-panel expanded>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Naming Conventions</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>Upper case with underscore (_) between multiple words</li>
+                                    <li>Use camelCase for variable and function names</li>
+                                    <li>Use camelCase of class members, interface members, methods and
+                                        methods
+                                        parameters</li>
+                                    <li>Use PascalCase for class names and interface names.</li>
+                                    <li>Use PascalCase for enums and camelCase for enum members</li>
+                                    <li>Use UPPERCASE for constants</li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Best Practices / Tips</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>Use private variables when possible. (public is needed if referenced via
+                                        HTML)</li>
+                                    <li>Loose Vs. Strict Equality Checking
+                                        <ul>
+                                            <li>Using a <span class="importantish">&quot;loose-check&quot; (two
+                                                    ==)</span>,
+                                                you can test both null
+                                                and undefined in one hit:
+                                            </li>
+                                            <li>Using a <span class="importantish">&quot;strict-check&quot; (three
+                                                    ===)</span>
+                                                will only return true if the two
+                                                values are the same type and
+                                                the same value. If you use a strict-check, it will only be
+                                                true for values set to null and will not return true for
+                                                undefined variables.<br><br>
+                                                e.g.<br>
+                                                <div class="code">
+                                                    <pre>
+const num = 10;
+const str = "10";
+num === str <span class="comment">// <span class="importantish">false</span> (different types: string/number)</span>
+num == str <span class="comment">// <span class="importantish">true</span> (this is true because a cast is performed prior to the equality check)</span>
+</pre>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>Don't use negative names for boolean variables. e.g. this: <span
+                                            class="code">const
+                                            isNotSet = true;</span> would be better as <span class="code">const
+                                            isSet =
+                                            false;</span> </li>
+                                    <li>Use "const" whenever possible when a variable is not intended to
+                                        change instead of
+                                        var/let</li>
+                                    <li>var Vs. let &hyphen; var is function scoped, let is block scoped
+                                    </li>
+                                    <li>Pass Intellisense to VSCode: /** comment */ above function</li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Constuctor</mat-panel-title>
                                 </mat-expansion-panel-header>
@@ -33,7 +91,7 @@
                                     <pre>
 export class MyClass &#123;
     constructor() &#123;
-        <span class="comment">// Constructor code here</span>
+        <span class="comment">// Look ma! I construct!</span>
     &#125;
 &#125;
 </pre>
@@ -46,11 +104,14 @@ export class MyClass &#123;
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Accessors</mat-panel-title>
                                 </mat-expansion-panel-header>
-                                I'm not steadfast in using accessors. They often lead to extra code lines that don't
+                                I'm not steadfast in using accessors. They often lead to extra code
+                                lines that don't
                                 need to be there. They can be helpful for a few things, though:
                                 <ul>
-                                    <li>Getters can be used to calculate a value based on other values</li>
-                                    <li>Setters can be used to trigger an event when a value is changed</li>
+                                    <li>Getters can be used to calculate a value based on other values
+                                    </li>
+                                    <li>Setters can be used to trigger an event when a value is changed
+                                    </li>
                                     <li>
                                         Troubleshooting:<br>
                                         <div class="code">
@@ -58,13 +119,13 @@ export class MyClass &#123;
 private _reversify = false;
 
 get reversify(): boolean &#123;
-    console.log("I've been gotten! The horror! The horror! " + this._reversify);
-    return this._reversify;
+console.log("I've been gotten! The horror! The horror! " + this._reversify);
+return this._reversify;
 &#125;
 
 set reversify(value: boolean) &#123;
-    console.log("The thrill! The excitement! I've been set! (value: " + value + ")");
-    this._reversify = value;
+console.log("The thrill! The excitement! I've been set! (value: " + value + ")");
+this._reversify = value;
 &#125;
 
 // Usage
@@ -82,52 +143,34 @@ I've been gotten! The horror! The horror! true
 
                             </mat-expansion-panel>
                         </li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Other tidbits..</h4>
-                    <ul>
-                        <li>Using a <span class="important">&quot;loose-check&quot;</span>, you can test both null
-                            and undefined in one hit: <span class="code">if (x == null) &#123;
-                                console.log("PeanutsAreOK!"); &#125; </span> &#123;<br><br>
-                            Javascript/TypeScript is the only language I've used that has a triple === <span
-                                class="important">&quot;strict-check&quot;</span>
-                            comparison. A strict-check will only return true if the two values are the same type and
-                            the same value. If you use a strict-check, it will only be
-                            true for values set to null and will not return true for undefined variables: <span
-                                class="code">if (x === null) &#123; console.log("WalnutsSuck!"); &#125; </span>
-                        </li>
-                        <li>Don't use negative names for boolean variables. e.g. this: <span class="code">const
-                                isNotSet = true;</span> would be better as <span class="code">const isSet =
-                                false;</span> </li>
-                        <li>Use "const" whenever possible when a variable is not intended to change instead of
-                            var/let</li>
-                        <li>var Vs. let &hyphen; var is function scoped, let is block scoped</li>
-                        <li>Pass Intellisense to VSCode: /** comment */ above function</li>
                         <li>
-                            Property '_answers' has no initializer and is not definitely assigned in the
-                            constructor.
-                            answer:
-
-                            This is caused if this setting is enabled (which it should be) and means we need to
-                            fully initialize variables.
-                            <div class="code">
-                            <pre>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Troubleshooting</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>
+                                        <span class="question">Property '_answers' has no initializer and is not definitely assigned in the constructor.</span><br><br>                          
+                                        <div class="answer">This is caused if this setting is enabled (which it should be) and means we need to fully initialize variables.
+                                        <br><br>
+                                        <div class="code">
+                                    <pre>
 "compilerOptions": &#123;
     "strictPropertyInitialization": false,
     ...
 &#125;  
 </pre>
-                            </div>
-
-
-                            e.g.:
-                            <span class="code">monsters: string[] = [];</span>
+                                        </div><br><br>           
+                                        e.g.:
+                                        <span class="code">private _answers: string[] = [];</span></div>
+                                    </li>
+                                </ul>
+                            </mat-expansion-panel>
                         </li>
                     </ul>
                 </div>
+                <div><app-comment></app-comment></div>
             </div>
-            <div><app-comment></app-comment></div>
         </div>
     </mat-card-content>
 </mat-card>

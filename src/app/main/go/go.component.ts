@@ -27,7 +27,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     NgIf,
     MatFormFieldModule,
     MatSelectModule,
-    FormsModule,
     ReactiveFormsModule, 
     MatProgressSpinnerModule,
     MatInputModule],
@@ -46,6 +45,7 @@ export class GoComponent {
   isLoading = false;
   weather: any;
   constructor(public userService: UserService, public httpService: HttpService) { 
+    this.userService.page = "go";
     if (this.unit.value === '') {
       this.unit.setValue('Imperial');
     }
@@ -59,6 +59,7 @@ export class GoComponent {
     this.isLoading = true;
     const unitStyle = this.unit.value ?? 'imperial';
     const typeStyle = this.type.value ?? 'words';
+    console.log(this.type);
     this.httpService.getWeather(this.city, unitStyle, typeStyle).subscribe((data: any) => {
       this.weather = data;
       if (this.type.value === 'Temperature' && typeStyle === 'imperial')

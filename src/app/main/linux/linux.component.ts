@@ -11,6 +11,6 @@ import { UserService } from '../../services/user.service';
   styleUrl: './linux.component.scss'
 })
 export class LinuxComponent {
-  constructor(public userService: UserService) { }
+  constructor(public userService: UserService) { this.userService.page = "linux"; }
 
 }

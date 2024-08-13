@@ -36,7 +36,7 @@ $light-theme: mat.define-dark-theme((color: (theme-type: light,
     }
 
     dt {
-        width: 40px;
+        width: 75px;
     }
 
     dd {
@@ -44,7 +44,11 @@ $light-theme: mat.define-dark-theme((color: (theme-type: light,
     }
 }
 
-@media (min-width: 576px) {}
+@media (min-width: 576px) {
+    dt {
+        width: 100px;
+    }
+}
 
 @media (min-width: 768px) {
     dl {
@@ -53,7 +57,7 @@ $light-theme: mat.define-dark-theme((color: (theme-type: light,
     }
 
     dt {
-        width: 75px;
+        width: 200px;
     }
 
     dd {
@@ -64,7 +68,7 @@ $light-theme: mat.define-dark-theme((color: (theme-type: light,
 
 @media (min-width: 992px) {
     dt {
-        width: 150px;
+        width: 400px;
     }
 }
 
@@ -509,7 +513,6 @@ li {
 
 .answer {
     padding: 3px 2em;
-    margin: 0 2em;
     width: 600px;
 }
 

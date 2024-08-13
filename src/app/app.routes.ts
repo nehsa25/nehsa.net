@@ -54,10 +54,13 @@ import { WellLifeComponent } from './main/jobs/well-life/well-life.component';
 import { LinuxComponent } from './main/linux/linux.component';
 import { JobsComponent } from './main/jobs/jobs.component';
 import { GoComponent } from './main/go/go.component';
+import { ScratchComponent } from './main/scratch/scratch.component';
+import { AiComponent } from './main/ai/ai.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: WelcomeComponent },
     { path: 'agile', title: 'nehsa.net | Agile', component: AgileComponent },
+    { path: 'ai', title: 'nehsa.net | Agile', component: AiComponent },
     { path: 'blog', title: 'nehsa.net | Blog', component: BlogComponent },
     { path: 'about', title: 'nehsa.net | About', component: BioComponent },
     { path: 'angular', title: 'nehsa.net | Angular', component: AngularComponent },
@@ -118,6 +121,7 @@ export const routes: Routes = [
     { path: 'mysql', title: 'nehsa.net | mysql', component: MysqlComponent },
     { path: 'regex', title: 'nehsa.net | Regular Expressions', component: RegexComponent },
     { path: 'webdesign', title: 'nehsa.net | Web Design', component: WebDesignComponent },
+    { path: 'scratch', title: 'nehsa.net | Scratch', component: ScratchComponent },
     { path: 'ide', title: 'nehsa.net | IDEs / Code Editors', component: IdeComponent },
     { path: 'iis', title: 'nehsa.net | IIS', component: IisComponent },
     { path: '', title: 'nehsa.net | Home', redirectTo: '/', pathMatch: 'full' },

@@ -12,5 +12,5 @@ import { UserService } from '../../services/user.service';
   styleUrl: './blog.component.scss'
 })
 export class BlogComponent {
-  constructor(public userService: UserService) { }
+  constructor(public userService: UserService) { this.userService.page = "blog"; }
 }

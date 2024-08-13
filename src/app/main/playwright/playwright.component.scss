@@ -6,3 +6,22 @@
 h4 {
     margin: 5px 0px 2px 0px;
 }
+
+dl {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 10px;
+    text-align: left;
+}
+
+dl dt {
+    width: 100%;
+    text-align: left;
+}
+
+dl dd {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}

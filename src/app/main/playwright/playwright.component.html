@@ -7,92 +7,103 @@
     <mat-card-content>
         <div class="commentgrid">
             <div class="topics">
-                <div>
-                    <h3>Useful Commands (<a
-                            href="https://playwright.dev/docs/test-cli">https://playwright.dev/docs/test-cli</a>)</h3>
-                    <h4>Initial setup (more initialization then using npm install playwright:latest)</h4>
-                    <div class="code">npm init playwright&#64;latest</div>
-
-                    <h4>Runs the end-to-end tests</h4>
-                    <div class="code">npx playwright test</div>
-
-                    <h4>Starts the interactive UI mode.</h4>
-                    <div class="code">npx playwright test --ui</div>
-                    <h4>Runs the tests only on Desktop Chrome</h4>
-                    <div class="code">npx playwright test --project=chromium</div>
-
-                    <h4>Runs the tests in a specific file</h4>
-                    <div class="code">npx playwright test example</div>
-
-                    <h4>Runs the tests in debug mode</h4>
-                    <div class="code">npx playwright test --debug</div>
-
-                    <h4>Run the test with Junit output</h4>
-                    <div class="code">
-                        $env:PLAYWRIGHT_JUNIT_OUTPUT_NAME=\"#&#123;new_resource.result_local_full_path&#125;\"; npx
-                        playwright test --reporter junit</div>
-
-                    <h4>Run the test with this title</h4>
-                    <div class="code">npx playwright test -g &quot;add a todo item&quot;</div>
-
-                    <h4>Disable parallelization</h4>
-                    <div class="code">npx playwright test --workers=1</div>
-
-                    <h4>SLeep for 3 seconds</h4>
-                    <div class="code">await page.waitForTimeout(3000);</div>
-
-                    <h4>Run tests in headed browsers</h4>
-                    <div class="code">npx playwright test --headed</div>
-
-                    <h4>Records browser to auto-generate tests with Codegen.</h4>
-                    <div class="code">npx playwright codegen</div>
+                <div>Related Content:
+                    <ul class="condensed">
+                        <li><a routerLink="/angular">Angular / Material</a></li>
+                        <li><a routerLink="/webdesign">Web Design</a></li>
+                        <li><a routerLink="/typescript">TypeScript</a></li>
+                    </ul>
                 </div>
                 <div>
-                    <h3>Page Object Model</h3>
-                    Here's my implemation:
-                    <ul class="condensed">
-                        <li>Source Hierarchy
-                            <ul class="condensed">
-                                <li>nehsanet
-                                    <ul class="condensed">
-                                        <li>src
-                                            <ul class="condensed">
-                                                <li>website content</li>
-                                            </ul>
-                                        </li>
-                                        <li>tests
-                                            <ul class="condensed">
-                                                <li>pages - Every page of the website
-                                                    <ul class="condensed">
-                                                        <li>about.page.ts</li>
-                                                        <li>base.page.ts</li>
-                                                        <li>...</li>
-                                                    </ul>
-                                                </li>
-                                                <li>utility
-                                                    <ul class="condensed">
-                                                        <li>test-settings.ts - Envrionment settings for the tests
-                                                        </li>
-                                                        <li>test-helpers.ts - Utility functions
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li>tests-playwright-ui.spec.ts</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-
+                    <ul>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Useful Commands</mat-panel-title>
+                                    <mat-panel-description><a
+                                            href="https://playwright.dev/docs/test-cli">https://playwright.dev/docs/test-cli</a>
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <dl class="commands">
+                                    <dt>Initial setup (more initialization then using npm install playwright:latest)
+                                    </dt>
+                                    <dd>npm init playwright&#64;latest</dd>
+                                    <dt>Runs the end-to-end tests</dt>
+                                    <dd>npx playwright test</dd>
+                                    <dt>Starts the interactive UI mode.</dt>
+                                    <dd>npx playwright test --ui</dd>
+                                    <dt>Runs the tests only on Desktop Chrome</dt>
+                                    <dd>npx playwright test --project=chromium</dd>
+                                    <dt>Runs the tests in a specific file</dt>
+                                    <dd>npx playwright test example</dd>
+                                    <dt>Runs the tests in debug mode</dt>
+                                    <dd>npx playwright test --debug</dd>
+                                    <dt>Run the test with Junit output</dt>
+                                    <dd>$env:PLAYWRIGHT_JUNIT_OUTPUT_NAME="#&#123;new_resource.result_local_full_path&#125;";<br>npx
+                                        playwright test --reporter junit</dd>
+                                    <dt>Run the test with this title</dt>
+                                    <dd>npx playwright test -g "add a todo item"</dd>
+                                    <dt>Disable parallelization</dt>
+                                    <dd>npx playwright test --workers=1</dd>
+                                    <dt>Sleep for 3 seconds</dt>
+                                    <dd>await page.waitForTimeout(3000);</dd>
+                                    <dt>Run tests in headed browsers</dt>
+                                    <dd>npx playwright test --headed</dd>
+                                    <dt>Records browser to auto-generate tests with Codegen.</dt>
+                                    <dd>npx playwright codegen</dd>
+                                </dl>
+                            </mat-expansion-panel>
                         </li>
-                        <li>Class Structure
-                            <ul>
-                                <li>
-                                    <span class="underline">base.page.ts</span>
-                                    <br>Contains all elements available on all pages (navbar, breadcrumb) and other
-                                    utilty functions useful for most pages.
-                                    <div class="code">
-                                <pre>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Page Object Model</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                Here's my implemention:
+                                <ul class="condensed">
+                                    <li>Source Hierarchy
+                                        <ul class="condensed">
+                                            <li>nehsanet
+                                                <ul class="condensed">
+                                                    <li>src
+                                                        <ul class="condensed">
+                                                            <li>website content</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>tests
+                                                        <ul class="condensed">
+                                                            <li>pages - Every page of the website
+                                                                <ul class="condensed">
+                                                                    <li>about.page.ts</li>
+                                                                    <li>base.page.ts</li>
+                                                                    <li>...</li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>utility
+                                                                <ul class="condensed">
+                                                                    <li>test-settings.ts - Envrionment settings for the
+                                                                        tests
+                                                                    </li>
+                                                                    <li>test-helpers.ts - Utility functions
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>tests-playwright-ui.spec.ts</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>Class Structure
+                                        <ul>
+                                            <li>
+                                                <span class="underline">base.page.ts</span>
+                                                <br>Contains all elements available on all pages (navbar, breadcrumb)
+                                                and other
+                                                utilty functions useful for most pages.
+                                                <div class="code">
+                                                    <pre>
 import &#123; Page &#125; from '&#64;playwright/test';
 import &#123; TestSettings &#125; from '../../e2e-test-utility/test-settings';
 
@@ -112,13 +123,13 @@ export default class BasePage &#123;
     get logoutBtn() &#123; return this.page.getByTestId('logout-btn'); &#125;
 &#125;
 </pre>
-                                    </div>
-                                </li>
-                                <li>
-                                    <span class="underline">fixtures\basepage.ts</span>
-                                    <br>Sets up initial page under test and any other setup required
-                                    <div class="code">
-                                <pre>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="underline">fixtures\basepage.ts</span>
+                                                <br>Sets up initial page under test and any other setup required
+                                                <div class="code">
+                                                    <pre>
 import TestPage from 'e2e/pages/admin/testpagefile.page';
 
 export const test = base.extend&lt;&#123; 
@@ -129,14 +140,15 @@ export const test = base.extend&lt;&#123;
     &#125;         
 &#125;);
 </pre>
-                                    </div>
-                                </li>
-                                <li>
-                                    <span class="underline">testpage.page.ts</span>
-                                    <br>An actual page of the website. Contains locators for all elements and utility
-                                    functions unique to this page.
-                                    <div class="code">
-                                <pre>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="underline">testpage.page.ts</span>
+                                                <br>An actual page of the website. Contains locators for all elements
+                                                and utility
+                                                functions unique to this page.
+                                                <div class="code">
+                                                    <pre>
 export default class testPage extends BasePage &#123;
     name: string = "admin-entitlement-details";
     requiresUserLogin = true;
@@ -198,13 +210,13 @@ export default class testPage extends BasePage &#123;
     &#125;
 &#125;
 </pre>
-                                    </div>
-                                </li>
-                                <li>
-                                    <span class="underline">test.spec.ts</span>
-                                    <br>The test file containing the actual tests
-                                    <div class="code">
-                                <pre>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="underline">test.spec.ts</span>
+                                                <br>The test file containing the actual tests
+                                                <div class="code">
+                                                    <pre>
 test('ApplicationName: Page renders is less than 1 minute', async (&#123; testPage, page &#125;) => &#123;
     // navigate to test page
     testPage.navigateTo();
@@ -213,18 +225,28 @@ test('ApplicationName: Page renders is less than 1 minute', async (&#123; testPa
     await expect(page).toHaveTitle("&lt;THE EXPECTED PAGE TITLE&gt;", &#123; timeout: 60000 &#125;);
 &#125;);
 </pre>
-                                    </div>
-                                </li>
-                            </ul>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </mat-expansion-panel>
                         </li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Paramaterization Examples</h4>
-                    <ul>
                         <li>
-                            <div class="code">
-                        <pre>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Parameterization</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>Parameterization is a way to run the same test with different data</li>
+                                    <li>It's a way to run the same test with different data</li>
+
+                                    <h4>Paramaterization Examples</h4>
+                                    <ul>
+                                        <li>
+
+                                            <div class="code">
+                                                <pre>
 // verify page titles
 for (const pageDefinition of testSettings.PAGE_DEFINITIONS) &#123;
     test(`ApplicationName: Page \"$&#123;pageDefinition.name&#x2775;\" has correct title`, async (&#123; page &#x2775;) => &#123;
@@ -234,11 +256,11 @@ for (const pageDefinition of testSettings.PAGE_DEFINITIONS) &#123;
     &#x2775;);
 &#x2775;
 </pre>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="code">
-                        <pre>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="code">
+                                                <pre>
 // verify we receive a status up/down in varying times 5, 10, 15 seconds
 for (const pageDefinition of testSettings.STATUS_PAGE_DEFINITIONS) &#123;
     for (const duration of testSettings.TEST_DURATIONS) &#123;
@@ -250,86 +272,194 @@ for (const pageDefinition of testSettings.STATUS_PAGE_DEFINITIONS) &#123;
     &#x2775;
 &#x2775;                                  
 </pre>
-                            </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </ul>
+                            </mat-expansion-panel>
                         </li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Other tidbits..</h3>
-                    <ul>
-                        <li>Finding elements (<a
-                                href="https://playwright.dev/docs/locators">https://playwright.dev/docs/locators</a>)
-                            <ul class="condensed">
-                                <li>By Test ID (data-testid=): <div class="code">await page.getByTestId('status');</div>
-                                </li>
-                                <li>By CSS: <div class="code">await page.locator('css=button');</div>
-                                </li>
-                                <li>By XPath: <div class="code">await page.locator('xpath=//button');</div>
-                                </li>
-                                <li>By ID: <div class="code">await page.locator("#YourId");</div>
-                                </li>
-                                <li>Custom element (&lt;cust-elem&gt;blah&lt;/cust-elem&gt;): <div class="code">
-                                        page.locator('cust-elem')
-                                    </div>
-                                </li>
-                                <li>Exact match: <div class="code">await
-                                        this.page.locator("mat-option").getByText(filterProduct, &#123;exact:
-                                        true&#125;).click();</div>
-                                </li>
-                            </ul>
                         <li>
-                            <dl>
-                                <dt>Triple the timeout (which is 30 seconds by default)</dt>
-                                <dd>Add this to the top of the test:<div class="code">test.slow();</div>
-                                </dd>
-                                <dt>A &quot;sleep&quot;</dt>
-                                <dd>
-                                    <div class="code">
-                                        await page.waitForTimeout(3000);</div>
-                                </dd>
-                                <dt>Clicking on a button:/dt>
-                                <dd>await page.locator(`mat-option:has-text("&lt;TEXT TO FIND&gt;")`).click();</dd>
-                                <dt>Verify a table has zero records</dt>
-                                <dd>
-                                    <div class="code">
-                                <pre>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Finding Elements</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                Finding elements (<a
+                                    href="https://playwright.dev/docs/locators">https://playwright.dev/docs/locators</a>)
+                                <ul class="condensed">
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>By Test ID (data-testid=)</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <span class="code">await page.getByTestId('status');</span>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>By CSS</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <span class="code">await page.locator('css=button');</span>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>By XPath</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <span class="code">await page.locator('xpath=//button');</span>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>By ID</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <span class="code">await page.locator("#YourId");</span>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Custom element
+                                                    (&lt;cust-elem&gt;blah&lt;/cust-elem&gt;)</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <span class="code">page.locator('cust-elem')</span>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Exact match</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <span class="code">await
+                                                this.page.locator("mat-option").getByText(filterProduct, &#123;exact:
+                                                true&#125;).click();</span>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Verify a table has zero records</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <dl>
+                                                <dt>Verify a table has zero records</dt>
+                                                <dd>
+                                                    <div class="code">
+                                                        <pre>
 // verify no results
 expect(await testPage.page.locator('tr').count()).toBe(2); // header and no results
 
 // verify no results message
 expect(await testPage.page.locator('tr').nth(1).locator('td').first().textContent()).toBe('No data found.');
 </pre>
-                                    </div>
-                                </dd>
-                                <dt>Selecting from options list (Option 1 - One-line)</dt>
-                                <dd>
-                                    <div class="code">
-                                <pre>
-await this.filterByProduct.selectOption(&#123; label: filterProduct &#125;);
-</pre>
-                                    </div>
-                                </dd>
-                                <dt>Selecting from options list (Option 2 - Two-lines, maybe more readable, required
-                                    for mat-select)</dt>
-                                <dd>
-                                    <div class="code">
-                                <pre>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Selecting from options list</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <dl>
+                                                <dt>Selecting from options list </dt>
+                                                <dd>
+                                                    <div class="code">
+                                                        <pre>
 await testPage.selectCustomerButton.click();
 await page.locator(`mat-option:has-text("&lt;TEXT TO FIND&gt;")`).click();
 </pre>
-                                    </div>
-                                </dd>
-                            </dl>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Get columns names by &lt;th&gt;</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <dl>
+                                                <dt>Get all columns names by &lt;th&gt;</dt>
+                                                <dd>
+                                                    <span class="code">const columnNames = (await
+                                                        adminEntitlementDetailsPage.page.locator('th').allInnerTexts()).map(x
+                                                        =>
+                                                        x.trim());</span>
+                                                </dd>
+                                            </dl>
+                                        </mat-expansion-panel>
+                                    </li>
+                                </ul>
+                            </mat-expansion-panel>
                         </li>
-                        <li>Get all columns names by &lt;th&gt;:
-                            <div class="code">
-                                const columnNames = (await
-                                adminEntitlementDetailsPage.page.locator('th').allInnerTexts()).map(x => x.trim());
-                            </div>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Increase Timeout</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <dl>
+                                    <dt>Triple the timeout (which is 30 seconds by default)</dt>
+                                    <dd>Add this to the top of the test:<div class="code">test.slow();
+                                        </div>
+                                    </dd>
+                                    <dt>A &quot;sleep&quot;</dt>
+                                    <dd>
+                                        <div class="code">
+                                            await page.waitForTimeout(3000);</div>
+                                    </dd>
+                                </dl>
+                            </mat-expansion-panel>
                         </li>
-                        <li>Wait for Splash:
-                            <div class="code">
-                        <pre>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Debugging</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>Use the &quot;--debug&quot; flag to pause the test at a certain point</li>
+                                    <li>Use the &quot;--headed&quot; flag to run the test in a headed browser</li>
+                                    <li>Use the &quot;--inspect&quot; flag to debug in the browser</li>
+                                    <li>Use the &quot;--repeat-each&quot; flag to repeat a test multiple times</li>
+                                    <li>Use the &quot;--repeat-all&quot; flag to repeat all tests multiple times</li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Click on an element</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <dl>
+                                    <dt>Clicking on a button:/dt>
+                                    <dd>await page.locator(`mat-option:has-text("&lt;TEXT TO
+                                        FIND&gt;")`).click();</dd>
+                                </dl>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Get all rows in a table</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <dl>
+                                    <dt>Get all rows in a table</dt>
+                                    <dd>
+                                        <span class="code">const rows = await
+                                            adminEntitlementDetailsPage.page.locator('tr').elements();</span>
+                                    </dd>
+                                </dl>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Wait for splash</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <div class="code">
+                                    <pre>
 async WaitForSplash() &#123; 
     await this.page.waitForTimeout(5000);
     let wait:boolean = true;
@@ -349,18 +479,46 @@ async WaitForSplash() &#123;
         &#125;
     &#125;    
 &#125;  
-                            </pre>
-                            </div>
+                        </pre>
+                                </div>
+                            </mat-expansion-panel>
                         </li>
                         <li>
-                            <h4>Assertion example</h4>
-                            <div class="code">await expect(page).toHaveTitle(portalPages.defaultPageTitle);</div>
-                        </li>
-                        <li></li>
-                        <li>
-                            <h4>An assert, but continue with the test on failure.</h4>
-                            <div class="code">await
-                                expect.soft(page.getByTestId('status')).toHaveText('Success');</div>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Assertion examples</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>
+                                        <span class="code">await
+                                            expect(page).toHaveTitle(portalPages.defaultPageTitle);</span>
+                                    </li>
+                                    <li>
+                                        <span class="code">await
+                                            expect(page).toHaveText('No data found.');</span>
+                                    </li>
+                                    <li>
+                                        <span class="code">await
+                                            expect(page.locator('tr').count()).toBe(2);</span>
+                                    </li>
+                                    <li>
+                                        <span class="code">await
+                                            expect(page.locator('tr').nth(1).locator('td').first().textContent()).toBe('No
+                                            data found.');</span>
+                                    </li>
+                                    <li>
+                                        <span class="code">await
+                                            expect(page.locator('tr').nth(1).locator('td').first().textContent()).toContain('No
+                                            data found.');</span>
+                                    </li>
+                                    <li>
+                                        <h4>An assert, but continue with the test on failure.</h4>
+                                        <span class="code">await
+                                            expect<span
+                                                class="importantish">.soft</span>(page.getByTestId('status')).toHaveText('Success');</span>
+                                    </li>
+                                </ul>
+                            </mat-expansion-panel>
                         </li>
                     </ul>
                 </div>

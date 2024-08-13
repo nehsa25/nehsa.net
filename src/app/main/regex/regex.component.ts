@@ -11,6 +11,6 @@ import { UserService } from '../../services/user.service';
   styleUrl: './regex.component.scss'
 })
 export class RegexComponent {
-  constructor(public userService: UserService) { }
+  constructor(public userService: UserService) { this.userService.page = "regex"; }
 
 }

@@ -12,6 +12,6 @@ import { MatExpansionModule } from '@angular/material/expansion';
   styleUrl: './security.component.scss'
 })
 export class SecurityComponent {
-  constructor(public userService: UserService) { }
+  constructor(public userService: UserService) { this.userService.page = "security"; }
 
 }

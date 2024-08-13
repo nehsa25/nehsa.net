@@ -14,6 +14,6 @@ import { MatExpansionModule } from '@angular/material/expansion';
   styleUrl: './testing.component.scss'
 })
 export class TestingComponent {
-  constructor(public userService: UserService) { }
+  constructor(public userService: UserService) { this.userService.page = "testing"; }
 
 }

@@ -244,6 +244,15 @@ h6 {
     color: #222;
 }
 
+// card
+.angel .mat-mdc-card-title {
+    color: var(--theme-light-primary-color) !important;
+}
+
+.angel .mat-mdc-card-subtitle {
+    color: var(--theme-light-primary-color) !important;
+}
+
 $light-primary: (
     "primary": #9E2200,
     "link": "#7F7F7F",

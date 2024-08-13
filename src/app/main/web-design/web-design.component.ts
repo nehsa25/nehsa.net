@@ -17,7 +17,7 @@ import { UserService } from '../../services/user.service';
 export class WebDesignComponent {
   playState = "paused";
 
-  constructor(public userService: UserService) { }
+  constructor(public userService: UserService) { this.userService.page = "webdesign"; }
 
   ngOnInit() { }
 

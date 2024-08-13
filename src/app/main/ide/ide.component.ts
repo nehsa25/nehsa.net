@@ -11,5 +11,5 @@ import { UserService } from '../../services/user.service';
   styleUrl: './ide.component.scss'
 })
 export class IdeComponent {
-  constructor(public userService: UserService) { }
+  constructor(public userService: UserService) { this.userService.page = "ide"; }
 }

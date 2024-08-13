@@ -4,11 +4,12 @@ import { CommentComponent } from '../../shared-components/comment/comment.compon
 import { MatExpansionModule } from '@angular/material/expansion';
 import { UserService } from '../../services/user.service';
 import { MatIcon } from '@angular/material/icon';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-angular',
   standalone: true,
-  imports: [MatCardModule, CommentComponent, MatExpansionModule, MatIcon],
+  imports: [MatCardModule, CommentComponent, MatExpansionModule, MatIcon, RouterLink],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './angular.component.html',
   styleUrl: './angular.component.scss'

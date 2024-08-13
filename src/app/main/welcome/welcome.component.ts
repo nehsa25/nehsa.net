@@ -13,6 +13,7 @@ declare var anime: any;
 })
 export class WelcomeComponent {
   constructor(public userService: UserService) {
+    this.userService.page = "welcome / home";
 
   }
 

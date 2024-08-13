@@ -203,6 +203,17 @@ code {
     background-color: var(--theme-light-button-hover-background-color) !important;
     color: #222;
 }
+
+// card
+.vampire .mat-mdc-card-title {
+    color: var(--theme-dark-primary-color) !important;
+}
+
+.vampire .mat-mdc-card-subtitle {
+    color: var(--theme-dark-primary-color) !important;
+}
+
+
 $dark-primary: (
     "primary": pink,
     "link": "#7F7F7F",

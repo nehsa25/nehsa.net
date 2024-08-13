@@ -15,5 +15,7 @@ import { MatIcon } from '@angular/material/icon';
   styleUrl: './well-life.component.scss'
 })
 export class WellLifeComponent {
-  constructor(public userService: UserService) { }
+  constructor(public userService: UserService) {
+    this.userService.page = "well-life";
+   }
 }

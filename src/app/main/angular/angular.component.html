@@ -1,85 +1,91 @@
-<div>
-    <mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
-        <mat-card-header>
-            <mat-card-title>
-                <h1 data-testid="header-title">Angular / Material</h1>
-            </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <div class="commentgrid">
-                <div class="topics">
-                    <div class="topics">
-                        <ul>
-                            <li>
-                                <mat-expansion-panel expanded>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Tips..</mat-panel-title>
-                                    </mat-expansion-panel-header>
-                                    <ul>
-                                        <li>
-                                            Working with HTML elements:
-                                            <dl>
-                                                <dt>Do something on an event. e.g. (click)="clickfunc()"</dt>
-                                                <dd>()</dd>
-                                                <dt>Right-hand side of the assignment is a dynamic expression.</dt>
-                                                <dd>[]</dd>
-                                                <dt>Associate with a variable</dt>
-                                                <dd>[ngModel]="variable"</dd>
-                                                <dt>Display a variable using interpolation</dt>
-                                                <dd>
-                                                    <p [innerHtml]="'<span>{{variable to display}}</span>'"></p>
-                                                </dd>
-                                                <dt>Embed a "data-testid" attribute in element after build</dt>
-                                                <dd>[attr.data-testid]="'edit-frozen-' + i"</dd>
-                                            </dl>
-                                        </li>
-                                        <li>
-                                            <mat-expansion-panel>
-                                                <mat-expansion-panel-header>
-                                                    <mat-panel-title>Case Matters!</mat-panel-title>
-                                                </mat-expansion-panel-header>
-                                                <mat-icon class="good">check</mat-icon><span class="code">&lt;a
-                                                    routerLink="/python"&gt;Python&lt;/a&gt;</span><br><br>
-                                                <mat-icon class="bad">close</mat-icon><span class="code">&lt;a
-                                                    routerlink="/python"&gt;Python&lt;/a&gt;</span>
-                                            </mat-expansion-panel>
-                                        </li>
-                                        <li>
-                                            <mat-expansion-panel>
-                                                <mat-expansion-panel-header>
-                                                    <mat-panel-title>Services should be singletons</mat-panel-title>
-                                                </mat-expansion-panel-header>
-                                                Services need to be singletons. If you have a userService, it should
-                                                only be in the "providers" in a single spot. Otherwise, you'll have
-                                                multiple instances of the same service which can cause issues.
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Angular / Material</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                <div>Related Content:
+                    <ul class="condensed">
+                        <li><a routerLink="/playwright">Playwright</a></li>
+                        <li><a routerLink="/webdesign">Web Design</a></li>
+                        <li><a routerLink="/typescript">TypeScript</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <ul>
+                        <li>
+                            <mat-expansion-panel expanded>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Tips..</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>
+                                        Working with HTML elements:
+                                        <dl>
+                                            <dt>Do something on an event. e.g. (click)="clickfunc()"</dt>
+                                            <dd>()</dd>
+                                            <dt>Right-hand side of the assignment is a dynamic expression.</dt>
+                                            <dd>[]</dd>
+                                            <dt>Associate with a variable</dt>
+                                            <dd>[ngModel]="variable"</dd>
+                                            <dt>Display a variable using interpolation</dt>
+                                            <dd>
+                                                <p [innerHtml]="'<span>{{variable to display}}</span>'"></p>
+                                            </dd>
+                                            <dt>Embed a "data-testid" attribute in element after build</dt>
+                                            <dd>[attr.data-testid]="'edit-frozen-' + i"</dd>
+                                        </dl>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Case Matters!</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <mat-icon class="good">check</mat-icon><span class="code">&lt;a
+                                                routerLink="/python"&gt;Python&lt;/a&gt;</span><br><br>
+                                            <mat-icon class="bad">close</mat-icon><span class="code">&lt;a
+                                                routerlink="/python"&gt;Python&lt;/a&gt;</span>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Services should be singletons</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            Services need to be singletons. If you have a userService, it should
+                                            only be in the "providers" in a single spot. Otherwise, you'll have
+                                            multiple instances of the same service which can cause issues.
 
-                                                <br><br>
-                                                Jesse to add an example here forthwith.
-                                            </mat-expansion-panel>
-                                        </li>
-                                        <li>
-                                            <mat-expansion-panel>
-                                                <mat-expansion-panel-header>
-                                                    <mat-panel-title>Limit Logic</mat-panel-title>
-                                                </mat-expansion-panel-header>
+                                            <br><br>
+                                            Jesse to add an example here forthwith.
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Limit Logic</mat-panel-title>
+                                            </mat-expansion-panel-header>
 
-                                                Limit logic in a component to only that required for the view. All other
-                                                logic should be
-                                                delegated to services. Services I tend to create:
-                                                <ul class="condensed">
-                                                    <li>http.service.ts - For all HTTP requests<br><br>
-                                                        <span class="file">http.service.ts</span>
-                                                        <div class="code">
-                                                            <pre>
+                                            Limit logic in a component to only that required for the view. All other
+                                            logic should be
+                                            delegated to services. Services I tend to create:
+                                            <ul class="condensed">
+                                                <li>http.service.ts - For all HTTP requests<br><br>
+                                                    <span class="file">http.service.ts</span>
+                                                    <div class="code">
+                                                        <pre>
     /** Returns the quote */  
     getQuote() &#123;
         return this.http.get(this.quoteUrl);
     &#125;
     </pre>
-                                                        </div><br>
-                                                        <span class="file">supercomponent.ts</span>
-                                                        <div class="code">
-                                                            <pre>
+                                                    </div><br>
+                                                    <span class="file">supercomponent.ts</span>
+                                                    <div class="code">
+                                                        <pre>
     constructor()
     &#123;
         var getQuotes = this.httpClient.getQuote();
@@ -95,37 +101,37 @@
         &#125;);
     &#125;
     </pre>
-                                                        </div>
-                                                    </li>
-                                                    <li>user.service.ts - For all user-related functions
-                                                    </li>
-                                                    <li>snack.service.ts - Providing messaging to users
-                                                    </li>
-                                                    <li>splash.service.ts - Displaying splash screen on longer loading
-                                                        pages/activities
-                                                    </li>
-                                                </ul>
-                                            </mat-expansion-panel>
-                                        </li>
-                                        <li>
-                                            <mat-expansion-panel>
-                                                <mat-expansion-panel-header>
-                                                    <mat-panel-title>Control which CSS classes are applied via
-                                                        TypeScript</mat-panel-title>
-                                                    <mat-panel-description>
-                                                    </mat-panel-description>
-                                                </mat-expansion-panel-header>
-                                                <ul class="condensed">
-                                                    <li>HTML
-                                                        <div class="code">
-                                                            <pre>
+                                                    </div>
+                                                </li>
+                                                <li>user.service.ts - For all user-related functions
+                                                </li>
+                                                <li>snack.service.ts - Providing messaging to users
+                                                </li>
+                                                <li>splash.service.ts - Displaying splash screen on longer loading
+                                                    pages/activities
+                                                </li>
+                                            </ul>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Control which CSS classes are applied via
+                                                    TypeScript</mat-panel-title>
+                                                <mat-panel-description>
+                                                </mat-panel-description>
+                                            </mat-expansion-panel-header>
+                                            <ul class="condensed">
+                                                <li>HTML
+                                                    <div class="code">
+                                                        <pre>
 &lt;div [class.bgblue]="showBlueBg" [class.main]="!showBlueBg"&gt;Yippee!&lt;/div&gt;
         </pre>
-                                                        </div>
-                                                    </li>
-                                                    <li>CSS
-                                                        <div class="code">
-                                                            <pre>
+                                                    </div>
+                                                </li>
+                                                <li>CSS
+                                                    <div class="code">
+                                                        <pre>
 .bgblue &#123;
     background-color: blue;
 &#125;
@@ -134,118 +140,118 @@
     background-color: var(--theme-splash-backround-color);
 &#125;                                        
         </pre>
-                                                        </div>
-                                                    </li>
-                                                    <li>TypeScript
-                                                        <div class="code">
-                                                            <pre>
+                                                    </div>
+                                                </li>
+                                                <li>TypeScript
+                                                    <div class="code">
+                                                        <pre>
 public showBlueBg: boolean = false;
                                             </pre>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </mat-expansion-panel>
-                                        </li>
-                                        <li>
-                                            <mat-expansion-panel>
-                                                <mat-expansion-panel-header>
-                                                    <mat-panel-title>Passing data between components</mat-panel-title>
-                                                    <mat-panel-description>
-                                                    </mat-panel-description>
-                                                </mat-expansion-panel-header>
-                                                Passing data between components in Angular is easy:
-                                                <ul class="condensed">
-                                                    <li>Create two components:
-                                                        <div class="code">
-                                                            <pre>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Passing data between components</mat-panel-title>
+                                                <mat-panel-description>
+                                                </mat-panel-description>
+                                            </mat-expansion-panel-header>
+                                            Passing data between components in Angular is easy:
+                                            <ul class="condensed">
+                                                <li>Create two components:
+                                                    <div class="code">
+                                                        <pre>
                                                                     ng g c component1
                                                                     ng g c component2
                                                                 </pre>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        Set a parameter in component1:
-                                                        name = "";
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    Set a parameter in component1:
+                                                    name = "";
 
-                                                    </li>
-                                                </ul>
-                                            </mat-expansion-panel>
-                                        </li>
-                                        <li>
-                                            <mat-expansion-panel>
-                                                <mat-expansion-panel-header>
-                                                    <mat-panel-title>Troubleshooting</mat-panel-title>
-                                                </mat-expansion-panel-header>
-                                                <ul>
-                                                    <li>
-                                                        <span class="problem">Error: "Can't bind to 'ngModel' since it
-                                                            isn't a known property of 'input'"</span>
-                                                        <span class="solution">
-                                                            <div class="code">
-                                                                <pre>
+                                                </li>
+                                            </ul>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Troubleshooting</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <ul>
+                                                <li>
+                                                    <span class="problem">Error: "Can't bind to 'ngModel' since it
+                                                        isn't a known property of 'input'"</span>
+                                                    <span class="solution">
+                                                        <div class="code">
+                                                            <pre>
 Import
 FormsModule
 </pre>
-                                                            </div>
-                                                        </span>
-                                                    </li>
-                                                </ul>
-                                            </mat-expansion-panel>
-                                        </li>
+                                                        </div>
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </mat-expansion-panel>
+                                    </li>
+                                </ul>
+                                <div>
+                                    <h3>Important Files</h3>
+                                    <ul class="condensed">
+                                        <li>angular.json - Application settings.</li>
+                                        <li>packages.json - NPM packages to install for application.</li>
                                     </ul>
-                                    <div>
-                                        <h3>Important Files</h3>
-                                        <ul class="condensed">
-                                            <li>angular.json - Application settings.</li>
-                                            <li>packages.json - NPM packages to install for application.</li>
-                                        </ul>
-                                    </div>
+                                </div>
 
-                                    <div>
-                                        <h3>Useful Commands</h3>
-                                        <ul class="condensed">
-                                            <li><span class="code">npm install</span> - Install all files necessary to
-                                                run the Angular
-                                                project.</li>
-                                            <li><span class="code">ng serve -o</span> - Runs app locally. The -o opens
-                                                it in your
-                                                browser.
-                                            </li>
-                                            <li><span class="code">ng build --configuration
-                                                    development/production</span> - Build for
-                                                deployments. Output in /dist folder.</li>
-                                            <li><span class="code">ng add &#64;angular/material</span> - Installs
-                                                Material. This method
-                                                is
-                                                preferred for npm install as it performs additional initialization.</li>
-                                        </ul>
-                                    </div>
+                                <div>
+                                    <h3>Useful Commands</h3>
+                                    <ul class="condensed">
+                                        <li><span class="code">npm install</span> - Install all files necessary to
+                                            run the Angular
+                                            project.</li>
+                                        <li><span class="code">ng serve -o</span> - Runs app locally. The -o opens
+                                            it in your
+                                            browser.
+                                        </li>
+                                        <li><span class="code">ng build --configuration
+                                                development/production</span> - Build for
+                                            deployments. Output in /dist folder.</li>
+                                        <li><span class="code">ng add &#64;angular/material</span> - Installs
+                                            Material. This method
+                                            is
+                                            preferred for npm install as it performs additional initialization.</li>
+                                    </ul>
+                                </div>
 
-                                    <div>
-                                        <h3>Useful Links</h3>
-                                        <ul class="condensed">
-                                            <li>Angular - https://angular.io/</li>
-                                            <li>Material - https://material.angular.io/</li>
-                                            <li>Fonts - https://fonts.google.com/icons</li>
-                                        </ul>
-                                    </div>
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Working with HTTP</mat-panel-title>
-                                        <mat-panel-description>
-                                        </mat-panel-description>
-                                    </mat-expansion-panel-header>
-                                    <h3>Sending/Receiving HTTP Data</h3>
-                                    <div>
-                                        I typically structure my projects like this:
-                                        <ul class="condensed">
-                                            <li>HTTP Service (<span class=file>app/services/http.service.ts</span>)
-                                                <div class="code">
-                                                    <span class="comment">/** Returns the quote */</span>
-                                                    <pre>
+                                <div>
+                                    <h3>Useful Links</h3>
+                                    <ul class="condensed">
+                                        <li>Angular - https://angular.io/</li>
+                                        <li>Material - https://material.angular.io/</li>
+                                        <li>Fonts - https://fonts.google.com/icons</li>
+                                    </ul>
+                                </div>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Working with HTTP</mat-panel-title>
+                                    <mat-panel-description>
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <h3>Sending/Receiving HTTP Data</h3>
+                                <div>
+                                    I typically structure my projects like this:
+                                    <ul class="condensed">
+                                        <li>HTTP Service (<span class=file>app/services/http.service.ts</span>)
+                                            <div class="code">
+                                                <span class="comment">/** Returns the quote */</span>
+                                                <pre>
 &#64;Injectable()
 export class HttpService &#123;
 httpOptions = &#123;
@@ -271,24 +277,24 @@ getQuote() &#123;
 &#125;
 &#125;
                                         </pre>
-                                                </div>
-                                            </li>
-                                            <li>type (<span class=file>app/types/http.service.ts</span>)
-                                                <div class="code">
-                                                    <pre>
+                                            </div>
+                                        </li>
+                                        <li>type (<span class=file>app/types/http.service.ts</span>)
+                                            <div class="code">
+                                                <pre>
 export class AddUserForm &#123;
 email: string = "";
 username: string = "";
 password: string = "";
 &#125;
                                     </pre>
-                                                </div>
-                                            </li>
-                                            <li>Component
-                                                <ul class="condensed">
-                                                    <li><span class=file>component.ts</span>
-                                                        <div class="code">
-                                                            <pre>
+                                            </div>
+                                        </li>
+                                        <li>Component
+                                            <ul class="condensed">
+                                                <li><span class=file>component.ts</span>
+                                                    <div class="code">
+                                                        <pre>
 &#64;Component(&#123;
 selector: 'app-root',
 standalone: true,
@@ -309,21 +315,21 @@ ngOnInit() &#123;
 &#125;);
 &#125;                                         
                                             </pre>
-                                                        </div>
-                                                    </li>
-                                                    <li>component.html
-                                                        <div class="code">
-                                                            <pre>
+                                                    </div>
+                                                </li>
+                                                <li>component.html
+                                                    <div class="code">
+                                                        <pre>
                 &lt;div&gt;&lt;p&gt;&#123; &#123;quote&#125; &#125;&lt;/p&gt;&lt;/div&gt; (<span class="comment">Remove spaces between &#123;&#125;</span>)
                                                                 </pre>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                If you need to send await multiple requests:
-                                                <div class="code">
-                                                    <pre>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            If you need to send await multiple requests:
+                                            <div class="code">
+                                                <pre>
 export class SomeComponent &#123;
 item1 = "";
 item2 = "";
@@ -347,29 +353,29 @@ ngOnInit() &#123;
 &#125;
 &#125;                                                           
                                     </pre>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Theming</mat-panel-title>
-                                        <mat-panel-description>
-                                        </mat-panel-description>
-                                    </mat-expansion-panel-header>
-                                    <div>
-                                        <ol>
-                                            <li>Go to <a href="http://mcg.mbitson.com/">Material Design Pallette
-                                                    Generate</a>
-                                                <ul class="condensed">
-                                                    <li>Generate 3 schemes: primary, accent, warn</li>
-                                                    <li>Select Copy Code</li>
-                                                    <li>Add them to style.scss:
-                                                        <div class="code">
-                                                            <pre>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Theming</mat-panel-title>
+                                    <mat-panel-description>
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <div>
+                                    <ol>
+                                        <li>Go to <a href="http://mcg.mbitson.com/">Material Design Pallette
+                                                Generate</a>
+                                            <ul class="condensed">
+                                                <li>Generate 3 schemes: primary, accent, warn</li>
+                                                <li>Select Copy Code</li>
+                                                <li>Add them to style.scss:
+                                                    <div class="code">
+                                                        <pre>
 $nehsanet-primary: (
 50 : #fbf4fb,
 100 : #f5e3f5,
@@ -481,80 +487,80 @@ $app-theme: mat.define-dark-theme((color: (primary: $primary,
 
 &#64;include mat.all-component-themes($app-theme);
                                                 </pre>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ol>
-                                    </div>
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Dynamic CSS (ngClass and whatnot)</mat-panel-title>
-                                        <mat-panel-description>
-                                        </mat-panel-description>
-                                    </mat-expansion-panel-header>
-                                    A few options allow for changes either the class or the style of an element. Here
-                                    are a a few I use:
-                                    <ul>
-                                        <li>ngClass - Add or remove a class based on a condition
-                                            <div class="code">
-                                                <pre>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Dynamic CSS (ngClass and whatnot)</mat-panel-title>
+                                    <mat-panel-description>
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                A few options allow for changes either the class or the style of an element. Here
+                                are a a few I use:
+                                <ul>
+                                    <li>ngClass - Add or remove a class based on a condition
+                                        <div class="code">
+                                            <pre>
  &lt;div [class.bringmetothelight]="userService.appIsDark()" [class.entermeontodarkness]="!userService.appIsDark()"&gt;KAW POW!&lt;/div&gt;
 </pre>
-                                            </div>
-                                        </li>
-                                        <li>ngStyle - Add or remove a style based on a condition
-                                            <div class="code">
-                                                <pre>
+                                        </div>
+                                    </li>
+                                    <li>ngStyle - Add or remove a style based on a condition
+                                        <div class="code">
+                                            <pre>
 &lt;div [ngStyle]="&#123;'background-color': userService.appIsDark() ? 'black' : 'white'&#125;"&gt;KAW POW!&lt;/div&gt;
 </pre>
-                                            </div>
-                                        </li>
-                                    </ul>
+                                        </div>
+                                    </li>
+                                </ul>
 
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Table select-columns feature</mat-panel-title>
-                                        <mat-panel-description>
-                                        </mat-panel-description>
-                                    </mat-expansion-panel-header>
-                                    <h3>Table select-columns feature: Alter visiblity, stick/freeze columns, change
-                                        order
-                                    </h3>
-                                    <ul class="condensed">
-                                        <li>Todo: Add the example of where I did this!
-                                        </li>
-                                    </ul>
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Listen for child events</mat-panel-title>
-                                        <mat-panel-description>
-                                        </mat-panel-description>
-                                    </mat-expansion-panel-header>
-                                    <ul class="condensed">
-                                        <li>Add a type for the event transmission (e.g. SplashMessage in a new file
-                                            <span class=file>splash-message.ts</span>)
-                                            <div class="code">
-                                                <pre>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Table select-columns feature</mat-panel-title>
+                                    <mat-panel-description>
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <h3>Table select-columns feature: Alter visiblity, stick/freeze columns, change
+                                    order
+                                </h3>
+                                <ul class="condensed">
+                                    <li>Todo: Add the example of where I did this!
+                                    </li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Listen for child events</mat-panel-title>
+                                    <mat-panel-description>
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <ul class="condensed">
+                                    <li>Add a type for the event transmission (e.g. SplashMessage in a new file
+                                        <span class=file>splash-message.ts</span>)
+                                        <div class="code">
+                                            <pre>
             export class SplashMessage &#123;
                 showSplash: boolean = false;
                 duration: number = 8;
             &#125;
                                             </pre>
-                                            </div>
-                                        </li>
-                                        <li>Add a service called <span class=file>splash.service.ts</span>
-                                            <div class="code">
-                                                <pre>
+                                        </div>
+                                    </li>
+                                    <li>Add a service called <span class=file>splash.service.ts</span>
+                                        <div class="code">
+                                            <pre>
             import &#123; Injectable &#125; from '&#64;angular/core';
             import &#123; Observable, Subject &#125; from 'rxjs';
             import &#123; SplashMessage &#125; from '../types/splash-message';
@@ -580,11 +586,11 @@ $app-theme: mat.define-dark-theme((color: (primary: $primary,
                 &#125;
             &#125;
                                             </pre>
-                                            </div>
-                                        </li>
-                                        <li>Add event observer for service to child component
-                                            <div class="code">
-                                                <pre>
+                                        </div>
+                                    </li>
+                                    <li>Add event observer for service to child component
+                                        <div class="code">
+                                            <pre>
             constructor(
                 private splash: SplashService) &#123; &#125;
             
@@ -596,41 +602,41 @@ $app-theme: mat.define-dark-theme((color: (primary: $primary,
                 &#125;);
             &#125;
                                             </pre>
-                                            </div>
-                                        </li>
-                                        <li>Use it somewhere:
-                                            <div class="code">
-                                                <pre>
+                                        </div>
+                                    </li>
+                                    <li>Use it somewhere:
+                                        <div class="code">
+                                            <pre>
             &#64;&lt;app-splash *ngIf="showSplash"&gt;&lt;/app-splash&gt;
                                             </pre>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>reCAPTCHA</mat-panel-title>
-                                        <mat-panel-description>Implement a reCAPTCHA Checkbox <img
-                                                src="assets/images/recaptcha.png" alt="reCAPTCHA" />
-                                        </mat-panel-description>
-                                    </mat-expansion-panel-header>
-                                    <ul class="condensed">
-                                        <li>Sign up for a Recapcha account at https://www.google.com/recaptcha/about/
-                                        </li>
-                                        <li>Create new project
-                                            <ul class="condensed">
-                                                <li>Check the "Use a checkbox" option</li>
-                                                <li>Save your key information</li>
-                                            </ul>
-                                        </li>
-                                        <li>Install reCAPTCHA packages
-                                            <div class="code">npm i ng-recaptcha --save</div>
-                                        </li>
-                                        <li>Add resolved function in your component:
-                                            <div class="code">
-                                                <pre>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>reCAPTCHA</mat-panel-title>
+                                    <mat-panel-description>Implement a reCAPTCHA Checkbox <img
+                                            src="assets/images/recaptcha.png" alt="reCAPTCHA" />
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <ul class="condensed">
+                                    <li>Sign up for a Recapcha account at https://www.google.com/recaptcha/about/
+                                    </li>
+                                    <li>Create new project
+                                        <ul class="condensed">
+                                            <li>Check the "Use a checkbox" option</li>
+                                            <li>Save your key information</li>
+                                        </ul>
+                                    </li>
+                                    <li>Install reCAPTCHA packages
+                                        <div class="code">npm i ng-recaptcha --save</div>
+                                    </li>
+                                    <li>Add resolved function in your component:
+                                        <div class="code">
+                                            <pre>
             resolved(captchaResponse: string | null) &#123;
                 if (captchaResponse != null) &#123;
                     this.captcha = captchaResponse;
@@ -638,12 +644,12 @@ $app-theme: mat.define-dark-theme((color: (primary: $primary,
                 &#125;
             &#125;
                                     </pre>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            Add reCAPTCHA to your component form:
-                                            <div class="code">
-                                                <pre>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        Add reCAPTCHA to your component form:
+                                        <div class="code">
+                                            <pre>
     &lt;div [hidden]="captcha"&gt;
         &lt;p&gt;Confirm you're human please!&lt;/p&gt;
             &lt;re-captcha (resolved)="resolved($event)" siteKey="&lt;YOURKEY&gt;"&gt;&lt;/re-captcha&gt;
@@ -651,29 +657,29 @@ $app-theme: mat.define-dark-theme((color: (primary: $primary,
     &lt;/div&gt;
     &lt;button type="submit" *ngIf="captcha" mat-flat-button&gt;Submit&lt;/button&gt;
                                     </pre>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div>
-                                        <h3>If all went well:</h3>
-                                        <img src="assets/images/recaptcha.png" alt="reCAPTCHA" />
-                                    </div>
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Fullscreen mode</mat-panel-title>
-                                        <mat-panel-description>Enables full screen mode in the browser + issues events
-                                            to control what's shown on page<br>
-                                            <img src="assets/images/fullscreen.png"
-                                                alt="A screenshot of the fullscreen button in mud" />
-                                        </mat-panel-description>
-                                    </mat-expansion-panel-header>
-                                    <ul class="condensed">
-                                        <li>Update <span class="file">app.component.ts</span>
-                                            <div class="code">
-                                                <pre>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div>
+                                    <h3>If all went well:</h3>
+                                    <img src="assets/images/recaptcha.png" alt="reCAPTCHA" />
+                                </div>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Fullscreen mode</mat-panel-title>
+                                    <mat-panel-description>Enables full screen mode in the browser + issues events
+                                        to control what's shown on page<br>
+                                        <img src="assets/images/fullscreen.png"
+                                            alt="A screenshot of the fullscreen button in mud" />
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <ul class="condensed">
+                                    <li>Update <span class="file">app.component.ts</span>
+                                        <div class="code">
+                                            <pre>
         fullScreen: boolean = false;
         isFullScreenEvent = new Subject&lt;boolean&gt;();
         ...
@@ -704,12 +710,12 @@ $app-theme: mat.define-dark-theme((color: (primary: $primary,
             this.isFullScreenEvent.next(this.isFullScreen );
         &#125;
                                                 </pre>
-                                            </div>
-                                        </li>
-                                        <li>Mark any div to hide when in fullscreen with: *ngIf="!fullScreen"</li>
-                                        <li>Add feature in component:
-                                            <div class="code">
-                                                <pre>
+                                        </div>
+                                    </li>
+                                    <li>Mark any div to hide when in fullscreen with: *ngIf="!fullScreen"</li>
+                                    <li>Add feature in component:
+                                        <div class="code">
+                                            <pre>
         openFullScreen() &#123;
             var elem = document.documentElement;
             if (elem.requestFullscreen) &#123;
@@ -732,60 +738,60 @@ $app-theme: mat.define-dark-theme((color: (primary: $primary,
             &#125;
         &#125;
                                                 </pre>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Set focus on control after page load</mat-panel-title>
-                                    </mat-expansion-panel-header>
-                                    <ul>
-                                        <li>Add a sleep in ngOnInit with something like this:<br>
-                                            <span class="important">HTML:</span>
-                                            <div class="code">
-                                                <pre>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Set focus on control after page load</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>Add a sleep in ngOnInit with something like this:<br>
+                                        <span class="important">HTML:</span>
+                                        <div class="code">
+                                            <pre>
     &lt;input id="mud-input" type="text" /&gt;
 </pre>
-                                            </div>
-                                            <span class="important">Typescript:</span>
-                                            <div class="code">
-                                                <pre>
+                                        </div>
+                                        <span class="important">Typescript:</span>
+                                        <div class="code">
+                                            <pre>
     // set focus to mud input
     const mudInput = document.getElementById('mud-input')! as HTMLInputElement;
     setTimeout(() => &#123;
       this.refocus(mudInput);
     &#125;, 0);
 </pre>
-                                            </div>
-                                        </li>
-                                    </ul>
+                                        </div>
+                                    </li>
+                                </ul>
 
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Working with Forms</mat-panel-title>
+                                </mat-expansion-panel-header>
                                 <mat-expansion-panel>
                                     <mat-expansion-panel-header>
-                                        <mat-panel-title>Working with Forms</mat-panel-title>
+                                        <mat-panel-title>Form Validation</mat-panel-title>
+                                        <mat-panel-description>
+                                        </mat-panel-description>
                                     </mat-expansion-panel-header>
-                                    <mat-expansion-panel>
-                                        <mat-expansion-panel-header>
-                                            <mat-panel-title>Form Validation</mat-panel-title>
-                                            <mat-panel-description>
-                                            </mat-panel-description>
-                                        </mat-expansion-panel-header>
-                                        <ul>
-                                            <li>
-                                                <h4>Example form element:</h4>
-                                                <div class="code">&lt;input type="email" id="email"
-                                                    name="email"
-                                                    [formControl]="emailControl"&gt;</div>
-                                            <li>
-                                                <h4>Within TypeScript:</h4>
-                                                <div class="code">
-                                                    <pre>
+                                    <ul>
+                                        <li>
+                                            <h4>Example form element:</h4>
+                                            <div class="code">&lt;input type="email" id="email"
+                                                name="email"
+                                                [formControl]="emailControl"&gt;</div>
+                                        <li>
+                                            <h4>Within TypeScript:</h4>
+                                            <div class="code">
+                                                <pre>
 export class SignupComponent &#123;
 userDetails: FormGroup;
 emailControl = new FormControl('');
@@ -826,70 +832,69 @@ if (this.userDetails.invalid) return;
 &#125;
 &#125;
                                 </pre>
-                                                </div>
-                                            </li>
-                                            <li>Add submit button<br>
-                                                <div class="code">
-                                                    &lt;button (click)="submitForm()"
-                                                    [disabled]="this.userDetails.invalid"&gt;Submit&lt;/button&gt;
-                                                </div>
-                                            </li>
-                                        </ul>
-                                        <div>
-                                            <h4>Example</h4>
-                                            <img src="assets/images/signup.png" alt="Form Validation" />
-                                        </div>
-                                    </mat-expansion-panel>
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Listening for events on elements</mat-panel-title>
-                                    </mat-expansion-panel-header>
-                                    This list is not exhaustive, but here are events I typically have use to listen for:
-                                    <ul>
-                                        <li>(click)="function()" - Listen for a click event</li>
-                                        <li>(mouseover)="function()" - Listen for a mouseover event</li>
-                                        <li>(mouseout)="function()" - Listen for a mouseout event</li>
-                                        <li>(mouseenter)="function()" - Listen for a mouseenter event</li>
-                                        <li>(mouseleave)="function()" - Listen for a mouseleave event</li>
-                                        <li>(focus)="function()" - Listen for a focus event</li>
-                                        <li>(blur)="function()" - Listen for a blur event</li>
-                                        <li>(submit)="function()" - Listen for a submit event</li>
-                                        <li>(change)="function()" - Listen for a change event</li>
-                                        <li>(input)="function()" - Listen for an input event</li>
-                                        <li>(keydown)="function()" - Listen for a keydown event</li>
-                                        <li>(keyup)="function()" - Listen for a keyup event. <span class="comment">You
-                                                can also do neat things like: <span
-                                                    class="code">(keyup.enter)="function()"</span>!</span></li>
-                                        <li>(keypress)="function()" - Listen for a keypress event</li>
-                                        <li>(scroll)="function()" - Listen for a scroll event</li>
-                                        <li>(drag)="function()" - Listen for a drag event</li>
-                                        <li>(drop)="function()" - Listen for a drop event</li>
-                                        <li>(dragover)="function()" - Listen for a dragover event</li>
-                                        <li>(dragenter)="function()" - Listen for a dragenter event</li>
-                                        <li>(dragleave)="function()" - Listen for a dragleave event</li>
-                                        <li>(dragstart)="function()" - Listen for a dragstart event</li>
-                                        <li>(dragend)="function()" - Listen for a dragend event</li>
-                                        <li>(resize)="function()" - Listen for a resize event</li>
-                                        <li>(orientationchange)="function()" - Listen for an orientationchange event
+                                            </div>
                                         </li>
-                                        <li>(fullscreenchange)="function()" - Listen for a fullscreenchange event</li>
-                                        <li>(fullscreenerror)="function()" - Listen for a fullscreenerror event</li>
-                                        <li>(animationstart)="function()" - Listen for an animationstart event</li>
-                                        <li>(animationend)="function()" - Listen for an animationend event</li>
-                                        <li>(animationiteration)="function()" - Listen for an animationiteration
-                                            event/li>
-
+                                        <li>Add submit button<br>
+                                            <div class="code">
+                                                &lt;button (click)="submitForm()"
+                                                [disabled]="this.userDetails.invalid"&gt;Submit&lt;/button&gt;
+                                            </div>
+                                        </li>
                                     </ul>
+                                    <div>
+                                        <h4>Example</h4>
+                                        <img src="assets/images/signup.png" alt="Form Validation" />
+                                    </div>
                                 </mat-expansion-panel>
-                            </li>
-                        </ul>
-                    </div>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Listening for events on elements</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                This list is not exhaustive, but here are events I typically have use to listen for:
+                                <ul>
+                                    <li>(click)="function()" - Listen for a click event</li>
+                                    <li>(mouseover)="function()" - Listen for a mouseover event</li>
+                                    <li>(mouseout)="function()" - Listen for a mouseout event</li>
+                                    <li>(mouseenter)="function()" - Listen for a mouseenter event</li>
+                                    <li>(mouseleave)="function()" - Listen for a mouseleave event</li>
+                                    <li>(focus)="function()" - Listen for a focus event</li>
+                                    <li>(blur)="function()" - Listen for a blur event</li>
+                                    <li>(submit)="function()" - Listen for a submit event</li>
+                                    <li>(change)="function()" - Listen for a change event</li>
+                                    <li>(input)="function()" - Listen for an input event</li>
+                                    <li>(keydown)="function()" - Listen for a keydown event</li>
+                                    <li>(keyup)="function()" - Listen for a keyup event. <span class="comment">You
+                                            can also do neat things like: <span
+                                                class="code">(keyup.enter)="function()"</span>!</span></li>
+                                    <li>(keypress)="function()" - Listen for a keypress event</li>
+                                    <li>(scroll)="function()" - Listen for a scroll event</li>
+                                    <li>(drag)="function()" - Listen for a drag event</li>
+                                    <li>(drop)="function()" - Listen for a drop event</li>
+                                    <li>(dragover)="function()" - Listen for a dragover event</li>
+                                    <li>(dragenter)="function()" - Listen for a dragenter event</li>
+                                    <li>(dragleave)="function()" - Listen for a dragleave event</li>
+                                    <li>(dragstart)="function()" - Listen for a dragstart event</li>
+                                    <li>(dragend)="function()" - Listen for a dragend event</li>
+                                    <li>(resize)="function()" - Listen for a resize event</li>
+                                    <li>(orientationchange)="function()" - Listen for an orientationchange event
+                                    </li>
+                                    <li>(fullscreenchange)="function()" - Listen for a fullscreenchange event</li>
+                                    <li>(fullscreenerror)="function()" - Listen for a fullscreenerror event</li>
+                                    <li>(animationstart)="function()" - Listen for an animationstart event</li>
+                                    <li>(animationend)="function()" - Listen for an animationend event</li>
+                                    <li>(animationiteration)="function()" - Listen for an animationiteration
+                                        event/li>
+
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                    </ul>
                 </div>
-                <div><app-comment></app-comment></div>
             </div>
-        </mat-card-content>
-    </mat-card>
-</div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>
