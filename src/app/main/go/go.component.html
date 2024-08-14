@@ -216,7 +216,7 @@ Hello, World!
                     <li>
                         <mat-expansion-panel>
                             <mat-expansion-panel-header>
-                                <mat-panel-title>Compiling & Debugging</mat-panel-title>
+                                <mat-panel-title>Compiling, Debugging, and Releasing</mat-panel-title>
                             </mat-expansion-panel-header>
                             <ul>
                                 <li>From a terminal
@@ -225,12 +225,20 @@ Hello, World!
                                         <li>Run <code>go test</code> to test your code</li>
                                         <li>Run <code>go run</code> to run your code</li>
                                     </ul>
-                                <li>
                                 <li>From VSCode
                                     <ul>
                                         <li>Press F5 to run your code</li>
                                         <li>Press Ctrl+Shift+D to debug your code</li>
                                         <li>Press Ctrl+Shift+T to run your tests</li>
+                                    </ul>
+                                </li>
+                                <li>Release mode<br>
+                                    <ul>
+                                        <li>Docker: Update dockerfile (if using one) to set GIN_MODE prior to starting
+                                            the app: <code>ENV GIN_MODE=release</code></li>
+                                        <li>PowerShell: Run
+                                            <code>$env:GIN_MODE="release" && go build -o weather.exe . && .\weather.exe</code>
+                                        </li>
                                     </ul>
                                 </li>
                             </ul>
@@ -328,6 +336,9 @@ RUN go build -o main .
 # Expose port 8080
 EXPOSE 8080
 
+# Set release mode
+ENV GIN_MODE=release
+
 # Command to run when the container starts
 CMD ["./main"]
 </pre>
@@ -388,6 +399,28 @@ CMD ["./main"]
                                     </div>
                                 </li>
                             </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Troubleshooting</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <dl>
+                                <dt>Cannot find module providing package</dt>
+                                <dd>Run <code>go mod tidy</code> to clean up the module and remove unused
+                                    dependencies</dd>
+                                <dt>Running in "debug" mode. Switch to "release" mode in production.</dt>
+                                <dd>
+                                    <ul>
+                                        <li>Docker: Update dockerfile (if using one) to set GIN_MODE prior to starting
+                                            the app: <code>ENV GIN_MODE=release</code></li>
+                                        <li>PowerShell: Run
+                                            <code>$env:GIN_MODE="release" && go build -o weather.exe . && .\weather.exe</code>
+                                        </li>
+                                    </ul>
+                                </dd>
+                            </dl>
                         </mat-expansion-panel>
                     </li>
                 </ul>
