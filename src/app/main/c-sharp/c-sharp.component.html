@@ -762,18 +762,19 @@ private static int SaveChanges(EntitlementsContext db)
                         <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
-                                    <mat-panel-title>Host a API</mat-panel-title>
+                                    <mat-panel-title>API / Routes / Whatnot</mat-panel-title>
                                 </mat-expansion-panel-header>
-                                <div>
-                                    <h3>Create a new project web api within VS Code (using an API Controller, not
-                                        minimial API - see
-                                        below)</h3>
-                                    <ul>
-                                        <li>Within your project folder, create a "Controllers" folder
-                                            <ul>
-                                                <li>Add <span class=file>MainController.cs</span>
-                                                    <div class="code">
-                                                        <pre>
+                                <div class="topics">
+                                    <div>
+                                        <h3>Create a new project web api within VS Code (using an API Controller, not
+                                            minimial API - see
+                                            below)</h3>
+                                        <ul>
+                                            <li>Within your project folder, create a "Controllers" folder
+                                                <ul>
+                                                    <li>Add <span class=file>MainController.cs</span>
+                                                        <div class="code">
+                                                            <pre>
 namespace NehsaNet.Controllers
 &#123;
     [ApiController]
@@ -790,12 +791,12 @@ namespace NehsaNet.Controllers
     &#125;
 &#125;
                                                             </pre>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    Update <span class=file>Program.cs</span> to use it
-                                                    <div class="code">
-                                                        <pre>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        Update <span class=file>Program.cs</span> to use it
+                                                        <div class="code">
+                                                            <pre>
 internal class Program
 &#123;
     private static void Main(string[] args)
@@ -809,23 +810,85 @@ internal class Program
     &#125;
 &#125;
 </pre>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Minimial API Example</mat-panel-title>
-                                </mat-expansion-panel-header>
-                                this style seems to be a pattern nowadays. I don't like it. It's
-                                difficult to read and hard to modify.
-                                <div class="code">
-                                    <pre>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div>
+                                        <ul>
+                                            <li>
+                                                <mat-expansion-panel>
+                                                    <mat-expansion-panel-header>
+                                                        <mat-panel-title>API Route parameters</mat-panel-title>
+                                                    </mat-expansion-panel-header>
+                                                    <ul>
+                                                        <li>Parameters within URL:
+                                                            <div class="code">
+                                                                <pre>
+[HttpGet]
+[Route("/v1/quote/&#123;id&#125;")]
+[ProducesResponseType(StatusCodes.Status200OK)]
+public string GetQuote(int id)
+&#123;
+    return JsonSerializer.Serialize&lt;string&gt;(quotes[id]);
+&#125;
+</pre>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            Parameters within query string:
+                                                            <div class="code">
+                                                                <pre>
+[HttpGet]
+[Route("/v1/quote")]
+[ProducesResponseType(StatusCodes.Status200OK)]
+public string GetQuote([FromQuery] int id)
+&#123;
+    return JsonSerializer.Serialize&lt;string&gt;(quotes[id]);
+&#125;
+</pre>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            Optional Parameters:
+                                                            <div class="code">
+                                                                <pre>
+[HttpGet]
+[Route("/v1/quote")]
+[ProducesResponseType(StatusCodes.Status200OK)]
+public string GetQuote([FromQuery] int? id)
+&#123;
+</pre>
+                                                            </div>
+                                                        </li>
+                                                        <li>A complex mix of the two:
+                                                            <div class="code">
+                                                                <pre>
+[HttpGet]
+[Route("/v1/quote/&#123;id&#125;")]
+[ProducesResponseType(StatusCodes.Status200OK)]
+public string GetQuote(int id, [FromQuery] string name)
+&#123;
+    return JsonSerializer.Serialize&lt;string&gt;(quotes[id]);
+&#125;
+</pre>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </mat-expansion-panel>
+                                            </li>
+                                            <li>
+                                                <mat-expansion-panel>
+                                                    <mat-expansion-panel-header>
+                                                        <mat-panel-title>Minimial API Example</mat-panel-title>
+                                                    </mat-expansion-panel-header>
+                                                    this style seems to be a pattern nowadays. I don't like it. It's
+                                                    difficult to read and hard to modify.
+                                                    <div class="code">
+                                                        <pre>
 app.MapGet("/v1/quote", [SwaggerOperation(
 Summary = "Returns a single quote",
 Description = "A random quote is returned.  Because.")]
@@ -837,9 +900,9 @@ Description = "A random quote is returned.  Because.")]
 .WithName("Quotes")
 .WithOpenApi();
 </pre>
-                                </div>I much prefer this for readability:
-                                <div class="code">
-                                    <pre>
+                                                    </div>I much prefer this for readability:
+                                                    <div class="code">
+                                                        <pre>
 namespace NehsaNet.Controllers
 &#123;
     [ApiController]
@@ -856,6 +919,11 @@ namespace NehsaNet.Controllers
     &#125;
 &#125;             
     </pre>
+                                                    </div>
+                                                </mat-expansion-panel>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </mat-expansion-panel>
                         </li>
@@ -870,17 +938,17 @@ namespace NehsaNet.Controllers
                                         Within <span class=file>program.cs</span>:
                                         <div class="code">
                                             <pre>
-    var  customOrigins = "_customOrigins";
+var  customOrigins = "_customOrigins";
 
-    builder.Services.AddCors(options =>
-    &#123;
-        options.AddPolicy(name: customOrigins,
-            policy  =>
-            &#123;
-                policy.WithOrigins("https://api.nehsa.net",
-                                    "http://localhost:4200");
-            &#125;);
-    &#125;);
+builder.Services.AddCors(options =>
+&#123;
+    options.AddPolicy(name: customOrigins,
+        policy  =>
+        &#123;
+            policy.WithOrigins("https://api.nehsa.net",
+                                "http://localhost:4200");
+        &#125;);
+&#125;);
 </pre>
                                         </div>
                                     </li>
