@@ -69,7 +69,7 @@ export class HttpService {
 
     /** Returns a weather */
     getWeather(city: string, units: string = 'imperial', typeStyle: string = 'words') {
-        const getWeatherUrl = `https://api.nehsa.net/v1/getweather/${city}/${units}/${typeStyle}`;
+        const getWeatherUrl = `https://api.nehsa.net/v1/getweather?city=${city}&units=${units}&weatherType=${typeStyle}`;
         return this.http.get(getWeatherUrl);
     }
 
