@@ -9,10 +9,35 @@
             <div class="topics">
                 <div>
                     <h3>VS Code</h3>
-                    <ul class="condensed">
+                    <ul>
                         <li>VS Code Settings and Best Practices
                             <ul>
-                                <li>Enable: Insert spaces when pressing TAB</li>
+                                <li>Enable: Insert spaces when pressing TAB, use 4</li>
+                            </ul>
+                        </li>
+                        <li>Useful shortcuts
+                            <dl>
+                                <dt>Format</dt>
+                                <dd>Shift + Alt + F</dd>
+                                <dt>Comment</dt>
+                                <dd>Ctrl + K + C</dd>
+                                <dt>Uncomment</dt>
+                                <dd>Ctrl + K + U</dd>
+                                <dt>Toggle Sidebar</dt>
+                                <dd>Ctrl + B</dd>
+                                <dt>Toggle Terminal</dt>
+                                <dd>Ctrl + `</dd>
+                            </dl>
+                        </li>
+                        <li>Troubleshooting
+                            <ul>
+                                <li>
+                                    <span class="question">VSCode is removing import statements upon save or appears like the file is in readonly mode</span>
+                                    <div class="answer">The setting "editor.formatOnSave" may be causing this issue; if
+                                        enabled, it will format the file upon saving, and some languages automatically
+                                        manage imports, such as GoLang, which employs the VSCode extension "goimports,"
+                                        which automatically manages imports based on usage.</div>
+                                </li>
                             </ul>
                         </li>
                     </ul>
