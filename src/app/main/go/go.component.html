@@ -7,7 +7,7 @@
     <mat-card-content>
         <div class="commentgrid">
             <div class="topics">
-                I've been learning Go(lang) slowly for a while now. As it has undeniable use cases for RestAPI and
+                I've been learning Go(Lang) slowly for a while now. As it has undeniable use cases for RestAPI and
                 microservices that I wanted to explore.
 
                 <ul>
@@ -330,14 +330,14 @@ RUN go mod download
 # Copy the rest of the application code
 COPY . .
 
+# Set release mode
+ENV GIN_MODE=release
+
 # Build the Go application
 RUN go build -o main .
 
 # Expose port 8080
 EXPOSE 8080
-
-# Set release mode
-ENV GIN_MODE=release
 
 # Command to run when the container starts
 CMD ["./main"]
@@ -397,6 +397,232 @@ CMD ["./main"]
                                             </button></div>
                                         <div></div>
                                     </div>
+                                </li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Iteration</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <div class="code">
+                                <pre>
+func main() &#123;
+    params := map[string]string&#123;
+            "param1": "value1",
+            "param2": "value2",
+    &#125;
+
+    u := url.Values&#123;&#125;
+    for key, value := range params &#123;
+            u.Add(key, value)
+    &#125;
+
+    fmt.Println(u.Encode()) // Output: param1=value1&param2=value2
+&#125;
+</pre>
+                            </div>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel expanded>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Building an API</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            How to build an API using Go and Gin!<br><br>
+
+                            <ul>
+                                <li>Install the Gin package: <code>go get -u github.com/gin-gonic/gin</code></li>
+                                <li>Define routes and handlers
+                                    <ul class="condensed">
+                                        <li>Define a route
+                                            <div class="code">
+                                                <pre>
+router.GET("/weather_temp/:city", func(c *gin.Context) &#123;
+    // get city parameter
+    city := c.Param("city") <span class="comment">// [required] city parameter (refers to <span class="importantish">:city</span>)</span>
+
+    // units query parameter if provided (default is imperial)
+    units := c.Query("units") <span class="comment">// [optional] city parameter (e.g. this came in the format of ?units=&lt;TYPE&gt; if at all.</span>
+    if units == "" &#123;
+        units = "imperial" // metric, imperial
+    &#125;
+
+    // makes the GET request to the OpenWeatherMap API
+    weatherData, err := getWeatherTemp(city, units)
+    if err != nil &#123;
+        fmt.Printf("router weather_temp: Error getting weather data: %s", err)
+        c.JSON(http.StatusInternalServerError, gin.H&#123;"error": err.Error()&#125;)
+        return
+    &#125;
+    c.String(http.StatusOK, string(weatherData))
+&#125;)
+                                            
+                                                </pre>
+                                            </div>
+                                        </li>
+                                        <li>Define a handler
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Working with JSON</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li>Create a struct to hold the data:<br><br>
+
+                                    If you have JSON data like this:<br>
+                                    <div class="question">
+                                        <pre>
+&#123;
+"coord":&#123;
+    "lon":-123.1193,
+    "lat":49.2497
+&#125;,
+"weather":[
+    &#123;
+        "id":801,
+        "main":"Clouds",
+        "description":"few clouds",
+        "icon":"02d"
+    &#125;
+],
+"base":"stations",
+"main":&#123;
+    "temp":63.48,
+    "feels_like":63.1,
+    "temp_min":61.23,
+    "temp_max":65.35,
+    "pressure":1019,
+    "humidity":76,
+    "sea_level":1019,
+    "grnd_level":1011
+&#125;,
+"visibility":10000,
+"wind":&#123;
+    "speed":8.05,
+    "deg":100
+&#125;,
+"clouds":&#123;
+    "all":20
+&#125;,
+"dt":1723650132,
+"sys":&#123;
+    "type":2,
+    "id":2011597,
+    "country":"CA",
+    "sunrise":1723640625,
+    "sunset":1723692633
+&#125;,
+"timezone":-25200,
+"id":6173331,
+"name":"Vancouver",
+"cod":200
+&#125;
+</pre>
+                                    </div>
+
+                                    You can create a struct like this:<br>
+                                    <ul class="condensed">
+                                        <li>Statically define the struct:
+                                            <div class="code">
+                                                <pre>
+type WeatherData struct &#123;
+
+    Coord struct &#123;
+        Lon float64 `json:"lon"`
+        Lat float64 `json:"lat"`
+    &#125; `json:"coord"`
+    Weather []struct &#123;
+        Id          int    `json:"id"`
+        Main        string `json:"main"`
+        Description string `json:"description"`
+        Icon        string `json:"icon"`
+    &#125; `json:"weather"`
+    Base string `json:"base"`
+    Main struct &#123;
+                                            
+        Temp     float64 `json:"temp"`
+        FeelsLike float64 `json:"feels_like"`
+        TempMin  float64 `json:"temp_min"`
+        TempMax  float64 `json:"temp_max"`
+        Pressure int     `json:"pressure"`
+        Humidity int     `json:"humidity"`
+        SeaLevel int     `json:"sea_level"`
+        GrndLevel int     `json:"grnd_level"`
+    &#125; `json:"main"`
+    Visibility int `json:"visibility"`
+    Wind struct &#123;                                            
+        Speed float64 `json:"speed"`
+        Deg   int     `json:"deg"`
+    &#125; `json:"wind"`
+    Clouds struct &#123;
+        All int `json:"all"`
+    &#125; `json:"clouds"`
+    Dt int `json:"dt"`    
+    Sys struct &#123;
+        Type    int    `json:"type"`
+        Id      int    `json:"id"`
+        Country string `json:"country"`
+        Sunrise int    `json:"sunrise"`
+        Sunset  int    `json:"sunset"`
+    &#125; `json:"sys"`
+    Timezone int    `json:"timezone"`
+    Id       int    `json:"id"`
+    Name     string `json:"name"`
+    Cod      int    `json:"cod"`
+&#125;
+</pre>
+                                            </div><br><br>
+                                            Unmarshal JSON to it:<br>
+                                            <div class="code">
+                                        <pre>
+var weatherData WeatherData
+err := json.Unmarshal([]byte(jsonData), &weatherData)
+if err != nil &#123;
+    fmt.Printf("Error unmarshalling JSON: %s", err)
+    return
+&#125;
+                                            </pre>
+                                            </div>
+                                        </li>
+                                        <li>Or, dynamically define the struct and marshel data to it:<br>
+                                            <div class="code">
+                                                <pre>
+var weatherData map[string]interface&#123;&#125;
+err := json.Unmarshal([]byte(jsonData), &weatherData)
+if err != nil &#123;
+    fmt.Printf("Error unmarshalling JSON: %s", err)
+    return
+&#125;
+</pre>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                                <li>
+                                </li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel expanded>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Working with HTTP</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            Using the <code>net/http</code> and <code>net/url</code> packages to work with HTTP
+                            requests<br><br>
+                            <ul>
+                                <li>Send a GET request
+
                                 </li>
                             </ul>
                         </mat-expansion-panel>
