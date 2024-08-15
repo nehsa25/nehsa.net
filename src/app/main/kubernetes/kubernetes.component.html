@@ -1,0 +1,184 @@
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Kubernetes</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                <div>
+                    Kubernetes (pronounced "koo&#183;burr&#183;NET&#183;EEZ") is an open-source container orchestration
+                    platform that automates the deployment, scaling, and management of containerized applications.
+                    Kubernetes, sometimes called K8s, pronounced: "K&#183;EIGHT&#183;S" (first letter: K, last letter:
+                    S,
+                    and 8 letters in between).<br><br>
+
+                    By orchestrating containers across multiple hosts, Kubernetes optimizes resource utilization and
+                    ensures
+                    high availability.<br><br>
+
+                    <div>
+                        <ul>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Enabling Kubernetes</mat-panel-title>
+                                    </mat-expansion-panel-header>Kubernetes is liekly already enabled in Docker Desktop
+                                    but
+                                    you can double-check by going to the Docker Desktop settings and looking for the
+                                    Kubernetes tab. If it's not enabled, you can enable it there. Easy-peasy.
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Configuring a new service</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    <ul>
+                                        <li>
+                                            Setting up Kubernetes for a Go microservice that returns the weather. The
+                                            service
+                                            source is <a _blank
+                                                href="https://github.com/nehsa25/weather-microservice-go-gin">here</a>,
+                                            documented <a _blank routerLink="/go">here</a>, and deployed to DockerHub <a
+                                                _blank
+                                                href="https://hub.docker.com/repository/docker/nehsa/ascii-weather/general">here</a>.<br><br>
+
+                                            Kubernetes configuration files are written in YAML. The following is the
+                                            configuration for my weather service: <span class="file">weather-microservice.yaml</span>
+                                            <div class="code copy-container"><app-copy></app-copy>
+                                                <pre>
+apiVersion: apps/v1 <span class="comment">// version of the Kubernetes API, valid values are v1, v1beta1, v1beta2, apps/v1.</span>
+kind: Deployment <span class="comment">// type of object to create, valid values are Deployment, Service, Pod</span>
+metadata:
+    name: weather-microservice
+    labels:
+    app: weather-microservice <span class="comment">// labels are key-value pairs that can be used to select objects.<br>Example usage: kubectl get pods -l app=weather-microservice</span>
+spec:
+    replicas: 1 <span class="comment">// number of pods to run. A pod is a group of one or more containers.</span>
+    selector: <span class="comment">// a label selector to match the pods to the deployment</span>
+        matchLabels:
+        app: weather-microservice
+    template: <span class="comment">// the pod template, used when creating new pods</span>
+        metadata:
+        labels:
+            app: weather-microservice
+        spec:
+        containers: <span class="comment">// list of containers to run in the pod</span>
+        - name: weather-microservice
+            image:  nehsa/ascii-weather:latest
+            ports:
+            - containerPort: 8080
+            resources: <span class="comment">// when a container is created, the kubelet will this to it.</span>
+                requests: <span class="comment">// the minimum amount of resources the container needs</span>
+                cpu: "100m"
+                memory: "256Mi"
+                limits: <span class="comment">// the maximum amount of resources the container can use</span>
+                cpu: "200m"
+                memory: "512Mi"
+            livenessProbe: <span class="comment">// a probe to determine if the container is healthy</span>
+                httpGet:
+                path: /health
+                port: 8080
+                initialDelaySeconds: 15
+                periodSeconds: 30
+                failureThreshold: 3
+                successThreshold: 1
+                timeoutSeconds: 5
+            readinessProbe: <span class="comment">// a probe to determine if the container is ready to serve traffic</span>
+                httpGet:
+                path: /ready
+                port: 8080
+                initialDelaySeconds: 5
+                periodSeconds: 10
+                failureThreshold: 3
+                successThreshold: 1
+                timeoutSeconds: 2
+</pre>
+                                            </div><br><br>
+
+                                            <div class="result">
+                                                Definitions:<br>
+                                                <dl>
+                                                    <dt>apiVersion</dt>
+                                                    <dd>The version of the Kubernetes API. New projects should use
+                                                        apps/v1.</dd>
+                                                    <dt>kinds</dt>
+                                                    <dd>
+                                                        <dl>
+                                                            <dt>deployment</dt>
+                                                            <dd>Describes the desired state for a group of pods. Used
+                                                                for
+                                                                creating
+                                                                and updating pods.</dd>
+                                                            <dt>service</dt>
+                                                            <dd>Exposes an application running on a set of pods as a
+                                                                network
+                                                                service. Used for load balancing and service discovery.
+                                                            </dd>
+                                                            <dt>pod</dt>
+                                                            <dd>A group of one or more containers. Used for running a
+                                                                single
+                                                                instance
+                                                                of a service. Pods are the smallest deployable units of
+                                                                computing.
+                                                            </dd>
+                                                        </dl>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span class="code">kubectl apply -f weather-microservice.yaml</span><br><br>
+                                            This command will create a deployment and a service for the weather
+                                            microservice.<br>
+                                            <div class="answer">
+<pre>
+PS C:\src> kubectl apply -f ./weather-microservice.yaml
+deployment.apps/weather-microservice created</pre>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>kubectl (kubernetes control)</mat-panel-title>
+                                        <mat-panel-description>The command-line interface for
+                                            Kubernetes</mat-panel-description>
+                                    </mat-expansion-panel-header>
+                                    <ul>
+                                        <li>
+                                            <span class="code">kubectl apply -f weather-microservice.yaml</span><br>
+                                            How to use kubectl to deploy a service. This command will create a deployment and a service for the weather microservice.
+                                        </li>
+                                        <li>
+                                            <span class="code">kubectl get pods</span><br>
+                                            This command will list the pods that are running in the cluster.<br><br>
+
+                                            <div class="answer"><pre>
+PS C:\src> kubectl get pods
+NAME                                    READY   STATUS             RESTARTS   AGE
+weather-microservice-664bdcd6d8-c7gvd   0/1     ImagePullBackOff   0          2m38s</pre>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span class="code">kubectl get services</span><br>
+                                            This command will list the services that are running in the cluster.
+                                        </li>
+                                    </ul>
+
+                                </mat-expansion-panel>
+                            </li><br>
+                            More to come..
+                        </ul>
+                    </div>
+                    <div><app-comment></app-comment></div>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

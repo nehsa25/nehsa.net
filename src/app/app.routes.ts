@@ -57,6 +57,7 @@ import { GoComponent } from './main/go/go.component';
 import { ScratchComponent } from './main/scratch/scratch.component';
 import { AiComponent } from './main/ai/ai.component';
 import { NosqlComponent } from './main/nosql/nosql.component';
+import { KubernetesComponent } from './main/kubernetes/kubernetes.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: WelcomeComponent },
@@ -65,6 +66,7 @@ export const routes: Routes = [
     { path: 'blog', title: 'nehsa.net | Blog', component: BlogComponent },
     { path: 'about', title: 'nehsa.net | About', component: BioComponent },
     { path: 'angular', title: 'nehsa.net | Angular', component: AngularComponent },
+    { path: 'k8s', title: 'nehsa.net | Kubernetes', component: KubernetesComponent },
     { path: 'chef', title: 'nehsa.net | Chef', component: ChefComponent },
     { path: 'csharp', title: 'nehsa.net | C#', component: CSharpComponent },
     { path: 'docker', title: 'nehsa.net | Docker', component: DockerComponent },
