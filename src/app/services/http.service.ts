@@ -66,8 +66,14 @@ export class HttpService {
     getName() {
         return this.http.get(this.nameUrl);
     }
-
-    /** Returns a weather */
+  
+    /** Returns scraped data */
+    getScrapeData(url: string) {
+        const getScrapeUrl = `https://api.nehsa.net/v1/scaper?scrapeUrl=${url}`;
+        return this.http.get(getScrapeUrl);
+    }
+    
+    /** Returns the weather */
     getWeather(city: string, units: string = 'imperial', typeStyle: string = 'words') {
         const getWeatherUrl = `https://api.nehsa.net/v1/getweather?city=${city}&units=${units}&weatherType=${typeStyle}`;
         return this.http.get(getWeatherUrl);

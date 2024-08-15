@@ -19,7 +19,6 @@
 
                             <ul>
                                 <li>Create a new variable :=, assign to existing =</li>
-                                <li>Install a package from Github: <code>go get -u github.com/gin-gonic/gin</code></li>
                                 <li>Casting</li>
                                 <li>String interpolation <code>fmt.Sprintf()</code> or <code>fmt.Printf</code><br><br>
                                     Example: <code>fmt.Sprintf("Hello, %s!", name)</code>
@@ -284,131 +283,20 @@ func TestHelloWorld(t *testing.T) &#123;
                     <li>
                         <mat-expansion-panel>
                             <mat-expansion-panel-header>
-                                <mat-panel-title>Building a microservice that returns the weather</mat-panel-title>
-                            </mat-expansion-panel-header>
-                            <ul>
-                                <li>Create package to accept the HTTP calls and make the weather calls to
-                                    OpenWeatherMap.<br><br>
-                                    OpenWeatherMap endpoint:<br>
-                                    https://api.openweathermap.org/data/2.5/weather?q=&lt;CITY&gt;&appid=&lt;APIKEY&gt;&units=&lt;UNITS&gt;<br>
-                                    <ul>
-                                        <li>Run <code>go get -u github.com/gin-gonic/gin</code></li>
-                                        <li>Import the package in your code</li>
-                                        <li>Create package to make the weather calls to OpenWeatherMap API:<br>
-                                            <a
-                                                href="https://github.com/nehsa25/weather-microservice-go-gin/blob/main/weather.go">weather-microservice-go-gin
-                                                (Github)
-                                            </a>
-                                        </li>
-                                        <li>Install dependencies: <code>go mod init main && go mod tidy</code></li>
-                                        <li>Test it works: <div class="code">
-                                                <pre>
-go run .\weather.go
-PS C:\src> (invoke-webrequest http://localhost:8080/weather/portland?unit=metric).Content
-Clouds
-PS C:\src> (invoke-webrequest http://localhost:8080/weather/lasvegas?unit=imperial).Content
-Clear
-</pre>
-                                            </div>
-                                    </ul>
-                                </li>
-                                <li>Create Docker to run the service
-                                    <ul class="condensed">
-                                        <li>Create dockerfile:
-                                            <div class="code">
-                                                <pre>
-# Use a Golang image
-FROM golang:1.20-alpine
-WORKDIR /app
-
-# Copy go modules to the working directory
-COPY go.mod go.sum ./
-
-# Download any dependencies
-RUN go mod download
-
-# Copy the rest of the application code
-COPY . .
-
-# Set release mode
-ENV GIN_MODE=release
-
-# Build the Go application
-RUN go build -o main .
-
-# Expose port 8080
-EXPOSE 8080
-
-# Command to run when the container starts
-CMD ["./main"]
-</pre>
-                                            </div>
-                                        </li>
-                                        <li>Build it:
-                                            <code>docker build . -t nehsa/ascii-weather:$build --platform linux/amd64;</code>
-                                        </li>
-                                        <li>Push it: <code>docker push nehsa/ascii-weather:$build;docker push</code>
-                                        </li>
-                                        <li>Deploy it:
-                                            <code>docker pull nehsa/ascii-weather:latest && docker run -p 8080:8080 nehsa/ascii-weather:latest</code>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>Try it..
-                                    <div class="try-grid">
-                                        <div>
-                                            <form>
-                                                <mat-form-field>
-                                                    <mat-label>City</mat-label>
-                                                    <input matInput type="text" name="city" [value]="city">
-                                                    @if (city) {
-                                                    <button matSuffix mat-stroked-button aria-label="Clear"
-                                                        (click)="city=''">
-                                                        <mat-icon>close</mat-icon>
-                                                    </button>
-                                                    }
-                                                </mat-form-field>
-                                                <mat-form-field>
-                                                    <mat-label>Units</mat-label>
-                                                    <mat-select [formControl]="unit">
-                                                        @for (unit of units; track unit) {
-                                                        <mat-option value={{unit}}>{{unit}}</mat-option>
-                                                        }
-                                                    </mat-select>
-                                                </mat-form-field>
-                                                <mat-form-field>
-                                                    <mat-label>Type</mat-label>
-                                                    <mat-select [formControl]="type">
-                                                        @for (type of types; track type) {
-                                                        <mat-option value="{{type}}">{{type}}</mat-option>
-                                                        }
-                                                    </mat-select>
-                                                </mat-form-field>
-                                            </form>
-                                        </div>
-                                        <div>{{weather}}</div>
-                                        <div><button mat-stroked-button [disabled]="isLoading || !city"
-                                                (click)="getWeather()">
-                                                <div class="button-grid">
-                                                    <div>{{buttonName}}</div>
-                                                    <div><mat-spinner *ngIf="isLoading" diameter="20"></mat-spinner>
-                                                    </div>
-                                                </div>
-                                            </button></div>
-                                        <div></div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </mat-expansion-panel>
-                    </li>
-                    <li>
-                        <mat-expansion-panel>
-                            <mat-expansion-panel-header>
                                 <mat-panel-title>Iteration</mat-panel-title>
                             </mat-expansion-panel-header>
+                            For:<br>
                             <div class="code">
                                 <pre>
-func main() &#123;
+for i := 0; i < len(strings); i++ &#123;
+    fmt.Println(strings[i])
+&#125;
+</pre>
+                            </div><br><br>
+
+                            Range:<br>
+                            <div class="code">
+                                <pre>
     params := map[string]string&#123;
             "param1": "value1",
             "param2": "value2",
@@ -420,54 +308,8 @@ func main() &#123;
     &#125;
 
     fmt.Println(u.Encode()) // Output: param1=value1&param2=value2
-&#125;
 </pre>
                             </div>
-                        </mat-expansion-panel>
-                    </li>
-                    <li>
-                        <mat-expansion-panel expanded>
-                            <mat-expansion-panel-header>
-                                <mat-panel-title>Building an API</mat-panel-title>
-                            </mat-expansion-panel-header>
-                            How to build an API using Go and Gin!<br><br>
-
-                            <ul>
-                                <li>Install the Gin package: <code>go get -u github.com/gin-gonic/gin</code></li>
-                                <li>Define routes and handlers
-                                    <ul class="condensed">
-                                        <li>Define a route
-                                            <div class="code">
-                                                <pre>
-router.GET("/weather_temp/:city", func(c *gin.Context) &#123;
-    // get city parameter
-    city := c.Param("city") <span class="comment">// [required] city parameter (refers to <span class="importantish">:city</span>)</span>
-
-    // units query parameter if provided (default is imperial)
-    units := c.Query("units") <span class="comment">// [optional] city parameter (e.g. this came in the format of ?units=&lt;TYPE&gt; if at all.</span>
-    if units == "" &#123;
-        units = "imperial" // metric, imperial
-    &#125;
-
-    // makes the GET request to the OpenWeatherMap API
-    weatherData, err := getWeatherTemp(city, units)
-    if err != nil &#123;
-        fmt.Printf("router weather_temp: Error getting weather data: %s", err)
-        c.JSON(http.StatusInternalServerError, gin.H&#123;"error": err.Error()&#125;)
-        return
-    &#125;
-    c.String(http.StatusOK, string(weatherData))
-&#125;)
-                                            
-                                                </pre>
-                                            </div>
-                                        </li>
-                                        <li>Define a handler
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-
                         </mat-expansion-panel>
                     </li>
                     <li>
@@ -583,7 +425,7 @@ type WeatherData struct &#123;
                                             </div><br><br>
                                             Unmarshal JSON to it:<br>
                                             <div class="code">
-                                        <pre>
+                                                <pre>
 var weatherData WeatherData
 err := json.Unmarshal([]byte(jsonData), &weatherData)
 if err != nil &#123;
@@ -614,20 +456,6 @@ if err != nil &#123;
                         </mat-expansion-panel>
                     </li>
                     <li>
-                        <mat-expansion-panel expanded>
-                            <mat-expansion-panel-header>
-                                <mat-panel-title>Working with HTTP</mat-panel-title>
-                            </mat-expansion-panel-header>
-                            Using the <code>net/http</code> and <code>net/url</code> packages to work with HTTP
-                            requests<br><br>
-                            <ul>
-                                <li>Send a GET request
-
-                                </li>
-                            </ul>
-                        </mat-expansion-panel>
-                    </li>
-                    <li>
                         <mat-expansion-panel>
                             <mat-expansion-panel-header>
                                 <mat-panel-title>Troubleshooting</mat-panel-title>
@@ -647,6 +475,279 @@ if err != nil &#123;
                                     </ul>
                                 </dd>
                             </dl>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Building an API</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            How to build an API using Go and Gin!<br><br>
+
+                            <ul>
+                                <li>Install the Gin package: <code>go get -u github.com/gin-gonic/gin</code></li>
+                                <li>Define routes and handlers
+                                    <ul class="condensed">
+                                        <li>Define a route
+                                            <div class="code">
+                                                <pre>
+router.GET("/weather_temp/:city", func(c *gin.Context) &#123;
+    // get city parameter
+    city := c.Param("city") <span class="comment">// [required] city parameter (refers to <span class="importantish">:city</span>)</span>
+
+    // units query parameter if provided (default is imperial)
+    units := c.Query("units") <span class="comment">// [optional] city parameter (e.g. this came in the format of ?units=&lt;TYPE&gt; if at all.</span>
+    if units == "" &#123;
+        units = "imperial" // metric, imperial
+    &#125;
+
+    // makes the GET request to the OpenWeatherMap API
+    weatherData, err := getWeatherTemp(city, units)
+    if err != nil &#123;
+        fmt.Printf("router weather_temp: Error getting weather data: %s", err)
+        c.JSON(http.StatusInternalServerError, gin.H&#123;"error": err.Error()&#125;)
+        return
+    &#125;
+    c.String(http.StatusOK, string(weatherData))
+&#125;)
+                                            
+                                                </pre>
+                                            </div>
+                                        </li>
+                                        <li>Define a handler
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Getting Libaries</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li>Install packages: <code>go get -u github.com/PuerkitoBio/goquery</code></li>
+                                <li>update imports: <code>import "github.com/PuerkitoBio/goquery"</code></li>
+                                <li>Write the code to use it..</li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Building a microservice that returns the weather</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li>Create package to accept the HTTP calls and make the weather calls to
+                                    OpenWeatherMap.<br><br>
+                                    OpenWeatherMap endpoint:<br>
+                                    https://api.openweathermap.org/data/2.5/weather?q=&lt;CITY&gt;&appid=&lt;APIKEY&gt;&units=&lt;UNITS&gt;<br>
+                                    <ul>
+                                        <li>Run <code>go get -u github.com/gin-gonic/gin</code></li>
+                                        <li>Import the package in your code</li>
+                                        <li>Create package to make the weather calls to OpenWeatherMap API:<br>
+                                            <a
+                                                href="https://github.com/nehsa25/weather-microservice-go-gin/blob/main/weather.go">weather-microservice-go-gin
+                                                (Github)
+                                            </a>
+                                        </li>
+                                        <li>Install dependencies: <code>go mod init main && go mod tidy</code></li>
+                                        <li>Test it works: <div class="code">
+                                                <pre>
+go run .\weather.go
+PS C:\src> (invoke-webrequest http://localhost:8080/weather/portland?unit=metric).Content
+Clouds
+PS C:\src> (invoke-webrequest http://localhost:8080/weather/lasvegas?unit=imperial).Content
+Clear
+</pre>
+                                            </div>
+                                    </ul>
+                                </li>
+                                <li>Create Docker to run the service
+                                    <ul class="condensed">
+                                        <li>Create dockerfile:
+                                            <div class="code">
+                                                <pre>
+# Use a Golang image
+FROM golang:1.20-alpine
+WORKDIR /app
+
+# Copy go modules to the working directory
+COPY go.mod go.sum ./
+
+# Download any dependencies
+RUN go mod download
+
+# Copy the rest of the application code
+COPY . .
+
+# Set release mode
+ENV GIN_MODE=release
+
+# Build the Go application
+RUN go build -o main .
+
+# Expose port 8080
+EXPOSE 8080
+
+# Command to run when the container starts
+CMD ["./main"]
+</pre>
+                                            </div>
+                                        </li>
+                                        <li>Build it:
+                                            <code>docker build . -t nehsa/ascii-weather:$build --platform linux/amd64;</code>
+                                        </li>
+                                        <li>Push it: <code>docker push nehsa/ascii-weather:$build;docker push</code>
+                                        </li>
+                                        <li>Deploy it:
+                                            <code>docker pull nehsa/ascii-weather:latest && docker run -p 8080:8080 nehsa/ascii-weather:latest</code>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>Try it..
+                                    <div class="try-grid">
+                                        <div>
+                                            <form>
+                                                <mat-form-field>
+                                                    <mat-label>City</mat-label>
+                                                    <input matInput type="text" name="city" [formControl]="city">
+                                                    @if (city) {
+                                                    <button matSuffix mat-stroked-button aria-label="Clear"
+                                                        (click)="clearCity()">
+                                                        <mat-icon>close</mat-icon>
+                                                    </button>
+                                                    }
+                                                </mat-form-field>
+                                                <mat-form-field>
+                                                    <mat-label>Units</mat-label>
+                                                    <mat-select [formControl]="unit">
+                                                        @for (unit of units; track unit) {
+                                                        <mat-option value={{unit}}>{{unit}}</mat-option>
+                                                        }
+                                                    </mat-select>
+                                                </mat-form-field>
+                                                <mat-form-field>
+                                                    <mat-label>Type</mat-label>
+                                                    <mat-select [formControl]="type">
+                                                        @for (type of types; track type) {
+                                                        <mat-option value="{{type}}">{{type}}</mat-option>
+                                                        }
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </form>
+                                        </div>
+                                        <div class="result-container">
+                                            <div class="answer" *ngIf="weather != ''" [innerHtml]="weather"></div>
+                                        </div>
+                                        <div><button mat-stroked-button [disabled]="isLoading || !city"
+                                                (click)="getWeather()">
+                                                <div class="button-grid">
+                                                    <div>{{buttonName}}</div>
+                                                    <div><mat-spinner *ngIf="isLoading" diameter="20"></mat-spinner>
+                                                    </div>
+                                                </div>
+                                            </button></div>
+                                        <div></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Building a microservice web scraper so I can be Neo from the Matrix</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li>Install packages: <code>go get -u github.com/PuerkitoBio/goquery</code></li>
+                                <li>Write the code to scrape the data: <a mat-stroked-button
+                                        href="https://github.com/nehsa25/webscraper-microservice-go-gin">webscraper-microservice-go-gin</a>
+                                </li>
+                                <li>Install dependencies: <code>go mod init scraper && go mod tidy</code></li>
+                                <li>Test it works:</li>
+                                <li> <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>Docker to run the service</mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <ul>
+                                            <li>
+                                                Dockerfile:<br>
+                                                <div class="code">
+                                                    <pre>
+# Use a Golang image
+FROM golang:latest
+WORKDIR /app
+
+# Copy go modules to the working directory
+COPY go.mod go.sum ./
+
+# Download any dependencies
+RUN go mod download
+
+# Copy the rest of the application code
+COPY . .
+
+# Set release mode
+ENV GIN_MODE=release
+
+# Build the Go application
+RUN go build -o scraper .
+
+# Expose port 8080
+EXPOSE 8081
+
+# Command to run when the container starts
+CMD ["./scraper"]
+</pre>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="code">
+                                                    <pre>
+write-host "Building docker image for web scraper microservice";
+docker build . -t nehsa/web-scraper:latest --platform linux/amd64;
+
+write-host "Pushing image to DockerHub...";
+docker push nehsa/web-scraper:latest;
+                                                </pre>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </mat-expansion-panel>
+                                </li>
+                                <li>Try it..                                    
+                                    <div class="try-grid">
+                                    <div>
+                                        <form>
+                                            <mat-form-field>
+                                                <mat-label>URL</mat-label>
+                                                <input matInput type="text" name="url" placeholder="https://www.json.org/json-en.html" [formControl]="scrapeUrl">
+                                                @if (scrapeUrl) {
+                                                <button matSuffix mat-stroked-button aria-label="Clear"
+                                                    (click)="clearUrl()">
+                                                    <mat-icon>close</mat-icon>
+                                                </button>
+                                                }
+                                            </mat-form-field>
+                                        </form>
+                                    </div>
+                                    <div class="result-container">
+                                        <div class="answer" *ngIf="scrapeData != ''" [innerHtml]="scrapeData"></div>
+                                    </div>
+                                    <div><button [disabled]="!scrapeEnabled" mat-stroked-button [disabled]="isLoading || !city"
+                                            (click)="getScrapeData()">
+                                            <div class="button-grid">
+                                                <div>{{scapeButtonName}}</div>
+                                                <div><mat-spinner *ngIf="isLoading" diameter="20"></mat-spinner>
+                                                </div>
+                                            </div>
+                                        </button></div>
+                                    <div></div>
+                                </div>
+                                </li>
+                            </ul>
                         </mat-expansion-panel>
                     </li>
                 </ul>

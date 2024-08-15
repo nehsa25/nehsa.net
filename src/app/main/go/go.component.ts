@@ -35,40 +35,62 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   styleUrl: './go.component.scss'
 })
 export class GoComponent {
-  city: string = "Cape Canaveral, FL";
+  city = new FormControl('');
   type = new FormControl('');
   unit = new FormControl('');
+  scrapeUrl = new FormControl('');
   units: string[] = ['Metric', 'Imperial'];
   types: string[] = ['Words', "Full", "Temperature"];
   origButtonName =  "Fetch Weather";
+  origscapeButtonName = "Scape Data!";
   buttonName = this.origButtonName;
+  scapeButtonName = this.origscapeButtonName;
   isLoading = false;
-  weather: any;
+  scrapeEnabled = true;
+  weather: string = "";
+  scrapeData: string = "";
   constructor(public userService: UserService, public httpService: HttpService) { 
     this.userService.page = "go";
-    if (this.unit.value === '') {
-      this.unit.setValue('Imperial');
-    }
-    if (this.type.value === '') {
-      this.type.setValue('Words');      
-    }
+    this.city.setValue('Vancouver');     
+    this.unit.setValue('Imperial');
+    this.type.setValue('Full');
+    this.scrapeUrl.setValue('https://thp.org/');
+  }
+
+  clearCity() {
+    this.city.setValue('');
+  }
+
+  clearUrl() {
+    this.scrapeUrl.setValue('');
   }
 
   getWeather() {
     this.buttonName = "BOOM!";
     this.isLoading = true;
+    const city = this.city.value ?? 'Zürich, Switzerland';
     const unitStyle = this.unit.value ?? 'imperial';
     const typeStyle = this.type.value ?? 'words';
-    console.log(this.type);
-    this.httpService.getWeather(this.city, unitStyle, typeStyle).subscribe((data: any) => {
+    this.httpService.getWeather(city, unitStyle, typeStyle).subscribe((data: any) => {
       this.weather = data;
-      if (this.type.value === 'Temperature' && typeStyle === 'imperial')
+      if (this.type.value?.toLowerCase() === 'temperature' && unitStyle.toLowerCase() === 'imperial')
         this.weather = `${this.weather}°F`;
-      else if (this.type.value === 'Temperature' && typeStyle === 'metric')
+      else if (this.type.value?.toLowerCase() === 'temperature' && unitStyle.toLowerCase() === 'metric')
         this.weather = `${this.weather}°C`;
-
       this.buttonName = this.origButtonName;
       this.isLoading = false;
+    });
+  }
+
+  getScrapeData() {
+    this.buttonName = "Scr-aa-pe!";
+    this.isLoading = true;
+    const url = this.scrapeUrl.value ?? 'https://thp.org/';
+    this.httpService.getScrapeData(url).subscribe((data: any) => {
+      this.scrapeData = data;
+      this.buttonName = this.origButtonName;
+      this.isLoading = false;
+      this.scrapeEnabled = false;
     });
   }
 }
