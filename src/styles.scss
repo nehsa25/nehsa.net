@@ -654,3 +654,16 @@ dt {
     height: 4px !important;
     width: 6px !important;
 }
+
+// copy
+.copy-container {
+    border: 1px solid #222;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.copy-container>button{
+    border: 1px solid #222;
+    border-radius: 5px;
+    background-color: aquamarine;
+}
