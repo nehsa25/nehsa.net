@@ -1,0 +1,22 @@
+.table {
+    width: 50%;
+    border-collapse: collapse;
+    border-radius: 5px;
+    overflow: auto;
+    text-align: left;    
+}
+
+.table th {
+    width: 50%;
+}
+
+dl {
+    grid-template-columns: inherit;
+    text-align: left;
+    color: black;
+}
+
+dl dt {
+    font-weight: bold;
+    text-align: left;
+}

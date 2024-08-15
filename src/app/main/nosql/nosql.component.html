@@ -1,1 +1,277 @@
-<p>nosql works!</p>
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">MySQL</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                My experience is far greater with SQL (MSSQL, followed by MySQL) than with NoSQL but there are use cases
+                where nosql databases are more appropriate.<br><br>
+
+                <div>There are many factors when deciding between a SQL or NoSQL database. Here are but a few
+                    considerations:
+                    <table mat-table class="table">
+                        <tr>
+                            <th>SQL Advantages</th>
+                            <th>NoSQL Advantages</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <dl>
+                                    <dt>ACID Compliant</dt>
+                                    <dd>Atomicity, Consistency, Isolation, Durability. Simply, transactions are
+                                        processed
+                                        reliably.</dd>
+                                </dl>
+                            </td>
+                            <td>
+                                <dl>
+                                    <dt>Schema-less</dt>
+                                    <dd>Documents can be added without a predefined schema.</dd>
+                                </dl>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <dl>
+                                    <dt>Relational</dt>
+                                    <dd>Tables are related to each other.</dd>
+                                </dl>
+                            </td>
+                            <td>
+                                <dl>
+                                    <dt>Scalability</dt>
+                                    <dd>Horizontal scaling is easier because you can simply add more servers whereas
+                                        with
+                                        SQL it's more complex.</dd>
+                                </dl>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <dl>
+                                    <dt>SQL</dt>
+                                    <dd>Structured Query Language is powerful and well known.</dd>
+                                </dl>
+                            </td>
+                            <td>
+                                <dl>
+                                    <dt>Performance</dt>
+                                    <dd>Can be faster than SQL in some cases such as when the data is not relational and
+                                        the
+                                        data is not normalized.</dd>
+                                </dl>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <dl>
+                                    <dt>Data is structured (normalized)</dt>
+                                    <dd>Normalization is the process of organizing data in a database. This includes
+                                        creating
+                                        tables and establishing relationships between those tables according to rules
+                                        designed
+                                        both to protect the data and to make the database more flexible by eliminating
+                                        redundancy and inconsistent dependency.</dd>
+                                </dl>
+                            </td>
+                            <td>
+                                <dl>
+                                    <dt>Data is unstructured (denormalized)</dt>
+                                    <dd>Denormalization is the process of trying to improve the read performance of a
+                                        database
+                                        at the expense of losing some write performance. This can mean duplicating data
+                                        but
+                                        can be preferred in some cases such as for performance.</dd>
+                                </dl>
+                            </td>
+                        </tr>
+                    </table>
+                </div><br><br>
+                <div>Examples of NoSQL databases and their (very) high-level strengths
+                    include MongoDB, CouchDB, CosmosDB, and Cassandra. Examples of SQL databases
+                    <dl class="dl">
+                        <dt>MongoDB <span class="additional-note">(Most Popular)</span></dt>
+                        <dd>Document-oriented database. Strengths: It's scalabe, has high performance, and is easy to
+                            use of use.</dd>
+                        <dt>CouchDB</dt>
+                        <dd>Document-oriented database. Strengths: It's distributed, fault-tolerant, and schema-free.
+                        </dd>
+                        <dt>Cassandra</dt>
+                        <dd>Wide-column store. Strengths: It's distributed, fault-tolerant, and scalable.</dd>
+                        <dt>CosmosDB</dt>
+                        <dd>Document-oriented database. Strengths: It's globally distributed, multi-model, and
+                            elastic.<br>
+                            <span class="additional-note">*CosmosDB is a managed cloud service provided by Azure... so
+                                you need to be using Azure to use it.</span>
+                        </dd>
+                    </dl>
+                </div><br><br>
+                <div>
+                    <mat-expansion-panel expanded>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Using MongoDB</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <ul>
+                            <li> <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Installation</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    <ul>
+                                        <li>Install Docker <span class="comment">Easiest to grab a Docker image..</span>
+                                        </li>
+                                        <li>docker pull mongo:latest <span class="comment">Get the latest MongoDB Docker
+                                                image</span></li>
+                                        <li>docker run --name my-mongo -p 8082:27017 -d mongo:latest <span
+                                                class="comment">Start it on port 8082</span></li>
+                                    </ul>
+
+                                </mat-expansion-panel></li>
+                            <li> <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Test Connection</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    I just use a simple Python script to test the connection. Here is the code:<br><br>
+                                    <div class="code">
+                                        <pre>
+import pymongo
+
+client = pymongo.MongoClient("mongodb://localhost:8082/")
+print(client.list_database_names())
+                                        </pre>
+                                    </div><br>
+                                    <div class="answer">
+                                        <pre>
+PS C:\src> python .\test_mongodb.py
+['admin', 'config', 'local']
+</pre>
+                                    </div>
+
+                                </mat-expansion-panel></li>
+                            <li> <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Usage</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    <ul>
+                                        <li>Naming Conventions
+                                            <dl>
+                                                <dt>database names</dt>
+                                                <dd>lowercase, use only letters, numbers, and underscores. Include
+                                                    environment<br>e.g. dev_cat_poems, prod_cat_poems</dd>
+                                            </dl>
+                                        </li>
+                                        <li> <mat-expansion-panel>
+                                                <mat-expansion-panel-header>
+                                                    <mat-panel-title>Create a database</mat-panel-title>
+                                                </mat-expansion-panel-header>
+                                                <span class="code">collection = client["dev_cat_poems"]</span>
+                                            </mat-expansion-panel></li>
+                                        <li> <mat-expansion-panel>
+                                                <mat-expansion-panel-header>
+                                                    <mat-panel-title>Adding a new record</mat-panel-title>
+                                                </mat-expansion-panel-header>
+                                                <div class="code">
+                                                    <pre>
+super_cat_poem = &#123;
+    "title": "Banshee's Nightlight", 
+    "author": "Jesse Stone",
+    "year": 2024, 
+    "poem": "Banshee, a cat of eerie name,<br>Fearful of shadows, a whiskered flame.<br>Eyes wide in dusk, a frightened plight,<br>Seeks warmth and comfort through the night." 
+&#125;
+
+<span class="comment"># create a database called "cats"</span><br>
+db = client["cats"]
+
+<span class="comment"># a collection is a group of documents, in this case, poems</span><br>
+collection = db["poems"]
+
+result = collection.insert_one(super_cat_poem)
+print(result.inserted_id)
+                                                </pre>
+                                                </div><br>
+                                                <div class="answer">result.inserted_id == 66bdaf9c3780287e7bd15402 <span
+                                                        class="comment">(This is the unique ID of the
+                                                        record)</span></div>
+                                            </mat-expansion-panel></li>
+                                        <li> <mat-expansion-panel>
+                                                <mat-expansion-panel-header>
+                                                    <mat-panel-title>Retrieving a record</mat-panel-title>
+                                                </mat-expansion-panel-header>
+                                                <div class="code">
+                                                    <pre>
+
+<span class="comment"># create a database called "cats"</span><br>
+db = client["cats"]
+
+<span class="comment"># a collection is a group of documents, in this case, poems</span><br>
+collection = db["poems"]
+
+result = collection.find_one(&#123;"title": "Banshee's Nightlight"&#125;)
+print(result)
+                                                </pre>
+                                                </div><br>
+                                                <div class="answer">result ==
+                                                    <pre>
+&#123;
+    '_id': ObjectId('66bdaf9c3780287e7bd15402'), 
+    'title': "Banshee's Nightlight", 
+    'author': 'Jesse Stone', 
+    'year': 2024, 
+    'poem': 'Banshee, a cat of eerie name,<br>    Fearful of shadows, a whiskered flame.<br>    Eyes wide in dusk, a frightened plight,<br>    Seeks warmth and comfort through the night.'
+&#125;
+</pre>
+                                                </div>
+                                            </mat-expansion-panel></li>
+                                        <li> <mat-expansion-panel>
+                                                <mat-expansion-panel-header>
+                                                    <mat-panel-title>Updating a record</mat-panel-title>
+                                                </mat-expansion-panel-header>
+                                                <div class="code">
+                                                    <pre>
+<span class="comment"># create a database called "cats"</span><br>
+db = client["cats"]
+
+<span class="comment"># a collection is a group of documents, in this case, poems</span><br>
+collection = db["poems"]
+
+result = collection.update_one(&#123;"title": "Banshee's Nightlight"&#125;, &#123;"$set": &#123;"year": 2025&#125;&#125;)
+print(result.modified_count)
+                                                </pre>
+                                                </div><br>
+                                                <div class="answer">result.modified_count == 1 <span
+                                                        class="comment">(This is the
+                                                        number of records updated)</span></div>
+                                            </mat-expansion-panel></li>
+                                        <li> <mat-expansion-panel>
+                                                <mat-expansion-panel-header>
+                                                    <mat-panel-title>Deleting a record</mat-panel-title>
+                                                </mat-expansion-panel-header>
+                                                <div class="code">
+                                                    <pre>
+<span class="comment"># create a database called "cats"</span><br>
+db = client["cats"]
+
+<span class="comment"># a collection is a group of documents, in this case, poems</span><br>
+collection = db["poems"]
+
+result = collection.delete_one(&#123;"title": "Banshee's Nightlight"&#125;)
+print(result.deleted_count)
+                                                </pre>
+                                                </div><br>
+                                                <div class="answer">result.deleted_count == 1 <span
+                                                        class="comment">(This is the
+                                                        number of records deleted)</span></div>
+                                            </mat-expansion-panel></li>
+                                    </ul>
+                                </mat-expansion-panel>
+                            </li>
+                        </ul>
+                    </mat-expansion-panel>
+                </div>
+            </div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>

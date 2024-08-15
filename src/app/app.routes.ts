@@ -56,6 +56,7 @@ import { JobsComponent } from './main/jobs/jobs.component';
 import { GoComponent } from './main/go/go.component';
 import { ScratchComponent } from './main/scratch/scratch.component';
 import { AiComponent } from './main/ai/ai.component';
+import { NosqlComponent } from './main/nosql/nosql.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: WelcomeComponent },
@@ -68,6 +69,7 @@ export const routes: Routes = [
     { path: 'csharp', title: 'nehsa.net | C#', component: CSharpComponent },
     { path: 'docker', title: 'nehsa.net | Docker', component: DockerComponent },
     { path: 'pytest', title: 'nehsa.net | Pytest', component: PytestComponent },
+    { path: 'nosql', title: 'nehsa.net | NoSQL', component: NosqlComponent },
     { path: 'typescript', title: 'nehsa.net | TypeScript', component: TypescriptComponent },
     { path: 'testing', title: 'nehsa.net | Testing', component: TestingComponent },
     { path: 'linux', title: 'nehsa.net | Linux', component: LinuxComponent },
