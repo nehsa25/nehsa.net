@@ -29,7 +29,7 @@
         </div>
     </div>
     <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen"
-        class="dh" [innerHTML]="quote"></div>
+        class="dh"><span class="dh-quote" [innerHTML]="quote"></span></div>
     <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen"
         class="theme"><mat-icon (click)="themeChangeBtnClick(false)">light_mode</mat-icon>
         <mat-slider class="colorSlider" max=1 min=0 step=1 discrete=false showTickMarks=true>

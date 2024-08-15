@@ -358,10 +358,19 @@
     grid-area: dh;
     height: 100%;
     display: grid;
-    justify-content: inherit !important;
+    align-content: center;
     padding: 0 2em;
     font-size: 1rem;
     white-space: wrap;
+}
+
+dh-quote {
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 700;
+    color: #ff7f5b;
+    margin: auto 0;
+    height: fit-content;
 }
 
 // .child {
@@ -581,7 +590,6 @@ $base-size: .35rem;
     border-radius: 0 0 15% 0;
     background-color: #222;
 }
-
 
 // .pause-button-container-collapse {
 //     grid-area: pause-button-container;
