@@ -16,7 +16,159 @@
                     <li>
                         <mat-expansion-panel>
                             <mat-expansion-panel-header>
-                                <mat-panel-title>TDD (and what I recommend instead)</mat-panel-title>
+                                <mat-panel-title>Development Approaches</mat-panel-title>
+                                <mat-panel-description>OOP, Functional Programming, Procedural
+                                    Programming, Declarative Programming</mat-panel-description>
+                            </mat-expansion-panel-header>
+                            Software Development Approaches<br>
+                            <dl>
+                                <dt>Object-Oriented Programming (OOP)</dt>
+                                <dd>
+                                    Language example: Java, C#, Python<br>
+                                    Modeling real-world entities as objects with data (attributes) and behavior
+                                    (methods).<br>
+                                    <div class="code">
+                                        <pre>
+public class Dragon &#123;
+    public string Name &#123; get; set; &#125;
+    public int Age &#123; get; set; &#125;
+
+    public void SneezeSmoke() &#123;
+        Console.WriteLine("Poof!");
+    &#125;
+&#125;
+                                        </pre>
+                                    </div>
+                                </dd>
+                                <dt>
+                                    Functional Programming< </dt>
+                                <dd>
+                                    Language example: Haskell, Scala, Clojure<br>
+                                    Treating computation as the evaluation of mathematical functions and avoiding
+                                    changing-state and mutable data. e.g. it's all math - functional programming views
+                                    code as a series of mathematical equations that have inputs and produce outputs.<br>
+                                    <div class="code">
+                                        <pre>
+def dragonSneezingFire(): String = &#123;
+    "Poof!"
+&#125;
+                                            </pre>
+                                    </div>
+                                </dd>
+                                <dt>
+                                    Procedural Programming</dt>
+                                <dd>
+                                    Language example: C<br>
+                                    Breaking complex problems into smaller, more manageable steps and procedures.
+                                </dd>
+                                <dt>
+                                    Declarative Programming
+                                </dt>
+                                <dd>
+                                    Language example: SQL, HTML, CSS<br>
+                                    Describing what you want to happen using a language that is more human-readable such
+                                    as HTML.
+                                </dd>
+                            </dl>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Domain Driven Design</mat-panel-title>
+                            </mat-expansion-panel-header>Domain-driven design (DDD) is an approach to software
+                            development that focuses on aligning business and technical concepts. The basic idea is that
+                            software should be based on the complexity of the domain in which it is
+                            modeled.<br><br>Using a pet store as an example, the domain would include practical concepts
+                            like pets and customers. The domain model would include classes like Pet and Customer and
+                            methods like buyPet and sellPet.
+                            <br><br>
+                            It could look something like this for a pet store:<br>
+                            <dl>
+                                <dt>Pet</dt>
+                                <dd>Represents a pet in the pet store</dd>
+                                <dt>Customer</dt>
+                                <dd>Represents a customer in the pet store</dd>
+                                <dt>buyPet</dt>
+                                <dd>Method to purchase a pet</dd>
+                                <dt>sellPet</dt>
+                                <dd>Method to sell a pet</dd>
+                            </dl><br>DDD models serve as a common language between domain experts and developers. Taking
+                            the above example further, a domain expert might say, "I want to buy a pet," and the
+                            developer would know to call the buyPet method in the Pet class. This approach helps to
+                            ensure that the software accurately reflects the business domain and
+                            requirements.<br><br>By modeling in software (example below in Python), we ensure that the
+                            code is a true reflection of the business domain.<br>
+                            <div class="code">
+                                <pre>
+&#64;dataclass
+class Pet:
+    name: str
+    species: str
+    price: float
+    def __init__(self, name, species):
+        self.name = name
+        self.species = species
+        self.price = price
+
+&#64;dataclass
+class Customer:
+    name: str
+    pets: List[Pet]
+    def __init__(self, name):
+        self.name = name
+        self.pets = []
+
+&#64;dataclass
+class OrderItem:
+    pet: Pet
+    quantity: int
+
+&#64;dataclass
+class Order:
+    customer_name: str
+    order_items: List[OrderItem]
+
+def create_order(customer_name, order_items):
+    return Order(customer_name, order_items)
+
+def total_price(self):
+    return sum(item.pet.price * item.quantity for item in self.order_items)
+
+def buy_pet(customer: Customer, pet: Pet):
+    customer.pets.append(pet)
+
+def sell_pet(customer: Customer, pet: Pet):
+    customer.pets.remove(pet)    
+                                </pre>
+                            </div><br><br>
+                            A TDD could also be implemented at the same time to ensure that the code is working as
+                            expected:<br>
+                            <div class="code">
+                                <pre>
+def test_order_creation(self):
+    canary = Pet("Canary", "Bird", 14.99)
+    iguana = Pet("Salamander", "Reptile", 34.99)
+    goldfish = Pet("Gold Fish", "Fish", 2.99)
+
+    order_items = [
+        OrderItem(canary, 1),
+        OrderItem(Salamander, 1),
+        OrderItem(goldfish, 3) 
+    ]
+
+    order = create_order("Fred", order_items)
+    self.assertEqual(order.customer_name, "Fred")
+    self.assertEqual(len(order.order_items), 3)
+    self.assertEqual(order.total_price(), 14.99 + 34.99 + (3 * 2.99))
+                                    </pre>
+                            </div>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>TDD (and what I recommend in addition)</mat-panel-title>
                             </mat-expansion-panel-header>
                             <br>
                             What is TDD?
@@ -25,22 +177,24 @@
                                 make a
                                 failing unit test pass.
                             </div><br>
-                            TDD is a great concept, but it is rarely utilized for any
-                            extended period in my experience
-                            <br><br>Although I fully support the idea behind TDD and its benefits when implemented, I
-                            have yet to see real-world development teams overcome the challenges to obtain promised
-                            value. In an environment where speed is a necessary business component, TDD is
-                            frequently tried once and quickly abandoned.<br><br>
-                            Unit tests, while essential, may only sometimes be the best investment for test
-                            coverage. System and integration tests, due to their broader focus, are often more
-                            cost-effective and less likely to miss critical issues. Starting test efforts with E2E
-                            (end-to-end) tests, which are quicker to implement and can uncover unforeseen issues,
-                            can provide a more comprehensive test coverage. Five well-designed E2E tests that
-                            validate a user's experience can instill more confidence in the team than a thousand
-                            passing unit tests of the nature (test_input_is_float). Another way to phrase it is if I
-                            was given 100 "Quality Points" to test a feature, I might spend 80 on E2E tests, 10 on
-                            security, 8 on performance and load, and 2 on unit tests. Actually, AI is perfect for
-                            writing unit tests, so 10 on performance, 0 on unit tests.<br><br>Side note, meet Lagoon the
+                            TDD is an excellent concept with value, as shown in the previous section's example, but it
+                            is rarely utilized for an extended period.<br><br>
+
+                            While I strongly advocate TDD and its potential benefits, real-world development teams face
+                            challenges in fully realizing its value. In a business environment where speed is crucial,
+                            TDD is often experimented with but eventually abandoned simply because it's hard to quantify
+                            the effort to value.
+                            <br><br>
+
+                            Unit tests, while essential, may only sometimes be the best investment for test coverage.
+                            System and integration tests, due to their broader focus, are often more cost-effective and
+                            less likely to miss critical issues. Starting test efforts with E2E (end-to-end) tests,
+                            which are quickest to implement and can uncover unforeseen bugs, can provide a more
+                            comprehensive test coverage. Five well-designed E2E tests that validate a user's experience
+                            can instill more confidence in the team than a thousand passing unit tests of the nature
+                            (test_input_is_type_float64). Another way to phrase it is if I was given 100 "Quality Points" to
+                            test a feature, I might spend 80 on E2E tests, 10 on security, 8 on performance and load,
+                            and 2 on unit tests.<br><br>Side note, meet Lagoon the
                             Duck:<br>
                             <div class="lagoon">
                                 <div class="lagoon-feet">
