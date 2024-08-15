@@ -5,11 +5,12 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { UserService } from '../../services/user.service';
 import { MatIcon } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
+import { CopyComponent } from '../../shared-components/copy/copy.component';
 
 @Component({
   selector: 'app-angular',
   standalone: true,
-  imports: [MatCardModule, CommentComponent, MatExpansionModule, MatIcon, RouterLink],
+  imports: [MatCardModule, CommentComponent, MatExpansionModule, MatIcon, RouterLink, CopyComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './angular.component.html',
   styleUrl: './angular.component.scss'

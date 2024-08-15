@@ -17,9 +17,9 @@
                 <div>
                     <ul>
                         <li>
-                            <mat-expansion-panel expanded>
+                            <mat-expansion-panel>
                                 <mat-expansion-panel-header>
-                                    <mat-panel-title>Tips..</mat-panel-title>
+                                    <mat-panel-title>Basics</mat-panel-title>
                                 </mat-expansion-panel-header>
                                 <ul>
                                     <li>
@@ -33,12 +33,57 @@
                                             <dd>[ngModel]="variable"</dd>
                                             <dt>Display a variable using interpolation</dt>
                                             <dd>
-                                                <p [innerHtml]="'<span>{{variable to display}}</span>'"></p>
+                                                <p
+                                                    [innerHtml]="'<span>&#123;&#123;variable to display&#125;&#125;</span>'">
+                                                </p>
                                             </dd>
                                             <dt>Embed a "data-testid" attribute in element after build</dt>
                                             <dd>[attr.data-testid]="'edit-frozen-' + i"</dd>
                                         </dl>
                                     </li>
+                                    <li>
+                                        <div>
+                                            <h3>Important Files</h3>
+                                            <ul class="condensed">
+                                                <li>angular.json - Application settings.</li>
+                                                <li>packages.json - NPM packages to install for application.</li>
+                                            </ul>
+                                        </div>
+
+                                        <div>
+                                            <h3>Useful Commands</h3>
+                                            <ul class="condensed">
+                                                <li><span class="code">npm install</span> - Install all files necessary
+                                                    to
+                                                    run the Angular
+                                                    project.</li>
+                                                <li><span class="code">ng serve -o</span> - Runs app locally. The -o
+                                                    opens
+                                                    it in your
+                                                    browser.
+                                                </li>
+                                                <li><span class="code">ng build --configuration
+                                                        development/production</span> - Build for
+                                                    deployments. Output in /dist folder.</li>
+                                                <li><span class="code">ng add &#64;angular/material</span> - Installs
+                                                    Material. This method
+                                                    is
+                                                    preferred for npm install as it performs additional initialization.
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <h3>Useful Links</h3>
+                                            <ul class="condensed">
+                                                <li>Angular - https://angular.io/</li>
+                                                <li>Material - https://material.angular.io/</li>
+                                                <li>Fonts - https://fonts.google.com/icons</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
                                     <li>
                                         <mat-expansion-panel>
                                             <mat-expansion-panel-header>
@@ -199,42 +244,52 @@ FormsModule
                                         </mat-expansion-panel>
                                     </li>
                                 </ul>
-                                <div>
-                                    <h3>Important Files</h3>
-                                    <ul class="condensed">
-                                        <li>angular.json - Application settings.</li>
-                                        <li>packages.json - NPM packages to install for application.</li>
-                                    </ul>
-                                </div>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Creating a Copy button for copying
+                                        code</mat-panel-title>
+                                    <mat-panel-description>
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>Create shared component called copy</li>
+                                    <li>We can use the clipboard service to copy the text.content_copy
+                                        <ul>
+                                            <li>Update HTML with a click action:
+                                                (click)="getCopyText($event)"</li>
+                                            <li>Within getCopyText:
+                                                <div class="code">
+                                                    <pre>
+getCopyText() &#123;
+const copyContainer = this.copyButton?.nativeElement.closest('.copy-container');
+if (copyContainer) &#123;
+const content = copyContainer.textContent;
+this.copyText = content.trim().replace("content_copy", "");
+this.clipboard.copy(this.copyText);
+&#125; else &#123;
+console.error('No .copy-container found');
+&#125;
+&#125;
+</pre>
+                                                </div>
+                                            </li>
+                                        </ul>
 
-                                <div>
-                                    <h3>Useful Commands</h3>
-                                    <ul class="condensed">
-                                        <li><span class="code">npm install</span> - Install all files necessary to
-                                            run the Angular
-                                            project.</li>
-                                        <li><span class="code">ng serve -o</span> - Runs app locally. The -o opens
-                                            it in your
-                                            browser.
-                                        </li>
-                                        <li><span class="code">ng build --configuration
-                                                development/production</span> - Build for
-                                            deployments. Output in /dist folder.</li>
-                                        <li><span class="code">ng add &#64;angular/material</span> - Installs
-                                            Material. This method
-                                            is
-                                            preferred for npm install as it performs additional initialization.</li>
-                                    </ul>
-                                </div>
+                                        The clipboard service works in all modern browsers.<br><br>
+                                        Example:
+                                        <div class="copy-container"><app-copy></app-copy>We live on a
+                                            mountain right at the top.
+                                            There's a beautiful view from the top of the mountain. <span
+                                                class="additional-note">Hyperballad (Bj&#xf6;rk,
+                                                1995)</span></div>
 
-                                <div>
-                                    <h3>Useful Links</h3>
-                                    <ul class="condensed">
-                                        <li>Angular - https://angular.io/</li>
-                                        <li>Material - https://material.angular.io/</li>
-                                        <li>Fonts - https://fonts.google.com/icons</li>
-                                    </ul>
-                                </div>
+                                        Adding this to new components is as simple as adding the app-copy tag and adding
+                                        the .copy-container class to the element you want to copy.
+                                    </li>
+                                </ul>
                             </mat-expansion-panel>
                         </li>
                         <li>
