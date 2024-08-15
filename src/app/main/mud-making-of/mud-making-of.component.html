@@ -12,20 +12,67 @@
             <div class="main">
                 <div class="grid">
                     <div class="topics">
-                        <div>content will go here.. sequence diagrams, activity diagrams, block diagrams, you name it.. it'll be here. Someday..</div>
+                        <div>
+                            <h3><span style="color:teal;">August, 2024 - </span>Implementing a web scraping feature</h3><br>The idea is that within NehsaMUD, if you
+                            visit the Wizard, he will have "magic mirrors"
+                            which will allow you to pull data from any website and display it in the mud as a
+                            "prophecy."
+
+                            <ul>
+                                <li><mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>Microservice to handle scrapping</mat-panel-title>
+                                            <mat-panel-description>(Written in Go)</mat-panel-description>
+                                        </mat-expansion-panel-header>A GoLing API will be created to handle web scraping.
+                                        This will be a RESTful API that uses the library "goquery" to scrape the data.
+                                        Goquery is nice because it is much like jQuery and allows you to use CSS
+                                        selectors to find your desired data. The license is from MIT. This will be a
+                                        microservice called by NehsaMUD and this page.<br><br>
+                                        
+                                        Implementation details can be found here: <a routerLink="/go">Go</a> in the "Web scraper" section.
+                                    </mat-expansion-panel></li>
+                                <li><mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>Website (this page)</mat-panel-title>
+                                            <mat-panel-description>(Angular)</mat-panel-description>
+                                        </mat-expansion-panel-header>
+                                    </mat-expansion-panel></li>
+                                <li><mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>NehsaMUD Backend</mat-panel-title>
+                                            <mat-panel-description>(Python, Asyncio,
+                                                Websockets/wss)</mat-panel-description>
+                                        </mat-expansion-panel-header>
+                                    </mat-expansion-panel></li>
+                                <li><mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>NehsaMUD Frontend</mat-panel-title>
+                                            <mat-panel-description>(Angular/Typescipt)</mat-panel-description>
+                                        </mat-expansion-panel-header>
+                                    </mat-expansion-panel></li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="timeline">Timeline
                         <ul>
                             <li>
                                 <div>
-                                    <div>April 14, 2021</div>
-                                    <div>Jesse and son start a Python project called NehsaMUD</div>
+                                    <div>August 14, 2024</div>
+                                    <div>Start to implement a web scraping feature.</div>
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <div>July 28, 2024</div>
-                                    <div>Jesse creates this page to document game progression but then balks at backfilling enties. Decides this will start from now moving forward and is happier for it.</div>
+                                    <div>Jesse creates this page to document game progression but then balks at
+                                        backfilling enties. Decides this will start from now moving forward and is
+                                        happier for it.</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <div>April 14, 2021</div>
+                                    <div>Jesse and son start a Python project called NehsaMUD</div>
                                 </div>
                             </li>
                         </ul>
