@@ -30,7 +30,7 @@ export class WritingComponent {
   }
 
   startFlash($event: any) {
-    this.snackBar.open("Coming soon!", 'Dismiss', { duration: 5000 });
+    this.snackBar.open("Coming soon (move from PH207)!", 'Dismiss', { duration: 5000 });
     $event.stopPropagation();
   }
 }

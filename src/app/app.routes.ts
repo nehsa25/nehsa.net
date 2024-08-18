@@ -50,9 +50,7 @@ import { MudMakingOfComponent } from './main/mud-making-of/mud-making-of.compone
 import { WelcomeComponent } from './main/welcome/welcome.component';
 import { TestingComponent } from './main/testing/testing.component';
 import { SecurityComponent } from './main/security/security.component';
-import { WellLifeComponent } from './main/jobs/well-life/well-life.component';
 import { LinuxComponent } from './main/linux/linux.component';
-import { JobsComponent } from './main/jobs/jobs.component';
 import { GoComponent } from './main/go/go.component';
 import { ScratchComponent } from './main/scratch/scratch.component';
 import { AiComponent } from './main/ai/ai.component';
@@ -62,7 +60,7 @@ import { KubernetesComponent } from './main/kubernetes/kubernetes.component';
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: WelcomeComponent },
     { path: 'agile', title: 'nehsa.net | Agile', component: AgileComponent },
-    { path: 'ai', title: 'nehsa.net | Agile', component: AiComponent },
+    { path: 'ai', title: 'nehsa.net | AI', component: AiComponent },
     { path: 'blog', title: 'nehsa.net | Blog', component: BlogComponent },
     { path: 'about', title: 'nehsa.net | About', component: BioComponent },
     { path: 'angular', title: 'nehsa.net | Angular', component: AngularComponent },
