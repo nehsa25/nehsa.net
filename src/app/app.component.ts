@@ -112,11 +112,11 @@ export class AppComponent implements OnInit, OnDestroy {
     this.timMessages.push(this.setEvent("Meet Timoth&eacute;e. He's off on an adventure!", .7, true, false, 1000 * 2));
     this.timMessages.push(this.setEvent("Bonjour! I'm Timoth&eacute;e and I'm on an adventure!", .8, true, true, 1000 * 10));
     this.timMessages.push(this.setEvent("I'm &quot;Adventuring Timoth&eacute;e!&quot; Whew!", .9, true, true, 1000 * 20));
-    this.timMessages.push(this.setEvent("Timoth&eacute;e takes in a large inhale of smell.", .9, true, false, 1000 * 24));
+    this.timMessages.push(this.setEvent("Timoth&eacute;e takes in a large inhale of breath.", .9, true, false, 1000 * 24));
     this.timMessages.push(this.setEvent("hmph. hhhmmmmmmmmmm. HHHMMMMM!!!", 1, true, true, 1000 * 26));
     this.timMessages.push(this.setEvent("Timoth&eacute;e exhales loudly.", .9, true, false, 1000 * 28));
     this.timMessages.push(this.setEvent("Can you smell that? The air is different out here!", 1, true, true, 1000 * 30));
-    this.timMessages.push(this.setEvent("This is AIR air.", 1, true, true, 1000 * 40));
+    this.timMessages.push(this.setEvent("This is &quot;AIR&quot; air.", 1, true, true, 1000 * 40));
     this.timMessages.push(this.setEvent("Truly riveting!", .9, true, false, 1000 * 42));
     this.timMessages.push(this.setEvent("Yup.. off adventuring..", 1, true, true, 1000 * 45));
     this.timMessages.push(this.setEvent("Timoth&eacute;e starts to hum..", .9, true, false, 1000 * 47));

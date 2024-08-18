@@ -76,8 +76,6 @@ export const routes: Routes = [
     { path: 'testing', title: 'nehsa.net | Testing', component: TestingComponent },
     { path: 'linux', title: 'nehsa.net | Linux', component: LinuxComponent },
     { path: 'go', title: 'nehsa.net | Golang', component: GoComponent },
-    { path: 'jobs/', title: 'nehsa.net | Jobs', component: JobsComponent },
-    { path: 'jobs/welllife', title: 'nehsa.net | Well-life', component: WellLifeComponent },
     { path: 'security', title: 'nehsa.net | Security', component: SecurityComponent },
     {
         path: 'school', title: 'nehsa.net | School', component: SchoolComponent,

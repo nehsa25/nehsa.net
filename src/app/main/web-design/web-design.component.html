@@ -1769,13 +1769,140 @@ animation: fadeOut 10s ease-out forwards;
                                     <mat-panel-title>Responsive Design</mat-panel-title>
                                 </mat-expansion-panel-header>
                                 <ul class="condensed">
-                                    <li>This website uses CSS Grids and media queries to handle responsive design. I use
-                                        the following media queries. It's important to start small and work up as
-                                        they cancel each other out..
-                                        <ul class="condensed">
-                                            <li>
-                                                <div class="code">
-                                                    <pre>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Mobile First Design</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <div class="panel-content">
+                                                <p>Mobile first design is the practice of designing for mobile devices
+                                                    first,
+                                                    then scaling up to desktop. This is the opposite of how websites
+                                                    have
+                                                    traditionally been designed.</p>
+
+
+                                                    Device Type	Device Example	Width (px)	Height (px)	Orientation
+Smartphone	iPhone 14 Pro Max	1290	2848	Both
+Smartphone	Samsung Galaxy S23 Ultra	1440	3200	Both
+Smartphone	Google Pixel 7	1080	2400	Both
+Tablet	iPad Pro 12.9 inch	2048	2732	Both
+Tablet	Samsung Galaxy Tab S8 Ultra	1848	2960	Both
+Laptop	MacBook Pro 14 inch	1496	984	Landscape
+Laptop	Dell XPS 13	1920	1200	Landscape
+Desktop Monitor	Dell UltraSharp U2723QE	2560	1440	Landscape
+Desktop Monitor	LG 32UN880-B	3840	2160	Landscape
+
+                                                    <table class="table" mat-table>
+                                                        <tr>
+                                                            <th>Device Type</th>
+                                                            <th>Device Name</th>
+                                                            <th>Width(px)</th>
+                                                            <th>Height(px)</th>
+                                                            <th>Orientation</th>                                                            
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Mobile</td>
+                                                            <td>iPhone 12</td>
+                                                            <td>390</td>
+                                                            <td>844</td>
+                                                            <td>Portrait</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Mobile</td>
+                                                            <td>iPhone 12</td>
+                                                            <td>844</td>
+                                                            <td>390</td>
+                                                            <td>Landscape</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tablet</td>
+                                                            <td>iPad Pro 12.9</td>
+                                                            <td>1024</td>
+                                                            <td>1366</td>
+                                                            <td>Portrait</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tablet</td>
+                                                            <td>iPad Pro 12.9</td>
+                                                            <td>1366</td>
+                                                            <td>1024</td>
+                                                            <td>Landscape</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Smartphone</td><td>iPhone 14 Pro Max</td><td>1290</td><td>2848</td><td>Both</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Smartphone</td><td>Samsung Galaxy S23 Ultra</td><td>1440</td><td>3200</td><td>Both</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Smartphone</td><td>Google Pixel 7</td><td>1080</td><td>2400</td><td>Both</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Tablet</td><td>iPad Pro 12.9 inch</td><td>2048</td><td>2732</td><td>Both</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Tablet</td><td>Samsung Galaxy Tab S8 Ultra</td><td>1848</td><td>2960</td><td>Both</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Laptop</td><td>MacBook Pro 14 inch</td><td>1496</td><td>984</td><td>Landscape</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Laptop</td><td>Dell XPS 13</td><td>1920</td><td>1200</td><td>Landscape</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Desktop Monitor</td><td>Dell UltraSharp U2723QE</td><td>2560</td><td>1440</td><td>Landscape</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Desktop Monitor</td><td>LG 32UN880-B</td><td>3840</td><td>2160</td><td>Landscape</td>
+                                                            </tr>
+                                                    </table>
+
+                                                <p>Some tips for mobile first design:</p>
+                                                <ul>
+                                                    <li>Start with a single column layout</li>
+                                                    <li>Use a grid system to make your layout responsive</li>
+                                                    <li>Use media queries to adjust your layout for larger screens. This set of queries handles iPhone 12 and up in both landscape and portrait mode:<br>
+These are some common breakpoints:<br>
+<div class="code">
+    <pre>
+&#64;media (min-width: 0px) &#123;
+    /* Styles for all devices */
+&#125;
+
+&#64;media (min-width: 576px) &#123;
+    /* Styles for devices that are 576px and up */
+&#125;
+
+&#64;media (min-width: 768px) &#123;
+    /* Styles for devices that are 768px and up */
+&#125;
+
+&#64;media (min-width: 992px) &#123;
+    /* Styles for devices that are 992px and up */
+&#125;
+
+&#64;media (min-width: 1200px) &#123;
+    /* Styles for devices that are 1200px and up */
+&#125;
+    </pre>
+</div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>This Website (outdated)</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            This website was not created with mobile first in mind. It's more difficult
+                                            to design for mobile after designing for desktop so this was ill-advised.
+                                            <ul class="condensed">
+                                                <li>
+                                                    <div class="code">
+                                                        <pre>
 &#64;media (min-width: 0px) &#123;
     .gridcols &#123;
         grid-template-columns: min-content 1fr;
@@ -2068,106 +2195,107 @@ animation: fadeOut 10s ease-out forwards;
     &#125;
 &#125;
                                                     </pre>
-                                                </div>
-
-
-                                            </li>
-                                        </ul>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </mat-expansion-panel>
                                     </li>
                                 </ul>
                             </mat-expansion-panel>
                         </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Favicon</mat-panel-title>
-                                </mat-expansion-panel-header>
-                                <ul class="condensed">
-                                    <li>Get your image:<br><span class="note">(Google Gemini was used to create this
-                                            Australian Cattle Dog)</span>
-                                        <div>
-                                            <img mat-card-image src="assets/images/dog_favicon.jpg" />
-                                        </div>
-                                    </li>
-                                    <li>Take the image to a transparency removal site to create a
-                                        transparent .PNG file
-                                    </li>
-                                    <li>Take that images to an Online FavIcon generator.
-                                        <ul>
-                                            <li>Resize in in 3 sizes:
-                                                <ul class="condensed">
-                                                    <li>16x16
-                                                        <div>
-                                                            <img style="width: 16px;" mat-card-image
-                                                                src="assets/images/dog_favicon16.png" />
-                                                        </div>
-                                                    </li>
-                                                    <li>32x32
-                                                        <div>
-                                                            <img style="width: 32px;" mat-card-image
-                                                                src="assets/images/dog_favicon32.png" />
-                                                        </div>
-                                                    </li>
-                                                    <li>64x64
-                                                        <div>
-                                                            <img style="width: 64px;" mat-card-image
-                                                                src="assets/images/dog_favicon64.png" />
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                        </ul>
-                                    </li>
-                                    <li>Add the link to your css. In most cases, theses file need to be in the root of
-                                        the website but Angular needs them in the asset folder:
-                                        <div class="code">
-                                            <pre>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Favicon</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul class="condensed">
+                                <li>Get your image:<br><span class="note">(Google Gemini was used to
+                                        create this
+                                        Australian Cattle Dog)</span>
+                                    <div>
+                                        <img mat-card-image src="assets/images/dog_favicon.jpg" />
+                                    </div>
+                                </li>
+                                <li>Take the image to a transparency removal site to create a
+                                    transparent .PNG file
+                                </li>
+                                <li>Take that images to an Online FavIcon generator.
+                                    <ul>
+                                        <li>Resize in in 3 sizes:
+                                            <ul class="condensed">
+                                                <li>16x16
+                                                    <div>
+                                                        <img style="width: 16px;" mat-card-image
+                                                            src="assets/images/dog_favicon16.png" />
+                                                    </div>
+                                                </li>
+                                                <li>32x32
+                                                    <div>
+                                                        <img style="width: 32px;" mat-card-image
+                                                            src="assets/images/dog_favicon32.png" />
+                                                    </div>
+                                                </li>
+                                                <li>64x64
+                                                    <div>
+                                                        <img style="width: 64px;" mat-card-image
+                                                            src="assets/images/dog_favicon64.png" />
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                    </ul>
+                                </li>
+                                <li>Add the link to your css. In most cases, theses file need to be in
+                                    the root of
+                                    the website but Angular needs them in the asset folder:
+                                    <div class="code">
+                                        <pre>
 &lt;link rel="icon" type="image/x-icon" sizes="32x32" href="assets/images/favicon-32x32.png"&gt;
 &lt;link rel="icon" type="image/x-icon" sizes="16x16" href="assets/images/favicon-16x16.png"&gt;
 &lt;link rel="icon" type="image/x-icon" sizes="64x64" href="assets/images/favicon.ico"&gt;
                                         </pre>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Relative Sizing</mat-panel-title>
-                                    <mat-panel-description>
-                                    </mat-panel-description>
-                                </mat-expansion-panel-header>
-                                <ul>
-                                    <li>svh <mat-icon>arrow_forward_ios</mat-icon> vh</li>
-                                    <li>rem for fonts</li>
-                                    <li>em for divs/containers</li>
-                                </ul>
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Margins and Padding</mat-panel-title>
-                                    <mat-panel-description>
-                                    </mat-panel-description>
-                                </mat-expansion-panel-header>
-                                <ul>
-                                    <li>
-                                        <div class="margin-examples">
-                                            No Padding and Margin, 100% width<br>
-                                            <div class="css-example-grid"
-                                                style="padding: 0; margin: 0; width: 100%; display: grid; grid-template-columns: 1fr 50px 2fr; grid-template-rows: 1fr 50px 2fr;">
-                                                <div style="background-color: #3F78DF;">1</div>
-                                                <div style="background-color: #FFFF00;">2</div>
-                                                <div style="background-color: #556B2F; color: white;">3
-                                                </div>
-                                                <div style="background-color: deeppink;">4</div>
-                                                <div style="background-color: #9370DB;">5</div>
-                                                <div style="background-color: #D2B48C">6</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Relative Sizing</mat-panel-title>
+                                <mat-panel-description>
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li>svh <mat-icon>arrow_forward_ios</mat-icon> vh</li>
+                                <li>rem for fonts</li>
+                                <li>em for divs/containers</li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Margins and Padding</mat-panel-title>
+                                <mat-panel-description>
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li>
+                                    <div class="margin-examples">
+                                        No Padding and Margin, 100% width<br>
+                                        <div class="css-example-grid"
+                                            style="padding: 0; margin: 0; width: 100%; display: grid; grid-template-columns: 1fr 50px 2fr; grid-template-rows: 1fr 50px 2fr;">
+                                            <div style="background-color: #3F78DF;">1</div>
+                                            <div style="background-color: #FFFF00;">2</div>
+                                            <div style="background-color: #556B2F; color: white;">3
                                             </div>
+                                            <div style="background-color: deeppink;">4</div>
+                                            <div style="background-color: #9370DB;">5</div>
+                                            <div style="background-color: #D2B48C">6</div>
+                                        </div>
 
-                                            <div class="code">
-                                                <pre>
+                                        <div class="code">
+                                            <pre>
 &lt;div class="margin-examples"&gt;
     No Padding and Margin, 100% width&lt;br&gt;
     &lt;div class="css-example-grid"
@@ -2182,24 +2310,24 @@ animation: fadeOut 10s ease-out forwards;
         &lt;/div&gt;
 &lt;/div&gt;
                                             </pre>
-                                            </div>
                                         </div>
-                                    </li>
-                                    <li>
-                                        <div class="margin-examples">
-                                            padding: 1em, margin: 1em, 100% width<br>
-                                            <div class="css-example-grid"
-                                                style="padding: 1em; margin: 1em; width: 100%; display: grid; grid-template-columns: 1fr 50px 2fr; grid-template-rows: 1fr 50px 2fr;">
-                                                <div style="background-color: #3F78DF;">1</div>
-                                                <div style="background-color: #FFFF00;">2</div>
-                                                <div style="background-color: #556B2F; color: white;">3
-                                                </div>
-                                                <div style="background-color: #3F78DF;">4</div>
-                                                <div style="background-color: #9370DB;">5</div>
-                                                <div style="background-color: #D2B48C">6</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="margin-examples">
+                                        padding: 1em, margin: 1em, 100% width<br>
+                                        <div class="css-example-grid"
+                                            style="padding: 1em; margin: 1em; width: 100%; display: grid; grid-template-columns: 1fr 50px 2fr; grid-template-rows: 1fr 50px 2fr;">
+                                            <div style="background-color: #3F78DF;">1</div>
+                                            <div style="background-color: #FFFF00;">2</div>
+                                            <div style="background-color: #556B2F; color: white;">3
                                             </div>
-                                            <div class="code">
-                                                <pre>
+                                            <div style="background-color: #3F78DF;">4</div>
+                                            <div style="background-color: #9370DB;">5</div>
+                                            <div style="background-color: #D2B48C">6</div>
+                                        </div>
+                                        <div class="code">
+                                            <pre>
 &lt;div class="margin-examples"&gt;
     padding: 1em, margin: 1em, 100% width&lt;br&gt;
     &lt;div class="css-example-grid"
@@ -2214,339 +2342,369 @@ animation: fadeOut 10s ease-out forwards;
     &lt;/div&gt;
 &lt;/div&gt;
                                             </pre>
-                                            </div>
                                         </div>
-                                    </li>
-                                    <li>
-                                        <div class="margin-examples">
-                                            padding: 1em, margin: 1em, 100vw width<br>
-                                            <div class="css-example-grid"
-                                                style="padding: 1em; margin: 1em; width: 100%vw; display: grid; grid-template-columns: 1fr 50px 2fr; grid-template-rows: 1fr 50px 2fr;">
-                                                <div style="background-color: #3F78DF;">1</div>
-                                                <div style="background-color: #FFFF00;">2</div>
-                                                <div style="background-color: #556B2F; color: white;">3
-                                                </div>
-                                                <div style="background-color: deeppink;">4</div>
-                                                <div style="background-color: #9370DB;">5</div>
-                                                <div style="background-color: #3c9953">6</div>
-                                            </div>
-                                            <div class="code">
-                                                <pre>
-&lt;div style="width: 100%vw; display: grid; grid-template-columns: 1fr 50px 2fr; grid-template-rows: 1fr 50px 2fr;"&gt;
-                                            </pre>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="margin-examples">
-                                            padding: 1em, margin: 1em, 100% width, width calculated: calc(100% - 4em);
-                                            We
-                                            need to subtract four to compensate for the 2-added padding and the 2-added
-                                            margin.<br>
-                                            <div class="css-example-grid"
-                                                style="padding: 1em; margin: 1em; width: calc(100% - 4em); display: grid; grid-template-rows: 1fr 50px 2fr;grid-template-columns: 1fr 50px 2fr; ">
-                                                <div style="background-color: #3F78DF;">1</div>
-                                                <div style="background-color: #FFFF00;">2</div>
-                                                <div style="background-color: #556B2F; color: white;">3
-                                                </div>
-                                                <div style="background-color: deeppink;">4</div>
-                                                <div style="background-color: #9370DB;">5</div>
-                                                <div style="background-color: #D2B48C">6</div>
-                                            </div>
-                                            <div class="code">
-                                                <pre>
-&lt;div style="width: 100%vw; display: grid; grid-template-columns: 1fr 50px 2fr; grid-template-rows: 1fr 50px 2fr;"&gt;
-                                            </pre>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </mat-expansion-panel>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Text and Element alignment</mat-panel-title>
-                                </mat-expansion-panel-header>
-                                <div class="topics">
-                                    <div>
-                                        CSS has too many ways to align stuff. I often find myself trying each until
-                                        things
-                                        finally work which is not the best way to do things. Here are some of the ways
-                                        to
-                                        align text and elements:
-                                        <dl>
-                                            <dt>text-align</dt>
-                                            <dd>Aligns text within a container. Options include: left, right, center,
-                                                and
-                                                justify.</dd>
-                                            <dt>vertical-align</dt>
-                                            <dd>Aligns inline elements vertically. Options include: baseline, sub,
-                                                super,
-                                                top, text-top, middle, bottom, text-bottom, and length.</dd>
-                                            <dt>line-height</dt>
-                                            <dd>Specifies the height of a line.</dd>
-                                            <dt>justify-content</dt>
-                                            <dd>Aligns items horizontally and accepts the following values: flex-start,
-                                                flex-end, center, space-between, space-around, and space-evenly.</dd>
-                                            <dt>align-items</dt>
-                                            <dd>Aligns items vertically and accepts the following values: stretch,
-                                                flex-start, flex-end, center, baseline, and space-between.</dd>
-                                            <dt>align-self</dt>
-                                            <dd>Aligns a single item vertically and accepts the following values: auto,
-                                                stretch, flex-start, flex-end, center, baseline, and space-between.</dd>
-                                            <dt>place-content</dt>
-                                            <dd>Aligns items both horizontally and vertically and accepts the following
-                                                values: flex-start, flex-end, center, space-between, space-around,
-                                                space-evenly, start, end, and stretch. Is shorthand for align-content
-                                                and
-                                                justify-content.
-                                            </dd>
-                                            <dt><span class="strikeout">place-items</span> (do not use)</dt>
-                                            <dd>Aligns items both horizontally and vertically and accepts the following
-                                                values: start, end, center, stretch, flex-start, flex-end, self-start,
-                                                self-end, baseline, first baseline, last baseline, safe center, unsafe
-                                                center, legacy, and legacy center.
-
-                                                Limiations and when to use: place-items is a shorthand for align-items
-                                                and
-                                                justify-items. It is not supported in Firefox, but it is supported in
-                                                Chrome
-                                                and Safari. It is not recommended to use place-items because it is not
-                                                supported in all browsers. Instead, use align-items and justify-items
-                                                separately.</dd>
-                                            <dt>margin: auto;</dt>
-                                            <dd>Centers an element horizontally and vertically. This is often used with
-                                                flex
-                                                or grid containers.<br><br>
-                                                Examples:<br>
-                                                margin: auto 0; <span
-                                                    class="comment"><mat-icon>arrow_back</mat-icon>Veritically
-                                                    align</span><br>
-                                                margin: 0 auto; <span
-                                                    class="comment"><mat-icon>arrow_back</mat-icon>Horizontally
-                                                    align</span><br>
-                                                margin-left: 100%; <span
-                                                    class="comment"><mat-icon>arrow_back</mat-icon>Pushes
-                                                    the element to the
-                                                    right</span><br>
-                                            </dd>
-                                        </dl>
-
-                                        <span class="importantish">Cheat Sheet:</span><br>
-                                        <table mat-table>
-                                            <tr>
-                                                <th>Parent Display</th>
-                                                <th>Child Display</th>
-                                                <th>Vertical Alignment Property</th>
-                                                <th>Horizontal Alignment Property</th>
-                                                <th>Control both</th>
-                                            </tr>
-                                            <tr>
-                                                <td>block</td>
-                                                <td>block, inline-block, flex, grid</td>
-                                                <td>vertical-align</td>
-                                                <td>text-align</td>
-                                                <td>N/A</td>
-                                            </tr>
-                                            <tr>
-                                                <td>inline-block</td>
-                                                <td>block, inline-block, flex, grid</td>
-                                                <td>vertical-align</td>
-                                                <td>text-align</td>
-                                                <td>N/A</td>
-                                            </tr>
-                                            <tr>
-                                                <td>flex</td>
-                                                <td>block, inline-block, flex, grid</td>
-                                                <td>align-items</td>
-                                                <td>justify-content</td>
-                                                <td>place-content</td>
-                                            </tr>
-                                            <tr>
-                                                <td>grid</td>
-                                                <td>block, inline-block, flex, grid</td>
-                                                <td>align-items</td>
-                                                <td>justify-content</td>
-                                                <td>place-content</td>
-                                            </tr>
-                                            <tr>
-                                                <td>inline</td>
-                                                <td>inline</td>
-                                                <td>vertical-align</td>
-                                                <td>text-align</td>
-                                                <td>N/A</td>
-                                            </tr>
-                                        </table>
                                     </div>
-                                    <div>
-                                        <ul>
-                                            <li>
-                                                <mat-expansion-panel>
-                                                    <mat-expansion-panel-header>
-                                                        <mat-panel-title>Veritical align using &nbsp;<span
-                                                                class="importantish">margin:
-                                                                auto
-                                                                0;</span></mat-panel-title>
-                                                        <mat-panel-description>If the child we wish to move is
-                                                            inside a div
-                                                            that is
-                                                            using flex or grid, we can usually use an auto margin.
-                                                        </mat-panel-description>
-                                                    </mat-expansion-panel-header>
-                                                    <div class="code">
+                                </li>
+                                <li>
+                                    <div class="margin-examples">
+                                        padding: 1em, margin: 1em, 100vw width<br>
+                                        <div class="css-example-grid"
+                                            style="padding: 1em; margin: 1em; width: 100%vw; display: grid; grid-template-columns: 1fr 50px 2fr; grid-template-rows: 1fr 50px 2fr;">
+                                            <div style="background-color: #3F78DF;">1</div>
+                                            <div style="background-color: #FFFF00;">2</div>
+                                            <div style="background-color: #556B2F; color: white;">3
+                                            </div>
+                                            <div style="background-color: deeppink;">4</div>
+                                            <div style="background-color: #9370DB;">5</div>
+                                            <div style="background-color: #3c9953">6</div>
+                                        </div>
+                                        <div class="code">
+                                            <pre>
+&lt;div style="width: 100%vw; display: grid; grid-template-columns: 1fr 50px 2fr; grid-template-rows: 1fr 50px 2fr;"&gt;
+                                            </pre>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="margin-examples">
+                                        padding: 1em, margin: 1em, 100% width, width calculated:
+                                        calc(100% - 4em);
+                                        We
+                                        need to subtract four to compensate for the 2-added padding and
+                                        the 2-added
+                                        margin.<br>
+                                        <div class="css-example-grid"
+                                            style="padding: 1em; margin: 1em; width: calc(100% - 4em); display: grid; grid-template-rows: 1fr 50px 2fr;grid-template-columns: 1fr 50px 2fr; ">
+                                            <div style="background-color: #3F78DF;">1</div>
+                                            <div style="background-color: #FFFF00;">2</div>
+                                            <div style="background-color: #556B2F; color: white;">3
+                                            </div>
+                                            <div style="background-color: deeppink;">4</div>
+                                            <div style="background-color: #9370DB;">5</div>
+                                            <div style="background-color: #D2B48C">6</div>
+                                        </div>
+                                        <div class="code">
+                                            <pre>
+&lt;div style="width: 100%vw; display: grid; grid-template-columns: 1fr 50px 2fr; grid-template-rows: 1fr 50px 2fr;"&gt;
+                                            </pre>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </mat-expansion-panel>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Text and Element alignment</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <div class="topics">
+                                <div>
+                                    CSS has too many ways to align stuff. I often find myself trying
+                                    each until
+                                    things
+                                    finally work which is not the best way to do things. Here are some
+                                    of the ways
+                                    to
+                                    align text and elements:
+                                    <dl>
+                                        <dt>text-align</dt>
+                                        <dd>Aligns text within a container. Options include: left,
+                                            right, center,
+                                            and
+                                            justify.</dd>
+                                        <dt>vertical-align</dt>
+                                        <dd>Aligns inline elements vertically. Options include:
+                                            baseline, sub,
+                                            super,
+                                            top, text-top, middle, bottom, text-bottom, and length.</dd>
+                                        <dt>line-height</dt>
+                                        <dd>Specifies the height of a line.</dd>
+                                        <dt>justify-content</dt>
+                                        <dd>Aligns items horizontally and accepts the following values:
+                                            flex-start,
+                                            flex-end, center, space-between, space-around, and
+                                            space-evenly.</dd>
+                                        <dt>align-items</dt>
+                                        <dd>Aligns items vertically and accepts the following values:
+                                            stretch,
+                                            flex-start, flex-end, center, baseline, and space-between.
+                                        </dd>
+                                        <dt>align-self</dt>
+                                        <dd>Aligns a single item vertically and accepts the following
+                                            values: auto,
+                                            stretch, flex-start, flex-end, center, baseline, and
+                                            space-between.</dd>
+                                        <dt>place-content</dt>
+                                        <dd>Aligns items both horizontally and vertically and accepts
+                                            the following
+                                            values: flex-start, flex-end, center, space-between,
+                                            space-around,
+                                            space-evenly, start, end, and stretch. Is shorthand for
+                                            align-content
+                                            and
+                                            justify-content.
+                                        </dd>
+                                        <dt><span class="strikeout">place-items</span> (do not use)</dt>
+                                        <dd>Aligns items both horizontally and vertically and accepts
+                                            the following
+                                            values: start, end, center, stretch, flex-start, flex-end,
+                                            self-start,
+                                            self-end, baseline, first baseline, last baseline, safe
+                                            center, unsafe
+                                            center, legacy, and legacy center.
 
-                                                        <div class="example-grid">
-                                                            <div>
-                                                                <table>
-                                                                    <tr>
-                                                                        <td colspan="2">
-                                                                            <div>
-                                                                                <div class="code">
-                                                                                    <pre>
+                                            Limiations and when to use: place-items is a shorthand for
+                                            align-items
+                                            and
+                                            justify-items. It is not supported in Firefox, but it is
+                                            supported in
+                                            Chrome
+                                            and Safari. It is not recommended to use place-items because
+                                            it is not
+                                            supported in all browsers. Instead, use align-items and
+                                            justify-items
+                                            separately.</dd>
+                                        <dt>margin: auto;</dt>
+                                        <dd>Centers an element horizontally and vertically. This is
+                                            often used with
+                                            flex
+                                            or grid containers.<br><br>
+                                            Examples:<br>
+                                            margin: auto 0; <span
+                                                class="comment"><mat-icon>arrow_back</mat-icon>Veritically
+                                                align</span><br>
+                                            margin: 0 auto; <span
+                                                class="comment"><mat-icon>arrow_back</mat-icon>Horizontally
+                                                align</span><br>
+                                            margin-left: 100%; <span
+                                                class="comment"><mat-icon>arrow_back</mat-icon>Pushes
+                                                the element to the
+                                                right</span><br>
+                                        </dd>
+                                    </dl>
+
+                                    <span class="importantish">Cheat Sheet:</span><br>
+                                    <table mat-table>
+                                        <tr>
+                                            <th>Parent Display</th>
+                                            <th>Child Display</th>
+                                            <th>Vertical Alignment Property</th>
+                                            <th>Horizontal Alignment Property</th>
+                                            <th>Control both</th>
+                                        </tr>
+                                        <tr>
+                                            <td>block</td>
+                                            <td>block, inline-block, flex, grid</td>
+                                            <td>vertical-align</td>
+                                            <td>text-align</td>
+                                            <td>N/A</td>
+                                        </tr>
+                                        <tr>
+                                            <td>inline-block</td>
+                                            <td>block, inline-block, flex, grid</td>
+                                            <td>vertical-align</td>
+                                            <td>text-align</td>
+                                            <td>N/A</td>
+                                        </tr>
+                                        <tr>
+                                            <td>flex</td>
+                                            <td>block, inline-block, flex, grid</td>
+                                            <td>align-items</td>
+                                            <td>justify-content</td>
+                                            <td>place-content</td>
+                                        </tr>
+                                        <tr>
+                                            <td>grid</td>
+                                            <td>block, inline-block, flex, grid</td>
+                                            <td>align-items</td>
+                                            <td>justify-content</td>
+                                            <td>place-content</td>
+                                        </tr>
+                                        <tr>
+                                            <td>inline</td>
+                                            <td>inline</td>
+                                            <td>vertical-align</td>
+                                            <td>text-align</td>
+                                            <td>N/A</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div>
+                                    <ul>
+                                        <li>
+                                            <mat-expansion-panel>
+                                                <mat-expansion-panel-header>
+                                                    <mat-panel-title>Veritical align using &nbsp;<span
+                                                            class="importantish">margin:
+                                                            auto
+                                                            0;</span></mat-panel-title>
+                                                    <mat-panel-description>If the child we wish to move
+                                                        is
+                                                        inside a div
+                                                        that is
+                                                        using flex or grid, we can usually use an auto
+                                                        margin.
+                                                    </mat-panel-description>
+                                                </mat-expansion-panel-header>
+                                                <div class="code">
+
+                                                    <div class="example-grid">
+                                                        <div>
+                                                            <table>
+                                                                <tr>
+                                                                    <td colspan="2">
+                                                                        <div>
+                                                                            <div class="code">
+                                                                                <pre>
 &lt;div style="display: grid; background-color: orchid; width: 100px; height: 100px;"&gt;
     &lt;div style="background-color: red; width: 25px; height: 25px; margin: auto 0;"&gt;
         &amp;nbsp;
     &lt;/div&gt;
 &lt;/div&gt;
 </pre>
-                                                                                </div>
                                                                             </div>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <div>Parent of type <span
-                                                                                    class="importantish">display:
-                                                                                    grid;</span>:
-                                                                            </div>
-                                                                            <div
-                                                                                style="background-color: orchid; width: 25px; height: 25px;">
-                                                                                &nbsp;
-                                                                            </div>
-                                                                        </td>
-                                                                        <td>
-                                                                            <div>Child we wish to center:</div>
-                                                                            <div
-                                                                                style="background-color: red; width: 25px; height: 25px;">
-                                                                                &nbsp;</div>
-                                                                        </td>
-                                                                    </tr>
-                                                                </table>
-                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <div>Parent of type <span
+                                                                                class="importantish">display:
+                                                                                grid;</span>:
+                                                                        </div>
+                                                                        <div
+                                                                            style="background-color: orchid; width: 25px; height: 25px;">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div>Child we wish to center:
+                                                                        </div>
+                                                                        <div
+                                                                            style="background-color: red; width: 25px; height: 25px;">
+                                                                            &nbsp;</div>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                        <div
+                                                            style="display: grid; background-color: orchid; width: 100px; height: 100px;">
                                                             <div
-                                                                style="display: grid; background-color: orchid; width: 100px; height: 100px;">
-                                                                <div
-                                                                    style="background-color: red; width: 25px; height: 25px; margin: auto 0;">
-                                                                </div>
+                                                                style="background-color: red; width: 25px; height: 25px; margin: auto 0;">
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </mat-expansion-panel>
-                                            </li>
-                                            <li>
-                                                <mat-expansion-panel>
-                                                    <mat-expansion-panel-header>
-                                                        <mat-panel-title>Horitzonal align using &nbsp;<span
-                                                                class="importantish">margin: 0
-                                                                auto;</span></mat-panel-title>
-                                                        <mat-panel-description>Same thing can be done horizontally
-                                                        </mat-panel-description>
-                                                    </mat-expansion-panel-header>
-                                                    <div class="code">
-                                                        <div class="example-grid">
-                                                            <div>
-                                                                <table>
-                                                                    <tr>
-                                                                        <td colspan="2">
-                                                                            <div>
-                                                                                <div class="code">
-                                                                                    <pre>
+                                                </div>
+                                            </mat-expansion-panel>
+                                        </li>
+                                        <li>
+                                            <mat-expansion-panel>
+                                                <mat-expansion-panel-header>
+                                                    <mat-panel-title>Horitzonal align using &nbsp;<span
+                                                            class="importantish">margin: 0
+                                                            auto;</span></mat-panel-title>
+                                                    <mat-panel-description>Same thing can be done
+                                                        horizontally
+                                                    </mat-panel-description>
+                                                </mat-expansion-panel-header>
+                                                <div class="code">
+                                                    <div class="example-grid">
+                                                        <div>
+                                                            <table>
+                                                                <tr>
+                                                                    <td colspan="2">
+                                                                        <div>
+                                                                            <div class="code">
+                                                                                <pre>
 &lt;div style="display: grid; background-color: orchid; width: 100px; height: 100px;"&gt;
     &lt;div style="background-color: red; width: 25px; height: 25px; margin: 0 auto;"&gt;
         &amp;nbsp;
     &lt;/div&gt;
 &lt;/div&gt;
 </pre>
-                                                                                </div>
                                                                             </div>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <div>Parent of type <span
-                                                                                    class="importantish">display:
-                                                                                    grid;</span>:
-                                                                            </div>
-                                                                            <div
-                                                                                style="background-color: orchid; width: 25px; height: 25px;">
-                                                                                &nbsp;
-                                                                            </div>
-                                                                        </td>
-                                                                        <td>
-                                                                            <div>Child we wish to center:</div>
-                                                                            <div
-                                                                                style="background-color: red; width: 25px; height: 25px;">
-                                                                                &nbsp;</div>
-                                                                        </td>
-                                                                    </tr>
-                                                                </table>
-                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <div>Parent of type <span
+                                                                                class="importantish">display:
+                                                                                grid;</span>:
+                                                                        </div>
+                                                                        <div
+                                                                            style="background-color: orchid; width: 25px; height: 25px;">
+                                                                            &nbsp;
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div>Child we wish to center:
+                                                                        </div>
+                                                                        <div
+                                                                            style="background-color: red; width: 25px; height: 25px;">
+                                                                            &nbsp;</div>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                        <div
+                                                            style="display: grid; background-color: orchid; width: 100px; height: 100px;">
                                                             <div
-                                                                style="display: grid; background-color: orchid; width: 100px; height: 100px;">
-                                                                <div
-                                                                    style="background-color: red; width: 25px; height: 25px; margin: 0 auto;">
-                                                                </div>
+                                                                style="background-color: red; width: 25px; height: 25px; margin: 0 auto;">
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </mat-expansion-panel>
-                                            </li>
-                                            <li>
-                                                <mat-expansion-panel>
-                                                    <mat-expansion-panel-header>
-                                                        <mat-panel-title>place-content</mat-panel-title>
-                                                        <mat-panel-description>If the display:flex, you can use
-                                                            place-content to
-                                                            center both vertically and horizontally.
-                                                        </mat-panel-description>
-                                                    </mat-expansion-panel-header>
-                                                    Example here..
-                                                </mat-expansion-panel>
-                                            </li>
-                                            <li>
-                                                <mat-expansion-panel>
-                                                    <mat-expansion-panel-header>
-                                                        <mat-panel-title>align-self</mat-panel-title>
-                                                        <mat-panel-description>If the element is a grid item, you
-                                                            can use
-                                                            align-self: center
-                                                        </mat-panel-description>
-                                                    </mat-expansion-panel-header>
-                                                    <span class="impoartant">html</span><br>
-                                                    <div class="code">
-                                                        <pre>
+                                                </div>
+                                            </mat-expansion-panel>
+                                        </li>
+                                        <li>
+                                            <mat-expansion-panel>
+                                                <mat-expansion-panel-header>
+                                                    <mat-panel-title>place-content</mat-panel-title>
+                                                    <mat-panel-description>If the display:flex, you can
+                                                        use
+                                                        place-content to
+                                                        center both vertically and horizontally.
+                                                    </mat-panel-description>
+                                                </mat-expansion-panel-header>
+                                                Example here..
+                                            </mat-expansion-panel>
+                                        </li>
+                                        <li>
+                                            <mat-expansion-panel>
+                                                <mat-expansion-panel-header>
+                                                    <mat-panel-title>align-self</mat-panel-title>
+                                                    <mat-panel-description>If the element is a grid
+                                                        item, you
+                                                        can use
+                                                        align-self: center
+                                                    </mat-panel-description>
+                                                </mat-expansion-panel-header>
+                                                <span class="impoartant">html</span><br>
+                                                <div class="code">
+                                                    <pre>
 &lt;div class="map-sub-btns"&gt;
     &lt;button mat-button (click)="enlargen()"&gt;&lt;mat-icon class="map-buttons-icons"&gt;expand&lt;/mat-icon&gt;&lt;/button&gt;
     &lt;button mat-button (click)="min()"&gt;&lt;mat-icon class="map-buttons-icons"&gt;close&lt;/mat-icon&gt;&lt;/button&gt;
 &lt;/div&gt;
 </pre>
-                                                    </div><br><br>
-                                                    <span class="impoartant">css</span><br>
-                                                    <div class="code">
-                                                        <pre>
+                                                </div><br><br>
+                                                <span class="impoartant">css</span><br>
+                                                <div class="code">
+                                                    <pre>
 .map-sub-btns &#123;
     align-self: center;
 &#125;
 </pre>
-                                                    </div><br><br>Tada!<br>
-                                                    <img mat-card-image src="assets/images/align_self.png" />
-                                                </mat-expansion-panel>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                                </div><br><br>Tada!<br>
+                                                <img mat-card-image src="assets/images/align_self.png" />
+                                            </mat-expansion-panel>
+                                        </li>
+                                    </ul>
                                 </div>
-                            </mat-expansion-panel>
-                        </li>
+                            </div>
+                        </mat-expansion-panel>
+                    </li>
                     </ul>
                 </div>
             </div>
