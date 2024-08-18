@@ -53,6 +53,10 @@
                                         <div>
                                             <h3>Useful Commands</h3>
                                             <ul class="condensed">
+                                                <li><span class="code">ng new super-app --routing --style=scss</span> -
+                                                    Create
+                                                    a new Angular project with routing and SCSS.
+                                                </li>
                                                 <li><span class="code">npm install</span> - Install all files necessary
                                                     to
                                                     run the Angular
@@ -375,8 +379,8 @@ ngOnInit() &#123;
                                                 <li>component.html
                                                     <div class="code">
                                                         <pre>
-                &lt;div&gt;&lt;p&gt;&#123; &#123;quote&#125; &#125;&lt;/p&gt;&lt;/div&gt; (<span class="comment">Remove spaces between &#123;&#125;</span>)
-                                                                </pre>
+&lt;div&gt;&lt;p&gt;&#123; &#123;quote&#125; &#125;&lt;/p&gt;&lt;/div&gt; (<span class="comment">Remove spaces between &#123;&#125;</span>)
+</pre>
                                                     </div>
                                                 </li>
                                             </ul>
@@ -412,6 +416,59 @@ ngOnInit() &#123;
                                         </li>
                                     </ul>
                                 </div>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Interfaces</mat-panel-title>
+                                    <mat-panel-description>
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>Interfaces are used to define the structure of an object. They are
+                                        particularly useful when working with APIs. Here's an example:
+                                        <div class="code">
+                                            <pre>
+interface timeItem &#123;
+    full: string;
+    year: number;
+    month: number;
+    day: number;
+    hour: number;
+    minute: number;  
+&#125;
+</pre>
+                                        </div><br><br>
+
+                                        Which could be used as followed:
+                                        <div class="code">
+                                            <pre>
+dates = ["2024-08-20 1PM", "2024-08-21 10AM", "2024-09-03 11AM", "2024-09-04 3PM", "2024-09-10 10AM", "2024-09-11 9AM", "2024-09-17 5PM", "2024-09-24 5PM", "2024-09-25 3:30PM"]
+timeItems: timeItem[] = [];
+constructor() &#123;
+    console.log('constructor');
+    this.timeItems = this.dates.map(dateString => &#123;
+    const full = dateString;
+    const [datePart, timePart] = dateString.split(' ');
+    const [year, month, day] = datePart.split('-').map(Number);
+    const [hourString, minuteString] = timePart.split(':');
+    const hour = parseInt(hourString, 10) + (timePart.includes('PM') ? 12 : 0);
+    const minute = parseInt(minuteString || '0', 10); // Handle cases without minutes    
+    return &#123;
+        full,
+        year,
+        month,
+        day,
+        hour,
+        minute
+    &#125;;
+    &#125;);
+&#125;
+</pre>
+                                        </div>
+                                    </li>
+                                </ul>
                             </mat-expansion-panel>
                         </li>
                         <li>
