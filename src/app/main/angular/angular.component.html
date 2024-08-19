@@ -15,219 +15,228 @@
                     </ul>
                 </div>
                 <div>
-                    <ul>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Basics</mat-panel-title>
-                                </mat-expansion-panel-header>
-                                <ul>
-                                    <li>
-                                        Working with HTML elements:
-                                        <dl>
-                                            <dt>Do something on an event. e.g. (click)="clickfunc()"</dt>
-                                            <dd>()</dd>
-                                            <dt>Right-hand side of the assignment is a dynamic expression.</dt>
-                                            <dd>[]</dd>
-                                            <dt>Associate with a variable</dt>
-                                            <dd>[ngModel]="variable"</dd>
-                                            <dt>Display a variable using interpolation</dt>
-                                            <dd>
-                                                <p
-                                                    [innerHtml]="'<span>&#123;&#123;variable to display&#125;&#125;</span>'">
-                                                </p>
-                                            </dd>
-                                            <dt>Embed a "data-testid" attribute in element after build</dt>
-                                            <dd>[attr.data-testid]="'edit-frozen-' + i"</dd>
-                                        </dl>
-                                    </li>
-                                    <li>
-                                        <div>
-                                            <h3>Important Files</h3>
-                                            <ul class="condensed">
-                                                <li>angular.json - Application settings.</li>
-                                                <li>packages.json - NPM packages to install for application.</li>
-                                            </ul>
-                                        </div>
+                    <mat-expansion-panel expanded>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Basics</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <ul>
+                            <li>
+                                Working with HTML elements:
+                                <dl>
+                                    <dt>Do something on an event. e.g. (click)="clickfunc()"</dt>
+                                    <dd>()</dd>
+                                    <dt>Right-hand side of the assignment is a dynamic expression.</dt>
+                                    <dd>[]</dd>
+                                    <dt>Associate with a variable</dt>
+                                    <dd>[ngModel]="variable"</dd>
+                                    <dt>Decorator</dt>
+                                    <dd>e.g. ViewChild</dd>
+                                    <dt>Directive</dt>
+                                    <dd>e.g. ngIf</dd>
+                                    <dt>Template Reference Variable</dt>
+                                    <dd>e.g. &lt;span #me&gt;</dd>
+                                    <dt>Display a variable using interpolation</dt>
+                                    <dd>
+                                        <p
+                                            [innerHtml]="'<spanks>&#123;&#123;variable to display&#125;&#125;</span>'">
+                                        </p>
+                                    </dd>
+                                    <dt>Embed a "data-testid" attribute in element after build</dt>
+                                    <dd>[attr.data-testid]="'edit-frozen-' + i"</dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <div>
+                                    <h3>Important Files</h3>
+                                    <ul class="condensed">
+                                        <li>angular.json - Application settings.</li>
+                                        <li>packages.json - NPM packages to install for application.</li>
+                                    </ul>
+                                </div>
 
-                                        <div>
-                                            <h3>Useful Commands</h3>
-                                            <ul class="condensed">
-                                                <li><span class="code">ng new super-app --routing --style=scss</span> -
-                                                    Create
-                                                    a new Angular project with routing and SCSS.
-                                                </li>
-                                                <li><span class="code">npm install</span> - Install all files necessary
-                                                    to
-                                                    run the Angular
-                                                    project.</li>
-                                                <li><span class="code">ng serve -o</span> - Runs app locally. The -o
-                                                    opens
-                                                    it in your
-                                                    browser.
-                                                </li>
-                                                <li><span class="code">ng build --configuration
-                                                        development/production</span> - Build for
-                                                    deployments. Output in /dist folder.</li>
-                                                <li><span class="code">ng add &#64;angular/material</span> - Installs
-                                                    Material. This method
-                                                    is
-                                                    preferred for npm install as it performs additional initialization.
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div>
-                                            <h3>Useful Links</h3>
-                                            <ul class="condensed">
-                                                <li>Angular - https://angular.io/</li>
-                                                <li>Material - https://material.angular.io/</li>
-                                                <li>Fonts - https://fonts.google.com/icons</li>
-                                            </ul>
-                                        </div>
-                                    </li>
+                                <div>
+                                    <h3>Useful Commands</h3>
+                                    <ul class="condensed">
+                                        <li><span class="code">ng new super-app --routing --style=scss</span> -
+                                            Create
+                                            a new Angular project with routing and SCSS.
+                                        </li>
+                                        <li><span class="code">npm install</span> - Install all files necessary
+                                            to
+                                            run the Angular
+                                            project.</li>
+                                        <li><span class="code">ng serve -o</span> - Runs app locally. The -o
+                                            opens
+                                            it in your
+                                            browser.
+                                        </li>
+                                        <li><span class="code">ng build --configuration
+                                                development/production</span> - Build for
+                                            deployments. Output in /dist folder.</li>
+                                        <li><span class="code">ng add &#64;angular/material</span> - Installs
+                                            Material. This method
+                                            is
+                                            preferred for npm install as it performs additional initialization.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h3>Useful Links</h3>
+                                    <ul class="condensed">
+                                        <li>Angular - https://angular.io/</li>
+                                        <li>Material - https://material.angular.io/</li>
+                                        <li>Fonts - https://fonts.google.com/icons</li>
+                                    </ul>
+                                </div>
+                            </li>
 
-                                    <li>
-                                        <mat-expansion-panel>
-                                            <mat-expansion-panel-header>
-                                                <mat-panel-title>Case Matters!</mat-panel-title>
-                                            </mat-expansion-panel-header>
-                                            <mat-icon class="good">check</mat-icon><span class="code">&lt;a
-                                                routerLink="/python"&gt;Python&lt;/a&gt;</span><br><br>
-                                            <mat-icon class="bad">close</mat-icon><span class="code">&lt;a
-                                                routerlink="/python"&gt;Python&lt;/a&gt;</span>
-                                        </mat-expansion-panel>
-                                    </li>
-                                    <li>
-                                        <mat-expansion-panel>
-                                            <mat-expansion-panel-header>
-                                                <mat-panel-title>Services should be singletons</mat-panel-title>
-                                            </mat-expansion-panel-header>
-                                            Services need to be singletons. If you have a userService, it should
-                                            only be in the "providers" in a single spot. Otherwise, you'll have
-                                            multiple instances of the same service which can cause issues.
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Case Matters!</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    <mat-icon class="good">check</mat-icon><span class="code">&lt;a
+                                        routerLink="/python"&gt;Python&lt;/a&gt;</span><br><br>
+                                    <mat-icon class="bad">close</mat-icon><span class="code">&lt;a
+                                        routerlink="/python"&gt;Python&lt;/a&gt;</span>
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Services should be singletons</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    Services need to be singletons. If you have a userService, it should
+                                    only be in the "providers" in a single spot. Otherwise, you'll have
+                                    multiple instances of the same service which can cause issues.
 
-                                            <br><br>
-                                            Jesse to add an example here forthwith.
-                                        </mat-expansion-panel>
-                                    </li>
-                                    <li>
-                                        <mat-expansion-panel>
-                                            <mat-expansion-panel-header>
-                                                <mat-panel-title>Limit Logic</mat-panel-title>
-                                            </mat-expansion-panel-header>
+                                    <br><br>
+                                    Jesse to add an example here forthwith.
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Limit Logic</mat-panel-title>
+                                    </mat-expansion-panel-header>
 
-                                            Limit logic in a component to only that required for the view. All other
-                                            logic should be
-                                            delegated to services. Services I tend to create:
-                                            <ul class="condensed">
-                                                <li>http.service.ts - For all HTTP requests<br><br>
-                                                    <span class="file">http.service.ts</span>
-                                                    <div class="code">
-                                                        <pre>
-    /** Returns the quote */  
-    getQuote() &#123;
-        return this.http.get(this.quoteUrl);
+                                    Limit logic in a component to only that required for the view. All other
+                                    logic should be
+                                    delegated to services. Services I tend to create:
+                                    <ul class="condensed">
+                                        <li>http.service.ts - For all HTTP requests<br><br>
+                                            <span class="file">http.service.ts</span>
+                                            <div class="code">
+                                                <pre>
+/** Returns the quote */  
+getQuote() &#123;
+return this.http.get(this.quoteUrl);
+&#125;
+</pre>
+                                            </div><br>
+                                            <span class="file">supercomponent.ts</span>
+                                            <div class="code">
+                                                <pre>
+constructor()
+&#123;
+var getQuotes = this.httpClient.getQuote();
+this.getQueries.push(getQuotes);
+&#125;
+
+ngOnInit() &#123;
+forkJoin(this.getQueries).subscribe(next => &#123;
+    if (next == null) &#123;
+    return;
     &#125;
-    </pre>
-                                                    </div><br>
-                                                    <span class="file">supercomponent.ts</span>
-                                                    <div class="code">
-                                                        <pre>
-    constructor()
-    &#123;
-        var getQuotes = this.httpClient.getQuote();
-        this.getQueries.push(getQuotes);
-    &#125;
-    
-    ngOnInit() &#123;
-        forkJoin(this.getQueries).subscribe(next => &#123;
-            if (next == null) &#123;
-            return;
-            &#125;
-            this.quote = next[0]
-        &#125;);
-    &#125;
-    </pre>
-                                                    </div>
-                                                </li>
-                                                <li>user.service.ts - For all user-related functions
-                                                </li>
-                                                <li>snack.service.ts - Providing messaging to users
-                                                </li>
-                                                <li>splash.service.ts - Displaying splash screen on longer loading
-                                                    pages/activities
-                                                </li>
-                                            </ul>
-                                        </mat-expansion-panel>
-                                    </li>
-                                    <li>
-                                        <mat-expansion-panel>
-                                            <mat-expansion-panel-header>
-                                                <mat-panel-title>Control which CSS classes are applied via
-                                                    TypeScript</mat-panel-title>
-                                                <mat-panel-description>
-                                                </mat-panel-description>
-                                            </mat-expansion-panel-header>
-                                            <ul class="condensed">
-                                                <li>HTML
-                                                    <div class="code">
-                                                        <pre>
+    this.quote = next[0]
+&#125;);
+&#125;
+</pre>
+                                            </div>
+                                        </li>
+                                        <li>user.service.ts - For all user-related functions
+                                        </li>
+                                        <li>snack.service.ts - Providing messaging to users
+                                        </li>
+                                        <li>splash.service.ts - Displaying splash screen on longer loading
+                                            pages/activities
+                                        </li>
+                                    </ul>
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Control which CSS classes are applied via
+                                            TypeScript</mat-panel-title>
+                                        <mat-panel-description>
+                                        </mat-panel-description>
+                                    </mat-expansion-panel-header>
+                                    <ul class="condensed">
+                                        <li>HTML
+                                            <div class="code">
+                                                <pre>
 &lt;div [class.bgblue]="showBlueBg" [class.main]="!showBlueBg"&gt;Yippee!&lt;/div&gt;
-        </pre>
-                                                    </div>
-                                                </li>
-                                                <li>CSS
-                                                    <div class="code">
-                                                        <pre>
+</pre>
+                                            </div>
+                                        </li>
+                                        <li>CSS
+                                            <div class="code">
+                                                <pre>
 .bgblue &#123;
-    background-color: blue;
+background-color: blue;
 &#125;
 
 .main &#123;
-    background-color: var(--theme-splash-backround-color);
+background-color: var(--theme-splash-backround-color);
 &#125;                                        
-        </pre>
-                                                    </div>
-                                                </li>
-                                                <li>TypeScript
-                                                    <div class="code">
-                                                        <pre>
+</pre>
+                                            </div>
+                                        </li>
+                                        <li>TypeScript
+                                            <div class="code">
+                                                <pre>
 public showBlueBg: boolean = false;
-                                            </pre>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </mat-expansion-panel>
-                                    </li>
-                                    <li>
-                                        <mat-expansion-panel>
-                                            <mat-expansion-panel-header>
-                                                <mat-panel-title>Passing data between components</mat-panel-title>
-                                                <mat-panel-description>
-                                                </mat-panel-description>
-                                            </mat-expansion-panel-header>
-                                            Passing data between components in Angular is easy:
-                                            <ul class="condensed">
-                                                <li>Create two components:
-                                                    <div class="code">
-                                                        <pre>
-                                                                    ng g c component1
-                                                                    ng g c component2
-                                                                </pre>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    Set a parameter in component1:
-                                                    name = "";
+                                    </pre>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Passing data between components</mat-panel-title>
+                                        <mat-panel-description>
+                                        </mat-panel-description>
+                                    </mat-expansion-panel-header>
+                                    Passing data between components in Angular is easy:
+                                    <ul class="condensed">
+                                        <li>Create two components:
+                                            <div class="code">
+                                                <pre>
+                                                            ng g c component1
+                                                            ng g c component2
+                                                        </pre>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            Set a parameter in component1:
+                                            name = "";
 
-                                                </li>
-                                            </ul>
-                                        </mat-expansion-panel>
-                                    </li>
-                                </ul>
-                            </mat-expansion-panel>
+                                        </li>
+                                    </ul>
+                                </mat-expansion-panel>
+                            </li>
+                        </ul>
+                    </mat-expansion-panel>
+                </div>
+                <div>
+                    <ul>
+                        <li>
+
                         </li>
                         <li>
                             <mat-expansion-panel>
@@ -467,7 +476,7 @@ constructor() &#123;
                                                         stylesheet. No theming content.</span></li>
                                                 <li class="directory">styles
                                                     <ul>
-                                                        <li class="directory">assets  - <span
+                                                        <li class="directory">assets - <span
                                                                 class="comment">Self-contained assets. In my case for
                                                                 this website, these are the minions found throughout
                                                                 the website.</span>
@@ -1032,6 +1041,41 @@ if (this.userDetails.invalid) return;
                                         event/li>
 
                                 </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Scrolling to a particular spot</mat-panel-title>
+                                    <mat-panel-description>
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <ol>
+                                    <li>Assign a template reference variable to the element:<br>
+                                        e.g. <span class="importantish">#me: </span> <span class="code">&lt;span
+                                            #me&gt;I will scroll here!&lt;/span&gt;</span></li>
+                                    <li>Add a ViewChild decorator to the component (just under but within the
+                                        class):<br>
+                                        <span class="code">&#64;ViewChild('me') meSection: ElementRef = new
+                                            ElementRef(null);</span>
+                                    </li>
+                                    <li>Scroll to the element:<br>
+                                        <span class="code">this.meSection.nativeElement.scrollIntoView(&#123; behavior:
+                                            'smooth' &#125;);</span><br>
+                                        <span class="additional-note">Behaviors include: <br>
+                                            <dl>
+                                                <dt>auto</dt>
+                                                <dd>Determined by the browser</dd>
+                                                <dt>smooth</dt>
+                                                <dd>Scrolls in a smooth fashion</dd>
+                                                <dt>instant</dt>
+                                                <dd>Scrolls instantly</dd>
+                                            </dl>
+                                        </span>
+                                    </li>
+
+                                </ol>
+
                             </mat-expansion-panel>
                         </li>
                         <li>

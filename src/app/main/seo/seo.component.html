@@ -1,0 +1,68 @@
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Search Engine Optimization</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                <h2>SEO in broad strokes..</h2>
+                <ul>
+                    <li>Google Search doesn't use the keywords meta tag.</li>
+                    <li>Create a <button mat-stroked-button (click)="highlight('sitemap')">Sitemap</button></li>
+                </ul>
+
+                <h2>Tools</h2>
+                <dl class="dl">
+                    <dt><a href="https://www.google.com/webmasters/tools/home?hl=en">Google Webmaster Tools</a></dt>
+                    <dd>The <button mat-stroked-button (click)="highlight('searchconsole')">Google Search
+                            Console</button> can be found here</dd>
+                    <dt><a href="https://www.google.com/analytics/">Google PageSpeed Insights</a></dt>
+                    <dd></dd>
+                </dl>
+
+                <ul>
+                    <li #sitemap [class.highlightMe]="highlightArea == 'sitemap'">
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Sitemap</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            A sitemap is an XML document that sits at the root of your website and lists all its pages.
+                            Its purpose is to provide search engines with additional information about your pages, such
+                            as how often they are updated and their relative importance to other pages on your
+                            site.<br><br>
+
+                            Example <span class="file">sitemap.xml</span> entry:
+                            <br><br>
+                            <div class="code">
+                                <pre>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"&gt;
+    &lt;url&gt;
+        &lt;loc&gt;https://www.nehsa.com/&lt;/loc&gt;
+        &lt;lastmod&gt;2024-08-19&lt;/lastmod&gt;
+        &lt;changefreq&gt;monthly&lt;/changefreq&gt;
+        &lt;priority&gt;1.0&lt;/priority&gt;
+    &lt;/url&gt;
+&lt;/urlset&gt;
+
+                            </pre>
+                            </div><br><br>This can be done manually, via online tools, I created my own here: <a
+                                href="https://github.com/nehsa25/python-angular-sitemapper">python-angular-sitemapper</a> (work-in-progress)
+                        </mat-expansion-panel>
+                    </li>
+                    <li #searchConsole [class.highlightMe]="highlightArea == 'searchconsole'">
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Google Search Console</mat-panel-title>
+                            </mat-expansion-panel-header>
+
+                        </mat-expansion-panel>
+                    </li>
+                </ul>
+            </div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>
