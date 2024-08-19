@@ -5,11 +5,12 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { CommentComponent } from '../../shared-components/comment/comment.component';
 import { NgClass } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-seo',
   standalone: true,
-  imports: [MatCardModule, MatExpansionModule, CommentComponent, NgClass, MatButtonModule],
+  imports: [MatCardModule, MatExpansionModule, CommentComponent, NgClass, MatButtonModule, MatIcon],
   templateUrl: './seo.component.html',
   styleUrl: './seo.component.scss'
 })
