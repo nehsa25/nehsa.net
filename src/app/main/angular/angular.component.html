@@ -226,27 +226,6 @@ public showBlueBg: boolean = false;
                                             </ul>
                                         </mat-expansion-panel>
                                     </li>
-                                    <li>
-                                        <mat-expansion-panel>
-                                            <mat-expansion-panel-header>
-                                                <mat-panel-title>Troubleshooting</mat-panel-title>
-                                            </mat-expansion-panel-header>
-                                            <ul>
-                                                <li>
-                                                    <span class="problem">Error: "Can't bind to 'ngModel' since it
-                                                        isn't a known property of 'input'"</span>
-                                                    <span class="solution">
-                                                        <div class="code">
-                                                            <pre>
-Import
-FormsModule
-</pre>
-                                                        </div>
-                                                    </span>
-                                                </li>
-                                            </ul>
-                                        </mat-expansion-panel>
-                                    </li>
                                 </ul>
                             </mat-expansion-panel>
                         </li>
@@ -478,16 +457,56 @@ constructor() &#123;
                                     <mat-panel-description>
                                     </mat-panel-description>
                                 </mat-expansion-panel-header>
-                                <div>
+                                <div>There are likely better ways to theme in Angular but I wasn't able to find one so
+                                    here's how I do it:
                                     <ol>
-                                        <li>Go to <a href="http://mcg.mbitson.com/">Material Design Pallette
-                                                Generate</a>
-                                            <ul class="condensed">
-                                                <li>Generate 3 schemes: primary, accent, warn</li>
-                                                <li>Select Copy Code</li>
-                                                <li>Add them to style.scss:
-                                                    <div class="code">
-                                                        <pre>
+                                        <li>Create a directory heirarchy structure:
+
+                                            <ul>
+                                                <li><span class="file">styles.scss</span> - <span class="comment">Global
+                                                        stylesheet. No theming content.</span></li>
+                                                <li><span class="directory">styles</span>
+                                                    <ul>
+                                                        <li><span class="directory">assets</span> - <span
+                                                                class="comment">Self-contained assets. In my case for
+                                                                this website, these are the minions found throughout
+                                                                the website.</span>
+                                                            <ul>
+                                                                <li><span class="file">lagoon.scss</span></li>
+                                                                <li><span class="file">tim.scss</span></li>
+                                                                <li><span class="file">gaston.scss</span></li>
+                                                                <li><span class="file">pierre.scss</span></li>
+                                                            </ul>
+                                                        <li><span class="file">colorful.scss</span> - <span
+                                                                class="comment">A theme - in this case, the
+                                                                light-colorful one</span></li>
+                                                        <li><span class="file">dark.scss</span> - <span
+                                                                class="comment">Another theme, we can just continue to
+                                                                add these. e.g. festiveoccasion.scss if you were so
+                                                                inclined..</span></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ol>
+                                    <ol>
+                                        I use these website for creating the themes color schemes in an easy to use
+                                        format (there are likely others if you search but I've personally had good
+                                        luck with this one): <a href="http://mcg.mbitson.com/">Material Design
+                                            Pallette
+                                            Generate</a><br><br>
+
+                                        <li>
+                                            <mat-expansion-panel>
+                                                <mat-expansion-panel-header>
+                                                    <mat-panel-title>Generate 3 schemes: primary, accent,
+                                                        warn</mat-panel-title>
+                                                    <mat-panel-description>
+                                                    </mat-panel-description>
+                                                </mat-expansion-panel-header>
+                                                Add them to &lt;THEME&gt;.scss:
+                                                <div class="code">
+                                                    <pre>
 $nehsanet-primary: (
 50 : #fbf4fb,
 100 : #f5e3f5,
@@ -599,9 +618,23 @@ $app-theme: mat.define-dark-theme((color: (primary: $primary,
 
 &#64;include mat.all-component-themes($app-theme);
                                                 </pre>
-                                                    </div>
-                                                </li>
-                                            </ul>
+                                                </div>
+                                            </mat-expansion-panel>
+                                        </li>
+                                        <li>
+                                            <mat-expansion-panel>
+                                                <mat-expansion-panel-header>
+                                                    <mat-panel-title>Use the theme in your component</mat-panel-title>
+                                                    <mat-panel-description>
+                                                    </mat-panel-description>
+                                                </mat-expansion-panel-header>
+                                                <div class="code">
+                                                    <pre>
+&lt;div [class.nehsanet-theme]="userService.appIsDark()"&gt;
+&lt;div [class.nehsanet-theme-light]="!userService.appIsDark()"&gt;
+&lt;div [class.nehsanet-theme-dark]="userService.appIsDark()"&gt;</pre>
+                                                </div>
+                                            </mat-expansion-panel>
                                         </li>
                                     </ol>
                                 </div>
@@ -782,12 +815,10 @@ $app-theme: mat.define-dark-theme((color: (primary: $primary,
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Fullscreen mode</mat-panel-title>
-                                    <mat-panel-description>Enables full screen mode in the browser + issues events
-                                        to control what's shown on page<br>
-                                        <img src="assets/images/fullscreen.png"
-                                            alt="A screenshot of the fullscreen button in mud" />
-                                    </mat-panel-description>
+                                    <mat-panel-description>Toggle fullscreen mode</mat-panel-description>
                                 </mat-expansion-panel-header>
+                                <img src="assets/images/fullscreen.png"
+                                    alt="A screenshot of the fullscreen button in mud" />
                                 <ul class="condensed">
                                     <li>Update <span class="file">app.component.ts</span>
                                         <div class="code">
@@ -1000,6 +1031,89 @@ if (this.userDetails.invalid) return;
                                     <li>(animationiteration)="function()" - Listen for an animationiteration
                                         event/li>
 
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel expanded>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Troubleshooting</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>
+                                        <span class="problem">Can't bind to 'ngModel' since it
+                                            isn't a known property of 'input'</span>
+                                        <span class="solution">
+                                            <div class="code">
+                                                <pre>
+Import
+FormsModule
+</pre>
+                                            </div>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="problem">Can't bind to 'formGroup' since it
+                                            isn't a known property of 'form'</span>
+                                        <span class="solution">
+                                            <div class="code">
+                                                <pre>
+Import ReactiveFormsModule
+</pre>
+                                            </div>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="problem">&quot;The same typography styles are generated multiple
+                                            times&quot; when building the project</span>
+                                        <div class="solution">
+                                            <ul>
+                                                <li>
+                                                    Look to put the theme generation behind classes:
+                                                    <div class="code">
+                                                        <pre>
+&#64;include mat.all-component-colors($dark-primary);
+&#64;include mat.core-theme($dark-theme);
+&#64;include mat.button-theme($dark-theme);
+&#64;include mat.card-theme($dark-theme);
+&#64;include mat.checkbox-theme($dark-theme);
+&#64;include mat.dialog-theme($dark-theme);
+&#64;include mat.icon-theme($dark-theme);
+&#64;include mat.input-theme($dark-theme);
+&#64;include mat.list-theme($dark-theme);
+&#64;include mat.menu-theme($dark-theme);
+&#64;include mat.radio-theme($dark-theme);
+&#64;include mat.select-theme($dark-theme);
+&#64;include mat.sidenav-theme($dark-theme);
+</pre>
+                                                    </div>
+
+                                                    Becomes:
+                                                    <div class="code">
+                                                        <pre>
+.dark &#123;
+    &#64;include mat.all-component-colors($dark-primary);
+    &#64;include mat.core-theme($dark-theme);
+    &#64;include mat.button-theme($dark-theme);
+    &#64;include mat.card-theme($dark-theme);
+    &#64;include mat.checkbox-theme($dark-theme);
+    &#64;include mat.dialog-theme($dark-theme);
+    &#64;include mat.icon-theme($dark-theme);
+    &#64;include mat.input-theme($dark-theme);
+    &#64;include mat.list-theme($dark-theme);
+    &#64;include mat.menu-theme($dark-theme);
+    &#64;include mat.radio-theme($dark-theme);
+    &#64;include mat.select-theme($dark-theme);
+    &#64;include mat.sidenav-theme($dark-theme);
+&#125;
+</pre>
+                                                    </div>
+                                                    This ensures that the styles are only generated once.
+                                                </li>
+                                            </ul>
+
+                                        </div>
+                                    </li>
                                 </ul>
                             </mat-expansion-panel>
                         </li>
