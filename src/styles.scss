@@ -1,33 +1,10 @@
 @use '@angular/material' as mat;
 
-// -1 - 4 - the closeness..
-$density: -1;
-
-$typography: mat.define-typography-config($font-family: 'monospace, "Helvetica Neue", sans-serif',
-    );
-
 @include mat.core();
 
 @import './styles/dark.scss';
 @import './styles/colorful.scss';
 @import './styles/assets/lagoon.scss';
-
-$dark-theme: mat.define-light-theme((color: (theme-type: dark,
-                primary: $light-primary-palette,
-                accent: $light-accent-palette,
-                warn: $light-warn-palette ),
-            density: -1,
-            typography: $typography ));
-
-$light-theme: mat.define-dark-theme((color: (theme-type: light,
-                primary: $dark-primary-palette,
-                accent: $dark-accent-palette,
-                warn: $light-warn-palette ),
-            density: -1,
-            typography: $typography ));
-
-@include mat.all-component-themes($light-theme);
-@include mat.all-component-themes($dark-theme);
 
 @media (min-width: 0) {
     dl {
@@ -73,7 +50,6 @@ $light-theme: mat.define-dark-theme((color: (theme-type: light,
 }
 
 @media (min-width: 1200px) {}
-
 
 @media (min-width: 1400px) {}
 
@@ -473,6 +449,15 @@ li {
     vertical-align: middle;
 }
 
+.file {
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-variant: small-caps;
+    display: inline-block;
+    padding: .5em 5px;
+    border-radius: 5px;
+}
+
 .directory {
     font-family: 'Helvetica Neue', sans-serif;
     font-size: 1.8rem;
@@ -483,17 +468,8 @@ li {
     border-radius: 6px;
 }
 
-.file {
-    font-size: 1.5rem;
-    font-weight: 600;
-    font-variant: small-caps;
-    display: inline-block;
-    padding: .5em 5px;
-    border-radius: 5px;
-}
-
 .directory::after {
-    content: url('../src/assets/images/subdirectory_arrow_right_24dp_TOMATO_FILL0_wght400_GRAD0_opsz24.svg');
+    content: url('../src/assets/images/dir.png');
     margin-left: 5px;
 }
 
