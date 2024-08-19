@@ -355,3 +355,30 @@ $light-warn: (
     )
 );
 $light-warn-palette: mat.define-palette($light-warn);
+
+$density: -1;
+
+$typography: mat.define-typography-config($font-family: 'monospace, "Helvetica Neue", sans-serif',
+    );
+$light-theme: mat.define-dark-theme((color: (theme-type: light,
+                primary: $dark-primary-palette,
+                accent: $dark-accent-palette,
+                warn: $light-warn-palette ),
+            density: -1,
+            typography: $typography ));
+
+.angel {
+    @include mat.all-component-colors($light-primary);
+    @include mat.core-color($light-theme);
+    @include mat.button-color($light-theme);
+    @include mat.card-color($light-theme);
+    @include mat.checkbox-color($light-theme);
+    @include mat.dialog-color($light-theme);
+    @include mat.icon-color($light-theme);
+    @include mat.input-color($light-theme);
+    @include mat.list-color($light-theme);
+    @include mat.menu-color($light-theme);
+    @include mat.radio-color($light-theme);
+    @include mat.select-color($light-theme);
+    @include mat.sidenav-color($light-theme);
+}

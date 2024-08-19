@@ -180,7 +180,9 @@ code {
     -webkit-text-stroke-color: var(--theme-background-purple) !important;
 }
 
-.vampire a:link, a:visited, a:active {
+.vampire a:link,
+a:visited,
+a:active {
     color: #222;
 }
 
@@ -218,7 +220,7 @@ $dark-primary: (
     "primary": pink,
     "link": "#7F7F7F",
     "code-background": "#D4AC0D",
-    "code-color": "#222",  
+    "code-color": "#222",
     50 : #ffece9,
     100 : #ffd0c8,
     200 : #ffb1a3,
@@ -284,3 +286,63 @@ $dark-accent: (
     )
 );
 $dark-accent-palette: mat.define-palette($dark-accent);
+
+$dark-warn: (
+    50 : #ffece9,
+    100 : #ffd0c8,
+    200 : #ffb1a3,
+    300 : #ff927e,
+    400 : #ff7a63,
+    500 : #ff6347,
+    600 : #ff5b40,
+    700 : #ff5137,
+    800 : #ff472f,
+    900 : #ff3520,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffd3cf,
+    A700 : #ffbcb6,
+    contrast: (50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+$dark-warn-palette: mat.define-palette($dark-warn);
+$density: -1;
+
+$typography: mat.define-typography-config($font-family: 'monospace, "Helvetica Neue", sans-serif',
+    );
+
+$dark-theme: mat.define-light-theme((color: (theme-type: dark,
+                primary: $dark-primary-palette,
+                accent: $dark-accent-palette,
+                warn: $dark-warn-palette ),
+            density: -1,
+            typography: $typography ));
+
+.vampire {
+    @include mat.all-component-colors($dark-primary);
+    @include mat.core-color($dark-theme);
+    @include mat.button-color($dark-theme);
+    @include mat.card-color($dark-theme);
+    @include mat.checkbox-color($dark-theme);
+    @include mat.dialog-color($dark-theme);
+    @include mat.icon-color($dark-theme);
+    @include mat.input-color($dark-theme);
+    @include mat.list-color($dark-theme);
+    @include mat.menu-color($dark-theme);
+    @include mat.radio-color($dark-theme);
+    @include mat.select-color($dark-theme);
+    @include mat.sidenav-color($dark-theme);
+}
