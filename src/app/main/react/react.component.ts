@@ -6,11 +6,12 @@ import { CommentComponent } from '../../shared-components/comment/comment.compon
 import { UserService } from '../../services/user.service';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-react',
   standalone: true,
-  imports: [MatCardModule, MatExpansionModule, MatIcon, MatButtonModule, CommentComponent, MatTableModule],
+  imports: [MatCardModule, MatExpansionModule, MatIcon, MatButtonModule, CommentComponent, MatTableModule, RouterLink],
   templateUrl: './react.component.html',
   styleUrl: './react.component.scss'
 })
@@ -18,5 +19,4 @@ export class ReactComponent {
   constructor(public userService: UserService) {
     this.userService.page = "react";
   }
-
 }

@@ -1,0 +1,75 @@
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Redux</h1>
+        </mat-card-title>
+        <mat-card-subtitle>Redux is a predictable state container for writing applications that act
+            consistently.</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                <ul>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Installation and Configuration</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li>Install redux: <span class="code">npm install redux react-redux</span></li>
+                                <li>Install reduxjs/toolkit, a package that simplifies using redux: <span
+                                        class="code">npm install
+                                        &#64;reduxjs/toolkit</span></li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Create a simple store</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li>Create a store:<br>
+                                    <div class="code">
+                                        <pre>
+// store.js
+import &#123; createStore &#125; from 'redux';
+
+const initialState = &#123;
+    count: 0,
+&#125;;
+
+const reducer = (state = initialState, action) => &#123;
+    switch (action.type) &#123;
+    case 'INCREMENT':
+
+        return &#123; count: state.count + 1 &#125;;
+    case 'DECREMENT':
+        return &#123; count: state.count - 1 &#125;;
+    default:
+        return state;
+    &#125;
+&#125;;
+
+const store = createStore(reducer);                                            
+
+export default store;
+</pre>
+                                    </div>
+                                </li>
+                                <li>Use the store in your app:<br>
+                                    <span class="code">button onClick=&#123;() => store.dispatch(&#123; type:
+                                        'INCREMENT' &#125;)&#125;>+</span><br>
+                                    <span class="code">button onClick=&#123;() => store.dispatch(&#123; type:
+                                        'DECREMENT' &#125;)&#125;>-</span>
+                                </li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                </ul>
+
+            </div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>

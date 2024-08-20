@@ -7,22 +7,117 @@
     <mat-card-content>
         <div class="commentgrid">
             <div class="topics">
-                <span>
-                    I am a much stronger front-end developer using Angular+Material than React. This page is my study of
-                    React.<br><br>
+                I am a more robust front-end developer using Angular+Material than React. To improve my skills, I want
+                to understand React's strengths and some emerging new libraries such as Remix and Vite.<br><br>
 
-                    My first React site will use <span class="importantish">Vite</span>, a modern build tool, <span
-                        class="importantish">Remix</span>, a framework that supports server-side
-                    rendering and static content generation, and <span class="importantish">Tailwind CSS</span>, a CSS
-                    frameword that provides utility classes such as flex, grid, and spacing. e.g. &lt;span
-                    class="code"&gt;class="flex justify-center"&lt;/span&gt;
-                </span>
-                Here is the test application I build: <a href="https://github.com/nehsa25/react-vite-app" mat-stroked-button>react-vite-app</a><br><br>
+                This page is my study of such technologies.<br><br>
 
-                Example:<br>
-                <img src="../../../assets/images/react_app1.png" alt="React Test" class="screenshot"><br><br>
-                I will make another application after that using next.js as it has the largest adoption.<br>
+                Tackling React is a learning curve. It's not simply adopting new technologies but instead a completely
+                new, modern stack with often different patterns and syntax. To break down the various components of a
+                React app, let's first break down the terminology:<br>
+                <dl>
+                    <dt>Framework</dt>
+                    <dd>A framework within React differs from a libary in that it provides a structure
+                        for the application. Examples of frameworks: Next.js, Gatsby, and Remix</dd>
+                    <dt>Libary</dt>
+                    <dd>A libary is similar to a framework but differs in that it provides a set of
+                        functions to use in the application but does not provide a structure for the application. An
+                        example of a React function is the useState function.<br><br>
+                        Examples of libraries: React, Redux, and React Router
+                    </dd>
+                    <dt>Toolchain</dt>
+                    <dd>A toolchain the set of tools used to build, compile, and deploy the application. The toolchain
+                        of the react-vite-app is: Vite, Remix, Docker, and Tailwind CSS. The react-nextjs-app is:
+                        next.js and Redux.</dd>
+                    <dt>React</dt>
+                    <dd>Seemining by far the most popular web appliation development language and community.</dd>
+                    <dt>Remix</dt>
+                    <dd>A full-stack framework that includes server-side rendering, data fetching, and routing. Think of
+                        it as scaffolding for a React app.</dd>
+                    <dt>next.js</dt>
+                    <dd>Smilar to Remix but significantly more mature and widely used than other frameworks.</dd>
+                    <dt>Tailwind CSS</dt>
+                    <dd>Similar to Facebook's Bootstrap, Tailwind CSS is a utility-first CSS framework meaning it
+                        provides low-level utility classes to build custom designs. e.g. &lt;span
+                        class="code"&gt;class="flex justify-center"&lt;/span&gt;</dd>
+                    <dt>Redux</dt>
+                    <dd>A popular libary for state management</dd>
+                    <dt>SWC</dt>
+                    <dd>A fast JavaScript/TypeScript compiler</dd>
+                    <dt>Vite</dt>
+                    <dd>A fast, modern, and flexible build tool</dd>
+                    <dt>Server-side rendering (SSR)</dt>
+                    <dd>SSR is the process of rendering the initial HTML of a web page on the server before sending it
+                        to the browser.</dd>
+                    <dt>Static site generation</dt>
+                    <dd>SSG is the process of generating a static HTML file for each page of a website at build time.
+                        This is useful for applications that do not require dynamic content.</dd>
+                    <dt>JSX, TSX</dt>
+                    <dd>JSX is a syntax extension for JavaScript that allows for the creation of
+                        React elements. TSX is the same as JSX but for TypeScript. Allows for writing HTML in JavaScript
+                        with awesomeness such as:
+                        <span class="code">const element = &lt;h1&gt;Booyah!&lt;/h1&gt;;</span>
+                    </dd>
+                </dl><br><br>
+
                 <ul>
+                    <li>
+                        <mat-expansion-panel expanded>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>My React Projects</mat-panel-title>
+                                <mat-panel-description>Simple applications leveraging unique features of React and
+                                    other
+                                    libaries, frameworks, and tools.</mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <ol>
+                                <li>
+                                    <dl>
+                                        <dt><a href="https://github.com/nehsa25/react-vite-app"
+                                                mat-stroked-button>react-vite-app</a>
+                                        </dt>
+                                        <dd><span>My first React site will use <span class="importantish">Vite</span>, a
+                                                modern
+                                                build tool, <span class="importantish">Remix</span>, a framework
+                                                that
+                                                supports
+                                                server-side
+                                                rendering and static content generation, and <span
+                                                    class="importantish">Tailwind
+                                                    CSS</span>, a CSS
+                                                frameword that provides utility classes such as flex, grid, and
+                                                spacing.
+                                                e.g.
+                                                &lt;span
+                                                class="code"&gt;class="flex justify-center"&lt;/span&gt;
+                                            </span>
+
+                                            Example:<br>
+                                            <img src="../../../assets/images/react_app1.png"
+                                                alt="React test App using Vite, Remix, and Tailwind CSS"
+                                                class="screenshot">
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt><a href="https://github.com/nehsa25/react-nextjs-app"
+                                                mat-stroked-button>react-nextjs-app</a>
+                                        </dt>
+                                        <dd><span>Test application 2 uses <span class="importantish">next.js</span>, an
+                                                extremely popular framework for React applications, and <span
+                                                    class="importantish">Redux</span>, a popular library for state
+                                                management.
+
+                                                Example:<br>
+                                                <img src="../../../assets/images/react_app2.png"
+                                                    alt="React test app using NextJs" class="screenshot">
+                                            </span>
+                                        </dd>
+                                    </dl>
+                                </li>
+                            </ol>
+                        </mat-expansion-panel>
+                    </li>
                     <li>
                         <mat-expansion-panel>
                             <mat-expansion-panel-header>
@@ -62,7 +157,8 @@
                                 </tr>
                                 <tr>
                                     <td>Gatsby</td>
-                                    <td>Static site generation, server-side rendering, and a rich plugin ecosystem</td>
+                                    <td>Static site generation, server-side rendering, and a rich plugin ecosystem
+                                    </td>
                                     <td>More complex than create-react-app</td>
                                     <td>Free</td>
                                     <td>MIT</td>
@@ -81,118 +177,47 @@
                                     <td>Medium</td>
                                 </tr>
                             </table><br><br>
-                            In addition to toolchains, there are many libraries and frameworks to consider such as Remix
+                            In addition to toolchains, there are many libraries and frameworks to consider such as
+                            Remix
                             and SWC.<br>
-                            <span class="additional-note">* Remix is a full-stack framework that includes server-side
+                            <span class="additional-note">* Remix is a full-stack framework that includes
+                                server-side
                                 rendering, data fetching,
                                 and routing.<br>* SWC is a fast JavaScript/TypeScript compiler allowing for a better
                                 developing environment.</span><br>
                             <br><br>
-                            As a first attempt at React, I'm going to use Vite & Remix for the most cutting edge
-                            experience.<br><br>
-                            <ul class="condensed">
-                                <li>Install Vite: <span class="code">npx create-remix&#64;latest</span><br>
-                                    <span class="additional-note">* Preferred over "npm init vite," more configuration
-                                        required this method.</span>
+                            <ul>
+                                <li> As a first attempt at React, I'm going to use Vite & Remix for the most cutting
+                                    edge
+                                    experience.<br><br>
+                                    <ul class="condensed">
+                                        <li>Install Vite: <span class="code">npx create-remix&#64;latest</span><br>
+                                            <span class="additional-note">* Preferred over "npm init vite," more
+                                                configuration
+                                                is streamlined using this method.</span>
+                                        </li>
+                                        <li>Install the dependencies: <span class="code">npm install</span></li>
+                                        <li>Install Tailwind CSS and PostCSS: <a mat-stroked-button
+                                                routerLink="/tailwindcss">Over here..</a> </li>
+                                        <li>Run the development server: <span class="code">npm run dev</span></li>
+                                        <li>Open the app in a browser: <span class="code">http://localhost:5173</span>
+                                        </li>
+                                    </ul>
                                 </li>
-                                <li>Install the dependencies: <span class="code">npm install</span></li>
-                                <li>Install Tailwind CSS and PostCSS
-                                    <ol class="condensed">
-                                        <li><span class="code">npm install tailwindcss
-                                                postcss autoprefixer</span> - Install the necessary packages</li>
-                                        <li><span class="code">npx tailwindcss init -p</span> - Create the configuration
-                                            file which allows us to configures such things as the color palette and the
-                                            spacing scale</li>
-                                        <li>Edit the tailwind.config.js file to add the colors and spacing scale
-                                            <div class="code">
-                                                <pre>
-module.exports = &#123;
-    mode: 'jit',
-    purge: ['./app/**/*.jsx'],
-    darkMode: false, // or 'media' or 'class'
-    theme: &#123;
-        extend: &#123;
-            colors: &#123;
-                'nehsa-blue': '#1e3a8a',
-                'nehsa-green': '#00ff00',
-                'nehsa-red': '#ff0000',
-                'nehsa-yellow': '#ffff00',
-                'nehsa-orange': '#ff6600',
-                'nehsa-purple': '#6600cc',
-                'nehsa-pink': '#ff00ff',
-                'nehsa-brown': '#663300',
-                'nehsa-gray': '#666666',
-                'nehsa-black': '#000000',
-                'nehsa-white': '#ffffff',
-            &#125;,
-            spacing: &#123;
-                '1': '0.25rem',
-                '2': '0.5rem',
-                '3': '0.75rem',
-                '4': '1rem',
-                '5': '1.25rem',
-                '6': '1.5rem',
-                '7': '1.75rem',
-                '8': '2rem',
-                '9': '2.25rem',
-                '10': '2.5rem',
-                '11': '2.75rem',
-                '12': '3rem',
-                '14': '3.5rem',
-                '16': '4rem',
-                '20': '5rem',
-                '24': '6rem',
-                '28': '7rem',
-                '32': '8rem',
-            &#125;
-        &#125;
-    &#125;
-
-
-                                                    </pre>
-                                            </div>
+                                <li> This application will use next.js and redux<br><br>
+                                    <ul class="condensed">
+                                        <li>Create new next.js app: <span class="code">npx create-next-app
+                                                react-nextjs-app</span>
                                         </li>
-                                        <li>Edit the postcss.config.js file to include tailwindcss and autoprefixer
-                                            <div class="code">
-                                                <pre>
-module.exports = &#123;
-    plugins: [
-        require('tailwindcss'),
-        require('autoprefixer'),
-    ],
-&#125;;
-</pre>
-                                            </div>
+                                        <li>Install and configure Redux: <a mat-stroked-button routerLink="/redux">Over
+                                                here..</a> </li>
+                                        <li>Run the development server: <span class="code">npm run dev</span></li>
+                                        <li>Open the app in a browser: <span class="code">http://localhost:5173</span>
                                         </li>
-                                        <li>Edit the app/assets/tailwind.css file to include the tailwind directives
-                                            <div class="code">
-                                                <pre>
-&#64;tailwind base;
-&#64;tailwind components;
-&#64;tailwind utilities;
-</pre>
-                                            </div>
-                                        </li>
-                                        <li>Include the tailwind.css file in the app/root.jsx file
-                                            <div class="code">
-                                                <pre>
-import './app/assets/tailwind.css';
-</pre>
-                                            </div>
-                                        </li>
-                                        <li>Verify the TailWind CSS installation with this CSS:
-                                            <div class="code">
-                                                <pre>
-&lt;div class="bg-nehsa-blue text-nehsa-white p-4 m-4"&gt;Hello World&lt;/div&gt;
-</pre>
-                                            </div>
-                                        </li>
-                                        <li>Build
-                                    </ol>
+                                    </ul>
                                 </li>
-                                <li>Run the development server: <span class="code">npm run dev</span></li>
-                                <li>Open the app in a browser: <span class="code">http://localhost:5173</span></li>
                             </ul>
+
                         </mat-expansion-panel>
                     </li>
                     <li>
