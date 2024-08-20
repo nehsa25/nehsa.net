@@ -658,7 +658,8 @@ CMD ["./main"]
                     <li>
                         <mat-expansion-panel>
                             <mat-expansion-panel-header>
-                                <mat-panel-title>Building a microservice web scraper so I can be Neo from the Matrix</mat-panel-title>
+                                <mat-panel-title>Building a microservice web scraper so I can be Neo from the
+                                    Matrix</mat-panel-title>
                             </mat-expansion-panel-header>
                             <ul>
                                 <li>Install packages: <code>go get -u github.com/PuerkitoBio/goquery</code></li>
@@ -717,35 +718,39 @@ docker push nehsa/web-scraper:latest;
                                         </ul>
                                     </mat-expansion-panel>
                                 </li>
-                                <li>Try it..                                    
+                                <li>Try it..
                                     <div class="try-grid">
-                                    <div>
-                                        <form>
-                                            <mat-form-field>
-                                                <mat-label>URL</mat-label>
-                                                <input matInput type="text" name="url" placeholder="https://www.json.org/json-en.html" [formControl]="scrapeUrl">
-                                                @if (scrapeUrl) {
-                                                <button matSuffix mat-stroked-button aria-label="Clear"
-                                                    (click)="clearUrl()">
-                                                    <mat-icon>close</mat-icon>
-                                                </button>
-                                                }
-                                            </mat-form-field>
-                                        </form>
-                                    </div>
-                                    <div class="result-container">
-                                        <div class="answer" *ngIf="scrapeData != ''" [innerHtml]="scrapeData"></div>
-                                    </div>
-                                    <div><button [disabled]="!scrapeEnabled" mat-stroked-button [disabled]="isLoading || !city"
-                                            (click)="getScrapeData()">
-                                            <div class="button-grid">
-                                                <div>{{scapeButtonName}}</div>
-                                                <div><mat-spinner *ngIf="isLoading" diameter="20"></mat-spinner>
+                                        <div>
+                                            <form>
+                                                <mat-form-field>
+                                                    <mat-label>URL</mat-label>
+                                                    <input matInput type="text" name="url"
+                                                        placeholder="https://www.json.org/json-en.html"
+                                                        [formControl]="scrapeUrl">
+                                                    @if (scrapeUrl) {
+                                                    <button matSuffix mat-stroked-button aria-label="Clear"
+                                                        (click)="clearUrl()">
+                                                        <mat-icon>close</mat-icon>
+                                                    </button>
+                                                    }
+                                                </mat-form-field>
+                                            </form>
+                                        </div>
+                                        <div class="result-container">
+                                            <div class="answer" *ngIf="scrapeData != ''" [innerHtml]="scrapeData"></div>
+                                        </div>
+                                        <div>
+                                            <button [disabled]="!scrapeEnabled" mat-stroked-button
+                                                [disabled]="isLoading || !city" (click)="getScrapeData()">
+                                                <div class="button-grid">
+                                                    <div>{{scapeButtonName}}</div>
+                                                    <div><mat-spinner *ngIf="isLoading" diameter="20"></mat-spinner>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </button></div>
-                                    <div></div>
-                                </div>
+                                            </button>
+                                        </div>
+                                        <div></div>
+                                    </div>
                                 </li>
                             </ul>
                         </mat-expansion-panel>

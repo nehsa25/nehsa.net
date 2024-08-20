@@ -57,6 +57,7 @@ import { AiComponent } from './main/ai/ai.component';
 import { NosqlComponent } from './main/nosql/nosql.component';
 import { KubernetesComponent } from './main/kubernetes/kubernetes.component';
 import { SeoComponent } from './main/seo/seo.component';
+import { ReactComponent } from './main/react/react.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: WelcomeComponent },
@@ -122,6 +123,7 @@ export const routes: Routes = [
     { path: 'inno', title: 'nehsa.net |Inno Setup', component: InnoComponent },
     { path: 'mysql', title: 'nehsa.net | mysql', component: MysqlComponent },
     { path: 'regex', title: 'nehsa.net | Regular Expressions', component: RegexComponent },
+    { path: 'react', title: 'nehsa.net | React', component: ReactComponent },
     { path: 'webdesign', title: 'nehsa.net | Web Design', component: WebDesignComponent },
     { path: 'scratch', title: 'nehsa.net | Scratch', component: ScratchComponent },
     { path: 'ide', title: 'nehsa.net | IDEs / Code Editors', component: IdeComponent },

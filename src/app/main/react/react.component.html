@@ -1,0 +1,239 @@
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">React Web Development</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                <span>
+                    I am a much stronger front-end developer using Angular+Material than React. This page is my study of
+                    React.<br><br>
+
+                    My first React site will use <span class="importantish">Vite</span>, a modern build tool, <span
+                        class="importantish">Remix</span>, a framework that supports server-side
+                    rendering and static content generation, and <span class="importantish">Tailwind CSS</span>, a CSS
+                    frameword that provides utility classes such as flex, grid, and spacing. e.g. &lt;span
+                    class="code"&gt;class="flex justify-center"&lt;/span&gt;
+                </span>
+                Here is the test application I build: <a href="https://github.com/nehsa25/react-vite-app" mat-stroked-button>react-vite-app</a><br><br>
+
+                Example:<br>
+                <img src="../../../assets/images/react_app1.png" alt="React Test" class="screenshot"><br><br>
+                I will make another application after that using next.js as it has the largest adoption.<br>
+                <ul>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Installation</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            The first choice encountered when building a new React app is the toolchain to use.
+                            <table class="mat-elevation-z8">
+                                <tr>
+                                    <th>Toolchain</th>
+                                    <th>Pros</th>
+                                    <th>Cons</th>
+                                    <th>Cost</th>
+                                    <th>License</th>
+                                    <th>Vendor</th>
+                                    <th>Community</th>
+                                    <th>Maturity</th>
+                                </tr>
+                                <tr>
+                                    <td>create-react-app</td>
+                                    <td>Fast, easy to use, and well-documented</td>
+                                    <td>Less flexible than other options</td>
+                                    <td>Free</td>
+                                    <td>MIT</td>
+                                    <td>Facebook</td>
+                                    <td>Very large</td>
+                                    <td>High</td>
+                                </tr>
+                                <tr>
+                                    <td>Next.js</td>
+                                    <td>Server-side rendering, static site generation, and API routes</td>
+                                    <td>More complex than create-react-app</td>
+                                    <td>Free</td>
+                                    <td>MIT</td>
+                                    <td>Vercel</td>
+                                    <td>Large</td>
+                                    <td>High</td>
+                                </tr>
+                                <tr>
+                                    <td>Gatsby</td>
+                                    <td>Static site generation, server-side rendering, and a rich plugin ecosystem</td>
+                                    <td>More complex than create-react-app</td>
+                                    <td>Free</td>
+                                    <td>MIT</td>
+                                    <td>Open-source</td>
+                                    <td>Large</td>
+                                    <td>High</td>
+                                </tr>
+                                <tr>
+                                    <td>Vite</td>
+                                    <td>Fast, modern, and flexible</td>
+                                    <td>Less mature than create-react-app</td>
+                                    <td>Free</td>
+                                    <td>MIT</td>
+                                    <td>Open-source</td>
+                                    <td>Medium</td>
+                                    <td>Medium</td>
+                                </tr>
+                            </table><br><br>
+                            In addition to toolchains, there are many libraries and frameworks to consider such as Remix
+                            and SWC.<br>
+                            <span class="additional-note">* Remix is a full-stack framework that includes server-side
+                                rendering, data fetching,
+                                and routing.<br>* SWC is a fast JavaScript/TypeScript compiler allowing for a better
+                                developing environment.</span><br>
+                            <br><br>
+                            As a first attempt at React, I'm going to use Vite & Remix for the most cutting edge
+                            experience.<br><br>
+                            <ul class="condensed">
+                                <li>Install Vite: <span class="code">npx create-remix&#64;latest</span><br>
+                                    <span class="additional-note">* Preferred over "npm init vite," more configuration
+                                        required this method.</span>
+                                </li>
+                                <li>Install the dependencies: <span class="code">npm install</span></li>
+                                <li>Install Tailwind CSS and PostCSS
+                                    <ol class="condensed">
+                                        <li><span class="code">npm install tailwindcss
+                                                postcss autoprefixer</span> - Install the necessary packages</li>
+                                        <li><span class="code">npx tailwindcss init -p</span> - Create the configuration
+                                            file which allows us to configures such things as the color palette and the
+                                            spacing scale</li>
+                                        <li>Edit the tailwind.config.js file to add the colors and spacing scale
+                                            <div class="code">
+                                                <pre>
+module.exports = &#123;
+    mode: 'jit',
+    purge: ['./app/**/*.jsx'],
+    darkMode: false, // or 'media' or 'class'
+    theme: &#123;
+        extend: &#123;
+            colors: &#123;
+                'nehsa-blue': '#1e3a8a',
+                'nehsa-green': '#00ff00',
+                'nehsa-red': '#ff0000',
+                'nehsa-yellow': '#ffff00',
+                'nehsa-orange': '#ff6600',
+                'nehsa-purple': '#6600cc',
+                'nehsa-pink': '#ff00ff',
+                'nehsa-brown': '#663300',
+                'nehsa-gray': '#666666',
+                'nehsa-black': '#000000',
+                'nehsa-white': '#ffffff',
+            &#125;,
+            spacing: &#123;
+                '1': '0.25rem',
+                '2': '0.5rem',
+                '3': '0.75rem',
+                '4': '1rem',
+                '5': '1.25rem',
+                '6': '1.5rem',
+                '7': '1.75rem',
+                '8': '2rem',
+                '9': '2.25rem',
+                '10': '2.5rem',
+                '11': '2.75rem',
+                '12': '3rem',
+                '14': '3.5rem',
+                '16': '4rem',
+                '20': '5rem',
+                '24': '6rem',
+                '28': '7rem',
+                '32': '8rem',
+            &#125;
+        &#125;
+    &#125;
+
+
+                                                    </pre>
+                                            </div>
+                                        </li>
+                                        <li>Edit the postcss.config.js file to include tailwindcss and autoprefixer
+                                            <div class="code">
+                                                <pre>
+module.exports = &#123;
+    plugins: [
+        require('tailwindcss'),
+        require('autoprefixer'),
+    ],
+&#125;;
+</pre>
+                                            </div>
+                                        </li>
+                                        <li>Edit the app/assets/tailwind.css file to include the tailwind directives
+                                            <div class="code">
+                                                <pre>
+&#64;tailwind base;
+&#64;tailwind components;
+&#64;tailwind utilities;
+</pre>
+                                            </div>
+                                        </li>
+                                        <li>Include the tailwind.css file in the app/root.jsx file
+                                            <div class="code">
+                                                <pre>
+import './app/assets/tailwind.css';
+</pre>
+                                            </div>
+                                        </li>
+                                        <li>Verify the TailWind CSS installation with this CSS:
+                                            <div class="code">
+                                                <pre>
+&lt;div class="bg-nehsa-blue text-nehsa-white p-4 m-4"&gt;Hello World&lt;/div&gt;
+</pre>
+                                            </div>
+                                        </li>
+                                        <li>Build
+                                    </ol>
+                                </li>
+                                <li>Run the development server: <span class="code">npm run dev</span></li>
+                                <li>Open the app in a browser: <span class="code">http://localhost:5173</span></li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Basics</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li>
+                                    <h2>Important Files and Directories</h2>
+                                    <dl>
+                                        <dt>app</dt>
+                                        <dd>Top-level directory</dd>
+                                        <dt>app/routes</dt>
+                                        <dd>Contains the routes for the application</dd>
+                                        <dt>app/root.jsx</dt>
+                                        <dd>The root route, the first page loaded</dd>
+                                        <dt>entry.client.tsx</dt>
+                                        <dd>Client-side entry point, loads the app</dd>
+                                        <dt>entry.server.tsx</dt>
+                                        <dd>Server-side entry point, loads the app</dd>
+                                        <dt>tailwind.css</dt>
+                                        <dd>Global CSS, Tailwind is a utility-first CSS framework meaning it
+                                            provides low-level utility classes to build custom designs</dd>
+                                        <dt>app/assets</dt>
+                                        <dd>Contains images, fonts, and other assets</dd>
+                                    </dl>
+                                </li>
+                                <li>Adding a global stylesheet:
+                                    <ol>
+                                        <li>Edit <span class="code">app/root.tsx</span></li>
+                                        <li><span class="code">import './app/assets/tailwind.css';</span></li>
+                                    </ol>
+                                </li>
+                            </ul>
+
+                        </mat-expansion-panel>
+                    </li>
+                </ul>
+            </div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>
