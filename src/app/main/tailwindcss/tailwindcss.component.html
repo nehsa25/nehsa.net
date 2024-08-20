@@ -1,0 +1,322 @@
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Tailwind CSS</h1>
+        </mat-card-title>
+        <mat-card-subtitle>Tailwind CSS is a utility-first CSS framework for rapidly building custom designs.
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                Tailwind CSS is a CSS framework, similar to
+                Bootstrap, but with a different approach. Whereas Bootstrap places emphasis on pre-built components,
+                Tailwind CSS focuses on utility classes. This means that Tailwind CSS is more flexible and customizable
+                than Bootstrap, but it also requires more work to create a cohesive design. It is a powerful tool that
+                can help you create unique and
+                responsive designs quickly.<br><br>
+
+                This is the test app I created and the Tailwind CSS I used to create this:
+                <img src="../../../assets/images/react_app1.png" alt="Tailwind CSS Test App">
+
+
+                <ul>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Common Features</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <dl>
+                                <dt>&lt;className="h-full"&gt;</dt>
+                                <dd>Gives the div a height of 100%</dd>
+                                <dt>className="m-8"</dt>
+                                <dd>Styles the div with a margin of 8. The 8 is a shorthand for 2rem.<br>
+                                    <ul class="condensed">
+                                        <li>m-1: 0.25rem</li>
+                                        <li>m-2: 0.5rem</li>
+                                        <li>m-3: 0.75rem</li>
+                                        <li>m-4: 1rem</li>
+                                        <li>m-5: 1.25rem</li>
+                                        <li>m-6: 1.5rem</li>
+                                        <li>m-7: 1.75rem</li>
+                                        <li>m-8: 2rem</li>
+                                        <li>m-9: 2.25rem</li>
+                                        <li>m-10: 2.5rem</li>
+                                        <li>m-11: 2.75rem</li>
+                                        <li>m-12: 3rem</li>
+                                    </ul>
+                                </dd>
+                                <dt>className="border border-gray-200"</dt>
+                                <dd>Styles the div with a border and a gray of shade 200 out of 900 border</dd>
+                                <dt>className="text-2xl font-bold"</dt>
+                                <dd>Styles the text with a font size of 2xl and bold font. The 2xl is a shorthand for
+                                    1.5rem.<br>
+                                    <ul class="condensed">
+                                        <li>2xl: 1.5rem</li>
+                                        <li>3xl: 1.875rem</li>
+                                        <li>4xl: 2.25rem</li>
+                                        <li>5xl: 3rem</li>
+                                        <li>6xl: 4rem</li>
+                                    </ul>
+                                </dd>
+                                <dt>className="hover:bg-yellow-100"</dt>
+                                <dd>Styles the div with a hover effect of a yellow background</dd>
+                                <dt>className="bg-yellow-400 text-black font-bold py-2 px-4 rounded-full shadow-md"</dt>
+                                <dd>Styles the div with a yellow background, black text, bold font, padding of 2 on the
+                                    y-axis and 4 on the x-axis, rounded corners, and a shadow</dd>
+                                <dt>className="w-full table-auto border-collapse border-2 border-gray-300 rounded-lg"
+                                </dt>
+                                <dd>Styles the div with a width of full, a table layout, auto sizing, a border collapse,
+                                    a
+                                    border of 2, a gray of shade 300 out of 900 border, and rounded corners</dd>
+
+                            </dl>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Comparison of CSS Frameworks</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li>
+                                    <table>
+                                        <tr>
+                                            <th>CSS Framework</th>
+                                            <th>Pros</th>
+                                            <th>Cons</th>
+                                            <th>License</th>
+                                            <th>Maturity</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Bootstrap</td>
+                                            <td>Pre-built components, easy to use</td>
+                                            <td>Less flexible, can be bloated</td>
+                                            <td>MIT</td>
+                                            <td>10 years</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Material</td>
+                                            <td>Google design language, easy to use</td>
+                                            <td>Less flexible</td>
+                                            <td>Apache 2.0</td>
+                                            <td>6 years</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tailwind CSS</td>
+                                            <td>Utility classes, highly customizable</td>
+                                            <td>Requires more work, can be verbose</td>
+                                            <td>MIT</td>
+                                            <td>3 years</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Bulma</td>
+                                            <td>Modern design, easy to use</td>
+                                            <td>Less flexible, fewer components</td>
+                                            <td>MIT</td>
+                                            <td>5 years</td>
+                                        </tr>
+                                    </table>
+                                </li>
+                                <li>Install Tailwind CSS and PostCSS
+                                    <ol class="condensed">
+                                        <li><span class="code">npm install tailwindcss
+                                                postcss autoprefixer</span> - Install the necessary packages</li>
+                                        <li><span class="code">npx tailwindcss init -p</span> - Create the
+                                            configuration
+                                            file which allows us to configures such things as the color palette and
+                                            the
+                                            spacing scale</li>
+                                        <li>Edit the tailwind.config.js file to add the colors and spacing scale
+                                            <div class="code">
+                                                <pre>
+module.exports = &#123;
+mode: 'jit',
+purge: ['./app/**/*.jsx'],
+darkMode: false, // or 'media' or 'class'
+theme: &#123;
+    extend: &#123;
+        colors: &#123;
+            'nehsa-blue': '#1e3a8a',
+            'nehsa-green': '#00ff00',
+            'nehsa-red': '#ff0000',
+            'nehsa-yellow': '#ffff00',
+            'nehsa-orange': '#ff6600',
+            'nehsa-purple': '#6600cc',
+            'nehsa-pink': '#ff00ff',
+            'nehsa-brown': '#663300',
+            'nehsa-gray': '#666666',
+            'nehsa-black': '#000000',
+            'nehsa-white': '#ffffff',
+        &#125;,
+        spacing: &#123;
+            '1': '0.25rem',
+            '2': '0.5rem',
+            '3': '0.75rem',
+            '4': '1rem',
+            '5': '1.25rem',
+            '6': '1.5rem',
+            '7': '1.75rem',
+            '8': '2rem',
+            '9': '2.25rem',
+            '10': '2.5rem',
+            '11': '2.75rem',
+            '12': '3rem',
+            '14': '3.5rem',
+            '16': '4rem',
+            '20': '5rem',
+            '24': '6rem',
+            '28': '7rem',
+            '32': '8rem',
+        &#125;
+    &#125;
+&#125;           
+                                        </pre>
+                                            </div>
+                                        </li>
+                                        <li>Edit the postcss.config.js file to include tailwindcss and autoprefixer
+                                            <div class="code">
+                                                <pre>
+module.exports = &#123;
+    plugins: [
+        require('tailwindcss'),
+        require('autoprefixer'),
+    ],
+&#125;
+</pre>
+                                            </div>
+                                        </li>
+                                        <li>Edit the app/assets/tailwind.css file to include the tailwind directives
+                                            <div class="code">
+                                                <pre>
+&#64;tailwind base;
+&#64;tailwind components;
+&#64;tailwind utilities;
+</pre>
+                                            </div>
+                                        </li>
+                                        <li>Include the tailwind.css file in the app/root.jsx file
+                                            <div class="code">
+                                                <pre>
+import './app/assets/tailwind.css';
+</pre>
+                                            </div>
+                                        </li>
+                                        <li>Verify the TailWind CSS installation with this CSS:
+                                            <div class="code">
+                                                <pre>
+&lt;div class="bg-nehsa-blue text-nehsa-white p-4 m-4"&gt;Hello World&lt;/div&gt;
+</pre>
+                                            </div>
+                                        </li>
+                                        <li>Build
+                                    </ol>
+                                </li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Install Tailwind CSS and PostCSS</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ol class="condensed">
+                                <li><span class="code">npm install tailwindcss
+                                        postcss autoprefixer</span> - Install the necessary packages</li>
+                                <li><span class="code">npx tailwindcss init -p</span> - Create the
+                                    configuration
+                                    file which allows us to configures such things as the color palette and
+                                    the
+                                    spacing scale</li>
+                                <li>Edit the tailwind.config.js file to add the colors and spacing scale
+                                    <div class="code">
+                                        <pre>
+module.exports = &#123;
+mode: 'jit',
+purge: ['./app/**/*.jsx'],
+darkMode: false, // or 'media' or 'class'
+theme: &#123;
+    extend: &#123;
+        colors: &#123;
+            'nehsa-blue': '#1e3a8a',
+            'nehsa-green': '#00ff00',
+            'nehsa-red': '#ff0000',
+            'nehsa-yellow': '#ffff00',
+            'nehsa-orange': '#ff6600',
+            'nehsa-purple': '#6600cc',
+            'nehsa-pink': '#ff00ff',
+            'nehsa-brown': '#663300',
+            'nehsa-gray': '#666666',
+            'nehsa-black': '#000000',
+            'nehsa-white': '#ffffff',
+        &#125;,
+        spacing: &#123;
+            '1': '0.25rem',
+            '2': '0.5rem',
+            '3': '0.75rem',
+            '4': '1rem',
+            '5': '1.25rem',
+            '6': '1.5rem',
+            '7': '1.75rem',
+            '8': '2rem',
+            '9': '2.25rem',
+            '10': '2.5rem',
+            '11': '2.75rem',
+            '12': '3rem',
+            '14': '3.5rem',
+            '16': '4rem',
+            '20': '5rem',
+            '24': '6rem',
+            '28': '7rem',
+            '32': '8rem',
+        &#125;
+    &#125;
+&#125;           
+                                        </pre>
+                                    </div>
+                                </li>
+                                <li>Edit the postcss.config.js file to include tailwindcss and autoprefixer
+                                    <div class="code">
+                                        <pre>
+module.exports = &#123;
+    plugins: [
+        require('tailwindcss'),
+        require('autoprefixer'),
+    ],
+&#125;
+</pre>
+                                    </div>
+                                </li>
+                                <li>Edit the app/assets/tailwind.css file to include the tailwind directives
+                                    <div class="code">
+                                        <pre>
+&#64;tailwind base;
+&#64;tailwind components;
+&#64;tailwind utilities;
+</pre>
+                                    </div>
+                                </li>
+                                <li>Include the tailwind.css file in the app/root.jsx file
+                                    <div class="code">
+                                        <pre>
+import './app/assets/tailwind.css';
+</pre>
+                                    </div>
+                                </li>
+                                <li>Verify the TailWind CSS installation with this CSS:
+                                    <div class="code">
+                                        <pre>
+&lt;div class="bg-nehsa-blue text-nehsa-white p-4 m-4"&gt;Hello World&lt;/div&gt;
+</pre>
+                                    </div>
+                                </li>
+                                <li>Build
+                            </ol>
+                        </mat-expansion-panel>
+                    </li>
+                </ul>
+            </div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>

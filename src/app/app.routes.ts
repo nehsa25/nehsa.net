@@ -58,6 +58,8 @@ import { NosqlComponent } from './main/nosql/nosql.component';
 import { KubernetesComponent } from './main/kubernetes/kubernetes.component';
 import { SeoComponent } from './main/seo/seo.component';
 import { ReactComponent } from './main/react/react.component';
+import { TailwindcssComponent } from './main/tailwindcss/tailwindcss.component';
+import { ReduxComponent } from './main/redux/redux.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: WelcomeComponent },
@@ -128,6 +130,8 @@ export const routes: Routes = [
     { path: 'scratch', title: 'nehsa.net | Scratch', component: ScratchComponent },
     { path: 'ide', title: 'nehsa.net | IDEs / Code Editors', component: IdeComponent },
     { path: 'iis', title: 'nehsa.net | IIS', component: IisComponent },
+    { path: 'tailwindcss', title: 'nehsa.net | Tailwind CSS', component: TailwindcssComponent },
+    { path: 'redux', title: 'nehsa.net | Redux', component: ReduxComponent },
     { path: '', title: 'nehsa.net | Home', redirectTo: '/', pathMatch: 'full' },
     { path: '**', component: WelcomeComponent },
 ];
