@@ -61,7 +61,7 @@
 
                                         </ul>
                                     </li>
-                                    <li>Take api.nehsa.net.pfx and place it where it can be referened by Docker
+                                    <li>Take api.nehsa.net.pfx and place it where it can be referenced by Docker
                                         container (C:\certs)</li>
                                     <li>
                                         Launch container:
@@ -73,6 +73,10 @@
                                             -v C:\certs:/https/ nehsa/nehsaapi:latest
                                         </div>
                                     </li>
+                                    <li>Rebuild container: <span class="code">docker build -t nehsa/nehsaapi:latest
+                                            .</span>                                        
+                                        </li>
+
 
                                 </ol>
 
