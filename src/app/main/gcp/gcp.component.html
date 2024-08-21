@@ -7,14 +7,25 @@
     <mat-card-content>
         <div class="commentgrid">
             <div class="topics">
-                <h3>Important Commands</h3>
-                <ul>
-                    <li><span class="code">gcloud run deploy --image nehsa/nehsanet:latest</span> - Uploads container to
-                        cloud</li>
-                    <li><span class="code">gcloud config set run/region us-central1</span> - Set region to prevent being
-                        prompted
-                    <li><span class="code">gcloud cheat-sheet</span> - Uploads container to cloud</li>
-                </ul>
+                <div>Related Content:
+                    <ul class="condensed">
+                        <li><a routerLink="/cloud">Cloud Overview</a></li>
+                        <li><a routerLink="/aws">AWS</a></li>
+                        <li><a routerLink="/azure">Azure</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Important Commands</h3>
+                    <ul>
+                        <li><span class="code">gcloud run deploy --image nehsa/nehsanet:latest</span> - Uploads
+                            container to
+                            cloud</li>
+                        <li><span class="code">gcloud config set run/region us-central1</span> - Set region to prevent
+                            being
+                            prompted
+                        <li><span class="code">gcloud cheat-sheet</span> - Uploads container to cloud</li>
+                    </ul>
+                </div>
             </div>
             <div><app-comment></app-comment></div>
         </div>

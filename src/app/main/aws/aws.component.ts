@@ -4,11 +4,12 @@ import { CommentComponent } from '../../shared-components/comment/comment.compon
 import { UserService } from '../../services/user.service';
 import { AsyncPipe, NgIf } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-aws',
   standalone: true,
-  imports: [MatCardModule, CommentComponent, NgIf, MatButtonModule, AsyncPipe],
+  imports: [MatCardModule, CommentComponent, NgIf, MatButtonModule, AsyncPipe, RouterLink],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './aws.component.html',
   styleUrl: './aws.component.scss'

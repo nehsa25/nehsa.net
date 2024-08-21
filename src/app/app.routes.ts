@@ -60,6 +60,7 @@ import { SeoComponent } from './main/seo/seo.component';
 import { ReactComponent } from './main/react/react.component';
 import { TailwindcssComponent } from './main/tailwindcss/tailwindcss.component';
 import { ReduxComponent } from './main/redux/redux.component';
+import { CloudComponent } from './main/cloud/cloud.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: WelcomeComponent },
@@ -109,6 +110,7 @@ export const routes: Routes = [
     { path: 'aws', title: 'nehsa.net | aws', component: AwsComponent },
     { path: 'jenkins', title: 'nehsa.net | Jenkins', component: JenkinsComponent },
     { path: 'jsdoc', title: 'nehsa.net | jsdoc', component: JsdocComponent },
+    { path: 'cloud', title: 'nehsa.net | Cloud', component: CloudComponent },
     { path: 'java', title: 'nehsa.net | Java', component: JavaComponent },
     { path: 'github', title: 'nehsa.net | Github', component: GithubComponent },
     { path: 'website', title: 'nehsa.net | This Website', component: ThisWebsiteComponent },

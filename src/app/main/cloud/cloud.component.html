@@ -1,0 +1,146 @@
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Cloud Overview</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                <div>Related Content:
+                    <ul class="condensed">
+                        <li><a routerLink="/aws">AWS</a></li>
+                        <li><a routerLink="/azure">Azure</a></li>
+                        <li><a routerLink="/gcp">Google Cloud Platform</a></li>
+                    </ul>
+                </div>
+                <div>
+                    Using the cloud is more than simply using someone else's computer. Cloud providers offer many
+                    services, including extra security and services that would be hard for a small company to provide on
+                    its own.<br>
+                    <span class="additional-note">* You'll fully understand the importance of security and a
+                        decentralized infrastructure when foreign hackers encrypt every file on every machine in your
+                        local office and demand a ransom in cryptocurrency before handing over the decryption
+                        tool.</span><br>
+
+                    <div>
+                        Here's a breakdown of the three major cloud providers and some key differents their offerings:
+                        <table class="min-table">
+                            <tr>
+                                <th>Provider</th>
+                                <th>Services</th>
+                                <th>Cost</th>
+                                <th>Market Adoption</th>
+                                <th>Strong CLI support, tool names</th>
+                            </tr>
+                            <tr>
+                                <td>AWS</td>
+                                <td>EC2, S3, RDS, Lambda, DynamoDB, etc.</td>
+                                <td>Pay as you go, free tier</td>
+                                <td>Most widely used</td>
+                                <td>aws-cli, boto3, CloudFormation</td>
+                            </tr>
+                            <tr>
+                                <td>Azure</td>
+                                <td>VMs, Blob Storage, SQL Server, Functions, CosmosDB, etc.</td>
+                                <td>Pay as you go, free tier</td>
+                                <td>2nd most widely used</td>
+                                <td>az, Azure CLI, ARM templates</td>
+                            </tr>
+                            <tr>
+                                <td>Google Cloud Platform</td>
+                                <td>Compute Engine, Cloud Storage, Cloud SQL, Cloud Functions, etc.</td>
+                                <td>Pay as you go, free tier</td>
+                                <td>3rd most widely used</td>
+                                <td>gcloud, Cloud SDK, Deployment Manager</td>
+                            </tr>
+                        </table>
+                    </div><br><br>
+
+                    <div>
+                        More information about services:<br>
+                        <dl>
+                            <dt>AWS</dt>
+                            <dd>is the most widely used and has the most services. (e.g. AWS services: 175, GCP: 60, and
+                                Azure: 50)</dd>
+                            <dt>Azure</dt>
+                            <dd>Azure is the second most widely used and has the best integration with Windows, thanks
+                                to features like Active Directory.</dd>
+                            <dt>Google Cloud Platform</dt>
+                            <dd>Google Cloud Platform is the third most widely used and has the best integration with
+                                Kubernetes (because Google created Kubernetes.)</dd>
+                            <dt>EC2</dt>
+                            <dd>is a type of service that allows you to create virtual machines. GPC and Azure offer
+                                similar services.</dd>
+                            <dt>S3</dt>
+                            <dd> is a type of storage used to store unstructured data like images, videos, and backups.
+                                (akin to Azure Blob storage or Google Cloud Storage's buckets)</dd>
+                            <dt>Blob storage</dt>
+                            <dd>is a type of storage that is used to store unstructured data like images, videos, and
+                                backups.</dd>
+                            <dt>RDS</dt>
+                            <dd>is a service that allows you to create a relational database. (akin to Azure SQL
+                                Database or Google Cloud SQL)</dd>
+                            <dt>Lambda</dt>
+                            <dd>enables you to run code without provisioning or managing servers. (akin to Azure
+                                Functions or Google Cloud Functions)</dd>
+                            <dt>DynamoDB</dt>
+                            <dd>is a service that will allow you to create a NoSQL database. (akin to Azure CosmosDB or
+                                Google Cloud Datastore)</dd>
+                            <dt>CosmosDB</dt>
+                            <dd>is a service that will enable you to create a NoSQL database. IN SPACE!</dd>
+                            <dt>VPC</dt>
+                            <dd>VPC is a service that allows you to create a virtual private cloud. A VPC is needed when
+                                you need more security, isolation, or connection to an on-premise network. (akin to
+                                Azure Virtual Network or Google Cloud VPC)</dd>
+                        </dl>
+                    </div><br><br>
+                    <div>
+                        <h3>My Usage</h3><br>
+                        <h4>Personal</h4><br>
+                        I use Google Cloud Platform for the API & front-end of nehsa.net home resources for everything
+                        else. Eventually, I'd like to find ways to use AWS and Azure that leverage each perspective's
+                        strengths. For example, I need to host:
+                        <table class="min-table">
+                            <tr>
+                                <th>Feature</th>
+                                <th>Provider</th>
+                                <th>Reason</th>
+                            </tr>
+                            <tr>
+                                <td>Python websocker server</td>
+                                <td>AWS</td>
+                                <td>because AWS has the good support for websockets because of its IoT services.</td>
+                            </tr>
+                            <tr>
+                                <td>MySQL Database</td>
+                                <td>??</td>
+                                <td>??</td>
+                            </tr>
+                            <tr>
+                                <td>Weather microservice writtin in Go</td>
+                                <td>??</td>
+                                <td>??</td>
+                            </tr>
+                            <tr>
+                                <td>Test React Front-ends</td>
+                                <td>GCP</td>
+                                <td>because I'm already using GCP for the API and I like the free tier.</td>
+                            </tr>
+                            <tr>
+                                <td>Web page scraper microservice writtin in Go</td>
+                                <td>??</td>
+                                <td>??</td>
+                            </tr>
+                        </table>
+                        <br><br>
+
+                        <h4>Professional</h4><br>
+                        In a professional capacity, I am most familar with Azure for hosting web applications,
+                        databases, and APIs.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

@@ -117,6 +117,31 @@ $theme-dark-a-hover-color: mat.get-color-from-palette($dark-primary-palette, 300
 $theme-dark-a-link-color: mat.get-color-from-palette($dark-primary-palette, "link");
 $theme-light-a-link-color: mat.get-color-from-palette($light-primary-palette, "link");
 
+// table 
+table, .table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table,
+th,
+td {
+    border-collapse: collapse;
+    padding: 5px 1em;
+}
+
+th {
+    text-align: center;
+    font-weight: 700;
+}
+
+.min-table {
+    width: fit-content !important;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
 // images
 img {
     border: 2px ridge var(--theme-border);
@@ -238,18 +263,6 @@ pre {
 
 wbr:after {
     content: "\00200B";
-}
-
-table,
-th,
-td {
-    border-collapse: collapse;
-    padding: 5px 1em;
-}
-
-th {
-    text-align: center;
-    font-weight: 700;
 }
 
 dt {
