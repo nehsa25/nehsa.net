@@ -303,6 +303,12 @@
   }
 }
 
+a {
+  color: teal !important;
+}
+a:link {
+  color: teal !important;
+}
 
 textarea {
   width: 100%;
@@ -769,6 +775,7 @@ td {
   line-height: 1em;
   font-size: .8rem;
   color: seagreen !important;
+  background-color: #999 !important;
   margin: auto 0;
   white-space: nowrap;
   overflow: hidden;
