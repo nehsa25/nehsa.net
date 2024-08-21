@@ -192,7 +192,8 @@ def test_order_creation(self):
                             which are quickest to implement and can uncover unforeseen bugs, can provide a more
                             comprehensive test coverage. Five well-designed E2E tests that validate a user's experience
                             can instill more confidence in the team than a thousand passing unit tests of the nature
-                            (test_input_is_type_float64). Another way to phrase it is if I was given 100 "Quality Points" to
+                            (test_input_is_type_float64). Another way to phrase it is if I was given 100 "Quality
+                            Points" to
                             test a feature, I might spend 80 on E2E tests, 10 on security, 8 on performance and load,
                             and 2 on unit tests.<br><br>Side note, meet Lagoon the
                             Duck:<br>
@@ -530,6 +531,175 @@ pass
                                     to
                                     potentially
                                     many comparisons or calculations</dd>
+                            </dl>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Architecture Consideration</mat-panel-title><mat-panel-subtitle>
+                                    Layered architecture, n-tier architecture</mat-panel-subtitle>
+                            </mat-expansion-panel-header>
+                            Designing an application capable of the load you intend to place on it is not just a
+                            task but a pivotal decision that can make or break the success of your project and the
+                            user experience it delivers.<br><br>
+
+                            When starting a new project, the frameworks that will be used to structure our code must
+                            be given great consideration. This is important not only for maintainability but also,
+                            in some cases, for performance.<br><br>
+
+                            ASP.NET MVC and ASP.NET Core are fundamentally different frameworks than Angular or next.js.
+
+                            For example,<br>
+                            <table>
+                                <tr>
+                                    <th>Framework</th>
+                                    <th>Emphasis</th>
+                                    <th>Suitable Use Cases</th>
+                                    <th>Use cases not suitable</th>
+                                    <th>Performance</th>
+                                    <th>Code Structure</th>
+                                </tr>
+                                <tr>
+                                    <td>ASP.NET MVC</td>
+                                    <td>Server-side rendering</td>
+                                    <td>Traditional web applications, where SEO is important</td>
+                                    <td>Highly interactive applications</td>
+                                    <td>Good, but can be slower for highly interactive apps</td>
+                                    <td>Model-View-Controller</td>
+                                </tr>
+                                <tr>
+                                    <td>ASP.NET Core</td>
+                                    <td>Cross-platform, high-performance</td>
+                                    <td>Microservices, APIs, and cloud-based applications</td>
+                                    <td>Legacy applications</td>
+                                    <td>Excellent performance</td>
+                                    <td>Flexible, can use MVC or Razor Pages</td>
+                                </tr>
+                                <tr>
+                                    <td>Angular</td>
+                                    <td>Client-side rendering</td>
+                                    <td>Single-page applications (SPAs)</td>
+                                    <td>SEO-heavy applications</td>
+                                    <td>Good, but requires server-side rendering for SEO</td>
+                                    <td>Component-based architecture</td>
+                                </tr>
+                                <tr>
+                                    <td>Next.js</td>
+                                    <td>Hybrid rendering</td>
+                                    <td>SPAs with SEO needs</td>
+                                    <td>Simple static sites</td>
+                                    <td>Excellent performance</td>
+                                    <td>File-based routing</td>
+                                </tr>
+                                <tr>
+                                    <td>Wordpress</td>
+                                    <td>Content management</td>
+                                    <td>Blogs, news sites, and content-heavy applications</td>
+                                    <td>Highly interactive applications</td>
+                                    <td>Can be slow with many plugins</td>
+                                    <td>Template-based</td>
+                                </tr>
+                            </table><br><br>
+
+                            Code Structure
+                            <dl>
+                                <dt>Model-View-Controller</dt>
+                                <dd>Separates application logic into three interconnected components: Model (data), View
+                                    (UI), and Controller (business logic).<br><br>
+
+                                    Example:
+
+                                    <span class="importanish">Model (C#, ASP.NET)</span>
+                                    <div class="code">
+                                        <pre>
+class User &#123;
+    private string name;
+    private string email;
+
+    public User(string name, string email) &#123;
+        this.name = name;
+        this.email = email;                                            
+    &#125;
+&#125;
+                                        </pre>
+                                    </div><br><br>
+                                    <span class="importanish">View (Razor)</span>
+                                    <div class="code">
+                                        <pre>
+&#64;model User
+Hi &#64;Model.name of email address &#64;Model.email! You're amazing!
+                                        </pre>
+                                    </div><br><br>
+                                    <span class="importanish">Controller</span>
+                                    <div class="code">
+                                        <pre>
+public class UserController &#123;
+    public IActionResult Index() &#123;
+        var user = new User("John Doe", "john.doe&#64;nehsa.net");
+        return View(user);
+    &#125;
+&#125;
+                                        </pre>
+                                    </div><br>
+                                    This structure promotes separation of concerns, making the application easier to
+                                    manage. The above would render as: Hi John Doe of email address
+                                    john.doe&#64;nehsa.net! You're amazing!
+                                </dd>
+                                <dt>Angular (Component-based architecture)</dt>
+                                <dd>Accomplishing the same thing in Angular would look like this:
+                                    <div class="code">
+                                        <pre>
+export class UserComponent &#123;
+    user = &#123; name: "John Doe", email: "john.doe&#64;nehsa.net" &#125;;
+&#125;
+
+<!-- In the template -->
+<p>Hi &#123; &#123; user.name &#125; &#125; of email address &#123; &#123; user.email &#125; &#125;! You're amazing!</p>
+                                    </pre>
+                                    </div><br><br>easy-peasy.
+                                </dd>
+                                <dt>Next.js (File-based routing)</dt>
+                                <dd>In Next.js, the same functionality would be achieved through file-based routing:
+                                    <div class="code">
+                                        <pre>
+import React from 'react';
+
+const User = () => &#123;
+    const user = &#123; name: "John Doe", email: "john.doe&#64;nehsa.net" &#125;;
+    return &lt;p&gt;Hi &#123;user.name&#125; of email address &#123;user.email&#125;! You're amazing!&lt;/p&gt;
+&#125;
+
+export default User;
+                                    </pre>
+                                    </div><br><br>
+
+                                    Next.js does not place the same emphasis on separation of concerns as MVC, but it
+                                    does provide a more straightforward approach to routing and rendering (and is
+                                    typically faster).
+                                </dd>
+                                <dt>VueJS</dt>
+                                <dd>VueJS is another popular framework that uses a component-based architecture. It
+                                    allows for
+                                    the creation of reusable components, making it easy to manage complex UIs. The
+                                    structure is similar to Angular.
+
+                                    <div class="code">
+                                        <pre>
+&lt;template&gt;
+    &lt;p&gt;Hi &#123; &#123; user.name &#125; &#125; of email address &#123; &#123; user.email &#125; &#125;! You're amazing!&lt;/p&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+    export default &#123;
+        data() &#123;
+            return &#123; user: &#123; name: "John Doe", email: "john.doe&#64;nehsa.net" &#125; &#125;
+        &#125;
+    &#125;
+&lt;/script&gt;
+                                    </pre>
+                                    </div>
+                                </dd>
                             </dl>
                         </mat-expansion-panel>
                     </li>
