@@ -1,0 +1,32 @@
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">TypeScript</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                <div>Related Content:
+                    <ul class="condensed">
+                        <li><a routerLink="/webdev-frameworks">Web Development Frameworks</a></li>
+                        <li><a routerLink="/playwright">Playwright</a></li>
+                        <li><a routerLink="/webdesign">Web Design</a></li>
+                        <li><a routerLink="/typescript">TypeScript</a></li>
+                        <li><a routerLink="/react">React</a></li>
+                        <li><a routerLink="/angular">Angular</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <mat-expansion-panel expanded>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Vue</mat-panel-title>
+                        </mat-expansion-panel-header>Maybe someday..
+
+                    </mat-expansion-panel>
+                </div>
+                <div><app-comment></app-comment></div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

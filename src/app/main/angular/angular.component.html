@@ -9,9 +9,12 @@
             <div class="topics">
                 <div>Related Content:
                     <ul class="condensed">
+                        <li><a routerLink="/webdev-frameworks">Web Development Frameworks</a></li>
                         <li><a routerLink="/playwright">Playwright</a></li>
                         <li><a routerLink="/webdesign">Web Design</a></li>
                         <li><a routerLink="/typescript">TypeScript</a></li>
+                        <li><a routerLink="/react">React</a></li>
+                        <li><a routerLink="/vue">Vue</a></li>
                     </ul>
                 </div>
                 <div>
@@ -37,8 +40,7 @@
                                     <dd>e.g. &lt;span #me&gt;</dd>
                                     <dt>Display a variable using interpolation</dt>
                                     <dd>
-                                        <p
-                                            [innerHtml]="'<spanks>&#123;&#123;variable to display&#125;&#125;</span>'">
+                                        <p [innerHtml]="'<spanks>&#123;&#123;variable to display&#125;&#125;</span>'">
                                         </p>
                                     </dd>
                                     <dt>Embed a "data-testid" attribute in element after build</dt>
@@ -477,7 +479,8 @@ constructor() &#123;
                                                 <li class="directory">styles
                                                     <ul>
                                                         <li class="directory">assets - <span
-                                                                class="comment">Self-contained assets. In my case for
+                                                                class="comment">Self-contained
+                                                                assets. In my case for
                                                                 this website, these are the minions found throughout
                                                                 the website.</span>
                                                             <ul>
