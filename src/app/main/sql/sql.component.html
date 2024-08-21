@@ -6,12 +6,250 @@
     </mat-card-header>
     <mat-card-content>
         <div class="commentgrid">
-            <div class="topics">
-                <div>
+            <div class="topics">MS SQL (all T-SQL, for that matter) is a declarative language for working with
+                relational databases.<br><br>
+
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>Common Keywords</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <table class="keyword-table">
+                        <tr>
+                            <th>Keyword</th>
+                            <th>Function</th>
+                            <th>Example</th>
+                            <th>Performance Impact</th>
+                            <th>Related Keywords</th>
+                        </tr>
+                        <tr>
+                            <td>SELECT</td>
+                            <td>Retrieve data from a database</td>
+                            <td>SELECT * FROM Customers</td>
+                            <td>Low</td>
+                            <td>FROM, WHERE, JOIN</td>
+                        </tr>
+                        <tr>
+                            <td>INSERT</td>
+                            <td>Add new data to a database</td>
+                            <td>INSERT INTO Customers (Name)<br>VALUES ('John Doe')</td>
+                            <td>Medium</td>
+                            <td>VALUES, INTO</td>
+                        </tr>
+                        <tr>
+                            <td>UPDATE</td>
+                            <td>Modify existing data in a database</td>
+                            <td>UPDATE Customers SET Name = 'Jane Doe'<br>WHERE Name = 'John Doe'</td>
+                            <td>Medium</td>
+                            <td>SET, WHERE</td>
+                        </tr>
+                        <tr>
+                            <td>DELETE</td>
+                            <td>Remove data from a database</td>
+                            <td>DELETE FROM Customers<br>WHERE Name = 'John Doe'</td>
+                            <td>High</td>
+                            <td>WHERE</td>
+                        </tr>
+                        <tr>
+                            <td>JOIN</td>
+                            <td>Combine rows from two or more tables</td>
+                            <td>SELECT * FROM Orders<br>JOIN Customers<br>ON Orders.CustomerID = Customers.CustomerID
+                            </td>
+                            <td>Medium</td>
+                            <td>INNER, LEFT, RIGHT</td>
+                        </tr>
+                        <tr>
+                            <td>WHERE</td>
+                            <td>Filter records based on a condition</td>
+                            <td>SELECT * FROM Customers<br>WHERE Country = 'USA'</td>
+                            <td>Low</td>
+                            <td>AND, OR, NOT</td>
+                        </tr>
+                        <tr>
+                            <td>GROUP BY</td>
+                            <td>Group rows that have the same values in specified columns</td>
+                            <td>SELECT COUNT(*), Country<br>FROM Customers<br>GROUP BY Country</td>
+                            <td>Medium</td>
+                            <td>HAVING</td>
+                        </tr>
+                        <tr>
+                            <td>ORDER BY</td>
+                            <td>Sort the result set in ascending or descending order</td>
+                            <td>SELECT * FROM Customers<br>ORDER BY Name ASC</td>
+                            <td>Low</td>
+                            <td>ASC, DESC</td>
+                        </tr>
+                        <tr>
+                            <td>HAVING</td>
+                            <td>Filter records after grouping</td>
+                            <td>SELECT COUNT(*), Country<br>FROM Customers<br>GROUP BY Country HAVING COUNT(*) > 1</td>
+                            <td>Medium</td>
+                            <td>GROUP BY</td>
+                        </tr>
+                        <tr>
+                            <td>BETWEEN</td>
+                            <td>Select values within a range</td>
+                            <td>SELECT * FROM Orders<br>WHERE OrderDate BETWEEN '2021-01-01' AND '2021-12-31'</td>
+                            <td>Low</td>
+                            <td>AND, OR</td>
+                        </tr>
+                        <tr>
+                            <td>IN</td>
+                            <td>Select values that match any value in a list</td>
+                            <td>SELECT * FROM Customers<br>WHERE Country IN ('USA', 'Canada')</td>
+                            <td>Low</td>
+                            <td>OR</td>
+                        </tr>
+                        <tr>
+                            <td>CASE</td>
+                            <td>Provide conditional logic in a query</td>
+                            <td>SELECT Name, CASE WHEN Country = 'USA'<br>THEN 'North America'<br>ELSE 'Other' END AS
+                                Region FROM Customers</td>
+                            <td>Medium</td>
+                            <td>WHEN, THEN</td>
+                        </tr>
+                        <tr>
+                            <td>IF</td>
+                            <td>Execute a statement conditionally</td>
+                            <td>IF (SELECT COUNT(*) FROM Customers) > 0<br>BEGIN SELECT 'Customers exist' END</td>
+                            <td>Medium</td>
+                            <td>ELSE, END</td>
+                        </tr>
+                    </table>
+                </mat-expansion-panel>
+
+                <div>Feats I've once accomplished that I may need to do again:<br>
                     <ul>
-                        <li>Trim contents of a field to 50 characters:
-                            <div class="answer code">select SUBSTRING (&lt;COLUMN TO TRIM&gt;, 1, 50) from
-                                &lt;SCHEMA&gt;.&lt;TABLE&gt;</div>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Trim contents of a field to 50 characters</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <div class="answer code">select SUBSTRING (&lt;COLUMN TO TRIM&gt;, 1, 50) from
+                                    &lt;SCHEMA&gt;.&lt;TABLE&gt;</div>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Create a trigger for tansaction history</mat-panel-title>
+                                    <mat-panel-description>A transaction history table (also referred to as an audit
+                                        table) is a table that records changes made to another
+                                        table.</mat-panel-description>
+                                </mat-expansion-panel-header>
+                                Add a trigger to the table to log changes to a history table:
+                                <div class="code">
+                                    <pre>
+CREATE TRIGGER [schema].[update_table_history] ON [schema].[table]
+FOR UPDATE
+AS
+BEGIN
+    INSERT schema.table ( <span class="comment"><mat-icon>arrow_back</mat-icon> inserts new records into the history table</span> 
+        [column1],
+        [column2])
+    SELECT [column1], <span class="comment"><mat-icon>arrow_back</mat-icon> selects the columns to log</span>
+        [column2]
+    FROM deleted <span class="comment"><mat-icon>arrow_back</mat-icon> references the old values</span>
+END
+GO
+
+ALTER TABLE [schema].[table] ENABLE TRIGGER [update_table_history]
+GO
+                                    </pre>
+                                </div><br>
+                                This trigger will log changes made to the specified table into a history table.
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Pii-vo-oot!!</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                Pivot queries are powerful for transforming data.<br><br>
+                                
+                                An example table where a pivot table
+                                would be useful is a user database and you want to see how many users are in each role.<br><br>
+
+                                e.g. <table style="width: fit-content;">
+                                    <tr>
+                                        <th>username</th>
+                                        <th>role</th>
+                                    </tr>
+                                    <tr>
+                                        <td>user1</td>
+                                        <td>admin</td>
+                                    </tr>
+                                    <tr>
+                                        <td>user2</td>
+                                        <td>editor</td>
+                                    </tr>
+                                    <tr>
+                                        <td>user3</td>
+                                        <td>admin</td>
+                                    </tr>
+                                    <tr>
+                                        <td>user4</td>
+                                        <td>viewer</td>
+                                    </tr>
+                                </table><br><br>
+
+                                We could just do this to get a count of users by role:<br>
+                                <div class="code">
+                                    <pre>
+SELECT role, COUNT(*) as user_count
+FROM users
+GROUP BY role
+                                    </pre>
+                                </div><br>
+                                Resulting in:<br>
+                                <table style="width: fit-content;">
+                                    <tr>
+                                        <th>role</th>
+                                        <th>user_count</th>
+                                    </tr>
+                                    <tr>
+                                        <td>admin</td>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>editor</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>viewer</td>
+                                        <td>1</td>
+                                    </tr>
+                                </table><br><br>
+
+                                Using the PIVOT keyword, we could accomplish the same (if we're feeling fancy):<br>
+                                <div class="code">
+                                    <pre>
+SELECT *
+FROM (
+    SELECT username, role
+    FROM users
+) AS SourceTable
+PIVOT (
+    COUNT(username)
+    FOR role IN ([admin], [editor], [viewer])
+) AS PivotTable
+                                    </pre>
+                                </div><br>
+                                Resulting in:<br>
+                                <table style="width: fit-content;">
+                                    <tr>
+                                        <th>admin</th>
+                                        <th>editor</th>
+                                        <th>viewer</th>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                    </tr>
+                                </table>
+
+                                Same data, but presented differently!
+                            </mat-expansion-panel>
                         </li>
                     </ul>
                 </div>
