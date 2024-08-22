@@ -15,17 +15,21 @@
     color: var(--theme-light-primary-color);
 }
 
-.angel,.vampire .mat-mdc-form-field {
+.angel,
+.vampire .mat-mdc-form-field {
     background-color: whitesmoke;
     color: var(--theme-light-primary-color);
 }
 
-.angel,.vampire .mat-mdc-floating-label {
+.angel,
+.vampire .mat-mdc-floating-label {
     background-color: whitesmoke;
     color: var(--theme-light-primary-color);
 }
 
-.angel a:link, a:visited, a:active {
+.angel a:link,
+a:visited,
+a:active {
     color: #222;
 }
 
@@ -247,6 +251,32 @@ h6 {
 
 .angel .mat-mdc-card-subtitle {
     color: var(--theme-light-primary-color) !important;
+}
+
+// statuses
+.angel .done {
+    color: #4CAF50;
+    background-color: #f1f1f1;
+    border-color: #4CAF50;
+}
+
+.angel .not-started {
+    color: #999;
+    background-color: #f1f1f1;
+    border-color: #999;
+}
+
+.angel .bug {
+    color: limegreen;
+    background-color: #f1f1f1;
+    border-color: crimson;
+}
+
+.angel .in-progress,
+.angel .pending {
+    color: #FFC107;
+    background-color: #f1f1f1;
+    border-color: #FFC107;
 }
 
 $light-primary: (

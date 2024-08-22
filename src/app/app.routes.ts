@@ -63,6 +63,7 @@ import { ReduxComponent } from './main/redux/redux.component';
 import { CloudComponent } from './main/cloud/cloud.component';
 import { JavascriptFrameworksComponent } from './main/javascript-frameworks/javascript-frameworks.component';
 import { VueComponent } from './main/vue/vue.component';
+import { TSqlComponent } from './main/t-sql/t-sql.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: WelcomeComponent },
@@ -116,6 +117,7 @@ export const routes: Routes = [
     { path: 'java', title: 'nehsa.net | Java', component: JavaComponent },
     { path: 'github', title: 'nehsa.net | Github', component: GithubComponent },
     { path: 'vue', title: 'nehsa.net | Vue.js', component: VueComponent },
+    { path: 'tsql', title: 'nehsa.net | t-sql', component: TSqlComponent },
     { path: 'webdev-frameworks', title: 'nehsa.net | Web Development Frameworks', component: JavascriptFrameworksComponent },
     { path: 'website', title: 'nehsa.net | This Website', component: ThisWebsiteComponent },
     { path: 'tls', title: 'nehsa.net | TLS', component: TlsComponent },

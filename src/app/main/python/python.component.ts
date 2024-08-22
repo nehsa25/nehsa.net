@@ -6,11 +6,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { NgIf } from '@angular/common';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-python',
   standalone: true,
-  imports: [CommentComponent, MatExpansionModule, MatCardModule, MatIconModule, MatButtonModule, NgIf],
+  imports: [CommentComponent, MatExpansionModule, MatCardModule, MatIconModule, MatButtonModule, NgIf, RouterLink, MatButtonModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './python.component.html',
   styleUrl: './python.component.scss'

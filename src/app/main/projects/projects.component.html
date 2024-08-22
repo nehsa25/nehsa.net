@@ -28,7 +28,7 @@
                     <span class="importantish">While I hope you get something of value while here, I'm surprised you're
                         here. This website is primarily written for Jesse. It's his playground for playing with exciting
                         technologies. When his curiosity is satisfied, he often moves on to something new, leaving
-                        behind more of a "proof of concept" than finished progress. He'll eventually get back to it.
+                        behind more of a "proof of concept" than finished feature. He'll eventually get back to it.
                         Maybe.</span>
                     <ul>
                         <li>
@@ -44,10 +44,12 @@
                                                 parallelism (async, threads, critical path)</li>
                                             <li>Scalable microservices written in <a routerLink="/go">Go</a></li>
                                             <li>Containerization with Docker and Dockerhub</li>
-                                            <li>CI/CD w/integrated E2E testing using <a routerLink="/github">Github</a> or
+                                            <li>CI/CD w/integrated E2E testing using <a routerLink="/github">Github</a>
+                                                or
                                                 <a routerLink="/jenkins">Jenkins</a>
                                             </li>
-                                            <li>Resilient, geographically-dispersed/load-balanced UIs in the cloud (Azure in
+                                            <li>Resilient, geographically-dispersed/load-balanced UIs in the cloud
+                                                (Azure in
                                                 my case)</li>
                                             <li><a routerLink="/webdesign">Web design</a> best practices and Web Vitals
                                                 metrics such as Largest Contentful
@@ -61,16 +63,20 @@
                                             <li><a routerLink="/mud">NehsaMUD</a>—My son and I are pursuing this project
                                                 together. It is a
                                                 text-based game/interactive novel reminiscent of a game I played in my
-                                                childhood called "MUD" - a multi-user dungeon. The MUDs I played as a child
-                                                were pre-internet! You connected to them via a modem and played on someone's
+                                                childhood called "MUD" - a multi-user dungeon. The MUDs I played as a
+                                                child
+                                                were pre-internet! You connected to them via a modem and played on
+                                                someone's
                                                 BBS (bulletin board system).
                                                 <ul class="condensed">
                                                     <li>Runs in your browser using https & wss</li>
                                                     <li>Uses AI real-time image generation via <a
                                                             routerLink="/aiimage">Stability AI</a> service</li>
-                                                    <li>Uses AI for NPC dialog via <a routerLink="/gemini">Google Gemini</a>
+                                                    <li>Uses AI for NPC dialog via <a routerLink="/gemini">Google
+                                                            Gemini</a>
                                                         service.</li>
-                                                    <li><a routerLink="/dot">Dot and Pydot</a> for dynamic map generations
+                                                    <li><a routerLink="/dot">Dot and Pydot</a> for dynamic map
+                                                        generations
                                                     </li>
                                                 </ul>
                                             </li>
@@ -80,11 +86,12 @@
                                 The navigation bar contains other technologies and tools I have experience with. Content
                                 will be
                                 incomplete in some subjects, as I only update content occasionally. If you see anything
-                                valuable, something incorrect, or want more content on a specific location, comment and let
+                                valuable, something incorrect, or want more content on a specific location, comment and
+                                let
                                 me know!
                             </mat-expansion-panel>
                         </li>
-                        <li>                            
+                        <li>
                             <mat-expansion-panel expanded>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title><span class="pending"><mat-icon>pending</mat-icon></span>
@@ -100,14 +107,31 @@
                                     <li><span class="done"><mat-icon>done</mat-icon></span>Create basic
                                         functionality. View it <a mat-button-stroked
                                             routerLink="/school/ph207">here</a>!</li>
-                                    <li><span class="not-started"><mat-icon>not-started</mat-icon></span>Create MySql
+                                    <li><span class="not-started"><mat-icon>stop</mat-icon></span>Create MySql
                                         table for the data</li>
-                                    <li><span class="not-started"><mat-icon>not-started</mat-icon></span>Update API</li>
-                                    <li><span class="not-started"><mat-icon>not-started</mat-icon></span>Update UX to
+                                    <li><span class="not-started"><mat-icon>stop</mat-icon></span>Update API</li>
+                                    <li><span class="not-started"><mat-icon>stop</mat-icon></span>Update UX to
                                         add a button to each page. That button will return all questions related to that
                                         page and randomly present them.</li>
-                                    <li><span class="not-started"><mat-icon>not-started</mat-icon></span>Create Trivia
+                                    <li><span class="not-started"><mat-icon>stop</mat-icon></span>Create Trivia
                                         page for all questions</li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel expanded>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title><span class="pending"><mat-icon>pending</mat-icon></span>
+                                        Create comment system component for every page of this website</mat-panel-title>
+                                </mat-expansion-panel-header>I wanted to create a comment system.. so I did.
+                                <ul>
+                                    <li><span class="done"><mat-icon>done</mat-icon></span>Create Angular component and
+                                        style it</li>
+                                    <li><span class="done"><mat-icon>done</mat-icon></span>Setup API</li>
+                                    <li><span class="done"><mat-icon>done</mat-icon></span>Setup MySQL Database</li>
+                                    <li><span class="pending"><mat-icon>pending</mat-icon></span>Complete testing</li>
+                                    <li><span class="bug"><mat-icon>bug_report</mat-icon></span>The inner comment table should
+                                        not have a border. The border looks odd with the rounded comment columns.</li>
                                 </ul>
                             </mat-expansion-panel>
                         </li>
@@ -120,7 +144,7 @@
                                 <ul>
                                     <li><span class="done"><mat-icon>done</mat-icon></span>Create Golang service to get
                                         weather from OpenWeatherAPI.org</li>
-                                    <li><span class="not-started"><mat-icon>not-started</mat-icon></span>Call when
+                                    <li><span class="not-started"><mat-icon>stop</mat-icon></span>Call when
                                         visitor visits www.nehsa.net and return on page under the quote.</li>
                                 </ul>
                             </mat-expansion-panel>
@@ -130,7 +154,7 @@
                                 <mat-expansion-panel-header>
                                     <mat-panel-title><span class="pending"><mat-icon>pending</mat-icon></span>Return
                                         Webpages within NehsaMUD</mat-panel-title>
-                                </mat-expansion-panel-header>Within the Smee Univerity in NehsaMUD, there will be a
+                                </mat-expansion-panel-header>Within the Smee University in NehsaMUD, there will be a
                                 wizard and a "room of mirrors." These mirrors will be able to display any webpage the
                                 wizard "prophesized." To accomplish this, we will introduce a new Go microservice:<br>
                                 NehsaMud -> Python WSS -> API -> Go microervice -> Ssss-cc--rr-aa--pp--ee -> Go -> API
@@ -138,11 +162,11 @@
                                 <ul>
                                     <li><span class="done"><mat-icon>done</mat-icon></span>Create Golang service to
                                         scrape webpages</li>
-                                    <li><span class="not-started"><mat-icon>not-started</mat-icon></span>Add API
+                                    <li><span class="not-started"><mat-icon>stop</mat-icon></span>Add API
                                         endpoint to call Go</li>
-                                    <li><span class="not-started"><mat-icon>not-started</mat-icon></span>Update Python
+                                    <li><span class="not-started"><mat-icon>stop</mat-icon></span>Update Python
                                         to call it</li>
-                                    <li><span class="not-started"><mat-icon>not-started</mat-icon></span>Update NehsaMud
+                                    <li><span class="not-started"><mat-icon>stop</mat-icon></span>Update NehsaMud
                                         to display the page within a "mirror"</li>
                                 </ul>
                             </mat-expansion-panel>
@@ -159,16 +183,16 @@
                                 <ul>
                                     <li><span class="done"><mat-icon>done</mat-icon></span>You can connect to NehsaMUD
                                     </li>
-                                    <li><span class="not-started"><mat-icon>not-started</mat-icon></span>Create sequence
+                                    <li><span class="not-started"><mat-icon>stop</mat-icon></span>Create sequence
                                         diagrams that show the interaction betwen the frontend (www.nehsa.net), NehsaMUD
                                         (Python), the API (api.nehsa.net) and various microservices created to enable
                                         functionaity within the experience.</li>
-                                    <li><span class="not-started"><mat-icon>not-started</mat-icon></span>Design class
+                                    <li><span class="not-started"><mat-icon>stop</mat-icon></span>Design class
                                         diagrams for the Python code</li>
-                                    <li><span class="not-started"><mat-icon>not-started</mat-icon></span>Create
+                                    <li><span class="not-started"><mat-icon>stop</mat-icon></span>Create
                                         threading model: NehsaMud is a mix of AsyncIO, threading, and multiprocessing.
                                     </li>
-                                    <li><span class="not-started"><mat-icon>not-started</mat-icon></span>Design tests
+                                    <li><span class="not-started"><mat-icon>stop</mat-icon></span>Design tests
                                         for the code</li>
                                 </ul>
                             </mat-expansion-panel>

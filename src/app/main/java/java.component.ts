@@ -4,11 +4,13 @@ import { CommentComponent } from '../../shared-components/comment/comment.compon
 import { Subject } from 'rxjs';
 import { UserService } from '../../services/user.service';
 import { CommentType } from '../../types/comment.type';
+import { RouterLink } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-java',
   standalone: true,
-  imports: [MatCardModule, CommentComponent],
+  imports: [MatCardModule, CommentComponent, RouterLink, MatButtonModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './java.component.html',
   styleUrl: './java.component.scss'

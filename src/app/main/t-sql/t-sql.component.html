@@ -1,0 +1,119 @@
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Transactional SQL</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                This is an overview page for T-SQL (Transactional SQL). It contains information on how to use T-SQL,
+                examples, and other information.<br><br>
+    
+                I've experience with Oracle, MSSQL, and MySql. A nearly arbitrary ranking for me would be MSSQL > MySql >
+                Oracle solely from a UX perspective (not regarding the performance or other features unique to each
+                offering).<br><br>
+
+                <table class="min-table">
+                    <tr>
+                        <th>Database</th>
+                        <th>Vendor</th>
+                        <th>Cost</th>
+                        <th>Maturity</th>
+                        <th>Performance</th>
+                        <th>Latest Version</th>
+                        <th>Free Version?</th>
+                        <th>Market Adoption</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr>
+                        <td>Oracle</td>
+                        <td>Oracle</td>
+                        <td>$$$</td>
+                        <td>High</td>
+                        <td>High</td>
+                        <td>12c</td>
+                        <td>No</td>
+                        <td>High</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>MSSQL</td>
+                        <td>Microsoft</td>
+                        <td>$$</td>
+                        <td>High</td>
+                        <td>High</td>
+                        <td>2019</td>
+                        <td>Yes</td>
+                        <td>High</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>MySql</td>
+                        <td>Oracle</td>
+                        <td>$</td>
+                        <td>Medium</td>
+                        <td>Medium</td>
+                        <td>8.0</td>
+                        <td>Yes</td>
+                        <td>High</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>MariaDB</td>
+                        <td>Oracle</td>
+                        <td>$</td>
+                        <td>Medium</td>
+                        <td>Medium</td>
+                        <td>10.5</td>    
+                        <td>Yes</td>
+                        <td>Medium</td> 
+                        <td>Always wanted to try this one.. haven't gotten to it yet!</td>                 
+                    </tr>
+                    <tr>
+                        <td>PostgreSQL</td>
+                        <td>PostgreSQL</td>
+                        <td>$</td>
+                        <td>High</td>
+                        <td>High</td>
+                        <td>13</td>
+                        <td>Yes</td>
+                        <td>Medium</td>
+                        <td>Same here.</td>
+                    </tr>
+                    <tr>
+                        <td>SQLite</td>
+                        <td>SQLite</td>
+                        <td>$</td>
+                        <td>Low</td>
+                        <td>Low</td>
+                        <td>3.33</td>
+                        <td>Yes</td>
+                        <td>Low</td>
+                        <td>Great for small projects.</td>
+                    </tr>
+                    <tr>
+                        <td>DB2</td>
+                        <td>IBM</td>
+                        <td>$$$</td>
+                        <td>High</td>
+                        <td>High</td>
+                        <td>11.5</td>
+                        <td>No</td>
+                        <td>Low</td>
+                        <td></td>
+                    </tr>
+                </table>
+
+                <div>Related Content:
+                    <ul class="condensed">
+                        <li><a routerLink="/tsql">T-SQL Overview</a></li>
+                        <li><a routerLink="/sql">Microsoft SQL</a></li>
+                        <li><a routerLink="/mysql">MySql</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>

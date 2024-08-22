@@ -4,11 +4,14 @@ import { CommentComponent } from '../../shared-components/comment/comment.compon
 import { CommentType } from '../../types/comment.type';
 import { Subject } from 'rxjs';
 import { UserService } from '../../services/user.service';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { RouterLink } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-agile',
   standalone: true,
-  imports: [MatCardModule, CommentComponent],
+  imports: [MatCardModule, CommentComponent, MatExpansionModule, RouterLink, MatButtonModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './agile.component.html',
   styleUrl: './agile.component.scss'

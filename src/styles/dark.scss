@@ -80,7 +80,7 @@ td {
 // lists
 .vampire ul {
     background-color: #383838 !important;
-    color: #B7D1B1;
+    color: #B7D1B1 !important;
 }
 
 .vampire li {
@@ -215,6 +215,30 @@ a:active {
     color: var(--theme-dark-primary-color) !important;
 }
 
+// statuses
+.vampire .done {
+    color: green;
+    background-color: #999;
+    border-color: deeppink;
+}
+
+.vampire .not-started {
+    color: teal;
+    background-color: 999;
+    border-color: teal;
+}
+
+.vampire .bug {
+    color: yellow;
+    background-color: darkmagenta;
+    border-color: crimson;
+}
+
+.vampire .in-progress, .vampire .pending {
+    color: #494741;
+    background-color: midnightblue;
+    border-color: #FFC107;
+}
 
 $dark-primary: (
     "primary": pink,

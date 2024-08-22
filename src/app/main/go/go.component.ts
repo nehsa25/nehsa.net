@@ -8,11 +8,12 @@ import { MatIcon } from '@angular/material/icon';
 import { FormControl, FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { NgFor, NgIf } from '@angular/common';
-import { MatButton } from '@angular/material/button';
+import { MatButton, MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-go',
@@ -21,7 +22,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatCardModule,
     CommentComponent,
     NgFor,
-    MatButton,
+    RouterLink,
+    MatButtonModule,
     MatExpansionModule,
     MatIcon,
     NgIf,
@@ -54,7 +56,7 @@ export class GoComponent {
     this.city.setValue('Vancouver');     
     this.unit.setValue('Imperial');
     this.type.setValue('Full');
-    this.scrapeUrl.setValue('https://thp.org/');
+    this.scrapeUrl.setValue('https://www.oregonfoodbank.org/');
   }
 
   clearCity() {
@@ -85,7 +87,7 @@ export class GoComponent {
   getScrapeData() {
     this.buttonName = "Scr-aa-pe!";
     this.isLoading = true;
-    const url = this.scrapeUrl.value ?? 'https://thp.org/';
+    const url = this.scrapeUrl.value ?? 'https://www.oregonfoodbank.org/';
     this.httpService.getScrapeData(url).subscribe((data: any) => {
       this.scrapeData = data;
       this.buttonName = this.origButtonName;
