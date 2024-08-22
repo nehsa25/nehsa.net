@@ -50,26 +50,3 @@
     place-content: center;
     padding: 1rem;
 }
-
-// done / finished (ued for mat-icon checkmarks)
-.done {
-    color: #4CAF50;
-    background-color: #f1f1f1;
-    border-radius: 50%;
-    border: 1px solid #4CAF50;
-    margin-right: 1rem;
-}
-
-.not-started {
-    color: #f44336;
-    background-color: #f1f1f1;
-    margin-right: 1rem;
-}
-
-.in-progress {
-    color: #FFC107;
-    background-color: #f1f1f1;
-    border-radius: 50%;
-    border: 1px solid #FFC107;
-    margin-right: 1rem;
-}

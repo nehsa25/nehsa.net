@@ -7,10 +7,174 @@
         </mat-card-header>
         <mat-card-content>
             <div class="commentgrid">
-                <div class="topics">
+                <div class="topics"><span style="text-decoration: underline;">I love technology.</span> I firmly believe
+                    that the more senior an engineer you become, the less you feel, by default, you know the best
+                    solution. Smart people are creating new technologies, patterns, and tools every day, and if you stop
+                    paying attention,
+                    you may miss something that will save you some hassle. I am always looking for new technologies to
+                    learn and new ways to solve problems.<br><br>
+
+                    I am a firm believer in the following quote:<br>
+                    <span class="quote">Unlearning. That's like, the things that I used to do five years ago that make
+                        me
+                        successful don't matter anymore; in fact, they can get me into trouble right now [...] I
+                        start to get to a point where I would assess [an engineer's] ability to unlearn. After a
+                        while, like two thirds or three quarters of what you know is still valuable, quarter to
+                        a third is the wrong thing [...]<span class="credit">What distinguishes great software
+                            engineers?
+                            Paul Luo Li, Amy J. Ko,
+                            Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
+                            (1), p.322-352</span></span>
+                    <span class="importantish">While I hope you get something of value while here, I'm surprised you're
+                        here. This website is primarily written for Jesse. It's his playground for playing with exciting
+                        technologies. When his curiosity is satisfied, he often moves on to something new, leaving
+                        behind more of a "proof of concept" than finished progress. He'll eventually get back to it.
+                        Maybe.</span>
                     <ul>
                         <li>
-                            <h3>Some fun things I've been involved with:</h3>Build test automation infrastructure to
+                            <mat-expansion-panel expanded>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Current areas of focus:</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul class="condensed">
+                                    <li>Enhancing my ability to build and test quality code
+                                        <ul class="condensed">
+                                            <li><a routerLink="/design">Designing and diagramming architecture</a> for
+                                                applications with high
+                                                parallelism (async, threads, critical path)</li>
+                                            <li>Scalable microservices written in <a routerLink="/go">Go</a></li>
+                                            <li>Containerization with Docker and Dockerhub</li>
+                                            <li>CI/CD w/integrated E2E testing using <a routerLink="/github">Github</a> or
+                                                <a routerLink="/jenkins">Jenkins</a>
+                                            </li>
+                                            <li>Resilient, geographically-dispersed/load-balanced UIs in the cloud (Azure in
+                                                my case)</li>
+                                            <li><a routerLink="/webdesign">Web design</a> best practices and Web Vitals
+                                                metrics such as Largest Contentful
+                                                Paint (LCP) and Cumulative Layout Shift (CLS)</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <ul class="condensed">
+                                    <li>For fun:
+                                        <ul class="condensed">
+                                            <li><a routerLink="/mud">NehsaMUD</a>—My son and I are pursuing this project
+                                                together. It is a
+                                                text-based game/interactive novel reminiscent of a game I played in my
+                                                childhood called "MUD" - a multi-user dungeon. The MUDs I played as a child
+                                                were pre-internet! You connected to them via a modem and played on someone's
+                                                BBS (bulletin board system).
+                                                <ul class="condensed">
+                                                    <li>Runs in your browser using https & wss</li>
+                                                    <li>Uses AI real-time image generation via <a
+                                                            routerLink="/aiimage">Stability AI</a> service</li>
+                                                    <li>Uses AI for NPC dialog via <a routerLink="/gemini">Google Gemini</a>
+                                                        service.</li>
+                                                    <li><a routerLink="/dot">Dot and Pydot</a> for dynamic map generations
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul><br><br>
+                                The navigation bar contains other technologies and tools I have experience with. Content
+                                will be
+                                incomplete in some subjects, as I only update content occasionally. If you see anything
+                                valuable, something incorrect, or want more content on a specific location, comment and let
+                                me know!
+                            </mat-expansion-panel>
+                        </li>
+                        <li>                            
+                            <mat-expansion-panel expanded>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title><span class="pending"><mat-icon>pending</mat-icon></span>
+                                        Update Flashcards I created for PH207 and turn them into a
+                                        component.</mat-panel-title>
+                                </mat-expansion-panel-header>PH207 was rough. I picked it because, after being out of
+                                school for years, I wanted to start with something "easy." Heh. Around finals, I wanted
+                                a consistent way to practice, so I created a simple flashcard system. This project is
+                                expanding it, so I can use it to test my knowledge on any specific page and or all my
+                                accumulated
+                                questions!
+                                <ul>
+                                    <li><span class="done"><mat-icon>done</mat-icon></span>Create basic
+                                        functionality. View it <a mat-button-stroked
+                                            routerLink="/school/ph207">here</a>!</li>
+                                    <li><span class="not-started"><mat-icon>not-started</mat-icon></span>Create MySql
+                                        table for the data</li>
+                                    <li><span class="not-started"><mat-icon>not-started</mat-icon></span>Update API</li>
+                                    <li><span class="not-started"><mat-icon>not-started</mat-icon></span>Update UX to
+                                        add a button to each page. That button will return all questions related to that
+                                        page and randomly present them.</li>
+                                    <li><span class="not-started"><mat-icon>not-started</mat-icon></span>Create Trivia
+                                        page for all questions</li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel expanded>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title><span class="pending"><mat-icon>pending</mat-icon></span>Get
+                                        Weather based on your IP</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li><span class="done"><mat-icon>done</mat-icon></span>Create Golang service to get
+                                        weather from OpenWeatherAPI.org</li>
+                                    <li><span class="not-started"><mat-icon>not-started</mat-icon></span>Call when
+                                        visitor visits www.nehsa.net and return on page under the quote.</li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel expanded>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title><span class="pending"><mat-icon>pending</mat-icon></span>Return
+                                        Webpages within NehsaMUD</mat-panel-title>
+                                </mat-expansion-panel-header>Within the Smee Univerity in NehsaMUD, there will be a
+                                wizard and a "room of mirrors." These mirrors will be able to display any webpage the
+                                wizard "prophesized." To accomplish this, we will introduce a new Go microservice:<br>
+                                NehsaMud -> Python WSS -> API -> Go microervice -> Ssss-cc--rr-aa--pp--ee -> Go -> API
+                                -> Python WSS -> NehsaMud
+                                <ul>
+                                    <li><span class="done"><mat-icon>done</mat-icon></span>Create Golang service to
+                                        scrape webpages</li>
+                                    <li><span class="not-started"><mat-icon>not-started</mat-icon></span>Add API
+                                        endpoint to call Go</li>
+                                    <li><span class="not-started"><mat-icon>not-started</mat-icon></span>Update Python
+                                        to call it</li>
+                                    <li><span class="not-started"><mat-icon>not-started</mat-icon></span>Update NehsaMud
+                                        to display the page within a "mirror"</li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel expanded>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title><span class="pending"><mat-icon>pending</mat-icon></span>Architect
+                                        NehsaMud</mat-panel-title>
+                                </mat-expansion-panel-header>NehsaMUD has been a lot of things while we played around
+                                but we're starting to get serious. Unfortunately, the code is a mess. This project is to
+                                do things right. Create design diagrams and refactor the code to be more maintainable
+                                and scalable. We will also be following a TDD approach.
+                                <ul>
+                                    <li><span class="done"><mat-icon>done</mat-icon></span>You can connect to NehsaMUD
+                                    </li>
+                                    <li><span class="not-started"><mat-icon>not-started</mat-icon></span>Create sequence
+                                        diagrams that show the interaction betwen the frontend (www.nehsa.net), NehsaMUD
+                                        (Python), the API (api.nehsa.net) and various microservices created to enable
+                                        functionaity within the experience.</li>
+                                    <li><span class="not-started"><mat-icon>not-started</mat-icon></span>Design class
+                                        diagrams for the Python code</li>
+                                    <li><span class="not-started"><mat-icon>not-started</mat-icon></span>Create
+                                        threading model: NehsaMud is a mix of AsyncIO, threading, and multiprocessing.
+                                    </li>
+                                    <li><span class="not-started"><mat-icon>not-started</mat-icon></span>Design tests
+                                        for the code</li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            Build test automation infrastructure to
                             meet a specific need of testing on varity of
                             real
                             hardware (metal) such as network cards, CPUs, and a variety of operating systems.
