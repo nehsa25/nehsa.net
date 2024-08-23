@@ -572,3 +572,18 @@ $owl-base-size: 10rem;
         height: .6 * $owl-base-size;
     }
 }
+
+nav {
+    background-color: lightgray;
+    padding: 1em;
+    margin: 1em 0;
+    border-radius: 5px;
+}
+
+nav div {
+    background-color: lightblue;
+    padding: 1em;
+    margin: 1em 0;
+    border-radius: 5px;
+}
+      

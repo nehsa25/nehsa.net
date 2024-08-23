@@ -229,14 +229,18 @@ test('all images have alt text', async (&#123; page &#125;) => &#123;
                                             <li>align-items</li>
                                         </ul>
                                     </dd>
+                                    <dt>block</dt>
+                                    <dd>Displays an element as a block-level element (like a div). It starts on a new
+                                        line
+                                        and takes up the full width available.</dd>
                                     <dt>inline</dt>
-                                    <dd>Displays an element as an inline-level element (like a span). This is the
-                                        default
-                                        value.</dd>
+                                    <dd>This is the default value, which displays an element as an inline-level element
+                                        (like a span). This means the element will not cause a line break and will only
+                                        take up as much width as necessary.</dd>
                                     <dt>inline-block</dt>
-                                    <dd>Displays an element as an inline-level block container. This allows the element
-                                        to
-                                        have a width and height.</dd>
+                                    <dd>This displays an element as an inline-level block container, allowing the
+                                        element to have a width and height.
+                                    </dd>
                                     <dt>none</dt>
                                     <dd>Displays an element as if it wasn't there. The element will be invisible and not
                                         take up any space.</dd>
@@ -246,6 +250,68 @@ test('all images have alt text', async (&#123; page &#125;) => &#123;
                                         grid
                                         formatting context.</dd>
                                 </dl>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Semantic HTML</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <div>
+                                    <p>Semantic HTML is a coding practice that uses HTML elements to describe the
+                                        meaning or purpose of content on a web page.</p>
+                                    <p>Some common examples of semantic HTML elements include:</p>
+                                    <ul>
+                                        <li>&lt;code&gt;: Defines a block of code</li>
+                                        <li>&lt;header&gt;: Defines a header for a document or section</li>
+                                        <li>&lt;nav&gt;: Defines a set of navigation links</li>
+                                        <li>&lt;main&gt;: Defines the main content of a document</li>
+                                        <li>&lt;article&gt;: Defines an article or section of content</li>
+                                        <li>&lt;section&gt;: Defines a section of content</li>
+                                        <li>&lt;aside&gt;: Defines content aside from the content it is placed in</li>
+                                        <li>&lt;footer&gt;: Defines a footer for a document or section</li>
+                                    </ul><br><br>
+                                    By using semantic HTML elements, you can create web pages that are more
+                                    accessible, easier to navigate, and better understood by search engines. By default,
+                                    nothing is styled when you use these elements, so you can style them however you
+                                    like.<br><br>
+
+                                    e.g. This:<br>
+                                    <code>
+                                        <pre>
+&lt;nav&gt;
+    &lt;div&gt;item1&lt;/div&gt;
+    &lt;div&gt;item2&lt;/div&gt;
+    &lt;div&gt;item3&lt;/div&gt;
+&lt;/nav&gt;</pre>
+                                    </code><br><br>
+
+                                    Could be styled liked this:<br>
+                                    <div class="code">
+                                        <pre>
+nav &#123;
+    background-color: lightgray;
+    padding: 1em;
+    margin: 1em 0;
+    border-radius: 5px;
+&#125;
+
+nav div &#123;
+    background-color: lightblue;
+    padding: 1em;
+    margin: 1em 0;
+    border-radius: 5px;
+&#125;
+                                    </pre>
+                                    </div><br><br>
+                                    Producing:<br>
+                                    <nav>
+                                        <div>item1</div>
+                                        <div>item2</div>
+                                        <div>item3</div>
+                                    </nav>
+                                </div>
+
                             </mat-expansion-panel>
                         </li>
                         <li>
