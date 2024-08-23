@@ -32,7 +32,7 @@
                         Maybe.</span>
                     <ul>
                         <li>
-                            <mat-expansion-panel expanded>
+                            <mat-expansion-panel>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Current areas of focus:</mat-panel-title>
                                 </mat-expansion-panel-header>
@@ -107,8 +107,68 @@
                                     <li><span class="done"><mat-icon>done</mat-icon></span>Create basic
                                         functionality. View it <a mat-button-stroked
                                             routerLink="/school/ph207">here</a>!</li>
-                                    <li><span class="not-started"><mat-icon>stop</mat-icon></span>Create MySql
-                                        table for the data</li>
+                                    <li><span class="done"><mat-icon>done</mat-icon></span>Create our MySql
+                                        tables for the data:<br>
+
+                                        <span class="comments">Create our formats lookup table, this will return string,
+                                            list. This is to inform the client how to handle the data.</span>
+                                        <div class="code">
+                                            <pre>
+CREATE TABLE answer_formats (
+    id INT NOT NULL AUTO_INCREMENT,
+    format VARCHAR(50) NOT NULL,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
+                                        </pre>
+                                        </div>
+
+                                        <span class="comments">Populate it</span>
+                                        <div class="code">
+                                            <pre>
+INSERT INTO `answer_formats` (`format`) VALUES
+('json');
+                                        </pre>
+                                        </div>
+
+                                        <span class="comments">Create our questions table and create a foreign key to
+                                            the formats table</span>
+                                        <div class="code">
+                                            <pre>
+CREATE TABLE `flashcards` (
+    id INT NOT NULL AUTO_INCREMENT,
+    question VARCHAR(255) NOT NULL,
+    answer VARCHAR(255) NOT NULL,
+    answer_format_id INT NOT NULL,
+    page VARCHAR(255) NOT NULL,    
+    PRIMARY KEY (id),
+    FOREIGN KEY (answer_format_id) REFERENCES answer_formats(id)
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
+</pre>
+                                        </div>
+                                    </li>
+                                    <li><span class="pending"><mat-icon>pending</mat-icon></span>Insert our trivia data
+                                        into the table
+                                        <div class="code">
+                                            <pre>
+INSERT INTO flashcards (question, answer, answer_format_id, page)
+VALUES (
+    JSON_OBJECT('question', 'What is the distance from the Earth to the Sun?'),
+    JSON_OBJECT('answer', JSON_ARRAY('1 AU', '1 light-year', '1 parsec')), 
+    1,
+    'PH207',
+    JSON_OBJECT('question', 'Which of the following is smallest?'),
+    JSON_OBJECT('answer', 'AU is the smallest, followed by light-year, then parsec'), 
+    1,
+    'PH207',
+    JSON_OBJECT('question', 'What is the distance from the Earth to the Moon?'),
+    JSON_OBJECT('answer', '1/4 AU'),
+    1,
+    'PH207',
+    <span class="comments">... and so on</span>
+);                              
+</pre>
+                                        </div>
+                                    </li>
                                     <li><span class="not-started"><mat-icon>stop</mat-icon></span>Update API</li>
                                     <li><span class="not-started"><mat-icon>stop</mat-icon></span>Update UX to
                                         add a button to each page. That button will return all questions related to that
@@ -130,7 +190,8 @@
                                     <li><span class="done"><mat-icon>done</mat-icon></span>Setup API</li>
                                     <li><span class="done"><mat-icon>done</mat-icon></span>Setup MySQL Database</li>
                                     <li><span class="pending"><mat-icon>pending</mat-icon></span>Complete testing</li>
-                                    <li><span class="bug"><mat-icon>bug_report</mat-icon></span>The inner comment table should
+                                    <li><span class="bug"><mat-icon>bug_report</mat-icon></span>The inner comment table
+                                        should
                                         not have a border. The border looks odd with the rounded comment columns.</li>
                                 </ul>
                             </mat-expansion-panel>

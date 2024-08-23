@@ -311,7 +311,7 @@ code {
     font-size: 1rem;
     max-width: 90%;
     line-height: 5lvh !important;
-    display: inline-block;
+    display: inline-block; // allows it to affect other elements around it
 }
 
 span.code:hover {
@@ -675,6 +675,7 @@ dt {
     margin-right: 1rem;
     border-width: 1px;
     border-style: solid;
+    display: inline-block; // allows it to affect other elements around it
 }
 
 .not-started {
@@ -684,6 +685,7 @@ dt {
     margin-right: 1rem;
     border-width: 1px;
     border-style: solid;
+    display: inline-block; // allows it to affect other elements around it
 }
 
 .bug {
@@ -693,15 +695,17 @@ dt {
     margin-right: 1rem;
     border-width: 3px;
     border-style: dashed;
+    display: inline-block; // allows it to affect other elements around it
 }
 
 .in-progress, .pending {
     border-radius: 5px;
-    margin: .5rem;
+    margin:  .5rem;
     padding: 5px;
     margin-right: 1rem;
     border-width: 1px;
     border-style: solid;
+    display: inline-block; // allows it to affect other elements around it
 }
 
 .done:after {

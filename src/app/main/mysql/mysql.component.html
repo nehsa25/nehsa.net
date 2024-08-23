@@ -10,6 +10,139 @@
                 <div>
                     <ul>
                         <li>
+                            <mat-expansion-panel expanded>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Tips / Best Practices</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>Naming Conventions
+                                        <dl>
+                                            <dt>Use plural nours for tables</dt>
+                                            <dd>eg: `flashcards` (for tables with multiple names, use underscores)</dd>
+                                            <dt>Use singular nouns for columns</dt>
+                                            <dd>eg: `question`</dd>
+                                            <dt>For columns with multiple names, use underscores</dt>
+                                            <dd>eg: `created_at`</dd>
+                                            <dt>Use `id` for primary keys</dt>
+                                            <dd>eg: `id`</dd>
+                                            <dt>Use prefix `fk_` for foreign keys</dt>
+                                            <dd>eg: `fk_user_id`</dd>
+                                            <dt>Use prefix `idx_` for indexes</dt>
+                                            <dd>eg: `idx_user_id`</dd>
+                                            <dt>Do not use unicode NVARCHAR or NCHAR</dt>
+                                            <dd>For UTF8MB4, use VARCHAR or CHAR</dd>
+                                        </dl>
+                                    </li>
+                                    <li>Use JSON_OBJECT instead of VARCHAR when working with JSON. It's faster and more
+                                        efficient.
+                                        <h3>Inserting a JSON object</h3>
+                                        <div class="code">
+                                            <pre>
+                                                INSERT INTO flashcards (question, answer, answer_format_id, page)
+                                                VALUES (
+                                                    JSON_OBJECT('question', 'What is the distance from the Earth to the Sun?'),
+                                                    JSON_OBJECT('answer', JSON_ARRAY('1 AU', '1 light-year', '1 parsec')), 
+                                                    1,
+                                                    'PH207'
+                                                );                                                
+                                                </pre>
+                                        </div>
+                                        <h3>Retrieving a JSON object</h3>
+                                        <ul>
+                                            <li>Search for specific value:
+                                                <div class="code">
+                                                    <pre>
+SELECT *
+FROM flashcards
+WHERE JSON_CONTAINS(question, '&#123;"question":"What is the distance from the Earth to the Sun?"&#125;');
+</pre>
+                                                </div>
+                                            </li>
+                                            <li>Search for a value in an array:
+                                                <div class="code">
+                                                    <pre>
+SELECT *
+FROM flashcards
+WHERE JSON_CONTAINS(answer, '["1 AU"]');
+</pre>
+                                                </div>
+                                            </li>
+                                            <li>Search for a value in an array and a specific question:
+                                                <div class="code">
+                                                    <pre>
+SELECT *
+FROM flashcards
+WHERE JSON_EXTRACT(question, '$.question') LIKE '%distance%'
+    AND JSON_CONTAINS(JSON_EXTRACT(answer, '$.answer'), '["1 AU"]');
+</pre>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>UTF8MB4 is the best character. Other options are deprecated.</li>
+                                    <li>Use exaplin! It's a great way to see how your query is being executed. <br>
+                                        <span class="code">explain select * from flashcards</span><br>
+                                        <div class="code">
+                                            <pre>
+# id, select_type, table, partitions, type, possible_keys, key, key_len, ref, rows, filtered, Extra
+'1', 'SIMPLE', 'flashcards', NULL, 'ALL', NULL, NULL, NULL, NULL, '1', '100.00', NULL
+                                            </pre>
+                                        </div><br><br>
+                                        This is a lot of valuable information:<br>
+                                        <dl>
+                                            <dt>id</dt>
+                                            <dd>the query number</dd>
+                                            <dt>select_type</dt>
+                                            <dd>the type of query</dd>
+                                            <dt>table</dt>
+                                            <dd>the table being queried</dd>
+                                            <dt>partitions</dt>
+                                            <dd>the partitions being used</dd>
+                                            <dt>type</dt>
+                                            <dd>the type of join</dd>
+                                            <dt>possible_keys</dt>
+                                            <dd>the keys that could be used</dd>
+                                            <dt>key</dt>
+                                            <dd>the key that was used</dd>
+                                            <dt>key_len</dt>
+                                            <dd>the length of the key</dd>
+                                            <dt>ref</dt>
+                                            <dd>the reference</dd>
+                                            <dt>rows</dt>
+                                            <dd>the number of rows</dd>
+                                            <dt>filtered</dt>
+                                            <dd>the percentage of rows that were filtered</dd>
+                                            <dt>Extra</dt>
+                                            <dd>any extra information</dd>
+                                        </dl><br><br>
+                                        An example of how this could be used to troubleshoot performance issues:<br>
+                                        <ol>
+                                            <li>Check if the query uses the correct index. If the key is NULL, then the
+                                                query
+                                                is not using an index. If the key is not NULL, then the query uses an
+                                                index.</li>
+                                            <li>Check the number of rows. If the number of rows is high, then the query
+                                                may not optimized.</li>
+                                            <li>Check the type of join. If the type is ALL, then the query is not using
+                                                an index. An example of an all join is a full table scan.</li>
+                                        </ol>
+                                    </li>
+                                    <li>MySQL Workbench is the only tool I've used for MySQL. It's similar to SQL Server
+                                        Management Studio (SSMS) although I find SSMS a bit more polished.
+                                        <ul>
+                                            <li>To execute a query similar to F5 in SSMS, use <span
+                                                    class="code">Ctrl+Enter</span></li>
+                                            <li>Use <span class="code">Ctrl+Shift+Enter</span> to execute the current
+                                                line
+                                            </li>
+                                            <li>Specifying a length `id` INT(11) is deprecated, use `id` INT instead
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Setup Docker</mat-panel-title>
@@ -200,7 +333,8 @@ Server version: 8.0.37-0ubuntu0.22.04.3 (Ubuntu)
                                                                             &lt;USERNAME&gt; -p'&lt;PASSWORD&gt;' -h
                                                                             &lt;HOSTNAME OR IP&gt; -P &lt;PORT&gt;
                                                                             -D &lt;DATABASE NAME&gt; <span
-                                                                                class="comment">note the password is
+                                                                                class="comment">note
+                                                                                the password is
                                                                                 touching
                                                                                 -p, that's important.</span></span>
                                                                         <div class="code">
@@ -226,8 +360,8 @@ MySQL [&lt;DATABASE NAME&gt;]>
                                                     </ul>
                                                 </li>
                                                 <li>Can you connect to the database from API server?<span
-                                                        class="code">\connect root&#64;<span
-                                                            class="importantish">&lt;IP/Host&gt;</span>:<span
+                                                        class="code">\connect
+                                                        root&#64;<span class="importantish">&lt;IP/Host&gt;</span>:<span
                                                             class="importantish">&lt;PORT&gt;</span></span>
                                                 </li>
                                             </ul>
