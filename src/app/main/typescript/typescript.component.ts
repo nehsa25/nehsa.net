@@ -19,9 +19,16 @@ export class TypescriptComponent {
 
   constructor(
     public userService: UserService
-  ) {}
+  ) { }
 
-  ngOnInit() { 
+  ngOnInit() {
     this.userService.page = this._page_name;
   }
+
+  getDistanceInFathoms = (distanceInFeet: number) => { return distanceInFeet / 6 };
+
+}
+
+function getDistanceInFathoms(distanceInFeet: number) {
+  return distanceInFeet / 6;
 }

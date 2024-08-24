@@ -26,28 +26,6 @@
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Accessibility / ADA Design</mat-panel-title>
                                 </mat-expansion-panel-header>
-                                <dl>
-                                    <dt>Color Contrast</dt>
-                                    <dd>Color contrast is important for users with visual impairments. The Web Content
-                                        Accessibility Guidelines (WCAG) recommend a contrast ratio of at least 4.5:1 for
-                                        normal text and 3:1 for large text.</dd>
-                                    <dt>Alt Text for Images</dt>
-                                    <dd>Alt text is important for users who are visually impaired and rely on screen
-                                        readers
-                                        to navigate the web. Alt text provides a description of an image, allowing users
-                                        to
-                                        understand its content even if they can't see it.</dd>
-                                    <dt>Keyboard Navigation</dt>
-                                    <dd>Keyboard navigation is essential for users who are unable to use a mouse. To
-                                        ensure
-                                        that your website is accessible to all users, be sure to provide keyboard
-                                        shortcuts
-                                        and navigation options.</dd>
-
-                                    <dt>Responsive Design</dt>
-                                    <dd>Responsive design is essential for creating a website that looks good on all
-                                        devices.</dd>
-                                </dl>
                                 <ul>
                                     <li>
                                         <mat-expansion-panel>
@@ -199,6 +177,19 @@ test('all images have alt text', async (&#123; page &#125;) => &#123;
                                             </div>
                                         </mat-expansion-panel>
                                     </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>W3C Markup Validation Service</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            While not ADA specific, it will further ensure your site is
+                                            accessible:<br><br>
+
+                                            Use the <a mat-stroked-button href="https://validator.w3.org/"
+                                                target="_blank">W3C
+                                                Markup Validation Service</a> to validate your HTML.
+                                        </mat-expansion-panel>
+                                    </li>
                                 </ul>
                             </mat-expansion-panel>
                         </li>
@@ -309,16 +300,11 @@ nav div &#123;
                                             <div>item2</div>
                                             <div>item3</div>
                                         </nav>
-                                    </div><br><br>
-
-                                    The purpose of semantic HTML is to provide meaning to the content of a web page so
-                                    these would not be good examples:<br>
-                                    <ul class="condensed">
-                                        <li>&lt;code&gt;</li>
-                                        <li>&lt;important&gt;</li>
-                                    </ul>
-                                </div>
-
+                                    </div>
+                                </div><br><br>
+                                <span class="additional-note">Using tags such as &lt;important&gt; is not a best
+                                    practice as they do not provide any semantic meaning to the content. Instead, use
+                                    CSS classes to style the content as needed.</span>
                             </mat-expansion-panel>
                         </li>
                         <li>

@@ -50,32 +50,6 @@
                                 <ul>
                                     <li>Use private variables when possible. (public is needed if referenced via
                                         HTML)</li>
-                                    <li>Loose Vs. Strict Equality Checking
-                                        <ul>
-                                            <li>Using a <span class="importantish">&quot;loose-check&quot; (two
-                                                    ==)</span>,
-                                                you can test both null
-                                                and undefined in one hit:
-                                            </li>
-                                            <li>Using a <span class="importantish">&quot;strict-check&quot; (three
-                                                    ===)</span>
-                                                will only return true if the two
-                                                values are the same type and
-                                                the same value. If you use a strict-check, it will only be
-                                                true for values set to null and will not return true for
-                                                undefined variables.<br><br>
-                                                e.g.<br>
-                                                <code>
-                                                    <pre>
-const num = 10;
-const str = "10";
-num === str <span class="comment">// <span class="importantish">false</span> (different types: string/number)</span>
-num == str <span class="comment">// <span class="importantish">true</span> (this is true because a cast is performed prior to the equality check)</span>
-</pre>
-</code>
-                                            </li>
-                                        </ul>
-                                    </li>
                                     <li>Don't use negative names for boolean variables. e.g. this: <span
                                             class="code">const
                                             isNotSet = true;</span> would be better as <span class="code">const
@@ -109,39 +83,84 @@ num == str <span class="comment">// <span class="importantish">true</span> (this
                                                     are declared</li>
                                                 <li>Loose equality checking (the type of the variable is not checked)
                                                 </li>
-                                                <li>Types of JavaScript files:<br>
-                                                    <dl>
-                                                        <dt>.js</dt>
-                                                        <dd>Standard untyped JavaScript file</dd>
-                                                        <dt>.mjs</dt>
-                                                        <dd>ES6 module, an example is a Node.js module which can be
-                                                            imported using the import keyword</dd>
-                                                        <dt>.cjs</dt>
-                                                        <dd>CommonJS module, an example is a Node.js module which can be
-                                                            imported using the require keyword</dd>
-                                                        <dt>.jsx</dt>
-                                                        <dd>A React JS component</dd>
-                                                    </dl>
-                                                </li>
                                             </ul>
                                         </td>
                                         <td>Static typing (let, const)
                                             <ul>
                                                 <li>Block-scoped: Typescript has finer control over variable scoping
-                                                    with block scoping (only within parent curly braces)</li>
+                                                    with block scoping (only within parent curly braces).</li>
                                                 <li>Strict equality checking</li>
-                                                <li>Types of JavaScript files:<br>
-                                                    <dl>
-                                                        <dt>.ts</dt>
-                                                        <dd>Standard TypeScript file</dd>
-                                                        <dt>.tsx</dt>
-                                                        <dd>A React TSX component</dd>
-                                                    </dl>
-                                                </li>
+                                                <li>As TypeScript is a superset of
+                                                    JavaScript, it can always be compiled to
+                                                    JavaScript.</li>
                                             </ul>
                                         </td>
                                     </tr>
                                 </table>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Strict/Loose Comparisions</mat-panel-title>
+                                    <mat-panel-description>JavaScript/TypeScript is the only language I'm familar with
+                                        that has
+                                        both strict and loose comparisons.</mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <dl>
+                                    <dt>Strict Comparision</dt>
+                                    <dd>Checks if the two values are equal in type and value</dd>
+                                    <dt>Loose Comparision</dt>
+                                    <dd>Checks if the two values are equal in value only</dd>
+                                </dl>
+
+                        <li>Loose Vs. Strict Equality Checking
+                            <ul>
+                                <li>Using a <span class="importantish">&quot;loose-check&quot; (two
+                                        ==)</span>
+                                </li>
+                                <li>
+                                    Using a <span class="importantish">&quot;strict-check&quot; (three
+                                        ===)</span>
+                                </li>
+                            </ul>
+
+                            <br><br>
+                            e.g. Depending on the comparison used, we can get different behavior. The best practice
+                            is to always use the strict comparison that also includes type as it's the more explicit
+                            of the two comparisons.<br>
+                            <code>
+                                                <pre>
+const num = 10;
+const str = "10";
+num === str <span class="comment">// <span class="importantish">false</span> (different types: string/number)</span>
+num == str <span class="comment">// <span class="importantish">true</span> (this is true because a cast is performed prior to the equality check)</span>
+</pre>
+</code>
+                        </li>
+                        </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>JavaScript Files</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <dl>
+                                    <dt>.js</dt>
+                                    <dd>Standard untyped JavaScript file</dd>
+                                    <dt>.mjs</dt>
+                                    <dd>ES6 module, an example is a Node.js module which can be
+                                        imported using the import keyword</dd>
+                                    <dt>.cjs</dt>
+                                    <dd>CommonJS module, an example is a Node.js module which can be
+                                        imported using the require keyword</dd>
+                                    <dt>.jsx</dt>
+                                    <dd>A React JS component</dd>
+                                    <dt>.ts</dt>
+                                    <dd>Standard TypeScript file</dd>
+                                    <dt>.tsx</dt>
+                                    <dd>A React TypeScript component</dd>
+                                </dl>
                             </mat-expansion-panel>
                         </li>
                         <li>
@@ -152,23 +171,184 @@ num == str <span class="comment">// <span class="importantish">true</span> (this
                                         major enhancements over ES5.
                                     </mat-panel_description>
                                 </mat-expansion-panel-header>
-                                <ul>
-                                    <li>Arrow functions</li>
-                                    <li>Classes</li>
-                                    <li>Template literals</li>
-                                    <li>Let and Const</li>
-                                    <li>Default parameters</li>
-                                    <li>Rest and Spread</li>
-                                    <li>Destructuring</li>
-                                    <li>Modules</li>
-                                    <li>Iterators</li>
-                                    <li>Generators</li>
-                                    <li>Maps and Sets</li>
-                                    <li>Proxies</li>
-                                    <li>Symbol</li>
-                                    <li>Promises</li>
-                                    <li>Async/Await</li>
-                                </ul>
+                                Although not comprehensive, here are some of the features of ES6:
+                                <dl>
+                                    <dt>Arrow functions</dt>
+                                    <dd>
+                                        Shorter syntax for functions.<br>
+                                        Example:<br>
+                                        <code class="code">
+                                            getDistanceInFathoms = (distanceInFeet: number) => &#123; return distanceInMeters / 6 &#125;;
+                                        </code><br>
+                                        <div class="result">console.log(getDistanceInFathoms(12)):
+                                            {{getDistanceInFathoms(12)}} fathoms</div><br>
+
+                                        Is the same as:<br><br>
+
+                                        <code>
+<pre>
+function getDistanceInFathoms(distanceInFeet) &#123;
+    return distanceInFeet / 6;
+&#125;
+</pre>
+                                        </code><br>
+                                        <div class="result">console.log(getDistanceInFathoms(12)): 2 fathoms</div>
+                                    </dd>
+                                    <dt>Classes</dt>
+                                    <dd>Classes are a template for creating objects. They encapsulate data for the
+                                        object. An example of a ES6 change is the introduction of the class keyword.
+                                    <dt>Template literals</dt>
+                                    <dd>Template literals are string literals allow for interpolation and multiline
+                                        strings similar to string interpolation features in Perl, Python, and more. They
+                                        are enclosed by the backtick (`).
+                                    </dd>
+                                    <dt>Let and Const</dt>
+                                    <dd>Let and Const are block-scoped variables. Let is the new var and Const is a
+                                        constant that cannot be changed.
+                                    </dd>
+                                    <dt>Default parameters</dt>
+                                    <dd>Default parameters allow for default values to be set for function parameters.
+                                        Example: <code>function
+                                        getPie(type = "apple") &#123;return type;&#125;</code></dd>
+                                    <dt>Rest Operator</dt>
+                                    <dd>The rest operators allows for an indefinite number of arguments to be passed to
+                                        a function. Example:
+                                        <code>function
+                                        addStuff(...numbers) &#123;return numbers.reduce((acc, cur) => acc + cur, 0);&#125;</code><br><br>
+
+                                        Resulting in:<br>
+                                        <code>
+                                            <pre>
+console.log(addStuff(1, 2, 3, 4, 5));
+15
+                                            </pre>
+                                        </code>
+                                    </dd>
+                                    <dt>Spread Opeator</dt>
+                                    <dd>The spread operator allows for an array to be expanded into individual elements.
+                                        Example: <code>const
+                                        numbers = [1, 2, 3, 4, 5];<br>console.log(addStuff(...numbers));</code><br><br>
+                                        Resulting in:<br>
+                                        <code>
+                                            <pre>
+console.log(addStuff(1, 2, 3, 4, 5));
+15
+                                            </pre>
+                                        </code>
+                                    </dd>
+                                    <dt>Destructuring</dt>
+                                    <dd>Destructuring allows for an object or array to be broken down into individual
+                                        elements. Example: <code>const
+                                        &#123;name, age&#125; = person;</code></dd>
+                                    <dt>Modules</dt>
+                                    <dd>Modules allow for code to be split into separate files. The export keyword is
+                                        used to export a module and the import keyword is used to import a module.</dd>
+                                    <dt>Iterators</dt>
+                                    <dd>Iterators allow for objects to be iterated over. The Symbol.iterator is used to
+                                        create an iterator.</dd>
+                                    <dt>Generators</dt>
+                                    <dd>Generators are functions that can be paused and resumed. The function* keyword
+                                        is used to create a generator.</dd>
+                                    <dt>Maps</dt>
+                                    <dd>Maps are new data structures in ES6. Maps are collections of key-value
+                                        pairs. e.g. <br>
+                                        <code>
+<pre>
+const myMap = new Map();
+myMap.set("key1", "value1");
+myMap.set("key2", "value2");
+console.log(myMap.get("key1"));
+</pre>
+                                        </code>
+                                    </dd>
+                                    <dt>Sets</dt>
+                                    <dd>Sets are new data structures in ES6. Maps are collections of key-value
+                                        pairs and Sets are collections of unique values. e.g. <br>
+                                        <code>
+<pre>
+const mySet = new Set();
+mySet.add("value1");
+mySet.add("value2");
+console.log(mySet.has("value1"));
+</pre>
+                                        </code>
+                                    </dd>
+                                    <dt>Proxies</dt>
+                                    <dd>Proxies allow for objects to be intercepted and custom behavior to be defined.
+                                        The Proxy object is used to create a proxy. e.g. <br>
+                                        <code>
+<pre>
+const handler = &#123;
+    get: function(target, name) &#123;
+        return name in target ? target[name] : 42;
+    &#125;
+&#125;
+
+const p = new Proxy(&#123;a: 1&#125;, handler);
+console.log(p.a, p.b);
+</pre>
+                                        </code><br><br>
+
+                                        Resulting in:<br>
+                                        <code>
+<pre>
+1 42
+</pre>
+                                        </code><br><br>
+
+                                        This is useful for things like logging and validation.
+                                    </dd>
+                                    <dt>Symbol</dt>
+                                    <dd>Symbols are unique and immutable data types. The Symbol function is used to
+                                        create a symbol. e.g. <br>
+                                        <code>
+<pre>
+const mySymbol = Symbol("mySymbol");
+console.log(mySymbol);
+</pre>
+                                        </code><br><br>
+
+                                        Resulting in:<br>
+                                        <code>
+<pre>
+Symbol(mySymbol)
+</pre>
+                                        </code><br><br>Used for object properties that should be unique. For example,
+                                        on a user service, they may be used for a user ID.
+                                    </dd>
+                                    <dt>Promises</dt>
+                                    <dd>Promises are used to handle asynchronous operations. The Promise object is used
+                                        to create a promise. e.g.<br>
+                                        <code>
+<pre>
+const myPromise = new Promise((resolve, reject) => &#123;
+
+    setTimeout(() => &#123;
+        resolve("I'm resolved!");
+    &#125;, 1000);
+
+&#125;);
+
+myPromise.then((value) => &#123;
+    console.log(value);
+&#125;);
+</pre>
+                                        </code>
+                                    </dd>
+                                    <dt>Async/Await</dt>
+                                    <dd>Async/Await is a new way to write asynchronous code. The async and await
+                                        keywords are used to write asynchronous code that looks synchronous. Performance
+                                        is better than using Promises. e.g.
+                                        <code>
+<pre>
+async function myAsyncFunction() &#123;
+    const value = await myPromise();
+    console.log(value);
+&#125;
+</pre>
+                                        </code>
+                                    </dd>
+                                </dl>
                             </mat-expansion-panel>
                         </li>
                         <li>
