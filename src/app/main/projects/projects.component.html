@@ -112,7 +112,7 @@
 
                                         <span class="comments">Create our formats lookup table, this will return string,
                                             list. This is to inform the client how to handle the data.</span>
-                                        <div class="code">
+                                        <code>
                                             <pre>
 CREATE TABLE answer_formats (
     id INT NOT NULL AUTO_INCREMENT,
@@ -120,19 +120,19 @@ CREATE TABLE answer_formats (
     PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
                                         </pre>
-                                        </div>
+                                        </code>
 
                                         <span class="comments">Populate it</span>
-                                        <div class="code">
+                                        <code>
                                             <pre>
 INSERT INTO `answer_formats` (`format`) VALUES
 ('json');
                                         </pre>
-                                        </div>
+                                        </code>
 
                                         <span class="comments">Create our questions table and create a foreign key to
                                             the formats table</span>
-                                        <div class="code">
+                                        <code>
                                             <pre>
 CREATE TABLE `flashcards` (
     id INT NOT NULL AUTO_INCREMENT,
@@ -144,11 +144,11 @@ CREATE TABLE `flashcards` (
     FOREIGN KEY (answer_format_id) REFERENCES answer_formats(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 </pre>
-                                        </div>
+                                        </code>
                                     </li>
                                     <li><span class="pending"><mat-icon>pending</mat-icon></span>Insert our trivia data
                                         into the table
-                                        <div class="code">
+                                        <code>
                                             <pre>
 INSERT INTO flashcards (question, answer, answer_format_id, page)
 VALUES (
@@ -167,7 +167,7 @@ VALUES (
     <span class="comments">... and so on</span>
 );                              
 </pre>
-                                        </div>
+                                        </code>
                                     </li>
                                     <li><span class="not-started"><mat-icon>stop</mat-icon></span>Update API</li>
                                     <li><span class="not-started"><mat-icon>stop</mat-icon></span>Update UX to

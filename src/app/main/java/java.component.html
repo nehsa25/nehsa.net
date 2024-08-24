@@ -5,7 +5,7 @@
         </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <div class="commentgrid">            
+        <div class="commentgrid">
             <div class="topics">
                 <div>Related Content:
                     <ul class="condensed">
@@ -20,7 +20,7 @@
                         <li><a routerLink="/react">React</a></li>
                         <li><a routerLink="/security">Security</a></li>
                         <li><a routerLink="/testing">Testing</a></li>
-                        <li><a routerLink="/typescript">Typescript</a></li>                    
+                        <li><a routerLink="/typescript">Typescript</a></li>
                     </ul>
                 </div>
                 <div>
@@ -28,26 +28,26 @@
                     <ul>
                         <li><span class="important">Constants</span>: must be all upper case, with multiple words
                             separated by '_'
-                            <div class="code">
+                            <code>
                                 final int ITEMS_IN_BASKET = 42;
-                            </div>
+                            </code>
                         </li>
 
                         <li><span class="important">Classes</span>: must start with an upper case letter, and use
                             CamelCase.
-                            <div class="code">
+                            <code>
                                 class LargeSpaceship;
-                            </div>
+                            </code>
                         </li>
                         <li><span class="important">Functions</span>: must start with a lower case letter, and use
                             CamelCase.
-                            <div class="code">
+                            <code>
                                 boolean checkResult();
-                            </div>
+                            </code>
                         </li>
                         <li><span class="important">Enums</span>: Preferred for readability over integer constants
                             usually
-                            <div class="code">
+                            <code>
                         <pre>
 class Directions &#123;
     public enum Direction &#123;
@@ -58,7 +58,7 @@ class Directions &#123;
     &#125;
 &#125;
                             </pre>
-                            </div>
+                            </code>
                         </li>
                     </ul>
                 </div>
@@ -106,7 +106,7 @@ class Directions &#123;
                                             of file must match the class name<br><br>e.g. <span
                                                 class="important">Hello.java</span> requires a class
                                             incide it:
-                                            <div class="code">
+                                            <code>
                                             <pre>
 /**
 * This is a simple Java program.
@@ -120,7 +120,7 @@ public class <span class="important">Hello</span> &#123;
     &#125;
 &#125;
                                                 </pre>
-                                            </div>
+                                            </code>
                                         </span></li>
                                 </ul>
                             </div>
@@ -145,11 +145,11 @@ public class <span class="important">Hello</span> &#123;
                         <li>Java non-primitive types?
                             <div class="answer">
                                 <ul>
-                                    <li>Array <div class="code">String[] array = new String[100];<br>double[] data;
-                                        </div>
+                                    <li>Array <code>String[] array = new String[100];<br>double[] data;
+                                        </code>
                                     </li>
                                     <li>Class
-                                        <div class="code">
+                                        <code>
                                         <pre>
 class Car &#123;
     // data member / instance variable
@@ -167,7 +167,7 @@ class Car &#123;
     &#125;
 &#125;
                                             </pre>
-                                        </div>
+                                        </code>
                                     </li>
                                     <li>String <span class="code">String boo = "bob";</span></li>
                                 </ul>
@@ -225,7 +225,7 @@ class Car &#123;
                                 <h4>JUnit:</h4><br>
                                 <ul>
                                     <li>File to be tested (Hello.java):
-                                        <div class="code">
+                                        <code>
                                         <pre>
 public class Hello &#123;
 
@@ -234,10 +234,10 @@ public class Hello &#123;
     &#125;
 &#125;
                                             </pre>
-                                        </div>
+                                        </code>
                                     </li>
                                     <li>Test file (HelloTest.java):
-                                        <div class="code">
+                                        <code>
                                         <pre>
 import org.junit.Assert;
 import org.junit.Before;
@@ -254,7 +254,7 @@ public class HelloTest &#123;
     &#125;
 &#125;
                                                 </pre>
-                                        </div>
+                                        </code>
                                     </li>
                                 </ul>
                             </div>

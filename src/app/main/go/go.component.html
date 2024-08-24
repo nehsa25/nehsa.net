@@ -23,7 +23,7 @@
                         <li><a routerLink="/react">React</a></li>
                         <li><a routerLink="/security">Security</a></li>
                         <li><a routerLink="/testing">Testing</a></li>
-                        <li><a routerLink="/typescript">Typescript</a></li>                    
+                        <li><a routerLink="/typescript">Typescript</a></li>
                     </ul>
                 </div><br><br>
                 <ul>
@@ -94,7 +94,7 @@
                                             string value in return statement</span> can be resolved by casting the
                                         variable to the
                                         correct type.<br><br>
-                                        <div class="code">
+                                        <code>
                                             <pre>
 <span class="comment">// Convert []byte to string</span>
 jsonDataString := string(&lt;[]BYTE DATA]&gt;)
@@ -114,7 +114,7 @@ tempString := fmt.Sprintf("%.2f", &lt;FLOAT DATA&gt;)
 <span class="comment">// Convert string to float</span>
 strconv.ParseFloat(&lt;STRING DATA&gt;, 64)
 </pre>
-                                        </div>
+                                        </code>
                                     </mat-expansion-panel>
                                 </li>
                                 <li> <mat-expansion-panel>
@@ -165,7 +165,7 @@ require (
                                         <mat-expansion-panel-header>
                                             <mat-panel-title>Switches</mat-panel-title>
                                         </mat-expansion-panel-header>
-                                        <div class="code">
+                                        <code>
                                             <pre>
 var weatherCondition string = weatherData.Weather[0].Main // Assuming weatherData is defined elsewhere
 switch weatherCondition &#123;
@@ -187,7 +187,7 @@ switch weatherCondition &#123;
         art = ""
 &#125;
 </pre>
-                                        </div>
+                                        </code>
                                     </mat-expansion-panel>
                                 </li>
                                 <li>
@@ -202,7 +202,7 @@ switch weatherCondition &#123;
                                             <li>Use <span class="function">fmt.Println()</span> to output to the console
                                             </li>
                                             <li>Example code:
-                                                <div class="code">
+                                                <code>
                                                     <pre>
 package main
 
@@ -212,7 +212,7 @@ func main() &#123;
 fmt.Println("Hello, World!")
 &#125;
 </pre>
-                                                </div><br><br>
+                                                </code><br><br>
 
                                                 Results in:<br>
                                                 <div class="terminal-result">
@@ -269,7 +269,7 @@ Hello, World!
                                 <li>Write tests in a file named <span class="file">main_test.go</span><br><br>
 
                                     Example Test for a function named <span class="function">HelloWorld()</span>:
-                                    <div class="code">
+                                    <code>
                                         <pre>
 package main
 
@@ -288,7 +288,7 @@ func TestHelloWorld(t *testing.T) &#123;
         &#125;
 &#125;
 </pre>
-                                    </div>
+                                    </code>
                                 </li>
                                 <li>Use the <code>go test</code> command to run your tests</li>
                             </ul><br><br>
@@ -302,16 +302,16 @@ func TestHelloWorld(t *testing.T) &#123;
                                 <mat-panel-title>Iteration</mat-panel-title>
                             </mat-expansion-panel-header>
                             For:<br>
-                            <div class="code">
+                            <code>
                                 <pre>
 for i := 0; i < len(strings); i++ &#123;
     fmt.Println(strings[i])
 &#125;
 </pre>
-                            </div><br><br>
+                            </code><br><br>
 
                             Range:<br>
-                            <div class="code">
+                            <code>
                                 <pre>
     params := map[string]string&#123;
             "param1": "value1",
@@ -325,7 +325,7 @@ for i := 0; i < len(strings); i++ &#123;
 
     fmt.Println(u.Encode()) // Output: param1=value1&param2=value2
 </pre>
-                            </div>
+                            </code>
                         </mat-expansion-panel>
                     </li>
                     <li>
@@ -390,7 +390,7 @@ for i := 0; i < len(strings); i++ &#123;
                                     You can create a struct like this:<br>
                                     <ul class="condensed">
                                         <li>Statically define the struct:
-                                            <div class="code">
+                                            <code>
                                                 <pre>
 type WeatherData struct &#123;
 
@@ -438,9 +438,9 @@ type WeatherData struct &#123;
     Cod      int    `json:"cod"`
 &#125;
 </pre>
-                                            </div><br><br>
+                                            </code><br><br>
                                             Unmarshal JSON to it:<br>
-                                            <div class="code">
+                                            <code>
                                                 <pre>
 var weatherData WeatherData
 err := json.Unmarshal([]byte(jsonData), &weatherData)
@@ -449,10 +449,10 @@ if err != nil &#123;
     return
 &#125;
                                             </pre>
-                                            </div>
+                                            </code>
                                         </li>
                                         <li>Or, dynamically define the struct and marshel data to it:<br>
-                                            <div class="code">
+                                            <code>
                                                 <pre>
 var weatherData map[string]interface&#123;&#125;
 err := json.Unmarshal([]byte(jsonData), &weatherData)
@@ -461,12 +461,9 @@ if err != nil &#123;
     return
 &#125;
 </pre>
-                                            </div>
+                                            </code>
                                         </li>
                                     </ul>
-
-                                </li>
-                                <li>
                                 </li>
                             </ul>
                         </mat-expansion-panel>
@@ -505,7 +502,7 @@ if err != nil &#123;
                                 <li>Define routes and handlers
                                     <ul class="condensed">
                                         <li>Define a route
-                                            <div class="code">
+                                            <code>
                                                 <pre>
 router.GET("/weather_temp/:city", func(c *gin.Context) &#123;
     // get city parameter
@@ -528,7 +525,7 @@ router.GET("/weather_temp/:city", func(c *gin.Context) &#123;
 &#125;)
                                             
                                                 </pre>
-                                            </div>
+                                            </code>
                                         </li>
                                         <li>Define a handler
                                         </li>
@@ -569,7 +566,7 @@ router.GET("/weather_temp/:city", func(c *gin.Context) &#123;
                                             </a>
                                         </li>
                                         <li>Install dependencies: <code>go mod init main && go mod tidy</code></li>
-                                        <li>Test it works: <div class="code">
+                                        <li>Test it works: <code>
                                                 <pre>
 go run .\weather.go
 PS C:\src> (invoke-webrequest http://localhost:8080/weather/portland?unit=metric).Content
@@ -577,13 +574,13 @@ Clouds
 PS C:\src> (invoke-webrequest http://localhost:8080/weather/lasvegas?unit=imperial).Content
 Clear
 </pre>
-                                            </div>
+                                            </code>
                                     </ul>
                                 </li>
                                 <li>Create Docker to run the service
                                     <ul class="condensed">
                                         <li>Create dockerfile:
-                                            <div class="code">
+                                            <code>
                                                 <pre>
 # Use a Golang image
 FROM golang:1.20-alpine
@@ -610,7 +607,7 @@ EXPOSE 8080
 # Command to run when the container starts
 CMD ["./main"]
 </pre>
-                                            </div>
+                                            </code>
                                         </li>
                                         <li>Build it:
                                             <code>docker build . -t nehsa/ascii-weather:$build --platform linux/amd64;</code>
@@ -691,7 +688,7 @@ CMD ["./main"]
                                         <ul>
                                             <li>
                                                 Dockerfile:<br>
-                                                <div class="code">
+                                                <code>
                                                     <pre>
 # Use a Golang image
 FROM golang:latest
@@ -718,10 +715,10 @@ EXPOSE 8081
 # Command to run when the container starts
 CMD ["./scraper"]
 </pre>
-                                                </div>
+                                                </code>
                                             </li>
                                             <li>
-                                                <div class="code">
+                                                <code>
                                                     <pre>
 write-host "Building docker image for web scraper microservice";
 docker build . -t nehsa/web-scraper:latest --platform linux/amd64;
@@ -729,7 +726,7 @@ docker build . -t nehsa/web-scraper:latest --platform linux/amd64;
 write-host "Pushing image to DockerHub...";
 docker push nehsa/web-scraper:latest;
                                                 </pre>
-                                                </div>
+                                                </code>
                                             </li>
                                         </ul>
                                     </mat-expansion-panel>

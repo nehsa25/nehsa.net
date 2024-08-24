@@ -65,14 +65,14 @@
                                     e.g.<br><br>
 
                                     <span class="file">angular.json</span><br>
-                                    <div class="code">
+                                    <code>
                                         <pre>
 "assets": [
     "src/favicon.ico",
     "src/sitemap.xml" <span class="comment">// <mat-icon>arrow_back</mat-icon> Add this line</span>
 ],
 </pre>
-                                    </div>
+                                    </code>
                                 </li>
                                 <li>Place the sitemap.xml file to the root of your website.</li>
                                 <li>Submit the sitemap to <button mat-stroked-button
@@ -84,7 +84,7 @@
                             <br><br>
                             Example <span class="file">sitemap.xml</span>:
                             <br><br>
-                            <div class="code">
+                            <code>
                                 <pre>
 &lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"&gt;
@@ -97,7 +97,7 @@
 &lt;/urlset&gt;
 
                             </pre>
-                            </div><br><br>
+                            </code><br><br>
 
                             That's it. The file will be crawled by search engines and your site will be indexed. If you
                             wish to speed up the process, you can submit the sitemap to <button mat-stroked-button
@@ -115,12 +115,12 @@
                             </mat-expansion-panel-header>
 
                             Example <span class="file">robots.txt</span> entry:
-<div class="code">
+<code>
     <pre>
 User-agent: *
 Sitemap: https://www.example.com/sitemap.xml
     </pre>
-    </div>
+    </code>
                         </mat-expansion-panel>
                     </li>
                     <li #searchConsole [class.highlightMe]="highlightArea == 'searchconsole'">

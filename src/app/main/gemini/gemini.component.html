@@ -24,7 +24,7 @@
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Implementation</mat-panel-title>
                                 </mat-expansion-panel-header>
-                                <div class="code">
+                                <code>
                             <pre>
 class GeminiAPI:
 logger = None
@@ -39,7 +39,7 @@ def create(self, description, room_image_name):
     model = genai.GenerativeModel('gemini-1.5-flash',)
     response = model.generate_content(f"<span class="important">&lt;PROMPT&gt;</span>")
 </pre>
-                                </div>
+                                </code>
                             </mat-expansion-panel>
                         </li>
                         <li>

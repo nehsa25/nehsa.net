@@ -137,7 +137,7 @@
                                         table.</mat-panel-description>
                                 </mat-expansion-panel-header>
                                 Add a trigger to the table to log changes to a history table:
-                                <div class="code">
+                                <code>
                                     <pre>
 CREATE TRIGGER [schema].[update_table_history] ON [schema].[table]
 FOR UPDATE
@@ -155,7 +155,7 @@ GO
 ALTER TABLE [schema].[table] ENABLE TRIGGER [update_table_history]
 GO
                                     </pre>
-                                </div><br>
+                                </code><br>
                                 This trigger will log changes made to the specified table into a history table.
                             </mat-expansion-panel>
                         </li>
@@ -193,13 +193,13 @@ GO
                                 </table><br><br>
 
                                 We could just do this to get a count of users by role:<br>
-                                <div class="code">
+                                <code>
                                     <pre>
 SELECT role, COUNT(*) as user_count
 FROM users
 GROUP BY role
                                     </pre>
-                                </div><br>
+                                </code><br>
                                 Resulting in:<br>
                                 <table style="width: fit-content;">
                                     <tr>
@@ -221,7 +221,7 @@ GROUP BY role
                                 </table><br><br>
 
                                 Using the PIVOT keyword, we could accomplish the same (if we're feeling fancy):<br>
-                                <div class="code">
+                                <code>
                                     <pre>
 SELECT *
 FROM (
@@ -233,7 +233,7 @@ PIVOT (
     FOR role IN ([admin], [editor], [viewer])
 ) AS PivotTable
                                     </pre>
-                                </div><br>
+                                </code><br>
                                 Resulting in:<br>
                                 <table style="width: fit-content;">
                                     <tr>

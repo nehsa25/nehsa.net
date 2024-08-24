@@ -119,7 +119,7 @@
                                                     <p>Playwright can be used to validate the alt text of images on a
                                                         page.
                                                         This can be done by doing something such as:</p>
-                                                    <div class="code">
+                                                    <code>
                                                         <pre>
 import &#123; expect, test &#125; from '&#64;playwright/test';
 
@@ -138,7 +138,7 @@ test('all images have alt text', async (&#123; page &#125;) => &#123;
     &#125;
 &#125;);
 </pre>
-                                                    </div>
+</code>
                                                 </div>
                                             </mat-expansion-panel>
                                         </mat-expansion-panel>
@@ -257,12 +257,10 @@ test('all images have alt text', async (&#123; page &#125;) => &#123;
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Semantic HTML</mat-panel-title>
                                 </mat-expansion-panel-header>
-                                <div>
-                                    <p>Semantic HTML is a coding practice that uses HTML elements to describe the
-                                        meaning or purpose of content on a web page.</p>
-                                    <p>Some common examples of semantic HTML elements include:</p>
+                                <div>Semantic HTML is a coding practice that uses HTML elements to describe the
+                                    meaning or purpose of content on a web page.<br><br>
+                                    Some common examples of semantic HTML elements include:
                                     <ul>
-                                        <li>&lt;code&gt;: Defines a block of code</li>
                                         <li>&lt;header&gt;: Defines a header for a document or section</li>
                                         <li>&lt;nav&gt;: Defines a set of navigation links</li>
                                         <li>&lt;main&gt;: Defines the main content of a document</li>
@@ -287,7 +285,7 @@ test('all images have alt text', async (&#123; page &#125;) => &#123;
                                     </code><br><br>
 
                                     Could be styled liked this:<br>
-                                    <div class="code">
+                                    <code>
                                         <pre>
 nav &#123;
     background-color: lightgray;
@@ -303,13 +301,22 @@ nav div &#123;
     border-radius: 5px;
 &#125;
                                     </pre>
-                                    </div><br><br>
+                                    </code><br><br>
                                     Producing:<br>
-                                    <nav>
-                                        <div>item1</div>
-                                        <div>item2</div>
-                                        <div>item3</div>
-                                    </nav>
+                                    <div class="half-width">
+                                        <nav>
+                                            <div>item1</div>
+                                            <div>item2</div>
+                                            <div>item3</div>
+                                        </nav>
+                                    </div><br><br>
+
+                                    The purpose of semantic HTML is to provide meaning to the content of a web page so
+                                    these would not be good examples:<br>
+                                    <ul class="condensed">
+                                        <li>&lt;code&gt;</li>
+                                        <li>&lt;important&gt;</li>
+                                    </ul>
                                 </div>
 
                             </mat-expansion-panel>
@@ -497,7 +504,7 @@ nav div &#123;
                                             Playwright can be used to validate the metrics of a page. This can be done
                                             by
                                             doing something such as:
-                                            <div class="code">
+                                            <code>
                                                 <pre>
 import &#123; test, expect &#125; from '&#64;playwright/test';
 
@@ -529,7 +536,7 @@ test.describe('LCP Validation', () => &#123;
     &#125;
 &#125;);
                                             </pre>
-                                            </div>
+                                            </code>
                                         </mat-expansion-panel>
 
                                     </li>
@@ -542,7 +549,7 @@ test.describe('LCP Validation', () => &#123;
                                     <mat-panel-title>Starting with a clean slate</mat-panel-title>
                                 </mat-expansion-panel-header>
                                 To minimize the impact of browser defaults, I use the following to normalize things:
-                                <div class="code">
+                                <code>
                                     <pre>
 /* Reset basic box model */
 *,
@@ -580,7 +587,7 @@ video &#123;
   height: auto;
 &#125;
 </pre>
-                                </div>
+</code>
                             </mat-expansion-panel>
                         </li>
                         <li>
@@ -619,7 +626,7 @@ video &#123;
                                                 </ul>
 
                                                 Example:
-                                                <div class="code">
+                                                <code>
                                                     <pre>
 ul li::before &#123;
     content: counter(list-level) " > ";
@@ -638,7 +645,7 @@ ul ul &#123;
     counter-increment: list-level;
 &#125;
 </pre>
-                                                </div><br><br>
+</code><br><br>
                                                 <span class="importantish">And, HTML like this:</span>
                                                 <div>
                                                     <pre>
@@ -733,7 +740,7 @@ ul ul &#123;
                                             certain class</span> (e.g. all span
                                         elements
                                         that have the class "code"):
-                                        <div class="code">
+                                        <code>
                                             <pre>
 span.code &#123;
     background-color: rebeccapurple !important;
@@ -748,22 +755,22 @@ span.code &#123;
 &#125;
 </pre>
 
-                                        </div>
+</code>
                                     </li>
                                     <li><span class="importantish">Multiple</span> classes can be specified via comma:
-                                        <div class="code">
+                                        <code>
                                             <pre>
 h1, h2, h3, h4, h5, h6 &#123;
     color: plum;
 &#125;
                                     </pre>
-                                        </div>
+                                </code>
                                     </li>
                                     <li>
                                         Select all direct children using the <span class="importantish">universal
                                             selector:
                                             *</span>
-                                        <div class="code">
+                                        <code>
                                             <pre>
 
 <span class="comment">// Make the parent class itself green</span>                          
@@ -784,7 +791,7 @@ h1, h2, h3, h4, h5, h6 &#123;
     margin-left: 1em;
 &#125;
                                         </pre>
-                                        </div>
+                                    </code>
                                         <br><br>
                                         Producing:<br>
                                         <div class="example-container">
@@ -801,7 +808,7 @@ h1, h2, h3, h4, h5, h6 &#123;
                                     </li>
                                     <li>Element <span class="importantish">hierarchy</span> can be indicated using
                                         (&gt;):
-                                        <div class="code">
+                                        <code>
                                             <pre>
 <div>CSS:
 div &#123;
@@ -824,7 +831,7 @@ background-color: salmon;
                                                 </div>
                                                 <div>I'm Teal!</div>
                                             </div>
-                                        </div>
+                                        </code>
                                     </li>
                                 </ul>
                             </mat-expansion-panel>
@@ -845,7 +852,7 @@ background-color: salmon;
                                             <li>focus</li>
                                         </ul>
 
-                                        e.g. <div class="code">
+                                        e.g. <code>
                                             <pre>
 
 
@@ -858,19 +865,19 @@ background-color: salmon;
     &#125;
 &#125;
                                         </pre>
-                                        </div>
+                                    </code>
                                     </li>
                                     <li>Has &quot;:has()&quot; selector allows you to perform a CSS selection based on
                                         the
                                         content
                                         of an element.
-                                        <div class="code">
+                                        <code>
                                             <pre>
 .pause-container:has(img) &#123;
     border: none; <span class="comment">// remove border if there is an image</span>
 &#125;
 </pre>
-                                        </div><br><br>
+</code><br><br>
                                         Browser Support:
                                         <table mat-table class="min-table">
                                             <tr mat-header-row>
@@ -913,14 +920,14 @@ background-color: salmon;
                                             <li>Commonly used to make a site responsive (alter layout and sizes based on
                                                 device capabilities)</li>
                                         </ul>
-                                        <div class="code">
+                                        <code>
                                             <pre>
 &#64;media screen and (max-width: 600px) &#123;
     body &#123;
         background-color: lightblue; <span class="comment">// change background color if screen is less than 600px</span>
     &#125;
 </pre>
-                                        </div>
+</code>
                                     </li>
                                 </ul>
                             </mat-expansion-panel>
@@ -949,7 +956,7 @@ background-color: salmon;
                                         <img mat-card-image src="assets/images/dark.png" />
                                         <ul>
                                             <li>Create a section the sets base variables based on the OS preference:
-                                                <div class="code">
+                                                <code>
                                                     <pre>
 $theme-border-color: mat.get-color-from-palette($dark-primary-palette, 500);
 $theme-background: mat.get-color-from-palette($dark-primary-palette, 50); 
@@ -1059,10 +1066,10 @@ $theme-header-color: anqituewhite;
     $theme-header-color: maroon;
 &#125;
                                                 </pre>
-                                                </div>
+                                            </code>
                                             </li>
                                             <li>These can be added as global variables that can be throughout your site.
-                                                <div class="code">
+                                                <code>
                                                     <pre>
 // these variables can be accessed in the global scope
 :root &#123;
@@ -1093,7 +1100,7 @@ $theme-header-color: anqituewhite;
     --theme-header-color: #&#123;$theme-header-color&#125;;
 &#125;
                                                 </pre>
-                                                </div>
+                                            </code>
                                             </li>
                                             <div>Which can be referenced:
                                                 <span class="code">border: 1px solid var(--theme-border);</span>
@@ -1109,7 +1116,7 @@ $theme-header-color: anqituewhite;
                                     <mat-panel-title>Fun with :before and :after</mat-panel-title>
                                     <mat-panel-description>+ practical applications!</mat-panel-description>
                                 </mat-expansion-panel-header>
-                                <div class="code">
+                                <code>
                                     <pre>
 .important:before &#123;
 content: "<";
@@ -1129,7 +1136,7 @@ font-size: 2rem;
 line-height: 1.5;
 &#125;
                                 </pre>
-                                </div>
+                            </code>
 
                                 <span class="importante">I'm super important text!</span><br><br>
 
@@ -1141,7 +1148,7 @@ line-height: 1.5;
                                     </mat-expansion-panel-header>
                                     I found it useful to add an icon after a direcotry to indicate hierarchy. This is
                                     done via this CSS:
-                                    <div class="code">
+                                    <code>
                                         <pre>
                                             .directory &#123;
                                                 font-family: 'Helvetica Neue', sans-serif;
@@ -1158,7 +1165,7 @@ line-height: 1.5;
                                                 margin-left: 5px;
                                             &#125;
                                             </pre>
-                                    </div><br><br>
+                                        </code><br><br>
 
                                     Resulting in:<br>
                                     <span class="directory">assets</span>
@@ -1529,7 +1536,7 @@ line-height: 1.5;
                                                             <div style="background-color: #9370DB;">5</div>
                                                             <div style="background-color: #D2B48C">6</div>
                                                         </div>
-                                                        <div class="code">
+                                                        <code>
                                                             <pre>
 &lt;div class="examples"&gt;
     &lt;div class="css-example-grid"
@@ -1543,7 +1550,7 @@ line-height: 1.5;
     &lt;/div&gt;
 &lt;/div&gt;
                                                             </pre>
-                                                        </div>
+                                                        </code>
                                                         <br><br>
                                                         The order of the grid-template-rows and grid-template-columns is
                                                         important. The
@@ -1566,7 +1573,7 @@ line-height: 1.5;
                                                                 <div style="background-color: #9370DB;">5</div>
                                                                 <div style="background-color: #D2B48C">6</div>
                                                             </div>
-                                                            <div class="code">
+                                                            <code>
                                                                 <pre>
 &lt;div class="examples"&gt;
     &lt;div class="css-example-grid"
@@ -1580,7 +1587,7 @@ line-height: 1.5;
     &lt;/div&gt;
 &lt;/div&gt;
                                                             </pre>
-                                                            </div>
+                                                        </code>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1612,7 +1619,7 @@ line-height: 1.5;
                                                     <div style="background-color: deeppink; grid-area: footer;">Footer
                                                     </div>
                                                 </div>
-                                                <div class="code">
+                                                <code>
                                                     <pre>
 &lt;div class="css-example-grid"
         style="padding: 1em; margin: 1em; width: calc(100% - 4em); 
@@ -1624,7 +1631,7 @@ line-height: 1.5;
     &lt;div style="background-color: deeppink; grid-area: footer;"&lt;Footer&lt;/div&lt;
 &lt;/div&lt;
                                                     </pre>
-                                                </div>
+                                                </code>
                                             </div>
                                         </mat-expansion-panel>
                                     </li>
@@ -1681,7 +1688,17 @@ line-height: 1.5;
                                     <ul>
                                         <li>The easiest way to work with anitmations in the shorthand "animation" CSS
                                             property.<br>
-                                            <div class="code">
+                                            <div class="answer">
+                                                <pre>
+animation: fadeOut 10s ease-out forwards;
+(animation: name duration timing-function delay iteration-count
+direction
+fill-mode play-state;)
+</pre>
+                                            </div><br><br>
+
+                                            e.g.<br>
+                                            <code>
                                                 <pre>
 .bob-text &#123;
 padding: 1em;
@@ -1692,11 +1709,8 @@ z-index: 200;
 animation: fadeOut 10s ease-out forwards;
 &#125;
 </pre>
-                                                animation: fadeOut 10s ease-out forwards;
-                                                (animation: name duration timing-function delay iteration-count
-                                                direction
-                                                fill-mode play-state;)
-                                            </div>
+</code>
+
 
                                             <dl>
                                                 <dt>fadeOut</dt>
@@ -1705,7 +1719,7 @@ animation: fadeOut 10s ease-out forwards;
                                                     something
                                                     visible fully (no gradual disappearance) until the last 10% of the
                                                     animation duration, then fades out.<br>
-                                                    <div class="code">
+                                                    <code>
                                                         <pre>
 &#64;keyframes fadeOut &#123;
 0% &#123;
@@ -1721,7 +1735,7 @@ animation: fadeOut 10s ease-out forwards;
 &#125;
 &#125;
 </pre>
-                                                    </div>
+</code>
 
 
                                                 </dd>
@@ -2014,7 +2028,7 @@ animation: fadeOut 10s ease-out forwards;
                                                         set of queries handles iPhone 12 and up in both landscape and
                                                         portrait mode:<br>
                                                         These are some common breakpoints:<br>
-                                                        <div class="code">
+                                                        <code>
                                                             <pre>
 &#64;media (min-width: 0px) &#123;
     /* Styles for all devices */
@@ -2036,7 +2050,7 @@ animation: fadeOut 10s ease-out forwards;
     /* Styles for devices that are 1200px and up */
 &#125;
     </pre>
-                                                        </div>
+</code>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -2051,7 +2065,7 @@ animation: fadeOut 10s ease-out forwards;
                                             to design for mobile after designing for desktop so this was ill-advised.
                                             <ul class="condensed">
                                                 <li>
-                                                    <div class="code">
+                                                    <code>
                                                         <pre>
 &#64;media (min-width: 0px) &#123;
     .gridcols &#123;
@@ -2345,7 +2359,7 @@ animation: fadeOut 10s ease-out forwards;
     &#125;
 &#125;
                                                     </pre>
-                                                    </div>
+                                                </code>
                                                 </li>
                                             </ul>
                                         </mat-expansion-panel>
@@ -2397,13 +2411,13 @@ animation: fadeOut 10s ease-out forwards;
                                     <li>Add the link to your css. In most cases, theses file need to be in
                                         the root of
                                         the website but Angular needs them in the asset folder:
-                                        <div class="code">
+                                        <code>
                                             <pre>
 &lt;link rel="icon" type="image/x-icon" sizes="32x32" href="assets/images/favicon-32x32.png"&gt;
 &lt;link rel="icon" type="image/x-icon" sizes="16x16" href="assets/images/favicon-16x16.png"&gt;
 &lt;link rel="icon" type="image/x-icon" sizes="64x64" href="assets/images/favicon.ico"&gt;
                                         </pre>
-                                        </div>
+                                    </code>
                                     </li>
                                 </ul>
                             </mat-expansion-panel>
@@ -2444,7 +2458,7 @@ animation: fadeOut 10s ease-out forwards;
                                                 <div style="background-color: #D2B48C">6</div>
                                             </div>
 
-                                            <div class="code">
+                                            <code>
                                                 <pre>
 &lt;div class="margin-examples"&gt;
     No Padding and Margin, 100% width&lt;br&gt;
@@ -2460,7 +2474,7 @@ animation: fadeOut 10s ease-out forwards;
         &lt;/div&gt;
 &lt;/div&gt;
                                             </pre>
-                                            </div>
+                                        </code>
                                         </div>
                                     </li>
                                     <li>
@@ -2476,7 +2490,7 @@ animation: fadeOut 10s ease-out forwards;
                                                 <div style="background-color: #9370DB;">5</div>
                                                 <div style="background-color: #D2B48C">6</div>
                                             </div>
-                                            <div class="code">
+                                            <code>
                                                 <pre>
 &lt;div class="margin-examples"&gt;
     padding: 1em, margin: 1em, 100% width&lt;br&gt;
@@ -2492,7 +2506,7 @@ animation: fadeOut 10s ease-out forwards;
     &lt;/div&gt;
 &lt;/div&gt;
                                             </pre>
-                                            </div>
+                                        </code>
                                         </div>
                                     </li>
                                     <li>
@@ -2508,11 +2522,11 @@ animation: fadeOut 10s ease-out forwards;
                                                 <div style="background-color: #9370DB;">5</div>
                                                 <div style="background-color: #3c9953">6</div>
                                             </div>
-                                            <div class="code">
+                                            <code>
                                                 <pre>
 &lt;div style="width: 100%vw; display: grid; grid-template-columns: 1fr 50px 2fr; grid-template-rows: 1fr 50px 2fr;"&gt;
                                             </pre>
-                                            </div>
+                                        </code>
                                         </div>
                                     </li>
                                     <li>
@@ -2533,11 +2547,11 @@ animation: fadeOut 10s ease-out forwards;
                                                 <div style="background-color: #9370DB;">5</div>
                                                 <div style="background-color: #D2B48C">6</div>
                                             </div>
-                                            <div class="code">
+                                            <code>
                                                 <pre>
 &lt;div style="width: 100%vw; display: grid; grid-template-columns: 1fr 50px 2fr; grid-template-rows: 1fr 50px 2fr;"&gt;
                                             </pre>
-                                            </div>
+                                        </code>
                                         </div>
                                     </li>
                                 </ul>
@@ -2696,7 +2710,7 @@ animation: fadeOut 10s ease-out forwards;
                                                             margin.
                                                         </mat-panel-description>
                                                     </mat-expansion-panel-header>
-                                                    <div class="code">
+                                                    <code>
 
                                                         <div class="example-grid">
                                                             <div>
@@ -2704,7 +2718,7 @@ animation: fadeOut 10s ease-out forwards;
                                                                     <tr>
                                                                         <td colspan="2">
                                                                             <div>
-                                                                                <div class="code">
+                                                                                <code>
                                                                                     <pre>
 &lt;div style="display: grid; background-color: orchid; width: 100px; height: 100px;"&gt;
     &lt;div style="background-color: red; width: 25px; height: 25px; margin: auto 0;"&gt;
@@ -2712,59 +2726,53 @@ animation: fadeOut 10s ease-out forwards;
     &lt;/div&gt;
 &lt;/div&gt;
 </pre>
-                                                                                </div>
-                                                                            </div>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <div>Parent of type <span
-                                                                                    class="importantish">display:
-                                                                                    grid;</span>:
-                                                                            </div>
-                                                                            <div
-                                                                                style="background-color: orchid; width: 25px; height: 25px;">
-                                                                                &nbsp;
-                                                                            </div>
-                                                                        </td>
-                                                                        <td>
-                                                                            <div>Child we wish to center:
-                                                                            </div>
-                                                                            <div
-                                                                                style="background-color: red; width: 25px; height: 25px;">
-                                                                                &nbsp;</div>
-                                                                        </td>
-                                                                    </tr>
-                                                                </table>
-                                                            </div>
-                                                            <div
-                                                                style="display: grid; background-color: orchid; width: 100px; height: 100px;">
-                                                                <div
-                                                                    style="background-color: red; width: 25px; height: 25px; margin: auto 0;">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </mat-expansion-panel>
-                                            </li>
-                                            <li>
-                                                <mat-expansion-panel>
-                                                    <mat-expansion-panel-header>
-                                                        <mat-panel-title>Horitzonal align using &nbsp;<span
-                                                                class="importantish">margin: 0
-                                                                auto;</span></mat-panel-title>
-                                                        <mat-panel-description>Same thing can be done
-                                                            horizontally
-                                                        </mat-panel-description>
-                                                    </mat-expansion-panel-header>
-                                                    <div class="code">
+</code>
+                                    </div>
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div>Parent of type <span class="importantish">display:
+                                                    grid;</span>:
+                                            </div>
+                                            <div style="background-color: orchid; width: 25px; height: 25px;">
+                                                &nbsp;
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>Child we wish to center:
+                                            </div>
+                                            <div style="background-color: red; width: 25px; height: 25px;">
+                                                &nbsp;</div>
+                                        </td>
+                                    </tr>
+                                    </table>
+                                </div>
+                                <div style="display: grid; background-color: orchid; width: 100px; height: 100px;">
+                                    <div style="background-color: red; width: 25px; height: 25px; margin: auto 0;">
+                                    </div>
+                                </div>
+                </div>
+                </code>
+                </mat-expansion-panel>
+                </li>
+                <li>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Horitzonal align using &nbsp;<span class="importantish">margin: 0
+                                    auto;</span></mat-panel-title>
+                            <mat-panel-description>Same thing can be done
+                                horizontally
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <code>
                                                         <div class="example-grid">
                                                             <div>
                                                                 <table>
                                                                     <tr>
                                                                         <td colspan="2">
                                                                             <div>
-                                                                                <div class="code">
+                                                                                <code>
                                                                                     <pre>
 &lt;div style="display: grid; background-color: orchid; width: 100px; height: 100px;"&gt;
     &lt;div style="background-color: red; width: 25px; height: 25px; margin: 0 auto;"&gt;
@@ -2772,93 +2780,88 @@ animation: fadeOut 10s ease-out forwards;
     &lt;/div&gt;
 &lt;/div&gt;
 </pre>
-                                                                                </div>
-                                                                            </div>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <div>Parent of type <span
-                                                                                    class="importantish">display:
-                                                                                    grid;</span>:
-                                                                            </div>
-                                                                            <div
-                                                                                style="background-color: orchid; width: 25px; height: 25px;">
-                                                                                &nbsp;
-                                                                            </div>
-                                                                        </td>
-                                                                        <td>
-                                                                            <div>Child we wish to center:
-                                                                            </div>
-                                                                            <div
-                                                                                style="background-color: red; width: 25px; height: 25px;">
-                                                                                &nbsp;</div>
-                                                                        </td>
-                                                                    </tr>
-                                                                </table>
-                                                            </div>
-                                                            <div
-                                                                style="display: grid; background-color: orchid; width: 100px; height: 100px;">
-                                                                <div
-                                                                    style="background-color: red; width: 25px; height: 25px; margin: 0 auto;">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </mat-expansion-panel>
-                                            </li>
-                                            <li>
-                                                <mat-expansion-panel>
-                                                    <mat-expansion-panel-header>
-                                                        <mat-panel-title>place-content</mat-panel-title>
-                                                        <mat-panel-description>If the display:flex, you can
-                                                            use
-                                                            place-content to
-                                                            center both vertically and horizontally.
-                                                        </mat-panel-description>
-                                                    </mat-expansion-panel-header>
-                                                    Example here..
-                                                </mat-expansion-panel>
-                                            </li>
-                                            <li>
-                                                <mat-expansion-panel>
-                                                    <mat-expansion-panel-header>
-                                                        <mat-panel-title>align-self</mat-panel-title>
-                                                        <mat-panel-description>If the element is a grid
-                                                            item, you
-                                                            can use
-                                                            align-self: center
-                                                        </mat-panel-description>
-                                                    </mat-expansion-panel-header>
-                                                    <span class="impoartant">html</span><br>
-                                                    <div class="code">
+</code>
+            </div>
+            </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>Parent of type <span class="importantish">display:
+                            grid;</span>:
+                    </div>
+                    <div style="background-color: orchid; width: 25px; height: 25px;">
+                        &nbsp;
+                    </div>
+                </td>
+                <td>
+                    <div>Child we wish to center:
+                    </div>
+                    <div style="background-color: red; width: 25px; height: 25px;">
+                        &nbsp;</div>
+                </td>
+            </tr>
+            </table>
+        </div>
+        <div style="display: grid; background-color: orchid; width: 100px; height: 100px;">
+            <div style="background-color: red; width: 25px; height: 25px; margin: 0 auto;">
+            </div>
+        </div>
+        </div>
+        </code>
+        </mat-expansion-panel>
+        </li>
+        <li>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>place-content</mat-panel-title>
+                    <mat-panel-description>If the display:flex, you can
+                        use
+                        place-content to
+                        center both vertically and horizontally.
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                Example here..
+            </mat-expansion-panel>
+        </li>
+        <li>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>align-self</mat-panel-title>
+                    <mat-panel-description>If the element is a grid
+                        item, you
+                        can use
+                        align-self: center
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <span class="impoartant">html</span><br>
+                <code>
                                                         <pre>
 &lt;div class="map-sub-btns"&gt;
     &lt;button mat-button (click)="enlargen()"&gt;&lt;mat-icon class="map-buttons-icons"&gt;expand&lt;/mat-icon&gt;&lt;/button&gt;
     &lt;button mat-button (click)="min()"&gt;&lt;mat-icon class="map-buttons-icons"&gt;close&lt;/mat-icon&gt;&lt;/button&gt;
 &lt;/div&gt;
 </pre>
-                                                    </div><br><br>
-                                                    <span class="impoartant">css</span><br>
-                                                    <div class="code">
+</code><br><br>
+                <span class="impoartant">css</span><br>
+                <code>
                                                         <pre>
 .map-sub-btns &#123;
     align-self: center;
 &#125;
 </pre>
-                                                    </div><br><br>Tada!<br>
-                                                    <img mat-card-image src="assets/images/align_self.png" />
-                                                </mat-expansion-panel>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </mat-expansion-panel>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div><app-comment></app-comment></div>
+</code><br><br>Tada!<br>
+                <img mat-card-image src="assets/images/align_self.png" />
+            </mat-expansion-panel>
+        </li>
+        </ul>
+        </div>
+        </div>
+        </mat-expansion-panel>
+        </li>
+        </ul>
+        </div>
+        </div>
+        <div><app-comment></app-comment></div>
         </div>
     </mat-card-content>
 </mat-card>

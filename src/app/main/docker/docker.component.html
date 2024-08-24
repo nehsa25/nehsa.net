@@ -17,48 +17,48 @@
                                 <br><label>builds a Docker image and tags it for uploading to <a
                                         href="https://hub.docker.dom">Docker
                                         Hub</a></label>
-                                <div class="code">docker build . -t &lt;dockerhub username&gt;/&lt;repo name&gt;:latest
-                                </div>
+                                <code>docker build . -t &lt;dockerhub username&gt;/&lt;repo name&gt;:latest
+                                </code>
                                 <br><label>Build the image + start the container</label>
-                                <div class="code">docker-compose up --build</div>
+                                <code>docker-compose up --build</code>
                                 <br><label>Start/Stop the container</label>
-                                <div class="code">docker-compose up/down</div>
+                                <code>docker-compose up/down</code>
                                 <br><label>Network info</label>
-                                <div class="code">docker network ls</div>
+                                <code>docker network ls</code>
                                 <br><label>Image info</label>
-                                <div class="code">docker images</div>
+                                <code>docker images</code>
                                 <br><label>Copy items to/from image</label>
-                                <div class="code">docker cp 16d4ac49e7bb:/app/html-report .</div>
+                                <code>docker cp 16d4ac49e7bb:/app/html-report .</code>
                                 <br><label>Remove stopped containers and unused images.
                                     The options -a removes everything.</label>
-                                <div class="code">docker system prune (-a)</div>
+                                <code>docker system prune (-a)</code>
                                 <br><label>Saves an image to a local file
                                     system</label>
                                 <div>
                                     <label>Create new image with current changes (this merges volumes)</label>
-                                    <div class="code">docker commit 93afb54049db jenkins:2.440.3-1
-                                         (the recommended approach is to update your dockerfile with everything required as that ensured full reproducibility)</div>
+                                    <code>docker commit 93afb54049db jenkins:2.440.3-1
+                                         (the recommended approach is to update your dockerfile with everything required as that ensured full reproducibility)</code>
                                     <br><label>Saves an image as image.tar</label>
-                                    <div class="code">docker save --output image.tar jenkins:2.440.3-1</div>
+                                    <code>docker save --output image.tar jenkins:2.440.3-1</code>
 
                                 </div>
                                 <br><label>Loads a saved image (likely on a different
                                     machine if you're not publishing to dockerhub)</label>
-                                <div class="code">docker load --input image.tar</div>
+                                <code>docker load --input image.tar</code>
                                 <br><label>Lists running containers</label>
-                                <div class="code">docker container ps</div>
+                                <code>docker container ps</code>
                                 <br><label>Lists all containers (including stopped)</label>
-                                <div class="code">docker ps -a</div>
+                                <code>docker ps -a</code>
                                 <br><label>Lists all containers
                                     tagged</label>
-                                <div class="code">docker image ls | grep nehsa/nehsanet</div>
+                                <code>docker image ls | grep nehsa/nehsanet</code>
                                 <br><label>publish
                                     to Docker Hub</label>
-                                <div class="code">docker push &lt;dockerhub username&gt;/&lt;repo name&gt;:latest</div>
+                                <code>docker push &lt;dockerhub username&gt;/&lt;repo name&gt;:latest</code>
                                 <br><label>pull from Docker Hub</label>
-                                <div class="code">docker pull nehsa/nehsanet:latest</div>
+                                <code>docker pull nehsa/nehsanet:latest</code>
                                 <br><label>Open bash prompt as root user</label>
-                                <div class="code">docker exec -it -u root jenkins /bin/bash</div>
+                                <code>docker exec -it -u root jenkins /bin/bash</code>
                             </mat-expansion-panel>
                         </li>
                         <li>
@@ -71,16 +71,16 @@
                                     <li>Create dockerfile and docker-compose files</li>
                                     <li>
                                         <br><label>Verify it builds</label>
-                                        <div class="code">docker build . -t &lt;dockerhub username&gt;/&lt;repo
-                                            name&gt;:latest</div>
+                                        <code>docker build . -t &lt;dockerhub username&gt;/&lt;repo
+                                            name&gt;:latest</code>
                                     </li>
                                     <li>
                                         <br><label>Verify it runs</label>
-                                        <div class="code">docker-compose up</div>
+                                        <code>docker-compose up</code>
                                     </li>
                                     <li>
-                                        <div class="code">docker push &lt;dockerhub username&gt;/&lt;repo
-                                            name&gt;:latest</div>
+                                        <code>docker push &lt;dockerhub username&gt;/&lt;repo
+                                            name&gt;:latest</code>
                                     </li>
                                 </ol>
                             </mat-expansion-panel>
@@ -94,28 +94,28 @@
                                     <li>Download the registry docker container: <a
                                             href="https://hub.docker.com/_/registry"
                                             target="_blank">https://hub.docker.com/_/registry</a>
-                                        <div class="code">
+                                        <code>
                                             docker pull registry
-                                        </div>
+                                        </code>
                                     </li>
                                     <li>Run it:
-                                        <div class="code">docker run -d -p 5000:5000 --name registry registry:latest
-                                        </div>
+                                        <code>docker run -d -p 5000:5000 --name registry registry:latest
+                                        </code>
                                     </li>
                                     <li>Verify it's running:
-                                        <div class="code">docker logs -f registry</div>
+                                        <code>docker logs -f registry</code>
                                     </li>
                                     <li>Push to it:
-                                        <div class="code">
+                                        <code>
                                             docker tag node:20 localhost:5000/&lt;tagname&gt;<br>
                                             docker push localhost:5000/&lt;tagname&gt;
-                                        </div>
+                                        </code>
                                     </li>
                                     <li>Delete it from the local machine (for reference):
-                                        <div class="code">docker rmi localhost:5000/&lt;tagname&gt;</div>
+                                        <code>docker rmi localhost:5000/&lt;tagname&gt;</code>
                                     </li>
                                     <li>Pull from it:
-                                        <div class="code">docker pull localhost:5000/&lt;tagname&gt;</div>
+                                        <code>docker pull localhost:5000/&lt;tagname&gt;</code>
                                     </li>
                                 </ol>
                             </mat-expansion-panel>
@@ -126,7 +126,7 @@
                                     <mat-panel-title>Install latest Python on Ubuntu (within Docker)</mat-panel-title>
                                 </mat-expansion-panel-header>
                                 Update dockerfile:
-                                <div class="code">
+                                <code>
                                     <pre>
 # Update package lists
 RUN apt update && \
@@ -138,8 +138,9 @@ RUN apt install -y python3.11
 # Check the installed version of Python
 RUN python3.11 --version
 </pre>
-                                </div><br><br>
-                                This can be verified by checking build log and confirmed we get a Python version 3.11 printed:
+                                </code><br><br>
+                                This can be verified by checking build log and confirmed we get a Python version 3.11
+                                printed:
                                 <img src="../../../assets/images/python-docker.png" alt="Python 3.11 installed" />
 
                             </mat-expansion-panel>
@@ -155,7 +156,7 @@ RUN python3.11 --version
                                             <mat-expansion-panel-header>
                                                 <mat-panel-title>dockerfile</mat-panel-title>
                                             </mat-expansion-panel-header>
-                                            <div class="code">
+                                            <code>
                                                 <pre>
 FROM node:21.6.1-slim  <span class="comment">// The base image to start with</span>
 EXPOSE 80 443
@@ -165,7 +166,7 @@ RUN npm install
 COPY . .
 CMD node index.js
 </pre>
-                                            </div>
+                                            </code>
                                         </mat-expansion-panel>
                                     </li>
                                     <li>
@@ -173,7 +174,7 @@ CMD node index.js
                                             <mat-expansion-panel-header>
                                                 <mat-panel-title>docker-compose.yml</mat-panel-title>
                                             </mat-expansion-panel-header>
-                                            <div class="code">
+                                            <code>
 <pre>
 name: nehsanet
 version: "3.8"
@@ -192,7 +193,7 @@ volumes:
     node_modules:
     app:                       
 </pre>
-                                            </div>
+                                            </code>
                                         </mat-expansion-panel>
                                     </li>
                                     <li>
@@ -222,7 +223,7 @@ volumes:
                     <ul>
                         <li>You do not need to enter entire hash for an image/container as long as they're using. e.g.
                             418 would find this image:
-<pre>
+                            <pre>
 PS C:\src\nehsa.net> docker image ls | grep nehsa/nehsanet
 nehsa/nehsanet   latest    418b390c6d3a   26 minutes ago   3.2GB
 </pre>
@@ -231,21 +232,16 @@ nehsa/nehsanet   latest    418b390c6d3a   26 minutes ago   3.2GB
                             until the image is updated (docker build)</li>
                         <li>Containers can be started using either:
                             <ul>
-                                <li>a sole dockerfile and <div class="code">docker run -p 80:80 -it
-                                        nehsa/nehsanet:latest</div>
+                                <li>a sole dockerfile and <code>docker run -p 80:80 -it
+                                        nehsa/nehsanet:latest</code>
                                 </li>
-                                <li>a dockerfile and docker-compose.yml and <div class="code">docker compose
-                                        up/down</div>
+                                <li>a dockerfile and docker-compose.yml and <code>docker compose
+                                        up/down</code>
                                 </li>
                             </ul>
                         </li>
                     </ul>
                 </div>
-
-
-
-
-
             </div>
             <div><app-comment></app-comment></div>
         </div>

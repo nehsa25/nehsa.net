@@ -16,7 +16,7 @@
                                     <mat-panel-description>
                                     </mat-panel-description>
                                 </mat-expansion-panel-header>
-                                <div class="code">
+                                <code>
                                     <pre>
     class SyncClass:
         def start_async_method(self, room_image_name, room_description, player):
@@ -27,7 +27,7 @@
         async def generate_room_image(self, room_image_name, room_description, player):
             <span class="comment"># do stuff</span>
 </pre>
-                                </div>
+                                </code>
                             </mat-expansion-panel>
                         </li>
 
@@ -38,13 +38,13 @@
                                     <mat-panel-description>
                                     </mat-panel-description>
                                 </mat-expansion-panel-header>
-                                <div class="code">
+                                <code>
                                 <pre>
 async def setup_world_events(self):
     if self.breeze_task is None:
         self.breeze_task = asyncio.create_task(self.breeze())
 </pre>
-                                </div>
+                                </code>
                             </mat-expansion-panel>
                         </li>
                         <li>
@@ -55,12 +55,12 @@ async def setup_world_events(self):
                                     <mat-panel-description>
                                     </mat-panel-description>
                                 </mat-expansion-panel-header>
-                                <div class="code">result = <span class="important">await</span> something(); <span
+                                <code>result = <span class="important">await</span> something(); <span
                                         class="comment"># the await keyword is
                                         important.<br>Without it, only the routine of what *would* run will be
                                         returned immediately and we would continue without waiting for the actual
                                         execution.</span>
-                                </div>
+                                </code>
                             </mat-expansion-panel>
                         </li>
                         <li>
@@ -70,7 +70,7 @@ async def setup_world_events(self):
                                     <mat-panel-description>
                                     </mat-panel-description>
                                 </mat-expansion-panel-header>
-                                <div class="code">
+                                <code>
                                 <pre>
 ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
 ssl_context.load_cert_chain(
@@ -80,7 +80,7 @@ start_server = websockets.serve(
     m.main, host, port, max_size=9000000, ssl=ssl_context
 )
 </pre>
-                                </div>
+                                </code>
                             </mat-expansion-panel>
                         </li>
                         <li>
@@ -91,7 +91,7 @@ start_server = websockets.serve(
                                     </mat-panel-description>
                                 </mat-expansion-panel-header>
                                 <h4>AsyncIO Class</h4>
-                                <div class="code">
+                                <code>
                                 <pre>
 class Map(Utility):
     def start_async(self, argument):
@@ -102,14 +102,14 @@ class Map(Utility):
     async def generate_map(self, argument):
         <span class="comment"># do stuff</span><br>
 </pre>
-                                </div><br>
+                                </code><br>
                                 <h4>How to call it</h4>
-                                <div class="code">
+                                <code>
                                 <pre>
 map_thread = Thread(target = world.map.start_async, args = (new_room, map_image_name, player, world))
 map_thread.start()
 </pre>
-                                </div>
+                                </code>
                             </mat-expansion-panel>
                         </li>
                         <li>
@@ -125,7 +125,7 @@ map_thread.start()
                                 <ul>
                                     <li>
                                         Setup a new type for our lock:
-                                        <div class="code">
+                                        <code>
                                         <pre>
 import asyncio
 
@@ -137,18 +137,18 @@ class NpcWanderLock:
         self.npc = npc
         <span class="important">self.lock = asyncio.Lock()</span>
 </pre>
-                                        </div>
+                                        </code>
                                     </li>
                                     <li>Create a need for locking, such as a loop that creates threads:
-                                        <div class="code">
+                                        <code>
                                         <pre>
 for npc in self.environments.townsmee.npcs.npcs:  
     await asyncio.create_task(self.npc_wander(npc))
 </pre>
-                                        </div>
+                                        </code>
                                     </li>
                                     <li>Use the lock within the task:
-                                        <div class="code">
+                                        <code>
                                         <pre>
 async def npc_wander(self, npc):
     npclock = NpcWanderLock(npc) <span class="comment">Seems this should be global so I'm not sure why this works..</span>
@@ -156,7 +156,7 @@ async def npc_wander(self, npc):
         await asyncio.sleep(rand)
         await npc.wander(self)
 </pre>
-                                        </div><br>
+                                        </code><br>
                                         Voila, we have locking!!
                                     </li>
                                 </ul>

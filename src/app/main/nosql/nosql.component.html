@@ -134,14 +134,14 @@
                                         <mat-panel-title>Test Connection</mat-panel-title>
                                     </mat-expansion-panel-header>
                                     I just use a simple Python script to test the connection. Here is the code:<br><br>
-                                    <div class="code">
+                                    <code>
                                         <pre>
 import pymongo
 
 client = pymongo.MongoClient("mongodb://localhost:8082/")
 print(client.list_database_names())
                                         </pre>
-                                    </div><br>
+                                    </code><br>
                                     <div class="answer">
                                         <pre>
 PS C:\src> python .\test_mongodb.py
@@ -172,7 +172,7 @@ PS C:\src> python .\test_mongodb.py
                                                 <mat-expansion-panel-header>
                                                     <mat-panel-title>Adding a new record</mat-panel-title>
                                                 </mat-expansion-panel-header>
-                                                <div class="code">
+                                                <code>
                                                     <pre>
 super_cat_poem = &#123;
     "title": "Banshee's Nightlight", 
@@ -190,7 +190,7 @@ collection = db["poems"]
 result = collection.insert_one(super_cat_poem)
 print(result.inserted_id)
                                                 </pre>
-                                                </div><br>
+                                                </code><br>
                                                 <div class="answer">result.inserted_id == 66bdaf9c3780287e7bd15402 <span
                                                         class="comment">(This is the unique ID of the
                                                         record)</span></div>
@@ -199,7 +199,7 @@ print(result.inserted_id)
                                                 <mat-expansion-panel-header>
                                                     <mat-panel-title>Retrieving a record</mat-panel-title>
                                                 </mat-expansion-panel-header>
-                                                <div class="code">
+                                                <code>
                                                     <pre>
 
 <span class="comment"># create a database called "cats"</span><br>
@@ -211,7 +211,7 @@ collection = db["poems"]
 result = collection.find_one(&#123;"title": "Banshee's Nightlight"&#125;)
 print(result)
                                                 </pre>
-                                                </div><br>
+                                                </code><br>
                                                 <div class="answer">result ==
                                                     <pre>
 &#123;
@@ -228,7 +228,7 @@ print(result)
                                                 <mat-expansion-panel-header>
                                                     <mat-panel-title>Updating a record</mat-panel-title>
                                                 </mat-expansion-panel-header>
-                                                <div class="code">
+                                                <code>
                                                     <pre>
 <span class="comment"># create a database called "cats"</span><br>
 db = client["cats"]
@@ -239,7 +239,7 @@ collection = db["poems"]
 result = collection.update_one(&#123;"title": "Banshee's Nightlight"&#125;, &#123;"$set": &#123;"year": 2025&#125;&#125;)
 print(result.modified_count)
                                                 </pre>
-                                                </div><br>
+                                                </code><br>
                                                 <div class="answer">result.modified_count == 1 <span
                                                         class="comment">(This is the
                                                         number of records updated)</span></div>
@@ -248,7 +248,7 @@ print(result.modified_count)
                                                 <mat-expansion-panel-header>
                                                     <mat-panel-title>Deleting a record</mat-panel-title>
                                                 </mat-expansion-panel-header>
-                                                <div class="code">
+                                                <code>
                                                     <pre>
 <span class="comment"># create a database called "cats"</span><br>
 db = client["cats"]
@@ -259,7 +259,7 @@ collection = db["poems"]
 result = collection.delete_one(&#123;"title": "Banshee's Nightlight"&#125;)
 print(result.deleted_count)
                                                 </pre>
-                                                </div><br>
+                                                </code><br>
                                                 <div class="answer">result.deleted_count == 1 <span
                                                         class="comment">(This is the
                                                         number of records deleted)</span></div>

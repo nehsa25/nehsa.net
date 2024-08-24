@@ -43,7 +43,7 @@
                                     Language example: Java, C#, Python<br>
                                     Modeling real-world entities as objects with data (attributes) and behavior
                                     (methods).<br>
-                                    <div class="code">
+                                    <code>
                                         <pre>
 public class Dragon &#123;
     public string Name &#123; get; set; &#125;
@@ -54,7 +54,7 @@ public class Dragon &#123;
     &#125;
 &#125;
                                         </pre>
-                                    </div>
+                                    </code>
                                 </dd>
                                 <dt>
                                     Functional Programming</dt>
@@ -63,13 +63,13 @@ public class Dragon &#123;
                                     Treating computation as the evaluation of mathematical functions and avoiding
                                     changing-state and mutable data. e.g. it's all math - functional programming views
                                     code as a series of mathematical equations that have inputs and produce outputs.<br>
-                                    <div class="code">
+                                    <code>
                                         <pre>
 def dragonSneezingFire(): String = &#123;
     "Poof!"
 &#125;
                                             </pre>
-                                    </div>
+                                    </code>
                                 </dd>
                                 <dt>
                                     Procedural Programming</dt>
@@ -115,7 +115,7 @@ def dragonSneezingFire(): String = &#123;
                             ensure that the software accurately reflects the business domain and
                             requirements.<br><br>By modeling in software (example below in Python), we ensure that the
                             code is a true reflection of the business domain.<br>
-                            <div class="code">
+                            <code>
                                 <pre>
 &#64;dataclass
 class Pet:
@@ -157,10 +157,10 @@ def buy_pet(customer: Customer, pet: Pet):
 def sell_pet(customer: Customer, pet: Pet):
     customer.pets.remove(pet)    
                                 </pre>
-                            </div><br><br>
+                            </code><br><br>
                             A TDD could also be implemented at the same time to ensure that the code is working as
                             expected:<br>
-                            <div class="code">
+                            <code>
                                 <pre>
 def test_order_creation(self):
     canary = Pet("Canary", "Bird", 14.99)
@@ -178,7 +178,7 @@ def test_order_creation(self):
     self.assertEqual(len(order.order_items), 3)
     self.assertEqual(order.total_price(), 14.99 + 34.99 + (3 * 2.99))
                                     </pre>
-                            </div>
+                            </code>
                         </mat-expansion-panel>
                     </li>
                     <li>
@@ -231,7 +231,7 @@ def test_order_creation(self):
                                     needs to do)
                                     <ul>
                                         <li>In the form of:
-                                            <div class="code">
+                                            <code>
                                                 <pre>
 &#64;pytest.mark.automated_not_implemented
 ## Confirms the ... is ... when ...
@@ -243,7 +243,7 @@ pass <span class="comment"><mat-icon>arrow_back</mat-icon> Pass is simply a Pyth
 def test_user_not_in_support_cannot_do_y():
 pass
 </pre>
-                                            </div>
+                                            </code>
                                         </li>
                                     </ul>
                                 </li>
@@ -357,14 +357,14 @@ pass
                                 </dl>
                                 <div>
                                     Example
-                                    <div class="code">
+                                    <code>
                                         <pre>
         if (settings == null)
             settings = new Settings();
         else
             return settings;
                                 </pre>
-                                    </div>
+                                    </code>
                                 </div>
                             </div>
                             <div>
@@ -379,7 +379,7 @@ pass
                                 </dl>
                                 <div>
                                     Example
-                                    <div class="code">
+                                    <code>
                                         <pre>
         class ButtonFactory &#123;
             createButton(type: string): RaisedButton | FlatButton &#123;
@@ -395,7 +395,7 @@ pass
         const btn1 = factory.createButton("flat");
         const btn2 = factory.createButton("raised");
                                 </pre>
-                                    </div>
+                                    </code>
                                 </div>
                             </div>
                             <div>
@@ -410,7 +410,7 @@ pass
                                 </dl>
                                 <div>
                                     Example
-                                    <div class="code">
+                                    <code>
                                         <pre>
     const dog = &#123;
         sit() &#123;
@@ -424,7 +424,7 @@ pass
     hopper.sit();
     
                             </pre>
-                                    </div>
+                                    </code>
                                 </div>
                             </div>
                             <div>
@@ -437,7 +437,7 @@ pass
                                 </dl>
                                 <div>
                                     Example
-                                    <div class="code">
+                                    <code>
                                         <pre>
         // The complex class
         class RainConditions &#123;
@@ -471,7 +471,7 @@ pass
     
     
                                 </pre>
-                                    </div>
+                                    </code>
                                 </div>
                             </div>
                             <div>
@@ -486,7 +486,7 @@ pass
                                 </dl>
                                 <div>
                                     Example
-                                    <div class="code">
+                                    <code>
                                         <pre>
     class WeatherConditions &#123;
         constructor() &#123;&#125;
@@ -512,7 +512,7 @@ pass
     todaysWeather.addRain().addThunder().addFrightening();
     
                             </pre>
-                                    </div>
+                                    </code>
                                 </div>
                             </div>
                         </mat-expansion-panel>
@@ -651,7 +651,7 @@ pass
                                                         For example, this is in the initial interaction when you visit
                                                         this website
                                                         and go to the About Me page:
-                                                        <div class="code">
+                                                        <code>
                                                             <pre>
 &#64;startuml
 actor User
@@ -687,7 +687,7 @@ Website -> User: Display Information
 deactivate Website
 &#64;enduml
 </pre>
-                                                        </div><br><br>
+                                                        </code><br><br>
                                                         Resulting in the following diagram (svg image created on
                                                         PlantUml.com):<br>
                                                         <img src="../assets/images/uml_example.svg"
@@ -709,7 +709,7 @@ deactivate Website
                                                                         <mat-panel-title>Parameters and data
                                                                             flow</mat-panel-title>
                                                                     </mat-expansion-panel-header>
-                                                                    <div class="code">
+                                                                    <code>
                                                                         <pre>
 &#64;startuml
 actor User
@@ -747,7 +747,7 @@ Website -> User: Display Information
 deactivate Website
 &#64;enduml
 </pre>
-                                                                    </div><br><br>
+                                                                    </code><br><br>
                                                                     Resulting in the following diagram (svg image
                                                                     created on PlantUml.com):<br>
                                                                     <img src="../assets/images/uml_example2.svg"
@@ -759,7 +759,7 @@ deactivate Website
                                                                     <mat-expansion-panel-header>
                                                                         <mat-panel-title>Error Flow</mat-panel-title>
                                                                     </mat-expansion-panel-header>
-                                                                    <div class="code">
+                                                                    <code>
                                                                         <pre>
 &#64;startuml
 actor User
@@ -815,7 +815,7 @@ Website -> User: Display Information
 deactivate Website
 &#64;enduml
 </pre>
-                                                                    </div><br><br>
+                                                                    </code><br><br>
                                                                     Resulting in the following diagram (svg image
                                                                     created on PlantUml.com):<br>
                                                                     <img src="../assets/images/uml_example3.svg"
@@ -836,7 +836,7 @@ deactivate Website
                                         </mat-expansion-panel-header>
                                         <span class="importantish">Class diagrams</span> visually show the relationship
                                         between class objects
-                                        <div class="code">
+                                        <code>
                                             <pre>
 &#64;startuml
 class Player&#123;
@@ -877,7 +877,7 @@ Class--Stats: class-specific stats
 Player-- Class: Warrior
 &#64;enduml
 </pre>
-                                        </div>
+                                        </code>
                                         <br><br>
                                         Resulting in the following diagram (svg image created on
                                         PlantUml.com):<br>

@@ -310,8 +310,11 @@ code {
     padding: 3px 1em;
     font-size: 1rem;
     max-width: 90%;
-    line-height: 5lvh !important;
     display: inline-block; // allows it to affect other elements around it
+}
+
+span.code {
+    line-height: 5lvh !important;
 }
 
 span.code:hover {

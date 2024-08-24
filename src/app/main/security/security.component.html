@@ -19,7 +19,7 @@
                         <li><a routerLink="/react">React</a></li>
                         <li><a routerLink="/security">Security</a></li>
                         <li><a routerLink="/testing">Testing</a></li>
-                        <li><a routerLink="/typescript">Typescript</a></li>                    
+                        <li><a routerLink="/typescript">Typescript</a></li>
                     </ul>
                 </div>
                 <div>Cybersecurity is a hotbed right now due to the state of the world and constant reports
@@ -70,20 +70,20 @@
                                     <mat-panel-title>Example using Chef's data bag feature</mat-panel-title>
                                 </mat-expansion-panel-header>
                                 A credential can been added to the secure data bag with the following command:<br>
-                                <div class="code">
+                                <code>
                                     <pre>
 PS C:\src> knife data bag create &lt;ORG&gt; &lt;USERNAME&gt;
 Created data_bag[&lt;ORG&gt;]
 Created data_bag_item[&lt;ORG&gt;/&lt;USERNAME&gt;]
 </pre>
-                                </div><br>
+                                </code><br>
 
                                 The username and password can be added to the data bag with the following command:<br>
-                                <div class="code">
+                                <code>
                                     <pre>
 PS C:\src> knife data bag edit &lt;ORG&gt; &lt;USERNAME&gt;
 </pre>
-                                </div>
+                                </code>
                                 <span class="additional-note">This will open the data bag in your default editor. Add
                                     your
                                     password information here! For it to be a secure data bag, the data bag must be
@@ -92,24 +92,23 @@ PS C:\src> knife data bag edit &lt;ORG&gt; &lt;USERNAME&gt;
                                     secret
                                     management system or at least outside Chef).</span><br>
 
-                                <div class="code">
+                                <code>
                                     <pre>
 PS C:\src> knife data bag show &lt;ORG&gt; &lt;USERNAME&gt;
 id:       &lt;USER_ID&gt;
 password: &lt;USER_PASSWORD&gt;
 username: &lt;USER_USERNAME&gt;
 </pre>
-                                </div>
+                                </code>
 
                                 Finally, this can be used like this:
-                                <div class="code">
+                                <code>
                                     <pre>
 credentials = data_bag_item('&lt;ORG&gt;', '&lt;USERNAME&gt;')
 username = credentials['username']
 password = credentials['password']
 </pre>
-                                </div>
-
+                                </code>
                             </mat-expansion-panel>
                         </li>
                         <li>Use a password manager - do not use the same password for multiple sites!</li>

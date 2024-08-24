@@ -17,14 +17,15 @@
                         <dd>
                             pfx files to securely store private keys, associated public key certificates, and
                             intermediate certificates, forming a chain. They are typically password protected.<br>
-                            <div class="code">openssl pkcs12 -inkey private.key -in ca_bundle.crt -export -out out.pfx &lt;supersecretpassword&gt;</div>
+                            <code>openssl pkcs12 -inkey private.key -in ca_bundle.crt -export -out out.pfx &lt;supersecretpassword&gt;</code>
                         </dd>
                         <dt>ca_bundle.crt</dt>
                         <dd>
                             Root and intermediate certificates
                         </dd>
                         <dt>certificate.crt</dt>
-                        <dd>The certificate from your provider.  <span class="important">Pro-tip: Paste the ca_bundle.crt at the top of this file so you have one combined-complete chain file.</span></dd>
+                        <dd>The certificate from your provider. <span class="important">Pro-tip: Paste the ca_bundle.crt
+                                at the top of this file so you have one combined-complete chain file.</span></dd>
                         <dt>private.key</dt>
                         <dd>The secret portion of the public/private key relationship.</dd>
                     </dl>
@@ -54,8 +55,8 @@
                                     <li>Within Cygwin Terminal,
                                         <ul>
                                             <li>
-                                                <div class="code">openssl pkcs12 -export -out api.nehsa.net.pfx -inkey
-                                                    private.key -in certificate.crt</div>
+                                                <code>openssl pkcs12 -export -out api.nehsa.net.pfx -inkey
+                                                    private.key -in certificate.crt</code>
                                             </li>
                                             <li>Enter super secret password twice</li>
 
@@ -65,21 +66,18 @@
                                         container (C:\certs)</li>
                                     <li>
                                         Launch container:
-                                        <div class="code">
+                                        <code>
                                             docker run -it -p 22007:22007 -e ASPNETCORE_URLS="https://+:22007" -e
                                             ASPNETCORE_HTTPS_PORT=22007 -e
                                             ASPNETCORE_Kestrel__Certificates__Default__Password="&lt;password&gt;" -e
                                             ASPNETCORE_Kestrel__Certificates__Default__Path="/https/api.nehsa.net.pfx"
                                             -v C:\certs:/https/ nehsa/nehsaapi:latest
-                                        </div>
+                                        </code>
                                     </li>
                                     <li>Rebuild container: <span class="code">docker build -t nehsa/nehsaapi:latest
-                                            .</span>                                        
-                                        </li>
-
-
+                                            .</span>
+                                    </li>
                                 </ol>
-
                             </li>
                         </ol>
                     </div>
@@ -99,14 +97,14 @@
                                                     <dl>
                                                         <dt>certificate.crt</dt>
                                                         <dd>
-                                                        <pre>
+                                                            <pre>
 -----BEGIN CERTIFICATE-----
 -----END CERTIFICATE-----
                                                         </pre>
                                                         </dd>
                                                         <dt>private.key</dt>
                                                         <dd>
-                                                        <pre>
+                                                            <pre>
 -----BEGIN PRIVATE KEY-----
 -----END PRIVATE KEY-----
                                                         </pre>
@@ -124,7 +122,7 @@
                             </li>
                             <li>
                                 <h3>Create pfx from pem/crt - needed for IIS HTTPS</h3>
-                                <div class="code">
+                                <code>
                                 <pre>
 mkdir c:\tmp
 $cert = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname tenasys.corp;
@@ -132,18 +130,18 @@ $pwd = ConvertTo-SecureString -String '&lt;PASSWORD&gt;' -Force -AsPlainText;
 $path = 'Cert:\LocalMachine\My\' + $cert.thumbprint;
 Export-PfxCertificate -cert $path -FilePath c:\tmp\powershellcert.pfx -Password $pwd
                             </pre>
-                                </div>
+                        </code>
                             </li>
                         </ul>
                     </div>
                     <div>
                         <h3>Convert crt -> pem</h3>
-                        <div class="code">
+                        <code>
                             <pre>
 openssl x509 -in ca_bundle.crt -out ca_bundle.pem -outform PEM
 openssl x509 -in certificate.crt -out certificate.pem -outform PEM
                             </pre>
-                        </div>
+                        </code>
                     </div>
                 </div>
             </div>

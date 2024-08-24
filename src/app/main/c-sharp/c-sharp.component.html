@@ -85,7 +85,7 @@
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Accessors</mat-panel-title>
                                 </mat-expansion-panel-header>
-                                <div class="code">
+                                <code>
                                     <pre>
 public class Person
 &#123;
@@ -98,7 +98,7 @@ public class Person
     &#125;
 &#125;
     </pre>
-                                </div>
+                                </code>
                             </mat-expansion-panel>
                         </li>
                         <li>
@@ -133,7 +133,7 @@ public class Person
                                                     be enumerated over, meaning you
                                                     can iterate through their elements.<br><br>
                                                     Example:<br>
-                                                    <div class="code">
+                                                    <code>
                                                         <pre>
 // Create a list of integers
 List&lt;int&gt; numbers = new List&lt;int&gt; &#123; 1, 2, 3, 4, 5 &#125;;
@@ -144,20 +144,20 @@ foreach (int number in numbers)
     Console.WriteLine(number);
 &#125;
 </pre>
-                                                    </div>
+                                                    </code>
 
                                                     The definition of the class &quot;List&quot; is below and you can
                                                     see
                                                     how it
                                                     inherits IEnumerable enabling this:<br>
-                                                    <div class="code">
+                                                    <code>
                                                         <pre>
 public class List&lt;T&gt; : ICollection&lt;T&gt;, IEnumerable&lt;T&gt;, IEnumerable, IList&lt;T&gt;, IReadOnlyCollection&lt;T&gt;, IReadOnlyList&lt;T&gt;, ICollection, IList
 &#123;
     ...
 &#125;
 </pre>
-                                                    </div>
+                                                    </code>
                                                 </div>
                                             </mat-expansion-panel>
                                         </li>
@@ -166,7 +166,7 @@ public class List&lt;T&gt; : ICollection&lt;T&gt;, IEnumerable&lt;T&gt;, IEnumer
                                                 <mat-expansion-panel-header>
                                                     <mat-panel-title>A class interface looks like this</mat-panel-title>
                                                 </mat-expansion-panel-header>
-                                                <div class="code">
+                                                <code>
                                                     <pre>
 namespace scratch
 &#123;
@@ -272,9 +272,9 @@ namespace scratch
     &#125;
 &#125;    
 </pre>
-                                                </div><br>
+                                                </code><br>
                                                 Running this produces the correct result:<br>
-                                                <div class="code">
+                                                <code>
                                                     <pre>
 PS C:\src\scratch> .\scratch.exe
 You eat a Pumpkin
@@ -284,7 +284,7 @@ You eat a Strawberry
 You can't peel a Strawberry
 You throw a Strawberry
 </pre>
-                                                </div>
+                                                </code>
                                             </mat-expansion-panel>
                                         </li>
                                         <li>
@@ -308,7 +308,7 @@ public class Orange : IFruit &#123;
 </pre>
                                                     </div>
                                                     Produces the error:<br>
-                                                    <div class="code">
+                                                    <code>
                                                         <pre>
 C:\src\scratch\Scratch\Program.cs(88,27): error CS0535: 'Orange' does not implement interface member 'IFruit.Name' [C:\src\scratch\Scratch\scratch.csproj]
 C:\src\scratch\Scratch\Program.cs(88,27): error CS0535: 'Orange' does not implement interface member 'IFruit.Calories' [C:\src\scratch\Scratch\scratch.csproj]
@@ -317,7 +317,7 @@ C:\src\scratch\Scratch\Program.cs(88,27): error CS0535: 'Orange' does not implem
 C:\src\scratch\Scratch\Program.cs(88,27): error CS0535: 'Orange' does not implement interface member 'IFruit.Peel()' [C:\src\scratch\Scratch\scratch.csproj]
 C:\src\scratch\Scratch\Program.cs(88,27): error CS0535: 'Orange' does not implement interface member 'IFruit.Throw()' [C:\src\scratch\Scratch\scratch.csproj]
 </pre>
-                                                    </div>
+                                                    </code>
                                                 </div>
                                             </mat-expansion-panel>
                                         </li>
@@ -339,7 +339,7 @@ C:\src\scratch\Scratch\Program.cs(88,27): error CS0535: 'Orange' does not implem
                                     cannot ONLY define a contract, not the implementation details. Instead, we could use
                                     an
                                     abstract class as well for shared code:
-                                    <div class="code">
+                                    <code>
                                         <pre>
 namespace scratch
 &#123;
@@ -451,7 +451,7 @@ namespace scratch
     &#125;
 &#125;    
 </pre>
-                                    </div>
+                                    </code>
                                 </div>
                                 <span class="importantish">Sexy code..</span>
                             </mat-expansion-panel>
@@ -625,7 +625,7 @@ namespace scratch
                                                         Specific things to do:<br>
                                                         <ol>
                                                             <li>Some code to help you troubleshoot:<br>
-                                                                <div class="code">
+                                                                <code>
                                                                     <pre>
 private static int SaveChanges(EntitlementsContext db)
 &#123;
@@ -663,7 +663,7 @@ private static int SaveChanges(EntitlementsContext db)
     &#125;
 &#125;
 </pre>
-                                                                </div>
+                                                                </code>
                                                             </li>
                                                         </ol>
                                                     </li>
@@ -696,7 +696,7 @@ private static int SaveChanges(EntitlementsContext db)
                                     </mat-expansion-panel-header>
                                     <span class="code">dotnet new console -o Scratch</span>
                                     <br>Creates a new console app in a folder called Scratch with a csproj file of:
-                                    <div class="code">
+                                    <code>
                                         <pre>
 &lt;Project Sdk="Microsoft.NET.Sdk"&gt;
     &lt;PropertyGroup&gt;
@@ -707,7 +707,7 @@ private static int SaveChanges(EntitlementsContext db)
     &lt;/PropertyGroup&gt;
 &lt;/Project&gt;                                              
 </pre>
-                                    </div>
+                                    </code>
                                 </mat-expansion-panel>
                             </li>
                             <li>
@@ -718,9 +718,9 @@ private static int SaveChanges(EntitlementsContext db)
                                     Since version 3.0.0, ASP.NET Core introduces a new serializer System.Text.Json (STJ)
                                     out-of-the-box to replace Newtonsoft
                                     <br>e.g.
-                                    <div class="code">string serializedObject = JsonSerializer.Serialize(x);</div>
+                                    <code>string serializedObject = JsonSerializer.Serialize(x);</code>
                                     <br>Vs.<br>
-                                    <div class="code">string serializedObject = JsonConvert.SerializeObject(x);</div>
+                                    <code>string serializedObject = JsonConvert.SerializeObject(x);</code>
                                 </mat-expansion-panel>
                             </li>
                             <li>
@@ -746,7 +746,7 @@ private static int SaveChanges(EntitlementsContext db)
                                         <mat-panel-title>Change API Port</mat-panel-title>
                                     </mat-expansion-panel-header>
                                     The port can be changed in properties\launchsettings.json
-                                    <div class="code">
+                                    <code>
                                         <pre>
 &#123;
     "$schema": "http://json.schemastore.org/launchsettings.json",
@@ -780,7 +780,7 @@ private static int SaveChanges(EntitlementsContext db)
     &#125;
 &#125;                                      
 </pre>
-                                    </div>
+                                    </code>
                                 </mat-expansion-panel>
                             </li>
                             <li>
@@ -798,7 +798,7 @@ private static int SaveChanges(EntitlementsContext db)
                                                 <li>Within your project folder, create a "Controllers" folder
                                                     <ul>
                                                         <li>Add <span class=file>MainController.cs</span>
-                                                            <div class="code">
+                                                            <code>
                                                                 <pre>
 namespace NehsaNet.Controllers
 &#123;
@@ -816,11 +816,11 @@ namespace NehsaNet.Controllers
     &#125;
 &#125;
                                                             </pre>
-                                                            </div>
+                                                            </code>
                                                         </li>
                                                         <li>
                                                             Update <span class=file>Program.cs</span> to use it
-                                                            <div class="code">
+                                                            <code>
                                                                 <pre>
 internal class Program
 &#123;
@@ -835,7 +835,7 @@ internal class Program
     &#125;
 &#125;
 </pre>
-                                                            </div>
+                                                            </code>
                                                         </li>
                                                     </ul>
                                                 </li>
@@ -851,7 +851,7 @@ internal class Program
                                                         </mat-expansion-panel-header>
                                                         <ul>
                                                             <li>Parameters within URL:
-                                                                <div class="code">
+                                                                <code>
                                                                     <pre>
 [HttpGet]
 [Route("/v1/quote/&#123;id&#125;")]
@@ -861,11 +861,11 @@ public string GetQuote(int id)
     return JsonSerializer.Serialize&lt;string&gt;(quotes[id]);
 &#125;
 </pre>
-                                                                </div>
+                                                                </code>
                                                             </li>
                                                             <li>
                                                                 Parameters within query string:
-                                                                <div class="code">
+                                                                <code>
                                                                     <pre>
 [HttpGet]
 [Route("/v1/quote")]
@@ -875,11 +875,11 @@ public string GetQuote([FromQuery] int id)
     return JsonSerializer.Serialize&lt;string&gt;(quotes[id]);
 &#125;
 </pre>
-                                                                </div>
+                                                                </code>
                                                             </li>
                                                             <li>
                                                                 Optional Parameters:
-                                                                <div class="code">
+                                                                <code>
                                                                     <pre>
 [HttpGet]
 [Route("/v1/quote")]
@@ -887,10 +887,10 @@ public string GetQuote([FromQuery] int id)
 public string GetQuote([FromQuery] int? id)
 &#123;
 </pre>
-                                                                </div>
+                                                                </code>
                                                             </li>
                                                             <li>A complex mix of the two:
-                                                                <div class="code">
+                                                                <code>
                                                                     <pre>
 [HttpGet]
 [Route("/v1/quote/&#123;id&#125;")]
@@ -900,7 +900,7 @@ public string GetQuote(int id, [FromQuery] string name)
     return JsonSerializer.Serialize&lt;string&gt;(quotes[id]);
 &#125;
 </pre>
-                                                                </div>
+                                                                </code>
                                                             </li>
                                                         </ul>
                                                     </mat-expansion-panel>
@@ -912,7 +912,7 @@ public string GetQuote(int id, [FromQuery] string name)
                                                         </mat-expansion-panel-header>
                                                         this style seems to be a pattern nowadays. I don't like it. It's
                                                         difficult to read and hard to modify.
-                                                        <div class="code">
+                                                        <code>
                                                             <pre>
 app.MapGet("/v1/quote", [SwaggerOperation(
 Summary = "Returns a single quote",
@@ -925,8 +925,8 @@ Description = "A random quote is returned.  Because.")]
 .WithName("Quotes")
 .WithOpenApi();
 </pre>
-                                                        </div>I much prefer this for readability:
-                                                        <div class="code">
+                                                        </code>I much prefer this for readability:
+                                                        <code>
                                                             <pre>
 namespace NehsaNet.Controllers
 &#123;
@@ -944,7 +944,7 @@ namespace NehsaNet.Controllers
     &#125;
 &#125;             
     </pre>
-                                                        </div>
+                                                        </code>
                                                     </mat-expansion-panel>
                                                 </li>
                                             </ul>
@@ -961,7 +961,7 @@ namespace NehsaNet.Controllers
                                         <li>
 
                                             Within <span class=file>program.cs</span>:
-                                            <div class="code">
+                                            <code>
                                                 <pre>
 var  customOrigins = "_customOrigins";
 
@@ -975,10 +975,10 @@ builder.Services.AddCors(options =>
         &#125;);
 &#125;);
 </pre>
-                                            </div>
+                                            </code>
                                         </li>
                                         <li>Use it:
-                                            <div class="code">
+                                            <code>
                                                 <pre>
 if (app.Environment.IsDevelopment())
 &#123;
@@ -987,7 +987,7 @@ if (app.Environment.IsDevelopment())
     app.UseCors(customOrigins); <span class="comment"><-- Here</span>
 &#125;
 </pre>
-                                            </div>
+                                            </code>
                                         </li>
                                     </ul>
                                 </mat-expansion-panel>
@@ -998,7 +998,7 @@ if (app.Environment.IsDevelopment())
                                         <mat-panel-title>Configure Swagger Support</mat-panel-title>
                                     </mat-expansion-panel-header>
                                     <div>
-                                        <div class="code">
+                                        <code>
                                             <pre>
 internal class Program
 &#123;
@@ -1028,7 +1028,7 @@ internal class Program
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </code>
                                     </div>
                                 </mat-expansion-panel>
                             </li>
@@ -1041,7 +1041,7 @@ internal class Program
                                     <ul>
                                         <li>
                                             <span class=file>Program.cs</span>
-                                            <div class="code">
+                                            <code>
                                                 <pre>
 internal class Program
 &#123;
@@ -1060,11 +1060,11 @@ internal class Program
     &#125;
 &#125;
 </pre>
-                                            </div>
+                                            </code>
                                         </li>
                                         <li>
                                             <span class=file>appsettings.json.cs</span>
-                                            <div class="code">
+                                            <code>
                                                 <pre>
 "Logging": &#123;
     "LogLevel": &#123;
@@ -1083,7 +1083,7 @@ internal class Program
     &#125;
 &#125;           
 </pre>
-                                            </div>
+                                            </code>
                                         </li>
                                     </ul>
                                 </mat-expansion-panel>
@@ -1095,7 +1095,7 @@ internal class Program
                                     </mat-expansion-panel-header>
                                     <ol>
                                         <li>Create <span class="file">.vscode\tasks.json</span>
-                                            <div class="code">
+                                            <code>
                                                 <pre>
 &#123;
     "version": "2.0.0",
@@ -1140,10 +1140,10 @@ internal class Program
     ]
 &#125;
 </pre>
-                                            </div>
+                                            </code>
                                         </li>
                                         <li>Create <span class="file">.vscode\launch.json</span>
-                                            <div class="code">
+                                            <code>
                                                 <pre>
 &#123;
     "version": "0.2.0",
@@ -1172,7 +1172,7 @@ internal class Program
     ]    
 &#125;
 </pre>
-                                            </div>
+                                            </code>
                                         </li>
                                     </ol>
                                 </mat-expansion-panel>
@@ -1182,7 +1182,7 @@ internal class Program
                                     <mat-expansion-panel-header>
                                         <mat-panel-title>Healthchecks!</mat-panel-title>
                                     </mat-expansion-panel-header>
-                                    <div class="code">
+                                    <code>
                                         <pre>
 internal class Program
 &#123;
@@ -1196,7 +1196,7 @@ internal class Program
     &#125;
 &#125;
 </pre>
-                                    </div>
+                                    </code>
                                     Access via /health:<br>
                                     <img mat-card-image src="../../../assets/images/healthcheck.png"
                                         alt="screenshot of api returning health" />

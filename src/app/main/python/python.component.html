@@ -20,7 +20,7 @@
                         <li><a routerLink="/react">React</a></li>
                         <li><a routerLink="/security">Security</a></li>
                         <li><a routerLink="/testing">Testing</a></li>
-                        <li><a routerLink="/typescript">Typescript</a></li>                    
+                        <li><a routerLink="/typescript">Typescript</a></li>
                     </ul>
                 </div>
                 <div>
@@ -109,19 +109,19 @@
                                 Working with types explicity can mitigate this.<br><br>
                                 For example:<br>
                                 <br>The old, somewhat sad way:
-                                <div class="code">
+                                <code>
                                     <pre>
 def __init__(self, room, description):
     ...
 </pre>
-                                </div><br>
+                                </code><br>
                                 The new, happier way:
-                                <div class="code">
+                                <code>
                                     <pre>
 def __init__(self, room:str, description: str) -> None:
     ...
 </pre>
-                                </div>
+                                </code>
                                 <br>
                                 In the example above, we ensure that the variables "room" and "description" are
                                 strings and that the return value is a
@@ -130,12 +130,12 @@ def __init__(self, room:str, description: str) -> None:
                                 from a constructor but that's beside the point).
                                 <br><br>
                                 Example 2:
-                                <div class="code">
+                                <code>
                                     <pre>
 def say_hello(name: str) -> str:
     return "Hello " + name
 </pre>
-                                </div>
+                                </code>
                                 <br>
                                 Similar but we're also indicating that the return type must be a string.
 
@@ -166,21 +166,21 @@ def say_hello(name: str) -> str:
                                 but not with Python. In Python, you can use properties to get and set values. This
                                 is a much cleaner way to work with classes and is more Pythonic. <br><br>
 
-                                <div class="code">
+                                <code>
                                     <pre>
 &#64;property
 async def description(self):
     return await self.get_player_description()
 p.description = await player.description
 </pre>
-                                </div><br><br>
+                                </code><br><br>
                                 By using the property decorator, you can access the method as if it were a
                                 property:<br>
                                 <span class="code">p.description = await player.description</span><br><br>
                                 More complexity can be had by using the setter decorator.<br><br>This allows you to
                                 also
                                 set description:<br>
-                                <div class="code">
+                                <code>
                                     <pre>
 &#64;property
 def description(self):
@@ -192,7 +192,7 @@ def description(self, value):
         raise ValueError("Description cannot be empty")
     self._description = value
 </pre>
-                                </div>
+                                </code>
 
                             </mat-expansion-panel>
                         </li>
@@ -261,7 +261,7 @@ def description(self, value):
                                     <li>Synchronously: A disgraced fully synchronous function. We will only proceed
                                         to the next iteration of the loop when the previous returns. OK if the call
                                         is near instantaneous, but any delay quickly adds up
-                                        <div class="code">
+                                        <code>
                                             <pre>
 def sync_example(self):        
     for i in range(self.number_iterations):
@@ -269,10 +269,10 @@ def sync_example(self):
 # sync
 t.sync_example()                                         
         </pre>
-                                        </div>
+                                        </code>
                                     </li>
                                     <li>Asynchronously (threading - executor.submit):<br>
-                                        <div class="code">
+                                        <code>
                                             <pre>
 def thread_example(self, i):
     time.sleep(0.1)
@@ -285,10 +285,10 @@ def async_threading_example(self):
 # threading
 t.async_threading_example()
         </pre>
-                                        </div>
+                                        </code>
                                     </li>
                                     <li>Asynchronously (threading - executor.map):<br>
-                                        <div class="code">
+                                        <code>
                                             <pre>
 def thread_example(self, i):
     time.sleep(0.1)
@@ -301,7 +301,7 @@ def async_threading_example(self):
 # threading
 t.async_threading_example()
         </pre>
-                                        </div>
+                                        </code>
                                         <span class="comment">Notice the nearly similar syntax of <span
                                                 class="importantish">the map</span> to <span
                                                 class="importantish">submit</span>.
@@ -312,7 +312,7 @@ t.async_threading_example()
                                             passed to thread functions.</span>
                                     </li>
                                     <li>Asynchronously (AsyncIO):<br>
-                                        <div class="code">
+                                        <code>
                                             <pre>
 # the "thread/task" function that's doing the actual work
 async def sleep_asyncio_example(self):
@@ -331,12 +331,12 @@ loop = asyncio.new_event_loop()
 # starts our async function
 loop.run_until_complete(t.sleep_asyncio_thread_example())
         </pre>
-                                        </div>
+                                        </code>
                                     </li>
                                 </ol>
                                 <br><br>
                                 Timings (.1 sleep):
-                                <div class="code">
+                                <code>
                                     <pre>
 115.96500 seconds
 Results from threading examples, quickest first:
@@ -406,7 +406,7 @@ Sync, iterations: 20, sleep: 2 took 40.00650 seconds
 Sync, iterations: 5, sleep: 1 took 5.00185 seconds
                                             </pre><br><span class="important">or, </span>if preferred read as a horse
                                     race:
-                                    <div class="code">
+                                    <code>
 <pre>
 The Great Sleep Race: Sync vs Threading vs Asyncio!
 In the lead:
@@ -426,8 +426,8 @@ So, the winner is...
 
 It depends! For quick single tasks, synchronous execution wins. For multiple tasks with waiting (like network requests), threading might be faster. Asyncio shines when dealing with many I/O bound tasks that don't rely heavily on CPU power.
 </pre>
-                                </div>
-                                </div>
+                                </code>
+                                </code>
                             </mat-expansion-panel>
                         </li>
                         <li>
@@ -437,28 +437,28 @@ It depends! For quick single tasks, synchronous execution wins. For multiple tas
                                 </mat-expansion-panel-header>
 
                                 Numbers, fixed decimal places:<br>
-                                <div class="code">
+                                <code>
                                     <pre>
 super_long_number = 12345678923423.4234234230
 print(f"super_long_number with 2 percision: &#123;super_long_number:.2f&#125;")
 </pre>
-                                </div>Results in <span class="important">12,345,678,923,423.42</span>
+                                </code>Results in <span class="important">12,345,678,923,423.42</span>
                                 <br><br>
                                 Numbers, commas:<br>
-                                <div class="code">
+                                <code>
                                     <pre>
 super_long_number = 12345678923423.4234234230
 print(f"super_long_number: &#123;super_long_number:.0f&#125;")
 </pre>
-                                </div>Results in <span class="important">12,345,678,923,423</span>
+                                </code>Results in <span class="important">12,345,678,923,423</span>
                                 <br><br>
                                 Scientific:<br>
-                                <div class="code">
+                                <code>
                                     <pre>
 super_long_number = 12345678923423.4234234230
 print(f"Number: &#123;super_long_number:.2e&#125;")
 </pre>
-                                </div>Results in <span class="important">1.23e+13</span>
+                                </code>Results in <span class="important">1.23e+13</span>
                                 <br>
                             </mat-expansion-panel>
                         </li>
@@ -469,12 +469,12 @@ print(f"Number: &#123;super_long_number:.2e&#125;")
                                     <mat-panel-subtitle>Constructor is: <span class="code">def __init__(self,
                                             &lt;PARAMS&gt;):</span></mat-panel-subtitle>
                                 </mat-expansion-panel-header>
-                                <div class="code">
+                                <code>
                                     <pre>
 def __init__(self, &lt;PARAMS&gt;):
     pass
 </pre>
-                                </div>
+                                </code>
                             </mat-expansion-panel>
                         </li>
                         <li>
@@ -486,7 +486,7 @@ def __init__(self, &lt;PARAMS&gt;):
                                 </mat-expansion-panel-header>
                                 Given you have a list of objects such as and you need to see if you have a lock on a
                                 specific NPC:
-                                <div class="code">
+                                <code>
                                     <pre>
 locks = []
 class NpcWanderLock:
@@ -497,24 +497,24 @@ def __init__(self, npc_name):
     self.npc_name = npc_name
     self.lock = asyncio.Lock()    
 </pre>
-                                </div><br><br>
+                                </code><br><br>
 
                                 Traditionally:
-                                <div class="code">
+                                <code>
                                     <pre>
 for npclock in self.npc_running_wander_event:
     if npclock.npc_name == npc.name:
         continue
 </pre>
-                                </div><br>
+                                </code><br>
                                 Same thing using list comphrehension with a single line of code. <span
                                     class="note">Technically, these will provide different results as the loop will
                                     remain "None" if nothing is found or the found object if something is found. The
                                     list comprehsion, on the other hand, is
                                     a list and will either be a length of 0 if nothing if found or have a single
                                     entry accessed via lock[0].</span>
-                                <div class="code"><span>lock = [x.lock for x in self.npc_running_wander_event if
-                                        x.npc_name == npc.name]</span></div><br>
+                                <code><span>lock = [x.lock for x in self.npc_running_wander_event if
+                                        x.npc_name == npc.name]</span></code><br>
                                 Which is shorthand for:<br>
                                 From the object <span class="important">"x"</span>, give me the attribute <span
                                     class="important">"lock" only if</span> the name of the object (x.npc_name) is
@@ -531,7 +531,7 @@ for npclock in self.npc_running_wander_event:
                                 parent class.
 
                                 Take for example a structure like this (known as a "factory" pattern):
-                                <div class="code">
+                                <code>
                                     <pre>
 class Npc:
     def __init__(self):
@@ -543,7 +543,7 @@ class Guard(Npc):
 
 bob_the_guard = Guard()
 </pre>
-                                </div>
+                                </code>
                                 <br>
                                 <button mat-button color="accent" (click)="clickAnswerTwo()" class="question"><mat-icon
                                         class="questionmark">question_mark</mat-icon>Will the
@@ -552,7 +552,7 @@ bob_the_guard = Guard()
                                     &#123;&#123;answerTwo&#125;&#125;<br>
                                     It can sometimes be handy to call the base/parent constructor. For example, if
                                     your parent constructor has a optional parameter "name":
-                                    <div class="code">
+                                    <code>
                                         <pre>
 class Npc:
     name = ""
@@ -570,7 +570,7 @@ class Guard(Npc):
 
 bob_the_guard = Guard()
 </pre>
-                                    </div>
+                                    </code>
                                     <div>
                                         <pre>
 I'm being constructed baby!
@@ -589,7 +589,7 @@ And my name is: Maximus
                                     <mat-panel-subtitle>Triple Quotes: <span
                                             class="code">"""</span></mat-panel-subtitle>
                                 </mat-expansion-panel-header>
-                                <div class="code">
+                                <code>
                                     <pre>
 player_stats = f"""        
 Hello &#123;player.name&#125;&lt;br&gt;
@@ -612,7 +612,7 @@ Current Conditions and Aielments:&lt;br&gt;
 **************************************************&lt;br&gt;
 """
 </pre>
-                                </div>
+                                </code>
                             </mat-expansion-panel>
                         </li>
                         <li>
@@ -620,9 +620,9 @@ Current Conditions and Aielments:&lt;br&gt;
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Shallow Vs. Deep copy</mat-panel-title>
                                 </mat-expansion-panel-header>
-                                <div class="code">In most cases, Python uses shallow copying for variables. They
+                                <code>In most cases, Python uses shallow copying for variables. They
                                     means when you do something like this:
-                                    <div class="code">
+                                    <code>
                                         <pre>
 monsters_a = []
 monsters_b = []
@@ -644,7 +644,7 @@ monsters_a.append("Jerry")
                                             and list b. What happens to one, happens to the other. We need to do a
                                             deep copy
                                             to separate the contents.<br><br>The can be done using deepcopy():
-                                            <div class="code">
+                                            <code>
                                                 <pre>
 monsters_a = []
 monsters_b = []
@@ -652,19 +652,19 @@ monsters_a = deepcopy(monsters_b)
 monsters_a.append("Jerry")
 <span class="code">print(monsters_b)</span><span class="answer">['']</span>
 </pre>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Try/Except</mat-panel-title>
-                                </mat-expansion-panel-header>
-                                Python has a nice enhancement for try/catches, traceback:
-                                <div class="code">
+                                            </code>
+                </div>
+                </code>
+                </code>
+                </mat-expansion-panel>
+                </li>
+                <li>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Try/Except</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        Python has a nice enhancement for try/catches, traceback:
+                        <code>
                                     <pre>
 try:
     <span class="comment">&lt;CODE WE WISH TO RUN&gt;</span>
@@ -677,9 +677,9 @@ except:
         f"An error occurred!\nException:\n&#123;traceback.format_exc()&#125;", logger <span class="comment"><mat-icon>arrow_back</mat-icon> format_exc() is an easy way to provide good stacktrace information</span>
     )
 </pre>
-                                </div><br>
-                                Example output:<br>
-                                <div class="code">
+                                </code><br>
+                        Example output:<br>
+                        <code>
                                     <pre>
 Traceback (most recent call last):
 File "&lt;PATH&gt;\&lt;FILE&gt;", line &lt;LINE NUMBER&gt;, in main
@@ -691,74 +691,74 @@ File "C:\Local\Programs\Python\Python312\Lib\site-packages\websockets\legacy\pro
     raise self.connection_closed_exc()
 websockets.exceptions.ConnectionClosedOK: received 1005 (no status received [internal]); then sent 1005 (no status received [internal])
 </pre>
-                                </div>
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Ternary in Python</mat-panel-title>
-                                    <mat-panel-subtitle><span class="code">True if result is not None else
-                                            False</span></mat-panel-subtitle>
-                                </mat-expansion-panel-header>
-                                The typical ternary operation found in most languages can be represented like this
-                                in
-                                Python:<br>
-                                <span class="code">result == null ? true : false</span> <span
-                                    class="comment"><mat-icon>arrow_back</mat-icon> the yoozh</span><br>
-                                <span class="code">True if result is not None else False</span> <span
-                                    class="comment"><mat-icon>arrow_back</mat-icon> Python</span>
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Working with large numbers</mat-panel-title>
-                                    <mat-panel-subtitle><span class="code">t =
-                                            ThreadingExamples(1_000_000)</span></mat-panel-subtitle>
-                                </mat-expansion-panel-header>
-                                Use underscores as a visual separator for large numbers.
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Python project file organization</mat-panel-title>
-                                    <mat-panel-subtitle>__init__.py</mat-panel-subtitle>
-                                </mat-expansion-panel-header>
-                                To use subfolders to better organize your code, a file must be created called <span
-                                    class="file">__init__.py</span>.
+                                </code>
+                    </mat-expansion-panel>
+                </li>
+                <li>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Ternary in Python</mat-panel-title>
+                            <mat-panel-subtitle><span class="code">True if result is not None else
+                                    False</span></mat-panel-subtitle>
+                        </mat-expansion-panel-header>
+                        The typical ternary operation found in most languages can be represented like this
+                        in
+                        Python:<br>
+                        <span class="code">result == null ? true : false</span> <span
+                            class="comment"><mat-icon>arrow_back</mat-icon> the yoozh</span><br>
+                        <span class="code">True if result is not None else False</span> <span
+                            class="comment"><mat-icon>arrow_back</mat-icon> Python</span>
+                    </mat-expansion-panel>
+                </li>
+                <li>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Working with large numbers</mat-panel-title>
+                            <mat-panel-subtitle><span class="code">t =
+                                    ThreadingExamples(1_000_000)</span></mat-panel-subtitle>
+                        </mat-expansion-panel-header>
+                        Use underscores as a visual separator for large numbers.
+                    </mat-expansion-panel>
+                </li>
+                <li>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Python project file organization</mat-panel-title>
+                            <mat-panel-subtitle>__init__.py</mat-panel-subtitle>
+                        </mat-expansion-panel-header>
+                        To use subfolders to better organize your code, a file must be created called <span
+                            class="file">__init__.py</span>.
 
-                                The __init__.py files are required to make Python treat directories containing the
-                                file
-                                as packages (unless using a namespace package, a relatively advanced feature). This
-                                prevents directories with a common name, such as string, from unintentionally hiding
-                                valid modules that occur later on the module search path. In the simplest case,
-                                __init__.py can just be an empty file, but it can also execute initialization code
-                                for
-                                the package or set the __all__ variable, described later.
+                        The __init__.py files are required to make Python treat directories containing the
+                        file
+                        as packages (unless using a namespace package, a relatively advanced feature). This
+                        prevents directories with a common name, such as string, from unintentionally hiding
+                        valid modules that occur later on the module search path. In the simplest case,
+                        __init__.py can just be an empty file, but it can also execute initialization code
+                        for
+                        the package or set the __all__ variable, described later.
 
-                                This will no longer be necessary in Python 3.3+
+                        This will no longer be necessary in Python 3.3+
 
-                                <ul>
-                                    <li>To access this subpackage, refer to it with a period: <span class="code">from
-                                            races.goblin import Goblin</span></li>
-                                </ul>
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Make a class JSON serializable</mat-panel-title>
-                                </mat-expansion-panel-header>
-                                For both troubleshooting and sending traffic between hosts, I find it useful to
-                                often take a complete class structure and dump it as a JSON string. In C#, I use <span
-                                    class="code">JsonSerializer.Serialize(x);</span> (Core) or <span
-                                    class="code">JsonConvert.SerializeObject(x);</span> (Standard).
+                        <ul>
+                            <li>To access this subpackage, refer to it with a period: <span class="code">from
+                                    races.goblin import Goblin</span></li>
+                        </ul>
+                    </mat-expansion-panel>
+                </li>
+                <li>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Make a class JSON serializable</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        For both troubleshooting and sending traffic between hosts, I find it useful to
+                        often take a complete class structure and dump it as a JSON string. In C#, I use <span
+                            class="code">JsonSerializer.Serialize(x);</span> (Core) or <span
+                            class="code">JsonConvert.SerializeObject(x);</span> (Standard).
 
-                                Make a class JSON serializable in Python<br>
-                                Take this class:
-                                <div class="code">
+                        Make a class JSON serializable in Python<br>
+                        Take this class:
+                        <code>
                                 <pre>
 class LogEntry:
 file_name = None
@@ -767,47 +767,47 @@ def __init__(self, file_name, description) -> None:
     self.file_name = file_name
     self.description = description                                            
 </pre>
-                                </div>
+                                </code>
 
-                                I often find it necessary to convert this into a string. One reason is to sent to a
-                                website or API in the form of JSON. to make the above code into a JSON string, a
-                                couple
-                                options are available:<br>
-                                Use <span class="important">jsonpickle</span>, it's a library designed to take
-                                Python objects and convert them into JSON.<br>
-                                Update object with this method:
-                                <div class="code">
+                        I often find it necessary to convert this into a string. One reason is to sent to a
+                        website or API in the form of JSON. to make the above code into a JSON string, a
+                        couple
+                        options are available:<br>
+                        Use <span class="important">jsonpickle</span>, it's a library designed to take
+                        Python objects and convert them into JSON.<br>
+                        Update object with this method:
+                        <code>
                                 <pre>
 def to_json(self):
     return jsonpickle.encode(self)
 </pre>
-                                </div>
-                                to call it:<span class="code">&lt;OBJECT&gt;.to_json()</span><br>
-                                Example output:<br>
-                                <div class="code">
+                                </code>
+                        to call it:<span class="code">&lt;OBJECT&gt;.to_json()</span><br>
+                        Example output:<br>
+                        <code>
                                 <pre>
 &#123;"py/object": "aiimages.AIImages.LogEntry", "file_name": "townsmeeblacksmithbackroomroom1720017333.png", "description": "You are in the blacksmith's back Room.  A hot forge still burns smoldering coals."&#125;
     </pre>
-                                </div>
+                                </code>
 
-                                The JSON string can be read back into an object with <span
-                                    class="code">json.loads(item)</span> and then
-                                each JSON object can be referenced as a dictionary: <span class="code">description =
-                                    item["description"]</span>
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Inheritence</mat-panel-title>
-                                </mat-expansion-panel-header>
+                        The JSON string can be read back into an object with <span class="code">json.loads(item)</span>
+                        and then
+                        each JSON object can be referenced as a dictionary: <span class="code">description =
+                            item["description"]</span>
+                    </mat-expansion-panel>
+                </li>
+                <li>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Inheritence</mat-panel-title>
+                        </mat-expansion-panel-header>
 
-                                Inheritence in Python looks like this:<br><br>If we have these three classes:<ul>
-                                    <li>Kobold - Contains specific infformation on the Kobold races. The factory for
-                                        generating Kobolds in the world.</li>
-                                    <li>BaseStats - Contains general attributes of all races (HP, strength,
-                                        intelligence, ect)
-                                        <div class="code">
+                        Inheritence in Python looks like this:<br><br>If we have these three classes:<ul>
+                            <li>Kobold - Contains specific infformation on the Kobold races. The factory for
+                                generating Kobolds in the world.</li>
+                            <li>BaseStats - Contains general attributes of all races (HP, strength,
+                                intelligence, ect)
+                                <code>
                                         <pre>
 class BaseStats(Utility):
     hp = 0
@@ -817,10 +817,10 @@ class BaseStats(Utility):
     perception = 0
     determination = 0
 </pre>
-                                        </div>
-                                    </li>
-                                    <li>Utility - Mostly ENUMs with shared data
-                                        <div class="code">
+                                        </code>
+                            </li>
+                            <li>Utility - Mostly ENUMs with shared data
+                                <code>
                                             <pre>
 class Utility(MudEvents):  
     class Share:
@@ -848,26 +848,26 @@ class Utility(MudEvents):
             ARGUNA = 9,
             EAREA = 10
 </pre>
-                                        </div>
-                                    </li>
-                                </ul>
+                                        </code>
+                            </li>
+                        </ul>
 
-                                This could be structured like this:
-                                <div class="code">
+                        This could be structured like this:
+                        <code>
                                 <pre>
 class Kobold(BaseStats):
     class BaseStats(Utility):
 </pre>
-                                </div>
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Docstrings..</mat-panel-title>
-                                </mat-expansion-panel-header>
-                                Docstring example:
-                                <div class="code">
+                                </code>
+                    </mat-expansion-panel>
+                </li>
+                <li>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Docstrings..</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        Docstring example:
+                        <code>
                                 <pre>
 <strong>def [function_name]</strong>([parameters, i.e. variable names separated by commas]):
 <span class="comment">
@@ -876,35 +876,34 @@ class Kobold(BaseStats):
 return [value]
 </span>
 </pre>
-                                </div>
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Enums!!</mat-panel-title>
-                                </mat-expansion-panel-header>
-                                Enums are a great way to keep your code clean and organized. I use them extensively
-                                when communicating back and forth with a website or API. They're also great for
-                                keeping managing constants.<br><br>
-                                To create an enum class, just inherit from Enum:<br>
-                                <div class="code">
+                                </code>
+                    </mat-expansion-panel>
+                </li>
+                <li>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Enums!!</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        Enums are a great way to keep your code clean and organized. I use them extensively
+                        when communicating back and forth with a website or API. They're also great for
+                        keeping managing constants.<br><br>
+                        To create an enum class, just inherit from Enum:<br>
+                        <code>
                                     <pre>
     class GameOfThronesDragons(Enum):
         DROGON = 1
         RHAEGAL = 2
         VISERION = 3
     </pre>
-                                </div><br>
-                                <span class="code">print(f"Who's a cute little dragon? Yes,
-                                    &#123;GameOfThronesDragons.DROGON.name&#125; is a cute little
-                                    dragon!")</span><br>
-                                <span class="important">Who's a cute little dragon? Yes, DROGON is a cute little
-                                    dragon!</span><br><br>
-                                An enum class can be treated as a list: <span class="code">random.choice(<span
-                                        class="important">list(</span>Monsters<span
-                                        class="important">)</span>)</span><br>
-                                <div class="code">
+                                </code><br>
+                        <span class="code">print(f"Who's a cute little dragon? Yes,
+                            &#123;GameOfThronesDragons.DROGON.name&#125; is a cute little
+                            dragon!")</span><br>
+                        <span class="important">Who's a cute little dragon? Yes, DROGON is a cute little
+                            dragon!</span><br><br>
+                        An enum class can be treated as a list: <span class="code">random.choice(<span
+                                class="important">list(</span>Monsters<span class="important">)</span>)</span><br>
+                        <code>
                                     <pre>
 class Monsters(Enum):
     SKELETON = 1
@@ -912,19 +911,19 @@ class Monsters(Enum):
 print(f"A rotting &#123;random.choice(list(Monsters)).name.lower()&#125; is to your left? What do you do?")             
 
 </pre>
-                                </div><span class="important">A rotting skeleton is to your left? What do you
-                                    do?</span>
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>IS is better!</mat-panel-title>
-                                </mat-expansion-panel-header>
-                                Prefer <span class="important">if my_object is None</span> over <span
-                                    class="important">if my_object == None</span> - Small difference (see below) in
-                                comparison.<br>Using "is" keyword is faster since fewer operations are perforemd:
-                                <div class="code">
+                                </code><span class="important">A rotting skeleton is to your left? What do you
+                            do?</span>
+                    </mat-expansion-panel>
+                </li>
+                <li>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>IS is better!</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        Prefer <span class="important">if my_object is None</span> over <span class="important">if
+                            my_object == None</span> - Small difference (see below) in
+                        comparison.<br>Using "is" keyword is faster since fewer operations are perforemd:
+                        <code>
                                     <pre>
 class NewObject:
     my_oject = NewObject()
@@ -938,80 +937,79 @@ print(my_oject is None)
 print(my_oject is not None)
 # True
 </pre>
-                                </div>
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Reflection</mat-panel-title>
-                                </mat-expansion-panel-header>
-                                Reflection is the ability of a program to examine and modify its own structure and
-                                behavior at runtime. Python has a module called <span class="important">inspect</span>
-                                that provides several functions to help
-                                get information about live objects.<br><br>I wrap all methods and classes with:
-                                <div class="code">
+                                </code>
+                    </mat-expansion-panel>
+                </li>
+                <li>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Reflection</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        Reflection is the ability of a program to examine and modify its own structure and
+                        behavior at runtime. Python has a module called <span class="important">inspect</span>
+                        that provides several functions to help
+                        get information about live objects.<br><br>I wrap all methods and classes with:
+                        <code>
                                     <pre>
 method_name = inspect.currentframe().f_code.co_name
 logger.debug(f"&#123;method_name&#125;: enter")
 ...
 logger.debug(f"&#123;method_name&#125;: exit")
 </pre>
-                                </div>
-                                This will provide the method name and the line number of the method:<br>
-                                <div class="code">
+                                </code>
+                        This will provide the method name and the line number of the method:<br>
+                        <code>
                                     <pre>
 2024-07-19 07:02:35,411 [MainThread] [DEBUG]  get_room: enter, room_id: &lt;room.Room object at 0x000001DCB19FACF0&gt;
 2024-07-19 07:02:35,411 [MainThread] [DEBUG]  get_room: room "[&lt;room.Room object at 0x000001DCB21C8830&gt;]"
 2024-07-19 07:02:35,412 [MainThread] [DEBUG]  get_room: exit, returning room "Town Smee - Town Square"
 </pre>
-                                </div>
-
-                            </mat-expansion-panel>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    These are utility libraries I've written to ease miscellaneous tasks..
-                    <dl>
-                        <dt>Utility functions for working with Excel</dt>
-                        <dd><a href="assets/libraries/excel_utils.py">excel_utils.py</a></dd>
-                        <dt>Utility functions for setting/deleting enviroment variables</dt>
-                        <dd><a href="assets/libraries/envion_var_utils.py">envion_var_utils.py</a></dd>
-                        <dt>Utility functions for reading event logs</dt>
-                        <dd><a href="assets/libraries/event_log_utils.py">event_log_utils.py</a></dd>
-                        <dt>Utility functions for working with files</dt>
-                        <dd><a href="assets/libraries/file_utils.py">file_utils.py</a></dd>
-                        <dt>Miscellaneous stuff... a sleep_for(seconds) and get_duration(start_time) function</dt>
-                        <dd><a href="assets/libraries/helper_utils.py">helper_utils.py</a></dd>
-                        <dt>Utility functions for network-related functions</dt>
-                        <dd><a href="assets/libraries/ip_helpers.py">ip_helpers.py</a></dd>
-                        <dt>Utility functions for logging to file and optionally sending to MS Teams / Slack</dt>
-                        <dd><a href="assets/libraries/log_utils.py">log_utils.py</a></dd>
-                        <dt>Utility functions for sending messages to MS Teams</dt>
-                        <dd><a href="assets/libraries/msteams_utils.py">msteams_utils.py</a></dd>
-                        <dt>Single is_windows_64bit function</dt>
-                        <dd><a href="assets/libraries/platform_utils.py">platform_utils.py</a></dd>
-                        <dt>Utility functions for collecting process information</dt>
-                        <dd><a href="assets/libraries/process_utils.py">process_utils.py</a></dd>
-                        <dt>Utility functions for working with Pyunit</dt>
-                        <dd><a href="assets/libraries/pyunit_utils.py">pyunit_utils.py</a></dd>
-                        <dt>Utility functions for working with registry</dt>
-                        <dd><a href="assets/libraries/registry_utils.py">registry_utils.py</a></dd>
-                        <dt>Utility functions for working with Selenium</dt>
-                        <dd><a href="assets/libraries/selenium_utils.py">selenium_utils.py</a></dd>
-                        <dt>Utility functions for sending messages to Slack</dt>
-                        <dd><a href="assets/libraries/slack_utils.py">slack_utils.py</a></dd>
-                        <dt>Utility functions for convert complicated structures into strings</dt>
-                        <dd><a href="assets/libraries/string_utils.py">string_utils.py</a></dd>
-                        <dt>Utility functions for running commands</dt>
-                        <dd><a href="assets/libraries/subprocess_utils.py">subprocess_utils.py</a></dd>
-                        <dt>Utility functions for passing arguments to Python script</dt>
-                        <dd><a href="assets/libraries/sysargs_utils.py">sysargs_utils.py</a></dd>
-                    </dl>
-                </div>
+                                </code>
+                    </mat-expansion-panel>
+                </li>
+                </ul>
             </div>
-            <div><app-comment></app-comment></div>
+            <div>
+                These are utility libraries I've written to ease miscellaneous tasks..
+                <dl>
+                    <dt>Utility functions for working with Excel</dt>
+                    <dd><a href="assets/libraries/excel_utils.py">excel_utils.py</a></dd>
+                    <dt>Utility functions for setting/deleting enviroment variables</dt>
+                    <dd><a href="assets/libraries/envion_var_utils.py">envion_var_utils.py</a></dd>
+                    <dt>Utility functions for reading event logs</dt>
+                    <dd><a href="assets/libraries/event_log_utils.py">event_log_utils.py</a></dd>
+                    <dt>Utility functions for working with files</dt>
+                    <dd><a href="assets/libraries/file_utils.py">file_utils.py</a></dd>
+                    <dt>Miscellaneous stuff... a sleep_for(seconds) and get_duration(start_time) function</dt>
+                    <dd><a href="assets/libraries/helper_utils.py">helper_utils.py</a></dd>
+                    <dt>Utility functions for network-related functions</dt>
+                    <dd><a href="assets/libraries/ip_helpers.py">ip_helpers.py</a></dd>
+                    <dt>Utility functions for logging to file and optionally sending to MS Teams / Slack</dt>
+                    <dd><a href="assets/libraries/log_utils.py">log_utils.py</a></dd>
+                    <dt>Utility functions for sending messages to MS Teams</dt>
+                    <dd><a href="assets/libraries/msteams_utils.py">msteams_utils.py</a></dd>
+                    <dt>Single is_windows_64bit function</dt>
+                    <dd><a href="assets/libraries/platform_utils.py">platform_utils.py</a></dd>
+                    <dt>Utility functions for collecting process information</dt>
+                    <dd><a href="assets/libraries/process_utils.py">process_utils.py</a></dd>
+                    <dt>Utility functions for working with Pyunit</dt>
+                    <dd><a href="assets/libraries/pyunit_utils.py">pyunit_utils.py</a></dd>
+                    <dt>Utility functions for working with registry</dt>
+                    <dd><a href="assets/libraries/registry_utils.py">registry_utils.py</a></dd>
+                    <dt>Utility functions for working with Selenium</dt>
+                    <dd><a href="assets/libraries/selenium_utils.py">selenium_utils.py</a></dd>
+                    <dt>Utility functions for sending messages to Slack</dt>
+                    <dd><a href="assets/libraries/slack_utils.py">slack_utils.py</a></dd>
+                    <dt>Utility functions for convert complicated structures into strings</dt>
+                    <dd><a href="assets/libraries/string_utils.py">string_utils.py</a></dd>
+                    <dt>Utility functions for running commands</dt>
+                    <dd><a href="assets/libraries/subprocess_utils.py">subprocess_utils.py</a></dd>
+                    <dt>Utility functions for passing arguments to Python script</dt>
+                    <dd><a href="assets/libraries/sysargs_utils.py">sysargs_utils.py</a></dd>
+                </dl>
+            </div>
+        </div>
+        <div><app-comment></app-comment></div>
         </div>
     </mat-card-content>
 </mat-card>

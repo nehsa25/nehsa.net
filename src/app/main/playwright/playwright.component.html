@@ -105,7 +105,7 @@
                                                 <br>Contains all elements available on all pages (navbar, breadcrumb)
                                                 and other
                                                 utilty functions useful for most pages.
-                                                <div class="code">
+                                                <code>
                                                     <pre>
 import &#123; Page &#125; from '&#64;playwright/test';
 import &#123; TestSettings &#125; from '../../e2e-test-utility/test-settings';
@@ -126,12 +126,12 @@ export default class BasePage &#123;
     get logoutBtn() &#123; return this.page.getByTestId('logout-btn'); &#125;
 &#125;
 </pre>
-                                                </div>
+                                                </code>
                                             </li>
                                             <li>
                                                 <span class="underline">fixtures\basepage.ts</span>
                                                 <br>Sets up initial page under test and any other setup required
-                                                <div class="code">
+                                                <code>
                                                     <pre>
 import TestPage from 'e2e/pages/admin/testpagefile.page';
 
@@ -143,14 +143,14 @@ export const test = base.extend&lt;&#123;
     &#125;         
 &#125;);
 </pre>
-                                                </div>
+                                                </code>
                                             </li>
                                             <li>
                                                 <span class="underline">testpage.page.ts</span>
                                                 <br>An actual page of the website. Contains locators for all elements
                                                 and utility
                                                 functions unique to this page.
-                                                <div class="code">
+                                                <code>
                                                     <pre>
 export default class testPage extends BasePage &#123;
     name: string = "admin-entitlement-details";
@@ -213,12 +213,12 @@ export default class testPage extends BasePage &#123;
     &#125;
 &#125;
 </pre>
-                                                </div>
+                                                </code>
                                             </li>
                                             <li>
                                                 <span class="underline">test.spec.ts</span>
                                                 <br>The test file containing the actual tests
-                                                <div class="code">
+                                                <code>
                                                     <pre>
 test('ApplicationName: Page renders is less than 1 minute', async (&#123; testPage, page &#125;) => &#123;
     // navigate to test page
@@ -228,7 +228,7 @@ test('ApplicationName: Page renders is less than 1 minute', async (&#123; testPa
     await expect(page).toHaveTitle("&lt;THE EXPECTED PAGE TITLE&gt;", &#123; timeout: 60000 &#125;);
 &#125;);
 </pre>
-                                                </div>
+                                                </code>
                                             </li>
                                         </ul>
                                     </li>
@@ -248,7 +248,7 @@ test('ApplicationName: Page renders is less than 1 minute', async (&#123; testPa
                                     <ul>
                                         <li>
 
-                                            <div class="code">
+                                            <code>
                                                 <pre>
 // verify page titles
 for (const pageDefinition of testSettings.PAGE_DEFINITIONS) &#123;
@@ -259,10 +259,10 @@ for (const pageDefinition of testSettings.PAGE_DEFINITIONS) &#123;
     &#x2775;);
 &#x2775;
 </pre>
-                                            </div>
+                                            </code>
                                         </li>
                                         <li>
-                                            <div class="code">
+                                            <code>
                                                 <pre>
 // verify we receive a status up/down in varying times 5, 10, 15 seconds
 for (const pageDefinition of testSettings.STATUS_PAGE_DEFINITIONS) &#123;
@@ -275,7 +275,7 @@ for (const pageDefinition of testSettings.STATUS_PAGE_DEFINITIONS) &#123;
     &#x2775;
 &#x2775;                                  
 </pre>
-                                            </div>
+                                            </code>
                                         </li>
                                     </ul>
                                 </ul>
@@ -348,7 +348,7 @@ for (const pageDefinition of testSettings.STATUS_PAGE_DEFINITIONS) &#123;
                                             <dl>
                                                 <dt>Verify a table has zero records</dt>
                                                 <dd>
-                                                    <div class="code">
+                                                    <code>
                                                         <pre>
 // verify no results
 expect(await testPage.page.locator('tr').count()).toBe(2); // header and no results
@@ -356,7 +356,7 @@ expect(await testPage.page.locator('tr').count()).toBe(2); // header and no resu
 // verify no results message
 expect(await testPage.page.locator('tr').nth(1).locator('td').first().textContent()).toBe('No data found.');
 </pre>
-                                                    </div>
+                                                    </code>
                                                 </dd>
                                             </dl>
                                         </mat-expansion-panel>
@@ -369,12 +369,12 @@ expect(await testPage.page.locator('tr').nth(1).locator('td').first().textConten
                                             <dl>
                                                 <dt>Selecting from options list </dt>
                                                 <dd>
-                                                    <div class="code">
+                                                    <code>
                                                         <pre>
 await testPage.selectCustomerButton.click();
 await page.locator(`mat-option:has-text("&lt;TEXT TO FIND&gt;")`).click();
 </pre>
-                                                    </div>
+                                                    </code>
                                                 </dd>
                                             </dl>
                                         </mat-expansion-panel>
@@ -405,13 +405,13 @@ await page.locator(`mat-option:has-text("&lt;TEXT TO FIND&gt;")`).click();
                                 </mat-expansion-panel-header>
                                 <dl>
                                     <dt>Triple the timeout (which is 30 seconds by default)</dt>
-                                    <dd>Add this to the top of the test:<div class="code">test.slow();
-                                        </div>
+                                    <dd>Add this to the top of the test:<code>test.slow();
+                                        </code>
                                     </dd>
                                     <dt>A &quot;sleep&quot;</dt>
                                     <dd>
-                                        <div class="code">
-                                            await page.waitForTimeout(3000);</div>
+                                        <code>
+                                            await page.waitForTimeout(3000);</code>
                                     </dd>
                                 </dl>
                             </mat-expansion-panel>
@@ -461,7 +461,7 @@ await page.locator(`mat-option:has-text("&lt;TEXT TO FIND&gt;")`).click();
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Wait for splash</mat-panel-title>
                                 </mat-expansion-panel-header>
-                                <div class="code">
+                                <code>
                                     <pre>
 async WaitForSplash() &#123; 
     await this.page.waitForTimeout(5000);
@@ -483,7 +483,7 @@ async WaitForSplash() &#123;
     &#125;    
 &#125;  
                         </pre>
-                                </div>
+                                </code>
                             </mat-expansion-panel>
                         </li>
                         <li>

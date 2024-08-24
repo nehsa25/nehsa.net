@@ -19,7 +19,7 @@
                         <ul>
                             <li>
                                 <h4>Auto-generation in Kestrel</h4>
-                                <div class="code">
+                                <code>
                                     <pre>
         var builder = WebApplication.CreateBuilder(args);
         builder.Services.AddEndpointsApiExplorer();
@@ -28,14 +28,14 @@
         app.UseSwagger();
         app.UseSwaggerUI();
                                         </pre>
-                                </div>
+                                </code>
                             </li>
                             <li>
                                 <h4>Install the Swashbuckle.AspNetCore.Annotations package<br>
-                                    <div class="code">dotnet add package Swashbuckle.AspNetCore.Annotations</div>
+                                    <code>dotnet add package Swashbuckle.AspNetCore.Annotations</code>
                                 </h4>
                                 For annotated as such:
-                                <div class="code">
+                                <code>
                                     <pre>
         app.MapGet("/api/v1/da", [SwaggerOperation(
             Summary = "Returns a single quote",
@@ -49,7 +49,7 @@
         .WithName("DouglasAdamQuotes")
         .WithOpenApi();
                                     </pre>
-                                </div>
+                                </code>
                             </li>
                         </ul>
                     </div>

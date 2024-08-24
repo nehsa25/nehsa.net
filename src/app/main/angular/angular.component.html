@@ -136,16 +136,16 @@
                                     <ul class="condensed">
                                         <li>http.service.ts - For all HTTP requests<br><br>
                                             <span class="file">http.service.ts</span>
-                                            <div class="code">
+                                            <code>
                                                 <pre>
 /** Returns the quote */  
 getQuote() &#123;
 return this.http.get(this.quoteUrl);
 &#125;
 </pre>
-                                            </div><br>
+</code><br>
                                             <span class="file">supercomponent.ts</span>
-                                            <div class="code">
+                                            <code>
                                                 <pre>
 constructor()
 &#123;
@@ -162,7 +162,7 @@ forkJoin(this.getQueries).subscribe(next => &#123;
 &#125;);
 &#125;
 </pre>
-                                            </div>
+                                            </code>
                                         </li>
                                         <li>user.service.ts - For all user-related functions
                                         </li>
@@ -184,14 +184,14 @@ forkJoin(this.getQueries).subscribe(next => &#123;
                                     </mat-expansion-panel-header>
                                     <ul class="condensed">
                                         <li>HTML
-                                            <div class="code">
+                                            <code>
                                                 <pre>
 &lt;div [class.bgblue]="showBlueBg" [class.main]="!showBlueBg"&gt;Yippee!&lt;/div&gt;
 </pre>
-                                            </div>
+                                            </code>
                                         </li>
                                         <li>CSS
-                                            <div class="code">
+                                            <code>
                                                 <pre>
 .bgblue &#123;
 background-color: blue;
@@ -201,14 +201,14 @@ background-color: blue;
 background-color: var(--theme-splash-backround-color);
 &#125;                                        
 </pre>
-                                            </div>
+                                            </code>
                                         </li>
                                         <li>TypeScript
-                                            <div class="code">
+                                            <code>
                                                 <pre>
 public showBlueBg: boolean = false;
                                     </pre>
-                                            </div>
+                                            </code>
                                         </li>
                                     </ul>
                                 </mat-expansion-panel>
@@ -223,12 +223,12 @@ public showBlueBg: boolean = false;
                                     Passing data between components in Angular is easy:
                                     <ul class="condensed">
                                         <li>Create two components:
-                                            <div class="code">
+                                            <code>
                                                 <pre>
                                                             ng g c component1
                                                             ng g c component2
                                                         </pre>
-                                            </div>
+                                            </code>
                                         </li>
                                         <li>
                                             Set a parameter in component1:
@@ -261,7 +261,7 @@ public showBlueBg: boolean = false;
                                             <li>Update HTML with a click action:
                                                 (click)="getCopyText($event)"</li>
                                             <li>Within getCopyText:
-                                                <div class="code">
+                                                <code>
                                                     <pre>
 getCopyText() &#123;
 const copyContainer = this.copyButton?.nativeElement.closest('.copy-container');
@@ -274,7 +274,7 @@ console.error('No .copy-container found');
 &#125;
 &#125;
 </pre>
-                                                </div>
+                                                </code>
                                             </li>
                                         </ul>
 
@@ -304,7 +304,7 @@ console.error('No .copy-container found');
                                     I typically structure my projects like this:
                                     <ul class="condensed">
                                         <li>HTTP Service (<span class=file>app/services/http.service.ts</span>)
-                                            <div class="code">
+                                            <code>
                                                 <span class="comment">/** Returns the quote */</span>
                                                 <pre>
 &#64;Injectable()
@@ -332,10 +332,10 @@ getQuote() &#123;
 &#125;
 &#125;
                                         </pre>
-                                            </div>
+                                            </code>
                                         </li>
                                         <li>type (<span class=file>app/types/http.service.ts</span>)
-                                            <div class="code">
+                                            <code>
                                                 <pre>
 export class AddUserForm &#123;
 email: string = "";
@@ -343,12 +343,12 @@ username: string = "";
 password: string = "";
 &#125;
                                     </pre>
-                                            </div>
+                                            </code>
                                         </li>
                                         <li>Component
                                             <ul class="condensed">
                                                 <li><span class=file>component.ts</span>
-                                                    <div class="code">
+                                                    <code>
                                                         <pre>
 &#64;Component(&#123;
 selector: 'app-root',
@@ -370,20 +370,20 @@ ngOnInit() &#123;
 &#125;);
 &#125;                                         
                                             </pre>
-                                                    </div>
+                                                    </code>
                                                 </li>
                                                 <li>component.html
-                                                    <div class="code">
+                                                    <code>
                                                         <pre>
 &lt;div&gt;&lt;p&gt;&#123; &#123;quote&#125; &#125;&lt;/p&gt;&lt;/div&gt; (<span class="comment">Remove spaces between &#123;&#125;</span>)
 </pre>
-                                                    </div>
+                                                    </code>
                                                 </li>
                                             </ul>
                                         </li>
                                         <li>
                                             If you need to send await multiple requests:
-                                            <div class="code">
+                                            <code>
                                                 <pre>
 export class SomeComponent &#123;
 item1 = "";
@@ -408,7 +408,7 @@ ngOnInit() &#123;
 &#125;
 &#125;                                                           
                                     </pre>
-                                            </div>
+                                            </code>
                                         </li>
                                     </ul>
                                 </div>
@@ -424,7 +424,7 @@ ngOnInit() &#123;
                                 <ul>
                                     <li>Interfaces are used to define the structure of an object. They are
                                         particularly useful when working with APIs. Here's an example:
-                                        <div class="code">
+                                        <code>
                                             <pre>
 interface timeItem &#123;
     full: string;
@@ -435,10 +435,10 @@ interface timeItem &#123;
     minute: number;  
 &#125;
 </pre>
-                                        </div><br><br>
+                                        </code><br><br>
 
                                         Which could be used as followed:
-                                        <div class="code">
+                                        <code>
                                             <pre>
 dates = ["2024-08-20 1PM", "2024-08-21 10AM", "2024-09-03 11AM", "2024-09-04 3PM", "2024-09-10 10AM", "2024-09-11 9AM", "2024-09-17 5PM", "2024-09-24 5PM", "2024-09-25 3:30PM"]
 timeItems: timeItem[] = [];
@@ -462,7 +462,7 @@ constructor() &#123;
     &#125;);
 &#125;
 </pre>
-                                        </div>
+                                        </code>
                                     </li>
                                 </ul>
                             </mat-expansion-panel>
@@ -523,7 +523,7 @@ constructor() &#123;
                                                     </mat-panel-description>
                                                 </mat-expansion-panel-header>
                                                 Add them to &lt;THEME&gt;.scss:
-                                                <div class="code">
+                                                <code>
                                                     <pre>
 $nehsanet-primary: (
 50 : #fbf4fb,
@@ -636,7 +636,7 @@ $app-theme: mat.define-dark-theme((color: (primary: $primary,
 
 &#64;include mat.all-component-themes($app-theme);
                                                 </pre>
-                                                </div>
+                                                </code>
                                             </mat-expansion-panel>
                                         </li>
                                         <li>
@@ -646,12 +646,12 @@ $app-theme: mat.define-dark-theme((color: (primary: $primary,
                                                     <mat-panel-description>
                                                     </mat-panel-description>
                                                 </mat-expansion-panel-header>
-                                                <div class="code">
+                                                <code>
                                                     <pre>
 &lt;div [class.nehsanet-theme]="userService.appIsDark()"&gt;
 &lt;div [class.nehsanet-theme-light]="!userService.appIsDark()"&gt;
 &lt;div [class.nehsanet-theme-dark]="userService.appIsDark()"&gt;</pre>
-                                                </div>
+                                                </code>
                                             </mat-expansion-panel>
                                         </li>
                                     </ol>
@@ -669,18 +669,18 @@ $app-theme: mat.define-dark-theme((color: (primary: $primary,
                                 are a a few I use:
                                 <ul>
                                     <li>ngClass - Add or remove a class based on a condition
-                                        <div class="code">
+                                        <code>
                                             <pre>
  &lt;div [class.bringmetothelight]="userService.appIsDark()" [class.entermeontodarkness]="!userService.appIsDark()"&gt;KAW POW!&lt;/div&gt;
 </pre>
-                                        </div>
+                                        </code>
                                     </li>
                                     <li>ngStyle - Add or remove a style based on a condition
-                                        <div class="code">
+                                        <code>
                                             <pre>
 &lt;div [ngStyle]="&#123;'background-color': userService.appIsDark() ? 'black' : 'white'&#125;"&gt;KAW POW!&lt;/div&gt;
 </pre>
-                                        </div>
+                                        </code>
                                     </li>
                                 </ul>
 
@@ -712,17 +712,17 @@ $app-theme: mat.define-dark-theme((color: (primary: $primary,
                                 <ul class="condensed">
                                     <li>Add a type for the event transmission (e.g. SplashMessage in a new file
                                         <span class=file>splash-message.ts</span>)
-                                        <div class="code">
+                                        <code>
                                             <pre>
             export class SplashMessage &#123;
                 showSplash: boolean = false;
                 duration: number = 8;
             &#125;
                                             </pre>
-                                        </div>
+                                        </code>
                                     </li>
                                     <li>Add a service called <span class=file>splash.service.ts</span>
-                                        <div class="code">
+                                        <code>
                                             <pre>
             import &#123; Injectable &#125; from '&#64;angular/core';
             import &#123; Observable, Subject &#125; from 'rxjs';
@@ -749,10 +749,10 @@ $app-theme: mat.define-dark-theme((color: (primary: $primary,
                 &#125;
             &#125;
                                             </pre>
-                                        </div>
+                                        </code>
                                     </li>
                                     <li>Add event observer for service to child component
-                                        <div class="code">
+                                        <code>
                                             <pre>
             constructor(
                 private splash: SplashService) &#123; &#125;
@@ -765,14 +765,14 @@ $app-theme: mat.define-dark-theme((color: (primary: $primary,
                 &#125;);
             &#125;
                                             </pre>
-                                        </div>
+                                        </code>
                                     </li>
                                     <li>Use it somewhere:
-                                        <div class="code">
+                                        <code>
                                             <pre>
             &#64;&lt;app-splash *ngIf="showSplash"&gt;&lt;/app-splash&gt;
                                             </pre>
-                                        </div>
+                                        </code>
                                     </li>
                                 </ul>
                             </mat-expansion-panel>
@@ -795,10 +795,10 @@ $app-theme: mat.define-dark-theme((color: (primary: $primary,
                                         </ul>
                                     </li>
                                     <li>Install reCAPTCHA packages
-                                        <div class="code">npm i ng-recaptcha --save</div>
+                                        <code>npm i ng-recaptcha --save</code>
                                     </li>
                                     <li>Add resolved function in your component:
-                                        <div class="code">
+                                        <code>
                                             <pre>
             resolved(captchaResponse: string | null) &#123;
                 if (captchaResponse != null) &#123;
@@ -807,11 +807,11 @@ $app-theme: mat.define-dark-theme((color: (primary: $primary,
                 &#125;
             &#125;
                                     </pre>
-                                        </div>
+                                        </code>
                                     </li>
                                     <li>
                                         Add reCAPTCHA to your component form:
-                                        <div class="code">
+                                        <code>
                                             <pre>
     &lt;div [hidden]="captcha"&gt;
         &lt;p&gt;Confirm you're human please!&lt;/p&gt;
@@ -820,7 +820,7 @@ $app-theme: mat.define-dark-theme((color: (primary: $primary,
     &lt;/div&gt;
     &lt;button type="submit" *ngIf="captcha" mat-flat-button&gt;Submit&lt;/button&gt;
                                     </pre>
-                                        </div>
+                                        </code>
                                     </li>
                                 </ul>
                                 <div>
@@ -839,7 +839,7 @@ $app-theme: mat.define-dark-theme((color: (primary: $primary,
                                     alt="A screenshot of the fullscreen button in mud" />
                                 <ul class="condensed">
                                     <li>Update <span class="file">app.component.ts</span>
-                                        <div class="code">
+                                        <code>
                                             <pre>
         fullScreen: boolean = false;
         isFullScreenEvent = new Subject&lt;boolean&gt;();
@@ -871,11 +871,11 @@ $app-theme: mat.define-dark-theme((color: (primary: $primary,
             this.isFullScreenEvent.next(this.isFullScreen );
         &#125;
                                                 </pre>
-                                        </div>
+                                        </code>
                                     </li>
                                     <li>Mark any div to hide when in fullscreen with: *ngIf="!fullScreen"</li>
                                     <li>Add feature in component:
-                                        <div class="code">
+                                        <code>
                                             <pre>
         openFullScreen() &#123;
             var elem = document.documentElement;
@@ -899,7 +899,7 @@ $app-theme: mat.define-dark-theme((color: (primary: $primary,
             &#125;
         &#125;
                                                 </pre>
-                                        </div>
+                                        </code>
                                     </li>
                                 </ul>
                             </mat-expansion-panel>
@@ -912,13 +912,13 @@ $app-theme: mat.define-dark-theme((color: (primary: $primary,
                                 <ul>
                                     <li>Add a sleep in ngOnInit with something like this:<br>
                                         <span class="important">HTML:</span>
-                                        <div class="code">
+                                        <code>
                                             <pre>
     &lt;input id="mud-input" type="text" /&gt;
 </pre>
-                                        </div>
+                                        </code>
                                         <span class="important">Typescript:</span>
-                                        <div class="code">
+                                        <code>
                                             <pre>
     // set focus to mud input
     const mudInput = document.getElementById('mud-input')! as HTMLInputElement;
@@ -926,7 +926,7 @@ $app-theme: mat.define-dark-theme((color: (primary: $primary,
       this.refocus(mudInput);
     &#125;, 0);
 </pre>
-                                        </div>
+                                        </code>
                                     </li>
                                 </ul>
 
@@ -946,12 +946,12 @@ $app-theme: mat.define-dark-theme((color: (primary: $primary,
                                     <ul>
                                         <li>
                                             <h4>Example form element:</h4>
-                                            <div class="code">&lt;input type="email" id="email"
+                                            <code>&lt;input type="email" id="email"
                                                 name="email"
-                                                [formControl]="emailControl"&gt;</div>
+                                                [formControl]="emailControl"&gt;</code>
                                         <li>
                                             <h4>Within TypeScript:</h4>
-                                            <div class="code">
+                                            <code>
                                                 <pre>
 export class SignupComponent &#123;
 userDetails: FormGroup;
@@ -993,13 +993,13 @@ if (this.userDetails.invalid) return;
 &#125;
 &#125;
                                 </pre>
-                                            </div>
+                                            </code>
                                         </li>
                                         <li>Add submit button<br>
-                                            <div class="code">
+                                            <code>
                                                 &lt;button (click)="submitForm()"
                                                 [disabled]="this.userDetails.invalid"&gt;Submit&lt;/button&gt;
-                                            </div>
+                                            </code>
                                         </li>
                                     </ul>
                                     <div>
@@ -1097,23 +1097,23 @@ if (this.userDetails.invalid) return;
                                         <span class="problem">Can't bind to 'ngModel' since it
                                             isn't a known property of 'input'</span>
                                         <span class="solution">
-                                            <div class="code">
+                                            <code>
                                                 <pre>
 Import
 FormsModule
 </pre>
-                                            </div>
+                                            </code>
                                         </span>
                                     </li>
                                     <li>
                                         <span class="problem">Can't bind to 'formGroup' since it
                                             isn't a known property of 'form'</span>
                                         <span class="solution">
-                                            <div class="code">
+                                            <code>
                                                 <pre>
 Import ReactiveFormsModule
 </pre>
-                                            </div>
+                                            </code>
                                         </span>
                                     </li>
                                     <li>
@@ -1123,7 +1123,7 @@ Import ReactiveFormsModule
                                             <ul>
                                                 <li>
                                                     Look to put the theme generation behind classes:
-                                                    <div class="code">
+                                                    <code>
                                                         <pre>
 &#64;include mat.all-component-colors($dark-primary);
 &#64;include mat.core-theme($dark-theme);
@@ -1139,10 +1139,10 @@ Import ReactiveFormsModule
 &#64;include mat.select-theme($dark-theme);
 &#64;include mat.sidenav-theme($dark-theme);
 </pre>
-                                                    </div>
+                                                    </code>
 
                                                     Becomes:
-                                                    <div class="code">
+                                                    <code>
                                                         <pre>
 .dark &#123;
     &#64;include mat.all-component-colors($dark-primary);
@@ -1160,11 +1160,10 @@ Import ReactiveFormsModule
     &#64;include mat.sidenav-theme($dark-theme);
 &#125;
 </pre>
-                                                    </div>
+                                                    </code>
                                                     This ensures that the styles are only generated once.
                                                 </li>
                                             </ul>
-
                                         </div>
                                     </li>
                                 </ul>

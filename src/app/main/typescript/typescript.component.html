@@ -20,7 +20,7 @@
                         <li><a routerLink="/react">React</a></li>
                         <li><a routerLink="/security">Security</a></li>
                         <li><a routerLink="/testing">Testing</a></li>
-                        <li><a routerLink="/typescript">Typescript</a></li>                    
+                        <li><a routerLink="/typescript">Typescript</a></li>
                     </ul>
                 </div>
                 <div>
@@ -65,14 +65,14 @@
                                                 true for values set to null and will not return true for
                                                 undefined variables.<br><br>
                                                 e.g.<br>
-                                                <div class="code">
+                                                <code>
                                                     <pre>
 const num = 10;
 const str = "10";
 num === str <span class="comment">// <span class="importantish">false</span> (different types: string/number)</span>
 num == str <span class="comment">// <span class="importantish">true</span> (this is true because a cast is performed prior to the equality check)</span>
 </pre>
-                                                </div>
+</code>
                                             </li>
                                         </ul>
                                     </li>
@@ -93,10 +93,91 @@ num == str <span class="comment">// <span class="importantish">true</span> (this
                         <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
+                                    <mat-panel-title>JavaScript Vs. TypeScript</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                I often get confused whether I'm using JavaScript/TypeSCript and how to tell the
+                                difference. Here's a breakdown:
+                                <table>
+                                    <tr>
+                                        <th>JavaScript</th>
+                                        <th>TypeScript</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Dynamic typing (var)<br>
+                                            <ul>
+                                                <li>Function-scoped: variables are available within the function they
+                                                    are declared</li>
+                                                <li>Loose equality checking (the type of the variable is not checked)
+                                                </li>
+                                                <li>Types of JavaScript files:<br>
+                                                    <dl>
+                                                        <dt>.js</dt>
+                                                        <dd>Standard untyped JavaScript file</dd>
+                                                        <dt>.mjs</dt>
+                                                        <dd>ES6 module, an example is a Node.js module which can be
+                                                            imported using the import keyword</dd>
+                                                        <dt>.cjs</dt>
+                                                        <dd>CommonJS module, an example is a Node.js module which can be
+                                                            imported using the require keyword</dd>
+                                                        <dt>.jsx</dt>
+                                                        <dd>A React JS component</dd>
+                                                    </dl>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td>Static typing (let, const)
+                                            <ul>
+                                                <li>Block-scoped: Typescript has finer control over variable scoping
+                                                    with block scoping (only within parent curly braces)</li>
+                                                <li>Strict equality checking</li>
+                                                <li>Types of JavaScript files:<br>
+                                                    <dl>
+                                                        <dt>.ts</dt>
+                                                        <dd>Standard TypeScript file</dd>
+                                                        <dt>.tsx</dt>
+                                                        <dd>A React TSX component</dd>
+                                                    </dl>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>ES6 (AKA ECMAScript 2015) Syntax</mat-panel-title>
+                                    <mat-panel_description>ES6 Goodness! ES6 is the latest version of JavaScript and has
+                                        major enhancements over ES5.
+                                    </mat-panel_description>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>Arrow functions</li>
+                                    <li>Classes</li>
+                                    <li>Template literals</li>
+                                    <li>Let and Const</li>
+                                    <li>Default parameters</li>
+                                    <li>Rest and Spread</li>
+                                    <li>Destructuring</li>
+                                    <li>Modules</li>
+                                    <li>Iterators</li>
+                                    <li>Generators</li>
+                                    <li>Maps and Sets</li>
+                                    <li>Proxies</li>
+                                    <li>Symbol</li>
+                                    <li>Promises</li>
+                                    <li>Async/Await</li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
                                     <mat-panel-title>Constuctor</mat-panel-title>
                                 </mat-expansion-panel-header>
                                 A constuctor in typescript is simply the keyword constructor:
-                                <div class="code">
+                                <code>
                                     <pre>
 export class MyClass &#123;
     constructor() &#123;
@@ -104,7 +185,7 @@ export class MyClass &#123;
     &#125;
 &#125;
 </pre>
-                                </div>
+</code>
 
                             </mat-expansion-panel>
                         </li>
@@ -123,7 +204,7 @@ export class MyClass &#123;
                                     </li>
                                     <li>
                                         Troubleshooting:<br>
-                                        <div class="code">
+                                        <code>
                                             <pre>
 private _reversify = false;
 
@@ -146,7 +227,7 @@ console.log(this.reversify);
 Produces:
 I've been gotten! The horror! The horror! true
 </pre>
-                                        </div>
+</code>
                                     </li>
                                 </ul>
 
@@ -159,19 +240,22 @@ I've been gotten! The horror! The horror! true
                                 </mat-expansion-panel-header>
                                 <ul>
                                     <li>
-                                        <span class="question">Property '_answers' has no initializer and is not definitely assigned in the constructor.</span><br><br>                          
-                                        <div class="answer">This is caused if this setting is enabled (which it should be) and means we need to fully initialize variables.
-                                        <br><br>
-                                        <div class="code">
-                                    <pre>
+                                        <span class="question">Property '_answers' has no initializer and is not
+                                            definitely assigned in the constructor.</span><br><br>
+                                        <div class="answer">This is caused if this setting is enabled (which it should
+                                            be) and means we need to fully initialize variables.
+                                            <br><br>
+                                            <code>
+                                                <pre>
 "compilerOptions": &#123;
     "strictPropertyInitialization": false,
     ...
 &#125;  
 </pre>
-                                        </div><br><br>           
-                                        e.g.:
-                                        <span class="code">private _answers: string[] = [];</span></div>
+</code><br><br>
+                                            e.g.:
+                                            <span class="code">private _answers: string[] = [];</span>
+                                        </div>
                                     </li>
                                 </ul>
                             </mat-expansion-panel>

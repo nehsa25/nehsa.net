@@ -13,15 +13,15 @@
                     </h3>
                     <ul>
                         <li>Create bridge
-                            <div class="code">docker network create jenkins</div>
+                            <code>docker network create jenkins</code>
                         </li>
                         <li>Get Jenkins LTS
-                            <div class="code">docker pull jenkins/jenkins</div>
+                            <code>docker pull jenkins/jenkins</code>
                         </li>
                         <li>Start it
-                            <div class="code">docker run --name jenkins-ci-e2e --restart=on-failure -u root --network
+                            <code>docker run --name jenkins-ci-e2e --restart=on-failure -u root --network
                                 jenkins --publish 8080:8080 --publish 50000:50000 --volume
-                                jenkins-data:/var/jenkins_home jenkins:2.440.3-1</div>
+                                jenkins-data:/var/jenkins_home jenkins:2.440.3-1</code>
                         </li>
                         <li>Configure Tools
                             <ul>
@@ -33,22 +33,22 @@
                             <ul>
                                 <li>
                                     Open shell
-                                    <div class="code">docker exec -it -u root jenkins-ci-e2e /bin/bash</div>
+                                    <code>docker exec -it -u root jenkins-ci-e2e /bin/bash</code>
                                 </li>
                                 <li>Apt installations
-                                    <div class="code">
+                                    <code>
                                 <pre>
 apt update
 apt install mercurial
 apt install vim
                                     </pre>
-                                    </div>
+                                    </code>
                                 </li>
                                 <li>
                                     Setup SCM
                                     <ul>
                                         <li>
-                                            <div class="code">
+                                            <code>
                                         <pre>
 vim ~/.hgrc
 [ui]
@@ -65,10 +65,10 @@ su.prefix = https://&lt;scm path&gt;/Code/INtime/Tests/script_utils
 su.username = &lt;username&gt;
 su.password = &lt;password&gt;
                                             </pre>
-                                            </div>
+                                            </code>
                                         </li>
                                         <li>Polling is an easy method for checking for changes
-                                            <div class="code">H/5 * * * *</div>
+                                            <code>H/5 * * * *</code>
                                         </li>
                                     </ul>
                                 </li>
@@ -76,7 +76,7 @@ su.password = &lt;password&gt;
                         </li>
 
                         <li>Initial Setup from Root Bash
-                            <div class="code">
+                            <code>
 <pre>
 docker exec -it -u root jenkins-ci-e2e bash
 apt-get install mercurial
@@ -86,7 +86,7 @@ vim /etc/group
 http://localhost:5000/restart
 </pre>
 
-                            </div>
+                            </code>
                         </li>
                         <li>Access via localhost:8080</li>
                         <li>Finish configurating in UI</li>
@@ -99,7 +99,7 @@ http://localhost:5000/restart
                         <li>Configure Mercurial (or your SCM)</li>
                         <li>Configure Node</li>
                         <li>Cnfigure new Pipeline Job
-<pre class="code">
+                            <pre class="code">
 pipeline &#123;
     agent any
     stages &#123;

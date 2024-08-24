@@ -11,13 +11,22 @@
                     <div>
                         My experience with IIS after about a decade of use could be summed up as follows: <mat-icon
                             style="height: 3rem; width: 3rem; font-size:3rem; color: crimson;">sentiment_dissatisfied</mat-icon>
-                        I am not a fan.<br><br>                     
-                        I'm not sure <a routerLink="/core">Kestrel</a>, the .NET Core preferred web server, is better yet. So far, my exposure seems to have a lot of behind-the-scenes magic, like Ruby on Rails. For example, you phrase something a certain way or put a file in a specific spot. KA POW - You have a fully functioning API, health checks, documentation, and a website. I'm not a fan of magic. I like to know what's happening and why.
+                        I am not a fan.<br><br>
+                        I'm not sure <a routerLink="/core">Kestrel</a>, the .NET Core preferred web server, is better
+                        yet. So far, my exposure seems to have a lot of behind-the-scenes magic, like Ruby on Rails. For
+                        example, you phrase something a certain way or put a file in a specific spot. KA POW - You have
+                        a fully functioning API, health checks, documentation, and a website. I'm not a fan of magic. I
+                        like to know what's happening and why.
                         <br><br>
-                        The configuration should be intuitive and not require syntax, which would be hard to do from scratch. I am skeptical that anyone but the rarest rarely of folks (who probably work on the Kestrel team) can build a configuration from scratch without reference and copy/paste from Google.
-                        <br><br>                        
-                        As a positive, you place a file in a specific spot, and KA POW -You have a fully functioning API, health checks, documentation, and a website.....
-                        <br><br>Back to IIS, this page will likely focus mostly on getting past <span class="important">stupid</span>
+                        The configuration should be intuitive and not require syntax, which would be hard to do from
+                        scratch. I am skeptical that anyone but the rarest rarely of folks (who probably work on the
+                        Kestrel team) can build a configuration from scratch without reference and copy/paste from
+                        Google.
+                        <br><br>
+                        As a positive, you place a file in a specific spot, and KA POW -You have a fully functioning
+                        API, health checks, documentation, and a website.....
+                        <br><br>Back to IIS, this page will likely focus mostly on getting past <span
+                            class="important">stupid</span>
                         IIS issues. Can you tell I'm a fan?
                         <ul>
                             <li>To deploy to a local IIS 10:
@@ -61,32 +70,31 @@
                                                                 the web.config file is specify a specific DLL and
                                                                 although that DLL can be found on the machine, it's not
                                                                 the required version.
-                                                                <div class="code">
+                                                                <code>
                                                                     <pre>
     &lt;dependentAssembly&gt;
         &lt;assemblyIdentity name="System.Web.Http" publicKeyToken="31bf3856ad364e35" culture="neutral" /&gt;
         &lt;bindingRedirect oldVersion="0.0.0.0-5.2.9.0" newVersion="5.2.9.0" /&gt;
     &lt;/dependentAssembly&gt;
                                                                     </pre>
-                                                                </div>
+                                                                </code>
                                                                 <ul>
                                                                     <li>Option 1: Update "newVersion" to match new
                                                                         version:<br>
                                                                         <img style="width: 400px;"
                                                                             src="../../../assets/images/assembly_properties.png" /><br>
-                                                                        <div class="code">
+                                                                        <code>
                                                                             <pre>
     &lt;dependentAssembly&gt;
         &lt;assemblyIdentity name="System.Web.Http" publicKeyToken="31bf3856ad364e35" culture="neutral" /&gt;
         &lt;bindingRedirect oldVersion="0.0.0.0-<span class="important">5.3.0.0</span>" newVersion="<span class="important">5.3.0.0</span>" /&gt;
     &lt;/dependentAssembly&gt;
                                                                                 </pre>
-                                                                        </div>
+                                                                        </code>
                                                                     </li>
                                                                 </ul>
                                                             </li>
                                                         </ul>
-
                                                     </li>
                                                 </ul>
                                             </li>

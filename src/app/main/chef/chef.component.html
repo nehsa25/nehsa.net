@@ -4,7 +4,8 @@
             <h1 data-testid="header-title">Chef</h1>
         </mat-card-title>
         <mat-card-subtitle>Configures machines based on defined recipes... scripted infrastructure.<br>
-                I found it's an excellent backbone for facilitating running tests of various CUnit, NUnit, Pytest, and Playwright on a variety of known proprietary operation systems.
+            I found it's an excellent backbone for facilitating running tests of various CUnit, NUnit, Pytest, and
+            Playwright on a variety of known proprietary operation systems.
         </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
@@ -47,43 +48,43 @@
                                 <mat-panel-title>Example using Chef's data bag feature for credentials</mat-panel-title>
                             </mat-expansion-panel-header>
                             A credential can been added to the secure data bag with the following command:<br>
-                            <div class="code">
+                            <code>
                                 <pre>
 PS C:\src> knife data bag create &lt;ORG&gt; &lt;USERNAME&gt;
 Created data_bag[&lt;ORG&gt;]
 Created data_bag_item[&lt;ORG&gt;/&lt;USERNAME&gt;]
 </pre>
-                            </div><br>
+                            </code><br>
 
                             The username and password can be added to the data bag with the following command:<br>
-                            <div class="code">
+                            <code>
                                 <pre>
 PS C:\src> knife data bag edit &lt;ORG&gt; &lt;USERNAME&gt;
 </pre>
-                            </div>
+                            </code>
                             <span class="additional-note">This will open the data bag in your default editor. Add your
                                 password information here! For it to be a secure data bag, the data bag must be
                                 encrypted. and requires a secret which
                                 adds slightly more complexity as you then need to store the secret somewhere (a secret
                                 management system or at least outside Chef).</span><br>
 
-                            <div class="code">
+                            <code>
                                 <pre>
 PS C:\src> knife data bag show &lt;ORG&gt; &lt;USERNAME&gt;
 id:       &lt;USER_ID&gt;
 password: &lt;USER_PASSWORD&gt;
 username: &lt;USER_USERNAME&gt;
 </pre>
-                            </div>
+                            </code>
 
                             Finally, this can be used like this:
-                            <div class="code">
+                            <code>
                                 <pre>
 credentials = data_bag_item('&lt;ORG&gt;', '&lt;USERNAME&gt;')
 username = credentials['username']
 password = credentials['password']
 </pre>
-                            </div>
+                            </code>
 
                         </mat-expansion-panel>
                     </li>
@@ -126,7 +127,7 @@ password = credentials['password']
                             <ul class="condensed">
                                 <li>
                                     Slack Handler (recipes\slack_handler.rb)
-                                    <div class="code">
+                                    <code>
                                         <pre>
                 # Cookbook:: slack_handler
                 # Recipe:: default
@@ -197,10 +198,10 @@ password = credentials['password']
                     end
                 end                                
                                                 </pre>
-                                    </div>
+                                    </code>
                                 </li>
                                 <li>Library (libraries\slack.rb)
-                                    <div class="code">
+                                    <code>
                                         <pre>
                 require 'socket'
             
@@ -306,7 +307,7 @@ password = credentials['password']
                     end
                 end
                                                 </pre>
-                                    </div>
+                                    </code>
                                 </li>
                             </ul>
                         </mat-expansion-panel>
@@ -345,7 +346,7 @@ password = credentials['password']
                                     using
                                     the -j attribute
                                     Example:
-                                    <div class="code">
+                                    <code>
                                         <pre>
 $start = get-date;
 
@@ -690,11 +691,11 @@ try &#123;
         &#125;
 &#125;                                      
                                 </pre>
-                                    </div>
+                                    </code>
                                 </li>
                                 <li>Create scheduled task that always gets above script so if you screw it up, the
                                     machines can fix themselves
-                                    <div class="code">
+                                    <code>
                                         <pre>
 # This script should not rely on any functions within $profile.  If there's an issue with the profile we need to still be able to run this script to update it.
 # DON'T USE THE POWERSHELL PROFILE FUNCTIONALITY AS WE NEED THIS SCRIPT TO RUN NO MATTER WHAT.
@@ -891,7 +892,7 @@ try &#123;
                                         
 
                                     </pre>
-                                    </div>
+                                    </code>
                                 </li>
                             </ul>
                         </mat-expansion-panel>
@@ -909,7 +910,7 @@ try &#123;
                                 <ul class="condensed">
                                     <li>
                                         <span class="file">chef_ohai.rb</span>
-                                        <div class="code">
+                                        <code>
                                             <pre>
 Ohai.plugin(:Chef) do
 provides 'chef'
@@ -947,12 +948,12 @@ collect_data(:windows) do
 end
 end
                                                 </pre>
-                                        </div>
+                                        </code>
 
                                     </li>
                                     <li>
                                         <span class="file">windows_ohai.rb</span>
-                                        <div class="code">
+                                        <code>
                                             <pre>
 require 'open3'
 
@@ -980,11 +981,9 @@ Ohai.plugin(:ExtraWinData) do
     end
 end
                                                 </pre>
-                                        </div>
-
+                                        </code>
                                     </li>
                                 </ul>
-
                             </mat-expansion-panel>
                         </div>
                     </li>
