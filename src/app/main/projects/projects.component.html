@@ -94,6 +94,38 @@
                         <li>
                             <mat-expansion-panel expanded>
                                 <mat-expansion-panel-header>
+                                    <mat-panel-title>Comet - the AI Dog Assistant </mat-panel-title>
+                                </mat-expansion-panel-header>In an effort to understand generative AI, I created Comet.
+                                Currently, he using Google Gemini. If you ask a question via clicking on Coment, he will
+                                send the request to Google Gemini and return the answer. The answer is then displayed in
+                                the chat window. Comet is a work in progress. I am currently working on a way to have
+                                Comet understand the context of the website. The end goal is to have Comet be able to
+                                answer questions about the website, my projects, and myself - only the data I put in.
+                                <ul>
+                                    <li><span class="done"><mat-icon>done</mat-icon></span>Create Comet component</li>
+                                    <li><span class="done"><mat-icon>done</mat-icon></span>Create API endpoint</li>
+                                    <li><span class="done"><mat-icon>done</mat-icon></span>Create Python script
+                                        (talk.py)<br>Google Gemini does not have a Rest API but does
+                                        have Python libary so the flow is:
+                                        <img src="../../../assets/images/comet_flow.png" alt="Flow of Comet" />
+                                    </li>
+                                    <li><span class="pending"><mat-icon>pending</mat-icon></span>Clean up interface, add
+                                        buttons for cancel</li>
+                                    <li><span class="not-started"><mat-icon>not-started</mat-icon></span>Improve AI</li>
+                                    <li><span class="bug"><mat-icon>bug_report</mat-icon></span>The modal for asking
+                                        question needs much improvement:<br>
+                                        <ul class="condensed">
+                                            <li>multiple prompts can be launched</li>
+                                            <li>prompts launched unintentionally</li>
+                                            <li>Better form validation needed - empty prompts are sent for example</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
                                     <mat-panel-title><span class="pending"><mat-icon>pending</mat-icon></span>
                                         Update Flashcards I created for PH207 and turn them into a
                                         component.</mat-panel-title>
@@ -110,8 +142,8 @@
                                     <li><span class="done"><mat-icon>done</mat-icon></span>Create our MySql
                                         tables for the data:<br>
 
-                                        <span class="comments">Create our formats lookup table, this will return string,
-                                            list. This is to inform the client how to handle the data.</span>
+                                        Create our formats lookup table, this will return string,
+                                        list. This is to inform the client how to handle the data.<br>
                                         <code>
                                             <pre>
 CREATE TABLE answer_formats (
@@ -120,18 +152,18 @@ CREATE TABLE answer_formats (
     PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
                                         </pre>
-                                        </code>
+                                        </code><br><br>
 
-                                        <span class="comments">Populate it</span>
+                                        Populate it<br>
                                         <code>
                                             <pre>
 INSERT INTO `answer_formats` (`format`) VALUES
 ('json');
                                         </pre>
-                                        </code>
+                                        </code><br><br>
 
-                                        <span class="comments">Create our questions table and create a foreign key to
-                                            the formats table</span>
+                                        Create our questions table and create a foreign key to
+                                        the formats table<br>
                                         <code>
                                             <pre>
 CREATE TABLE `flashcards` (
@@ -147,7 +179,7 @@ CREATE TABLE `flashcards` (
                                         </code>
                                     </li>
                                     <li><span class="pending"><mat-icon>pending</mat-icon></span>Insert our trivia data
-                                        into the table
+                                        into the table<br>
                                         <code>
                                             <pre>
 INSERT INTO flashcards (question, answer, answer_format_id, page)

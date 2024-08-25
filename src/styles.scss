@@ -276,48 +276,30 @@ dt {
     font-size: 14px;
 }
 
-// code snippets
-.code {
-    font-family: Consolas;
-    border-radius: 5px;
-    padding: 3px 1em;
-    font-size: 1rem;
-    max-width: 90%;
-}
-
+// code
+span.code,
+code,
 .code-command {
     font-family: Consolas;
     border-radius: 5px;
-    padding: 1em;
-    margin-top: 1em;
-    display: inline-block;
-}
-
-// code divs
-div.code {
-    min-width: 400px;
-}
-
-div.code:hover {
-    -webkit-text-stroke-width: .5px;
-}
-
-// code spans
-span.code,
-code {
-    font-family: Consolas;
-    border-radius: 5px;
     padding: 3px 1em;
     font-size: 1rem;
     max-width: 90%;
+}
+
+// code is a block code snippet
+code {
+    min-width: 400px;
+    display: block;
+}
+
+// span.code is meant to be on the same line (inline)
+span.code, .code-command {
+    line-height: 5lvh !important;
     display: inline-block; // allows it to affect other elements around it
 }
 
-span.code {
-    line-height: 5lvh !important;
-}
-
-span.code:hover {
+code:hover, span.code:hover, .code-command:hover {
     -webkit-text-stroke-width: .5px;
 }
 
