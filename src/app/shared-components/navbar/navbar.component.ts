@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterModule, RouterLink } from '@angular/router';
+import { RouterModule, RouterLink, Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -10,6 +10,12 @@ import { UserService } from '../../services/user.service';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
-  constructor(public userService: UserService) { }
+  constructor(public userService: UserService, 
+    private router: Router
+  ) { }
 
+  sendUser = (page: string) => {
+    this.userService.pagePath = page;
+    this.router.navigate([page]);
+  }
 }

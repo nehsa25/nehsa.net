@@ -6,8 +6,6 @@ import { MatIconModule } from '@angular/material/icon'
 import { CommonModule } from '@angular/common';  
 import { CommentComponent } from '../../shared-components/comment/comment.component';
 import { UserService } from '../../services/user.service';
-import { CommentType } from '../../types/comment.type';
-import { Subject } from 'rxjs';
 import { RouterLink } from '@angular/router';
 import { MatExpansionModule } from '@angular/material/expansion';
 

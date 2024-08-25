@@ -6,6 +6,7 @@ export class UserService {
     private _name: string = "";
     private _about: string = "";
     private _currentPage: string = "";
+    private _currentPagePath: string = "";
     private _isDark: boolean = false;
 
     constructor(private router: Router) {
@@ -44,5 +45,12 @@ export class UserService {
     }
     set page(value: string) {
         this._currentPage = value;
+    }
+
+    get pagePath(): string {
+        return this._currentPagePath;
+    }
+    set pagePath(value: string) {
+        this._currentPagePath = value;
     }
 }

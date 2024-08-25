@@ -85,3 +85,12 @@ ul {
 .featured-navbar-links-light li:hover {
     background-color: orangered !important;
 }
+
+// selected
+.nav-selected {
+    background-color: greenyellow !important;
+    color: #222 !important;
+    font-weight: bolder;
+    border-top: 2px solid tomato;
+    border-bottom: 2px solid tomato;
+}
