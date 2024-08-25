@@ -4,11 +4,12 @@ import { CommentComponent } from '../../shared-components/comment/comment.compon
 import { Subject } from 'rxjs';
 import { UserService } from '../../services/user.service';
 import { CommentType } from '../../types/comment.type';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-school',
   standalone: true,
-  imports: [MatCardModule, CommentComponent],
+  imports: [MatCardModule, CommentComponent, MatIconModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './school.component.html',
   styleUrl: './school.component.scss'
