@@ -121,7 +121,7 @@
                         <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
-                                    <mat-panel-title>Limit Logic</mat-panel-title>
+                                    <mat-panel-title>Limit logic, used dependancy injection!</mat-panel-title>
                                 </mat-expansion-panel-header>
 
                                 Limit logic in a component to only that required for the view. All other
@@ -134,7 +134,7 @@
                                     <pre>
 /** Returns the quote */  
 getQuote() &#123;
-return this.http.get(this.quoteUrl);
+    return this.http.get(this.quoteUrl);
 &#125;
 </pre>
 </code><br>
@@ -142,18 +142,18 @@ return this.http.get(this.quoteUrl);
                                         <code>
                                     <pre>
 constructor() &#123;
-var getQuotes = this.httpClient.getQuote();
-this.getQueries.push(getQuotes);
+    var getQuotes = this.httpClient.getQuote();
+    this.getQueries.push(getQuotes);
 &#125;
 
 ngOnInit() &#123;
-forkJoin(this.getQueries).subscribe(next => &#123;
-if (next == null) &#123;
-return;
-&#125;
+    forkJoin(this.getQueries).subscribe(next => &#123;
+        if (next == null) &#123;
+            return;
+        &#125;
 
-this.quote = next[0]
-&#125;);
+        this.quote = next[0]
+    &#125;);
 &#125;
 </pre>
                                         </code>
@@ -1058,7 +1058,7 @@ if (this.userDetails.invalid) return;
                             </mat-expansion-panel>
                         </li>
                         <li>
-                            <mat-expansion-panel expanded>
+                            <mat-expansion-panel>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Troubleshooting</mat-panel-title>
                                 </mat-expansion-panel-header>
