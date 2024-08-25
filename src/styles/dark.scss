@@ -143,13 +143,15 @@ h6 {
     -webkit-text-stroke-color: var(--theme-background-purple) !important;
 }
 
-.vampire span.code,
+.vampire inline-code,
+span.code,
 code {
     background-color: var(--theme-dark-code-background) !important;
     color: var(--theme-dark-code-color) !important;
 }
 
-.vampire span.code:hover {
+.vampire inline-code:hover,
+span.code:hover {
     color: var(--theme-pop);
     -webkit-text-stroke-color: var(--theme-background-purple) !important;
 }
@@ -234,7 +236,8 @@ a:active {
     border-color: crimson;
 }
 
-.vampire .in-progress, .vampire .pending {
+.vampire .in-progress,
+.vampire .pending {
     color: #494741;
     background-color: midnightblue;
     border-color: #FFC107;

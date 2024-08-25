@@ -24,175 +24,165 @@
                     </ul>
                 </div>
                 <div>
-                    <mat-expansion-panel expanded>
-                        <mat-expansion-panel-header>
-                            <mat-panel-title>Basics</mat-panel-title>
-                        </mat-expansion-panel-header>
-                        <ul>
-                            <li>
-                                Working with HTML elements:
-                                <dl>
-                                    <dt>Do something on an event. e.g. (click)="clickfunc()"</dt>
-                                    <dd>()</dd>
-                                    <dt>Right-hand side of the assignment is a dynamic expression.</dt>
-                                    <dd>[]</dd>
-                                    <dt>Associate with a variable</dt>
-                                    <dd>[ngModel]="variable"</dd>
-                                    <dt>Decorator</dt>
-                                    <dd>e.g. ViewChild</dd>
-                                    <dt>Directive</dt>
-                                    <dd>e.g. ngIf</dd>
-                                    <dt>Template Reference Variable</dt>
-                                    <dd>e.g. &lt;span #me&gt;</dd>
-                                    <dt>Display a variable using interpolation</dt>
-                                    <dd>
-                                        <p [innerHtml]="'<spanks>&#123;&#123;variable to display&#125;&#125;</span>'">
-                                        </p>
-                                    </dd>
-                                    <dt>Embed a "data-testid" attribute in element after build</dt>
-                                    <dd>[attr.data-testid]="'edit-frozen-' + i"</dd>
-                                </dl>
-                            </li>
-                            <li>
-                                <div>
-                                    <h3>Important Files</h3>
-                                    <ul class="condensed">
-                                        <li>angular.json - Application settings.</li>
-                                        <li>packages.json - NPM packages to install for application.</li>
-                                    </ul>
-                                </div>
+                    <ul>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Basics / Files / Common Commands</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>
+                                        Working with HTML elements:
+                                        <dl>
+                                            <dt>Do something on an event. e.g. (click)="clickfunc()"</dt>
+                                            <dd>()</dd>
+                                            <dt>Right-hand side of the assignment is a dynamic expression.</dt>
+                                            <dd>[]</dd>
+                                            <dt>Associate with a variable</dt>
+                                            <dd>[ngModel]="variable"</dd>
+                                            <dt>Decorator</dt>
+                                            <dd>e.g. ViewChild</dd>
+                                            <dt>Directive</dt>
+                                            <dd>e.g. ngIf</dd>
+                                            <dt>Template Reference Variable</dt>
+                                            <dd>e.g. &lt;span #me&gt;</dd>
+                                            <dt>Display a variable using interpolation</dt>
+                                            <dd>
+                                                <p
+                                                    [innerHtml]="'<spanks>&#123;&#123;variable to display&#125;&#125;</span>'">
+                                                </p>
+                                            </dd>
+                                            <dt>Embed a "data-testid" attribute in element after build</dt>
+                                            <dd>[attr.data-testid]="'edit-frozen-' + i"</dd>
+                                        </dl>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <h3>Important Files</h3>
+                                            <ul class="condensed">
+                                                <li>angular.json - Application settings.</li>
+                                                <li>packages.json - NPM packages to install for application.</li>
+                                            </ul>
+                                        </div>
 
-                                <div>
-                                    <h3>Useful Commands</h3>
-                                    <ul class="condensed">
-                                        <li><span class="code">ng new super-app --routing --style=scss</span> -
-                                            Create
-                                            a new Angular project with routing and SCSS.
-                                        </li>
-                                        <li><span class="code">npm install</span> - Install all files necessary
-                                            to
-                                            run the Angular
-                                            project.</li>
-                                        <li><span class="code">ng serve -o</span> - Runs app locally. The -o
-                                            opens
-                                            it in your
-                                            browser.
-                                        </li>
-                                        <li><span class="code">ng build --configuration
-                                                development/production</span> - Build for
-                                            deployments. Output in /dist folder.</li>
-                                        <li><span class="code">ng add &#64;angular/material</span> - Installs
-                                            Material. This method
-                                            is
-                                            preferred for npm install as it performs additional initialization.
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <h3>Useful Links</h3>
-                                    <ul class="condensed">
-                                        <li>Angular - https://angular.io/</li>
-                                        <li>Material - https://material.angular.io/</li>
-                                        <li>Fonts - https://fonts.google.com/icons</li>
-                                    </ul>
-                                </div>
-                            </li>
+                                        <div>
+                                            <h3>Useful Commands</h3>
+                                            <ul class="condensed">
+                                                <li><inline-code>ng new super-app --routing --style=scss</inline-code> -
+                                                    Create
+                                                    a new Angular project with routing and SCSS.
+                                                </li>
+                                                <li><inline-code>npm install</inline-code> - Install all files necessary
+                                                    to
+                                                    run the Angular
+                                                    project.</li>
+                                                <li><inline-code>ng serve -o</inline-code> - Runs app locally. The -o
+                                                    opens
+                                                    it in your
+                                                    browser.
+                                                </li>
+                                                <li><inline-code>ng build --configuration
+                                                        development/production</inline-code> - Build for
+                                                    deployments. Output in /dist folder.</li>
+                                                <li><inline-code>ng add &#64;angular/material</inline-code> - Installs
+                                                    Material. This method
+                                                    is
+                                                    preferred for npm install as it performs additional initialization.
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <h3>Useful Links</h3>
+                                            <ul class="condensed">
+                                                <li>Angular - https://angular.io/</li>
+                                                <li>Material - https://material.angular.io/</li>
+                                                <li>Fonts - https://fonts.google.com/icons</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Services should be singletons</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                Services need to be singletons. If you have a userService, it should
+                                only be in the "providers" in a single spot. Otherwise, you'll have
+                                multiple instances of the same service which can cause issues.
 
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Case Matters!</mat-panel-title>
-                                    </mat-expansion-panel-header>
-                                    <mat-icon class="good">check</mat-icon><span class="code">&lt;a
-                                        routerLink="/python"&gt;Python&lt;/a&gt;</span><br><br>
-                                    <mat-icon class="bad">close</mat-icon><span class="code">&lt;a
-                                        routerlink="/python"&gt;Python&lt;/a&gt;</span>
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Services should be singletons</mat-panel-title>
-                                    </mat-expansion-panel-header>
-                                    Services need to be singletons. If you have a userService, it should
-                                    only be in the "providers" in a single spot. Otherwise, you'll have
-                                    multiple instances of the same service which can cause issues.
+                                <br><br>
+                                Jesse to add an example here forthwith.
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Limit Logic</mat-panel-title>
+                                </mat-expansion-panel-header>
 
-                                    <br><br>
-                                    Jesse to add an example here forthwith.
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Limit Logic</mat-panel-title>
-                                    </mat-expansion-panel-header>
-
-                                    Limit logic in a component to only that required for the view. All other
-                                    logic should be
-                                    delegated to services. Services I tend to create:
-                                    <ul class="condensed">
-                                        <li>http.service.ts - For all HTTP requests<br><br>
-                                            <span class="file">http.service.ts</span>
-                                            <code>
-                                                <pre>
+                                Limit logic in a component to only that required for the view. All other
+                                logic should be
+                                delegated to services. Services I tend to create:
+                                <ul class="condensed">
+                                    <li>http.service.ts - For all HTTP requests<br><br>
+                                        <span class="file">http.service.ts</span>
+                                        <code>
+                                    <pre>
 /** Returns the quote */  
 getQuote() &#123;
 return this.http.get(this.quoteUrl);
 &#125;
 </pre>
 </code><br>
-                                            <span class="file">supercomponent.ts</span>
-                                            <code>
-                                                <pre>
-constructor()
-&#123;
+                                        <span class="file">supercomponent.ts</span>
+                                        <code>
+                                    <pre>
+constructor() &#123;
 var getQuotes = this.httpClient.getQuote();
 this.getQueries.push(getQuotes);
 &#125;
 
 ngOnInit() &#123;
 forkJoin(this.getQueries).subscribe(next => &#123;
-    if (next == null) &#123;
-    return;
-    &#125;
-    this.quote = next[0]
+if (next == null) &#123;
+return;
+&#125;
+
+this.quote = next[0]
 &#125;);
 &#125;
 </pre>
-                                            </code>
-                                        </li>
-                                        <li>user.service.ts - For all user-related functions
-                                        </li>
-                                        <li>snack.service.ts - Providing messaging to users
-                                        </li>
-                                        <li>splash.service.ts - Displaying splash screen on longer loading
-                                            pages/activities
-                                        </li>
-                                    </ul>
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Control which CSS classes are applied via
-                                            TypeScript</mat-panel-title>
-                                        <mat-panel-description>
-                                        </mat-panel-description>
-                                    </mat-expansion-panel-header>
-                                    <ul class="condensed">
-                                        <li>HTML
-                                            <code>
-                                                <pre>
-&lt;div [class.bgblue]="showBlueBg" [class.main]="!showBlueBg"&gt;Yippee!&lt;/div&gt;
-</pre>
-                                            </code>
-                                        </li>
-                                        <li>CSS
-                                            <code>
-                                                <pre>
+                                        </code>
+                                    </li>
+                                    <li>user.service.ts - For all user-related functions
+                                    </li>
+                                    <li>snack.service.ts - Providing messaging to users
+                                    </li>
+                                    <li>splash.service.ts - Displaying splash screen on longer loading
+                                        pages/activities
+                                    </li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Control which CSS classes are applied via
+                                        TypeScript</mat-panel-title>
+                                    <mat-panel-description>
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <ul class="condensed">
+                                    <li>HTML
+                                        <inline-code>&lt;div [class.bgblue]="showBlueBg" [class.main]="!showBlueBg"&gt;Yippee!&lt;/div&gt;</inline-code>
+                                    </li>
+                                    <li>CSS
+                                        <code>
+<pre>
 .bgblue &#123;
 background-color: blue;
 &#125;
@@ -201,50 +191,38 @@ background-color: blue;
 background-color: var(--theme-splash-backround-color);
 &#125;                                        
 </pre>
-                                            </code>
-                                        </li>
-                                        <li>TypeScript
-                                            <code>
-                                                <pre>
-public showBlueBg: boolean = false;
-                                    </pre>
-                                            </code>
-                                        </li>
-                                    </ul>
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Passing data between components</mat-panel-title>
-                                        <mat-panel-description>
-                                        </mat-panel-description>
-                                    </mat-expansion-panel-header>
-                                    Passing data between components in Angular is easy:
-                                    <ul class="condensed">
-                                        <li>Create two components:
-                                            <code>
-                                                <pre>
-                                                            ng g c component1
-                                                            ng g c component2
-                                                        </pre>
-                                            </code>
-                                        </li>
-                                        <li>
-                                            Set a parameter in component1:
-                                            name = "";
-
-                                        </li>
-                                    </ul>
-                                </mat-expansion-panel>
-                            </li>
-                        </ul>
-                    </mat-expansion-panel>
-                </div>
-                <div>
-                    <ul>
+                                        </code>
+                                    </li>
+                                    <li>TypeScript
+                                        <inline-code>public showBlueBg: boolean = false;</inline-code>
+                                    </li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
                         <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Passing data between components</mat-panel-title>
+                                    <mat-panel-description>
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                Passing data between components in Angular is easy:
+                                <ul class="condensed">
+                                    <li>Create two components:
+                                        <code>
+                                            <pre>
+                                                        ng g c component1
+                                                        ng g c component2
+                                                    </pre>
+                                        </code>
+                                    </li>
+                                    <li>
+                                        Set a parameter in component1:
+                                        name = "";
 
+                                    </li>
+                                </ul>
+                            </mat-expansion-panel>
                         </li>
                         <li>
                             <mat-expansion-panel>
@@ -768,11 +746,7 @@ $app-theme: mat.define-dark-theme((color: (primary: $primary,
                                         </code>
                                     </li>
                                     <li>Use it somewhere:
-                                        <code>
-                                            <pre>
-            &#64;&lt;app-splash *ngIf="showSplash"&gt;&lt;/app-splash&gt;
-                                            </pre>
-                                        </code>
+                                        <inline-code>&lt;app-splash *ngIf="showSplash"&gt;&lt;/app-splash&gt;</inline-code>
                                     </li>
                                 </ul>
                             </mat-expansion-panel>
@@ -799,27 +773,27 @@ $app-theme: mat.define-dark-theme((color: (primary: $primary,
                                     </li>
                                     <li>Add resolved function in your component:
                                         <code>
-                                            <pre>
-            resolved(captchaResponse: string | null) &#123;
-                if (captchaResponse != null) &#123;
-                    this.captcha = captchaResponse;
-                    console.log(`Resolved captcha with response: $&#123;this.captcha&#125;`);
-                &#125;
-            &#125;
-                                    </pre>
+                                <pre>
+resolved(captchaResponse: string | null) &#123;
+    if (captchaResponse != null) &#123;
+        this.captcha = captchaResponse;
+        console.log(`Resolved captcha with response: $&#123;this.captcha&#125;`);
+    &#125;
+&#125;
+                        </pre>
                                         </code>
                                     </li>
                                     <li>
                                         Add reCAPTCHA to your component form:
                                         <code>
-                                            <pre>
-    &lt;div [hidden]="captcha"&gt;
-        &lt;p&gt;Confirm you're human please!&lt;/p&gt;
-            &lt;re-captcha (resolved)="resolved($event)" siteKey="&lt;YOURKEY&gt;"&gt;&lt;/re-captcha&gt;
-        &lt;/div&gt;
+                                        <pre>
+&lt;div [hidden]="captcha"&gt;
+    &lt;p&gt;Confirm you're human please!&lt;/p&gt;
+        &lt;re-captcha (resolved)="resolved($event)" siteKey="&lt;YOURKEY&gt;"&gt;&lt;/re-captcha&gt;
     &lt;/div&gt;
-    &lt;button type="submit" *ngIf="captcha" mat-flat-button&gt;Submit&lt;/button&gt;
-                                    </pre>
+&lt;/div&gt;
+&lt;button type="submit" *ngIf="captcha" mat-flat-button&gt;Submit&lt;/button&gt;
+                                </pre>
                                         </code>
                                     </li>
                                 </ul>
@@ -840,65 +814,65 @@ $app-theme: mat.define-dark-theme((color: (primary: $primary,
                                 <ul class="condensed">
                                     <li>Update <span class="file">app.component.ts</span>
                                         <code>
-                                            <pre>
-        fullScreen: boolean = false;
-        isFullScreenEvent = new Subject&lt;boolean&gt;();
-        ...
-        ngOnInit() &#123;
-            this.isFullScreenEvent.subscribe(data => &#123; 
-              console.log("Full screen event: " + data.toString()); 
-              this.fullScreen = data;
-              this.ref.detectChanges();
-            &#125;);
-        
-            this.checkScreenMode();
-        &#125;
-        ...    
-        elem: any; isFullScreen: boolean | undefined;
-        &#64;HostListener('document:fullscreenchange', ['$event'])
-        &#64;HostListener('document:webkitfullscreenchange', ['$event'])
-        &#64;HostListener('document:mozfullscreenchange', ['$event'])
-        &#64;HostListener('document:MSFullscreenChange', ['$event'])
-        fullscreenmodes(event: any) &#123;
-            this.checkScreenMode();
-        &#125;
-        checkScreenMode() &#123;
-            if (document.fullscreenElement) &#123;
-            this.isFullScreen = true;
-            &#125; else &#123;
-            this.isFullScreen = false;
-            &#125;
-            this.isFullScreenEvent.next(this.isFullScreen );
-        &#125;
-                                                </pre>
+                                    <pre>
+fullScreen: boolean = false;
+isFullScreenEvent = new Subject&lt;boolean&gt;();
+...
+ngOnInit() &#123;
+    this.isFullScreenEvent.subscribe(data => &#123; 
+        console.log("Full screen event: " + data.toString()); 
+        this.fullScreen = data;
+        this.ref.detectChanges();
+    &#125;);
+
+    this.checkScreenMode();
+&#125;
+...    
+elem: any; isFullScreen: boolean | undefined;
+&#64;HostListener('document:fullscreenchange', ['$event'])
+&#64;HostListener('document:webkitfullscreenchange', ['$event'])
+&#64;HostListener('document:mozfullscreenchange', ['$event'])
+&#64;HostListener('document:MSFullscreenChange', ['$event'])
+fullscreenmodes(event: any) &#123;
+    this.checkScreenMode();
+&#125;
+checkScreenMode() &#123;
+    if (document.fullscreenElement) &#123;
+    this.isFullScreen = true;
+    &#125; else &#123;
+    this.isFullScreen = false;
+    &#125;
+    this.isFullScreenEvent.next(this.isFullScreen );
+&#125;
+                                        </pre>
                                         </code>
                                     </li>
                                     <li>Mark any div to hide when in fullscreen with: *ngIf="!fullScreen"</li>
                                     <li>Add feature in component:
                                         <code>
-                                            <pre>
-        openFullScreen() &#123;
-            var elem = document.documentElement;
-            if (elem.requestFullscreen) &#123;
-                elem.requestFullscreen();
-            &#125;
-        &#125;
-        
-            cancelFullScreen() &#123;
-            if (document.exitFullscreen) &#123;
-                document.exitFullscreen();
-            &#125;
-        &#125;
-        
-            fullscreen() &#123;
-            this.isFullscreen = !this.isFullscreen;
-            if (this.isFullscreen) &#123;
-                this.openFullScreen();
-            &#125; else &#123;
-                this.cancelFullScreen();
-            &#125;
-        &#125;
-                                                </pre>
+                                    <pre>
+openFullScreen() &#123;
+    var elem = document.documentElement;
+    if (elem.requestFullscreen) &#123;
+        elem.requestFullscreen();
+    &#125;
+&#125;
+
+    cancelFullScreen() &#123;
+    if (document.exitFullscreen) &#123;
+        document.exitFullscreen();
+    &#125;
+&#125;
+
+    fullscreen() &#123;
+    this.isFullscreen = !this.isFullscreen;
+    if (this.isFullscreen) &#123;
+        this.openFullScreen();
+    &#125; else &#123;
+        this.cancelFullScreen();
+    &#125;
+&#125;
+                                        </pre>
                                         </code>
                                     </li>
                                 </ul>
@@ -912,11 +886,7 @@ $app-theme: mat.define-dark-theme((color: (primary: $primary,
                                 <ul>
                                     <li>Add a sleep in ngOnInit with something like this:<br>
                                         <span class="important">HTML:</span>
-                                        <code>
-                                            <pre>
-    &lt;input id="mud-input" type="text" /&gt;
-</pre>
-                                        </code>
+                                        <inline-code>&lt;input id="mud-input" type="text" /&gt;</inline-code>
                                         <span class="important">Typescript:</span>
                                         <code>
                                             <pre>
@@ -1061,16 +1031,16 @@ if (this.userDetails.invalid) return;
                                 </mat-expansion-panel-header>
                                 <ol>
                                     <li>Assign a template reference variable to the element:<br>
-                                        e.g. <span class="importantish">#me: </span> <span class="code">&lt;span
-                                            #me&gt;I will scroll here!&lt;/span&gt;</span></li>
+                                        e.g. <span class="importantish">#me: </span> <inline-code>&lt;span
+                                            #me&gt;I will scroll here!&lt;/span&gt;</inline-code></li>
                                     <li>Add a ViewChild decorator to the component (just under but within the
                                         class):<br>
-                                        <span class="code">&#64;ViewChild('me') meSection: ElementRef = new
-                                            ElementRef(null);</span>
+                                        <inline-code>&#64;ViewChild('me') meSection: ElementRef = new
+                                            ElementRef(null);</inline-code>
                                     </li>
                                     <li>Scroll to the element:<br>
-                                        <span class="code">this.meSection.nativeElement.scrollIntoView(&#123; behavior:
-                                            'smooth' &#125;);</span><br>
+                                        <inline-code>this.meSection.nativeElement.scrollIntoView(&#123; behavior:
+                                            'smooth' &#125;);</inline-code><br>
                                         <span class="additional-note">Behaviors include: <br>
                                             <dl>
                                                 <dt>auto</dt>
@@ -1094,36 +1064,61 @@ if (this.userDetails.invalid) return;
                                 </mat-expansion-panel-header>
                                 <ul>
                                     <li>
-                                        <span class="problem">Can't bind to 'ngModel' since it
-                                            isn't a known property of 'input'</span>
-                                        <span class="solution">
-                                            <code>
-                                                <pre>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Case Matters!</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <mat-icon class="good">check</mat-icon><inline-code>&lt;a
+                                                routerLink="/python"&gt;Python&lt;/a&gt;</inline-code><br><br>
+                                            <mat-icon class="bad">close</mat-icon><inline-code>&lt;a
+                                                routerlink="/python"&gt;Python&lt;/a&gt;</inline-code>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Can't bind to 'ngModel' since it
+                                                    isn't a known property of 'input'</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <span class="problem">Can't bind to 'ngModel' since it
+                                                isn't a known property of 'input'</span>
+                                            <span class="solution">
+                                                <code>
+<pre>
 Import
 FormsModule
 </pre>
-                                            </code>
-                                        </span>
+                                                </code>
+                                            </span>
+                                        </mat-expansion-panel>
                                     </li>
                                     <li>
-                                        <span class="problem">Can't bind to 'formGroup' since it
-                                            isn't a known property of 'form'</span>
-                                        <span class="solution">
-                                            <code>
-                                                <pre>
-Import ReactiveFormsModule
-</pre>
-                                            </code>
-                                        </span>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Can't bind to 'formGroup' since it
+                                                    isn't a known property of 'form'</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <span class="problem">Can't bind to 'formGroup' since it
+                                                isn't a known property of 'form'</span>
+                                            <span class="solution">
+                                                <inline-code>Import ReactiveFormsModule</inline-code>
+                                            </span>
+                                        </mat-expansion-panel>
                                     </li>
                                     <li>
-                                        <span class="problem">&quot;The same typography styles are generated multiple
-                                            times&quot; when building the project</span>
-                                        <div class="solution">
-                                            <ul>
-                                                <li>
-                                                    Look to put the theme generation behind classes:
-                                                    <code>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Can't bind to 'formGroup' since it
+                                                    isn't a known property of 'form'</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <span class="problem">&quot;The same typography styles are generated
+                                                multiple
+                                                times&quot; when building the project</span>
+                                            <div class="solution">
+                                                <ul>
+                                                    <li>
+                                                        Look to put the theme generation behind classes:
+                                                        <code>
                                                         <pre>
 &#64;include mat.all-component-colors($dark-primary);
 &#64;include mat.core-theme($dark-theme);
@@ -1139,10 +1134,10 @@ Import ReactiveFormsModule
 &#64;include mat.select-theme($dark-theme);
 &#64;include mat.sidenav-theme($dark-theme);
 </pre>
-                                                    </code>
+                                                        </code>
 
-                                                    Becomes:
-                                                    <code>
+                                                        Becomes:
+                                                        <code>
                                                         <pre>
 .dark &#123;
     &#64;include mat.all-component-colors($dark-primary);
@@ -1160,11 +1155,12 @@ Import ReactiveFormsModule
     &#64;include mat.sidenav-theme($dark-theme);
 &#125;
 </pre>
-                                                    </code>
-                                                    This ensures that the styles are only generated once.
-                                                </li>
-                                            </ul>
-                                        </div>
+                                                        </code>
+                                                        This ensures that the styles are only generated once.
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </mat-expansion-panel>
                                     </li>
                                 </ul>
                             </mat-expansion-panel>

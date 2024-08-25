@@ -189,13 +189,15 @@ td {
     -webkit-text-stroke-color: var(--theme-background-purple) !important;
 }
 
-.angel span.code,
+.angel inline-code,
+span.code,
 code {
     background-color: var(--theme-light-code-background) !important;
     color: var(--theme-light-code-color) !important;
 }
 
-.angel span.code:hover {
+.angel inline-code:hover,
+span.code:hover {
     color: var(--theme-pop);
     -webkit-text-stroke-color: var(--theme-background-purple) !important;
 }
