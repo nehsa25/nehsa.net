@@ -198,11 +198,13 @@
                             one highlighted.
                             <ul>
                                 <li><span class="done"><mat-icon>done</mat-icon></span>Create Component</li>
-                                <li><span class="not-started"><mat-icon>stop</mat-icon></span>Update all pages to use the
+                                <li><span class="not-started"><mat-icon>stop</mat-icon></span>Update all pages to use
+                                    the
                                     component</li>
                                 <li><span class="not-started"><mat-icon>stop</mat-icon></span>GraphQL will be used upon
                                     each page load to receive related content information.</li>
-                                <li><span class="not-started"><mat-icon>stop</mat-icon></span>Indicate page currently selected</li>
+                                <li><span class="not-started"><mat-icon>stop</mat-icon></span>Indicate page currently
+                                    selected</li>
                             </ul>
                         </mat-expansion-panel>
                     </li>
@@ -315,13 +317,37 @@ JSON_OBJECT('answer', '1/4 AU'),
                         <mat-expansion-panel>
                             <mat-expansion-panel-header>
                                 <mat-panel-title><span class="pending"><mat-icon>pending</mat-icon></span>Get
-                                    Weather based on your IP</mat-panel-title>
+                                    local weather based on your IP</mat-panel-title>
                             </mat-expansion-panel-header>
                             <ul>
-                                <li><span class="done"><mat-icon>done</mat-icon></span>Create Golang service to get
+                                <li><span class="done"><mat-icon>done</mat-icon></span>Create Go service to get
                                     weather from OpenWeatherAPI.org</li>
+                                <li><span class="done"><mat-icon>done</mat-icon></span>Create API endpoint that takes
+                                    city as a argument</li>
+                                <li><span class="not-started"><mat-icon>stop</mat-icon></span>Create function that can
+                                    get lat/long from IP</li>
+                                <li><span class="not-started"><mat-icon>stop</mat-icon></span>Update service to accept
+                                    lat/long instead of City</li>
                                 <li><span class="not-started"><mat-icon>stop</mat-icon></span>Call when
                                     visitor visits www.nehsa.net and return on page under the quote.</li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title><span class="done"><mat-icon>done</mat-icon></span>Sitemap
+                                    updater</mat-panel-title>
+                            </mat-expansion-panel-header>When I add a new page, I want to update the sitemap.
+                            <ul>
+                                <li><span class="done"><mat-icon>done</mat-icon></span>Create utility to scan for new
+                                    pages and update sitemap:
+                                    <a target="_blank"
+                                        href="https://github.com/nehsa25/python-angular-sitemapper">python-angular-sitemapper</a>
+                                </li>
+                                <li><span class="done"><mat-icon>done</mat-icon></span>Call utility from publish script
+                                </li>
+                                <li><span class="done"><mat-icon>done</mat-icon></span>Copy sitemap.xml</li>
                             </ul>
                         </mat-expansion-panel>
                     </li>

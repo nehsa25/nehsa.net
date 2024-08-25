@@ -90,7 +90,7 @@ ul {
 .nav-selected {
     background-color: greenyellow !important;
     color: #222 !important;
-    font-weight: bolder;
-    border-top: 2px solid tomato;
-    border-bottom: 2px solid tomato;
+    border-radius: 0 25px 25px 0 !important;
+    border: 1px solid #222;
+    border-left: none;
 }
