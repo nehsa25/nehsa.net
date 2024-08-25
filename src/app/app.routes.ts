@@ -64,6 +64,7 @@ import { CloudComponent } from './main/cloud/cloud.component';
 import { JavascriptFrameworksComponent } from './main/javascript-frameworks/javascript-frameworks.component';
 import { VueComponent } from './main/vue/vue.component';
 import { TSqlComponent } from './main/t-sql/t-sql.component';
+import { GraphqlComponent } from './main/graphql/graphql.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: WelcomeComponent },
@@ -83,6 +84,7 @@ export const routes: Routes = [
     { path: 'testing', title: 'nehsa.net | Testing', component: TestingComponent },
     { path: 'linux', title: 'nehsa.net | Linux', component: LinuxComponent },
     { path: 'go', title: 'nehsa.net | Golang', component: GoComponent },
+    { path: 'graphql', title: 'nehsa.net | GraphQL', component: GraphqlComponent },
     { path: 'security', title: 'nehsa.net | Security', component: SecurityComponent },
     {
         path: 'school', title: 'nehsa.net | School', component: SchoolComponent,

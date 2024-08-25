@@ -1,0 +1,136 @@
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">GraphQL</h1>
+        </mat-card-title>
+        <mat-card-subtitle>
+            GraphQL is a API query language similar to an REST API in purpose
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                <div>
+                    <ul>
+                        <li>
+                            <mat-expansion-panel expanded>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>GraphQL Vs. RestAPI</mat-panel-title>
+                                </mat-expansion-panel-header>GraphQL is a newer technology invented by Facebook in 2012.
+                                Its purpose is similar to that of a REST API, but in many ways (but not always), GraphQL
+                                is superior to REST APIs.<br><br>
+
+                                Advtaages of GraphQL over REST APIs include:<br>
+                                <ul>
+                                    <li>GraphQL allows you to request only the data you need, which can be more
+                                        efficient than REST APIs</li>
+                                    <li>GraphQL allows you to request multiple resources in a single request, which can
+                                        be more efficient than REST APIss</li>
+                                    <li>GraphQL will enable you to request nested resources in a single request, which
+                                        can be more efficient than REST APIs</li>
+                                    <li>GraphQL allows you to request resources in a single request, which can be more
+                                        efficient than REST APIs</li>
+                                    <li>GraphQL enables you to request resources in a single request, which can be more
+                                        efficient than REST APIs</li>
+                                </ul><br><br>
+
+                                Disadvantages of GraphQL over REST APIs include:<br>
+                                <ul>
+                                    <li>GraphQL is more complex than REST APIs. For simple use cases, REST APIs may be
+                                        an easier choice</li>
+                                    <li>GraphQL is less widely supported than REST APIs</li>
+                                    <li>GraphQL is less widely understood than REST APIs</li>
+                                </ul>
+
+                                <table class="min-table">
+                                    <tr>
+                                        <th>Use Case</th>
+                                        <th>REST(ful) API</th>
+                                        <th>GraphQL</th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            GET requests
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Get All Users of type "User"
+                                            (getting data from Angular or React)
+                                        </td>
+                                        <td><code>
+<pre>
+fetch('https://api.example.com/users?type=User')
+.then(response => response.json())
+.then(data => console.log(data));
+</pre>                                                    
+                                            </code>
+                                        <td><code>
+<pre>
+fetch('https://api.example.com/graphql', &#123;
+    method: 'POST',
+    headers: &#123;
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer YOUR_TOKEN'
+    &#125;,
+    body: JSON.stringify(&#123; query: `
+        query &#123;
+            users(type: "User") &#123;
+                id
+                name
+                email
+            &#125;
+        &#125;
+    `&#125;)
+&#125;)
+.then(response => response.json())
+.then(data => console.log(data));
+</pre>
+                                            </code>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Get a single User by ID
+                                        </td>
+                                        <td><code>
+<pre>
+fetch('https://api.example.com/users/123')
+.then(response => response.json())
+.then(data => console.log(data));
+</pre>
+                                            </code>
+                                        </td>
+                                        <td><code>
+<pre>
+fetch('https://api.example.com/graphql', &#123;
+    method: 'POST',
+    headers: &#123;
+        'Content-Type': 'application
+        'Authorization
+    &#125;,
+    body: JSON.stringify(&#123; query: `
+
+        query &#123;
+            user(id: "123") &#123;
+                id
+                name
+                email
+            &#125;
+        &#125;
+    `&#125;)
+&#125;)
+.then(response => response.json())
+.then(data => console.log(data));
+</pre>
+                                            </code>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </mat-expansion-panel>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>
