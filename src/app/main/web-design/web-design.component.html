@@ -532,53 +532,6 @@ test.describe('LCP Validation', () => &#123;
                         <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
-                                    <mat-panel-title>Starting with a clean slate</mat-panel-title>
-                                </mat-expansion-panel-header>
-                                To minimize the impact of browser defaults, I use the following to normalize things:
-                                <code>
-                                    <pre>
-/* Reset basic box model */
-*,
-*::before,
-*::after &#123;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-&#125;
-
-/* Remove default list styles */
-ul,
-ol &#123;
-  list-style: none;
-&#125;
-
-/* Set a baseline font size and line height */
-html &#123;
-  font-size: 16px;
-  line-height: 1.5;
-&#125;
-
-/* Improve text rendering */
-body &#123;
-  font-family: sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-&#125;
-
-/* Reset image and video styles */
-img,
-video &#123;
-  display: block;
-  max-width: 100%;
-  height: auto;
-&#125;
-</pre>
-</code>
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
                                     <mat-panel-title>Lists (both ordered and unordered!)</mat-panel-title>
                                     <mat-panel-description>
                                         Stuff I know about &lt;ul&gt;,&lt;ol&gt;,&lt;li&gt;, counter-reset, and
