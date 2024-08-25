@@ -364,12 +364,11 @@
     <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen"
         class="contactme">jesse.stone<wbr>&#64;nehsa.net
     </div>
-    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen"
-        class="navbar"><app-navbar></app-navbar></div>
-    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" class="body">
+    <nav [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen"><app-navbar></app-navbar></nav>
+    <main [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
         <router-outlet (activate)="onActivate($event)"></router-outlet>
-    </div>
-    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" class="footer">
+    </main>
+    <footer [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
         <div>nehsa.net &copy; 2024 - All Rights Reserved. Be kind.</div>
         <div>{{getBuild()}}</div>
         <!-- <div class="playwright">
@@ -377,7 +376,7 @@
                     src="https://github.com/nehsa25/nehsa.net/actions/workflows/playwright.yml/badge.svg" /></a>
             <h2>Why?</h2>
         </div> -->
-    </div>
+    </footer>
 </div>
 <div class="comet">
     <app-comet></app-comet>

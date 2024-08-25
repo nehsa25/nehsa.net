@@ -13,7 +13,7 @@
         grid-template-columns: min-content 1fr;
     }
 
-    .body {
+    main {
         height: inherit;
     }
 
@@ -50,7 +50,7 @@
             "footer footer";
     }
 
-    .footer {
+    footer {
         grid-template-columns: 1fr;
     }
 
@@ -58,7 +58,7 @@
         text-align: left;
     }
 
-    .navbar {
+    nav {
         overflow: auto;
         height: 100%;
     }
@@ -85,7 +85,7 @@
 }
 
 @media (min-width: 768px) {
-    .body {
+    main {
         height: inherit;
     }
 
@@ -93,7 +93,7 @@
         grid-template-columns: min-content 1fr;
     }
 
-    .footer {
+    footer {
         grid-template-columns: 1fr 215px;
     }
 
@@ -105,14 +105,14 @@
         text-align: right;
     }
 
-    .navbar {
+    nav {
         height: 100%;
         overflow: auto;
     }
 }
 
 @media (min-width: 992px) {
-    .body {
+    main {
         height: inherit;
     }
 
@@ -140,7 +140,7 @@
             "contactme footer footer footer footer footer";
     }
 
-    .footer {
+    footer {
         grid-template-columns: 1fr 215px;
     }
 
@@ -152,7 +152,7 @@
         text-align: right;
     }
 
-    .navbar {
+    nav {
         height: 100%;
         overflow: auto;
         ;
@@ -184,7 +184,7 @@
             "contactme footer footer footer footer footer";
     }
 
-    .footer {
+    footer {
         grid-template-columns: 1fr 215px;
     }
 
@@ -196,7 +196,7 @@
         text-align: right;
     }
 
-    .navbar {
+    nav {
         height: 100%;
         overflow: auto;
         ;
@@ -228,7 +228,7 @@
             "contactme footer footer footer footer footer";
     }
 
-    .footer {
+    footer {
         grid-template-columns: 1fr 215px;
     }
 
@@ -240,7 +240,7 @@
         text-align: right;
     }
 
-    .navbar {
+    nav {
         height: 100%;
         overflow: auto;
         ;
@@ -364,7 +364,7 @@
     white-space: wrap;
 }
 
-dh-quote {
+.dh-quote {
     font-size: 1.5rem;
     font-style: italic;
     font-weight: 700;
@@ -397,18 +397,18 @@ dh-quote {
     font-size: 1.5rem;
 }
 
-.navbar {
+nav {
     grid-area: navbar;
 }
 
-.body {
+main {
     grid-area: body;
     padding: 15px 0.5em;
     align-items: baseline;
     overflow: auto;
 }
 
-.footer {
+footer {
     grid-area: footer;
     text-align: center;
     width: 100%;
@@ -430,7 +430,7 @@ dh-quote {
     display: grid;
 }
 
-.footertxt h5 {
+footertxt h5 {
     padding: 0;
     margin: 0;
 }
