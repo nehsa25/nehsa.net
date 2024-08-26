@@ -25,7 +25,7 @@
                         Andrew Begel, Empirical software engineering : an international journal, 2020-01, Vol.25
                         (1), p.322-352</span></span>
                 <span class="importantish">While I hope you get something of value while here, I'm surprised you're
-                    here. This website is primarily written for Jesse. It's his playground for playing with exciting
+                    here! This website is primarily written for Jesse. It's his playground for playing with exciting
                     technologies. When his curiosity is satisfied, he often moves on to something new, leaving
                     behind more of a "proof of concept" than finished feature. He'll eventually get back to it.
                     Maybe.</span>
@@ -50,7 +50,8 @@
                                         <li>Resilient, geographically-dispersed/load-balanced UIs in the cloud
                                             (Azure in
                                             my case)</li>
-                                        <li><a routerLink="/webdesign">Web design</a> best practices and Web Vitals
+                                        <li><a routerLink="/webdesign">Web design</a> best practices, WCA Guidlines
+                                            (WCAG), and Web Vitals
                                             metrics such as Largest Contentful
                                             Paint (LCP) and Cumulative Layout Shift (CLS)</li>
                                     </ul>
@@ -316,6 +317,21 @@ JSON_OBJECT('answer', '1/4 AU'),
                     <li>
                         <mat-expansion-panel>
                             <mat-expansion-panel-header>
+                                <mat-panel-title><span class="pending"><mat-icon>pending</mat-icon></span>Blog
+                                    creation</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li><span class="done"><mat-icon>done</mat-icon></span>Create Blog page</li>
+                                <li><span class="not-started"><mat-icon>stop</mat-icon></span>Implement API</li>
+                                <li><span class="not-started"><mat-icon>stop</mat-icon></span>Setup MySQL Database</li>
+                                <li><span class="not-started"><mat-icon>stop</mat-icon></span>Setup client http services
+                                </li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
                                 <mat-panel-title><span class="pending"><mat-icon>pending</mat-icon></span>Get
                                     local weather based on your IP</mat-panel-title>
                             </mat-expansion-panel-header>
@@ -400,96 +416,228 @@ JSON_OBJECT('answer', '1/4 AU'),
                         </mat-expansion-panel>
                     </li>
                     <li>
-                        Build test automation infrastructure to
-                        meet a specific need of testing on varity of
-                        real
-                        hardware (metal) such as network cards, CPUs, and a variety of operating systems.
-                        Technolgies: Chef,
-                        Doxygen, Python, Pytest<br>
-                        <img style="width: 600px;" mat-card-image src="assets/images/test-automation.png"
-                            alt="Diagram of test framework test architecture" />
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title><span class="done"><mat-icon>done</mat-icon></span>Automation
+                                    Infrastructure leveraging Chef</mat-panel-title>
+                                <mat-panel-subtitle>Diagram of architecture</mat-panel-subtitle>
+                            </mat-expansion-panel-header>
+                            Build test automation infrastructure to
+                            meet a specific need of testing on varity of
+                            real
+                            hardware (metal) such as network cards, CPUs, and a variety of operating systems.
+                            Technolgies: Chef,
+                            Doxygen, Python, Pytest<br>
+                            <img style="width: 600px;" mat-card-image src="assets/images/test-automation.png"
+                                alt="Diagram of test framework test architecture" />
+                        </mat-expansion-panel>
                     </li>
                     <li>
-                        Built a desktop systray application using Python that runs in taskbar for capturing
-                        screenshots
-                        and state to facilitates
-                        finding bugs/recording machine state (lab-monitor)<br>
-                        <img style="width: 100px;" mat-card-image src="assets/images/lab_monitor1.png"
-                            alt="Picture of Lab Monitor tray icon" /><br><br>
-                        <img style="width: 100px;" mat-card-image src="assets/images/lab_monitor2.png"
-                            alt="Picture of Lab Monitor tray options" />
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title><span class="done"><mat-icon>done</mat-icon></span>Lab
+                                    Monitor</mat-panel-title>
+                                <mat-panel-subtitle>A systray application writting in Python</mat-panel-subtitle>
+                            </mat-expansion-panel-header>
+                            Built a desktop systray application using Python that runs in taskbar for capturing
+                            screenshots
+                            and state to facilitates
+                            finding bugs/recording machine state (lab-monitor)<br>
+                            <img style="width: 100px;" mat-card-image src="assets/images/lab_monitor1.png"
+                                alt="Picture of Lab Monitor tray icon" /><br><br>
+                            <img style="width: 100px;" mat-card-image src="assets/images/lab_monitor2.png"
+                                alt="Picture of Lab Monitor tray options" />
+                        </mat-expansion-panel>
                     </li>
                     <li>
-                        Built a Client/Server websocket application using Asyncio. This is deployed on our all
-                        lab
-                        machines automatically via Chef and allows remove command execution against any/all
-                        machines via
-                        lab
-                        website (lab-listener)<br>
-                        <img style="width: 600px;" mat-card-image src="assets/images/lab_listener.png"
-                            alt="picture of lab divstener websocket" />
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title><span class="done"><mat-icon>done</mat-icon></span>Lab
+                                    Listener</mat-panel-title>
+                                <mat-panel-subtitle>A platform for executing commands (Powershell, CMD, other) across
+                                    all/any lab machine.</mat-panel-subtitle>
+                            </mat-expansion-panel-header>
+                            Built a Client/Server websocket application using Asyncio. This is deployed on our all
+                            lab
+                            machines automatically via Chef and allows remove command execution against any/all
+                            machines via
+                            lab
+                            website (lab-listener)<br>
+                            <img style="width: 600px;" mat-card-image src="assets/images/lab_listener.png"
+                                alt="picture of lab divstener websocket" />
+                        </mat-expansion-panel>
                     </li>
                     <li>
-                        Replaced the Chef UI (I believe it was called Chef Manage) with custom implementation (to
-                        work-around bugs / at
-                        direction of
-                        Chef team). This lab site provides detailed information against all machines in the lab
-                        and
-                        allows configuration/remote command execution<br>
-                        <img style="width: 600px;" mat-card-image src="assets/images/lab_config1.png"
-                            alt="Config page for configuring lab hosts" />
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title><span class="done"><mat-icon>done</mat-icon></span>Configure
+                                    Host</mat-panel-title>
+                                <mat-panel-subtitle>Implemented means to configure lab hosts</mat-panel-subtitle>
+                            </mat-expansion-panel-header>
+                            Replaced the Chef UI (I believe it was called Chef Manage) with custom implementation (to
+                            work-around bugs / at
+                            direction of
+                            Chef team). This lab site provides detailed information against all machines in the lab
+                            and
+                            allows configuration/remote command execution<br>
+                            <img style="width: 600px;" mat-card-image src="assets/images/lab_config1.png"
+                                alt="Config page for configuring lab hosts" />
+                        </mat-expansion-panel>
                     </li>
                     <li>
-                        Automated debugging tests via Visual Studio us pywinauto (step-into, over, set watch)
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title><span class="done"><mat-icon>done</mat-icon></span>Debugging Windows
+                                    Applications (pyautogui, pywinauto)</mat-panel-title>
+                                <mat-panel-subtitle>Implemented means to configure lab hosts</mat-panel-subtitle>
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li>
+                                    (PyAutoGui) Automated debugging tests via Visual Studio (step-into, over, set watch)
+                                    <code>
+<pre>
+# Sets and runs to a breakpoint (F5)
+def run_to_breakpoint(timeout):
+    # set breakpoint
+    left, top, width, height = find_something('images/code_line.png', timeout, logger)    
+    LogUtils.info(f"Setting breakpoint", logger)
+    pyautogui.click(left + 2, top + height / 2)
+
+    # start debugger
+    run_debugger('F5', logger)
+
+    # check that we stopped at breakpoint
+    left, top, width, height = find_something('images/code_line_with_breakpoint.png', timeout, logger)   
+
+# this function runs a debugger command (F5, F10, F11) and kills intime consoles
+def run_debugger(key, logger):
+    LogUtils.info(f"Running debugger (pressing &#123;key&#125;)")
+    pyautogui.hotkey(key)
+    HelperUtils.sleep_for(2, logger)
+    INtimeUtils.kill_intime_console(logger)
+    # click somewhere
+    reset_mouse()
+
+&#64;pytest.mark.debugger_testing
+## Tests that the INtime debugger can step into code
+#
+# Test Steps:
+# -# Sets and runs to (F5) a breakpoint
+# -# Presses F11
+# -# Verifies we stepped into code at the appropriate place
+def test_debug_step_into():    
+    LogUtils.info(f"**RUNNING TEST: &#123;inspect.currentframe().f_code.co_name&#125;", logger)
+    timeout = time.time() + 60 * 5 
+    # run to starting breakpoint
+    run_to_breakpoint(timeout)
+
+    # set new breakpoint
+    left, top, width, height = find_something('images/code_line2.png', timeout, logger)
+    pyautogui.click(left + 2, top + height / 2)
+
+    LogUtils.info(f"Running to new breakpoint", logger)
+    run_debugger('F5', logger)
+
+    # step into
+    run_debugger('F11', logger)
+
+    LogUtils.info(f"Looking for step into breakpoint", logger)
+    breakpoint_set = None        
+    while breakpoint_set is None:
+        breakpoint_set = pyautogui.locateCenterOnScreen('images/step_into.png')
+        if time.time() > timeout:
+            raise Exception("A timeout occurred looking for breakpoint")
+                
+    assert breakpoint_set is not None, "F11 did not step INTO breakpoint"
+
+    # finish
+    run_debugger('F5', logger)
+</pre>
+                                    </code>
+
+                                </li>
+                            </ul>
+                        </mat-expansion-panel>
+
                     </li>
                     <li>
-                        Implemented a Recapcha<br>
-                        <img style="width: 300px;" mat-card-image src="assets/images/recaptcha2.png"
-                            alt="Recapcha implementation" />
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title><span class="done"><mat-icon>done</mat-icon></span>Implemented a
+                                    Recapcha</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <img style="width: 300px;" mat-card-image src="assets/images/recaptcha2.png"
+                                alt="Recapcha implementation" />
+                        </mat-expansion-panel>
                     </li>
                     <li>
-                        To prevent folks in the office from using a computer in use by someone remote, I wrote a
-                        Python script that sets the wallpaper of the machine:<br>
-                        <img style="width: 600px;" src="assets/images/wallpaper_python.jpg" />
-                    </li>
-                    <li>Implemented an Angular status & maintenance page
-                        <ul class="condensed">
-                            <li>Status displays next maintance message text on all login pages for two days
-                                before date
-                                in database</li>
-                            <li>Disappears after maintenance date + a few hours</li>
-                            <div>During maintenance:
-                                <ul class="condensed">
-                                    <li>All pages redirect to maintenance page</li>
-                                    <li>All API requests return a "UNDER_MAINTENANCE" code</li>
-                                    <li>Users on whitedivst and continue to vadivdate page</li>
-                                </ul>
-                            </div>
-                            <li>
-                                <span>Controlled via table in database:</span><br>
-                                <img width="600" mat-card-image src="assets/images/maint2.png" />
-                            </li>
-                            <li>
-                                <span>Corresponding status on login pages:</span><br>
-                                <img width="600" mat-card-image src="assets/images/maint1.png" />
-                            </li>
-                            <li>
-                                <span>Folks not on maintenance whitelist are redirected to maintenance
-                                    page:</span><br>
-                                <img width="600" mat-card-image src="assets/images/maint3.png" />
-                            </li>
-                        </ul>
-                    </li>
-                    <li>Maintain production Angular project and backend C# API. Hosted in Azure.<br>
-                        <img width="600" mat-card-image src="assets/images/license_portal.png"
-                            alt="Material table with custom select-columns feature" />
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title><span class="done"><mat-icon>done</mat-icon></span>Update wallpaper on
+                                    physical machine</mat-panel-title>
+                                <mat-panel-subtitle>Assists with sharing real hardware among onsite/remote
+                                    engineers</mat-panel-subtitle>
+                            </mat-expansion-panel-header>
+                            To prevent folks in the office from using a computer in use by someone remote, I wrote a
+                            Python script that sets the wallpaper of the machine:<br>
+                            <img style="width: 600px;" src="assets/images/wallpaper_python.jpg" />
+                        </mat-expansion-panel>
                     </li>
                     <li>
-                        website/html "MUD" client: <a href="https://github.com/nehsa25/websocket-mud">Github</a><br>
-                        <img width="600" mat-card-image src="assets/images/game_example_07_3_24.png"
-                            alt="A web-based MUD client written in Python, websockets, and AI" />
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title><span class="done"><mat-icon>done</mat-icon></span>Implemented an
+                                    Angular status & maintenance page</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul class="condensed">
+                                <li>Status displays next maintance message text on all login pages for two days
+                                    before date
+                                    in database</li>
+                                <li>Disappears after maintenance date + a few hours</li>
+                                <div>During maintenance:
+                                    <ul class="condensed">
+                                        <li>All pages redirect to maintenance page</li>
+                                        <li>All API requests return a "UNDER_MAINTENANCE" code</li>
+                                        <li>Users on whitedivst and continue to vadivdate page</li>
+                                    </ul>
+                                </div>
+                                <li>
+                                    <span>Controlled via table in database:</span><br>
+                                    <img width="600" mat-card-image src="assets/images/maint2.png" />
+                                </li>
+                                <li>
+                                    <span>Corresponding status on login pages:</span><br>
+                                    <img width="600" mat-card-image src="assets/images/maint1.png" />
+                                </li>
+                                <li>
+                                    <span>Folks not on maintenance whitelist are redirected to maintenance
+                                        page:</span><br>
+                                    <img width="600" mat-card-image src="assets/images/maint3.png" />
+                                </li>
+                            </ul>
+                        </mat-expansion-panel>
                     </li>
-                    <li>RTS game using Python and pygame: <a href="https://github.com/nehsa25/rts">Github</a></li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title><span class="done"><mat-icon>done</mat-icon></span>Angular / Material
+                                    Website</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            Maintain production Angular project and backend C# API. Hosted in Azure.<br>
+                            <img width="600" mat-card-image src="assets/images/license_portal.png"
+                                alt="Material table with custom select-columns feature" />
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title><span class="pending"><mat-icon>pending</mat-icon></span>Creating an
+                                    RTS game</mat-panel-title>
+                                <mat-panel-subtitle>Real-Time-Strategy! Using Python and Pygame</mat-panel-subtitle>
+                            </mat-expansion-panel-header>
+                            RTS game using Python and pygame: <a href="https://github.com/nehsa25/rts">Github</a>
+                        </mat-expansion-panel>
+                    </li>
                 </ul>
             </div>
             <div><app-comment></app-comment></div>
