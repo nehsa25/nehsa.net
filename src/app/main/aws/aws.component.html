@@ -15,7 +15,114 @@
                     </ul>
                 </div>
                 <div>
-                    Jesse should add content here..</div>
+                    AWS Termonology:
+                    <dl>
+                        <dt>ECS</dt>
+                        <dd>Elastic Container Service: AWS's container orchestration service, compare with Kubernetes
+                        </dd>
+                        <dt>ECR</dt>
+                        <dd>Elastic Container Registry: AWS's container registry service, compare with Docker Hub</dd>
+                        <dt>ECS Cluster</dt>
+                        <dd>A group of EC2 instances that run your containers</dd>
+                        <dt>ECS Task</dt>
+                        <dd>A group of containers that run together on a single EC2 instance</dd>
+                        <dt>ECS Task Definition Family</dt>
+                        <dd>A group of ECS Task Definitions that are related. e.g. graphql-endpoint</dd>
+                        <dt>ECS Service</dt>
+                        <dd>A group of ECS Tasks that run together</dd>
+                    </dl><br><br>
+
+                    AWS Tools:
+                    <dl>
+                        <dt>aws</dt>
+                        <dd>AWS CLI tool, used for interacting with AWS services.<br>
+                            Example: <inline-code>aws s3 ls</inline-code> which would list all the S3 buckets<br>
+                            Installation: pip install awscli
+                        </dd>
+                        <dt>cloudformation</dt>
+                        <dd>AWS's infrastructure as code<br>
+                            Example: <inline-code>aws cloudformation create-stack --stack-name myteststack --template-body file://myteststack.yaml</inline-code><br>
+                            Instllation: pip install awscli
+                    </dl><br><br>
+
+                    <ul>
+                        <li>
+                            <mat-expansion-panel expanded>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Configure to Host a Docker Image in AWS
+                                        Repository</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                We're going to use AWS's Elastic Container Registry for hosting our Docker
+                                image<br><br>
+                                <ul>
+                                    <li>Setup:<br>
+                                        <ul class="condensed">
+                                            <li>Go to the AWS Console</li>
+                                            <li>Search for "Elastic Container Registry"</li>
+                                            <li>Click on "Repositories" in the left-hand menu</li>
+                                            <li>Click on "Create repository"</li>
+                                            <li>Give your repository a name</li>
+                                            <li>Click "Create repository"</li>
+                                            <li>Click on your repository</li>
+                                            <li>Click on "View push commands"</li>
+                                            <li>Follow the instructions to push your Docker image to the repository</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Push to AWS repository:<br>
+                                        <ul class="condensed">
+                                            <li>Install the AWS CLI tool (pro-tip, if you have Python: <inline-code>pip
+                                                    install awscli</inline-code>)</li>
+                                            <li>If you have Chocolately: <inline-code>refreshenv</inline-code></li>
+                                            <li>Get your AWS Access Key ID:
+                                                <ul class="condensed">
+                                                    <li>Login to the AWS Console</li>
+                                                    <li>Navigate to IAM</li>
+                                                    <li>Click on your user</li>
+                                                    <li>Click on "Security credentials"</li>
+                                                    <li>Click on "Create access key"</li>
+                                                    <li>Ensure user has policy: AmazonEC2ContainerRegistryFullAccess
+                                                    </li>
+                                                    <li>Setup your credentials:<inline-code>aws configure</inline-code>
+                                                    </li>
+                                                    <li>Configure for Docker: <inline-code>aws ecr get-login-password
+                                                            --region us-east-2 | docker login --username AWS
+                                                            --password-stdin
+                                                            123456789ks.dkr.ecr.us-east-2.amazonaws.com
+                                                        </inline-code>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>Build your image: <inline-code>docker build -t nehsanet/graphql-nehsanet
+                                                    .</inline-code></li>
+                                            <li>Tag it for AWS: <inline-code>docker tag nehsanet/graphql-nehsanet
+                                                    123456789.dkr.ecr.us-east-1.amazonaws.com/graphql-nehsanet</inline-code>
+                                            </li>
+                                            <li>Push it: <inline-code>docker push
+                                                    123456789.dkr.ecr.us-east-1.amazonaws.com/graphql-nehsanet</inline-code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>Run it:<br>
+                                        <ul class="condensed">
+                                            <li>Go to the AWS Console</li>
+                                            <li>Search for "Elastic Container Service"</li>
+                                            <li>Click on "Clusters" in the left-hand menu</li>
+                                            <li>Click on "Create cluster"</li>
+                                            <li>Give your cluster a name and click "Create"</li>
+                                            <li>Click on your cluster</li>
+                                            <li>Create "task definition", give your task definition a name and configure
+                                                for your container. e.g. graphql-endpoint</li>
+                                            <li>Create "task" and choose the task definition you just created</li>
+                                            <li>Create "service and give your service a name and choose the task you
+                                                just created</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div><app-comment></app-comment></div>
         </div>

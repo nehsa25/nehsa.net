@@ -15,15 +15,29 @@
                         <li>
                             <mat-expansion-panel expanded>
                                 <mat-expansion-panel-header>
-                                    <mat-panel-title>GraphQL Vs. RestAPI</mat-panel-title>
-                                </mat-expansion-panel-header>GraphQL is a newer technology invented by Facebook in 2012.
+                                    <mat-panel-title>Intro</mat-panel-title>
+                                </mat-expansion-panel-header>GraphQL is a newer technology invented by Facebook.
                                 Its purpose is similar to that of a REST API, but in many ways (but not always), GraphQL
                                 is superior to REST APIs.<br><br>
 
                                 Advtaages of GraphQL over REST APIs include:<br>
                                 <ul>
-                                    <li>GraphQL allows you to request only the data you need, which can be more
-                                        efficient than REST APIs</li>
+                                    <li>GraphQL allows you to request only the needed data, which can be more efficient
+                                        than REST APIs. This also makes GraphQL more resistant to API changes than REST
+                                        APIs.<br><br>
+
+                                        It's common practice for a REST API to embed a version into the URL like so:<br>
+                                        <inline-code>https://api.example.com/v1/users</inline-code><br><br>
+                                        <inline-code>https://api.example.com/v2/users</inline-code><br><br>
+
+                                        This versioning is required because the old API version often must still be
+                                        accessed when breaking changes are made. However, with GraphQL, you can request
+                                        only the data you need, so if the API changes, you can change the query to
+                                        request the new data. Even better, there are no changes at all if what's being
+                                        explicitly requested has not changed.
+
+
+                                    </li>
                                     <li>GraphQL allows you to request multiple resources in a single request, which can
                                         be more efficient than REST APIss</li>
                                     <li>GraphQL will enable you to request nested resources in a single request, which
@@ -31,40 +45,49 @@
                                     <li>GraphQL allows you to request resources in a single request, which can be more
                                         efficient than REST APIs</li>
                                     <li>GraphQL enables you to request resources in a single request, which can be more
-                                        efficient than REST APIs</li>
+                                        efficient than REST APIs
+                                    </li>
                                 </ul><br><br>
 
-                                Disadvantages of GraphQL over REST APIs include:<br>
                                 <ul>
-                                    <li>GraphQL is more complex than REST APIs. For simple use cases, REST APIs may be
-                                        an easier choice</li>
-                                    <li>GraphQL is less widely supported than REST APIs</li>
-                                    <li>GraphQL is less widely understood than REST APIs</li>
-                                </ul>
+                                    <li>
+                                        Disadvantages of GraphQL over REST APIs include:<br>
+                                        <ul>
+                                            <li>GraphQL is more complex than REST APIs. For simple use cases, REST APIs
+                                                may be
+                                                an easier choice</li>
+                                            <li>GraphQL is less widely supported than REST APIs. You may be forced to
+                                                use REST if a libary you require uses it for example.</li>
+                                        </ul><br><br>
 
-                                <table class="min-table">
-                                    <tr>
-                                        <th>Use Case</th>
-                                        <th>REST(ful) API</th>
-                                        <th>GraphQL</th>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            GET requests
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Get All Users of type "User"
-                                            (getting data from Angular or React)
-                                        </td>
-                                        <td><code>
+                                        Further breakdown:<br>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>GraphQL Vs. RestAPI</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <table class="min-table">
+                                                <tr>
+                                                    <th>Use Case</th>
+                                                    <th>REST(ful) API</th>
+                                                    <th>GraphQL</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        GET requests
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Get All Users of type "User"
+                                                        (getting data from Angular or React)
+                                                    </td>
+                                                    <td><code>
 <pre>
 fetch('https://api.example.com/users?type=User')
 .then(response => response.json())
 .then(data => console.log(data));
 </pre>                                                    
-                                            </code>
-                                        <td><code>
+                                                        </code>
+                                                    <td><code>
 <pre>
 fetch('https://api.example.com/graphql', &#123;
     method: 'POST',
@@ -86,20 +109,20 @@ fetch('https://api.example.com/graphql', &#123;
 .then(data => console.log(data));
 </pre>
                                             </code>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Get a single User by ID
-                                        </td>
-                                        <td><code>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Get a single User by ID
+                                                    </td>
+                                                    <td><code>
 <pre>
 fetch('https://api.example.com/users/123')
 .then(response => response.json())
 .then(data => console.log(data));
 </pre>
                                             </code>
-                                        </td>
-                                        <td><code>
+                                                    </td>
+                                                    <td><code>
 <pre>
 fetch('https://api.example.com/graphql', &#123;
     method: 'POST',
@@ -122,9 +145,189 @@ fetch('https://api.example.com/graphql', &#123;
 .then(data => console.log(data));
 </pre>
                                             </code>
-                                        </td>
-                                    </tr>
-                                </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Setting up a new GraphQL Environment</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <ul>
+                                                <li>
+                                                    <mat-expansion-panel>
+                                                        <mat-expansion-panel-header>
+                                                            <mat-panel-title>Setup</mat-panel-title>
+                                                        </mat-expansion-panel-header>
+                                                        <ul>
+                                                            <li>
+                                                                <mat-expansion-panel>
+                                                                    <mat-expansion-panel-header>
+                                                                        <mat-panel-title>Configuration</mat-panel-title>
+                                                                    </mat-expansion-panel-header>
+                                                                    <ul>
+                                                                        <li>I'm going to create a
+                                                                            Docker image to run our new GraphQL server.
+                                                                            This
+                                                                            will
+                                                                            allow us to easily deploy our server to any
+                                                                            cloud
+                                                                            provider. I'm going to use the Apollo Server
+                                                                            library
+                                                                            to
+                                                                            create our GraphQL server. Apollo Server is
+                                                                            a
+                                                                            popular
+                                                                            library for creating GraphQL servers in
+                                                                            JavaScript.
+                                                                            It's
+                                                                            easy to use and has a lot of features.
+                                                                            First, we
+                                                                            need to
+                                                                            create a new directory for our project. I'm
+                                                                            going to
+                                                                            call it graphql-nehsanet.
+                                                                        <li>
+                                                                            Next, we need to create a new
+                                                                            file called index.js in the graphql-nehsanet
+                                                                            directory.
+                                                                            This file will contain the code for our
+                                                                            GraphQL
+                                                                            server.
+                                                                            Here's the content of the index.js file:
+                                                                            <code>
+<pre>
+const &#123; ApolloServer, gql &#125; = require('apollo-server');
+const typeDefs = gql`
+    type Query &#123;
+        hello: String
+    &#125;
+`;
+const resolvers = &#123;
+    Query: &#123;
+        hello: () => 'Hello, world!'
+    &#125;
+&#125;
+const server = new ApolloServer(&#123; typeDefs, resolvers &#125;);
+server.listen().then((&#123; url &#125;) => &#123;
+    console.log(\`Server ready at \$&#123;url&#125;\`);
+&#125;);
+</pre>
+                                                                            </code>
+                                                                            This code creates a new Apollo Server
+                                                                            instance with
+                                                                            a
+                                                                            single query called hello that returns the
+                                                                            string
+                                                                            "Hello,
+                                                                            world!". It then starts the server and logs
+                                                                            the URL
+                                                                            where
+                                                                            the server is running.
+                                                                        </li>
+                                                                        <li>
+                                                                            Finally, we need to create
+                                                                            our
+                                                                            node project by running the following
+                                                                            command:
+                                                                            <inline-code>npm init</inline-code><br><br>
+
+                                                                            This command will create a new package.json
+                                                                            file
+                                                                            with
+                                                                            instructions on how to run our server
+                                                                            (index.js)<br><br>
+
+                                                                        </li>
+                                                                    </ul>
+                                                                </mat-expansion-panel>
+                                                            </li>
+                                                            <li>
+                                                                <mat-expansion-panel>
+                                                                    <mat-expansion-panel-header>
+                                                                        <mat-panel-title>Build/Deploy
+                                                                            Docker</mat-panel-title>
+                                                                    </mat-expansion-panel-header>
+                                                                    <ul>
+                                                                        <li>
+                                                                            Create a
+                                                                            new
+                                                                            file called Dockerfile in the
+                                                                            graphql-nehsanet
+                                                                            directory.
+                                                                            The Dockerfile is a file that tells Docker
+                                                                            how to
+                                                                            build
+                                                                            an image. Here's the content of the
+                                                                            Dockerfile:
+                                                                            <code>
+<pre>
+FROM node:latest
+WORKDIR /app
+COPY package.json .
+RUN npm install
+COPY . .
+CMD ["node", "index.js"]
+</pre>
+                                                                        </code>
+                                                                            This Dockerfile tells Docker to use the
+                                                                            official
+                                                                            Node.js
+                                                                            image as the base image. It then sets the
+                                                                            working
+                                                                            directory to /app and copies the
+                                                                            package.json file
+                                                                            to
+                                                                            the working directory. It then installs the
+                                                                            dependencies
+                                                                            using npm install and copies the rest of the
+                                                                            files
+                                                                            to
+                                                                            the working directory. Finally, it sets the
+                                                                            command
+                                                                            to
+                                                                            run the index.js file.
+                                                                        </li>
+                                                                        <li>Build our Docker image by running the
+                                                                            following
+                                                                            command
+                                                                            in the graphql-nehsanet directory:
+                                                                            <inline-code>docker build -t latest
+                                                                                .</inline-code><br><br>
+                                                                        </li>
+                                                                        <li>Publish to Dockerhub:<br>
+                                                                            <inline-code>docker tag latest
+                                                                                nehsa/graphql-nehsanet:latest</inline-code><br><br>
+                                                                            <inline-code>docker push
+                                                                                nehsa/graphql-nehsanet:latest</inline-code>
+                                                                        </li>
+                                                                        <li>Pull it:
+                                                                            <inline-code>docker pull
+                                                                                nehsa/graphql-nehsanet:latest</inline-code>
+                                                                        </li>
+                                                                        <li>Run it:
+                                                                            <inline-code>docker run --name
+                                                                                graphql-nehsanet -p 4000:4000 -d
+                                                                                nehsa/graphql-nehsanet:latest</inline-code>
+                                                                        </li>
+                                                                    </ul>
+                                                                </mat-expansion-panel>
+                                                            </li>
+                                                        </ul>
+                                                    </mat-expansion-panel>
+                                                </li>
+                                                <li> <mat-expansion-panel>
+                                                        <mat-expansion-panel-header>
+                                                            <mat-panel-title>Test</mat-panel-title>
+                                                        </mat-expansion-panel-header>
+
+                                                    </mat-expansion-panel></li>
+                                            </ul>
+                                        </mat-expansion-panel>
+                                    </li>
+                                </ul>
                             </mat-expansion-panel>
                         </li>
                     </ul>

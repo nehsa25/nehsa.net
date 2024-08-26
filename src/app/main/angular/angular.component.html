@@ -178,7 +178,8 @@ ngOnInit() &#123;
                                 </mat-expansion-panel-header>
                                 <ul class="condensed">
                                     <li>HTML
-                                        <inline-code>&lt;div [class.bgblue]="showBlueBg" [class.main]="!showBlueBg"&gt;Yippee!&lt;/div&gt;</inline-code>
+                                        <inline-code>&lt;div [class.bgblue]="showBlueBg"
+                                            [class.main]="!showBlueBg"&gt;Yippee!&lt;/div&gt;</inline-code>
                                     </li>
                                     <li>CSS
                                         <code>
@@ -746,7 +747,8 @@ $app-theme: mat.define-dark-theme((color: (primary: $primary,
                                         </code>
                                     </li>
                                     <li>Use it somewhere:
-                                        <inline-code>&lt;app-splash *ngIf="showSplash"&gt;&lt;/app-splash&gt;</inline-code>
+                                        <inline-code>&lt;app-splash
+                                            *ngIf="showSplash"&gt;&lt;/app-splash&gt;</inline-code>
                                     </li>
                                 </ul>
                             </mat-expansion-panel>
@@ -1160,6 +1162,46 @@ FormsModule
                                                     </li>
                                                 </ul>
                                             </div>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>'&lt;ELEMENT&gt;' is not a known
+                                                    element</mat-panel-title>
+                                            </mat-expansion-panel-header>Custom web elements can be valuable for several
+                                            reasons:<br>
+                                            <ul>
+                                                <li>Encapsulation: Custom elements encapsulate HTML, CSS, and JavaScript
+                                                    into reusable components, promoting modularity and code
+                                                    organization.</li>
+                                                <li>Reusability: Once created, custom elements can be reused across
+                                                    different projects or within the same application, saving
+                                                    development time.</li>
+                                                <li>Interoperability: Web Components are designed to be interoperable,
+                                                    allowing them to work seamlessly with different frameworks and
+                                                    libraries.</li>
+                                                <li>Performance: Custom elements can be optimized for performance,
+                                                    potentially improving the loading time and responsiveness of your
+                                                    application.</li>
+                                                <li>Maintainability: Encapsulating code into custom elements can make it
+                                                    easier to maintain and update your application over time.</li>
+                                            </ul><br><br>
+
+                                            By default, Angular does not allow custom web
+                                            components. To allow them, add the custom element schema to the
+                                            component:<br>
+                                            <code>
+                                                <pre>
+import &#123; CUSTOM_ELEMENTS_SCHEMA &#125; from '&#64;angular/core'; <span class="comment"><mat-icon>arrow_back</mat-icon> Add this to the top of the file</span>                   
+&#64;Component(&#123;
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA] <span class="comment"><mat-icon>arrow_back</mat-icon> Add this to the component decorator</span>
+&#125;)
+</pre>
+                                            </code>
                                         </mat-expansion-panel>
                                     </li>
                                 </ul>
