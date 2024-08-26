@@ -6,7 +6,8 @@
     </mat-card-header>
     <mat-card-content>
         <div class="commentgrid">
-            <div class="topics"><span style="text-decoration: underline;">I love technology.</span> I firmly believe
+            <div class="topics">I love technology.<br><br>
+                I firmly believe
                 that the more senior an engineer you become, the less you feel, by default, you know the best
                 solution. Smart people are creating new technologies, patterns, and tools every day, and if you stop
                 paying attention,
@@ -147,6 +148,25 @@
                                     </ul>
                                 </li>
                             </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title><span class="not-started"><mat-icon>stop</mat-icon></span>Fix
+                                    Playwright tests</mat-panel-title>
+                            </mat-expansion-panel-header>Need to figure out how to get around:
+                            <a target="_blank" mat-stroked-button href="https://github.com/microsoft/playwright/issues/13996">[Question] Can not use decorator in playwright</a><br><br>
+
+                            A design decision by Microsoft to not support decorators such as &#64;Injectable() which are
+                            used for dependancy injection. This is a problem because Angular uses decorators for
+                            dependancy injection. I need to figure out how to get around this.<br><br>
+
+                            I will update this when I have a solution.<br><br>
+
+                            Error:<br>
+                            <span class="error">Support for the experimental syntax 'decorators-legacy' isn't currently
+                                enabled</span>
                         </mat-expansion-panel>
                     </li>
                     <li>
