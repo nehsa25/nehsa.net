@@ -7,65 +7,77 @@
     <mat-card-content>
         <div class="commentgrid">
             <div class="topics">
-                <h2>SEO in broad strokes..</h2>
-                <ul>
-                    <li>Google Search doesn't use the keywords meta tag.</li>
-                    <li>Create a <button mat-stroked-button (click)="highlight('sitemap')">Sitemap</button> (Try my
-                        tool: <a
-                            href="https://github.com/nehsa25/python-angular-sitemapper">python-angular-sitemapper</a>)
-                    </li>
-                    <li>Create a <button mat-stroked-button (click)="highlight('robots')">robots.txt</button> file
-                        to tell search engines what to crawl.
-                    </li>
-                </ul>
+                <div>Related Content:
+                    <ul class="condensed">
+                        <li><a routerLink="/seo">Search Engine Optimization</a></li>
+                        <li><a routerLink="/monetizenow">Microsoft Monetize Now</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>SEO in broad strokes..</h2>
+                    <ul>
+                        <li>Google Search doesn't use the keywords meta tag.</li>
+                        <li>Create a <button mat-stroked-button (click)="highlight('sitemap')">Sitemap</button> (Try my
+                            tool: <a
+                                href="https://github.com/nehsa25/python-angular-sitemapper">python-angular-sitemapper</a>)
+                        </li>
+                        <li>Create a <button mat-stroked-button (click)="highlight('robots')">robots.txt</button> file
+                            to tell search engines what to crawl.
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>Tools</h2>
+                    <dl class="dl">
+                        <dt><a href="https://www.google.com/webmasters/tools/home?hl=en">Google Webmaster Tools</a></dt>
+                        <dd>The <button mat-stroked-button (click)="highlight('searchconsole')">Google Search
+                                Console</button> can be found here</dd>
+                        <dt><a href="https://www.google.com/analytics/">Google PageSpeed Insights</a></dt>
+                        <dd></dd>
+                    </dl>
 
-                <h2>Tools</h2>
-                <dl class="dl">
-                    <dt><a href="https://www.google.com/webmasters/tools/home?hl=en">Google Webmaster Tools</a></dt>
-                    <dd>The <button mat-stroked-button (click)="highlight('searchconsole')">Google Search
-                            Console</button> can be found here</dd>
-                    <dt><a href="https://www.google.com/analytics/">Google PageSpeed Insights</a></dt>
-                    <dd></dd>
-                </dl>
+                    <ul>
+                        <li #sitemap [class.highlightMe]="highlightArea == 'sitemap'">
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Sitemap (sitemap.xml)</mat-panel-title>
+                                    <mat-panel-description>A sitemap is an XML document that sits at the root of your
+                                        website
+                                        and lists all its pages.</mat-panel-description>
+                                </mat-expansion-panel-header>
+                                A sitemap is an XML document that sits at the root of your website and lists all its
+                                pages.
+                                Its purpose is to provide search engines with additional information about your pages,
+                                such
+                                as how often they are updated and their relative importance to other pages on your
+                                site.<br><br>
 
-                <ul>
-                    <li #sitemap [class.highlightMe]="highlightArea == 'sitemap'">
-                        <mat-expansion-panel>
-                            <mat-expansion-panel-header>
-                                <mat-panel-title>Sitemap (sitemap.xml)</mat-panel-title>
-                                <mat-panel-description>A sitemap is an XML document that sits at the root of your
-                                    website
-                                    and lists all its pages.</mat-panel-description>
-                            </mat-expansion-panel-header>
-                            A sitemap is an XML document that sits at the root of your website and lists all its pages.
-                            Its purpose is to provide search engines with additional information about your pages, such
-                            as how often they are updated and their relative importance to other pages on your
-                            site.<br><br>
+                                <ol>
+                                    <li>Create a sitemap.xml file for your site. This can be done manually or via online
+                                        tools.<br><br>I created my own here...
+                                        'cause: <a
+                                            href="https://github.com/nehsa25/python-angular-sitemapper">python-angular-sitemapper</a><br>
+                                        <span class="additional-note">This tool is a Python script that crawls a website
+                                            and
+                                            generates a sitemap.xml file based on
+                                            the structure of Angular sites. It contains a settings.json file that can be
+                                            customized
+                                            to
+                                            support overrides such as changing the changefreq or priority of certain
+                                            pages. If you use Angular, it's a quick way to update your sitemap as you
+                                            make
+                                            changes. Try it!</span>
+                                    </li>
+                                    <li>Update your server to serve it. For C# Core, this can be done via <span
+                                            class="code">app.UseStaticFiles();</span></li>
+                                    <li>Ensure it's going to be published along with the website. Many frameworks such
+                                        as
+                                        Angular will not include files unless explicitly told to.<br><br>
 
-                            <ol>
-                                <li>Create a sitemap.xml file for your site. This can be done manually or via online
-                                    tools.<br><br>I created my own here...
-                                    'cause: <a
-                                        href="https://github.com/nehsa25/python-angular-sitemapper">python-angular-sitemapper</a><br>
-                                    <span class="additional-note">This tool is a Python script that crawls a website and
-                                        generates a sitemap.xml file based on
-                                        the structure of Angular sites. It contains a settings.json file that can be
-                                        customized
-                                        to
-                                        support overrides such as changing the changefreq or priority of certain
-                                        pages. If you use Angular, it's a quick way to update your sitemap as you
-                                        make
-                                        changes. Try it!</span>
-                                </li>
-                                <li>Update your server to serve it. For C# Core, this can be done via <span
-                                        class="code">app.UseStaticFiles();</span></li>
-                                <li>Ensure it's going to be published along with the website. Many frameworks such as
-                                    Angular will not include files unless explicitly told to.<br><br>
+                                        e.g.<br><br>
 
-                                    e.g.<br><br>
-
-                                    <span class="file">angular.json</span><br>
-                                    <code>
+                                        <span class="file">angular.json</span><br>
+                                        <code>
                                         <pre>
 "assets": [
     "src/favicon.ico",
@@ -73,18 +85,18 @@
 ],
 </pre>
                                     </code>
-                                </li>
-                                <li>Place the sitemap.xml file to the root of your website.</li>
-                                <li>Submit the sitemap to <button mat-stroked-button
-                                        (click)="highlight('searchconsole')">Google Search
-                                        Console</button>.
-                                </li>
-                                <li>Submit the sitemap to Bing Webmaster Tools.</li>
-                            </ol>
-                            <br><br>
-                            Example <span class="file">sitemap.xml</span>:
-                            <br><br>
-                            <code>
+                                    </li>
+                                    <li>Place the sitemap.xml file to the root of your website.</li>
+                                    <li>Submit the sitemap to <button mat-stroked-button
+                                            (click)="highlight('searchconsole')">Google Search
+                                            Console</button>.
+                                    </li>
+                                    <li>Submit the sitemap to Bing Webmaster Tools.</li>
+                                </ol>
+                                <br><br>
+                                Example <span class="file">sitemap.xml</span>:
+                                <br><br>
+                                <code>
                                 <pre>
 &lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"&gt;
@@ -99,81 +111,117 @@
                             </pre>
                             </code><br><br>
 
-                            That's it. The file will be crawled by search engines and your site will be indexed. If you
-                            wish to speed up the process, you can submit the sitemap to <button mat-stroked-button
-                                (click)="highlight('searchconsole')">Google Search
-                                Console</button> and Bing
-                            Webmaster Tools.
-                        </mat-expansion-panel>
-                    </li>
-                    <li #robots [class.highlightMe]="highlightArea == 'robots'">
-                        <mat-expansion-panel>
-                            <mat-expansion-panel-header>
-                                <mat-panel-title>robots.txt</mat-panel-title>
-                                <mat-panel-description>Robots.txt is a text file that tells search engines which pages
-                                    they can and cannot crawl.</mat-panel-description>
-                            </mat-expansion-panel-header>
+                                That's it. The file will be crawled by search engines and your site will be indexed. If
+                                you
+                                wish to speed up the process, you can submit the sitemap to <button mat-stroked-button
+                                    (click)="highlight('searchconsole')">Google Search
+                                    Console</button> and Bing
+                                Webmaster Tools.
+                            </mat-expansion-panel>
+                        </li>
+                        <li #robots [class.highlightMe]="highlightArea == 'robots'">
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>robots.txt</mat-panel-title>
+                                    <mat-panel-description>Robots.txt is a text file that tells search engines which
+                                        pages
+                                        they can and cannot crawl.</mat-panel-description>
+                                </mat-expansion-panel-header>
 
-                            Example <span class="file">robots.txt</span> entry:
-<code>
-    <pre>
+                                Example <span class="file">robots.txt</span> entry:
+                                <code>
+<pre>
 User-agent: *
 Sitemap: https://www.example.com/sitemap.xml
-    </pre>
+</pre>
     </code>
-                        </mat-expansion-panel>
-                    </li>
-                    <li #searchConsole [class.highlightMe]="highlightArea == 'searchconsole'">
-                        <mat-expansion-panel>
-                            <mat-expansion-panel-header>
-                                <mat-panel-title>Google Search Console</mat-panel-title>
-                            </mat-expansion-panel-header>
-                            <ul>
-                                <li>Start here: <a href="https://www.google.com/webmasters/tools/home?hl=en">Google
-                                        Webmaster
-                                        Tools</a></li>
-                                <li>Add your site to Google Search Console
-                                    <ul class="condensed">
-                                        <li>Verify your site<br>
-                                            <img src="../../../assets/images/seo_ownership.png" alt="Google Site
+                            </mat-expansion-panel>
+                        </li>
+                        <li #searchConsole [class.highlightMe]="highlightArea == 'searchconsole'">
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Google Search Console</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>Start here: <a href="https://www.google.com/webmasters/tools/home?hl=en">Google
+                                            Webmaster
+                                            Tools</a></li>
+                                    <li>Add your site to Google Search Console
+                                        <ul class="condensed">
+                                            <li>Verify your site<br>
+                                                <img src="../../../assets/images/seo_ownership.png" alt="Google Site
                                                 Verification">
 
-                                            <span class="additional-note">There are several ways to do this but I find
-                                                the easiest is to add a meta tag to your site's HTML. This can be done
-                                                via the HTML file or the <code>&lt;head&gt;</code> section of your
-                                                site's
-                                                HTML. The meta tag will look something like this:
-                                                <code>&lt;meta name="google-site-verification"
+                                                <span class="additional-note">There are several ways to do this but I
+                                                    find
+                                                    the easiest is to add a meta tag to your site's HTML. This can be
+                                                    done
+                                                    via the HTML file or the <code>&lt;head&gt;</code> section of your
+                                                    site's
+                                                    HTML. The meta tag will look something like this:
+                                                    <code>&lt;meta name="google-site-verification"
                                                     content="&lt;VALUE PROVIDED BY GOOGLE&gt;" /&gt;</code>
-                                            </span>
+                                                </span>
 
-                                        </li>
-                                        <li>Add sitemap by going to "Sitemaps" and clicking "Submit"
-                                            <ul class="condensed">
-                                                <li>
-                                                    If the status is "<span class="good">Success</span>," you're done!
-                                                    <br><br>
-                                                    You should see something like this with information on the number of pages scanned and indexed:<br>
-                                                    <img src="../../../assets/images/seo_sitemap_success.png" alt="Google
+                                            </li>
+                                            <li>Add sitemap by going to "Sitemaps" and clicking "Submit"
+                                                <ul class="condensed">
+                                                    <li>
+                                                        If the status is "<span class="good">Success</span>," you're
+                                                        done!
+                                                        <br><br>
+                                                        You should see something like this with information on the
+                                                        number of
+                                                        pages scanned and indexed:<br>
+                                                        <img src="../../../assets/images/seo_sitemap_success.png" alt="Google
                                                         Search Console Sitemap">
-                                                </li>
-                                                <li>If the status is "<span class="bad">Couldn't fetch</span>," your
-                                                    server is
-                                                    either not set to serve the file or the file is not in the root of
-                                                    your
-                                                    site.</li>
-                                            </ul>
-                                        </li>
-                                        <li>Check the "Coverage" report to see if there are any errors on your site.
-                                        </li>
-                                        <li>Check the "Performance" report to see how your site is doing in search
-                                            results.</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </mat-expansion-panel>
-                    </li>
-                </ul>
+                                                    </li>
+                                                    <li>If the status is "<span class="bad">Couldn't fetch</span>," your
+                                                        server is
+                                                        either not set to serve the file or the file is not in the root
+                                                        of
+                                                        your
+                                                        site.</li>
+                                                </ul>
+                                            </li>
+                                            <li>Check the "Coverage" report to see if there are any errors on your site.
+                                            </li>
+                                            <li>Check the "Performance" report to see how your site is doing in search
+                                                results.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li #searchConsoleBing [class.highlightMe]="highlightArea == 'searchconsoleBing'">
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Bing Webmaster Tools</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>Start here: <a href="https://www.bing.com/webmasters/about">Bing
+                                            Webmaster
+                                            Tools</a></li>
+                                    <li>Add your site to Bing account
+                                        <ul class="condensed">
+                                            <li>Bing has a nice import feature that can simply take the sitemap from
+                                                Google
+                                                Search Console.. do that.<br>
+                                                <img src="../../../assets/images/bing.png" alt="Bing Webmaster
+                                                Tools Import">
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+
+                                In my opinion, the Bing Webmaster Tools are <span class="importantish">far
+                                    superior</span> to Google's. They provide a much
+                                better UX that allow you to confirm things are working as expected instead of waiting
+                                for days and hoping..
+                            </mat-expansion-panel>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div><app-comment></app-comment></div>
         </div>
