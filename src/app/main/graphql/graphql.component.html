@@ -297,20 +297,17 @@ CMD ["node", "index.js"]
                                                                             <inline-code>docker build -t latest
                                                                                 .</inline-code><br><br>
                                                                         </li>
-                                                                        <li>Publish to Dockerhub:<br>
+                                                                        <li>Publish to AWS Elastic Container Registry (ECR):
                                                                             <inline-code>docker tag latest
-                                                                                nehsa/graphql-nehsanet:latest</inline-code><br><br>
+                                                                            &lt;AWS&gt;/nehsa/graphql-nehsanet:latest</inline-code><br><br>
                                                                             <inline-code>docker push
-                                                                                nehsa/graphql-nehsanet:latest</inline-code>
+                                                                                &lt;AWS&gt;/nehsa/graphql-nehsanet:latest</inline-code>
                                                                         </li>
                                                                         <li>Pull it:
                                                                             <inline-code>docker pull
-                                                                                nehsa/graphql-nehsanet:latest</inline-code>
+                                                                                &lt;AWS&gt;/nehsa/graphql-nehsanet:latest</inline-code>
                                                                         </li>
-                                                                        <li>Run it:
-                                                                            <inline-code>docker run --name
-                                                                                graphql-nehsanet -p 4000:4000 -d
-                                                                                nehsa/graphql-nehsanet:latest</inline-code>
+                                                                        <li>Run it in AWS Elastic Container Service (ECS): <a mat-stroked-button routerLink="/aws">AWS</a>
                                                                         </li>
                                                                     </ul>
                                                                 </mat-expansion-panel>
