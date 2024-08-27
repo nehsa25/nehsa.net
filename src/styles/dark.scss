@@ -162,6 +162,11 @@ span.code:hover {
     color: #888;
 }
 
+.vampire .file, .vampire inline-file {
+    background-color: var(--theme-file-background) !important;
+    color: var(--theme-file-color) !important;
+}
+
 .vampire ulnav-links>li:hover {
     color: var(--theme-background-purple) !important;
     -webkit-text-stroke-color: var(--theme-background-purple) !important;

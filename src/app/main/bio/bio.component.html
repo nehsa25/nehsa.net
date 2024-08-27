@@ -3,7 +3,11 @@
         <mat-card-title>
             <div class="bioheader">
                 <h2>Jesse Stone</h2>
-                <h3>Software Engineer</h3>
+                <div style="width: 100%;">
+                    <h3>Software Engineer<mat-icon>add</mat-icon>
+                        <span class="subtitle" *ngIf="posTerms != ''" [innerHTML]="posTerms"></span>
+                    </h3>
+                </div>
             </div>
         </mat-card-title>
     </mat-card-header>
@@ -12,7 +16,6 @@
             <div class="bodybiogrid">
                 <div class="biowrapper" style="max-width: 800px">
                     <div class="bio">
-
                         <div class="img-grid">
                             <div>
                                 <img class="mainimg" mat-card-image src="assets/images/me.png"
@@ -31,7 +34,7 @@
                             Roz.</span><br><br>
 
                         Current areas of focus: <a mat-stroked-button routerLink="/projects">Here</a><br><br>
-                        
+
                         <br>More about me here: <a target="_blank" mat-button
                             href="https://www.linkedin.com/in/jessestone/">LinkedIn Profile</a>
 

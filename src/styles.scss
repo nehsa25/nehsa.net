@@ -283,7 +283,7 @@ code,
 .code-command {
     font-family: Consolas;
     border-radius: 5px;
-    padding: 3px 1em;
+    padding: 2px 1em;
     font-size: 1rem;
     max-width: 90%;
 }
@@ -448,7 +448,7 @@ li {
     vertical-align: middle;
 }
 
-.file {
+inline-file, .file {
     font-size: 1.5rem;
     font-weight: 600;
     font-variant: small-caps;

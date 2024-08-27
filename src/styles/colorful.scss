@@ -67,7 +67,7 @@ a:active {
     border: 1px solid var(--theme-border);
 }
 
-.angel .file {
+.angel .file, .angel inline-file {
     background-color: var(--theme-file-background) !important;
     color: var(--theme-file-color) !important;
 }

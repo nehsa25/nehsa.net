@@ -52,10 +52,9 @@ export class AppComponent implements OnInit, OnDestroy {
   @Input() duration = 10;
   private _reversify = false;
   startPosition: number = 0;
-  expandedBio = true;
-  title = "Jesse Stone";
+  expandedBio = false;
+  title = "";
   quote = "";
-  posTerms = "";
   openSideNav = true;
   names: Array<NameAboutType> = new Array<NameAboutType>();
   getQueries: Array<Observable<any>> = new Array<Observable<any>>();
@@ -90,10 +89,8 @@ export class AppComponent implements OnInit, OnDestroy {
   ) {
     var getQuotes = this.httpClient.getQuote();
     var getName = this.httpClient.getNames(2);
-    var getPosTerms = this.httpClient.getPosTerms();
     this.getQueries.push(getQuotes);
     this.getQueries.push(getName);
-    this.getQueries.push(getPosTerms);
 
     // trees
     for (let i = 0; i <= 10; i++) {
@@ -178,12 +175,6 @@ export class AppComponent implements OnInit, OnDestroy {
       this.names = next[1];
       this.userService.name = this.names[0].Name;
       this.userService.about = this.names[0].About
-      this.posTerms = next[2];
-    });
-
-    this.sleep(5000).then(() => {
-      this.expandedBio = false;
-      this.title = "";
     });
 
     // tree loop
