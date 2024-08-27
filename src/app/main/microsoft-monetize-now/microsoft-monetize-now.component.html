@@ -1,0 +1,43 @@
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Microsoft Monetize Now</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                <div>Related Content:
+                    <ul class="condensed">
+                        <li><a routerLink="/seo">Search Engine Optimization</a></li>
+                        <li><a routerLink="/monetizenow">Microsoft Monetize Now</a></li>
+                        <li><a routerLink="/clarity">Microsoft Clarity</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <a target="_blank" mat-stroked-button href="https://monetizenow.microsoft.com/">Microsoft Monetize Now</a> is a program that helps you monetize your app.
+                    <ul>
+                        <li>
+                            <mat-expansion-panel expanded>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Setup</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>Go to the Microsoft Monetize Now website</li>
+                                    <li>Sign up for an account</li>
+                                    <li>Downloads the ads.txt file and place it in the root of your website</li>
+                                    <li>Configure your website to display it: inside angular.json, add the following to
+                                        the assets array:
+                                        <inline-file>"src/ads.txt"</inline-file>
+                                    </li>
+                                    <li>Visit the Microsoft Monetize Now website and click on the "Verify" button</li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>
