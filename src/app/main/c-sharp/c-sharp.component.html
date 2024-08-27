@@ -1202,6 +1202,40 @@ internal class Program
                                         alt="screenshot of api returning health" />
                                 </mat-expansion-panel>
                             </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Add Response Headers / CSP Support</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    <code>
+<pre>
+public class CSPMiddleware
+&#123;
+    private readonly string _cspPolicy;
+
+    public CSPMiddleware(string cspPolicy)
+    &#123;
+        _cspPolicy = cspPolicy;
+    &#125;
+
+    public async Task InvokeAsync(HttpContext context, RequestDelegate next)
+    &#123;
+        context.Response.Headers.Append("Content-Security-Policy", _cspPolicy);
+        await next(context);
+    &#125;
+&#125;
+</pre>
+</code><br><br>
+                                    Before starting, application, add in middleware:<br>
+                                    <code>
+<pre>
+webApplicationBuilder.Services.AddSingleton&lt;string&gt;("default-src 'self'; script-src 'self' 'nonce-script1' 'nonce-script2' 'nonce-script3'");
+webApplicationBuilder.Services.AddScoped&lt;CSPMiddleware&gt;();  // Register the middleware
+app.UseMiddleware&lt;CSPMiddleware&gt;(app.Services.GetRequiredService&lt;string&gt;());
+</pre>
+</code><br><br>This is a simple policy that only allows resources from the same domain to be executed.
+                                </mat-expansion-panel>
+                            </li>
                         </ul>
                     </div>
                 </div>
