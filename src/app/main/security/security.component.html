@@ -22,122 +22,213 @@
                         <li><a routerLink="/typescript">Typescript</a></li>
                     </ul>
                 </div>
-                <div>Cybersecurity is a hotbed right now due to the state of the world and constant reports
-                    of organizations being hacked or ransomed. It's a continuous race of the nefarious attempting to
-                    take or
-                    break what's not theirs <span
-                        style="text-decoration:underline; padding: 0; margin: 0; display: inline;">and the cybersecurity
-                        heroes who try to protect us all.</span><br><br>
+                <div>
+                    <ul>
+                        <li>
+                            <mat-expansion-panel expanded>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Overview</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                Cybersecurity is a hotbed right now due to the state of the world and constant reports
+                                of organizations being hacked or ransomed. It's a continuous race of the nefarious
+                                attempting to
+                                take or
+                                break what's not theirs <span
+                                    style="text-decoration:underline; padding: 0; margin: 0; display: inline;">and the
+                                    cybersecurity
+                                    heroes who try to protect us all.</span><br><br>
 
-                    Security has been a large part of my professional career, and I know first-hand the badness that can
-                    happen. I was involved in a ransomware situation (as the ransomee). The hackers encrypted every file
-                    on
-                    my company servers. Only when paid was a tool provided to unencrypt the file. After being confirmed
-                    safe
-                    by our engaged security consultant, we used the tool provided by the hackers to recover our
-                    data.<br><br>
+                                Security has been a large part of my professional career, and I know first-hand the
+                                badness that can
+                                happen. I was involved in a ransomware situation (as the ransomee). The hackers
+                                encrypted every file
+                                on
+                                my company servers. Only when paid was a tool provided to unencrypt the file. After
+                                being confirmed
+                                safe
+                                by our engaged security consultant, we used the tool provided by the hackers to recover
+                                our
+                                data.<br><br>
 
-                    (The decryption tool provided was so bad that it crashed every few operations. I assisted by
-                    automating
-                    the process. I created a script that re-launched the application when it crashed and navigated the
-                    GUI
-                    programically. This allowed us to kick off the recovery script a single time on each machine
-                    affected to
-                    recover all files.)<br><br>
-
-                    Here are some of the things I do:<br>
-                    <ul class="condensed">
-                        <li>In a periodic meeting, discuss the <a href="https://owasp.org/www-project-top-ten/">OSWAP
-                                Top
-                                Ten</a>. Bring it up, but do not say anything. Scroll
-                            slowly while maintaining eye contact with each team member. </li>
-                        <li>Use a security tools to scan your assets. These quick scans can often provide a lot of good
-                            information. I have experience with these ones:
-                            <dl>
-                                <dt>Burp Suite</dt>
-                                <dd>Tool for testing web application security (Proxy interception, vulnerability
-                                    scanning,
-                                    intrusion testing amongst other feature).</dd>
-                                <dt>nmap</dt>
-                                <dd>A network scanning tool (port scanning amongst other things)</dd>
-                                <dt>wireshark</dt>
-                                <dd>Similar to nmap, but with a GUI and more focus on packet capture and analysis</dd>
-                            </dl>
+                                (The decryption tool provided was so bad that it crashed every few operations. I
+                                assisted by
+                                automating
+                                the process. I created a script that re-launched the application when it crashed and
+                                navigated the
+                                GUI
+                                programically. This allowed us to kick off the recovery script a single time on each
+                                machine
+                                affected to
+                                recover all files.)
+                            </mat-expansion-panel>
                         </li>
-                        <li>Use a credential manager - do not check-in username/passwords in source!<br><br>
+                        <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
-                                    <mat-panel-title>Example using Chef's data bag feature</mat-panel-title>
+                                    <mat-panel-title>Smart Practices</mat-panel-title>
                                 </mat-expansion-panel-header>
-                                A credential can been added to the secure data bag with the following command:<br>
-                                <code>
+                                <ul class="condensed">
+                                    <li>In a periodic meeting, discuss the <a
+                                            href="https://owasp.org/www-project-top-ten/">OSWAP
+                                            Top
+                                            Ten</a>. Bring it up, but do not say anything. Scroll
+                                        slowly while maintaining eye contact with each team member. </li>
+                                    <li>Use a security tools to scan your assets. These quick scans can often provide a
+                                        lot of good
+                                        information. I have experience with these ones:
+                                        <dl>
+                                            <dt>Burp Suite</dt>
+                                            <dd>Tool for testing web application security (Proxy interception,
+                                                vulnerability
+                                                scanning,
+                                                intrusion testing amongst other feature).</dd>
+                                            <dt>nmap</dt>
+                                            <dd>A network scanning tool (port scanning amongst other things)</dd>
+                                            <dt>wireshark</dt>
+                                            <dd>Similar to nmap, but with a GUI and more focus on packet capture and
+                                                analysis</dd>
+                                        </dl>
+                                    </li>
+                                    <li>Use a credential manager - do not check-in username/passwords in source!<br><br>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Example using Chef's data bag feature</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            A credential can been added to the secure data bag with the following
+                                            command:<br>
+                                            <code>
                                     <pre>
 PS C:\src> knife data bag create &lt;ORG&gt; &lt;USERNAME&gt;
 Created data_bag[&lt;ORG&gt;]
 Created data_bag_item[&lt;ORG&gt;/&lt;USERNAME&gt;]
 </pre>
-                                </code><br>
+                                            </code><br>
 
-                                The username and password can be added to the data bag with the following command:<br>
-                                <code>
+                                            The username and password can be added to the data bag with the following
+                                            command:<br>
+                                            <code>
                                     <pre>
 PS C:\src> knife data bag edit &lt;ORG&gt; &lt;USERNAME&gt;
 </pre>
-                                </code>
-                                <span class="additional-note">This will open the data bag in your default editor. Add
-                                    your
-                                    password information here! For it to be a secure data bag, the data bag must be
-                                    encrypted. and requires a secret which
-                                    adds slightly more complexity as you then need to store the secret somewhere (a
-                                    secret
-                                    management system or at least outside Chef).</span><br>
+                                            </code>
+                                            <span class="additional-note">This will open the data bag in your default
+                                                editor. Add
+                                                your
+                                                password information here! For it to be a secure data bag, the data bag
+                                                must be
+                                                encrypted. and requires a secret which
+                                                adds slightly more complexity as you then need to store the secret
+                                                somewhere (a
+                                                secret
+                                                management system or at least outside Chef).</span><br>
 
-                                <code>
+                                            <code>
                                     <pre>
 PS C:\src> knife data bag show &lt;ORG&gt; &lt;USERNAME&gt;
 id:       &lt;USER_ID&gt;
 password: &lt;USER_PASSWORD&gt;
 username: &lt;USER_USERNAME&gt;
 </pre>
-                                </code>
+                                            </code>
 
-                                Finally, this can be used like this:
-                                <code>
+                                            Finally, this can be used like this:
+                                            <code>
                                     <pre>
 credentials = data_bag_item('&lt;ORG&gt;', '&lt;USERNAME&gt;')
 username = credentials['username']
 password = credentials['password']
 </pre>
                                 </code>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>Use a password manager - do not use the same password for multiple sites!</li>
+                                    <li>Use the cloud where possible - they have more resources to protect your data
+                                        than you do
+                                    </li>
+                                    <li>Have a data (and database) recovery plan</li>
+                                    <li>In a periodic meeting, role-play worst-case scenarios and what you would do:
+                                        <ul>
+                                            <li>Someone nefarious has obtained all your user's username & passwords</li>
+                                            <li>All your files have been encrypted and there's a ransomware request
+                                                asking for money
+                                                or
+                                                all your data will be released onto the dark web (or just deleted).</li>
+                                            <li>Hackers have obtained your employees security numbers</li>
+                                        </ul>
+                                    </li>
+                                    <li>Have a incident response plan:
+                                        <ul>
+                                            <li>Who needs to be involved?</li>
+                                            <li>What are the steps?
+                                                <ol class="condensed">
+                                                    <li>Detection</li>
+                                                    <li>Analysis</li>
+                                                    <li>Containment</li>
+                                                    <li>Eradication</li>
+                                                    <li>Recovery</li>
+                                                    <li>Lessons Learned</li>
+                                                </ol>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
                             </mat-expansion-panel>
                         </li>
-                        <li>Use a password manager - do not use the same password for multiple sites!</li>
-                        <li>Use the cloud where possible - they have more resources to protect your data than you do
-                        </li>
-                        <li>Have a data (and database) recovery plan</li>
-                        <li>In a periodic meeting, role-play worst-case scenarios and what you would do:
-                            <ul>
-                                <li>Someone nefarious has obtained all your user's username & passwords</li>
-                                <li>All your files have been encrypted and there's a ransomware request asking for money
-                                    or
-                                    all your data will be released onto the dark web (or just deleted).</li>
-                                <li>Hackers have obtained your employees security numbers</li>
-                            </ul>
-                        </li>
-                        <li>Have a incident response plan:
-                            <ul>
-                                <li>Who needs to be involved?</li>
-                                <li>What are the steps?
-                                    <ol class="condensed">
-                                        <li>Detection</li>
-                                        <li>Analysis</li>
-                                        <li>Containment</li>
-                                        <li>Eradication</li>
-                                        <li>Recovery</li>
-                                        <li>Lessons Learned</li>
-                                    </ol>
-                                </li>
-                            </ul>
+                        <li>
+                            <mat-expansion-panel expanded>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Ensure CSP is effective against XSS attacks</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                CSP (Content Security Policy) is a security layer that helps prevent XSS
+                                attacks.<br><br>
+                                Example CSP header:<br>
+                                <code>
+                                    <pre>
+Content-Security-Policy: default-src 'self'; script-src 
+                                </pre>
+                                </code><br>
+                                This header tells the browser to only allow scripts from the same domain as the
+                                page.<br>
+                                <span class="additional-note">This is a very basic example. There are many more options
+                                    available to
+                                    help
+                                    protect your site.
+                                </span><br><br>
+                                To apply this header in an C# application, go to the "Add Response Headers / CSP
+                                Support" Section on the <a mat-stroked-button routerLink="/csharp">c#</a> page.<br><br>
+
+                                Confirm it's working and provide overrides:<br><br>
+
+                                By opening devtools, you should now see resources being blocked with a message of
+                                "Refused to execute inline script because it violates the following Content Security
+                                Policy directive: "script-src 'self'". Either the 'unsafe-inline' keyword, a hash
+                                ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution." This
+                                is good! It means your CSP is working. You should also see in the network tab:
+                                (blocked:csp)<br><br>
+
+                                Now, most likely, you actually want the file above to execute. The best way to do this
+                                is to add a nonce to the script tag. This nonce is a random string that you add to the
+                                CSP header and the script tag. This nonce is a one-time use token that allows the script
+                                to execute. This is a good way to allow inline scripts to execute while still
+                                maintaining the security of the CSP.<br><br>
+
+                                For example, in the header:<br> <code>
+<pre>
+Content-Security-Policy: default-src 'self'; script-src 'self' 'nonce-abc123'
+</pre>
+                                </code><br>
+
+                                And in the script tag:<br> <code>
+<pre>
+<script nonce="abc123">alert('Hello, World!')</script>
+ </pre>
+                                </code><br>
+
+                                This will allow the script to execute. If you want to allow multiple scripts to
+                                execute, you can use multiple nonces. Just make sure they are unique and only used
+                                once. e.g. <inline-code>Content-Security-Policy: default-src 'self'; script-src 'self'
+                                    'nonce-script123' 'nonce-script456'</inline-code>
+                            </mat-expansion-panel>
                         </li>
                     </ul>
                 </div>

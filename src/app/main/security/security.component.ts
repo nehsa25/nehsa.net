@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { CommentComponent } from '../../shared-components/comment/comment.component';
 import { UserService } from '../../services/user.service';
@@ -11,7 +11,8 @@ import { MatButtonModule } from '@angular/material/button';
   standalone: true,
   imports: [MatCardModule, CommentComponent, MatExpansionModule, RouterLink, MatButtonModule],
   templateUrl: './security.component.html',
-  styleUrl: './security.component.scss'
+  styleUrl: './security.component.scss',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class SecurityComponent {
   constructor(public userService: UserService) { this.userService.page = "security"; }
