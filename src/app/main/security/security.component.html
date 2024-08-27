@@ -175,7 +175,7 @@ password = credentials['password']
                             </mat-expansion-panel>
                         </li>
                         <li>
-                            <mat-expansion-panel expanded>
+                            <mat-expansion-panel>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Ensure CSP is effective against XSS attacks</mat-panel-title>
                                 </mat-expansion-panel-header>
@@ -220,7 +220,7 @@ Content-Security-Policy: default-src 'self'; script-src 'self' 'nonce-abc123'
 
                                 And in the script tag:<br> <code>
 <pre>
-<script nonce="abc123">alert('Hello, World!')</script>
+&lt;script nonce="abc123"&gt;SCRIPT&lt;/script&gt;
  </pre>
                                 </code><br>
 
