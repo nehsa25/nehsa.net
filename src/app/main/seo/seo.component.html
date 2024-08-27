@@ -11,6 +11,7 @@
                     <ul class="condensed">
                         <li><a routerLink="/seo">Search Engine Optimization</a></li>
                         <li><a routerLink="/monetizenow">Microsoft Monetize Now</a></li>
+                        <li><a routerLink="/clarity">Microsoft Clarity</a></li>
                     </ul>
                 </div>
                 <div>
@@ -29,10 +30,14 @@
                 <div>
                     <h2>Tools</h2>
                     <dl class="dl">
-                        <dt><a href="https://www.google.com/webmasters/tools/home?hl=en">Google Webmaster Tools</a></dt>
+                        <dt><a target="_blank" href="https://www.google.com/webmasters/tools/home?hl=en">Google
+                                Webmaster Tools</a></dt>
                         <dd>The <button mat-stroked-button (click)="highlight('searchconsole')">Google Search
                                 Console</button> can be found here</dd>
-                        <dt><a href="https://www.google.com/analytics/">Google PageSpeed Insights</a></dt>
+                        <dt><a href="https://www.bing.com/webmasters/about">Bing Webmaster Tools</a></dt>
+                        <dd>The <button mat-stroked-button (click)="highlight('bingsearch')">Bing Sitemap Upload</button> can be found here</dd>
+                        <dt><a target="_blank" href="https://www.google.com/analytics/">Google PageSpeed Insights</a>
+                        </dt>
                         <dd></dd>
                     </dl>
 
@@ -193,13 +198,13 @@ Sitemap: https://www.example.com/sitemap.xml
                                 </ul>
                             </mat-expansion-panel>
                         </li>
-                        <li #searchConsoleBing [class.highlightMe]="highlightArea == 'searchconsoleBing'">
+                        <li #bingsearch [class.highlightMe]="highlightArea == 'searchconsoleBing'">
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Bing Webmaster Tools</mat-panel-title>
                                 </mat-expansion-panel-header>
                                 <ul>
-                                    <li>Start here: <a href="https://www.bing.com/webmasters/about">Bing
+                                    <li>Start here: <a target="_blank" href="https://www.bing.com/webmasters/about">Bing
                                             Webmaster
                                             Tools</a></li>
                                     <li>Add your site to Bing account
