@@ -63,6 +63,11 @@ a:active {
     -webkit-text-stroke: .3px orangered;
 }
 
+// breadcrumbs
+.angel .bread-root a, .angel .bread-root a:link, .angel .bread-root a:visited, .angel .bread-root a:active {
+    color: #9E2200;
+}
+
 .angel .topics>div {
     border: 1px solid var(--theme-border);
 }

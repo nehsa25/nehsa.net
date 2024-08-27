@@ -162,6 +162,11 @@ span.code:hover {
     color: #888;
 }
 
+// breadcrumbs
+.vampire .bread-root, .vampire .bread-root a:link, .vampire .bread-root a:visited, .vampire .bread-root a:active {
+    color: #ff7f5b;
+}
+
 .vampire .file, .vampire inline-file {
     background-color: var(--theme-file-background) !important;
     color: var(--theme-file-color) !important;
