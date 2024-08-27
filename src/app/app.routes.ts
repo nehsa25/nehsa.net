@@ -65,6 +65,8 @@ import { JavascriptFrameworksComponent } from './main/javascript-frameworks/java
 import { VueComponent } from './main/vue/vue.component';
 import { TSqlComponent } from './main/t-sql/t-sql.component';
 import { GraphqlComponent } from './main/graphql/graphql.component';
+import { MicrosoftMonetizeNowComponent } from './main/microsoft-monetize-now/microsoft-monetize-now.component';
+import { MicrosoftClarityComponent } from './main/microsoft-clarity/microsoft-clarity.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: WelcomeComponent },
@@ -84,7 +86,9 @@ export const routes: Routes = [
     { path: 'testing', title: 'nehsa.net | Testing', component: TestingComponent },
     { path: 'linux', title: 'nehsa.net | Linux', component: LinuxComponent },
     { path: 'go', title: 'nehsa.net | Golang', component: GoComponent },
+    { path: 'clarity', title: 'nehsa.net | Microsoft Clarity', component: MicrosoftClarityComponent },
     { path: 'graphql', title: 'nehsa.net | GraphQL', component: GraphqlComponent },
+    { path: 'monetizenow', title: 'nehsa.net | Microsoft Monetize', component: MicrosoftMonetizeNowComponent },
     { path: 'security', title: 'nehsa.net | Security', component: SecurityComponent },
     {
         path: 'school', title: 'nehsa.net | School', component: SchoolComponent,
