@@ -29,10 +29,14 @@
     <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen"
         class="dh"><span class="dh-quote" [innerHTML]="quote"></span></div>
     <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen"
-        class="theme"><mat-icon (click)="themeChangeBtnClick(false)">light_mode</mat-icon>
-        <mat-slider class="colorSlider" max=1 min=0 step=1 discrete=false showTickMarks=true>
-            <input matSliderThumb #slider [value]="darkmode_value" (change)="themeChange($event)">
-        </mat-slider><mat-icon (click)="themeChangeBtnClick(true)">brightness_4</mat-icon>
+        class="theme">
+        <div>
+            <mat-icon (click)="themeChangeBtnClick(false)">light_mode</mat-icon>
+        </div>
+        <div><mat-slider class="colorSlider" max=1 min=0 step=1 discrete=false showTickMarks=true>
+                <input matSliderThumb #slider [value]="darkmode_value" (change)="themeChange($event)">
+            </mat-slider></div>
+        <div><mat-icon (click)="themeChangeBtnClick(true)">brightness_4</mat-icon></div>
     </div>
     <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen"
         class="title">
@@ -41,8 +45,7 @@
             [expanded]="expandedBio" (click)="setExpand()">
             <mat-expansion-panel-header>
                 <mat-panel-title class="title">
-                    <div *ngIf="!this.isStoryHidden" class="world"
-                        [class.maintitle-dark]="userService.appIsDark()"
+                    <div *ngIf="!this.isStoryHidden" class="world" [class.maintitle-dark]="userService.appIsDark()"
                         [class.maintitle-light]="!userService.appIsDark()">
                         <!-- row of trees -->
                         <div [style.animationPlayState]="playState" class="trees" [class.trees-normal]="!this.reversify"
@@ -348,19 +351,22 @@
                         </div>
                     </div>
                 </mat-panel-title>
-            </mat-expansion-panel-header>            
+            </mat-expansion-panel-header>
+            SURPRISE!
         </mat-expansion-panel>
     </div>
     <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen"
         class="contactme">jesse.stone<wbr>&#64;nehsa.net
     </div>
-    <nav [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen"><app-navbar></app-navbar></nav>
+    <nav [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen">
+        <app-navbar></app-navbar></nav>
     <main [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
         <router-outlet (activate)="onActivate($event)"></router-outlet>
     </main>
     <article id="ads">
         <script>window.msAdsQueue = window.msAdsQueue || [];</script>
-        <script async src="https://adsdk.microsoft.com/mmnow/sdk.js?siteId=10323057&publisherId=254006085" crossorigin="anonymous"></script>
+        <script async src="https://adsdk.microsoft.com/mmnow/sdk.js?siteId=10323057&publisherId=254006085"
+            crossorigin="anonymous"></script>
     </article>
     <footer [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
         <div>nehsa.net &copy; 2024 - All Rights Reserved. Be kind.</div>
