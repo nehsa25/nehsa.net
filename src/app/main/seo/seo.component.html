@@ -35,10 +35,11 @@
                         <dd>The <button mat-stroked-button (click)="highlight('searchconsole')">Google Search
                                 Console</button> can be found here</dd>
                         <dt><a href="https://www.bing.com/webmasters/about">Bing Webmaster Tools</a></dt>
-                        <dd>The <button mat-stroked-button (click)="highlight('bingsearch')">Bing Sitemap Upload</button> can be found here</dd>
+                        <dd>The <button mat-stroked-button (click)="highlight('bingsearch')">Bing Sitemap
+                                Upload</button> can be found here</dd>
                         <dt><a target="_blank" href="https://www.google.com/analytics/">Google PageSpeed Insights</a>
                         </dt>
-                        <dd></dd>
+                        <dd>The <button mat-stroked-button (click)="highlight('searchconsole')">Important for ranking</button></dd>
                     </dl>
 
                     <ul>
@@ -219,10 +220,26 @@ Sitemap: https://www.example.com/sitemap.xml
                                     </li>
                                 </ul>
 
-                                In my opinion, the Bing Webmaster Tools are <span class="importantish">far
-                                    superior</span> to Google's. They provide a much
+                                In my opinion, the Bing Webmaster Tools are <span class="importantish">superior</span>
+                                to Google's. They provide a much
                                 better UX that allow you to confirm things are working as expected instead of waiting
                                 for days and hoping..
+                            </mat-expansion-panel>
+                        </li>
+                        <li #pageinsights [class.highlightMe]="highlightArea == 'pageinsights'">
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>PageSpeed Insights</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                This is important as how you rate can affect your search engine ranking. Here's an example for this website:<br><br>
+
+                                Mobile:<br>
+                                <img src="../../../assets/images/pagespeed_mobile.png" alt="PageSpeed Insights"><br><br>
+
+                                Desktop:<br>
+                                <img src="../../../assets/images/pagespeed_desktop.png" alt="PageSpeed Insights Desktop">
+                                <br><br>
+                                Hopefully improved since this writing!
                             </mat-expansion-panel>
                         </li>
                     </ul>
