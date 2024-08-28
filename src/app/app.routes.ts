@@ -67,6 +67,7 @@ import { TSqlComponent } from './main/t-sql/t-sql.component';
 import { GraphqlComponent } from './main/graphql/graphql.component';
 import { MicrosoftMonetizeNowComponent } from './main/microsoft-monetize-now/microsoft-monetize-now.component';
 import { MicrosoftClarityComponent } from './main/microsoft-clarity/microsoft-clarity.component';
+import { DnsComponent } from './main/dns/dns.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: WelcomeComponent },
@@ -82,6 +83,7 @@ export const routes: Routes = [
     { path: 'seo', title: 'nehsa.net | Search Engine Optimization', component: SeoComponent },
     { path: 'pytest', title: 'nehsa.net | Pytest', component: PytestComponent },
     { path: 'nosql', title: 'nehsa.net | NoSQL', component: NosqlComponent },
+    { path: 'dns', title: 'nehsa.net | DNS', component: DnsComponent },
     { path: 'typescript', title: 'nehsa.net | TypeScript', component: TypescriptComponent },
     { path: 'testing', title: 'nehsa.net | Testing', component: TestingComponent },
     { path: 'linux', title: 'nehsa.net | Linux', component: LinuxComponent },

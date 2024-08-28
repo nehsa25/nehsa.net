@@ -1,0 +1,99 @@
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">DNS</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                <div>Related Content:
+                    <ul class="condensed">
+                        <li><a routerLink="/cloud">Cloud Overview</a></li>
+                        <li><a routerLink="/aws">AWS</a></li>
+                        <li><a routerLink="/azure">Azure</a></li>
+                        <li><a routerLink="/gcp">Google Cloud Platform</a></li>
+                        <li><a routerLink="/dns">DNS</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <ul>
+                        <li>
+                            <mat-expansion-panel expanded>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Definitions</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <dl>
+                                    <dt>Domain Name</dt>
+                                    <dd>the name of a website, e.g. nehsa.net</dd>
+                                    <dt>Domain Name System (DNS)</dt>
+                                    <dd>the system that translates domain names to IP addresses</dd>
+                                    <dt>Top Level Domain (TLD)</dt>
+                                    <dd>the last part of a domain name, e.g. .com</dd>
+                                    <dt>Second Level Domain (SLD)</dt>
+                                    <dd>the part of a domain name before the TLD, e.g. nehsa.net</dd>
+                                    <dt>Subdomain</dt>
+                                    <dd>a domain that is part of a larger domain, e.g. blog.nehsa.net</dd>
+                                    <dt>A Record</dt>
+                                    <dd>an address record that maps a domain name to an IP address. e.g. "nehsa.net" ->
+                                        1.2.3.4</dd>
+                                    <dt>CNAME Record</dt>
+                                    <dd>an alias record that maps a domain name to another domain name. e.g. I was folk
+                                        that go to "www.nehsa.net" -> "nehsa.net"</dd>
+                                    <dt>DNS providers</dt>
+                                    <dd>
+                                        It's common nowadays to use a third party to manage your DNS records. There are
+                                        several advantages for this:
+                                        <ul>
+                                            <li>They have a global network of DNS servers, which can help with
+                                                performance.</li>
+                                            <li>They can provide additional services, such as DDoS protection.</li>
+                                            <li>They can provide a web interface for managing your DNS records.</li>
+                                            <li>They (often) will auto-renew your SSL certificates.</li>
+                                        </ul><br><br>
+
+                                        Example: AzureDNS, Cloudflare, AWS Route 53
+                                        <table class="min-table">
+                                            <tr>
+                                                <th>Provider</th>
+                                                <th>Cost</th>
+                                                <th>Strengths</th>
+                                                <th>Weaknesses</th>
+                                            </tr>
+                                            <tr>
+                                                <td>Azure DNS</td>
+                                                <td>Free</td>
+                                                <td>Integrated with Azure</td>
+                                                <td>Not as feature-rich as Cloudflare</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Cloudflare</td>
+                                                <td>Free</td>
+                                                <td>CloudFlare is one of the more feature rich DNS providers provides
+                                                    services such as DDoS protection, CDN, and SSL certificates.</td>
+                                                <td>Not as integrated with Azure</td>
+                                            </tr>
+                                            <tr>
+                                                <td>AWS Route 53</td>
+                                                <td>Pay as you go</td>
+                                                <td>Integrated with AWS</td>
+                                                <td>Not as feature-rich as Cloudflare</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Google Cloud DNS</td>
+                                                <td>Pay as you go</td>
+                                                <td>Integrated with Google Cloud</td>
+                                                <td>Not as feature-rich as Cloudflare</td>
+                                            </tr>
+                                        </table>
+                                    </dd>
+                                </dl>
+                            </mat-expansion-panel>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>
