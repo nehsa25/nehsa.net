@@ -131,7 +131,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.timMessages.push(this.setEvent("GASTON! I'm coming home!", 1.1, false, true, 1000 * 97));
     this.timMessages.push(this.setEvent("I'm coming!", 1.2, false, true, 1000 * 100));
     this.timMessages.push(this.setEvent("I'm sorry Gaston! Timoth&eacute;e's coming!", 1.3, false, true, 1000 * 110));
-    this.timMessages.push(this.setEvent("Again, Gaston is fine. Happy for some alone time, really.", .9, true, false, 1000 * 113));
+    this.timMessages.push(this.setEvent("Again, Gaston is fine. Happy for some alone time, really.", .9, false, false, 1000 * 113));
     this.timMessages.push(this.setEvent("Ohh, poor Gaston!", .5, false, true, 1000 * 117));
     this.timMessages.push(this.setEvent("Ohh, poor Timoth&eacute;e..", .5, false, false, 1000 * 120))
     this.timMessages.push(this.setEvent("GASTON!", 1.7, false, true, 1000 * 125));
@@ -142,7 +142,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.timMessages.push(this.setEvent("Bravo sir, bravo.", .9, true, false, 1000 * 135));
     this.timMessages.push(this.setEvent("Fin.", 1, true, false, 1000 * 165));
     this.timMessages.push(this.setEvent("Vere finitus. Fin.", 1, true, false, 1000 * 175));
-    this.timMessages.push(this.setEvent("This has been a production of &quot;Jesse wanting to play with CSS animations.&quot;<br>Copyright 2024 nehsa.net, All Right Reserved. Feed hungry people. Water thirty people.", 1, true, true, 1000 * 190));
+    this.timMessages.push(this.setEvent("This has been a production of &quot;Jesse playing with CSS animations.&quot;<br>Copyright 2024 nehsa.net, All Right Reserved. Feed hungry people. Water thirty people.", 1, true, true, 1000 * 190));
     this.timMessages.push(this.setEvent("", 1, true, false, 1000 * 195));
     this.timMessages.push(this.setEvent("", 1, true, false, 1000 * 210));
   };
