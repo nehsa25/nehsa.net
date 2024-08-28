@@ -363,10 +363,9 @@
     <main [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
         <router-outlet (activate)="onActivate($event)"></router-outlet>
     </main>
-    <article id="ads">
+    <article id="ads">Ads
         <script>window.msAdsQueue = window.msAdsQueue || [];</script>
-        <script async src="https://adsdk.microsoft.com/mmnow/sdk.js?siteId=10323057&publisherId=254006085"
-            crossorigin="anonymous"></script>
+        <script async src="https://adsdk.microsoft.com/mmnow/sdk.js?siteId=10323057&publisherId=254006085" crossorigin="anonymous"></script>
     </article>
     <footer [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
         <div>nehsa.net &copy; 2024 - All Rights Reserved. Be kind.</div>
