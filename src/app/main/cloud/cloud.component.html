@@ -9,9 +9,11 @@
             <div class="topics">
                 <div>Related Content:
                     <ul class="condensed">
+                        <li><a routerLink="/cloud">Cloud Overview</a></li>
                         <li><a routerLink="/aws">AWS</a></li>
                         <li><a routerLink="/azure">Azure</a></li>
                         <li><a routerLink="/gcp">Google Cloud Platform</a></li>
+                        <li><a routerLink="/dns">DNS</a></li>
                     </ul>
                 </div>
                 <div>
@@ -69,6 +71,22 @@
                             <dt>Google Cloud Platform</dt>
                             <dd>Google Cloud Platform is the third most widely used and has the best integration with
                                 Kubernetes (because Google created Kubernetes.)</dd>
+                            <dt>IaaS (Infrastructure as a Service)</dt>
+                            <dd>An IaaS is a cloud service that
+                                provides virtualized computing resources over the internet.</dd>
+                            <dt>SaaS (Software as a Service)</dt>
+                            <dd>SaaS is a software distribution
+                                model in which a third-party provider hosts applications and makes them available to
+                                customers over the internet.</dd>
+                            <dt>PaaS (Platform as a Service)</dt>
+                            <dd>This differs from similar services like IaaS or SaaS in that it
+                                provides a platform for developers to build applications on.</dd>
+                            <dt>FaaS (Function as a Service)</dt>
+                            <dd>FaaS is a category of cloud computing services that provides a platform allowing
+                                customers to develop, run, and manage application functionalities without the complexity
+                                of
+                                building and maintaining the infrastructure typically associated with developing and
+                                launching an app.</dd>
                             <dt>EC2</dt>
                             <dd>is a type of service that allows you to create virtual machines. GPC and Azure offer
                                 similar services.</dd>
@@ -95,8 +113,58 @@
                                 Azure Virtual Network or Google Cloud VPC)</dd>
                         </dl>
                     </div><br><br>
+
+                    <table class="min-table">
+                        <tr>
+                            <th>Service Offering</th>
+                            <th>Strengths</th>
+                            <th>Weaknesses</th>
+                            <th>Examples</th>
+                            <th>When would you use?</th>
+                        </tr>
+                        <tr>
+                            <td>SaaS (Software as a Service)</td>
+                            <td>Easy to use, no maintenance</td>
+                            <td>Less control, the provider manages the software</td>
+                            <td>Google Docs, Office 365, Salesforce</td>
+                            <td>When you have a self-contained solution already and you wish to host it in the cloud.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>PaaS (Platform as a Service)</td>
+                            <td>Easy to deploy, no maintenance</td>
+                            <td>Less control, the provider manages the platform</td>
+                            <td>Heroku, Google App Engine, Azure App Service</td>
+                            <td>When you need a platform to build your application on and you don't want to manage
+                                it. Differs from SaaS because you're building the application within the platform.</td>
+                        </tr>
+                        <tr>
+                            <td>FaaS (Function as a Service)</td>
+                            <td>Easy to deploy, no maintenance</td>
+                            <td>Less control, the provider manages the platform</td>
+                            <td>Google Cloud Functions, AWS Lambda, Azure Functions</td>
+                            <td>When you need to run a small piece of code in response to an event. For example, you
+                                could use a function to resize an image when it's uploaded to a storage bucket.</td>
+                        </tr>
+                        <tr>
+                            <td>IaaS (Infrastructure as a Service)</td>
+                            <td>Most control, most flexibility</td>
+                            <td>Most maintenance, most expensive</td>
+                            <td>EC2, Azure VMs, Google Compute Engine</td>
+                            <td>When you need full control over the infrastructure and you're willing to manage it.</td>
+                        </tr>
+                        <tr>
+                            <td>Serverless</td>
+                            <td>Easy to deploy, no maintenance</td>
+                            <td>Less control, the provider manages the platform</td>
+                            <td>Azure Static Web Apps, AWS Lambda, Google Cloud Functions</td>
+                            <td>When you need to run a small piece of code in response to an event. For example,
+                                documentation is a good use case for serverless architecture.</td>
+                        </tr>
+                    </table><br><br>
+
                     <div>
-                        <h3>My Usage</h3><br>
+                        <h3>My Experience</h3><br>
                         <h4>Personal</h4><br>
                         I use Google Cloud Platform for the API & front-end of nehsa.net home resources for everything
                         else. Eventually, I'd like to find ways to use AWS and Azure that leverage each perspective's
@@ -106,38 +174,69 @@
                                 <th>Feature</th>
                                 <th>Provider</th>
                                 <th>Reason</th>
+                                <th>Created</th>
+                                <th>Deployed to Cloud</th>
+                            </tr>
+                            <tr>
+                                <td>nehsa.net</td>
+                                <td>GCP Cloud Run</td>
+                                <td>This is an Angular website hosted on a C# Kestrel server.
+                                <td>Yes</td>
+                                <td>Yes</td>
                             </tr>
                             <tr>
                                 <td>Python websocker server</td>
-                                <td>AWS</td>
-                                <td>because AWS has the good support for websockets because of its IoT services.</td>
+                                <td>AWS (Fargate)</td>
+                                <td>Fargate should be a good use for this, as it's a long-running process that doesn't
+                                    need to be on all the time.</td>
+                                <td>Yes</td>
+                                <td>No</td>
                             </tr>
                             <tr>
+                                <td>GraphQL</td>
+                                <td>AWS (ECR and ECS)</td>
+                                <td>Using the ECR and ECS (Elastic Container Registry and Elastic Container Service) to
+                                    host a containerized GraphQL server.</td>
+                                <td>Yes</td>
+                                <td>Partial</td>
+                            <tr>
                                 <td>MySQL Database</td>
-                                <td>??</td>
-                                <td>??</td>
+                                <td>GCP (Cloud SQL)</td>
+                                <td>Cloud SQL is a managed MySQL service that is easy to use and has a free tier.</td>
+                                <td>Yes</td>
+                                <td>No</td>
                             </tr>
                             <tr>
                                 <td>Weather microservice writtin in Go</td>
-                                <td>??</td>
-                                <td>??</td>
+                                <td>GCP (Cloud Run)</td>
+                                <td>Cloud Run is a managed service that allows you to run stateless containers. It's
+                                    perfect for a microservice that doesn't need to be on all the time.</td>
+                                <td>Yes</td>
+                                <td>No</td>
                             </tr>
                             <tr>
                                 <td>Test React Front-ends</td>
-                                <td>GCP</td>
-                                <td>because I'm already using GCP for the API and I like the free tier.</td>
+                                <td>GCP (Cloud Run)</td>
+                                <td>Cloud Run is a managed service that allows you to run stateless containers. It's
+                                    perfect for a microservice that doesn't need to be on all the time.</td>
+                                <td>Yes</td>
+                                <td>No</td>
                             </tr>
                             <tr>
                                 <td>Web page scraper microservice writtin in Go</td>
-                                <td>??</td>
-                                <td>??</td>
+                                <td>GCP (Cloud Run)</td>
+                                <td>Cloud Run is a managed service that allows you to run stateless containers. It's
+                                    perfect for a microservice that doesn't need to be on all the time.</td>
+                                <td>Yes</td>
+                                <td>No</td>
                             </tr>
                         </table>
                         <br><br>
 
                         <h4>Professional</h4><br>
                         In a professional capacity, I am most familar with Azure for hosting web applications,
-                        databases, and APIs.
+                        databases, and APIs. See <a mat-stroked-button routerLink="/azure">Azure</a> for more
+                        information.
                     </div>
                 </div>
             </div>

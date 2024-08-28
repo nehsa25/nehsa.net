@@ -11,10 +11,165 @@
                     <ul class="condensed">
                         <li><a routerLink="/cloud">Cloud Overview</a></li>
                         <li><a routerLink="/aws">AWS</a></li>
+                        <li><a routerLink="/azure">Azure</a></li>
                         <li><a routerLink="/gcp">Google Cloud Platform</a></li>
+                        <li><a routerLink="/dns">DNS</a></li>
                     </ul>
                 </div>
-                <div>TBD</div>
+                <div>
+                    <a target="_blank" mat-stroked-button href="https://portal.azure.com">Azure Portal</a><br><br>
+
+                    <ul>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Definitions</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <dl>
+                                    <dt>App Service</dt>
+                                    <dd>Azure's offering for hosting web applications</dd>
+                                    <dt>Application Insights</dt>
+                                    <dd>Azure's monitoring service. Can be instrumented into your application to monitor
+                                        performance and usage</dd>
+                                    <dt>SQL Database</dt>
+                                    <dd>Azure's offering for hosting SQL databases</dd>
+                                    <dt>Azure Load Balancer</dt>
+                                    <dd>Azure's offering for distributing incoming network traffic across multiple
+                                        servers within the same Azure data center</dd>
+                                    <dt>Azure Traffic Manager</dt>
+                                    <dd>Azure's offering for routing incoming traffic across multiple Azure regions.
+                                        Useful if your app is hosted across the globe and you want to route users to the
+                                        closest region</dd>
+                                    <dt>Static Web App</dt>
+                                    <dd>Azure's offering for hosting static websites. A static website is a website that
+                                        is
+                                        delivered to the user exactly as stored, in contrast to dynamic websites which
+                                        are generated
+                                        by a web application.<br>
+                                        <span class="additional-note">* A static website can (but doesn't have to) be
+                                            hosted on a
+                                            serverless architecture
+                                            where the website is hosted on a CDN (Content Delivery Network) and the CDN
+                                            is
+                                            responsible for delivering the website to the user. I do this for hosting
+                                            help documentation.</span>
+                                    </dd>
+                                    <dt>Serverless Architecture</dt>
+                                    <dd>Serverless architecture is a way to build and run applications
+                                        and services without having to manage infrastructure. Your application still
+                                        runs on
+                                        servers,
+                                        but all the server management is done by the cloud provider.<br><br>
+
+                                        This is done for several reasons:<br>
+                                        <ol class="condensed">
+                                            <li>Cost: You only pay for what you use</li>
+                                            <li>Scalability: The cloud provider will automatically scale your
+                                                application based on
+                                                demand</li>
+                                            <li>Security: The cloud provider will manage the security of the servers
+                                            </li>
+                                        </ol><br><br>
+
+                                        Within Azure, you're using serverless architecture when you're using services
+                                        like static
+                                        web apps or Azure Functions.
+                                    </dd>
+                                    <dt>Azure Functions</dt>
+                                    <dd>Azure's offering for serverless functions. Example, you can have a function that
+                                        is
+                                        triggered by an HTTP request and returns a response. A real-world example would
+                                        be a
+                                        function that returns the current time. The flow would look like this:<br>
+                                    </dd>
+                                </dl>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Front-end applications Behind a Load
+                                        Balancer (really a Azure Traffic Manager)</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                ALthough the title says "Load Balancer", the actual service that will be used is the
+                                Azure Traffic Manager. This is more ideal for this use case because the Traffic Manager
+                                can route traffic to different regions, which is what we want to do. Plus, it's
+                                less<mat-icon>attach_money</mat-icon>!<br><br>
+                                The approach:
+                                <ol>
+                                    <li>Our deployment plan involves strategically distributing front-end applications
+                                        across Azure App Service regions, starting with the US, Europe, and Asia. This
+                                        efficient strategy ensures optimal performance and user experience.</li>
+                                    <li>Each
+                                        front-end application will have its own domain name. e.g. us.myapp.com,
+                                        eu.myapp.com, asia.myapp.com</li>
+                                    <li>Each front-end application will have its own Azure App Service Plan.</li>
+                                    <li>Each front-end application will share the same Azure SQL Database</li>
+                                    <li>The Azure Traffic Manager will route the user to the appropriate region. This is
+                                        different from the Azure Load Balancer, which routes the traffic to the
+                                        appropriate front-end application, but they work together: A user in China
+                                        accesses myapp.com, the DNS routes the user to the Asia region, and the Traffic
+                                        Manager routes the user to the Asia front-end application.</li>
+                                </ol><br><br>
+
+                                Within Azure, this can be done using these Azure services:
+                                <table class="min-table">
+                                    <tr>
+                                        <th>Service</th>
+                                        <th>Purpose</th>
+                                        <th>Estimated Cost</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Azure App Service</td>
+                                        <td>Host the front-end applications</td>
+                                        <td>$100/month</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Azure SQL Database</td>
+                                        <td>Host the database</td>
+                                        <td>$50/month</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Azure DNS</td>
+                                        <td>Manage the domain names</td>
+                                        <td>$5/month</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Azure Traffic Manager</td>
+                                        <td>Route the traffic to the appropriate region. This is different than the
+                                            Azure Load Balancer, which routes the traffic to the appropriate front-end
+                                            application but they work together: A user in China accesses myapp.com, the
+                                            DNS
+                                            routes the user to the Asia region, the Traffic Manager routes the user to
+                                            the
+                                            Asia front-end application.</td>
+                                        <td>$10/month</td>
+                                    </tr>
+                                </table><br><br>
+
+
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Database Mirroring and Deployment Process for
+                                        Test</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                The use case is a production database that needs to be used in multiple environments.
+                                The work-flow will be like this:
+                                <ol>
+                                    <li>A feature is released to production</li>
+                                    <li>The "Test" and "Pre-Production" databases are dropped.</li>
+                                    <li>The production database is mirrored to the "Test" and "Pre-Production" databases
+                                    </li>
+                                    <li>The database settings are updated for the perspectice environment. e.g. test
+                                        database should point to test portal.</li>
+                                </ol>
+                            </mat-expansion-panel>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div><app-comment></app-comment></div>
         </div>
