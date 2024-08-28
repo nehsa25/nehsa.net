@@ -88,14 +88,20 @@
                         <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
-                                    <mat-panel-title>Front-end applications Behind a Load
+                                    <mat-panel-title>Geo-Disperse Front-end Applications Behind a Load
                                         Balancer (really a Azure Traffic Manager)</mat-panel-title>
                                 </mat-expansion-panel-header>
                                 ALthough the title says "Load Balancer", the actual service that will be used is the
                                 Azure Traffic Manager. This is more ideal for this use case because the Traffic Manager
                                 can route traffic to different regions, which is what we want to do. Plus, it's
-                                less<mat-icon>attach_money</mat-icon>!<br><br>
-                                The approach:
+                                less<mat-icon>attach_money</mat-icon>!<br><br><br>To direct across regions:<br>
+                                [asia.nehsa.net, eu.nehsa.net,
+                                us.nehsa.net] behind www.nehsa.net: <span class="importantish">use Azure Traffic
+                                    Manager.</span><br><br>
+                                To direct within a region:<br>
+                                [us1.nehsa.net, us2.nehsa.net] behind
+                                us.nehsa.net: <span class="importantish">Use Azure Load Balancer.</span><br><br>
+                                The planned approach:
                                 <ol>
                                     <li>Our deployment plan involves strategically distributing front-end applications
                                         across Azure App Service regions, starting with the US, Europe, and Asia. This
