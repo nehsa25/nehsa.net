@@ -706,3 +706,61 @@ dt {
 .in-progress:after, .pending:after {
     content: "[In Progress]";
 }
+
+// blog
+.blog-date:before {
+    content: "Date: ";
+    font-size: .9rem;
+}
+.blog-date {
+    font-size: 1rem;
+    font-weight: 600;
+    font-variant: small-caps;
+    display: inline-block;
+    padding: .5em 5px;
+    border-radius: 5px;
+}
+
+.blog-author:before {
+    content: "Author: ";
+    font-size: .9rem;
+}
+.blog-author
+{
+    font-size: 1rem;
+    font-weight: 600;
+    font-variant: small-caps;
+    display: inline-block;
+    padding: .2rem .5rem;
+    border-radius: 5px;
+}
+
+.blog-body {
+    font-size: 1.5rem;
+    padding: .2rem .5rem;
+    border-radius: 5px;
+}
+
+.blog-body p {
+    font-size: 1rem;
+    padding: 1rem .5rem;
+    border-radius: 5px;
+    color: #222;
+    max-width:45%;
+}
+
+.blog-body dl {
+    font-size: 1rem;
+    padding: 1rem .5rem;
+    border-radius: 5px;
+    color: #222;
+    max-width:70%;
+}
+
+.blog-body ul {
+    font-size: 1rem;
+    padding: 1rem .5rem;
+    border-radius: 5px;
+    color: #222;
+    max-width:70%;
+}

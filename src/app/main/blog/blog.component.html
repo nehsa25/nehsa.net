@@ -1,22 +1,67 @@
 <mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
     <mat-card-header>
         <mat-card-title>
-            <h1 data-testid="header-title">Jesse's Blog</h1>
+            <h1 data-testid="header-title">Randomness That's On My Mind</h1>
         </mat-card-title>
     </mat-card-header>
     <mat-card-content>
         <div class="commentgrid">
-            <div>Someday, Jesse will build the infrastructure to host a blog here. This will become the main page of
-                Nehsa.net. It will be a sacred place where Jesse can yell thunderously into a fickle and uncaring wind.
-                Now, though, there's little to see, so Jesse will draw you a picture of what it will be like. This will
-                help you visualize to eventual awesomeness.<div class="grid">
-                    <div></div>
-                    <div style="text-align: left;"><mat-icon class="bolt">thunderstorm</mat-icon></div>
-                    <div style="text-align: right;"><mat-icon class="person">accessibility_new</mat-icon></div>
-                    <div>&nbsp;</div>
-                </div>
-                <br><br>
-                Jesse is unsure why he wrote this in the third person. Forgive him.
+            <div>
+                <h2>Welcome! Below are articles I've written.</h2>
+                <ul>
+                    <li>
+                        <mat-card class="blog-card blog-card-gradient-background" routerLink="/2024-august-29/agism">
+                            <mat-card-header>
+                                <div class="blog-card-grid">
+                                    <div><mat-card-title class="blog-card-text-title">Agism</mat-card-title>
+                                    </div>
+                                    <div class="blog-card-icon-container"><mat-icon>elderly_woman</mat-icon></div>
+                                </div>
+                            </mat-card-header>
+                            <mat-card-content>
+                                <div class="blog-card-subtext">August 29th,
+                                    2024</div>
+                                <div class="topic-description">What comes around, goes around!</div>
+                            </mat-card-content>
+                        </mat-card>
+                    </li>
+                    <li>
+                        <mat-card class="blog-card blog-card-gradient-background"
+                            routerLink="/2024-august-29/gametheory">
+                            <mat-card-header>
+                                <div class="blog-card-grid">
+                                    <div><mat-card-title class="blog-card-text-title">Game Theory is
+                                            Fascinating</mat-card-title></div>
+                                    <div class="blog-card-icon-container"><mat-icon>sports_kabaddi</mat-icon></div>
+                                </div>
+                            </mat-card-header>
+                            <mat-card-content>
+                                <div class="blog-card-subtext">August 29th,
+                                    2024</div>
+                                <div class="topic-description">Using math to predict human behavior!</div>
+                            </mat-card-content>
+                        </mat-card>
+                    </li>
+                    <li>
+                        <mat-card class="blog-card blog-card-gradient-background"
+                            routerLink="/2024-july-28/makingofmud">
+                            <mat-card-header>
+                                <div class="blog-card-grid">
+                                    <div><mat-card-title class="blog-card-text-title">Making a
+                                            Mud</mat-card-title></div>
+                                    <div class="blog-card-icon-container"><mat-icon>castle</mat-icon></div>
+                                </div>
+                            </mat-card-header>
+                            <mat-card-content>
+                                <div class="blog-card-subtext">July 28th,
+                                    2024</div>
+                                <div class="topic-description">This is an ongoing post on my efforts to bring NehsaMUD
+                                    to life. I rarely have time to work on the game, but when I do, I post updates here.
+                                    The date is the last time I worked on the game.</div>
+                            </mat-card-content>
+                        </mat-card>
+                    </li>
+                </ul>
             </div>
             <div><app-comment></app-comment></div>
         </div>

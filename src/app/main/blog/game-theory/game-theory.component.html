@@ -1,0 +1,181 @@
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Game Theory</h1>
+        </mat-card-title>
+        <mat-card-subtitle>Game theory is the study of strategic interaction among rational
+            decision-makers.</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                <div>
+                    <div class="blog-date">August 29th, 2024</div>
+                    <div class="blog-author">Jesse Stone</div>
+                    <div class="blog-body">
+                        <p>
+                            I have been reading up on game theory and find the correlations to real life
+                            fascinating.<br><br>
+
+                            One study I read about by conducted by Robert Axelrod in 1980 involved inviting game
+                            theorists to submit
+                            a
+                            computer
+                            program that would play the Prisoner's Dilemma against each other.
+                        </p>
+                        <dl>
+                            <dt>Prisoner's Dilemma</dt>
+                            <dd>Two players each have two options: Cooperate (C) or Defect (D) with the following
+                                consequences:<br>
+                                If both players cooperate, they each get 3 points.<br>
+                                If both players defect, they each get 1 point.<br>
+                                If one player cooperates and the other defects, the defector gets 5 points and the
+                                cooperator
+                                gets 0 points.<br><br>
+
+                                e.g.<br>
+                                <table class="min-content">
+                                    <tr>
+                                        <th>Scenario</th>
+                                        <th>Player 1 Result</th>
+                                        <th>Player 2 Result</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Both Cooperate</td>
+                                        <td>3</td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Player 1 Cooperates, Player 2 Defects</td>
+                                        <td>0</td>
+                                        <td>5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Player 1 Defects, Player 2 Cooperates</td>
+                                        <td>5</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Both Defect</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                    </tr>
+                                </table><br><br>
+
+                                The goal is to maximize your own points.
+                            </dd>
+                        </dl>
+
+
+                        <p>
+                            The interest thing to me about this game is how the best strategy can change depending on
+                            how
+                            many
+                            rounds you play.</p>
+                        <ul class="condensed">
+                            <li>If you play a <span class="importantish">single</span> game of Prisoner's Dilemma, the
+                                best
+                                strategy <span class="importantish">is to defect.</span> This is because
+                                you will win (5 points) or draw (1 point). If you choose to cooperate, you may get
+                                nothing
+                                if
+                                the other player defects.</li>
+                            <li>If you play a known number of rounds such as <span class="importantish">10 rounds</span>, the best strategy is to
+                                cooperate
+                                until
+                                the last round and then defect.
+                                The reasoning is that if you defect early, the other player will likely defect as well,
+                                and
+                                you
+                                will both lose. If you cooperate, you will both win, but knowing when the game will end,
+                                you
+                                <span class="importantish">can
+                                    backstab and win!</span> (5 points).
+                            </li>
+                            <li>
+                                The most exciting scenario is an <span class="importantish">indefinite</span> number of
+                                rounds-
+                                here, the <span class="importantish">best strategy is to
+                                    cooperate.</span> It's not just about winning a single round, it's about setting
+                                yourself up
+                                for
+                                success in the long run. If you defect, the other player will likely defect as well, and
+                                you
+                                will both lose. But if you cooperate, you will both win. This is the best strategy for
+                                the
+                                long
+                                term, ensuring mutual benefits and a positive outcome.
+                            </li>
+                        </ul>
+                        <p>Key takeways:</p>
+                        <ul>
+                            <li>Find win-wins, zero-sum games are not the only option (for me to win, you must lose)
+                            </li>
+                            <li>Qualities for success:<ul>
+                                    <li>Be nice (don't be first to defect)</li>
+                                    <li>Be retaliatory (don't be a push over - if someone defects, you should defect
+                                        next
+                                        round)
+                                    </li>
+                                    <li>Be forgiving (don't continue to defect i.e. hold grudges)</li>
+                                </ul>
+                            </li>
+                            <li>"Nice" strategies are the most successful in the long run</li>
+                        </ul>
+
+                        <p>Definitions:</p>
+                        <dl>
+                            <dt>Game Theory</dt>
+                            <dd>Study of strategic interaction among rational decision-makers.</dd>
+                            <dt>Zero-sum game</dt>
+                            <dd>One's gain is another's loss. i.e. the "net" of the game is zero. A "Win-Win" is an
+                                eample
+                                of a
+                                non-zero-game as both "players" can win (net = 2).</dd>
+                            <dt>Prisoner's Dilemma</dt>
+                            <dd>Two players each have two options: Cooperate (C) or Defect (D) with the following
+                                consequences:<br>
+                                If both players cooperate, they each get 3 points.<br>
+                                If both players defect, they each get 1 point.<br>
+                                If one player cooperates and the other defects, the defector gets 5 points and the
+                                cooperator
+                                gets 0 points.<br><br>
+
+                                e.g.<br>
+                                <table class="min-content">
+                                    <tr>
+                                        <th>Scenario</th>
+                                        <th>Player 1 Result</th>
+                                        <th>Player 2 Result</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Both Cooperate</td>
+                                        <td>3</td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Player 1 Cooperates, Player 2 Defects</td>
+                                        <td>0</td>
+                                        <td>5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Player 1 Defects, Player 2 Cooperates</td>
+                                        <td>5</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Both Defect</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                    </tr>
+                                </table><br><br>
+
+                                The goal is to maximize your own points.
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

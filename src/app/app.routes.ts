@@ -68,6 +68,8 @@ import { GraphqlComponent } from './main/graphql/graphql.component';
 import { MicrosoftMonetizeNowComponent } from './main/microsoft-monetize-now/microsoft-monetize-now.component';
 import { MicrosoftClarityComponent } from './main/microsoft-clarity/microsoft-clarity.component';
 import { DnsComponent } from './main/dns/dns.component';
+import { GameTheoryComponent } from './main/blog/game-theory/game-theory.component';
+import { WhatComesAroundGoesAroundComponent } from './main/blog/what-comes-around-goes-around/what-comes-around-goes-around.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: WelcomeComponent },
@@ -103,7 +105,6 @@ export const routes: Routes = [
         path: 'school/ph207', title: 'nehsa.net | ph207',
         component: Ph207Component
     },
-    { path: 'makingofmud', title: 'nehsa.net | Making of NehsaMUD', component: MudMakingOfComponent },
     { path: 'npm', title: 'nehsa.net | npm', component: NpmComponent },
     { path: 'playwright', title: 'nehsa.net | Playwright', component: PlaywrightComponent },
     { path: 'doxy', title: 'nehsa.net | Doxygen', component: DoxygenComponent },
@@ -129,6 +130,9 @@ export const routes: Routes = [
     { path: 'webdev-frameworks', title: 'nehsa.net | Web Development Frameworks', component: JavascriptFrameworksComponent },
     { path: 'website', title: 'nehsa.net | This Website', component: ThisWebsiteComponent },
     { path: 'tls', title: 'nehsa.net | TLS', component: TlsComponent },
+    { path: '2024-august-29/gametheory', title: 'nehsa.net | Game Theory', component: GameTheoryComponent },
+    { path: '2024-july-28/makingofmud', title: 'nehsa.net | Making of NehsaMUD', component: MudMakingOfComponent },
+    { path: '2024-august-29/agism', title: 'nehsa.net | Game Theory', component: WhatComesAroundGoesAroundComponent },
     { path: 'grammar', title: 'nehsa.net | Grammar', component: WritingComponent },
     { path: 'gemini', title: 'nehsa.net | Google Gemini', component: GeminiComponent },
     { path: 'design', title: 'nehsa.net | Design Patterns', component: DesignpatternsComponent },
