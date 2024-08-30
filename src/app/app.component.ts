@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, ElementRef, HostListener, Input, OnDestroy, OnInit, Renderer2 } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, HostListener, Input, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './shared-components/navbar/navbar.component';
 import { CornerListenerComponent } from './shared-components/corner-listener/corner-listener.component';
@@ -51,6 +51,7 @@ import { ResponsiveService } from './services/responsive.service';
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit, OnDestroy {
+  @ViewChild('copyright') copyright: ElementRef | undefined;
   @Input() duration = 10;
   private _reversify = false;
   startPosition: number = 0;
@@ -87,7 +88,8 @@ export class AppComponent implements OnInit, OnDestroy {
     public userService: UserService,
     public nameDialog: MatDialog,
     public snackBar: MatSnackBar,
-    private changeDetectorRef: ChangeDetectorRef
+    private changeDetectorRef: ChangeDetectorRef,
+    private responsiveService: ResponsiveService
   ) {
     var getQuotes = this.httpClient.getQuote();
     var getName = this.httpClient.getNames(2);
@@ -161,6 +163,14 @@ export class AppComponent implements OnInit, OnDestroy {
     }
     console.log("Theme mode: osIsDark: " + this.osIsDark + " appIsDark: " + this.appIsDark);
 
+    // responsive service for screen size
+    this.responsiveService.resolution$.subscribe((resolution: ResponsiveType) => {
+      if (resolution.width < 768) {
+        this.forceBreak();
+      } else if (resolution.width < 1024) {
+        this.forceBreak();
+      }
+    });
     this.isFullScreenEvent.subscribe(data => {
       console.log("Full screen event: " + data.toString());
       this.fullScreen = data;
@@ -199,6 +209,21 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+  }
+
+  ngAfterViewInit() {
+    this.forceBreak();
+  }
+
+  forceBreak() {
+    const element = this.copyright?.nativeElement;
+    const availableWidth = element.parentElement.offsetWidth;
+    const contentWidth = element.offsetWidth;
+
+    if (contentWidth > availableWidth) {
+      const wbrIndex = element.innerHTML.indexOf('<wbr>');
+      element.innerHTML = element.innerHTML.substring(0, wbrIndex) + '<br>' + element.innerHTML.substring(wbrIndex + 4);
+    }
   }
 
   // accessors

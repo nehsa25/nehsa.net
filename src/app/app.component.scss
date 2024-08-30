@@ -22,6 +22,12 @@
         height: inherit;
     }
 
+    .copyright:after {
+        display: block;
+        content: "Be kind.";
+    }
+
+
     .theme {
         grid-area: theme;
         text-align: center;
@@ -104,6 +110,11 @@
         height: inherit;
     }
 
+    .copyright:after {
+        display: inline;
+        content: "Be kind.";
+    }
+
     .gridcols {
         grid-template-columns: min-content 1fr;
     }
@@ -150,13 +161,11 @@
         grid-template-columns: 1fr 215px;
     }
 
-    .copyright {
-        white-space: pre-wrap;
-    }
 
     .user_admin {
         text-align: right;
     }
+
 
     nav {
         height: 100%;
