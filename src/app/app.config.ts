@@ -12,9 +12,6 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideAnimationsAsync(),
-    provideAnimationsAsync(),
-    provideAnimationsAsync(),
-    provideAnimationsAsync(),
     importProvidersFrom(HttpClientModule),
     UserService,
     HttpClient,
