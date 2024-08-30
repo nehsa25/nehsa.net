@@ -163,11 +163,15 @@ span.code:hover {
 }
 
 // breadcrumbs
-.vampire .bread-root, .vampire .bread-root a:link, .vampire .bread-root a:visited, .vampire .bread-root a:active {
+.vampire .bread-root,
+.vampire .bread-root a:link,
+.vampire .bread-root a:visited,
+.vampire .bread-root a:active {
     color: #ff7f5b;
 }
 
-.vampire .file, .vampire inline-file {
+.vampire .file,
+.vampire inline-file {
     background-color: var(--theme-file-background) !important;
     color: var(--theme-file-color) !important;
 }
@@ -251,6 +255,11 @@ a:active {
     color: #494741;
     background-color: midnightblue;
     border-color: #FFC107;
+}
+
+// navigation menu text color
+.vampire .nav-menu-title-text {
+    color: teal !important;
 }
 
 $dark-primary: (

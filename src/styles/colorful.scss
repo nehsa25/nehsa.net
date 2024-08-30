@@ -64,7 +64,10 @@ a:active {
 }
 
 // breadcrumbs
-.angel .bread-root a, .angel .bread-root a:link, .angel .bread-root a:visited, .angel .bread-root a:active {
+.angel .bread-root a,
+.angel .bread-root a:link,
+.angel .bread-root a:visited,
+.angel .bread-root a:active {
     color: #9E2200;
 }
 
@@ -72,7 +75,8 @@ a:active {
     border: 1px solid var(--theme-border);
 }
 
-.angel .file, .angel inline-file {
+.angel .file,
+.angel inline-file {
     background-color: var(--theme-file-background) !important;
     color: var(--theme-file-color) !important;
 }
@@ -284,6 +288,11 @@ h6 {
     color: #FFC107;
     background-color: #f1f1f1;
     border-color: #FFC107;
+}
+
+// navigation menu text color
+.angel .nav-menu-title-text {
+    color: #9E2200 !important;
 }
 
 $light-primary: (

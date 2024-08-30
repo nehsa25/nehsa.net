@@ -2,9 +2,11 @@
     .welcome-heading {
         font-size: 2rem;
     }
-
+    .welcome-text:after {
+        content: "At the bottom of the page, you'll find information on various technologies I've experienced. I hope you find something of value here!";
+    }
     .welcome-text {
-        font-size: .9rem;
+        font-size: .9rem;        
     }
 
     .definitions-container {
@@ -60,6 +62,9 @@
         font-size: 5.8rem;
     }
 
+    .welcome-text:after {
+        content: "On your left, you'll find an assortment of information on various technologies I've experienced. I hope you find something of value while here!";
+    }
     .welcome-text {
         font-size: 2.0rem;
     }

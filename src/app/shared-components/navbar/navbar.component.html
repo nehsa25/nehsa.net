@@ -1,16 +1,13 @@
 <div class="black-theme navbar" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
-  <mat-expansion-panel #panel [expanded]="expanded"
-    [disabled]="!allowExpand" 
-    [class.panel-expanded]="panel.expanded" 
-    [class.panel-collapsed]="!panel.expanded"  
-    [hideToggle]="!allowExpand">
+  <ul class="navbar-featured navbar-links featured-navbar-links"
+    [class.navbar-featured-navbar-links-dark]="userService.appIsDark()"
+    [class.navbar-featured-navbar-links-light]="!userService.appIsDark()">
+    <li class="bungee-spice-regular" (click)="sendUser('/mud')">NehsaMUD</li>
+  </ul>
+  <mat-expansion-panel #panel [expanded]="expanded" [disabled]="!allowExpand" [class.panel-expanded]="panel.expanded"
+    [class.panel-collapsed]="!panel.expanded" [hideToggle]="!allowExpand">
     <mat-expansion-panel-header #header>
-      <mat-panel-title>
-        <ul class="navbar-featured navbar-links featured-navbar-links" [class.navbar-featured-navbar-links-dark]="userService.appIsDark()"
-          [class.navbar-featured-navbar-links-light]="!userService.appIsDark()">
-          <li class="bungee-spice-regular" (click)="sendUser('/mud')">NehsaMUD</li>
-        </ul>
-      </mat-panel-title>
+      <mat-panel-title class="nav-menu-title-text">Menu <mat-icon>menu</mat-icon></mat-panel-title>
     </mat-expansion-panel-header>
     <ul class="navbar-links norm-navbar-links">
       <li class="norm" [class.nav-selected]="this.userService.pagePath==='/about'" (click)="sendUser('/about')">About
