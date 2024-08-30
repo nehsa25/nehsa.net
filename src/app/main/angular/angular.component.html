@@ -1062,6 +1062,60 @@ if (this.userDetails.invalid) return;
                         <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
+                                    <mat-panel-title>Create a collapsable menu for small devices</mat-panel-title>
+                                    <mat-panel-description>
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>Using responsive design, I have placed the navigation in a
+                                single column below the body on small devices (anything smaller than a Google Nest Hub).
+                                However, this still takes up too much space. To better use the space available on small
+                                devices, I'd like a panel that can be expanded/collapsed.<br><br>
+
+                                Like so:<br><br>
+
+                                <span class="importantish">Mobile:</span><br>
+                                <img src="assets/images/mobile-menu.png" alt="Collapsable Menu - Mobile" /><br><br>
+                                <span class="importantish">Desktop:</span><br>
+                                <img src="assets/images/desktop-menu.png" alt="Collapsable Menu - Desktop" /><br><br>
+
+                                Here's how I did it:<br>
+                                <ul>
+                                    <li>Create expansion panel to navigation</li>
+                                    <li>Hide toggle and force expanded on desktop</li>
+                                    <li>Create responsive.service.ts service to get page width and height as they change
+                                    </li>
+                                    <li>Subscribe to it on the navbar component</li>
+                                    <li>Bind to panel to variables:
+                                        <code>
+                                            <pre>
+&lt;mat-expansion-panel #panel [expanded]="expanded"
+[disabled]="!allowExpand" 
+[class.panel-expanded]="panel.expanded" 
+[class.panel-collapsed]="!panel.expanded"  
+[hideToggle]="!allowExpand"&gt;
+&lt;mat-expansion-panel-header #header&gt;
+    &lt;mat-panel-title&gt;&lt;FEATURED NAVIGATION&gt;
+    &lt;/mat-panel-title&gt;
+&lt;/mat-expansion-panel-header&gt;
+&lt;NAVIGATION&gt;
+&lt;/mat-expansion-panel&gt;
+                                            </pre>
+                                        </code>
+                                    </li>
+                                </ul>
+
+                                These are the settings:
+                                <ul>
+                                    <li>If mobile (resolution.width < 768): this.allowExpand=true &
+                                            this.expanded=false;</li>
+                                    <li>If tablet (resolution.width < 1024): this.allowExpand=true &
+                                            this.expanded=true;</li>
+                                    <li>If desktop (else): this.allowExpand = false & this.expanded = true;</li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
                                     <mat-panel-title>Troubleshooting</mat-panel-title>
                                 </mat-expansion-panel-header>
                                 <ul>
