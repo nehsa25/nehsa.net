@@ -1,5 +1,5 @@
-import { ChangeDetectorRef, Component, ElementRef, HostListener, Input, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { ChangeDetectorRef, Component, ElementRef, HostListener, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './shared-components/navbar/navbar.component';
 import { CornerListenerComponent } from './shared-components/corner-listener/corner-listener.component';
 import { MatIcon } from '@angular/material/icon';
@@ -18,20 +18,16 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSliderModule } from '@angular/material/slider';
 import { FranticTim } from './types/tim.type';
-import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Tree } from './types/tree';
 import { Cloud } from './types/cloud';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CometComponent } from './shared-components/comet/comet.component';
-import { ResponsiveType } from './types/responsive.type';
-import { ResponsiveService } from './services/responsive.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     CommonModule,
-    RouterModule,
     RouterOutlet,
     NavbarComponent,
     CornerListenerComponent,
@@ -46,7 +42,9 @@ import { ResponsiveService } from './services/responsive.service';
     NgIf,
     CometComponent
   ],
-  providers: [HttpService],
+  providers: [
+    HttpService
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -88,8 +86,7 @@ export class AppComponent implements OnInit, OnDestroy {
     public userService: UserService,
     public nameDialog: MatDialog,
     public snackBar: MatSnackBar,
-    private changeDetectorRef: ChangeDetectorRef,
-    private responsiveService: ResponsiveService
+    private changeDetectorRef: ChangeDetectorRef
   ) {
     var getQuotes = this.httpClient.getQuote();
     var getName = this.httpClient.getNames(2);
@@ -163,14 +160,6 @@ export class AppComponent implements OnInit, OnDestroy {
     }
     console.log("Theme mode: osIsDark: " + this.osIsDark + " appIsDark: " + this.appIsDark);
 
-    // responsive service for screen size
-    this.responsiveService.resolution$.subscribe((resolution: ResponsiveType) => {
-      if (resolution.width < 768) {
-        this.forceBreak();
-      } else if (resolution.width < 1024) {
-        this.forceBreak();
-      }
-    });
     this.isFullScreenEvent.subscribe(data => {
       console.log("Full screen event: " + data.toString());
       this.fullScreen = data;
@@ -209,21 +198,6 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-  }
-
-  ngAfterViewInit() {
-    this.forceBreak();
-  }
-
-  forceBreak() {
-    const element = this.copyright?.nativeElement;
-    const availableWidth = element.parentElement.offsetWidth;
-    const contentWidth = element.offsetWidth;
-
-    if (contentWidth > availableWidth) {
-      const wbrIndex = element.innerHTML.indexOf('<wbr>');
-      element.innerHTML = element.innerHTML.substring(0, wbrIndex) + '<br>' + element.innerHTML.substring(wbrIndex + 4);
-    }
   }
 
   // accessors

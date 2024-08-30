@@ -4,7 +4,7 @@ import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { importProvidersFrom } from '@angular/core';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { LocationStrategy, HashLocationStrategy, PathLocationStrategy } from '@angular/common';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { UserService } from './services/user.service';
 
@@ -18,7 +18,7 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(HttpClientModule),
     UserService,
     HttpClient,
-    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    { provide: LocationStrategy, useClass: PathLocationStrategy },
     {
       provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {
         appearance: 'outline',
