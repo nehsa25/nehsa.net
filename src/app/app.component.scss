@@ -139,7 +139,7 @@
         grid-template-rows: 7svh 6svh 84svh 3svh 3svh;
         grid-template-columns: 225px 100px 1fr 1fr 100px 225px;
         grid-template-areas:
-            "bread bread dh dh dh user_admin"
+            "bread dh dh dh dh user_admin"
             "ads title title title title title"
             "navbar body body body body body"
             "navbar body body body body body"
@@ -164,6 +164,7 @@
     .dh-quote {
         text-align: right;
         display: inherit !important;
+        font-size: .9rem;
     }
 
     .contactme {
@@ -180,7 +181,7 @@
     .gridcols {
         grid-template-columns: min-content 1fr;
     }
-    
+
     .theme {
         display: grid !important;
     }
@@ -193,6 +194,10 @@
             "navbar title title title theme theme"
             "navbar body body body body body"
             "contactme footer footer footer footer footer";
+    }
+
+    .dh-quote {
+        font-size: 1.1rem;
     }
 
     footer {
@@ -227,6 +232,10 @@
             "navbar title title title theme theme"
             "navbar body body body body body"
             "contactme footer footer footer footer footer";
+    }
+
+    .dh-quote {
+        font-size: 1.2rem;
     }
 
     footer {
@@ -365,7 +374,6 @@ footer {
 }
 
 .dh-quote {
-    font-size: 1.2rem;
     font-style: italic;
     font-weight: 700;
     color: #ff7f5b;

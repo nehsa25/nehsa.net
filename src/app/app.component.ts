@@ -23,6 +23,8 @@ import { Tree } from './types/tree';
 import { Cloud } from './types/cloud';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CometComponent } from './shared-components/comet/comet.component';
+import { ResponsiveType } from './types/responsive.type';
+import { ResponsiveService } from './services/responsive.service';
 
 @Component({
   selector: 'app-root',

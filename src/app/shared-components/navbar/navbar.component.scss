@@ -1,15 +1,8 @@
+@media (min-width: 0) {}
 
-@media (min-width: 0) {
+@media (min-width: 576px) {}
 
-}
-
-@media (min-width: 576px) {
-
-}
-
-@media (min-width: 768px) {
-
-}
+@media (min-width: 768px) {}
 
 @media (min-width: 992px) {
     .navbar {
@@ -17,17 +10,18 @@
     }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1200px) {}
 
-}
+@media (min-width: 1400px) {}
 
-@media (min-width: 1400px) {
-
+::ng-deep .mat-expansion-panel-header[aria-disabled=true] {
+    background-color: var(--theme-background-color) !important;
+    color: tomato !important;
+    cursor: default;
 }
 
 .norm {
     font-size: .9rem;
-
 }
 
 .navbar {
@@ -60,29 +54,37 @@ ul {
     cursor: pointer;
 }
 
-.featured li:hover {
+.navbar-featured li:hover {
     border-radius: 0 !important;
 }
 
-.featured {
-    font-size: 1.5rem;
-    padding: 7px 1em;
+.panel-expanded,
+.panel-collapsed {
+    width: 100%;
+    background-color: whitesmoke;
+}
+
+.panel-expanded .navbar-featured {
     border-top: 1px solid greenyellow;
     border-bottom: 1px solid greenyellow;
 }
 
-.featured-navbar-links li:hover {
+.navbar-featured li {
+    font-size: 1.5rem;
+}
+
+.navbar-featured-navbar-links li:hover {
     border-top: 1px solid greenyellow;
     border-bottom: 1px solid greenyellow;
     border-radius: 0 !important;
     cursor: pointer;
 }
 
-.featured-navbar-links-dark li:hover {
+.navbar-featured-navbar-links-dark li:hover {
     background-color: whitesmoke !important;
 }
 
-.featured-navbar-links-light li:hover {
+.navbar-featured-navbar-links-light li:hover {
     background-color: orangered !important;
 }
 
