@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, ElementRef, HostListener, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './shared-components/navbar/navbar.component';
 import { CornerListenerComponent } from './shared-components/corner-listener/corner-listener.component';
 import { MatIcon } from '@angular/material/icon';
@@ -41,7 +41,7 @@ import { ScriptService } from 'ngx-script-loader';
     MatSidenavModule,
     MatSliderModule,
     NgIf,
-    CometComponent
+    CometComponent, RouterLink
   ],
   providers: [
     HttpService
