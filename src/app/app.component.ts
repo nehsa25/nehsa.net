@@ -8,7 +8,7 @@ import { CommonModule, NgIf } from '@angular/common';
 import { HttpService } from './services/http.service';
 import { version } from '../version';
 import { MatButtonModule } from '@angular/material/button';
-import { Observable, Subject, forkJoin } from 'rxjs';
+import { Observable, Subject, async, forkJoin, retry } from 'rxjs';
 import { UserPopupComponent } from './main/user-popup/user-popup.component';
 import { MatDialog } from '@angular/material/dialog';
 import { NameAboutType } from './types/nameabout.type';
@@ -22,6 +22,7 @@ import { Tree } from './types/tree';
 import { Cloud } from './types/cloud';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CometComponent } from './shared-components/comet/comet.component';
+import { ScriptService } from 'ngx-script-loader';
 
 @Component({
   selector: 'app-root',
@@ -86,6 +87,7 @@ export class AppComponent implements OnInit, OnDestroy {
     public userService: UserService,
     public nameDialog: MatDialog,
     public snackBar: MatSnackBar,
+    private scriptService: ScriptService,
     private changeDetectorRef: ChangeDetectorRef
   ) {
     var getQuotes = this.httpClient.getQuote();
@@ -150,6 +152,16 @@ export class AppComponent implements OnInit, OnDestroy {
 
   // Angular lifecycle hooks
   ngOnInit() {
+    (window as any).msAdsQueue = (window as any).msAdsQueue || [];
+    (window as any).msAdsQueue.push(() => {
+      (window as any).mmnow.render({
+        adUnitId: "1940502965",
+        elementId: "1940502965"
+      });
+    });
+
+    https://adsdk.microsoft.com/mmnow/sdk.js?siteId=10323057&publisherId=254006085')
+
     this.osIsDark = this.osCheckIsDark();
     this.appIsDark = this.userService.appIsDark();
     if (this.osIsDark) {

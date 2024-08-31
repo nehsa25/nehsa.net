@@ -5,13 +5,13 @@
     // }
 
     .app-main-collapsed {
-        grid-template-rows: 30px 3fr 1fr mixmax(min-content, 100px) min-content;
+        grid-template-rows: 30px 3fr 1fr mixmax(min-content, 100px) 25svh min-content;
         grid-template-columns: 1fr 1fr;
         grid-template-areas:
             "bread user_admin"
             "body body"
             "navbar navbar"
-            "ads ads"
+            "ad1 ad1"
             "footer footer";
         display: grid;
     }
@@ -49,7 +49,7 @@
         grid-template-columns: min-content 1fr;
     }
 
-    #ads {
+    #ad1 {
         width: 100%;
     }
 
@@ -146,13 +146,13 @@
     }
 
     .app-main-collapsed {
-        grid-template-rows: 7svh 6svh 84svh 3svh 3svh;
+        grid-template-rows: 7svh 6svh 59svh 25svh 3svh;
         grid-template-columns: 225px 100px 1fr 1fr 100px 225px;
         grid-template-areas:
-            "bread dh dh dh dh user_admin"
-            "ads title title title title title"
+            "bread bread dh dh dh user_admin"
+            "navbar title title title theme theme"
             "navbar body body body body body"
-            "navbar body body body body body"
+            "ad1 body body body body body"
             "contactme footer footer footer footer footer";
     }
 
@@ -164,7 +164,6 @@
     .user_admin {
         text-align: right;
     }
-
 
     nav {
         height: 100%;
@@ -198,16 +197,6 @@
         display: grid !important;
     }
 
-    .app-main-collapsed {
-        grid-template-rows: 7svh 6svh 84svh 3svh;
-        grid-template-columns: 225px 100px 1fr 1fr 100px 225px;
-        grid-template-areas:
-            "bread bread dh dh dh user_admin"
-            "ads title title title theme theme"
-            "navbar body body body body body"
-            "contactme footer footer footer footer footer";
-    }
-
     .dh-quote {
         font-size: 1.1rem;
     }
@@ -234,16 +223,6 @@
 @media (min-width: 1400px) {
     .gridcols {
         grid-template-columns: min-content 1fr;
-    }
-
-    .app-main-collapsed {
-        grid-template-rows: 7svh 6svh 84svh 3svh;
-        grid-template-columns: 225px 100px 1fr 1fr 100px 225px;
-        grid-template-areas:
-            "bread bread dh dh dh user_admin"
-            "ads title title title theme theme"
-            "navbar body body body body body"
-            "contactme footer footer footer footer footer";
     }
 
     .dh-quote {
@@ -326,7 +305,7 @@ nav {
 }
 
 article {
-    grid-area: ads;
+    grid-area: ad1;
 }
 
 footer {
