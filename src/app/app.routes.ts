@@ -132,7 +132,7 @@ export const routes: Routes = [
     { path: 'tls', title: 'nehsa.net | TLS', component: TlsComponent },
     { path: '2024-august-29/gametheory', title: 'nehsa.net | Game Theory', component: GameTheoryComponent },
     { path: '2024-july-28/makingofmud', title: 'nehsa.net | Making of NehsaMUD', component: MudMakingOfComponent },
-    { path: '2024-august-29/agism', title: 'nehsa.net | Game Theory', component: WhatComesAroundGoesAroundComponent },
+    { path: '2024-august-29/ageism', title: 'nehsa.net | Game Theory', component: WhatComesAroundGoesAroundComponent },
     { path: 'grammar', title: 'nehsa.net | Grammar', component: WritingComponent },
     { path: 'gemini', title: 'nehsa.net | Google Gemini', component: GeminiComponent },
     { path: 'design', title: 'nehsa.net | Design Patterns', component: DesignpatternsComponent },

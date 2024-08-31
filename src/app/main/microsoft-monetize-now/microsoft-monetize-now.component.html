@@ -15,13 +15,87 @@
                     </ul>
                 </div>
                 <div>
-                    <a target="_blank" mat-stroked-button href="https://monetizenow.microsoft.com/">Microsoft Monetize Now</a> is a program that helps you monetize your app.
+                    <a target="_blank" mat-stroked-button href="https://monetizenow.microsoft.com/">Microsoft Monetize
+                        Now</a> is a program that helps you monetize your app. I wanted to set it up for this website
+                    to
+                    familiarize myself with how such services work. It'll be hilarious if I make any money from it.
+                    $100 minimum before I can cash out...<br><br>
                     <ul>
                         <li>
                             <mat-expansion-panel expanded>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Setup</mat-panel-title>
-                                </mat-expansion-panel-header>
+                                </mat-expansion-panel-header>The setup was straightforward:
+                                <ul>
+                                    <li>
+                                        <mat-expansion-panel expanded>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Setup Account</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            The setup was straightforward:
+                                            <ul>
+                                                <li>Go to the Microsoft Monetize Now website</li>
+                                                <li>Sign up for an account</li>
+                                                <li>Downloads the ads.txt file and place it in the root of your website
+                                                </li>
+                                                <li>Configure your website to display it: inside angular.json, add the
+                                                    following to
+                                                    the assets array:
+                                                    <inline-file>"src/ads.txt"</inline-file>
+                                                </li>
+                                                <li>Visit the Microsoft Monetize Now website and click on the "Verify"
+                                                    button</li>
+                                            </ul>
+                                        </mat-expansion-panel>
+
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel expanded>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Setup Tags</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            Two tags are needs:<br>
+                                            <ul class="condensed">
+                                                <li>Header Tag</li>
+                                                <li>Tag where you wish ad</li>
+                                            </ul>
+
+                                            In Angular, we cannot use the script tag to add the header tag. Instead, we
+                                            need to use the following code:
+                                            <code>
+<pre>
+&lt;script&gt;window.msAdsQueue = window.msAdsQueue || [];&lt;/script&gt;
+&lt;script async src="https://adsdk.microsoft.com/mmnow/sdk.js?siteId=10323057&publisherId=254006085"
+    crossorigin="anonymous"&gt;&lt;/script&gt;
+</pre>
+                                                </code><br><br>
+
+                                            To run the tag for the ad, we need to use a scrip service which can
+                                            installed using npm: <span class="code">npm i --save
+                                                ngx-script-loader</span>
+
+                                            Then, in ngOnit, we can add the following code:
+                                            <code>
+<pre>
+<!-- import { ScriptLoaderService } from 'ngx-script-loader';
+
+constructor(private scriptLoader: ScriptLoaderService) { } -->
+
+<!-- ngOnInit() {
+    this.scriptLoader.load('https://adsdk.microsoft.com/mmnow/sdk.js?siteId=10323057&publisherId=254006085');
+
+    this.scriptLoader.onLoad.subscribe(() => {
+        console.log('Script loaded');
+    });
+} -->
+
+</pre>
+                                                </code>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>Setup Ads</li>
+                                    <li>Setup Payment</li>
+                                </ul>
                                 <ul>
                                     <li>Go to the Microsoft Monetize Now website</li>
                                     <li>Sign up for an account</li>
