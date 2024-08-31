@@ -17,7 +17,8 @@
 }
 
 .contrast img {
-    height: 350px;;
+    height: 350px;
+    ;
     width: fit-content;
     margin: 1em auto;
 }
@@ -29,7 +30,7 @@
 
 // list examples
 .ul-example-container {
-    width: 300px; 
+    width: 300px;
     min-width: fit-content;
     border: 1px solid black;
     padding: 1em;
@@ -74,10 +75,10 @@
 
 .parent * {
     background-color: lightcoral;
-    margin-left: 1em;   
+    margin-left: 1em;
 }
 
-.parent > * {
+.parent>* {
     background-color: lightblue;
     margin-left: 1em;
 }
@@ -591,4 +592,54 @@ nav div {
     margin: 1em 0;
     border-radius: 5px;
 }
-      
+
+// flex examples
+.content-flex1, .content-flex2, .content-flex3, .content-flex4, .content-flex {
+    background-color: teal;
+}
+
+.footer-flex1, .footer-flex2, .footer-flex3 {
+    background-color: hotpink;
+}
+
+.container-flex1 {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-flex2 {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.container-flex3 {
+    display: flex;
+    flex-direction: row;
+}
+
+.container-flex3 {
+    display: flex;
+    flex-direction: row;
+}
+
+// need height for example
+.example-container-flex4, .example-container-flex5 {
+    height: 100px;
+}
+
+// align horizontal
+.container-flex4 {
+    display: flex;
+    flex-direction: column; // this forces the children to align horizontally
+    align-items: center;
+}
+
+// align vertical
+.container-flex5 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+

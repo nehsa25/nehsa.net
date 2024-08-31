@@ -49,8 +49,21 @@
         grid-template-columns: min-content 1fr;
     }
 
+    // ad stuff
     #ad1 {
+        grid-area: ad1;
         width: 100%;
+        display: flex;
+        flex-direction: column-reverse;   
+        border-radius: 0;
+    }
+
+    .ad {
+        width: 100%;
+        height: 100px;
+        overflow: hidden;
+        bottom: 0;
+        margin: 10px 0;        
     }
 
     .dh,
@@ -296,10 +309,6 @@ main {
 nav {
     grid-area: navbar;
     overflow: hidden;
-}
-
-article {
-    grid-area: ad1;
 }
 
 footer {

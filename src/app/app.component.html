@@ -364,9 +364,9 @@
     <main [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
         <router-outlet (activate)="onActivate($event)"></router-outlet>
     </main>
-    <article id="ad1">
-        <div id="1940502965"></div>
-    </article>
+    <div id="ad1">
+        <div id="1940502965" class="ad"></div>
+    </div>
     <footer [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
         <div class="copyright">nehsa.net &copy; 2024 - All Rights Reserved.</div>
         <div>{{getBuild()}}</div>

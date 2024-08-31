@@ -20,21 +20,51 @@
                     to
                     familiarize myself with how such services work. It'll be hilarious if I make any money from it.
                     $100 minimum before I can cash out...<br><br>
+
+                    Definitions:<br>
+                    <dl>
+                        <dt>Microsoft Monetize Now</dt>
+                        <dd>Microsoft Monetize Now is a program that helps you monetize your app.</dd>
+                        <dt>Ads.txt</dt>
+                        <dd>Ads.txt is not referring to a sales ad but is an acronym for: Authorized Digital Sellers. It
+                            is
+                            a file that publishers can create to list who is authorized to sell their inventory. It is
+                            intended to prevent unauthorized inventory sales.</dd>
+                        <dt>Ad Unit</dt>
+                        <dd>Ad Unit is a container for ads. You can have multiple ad units on a page. Each ad unit has a
+                            unique ID.</dd>
+                        <dt>Header Tag</dt>
+                        <dd>The header tag is a script that goes in the header of your website. It is used to load the
+                            Microsoft Monetize Now SDK.</dd>
+                        <dt>Body Tag</dt>
+                        <dd>The body tag is a script that goes in the body of your website. It is used to render
+                            the ad.</dd>
+                        <dt>Native Ad</dt>
+                        <dd>A native ad is an ad that is designed to look like the content it is placed in. It is less
+                            intrusive than a display ad.</dd>
+                        <dt>Display Ad</dt>
+                        <dd>A display ad is a traditional ad that is displayed on a website. It is more intrusive than a
+                            native ad. The only reason to choose a display ad over a native ad is if you wish to annoy
+                            your users.</dd>
+                    </dl><br><br>
+
                     <ul>
                         <li>
-                            <mat-expansion-panel expanded>
+                            <mat-expansion-panel>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Setup</mat-panel-title>
                                 </mat-expansion-panel-header>The setup was straightforward:
                                 <ul>
                                     <li>
-                                        <mat-expansion-panel expanded>
+                                        <mat-expansion-panel>
                                             <mat-expansion-panel-header>
-                                                <mat-panel-title>Setup Account</mat-panel-title>
+                                                <mat-panel-title>Initial Setup and Verification</mat-panel-title>
                                             </mat-expansion-panel-header>
                                             The setup was straightforward:
                                             <ul>
-                                                <li>Go to the Microsoft Monetize Now website</li>
+                                                <li>Go to the <a target="_blank" mat-stroked-button
+                                                        href="https://monetizenow.microsoft.com/">Microsoft Monetize
+                                                        Now</a> website</li>
                                                 <li>Sign up for an account</li>
                                                 <li>Downloads the ads.txt file and place it in the root of your website
                                                 </li>
@@ -43,14 +73,29 @@
                                                     the assets array:
                                                     <inline-file>"src/ads.txt"</inline-file>
                                                 </li>
-                                                <li>Visit the Microsoft Monetize Now website and click on the "Verify"
-                                                    button</li>
+                                                <li>Perform the verification process after ensuring your site is
+                                                    serving ads.txt</li>
                                             </ul>
                                         </mat-expansion-panel>
-
                                     </li>
                                     <li>
-                                        <mat-expansion-panel expanded>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Configure Tag</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            Create an ad unit - this is the configuration of the actual ad you wish to
+                                            display.<br><br>
+
+                                            e.g.
+                                            <ul>
+                                                <li>Choose the ad type (Native Ad or Display Ad) - You can choose either
+                                                    or both.</li>
+                                                <li>Get your Ad tag</li>
+                                            </ul>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
                                             <mat-expansion-panel-header>
                                                 <mat-panel-title>Setup Tags</mat-panel-title>
                                             </mat-expansion-panel-header>
@@ -58,53 +103,73 @@
                                             <ul class="condensed">
                                                 <li>Header Tag</li>
                                                 <li>Tag where you wish ad</li>
-                                            </ul>
+                                            </ul><br><br>
 
-                                            In Angular, we cannot use the script tag to add the header tag. Instead, we
-                                            need to use the following code:
-                                            <code>
-<pre>
-&lt;script&gt;window.msAdsQueue = window.msAdsQueue || [];&lt;/script&gt;
-&lt;script async src="https://adsdk.microsoft.com/mmnow/sdk.js?siteId=10323057&publisherId=254006085"
-    crossorigin="anonymous"&gt;&lt;/script&gt;
+                                            This goes in your header element:<br>
+                                            <code><pre>
+&lt;script&gt;
+    window.msAdsQueue = window.msAdsQueue || [];&lt;/script&gt;
+    &lt;script async src="https://adsdk.microsoft.com/mmnow/sdk.js?siteId=&lt;SITEID&gt;&publisherId=&lt;PUBLISHERID&gt;" crossorigin="anonymous"&gt;
+&lt;/script&gt;
 </pre>
                                                 </code><br><br>
 
-                                            To run the tag for the ad, we need to use a scrip service which can
-                                            installed using npm: <span class="code">npm i --save
-                                                ngx-script-loader</span>
-
-                                            Then, in ngOnit, we can add the following code:
-                                            <code>
-<pre>
-<!-- import { ScriptLoaderService } from 'ngx-script-loader';
-
-constructor(private scriptLoader: ScriptLoaderService) { } -->
-
-<!-- ngOnInit() {
-    this.scriptLoader.load('https://adsdk.microsoft.com/mmnow/sdk.js?siteId=10323057&publisherId=254006085');
-
-    this.scriptLoader.onLoad.subscribe(() => {
-        console.log('Script loaded');
-    });
-} -->
-
+                                            This is the code to display the ad. To use in Angular with strict
+                                            type-checking enabled, I had to modify the script as follows:<br>
+                                            <code><pre>
+(window as any).msAdsQueue = (window as any).msAdsQueue || [];
+(window as any).msAdsQueue.push(() => &#123;
+    (window as any).mmnow.render(&#123;
+    adUnitId: "&lt;AD UNIT ID&gt;",
+    elementId: "&lt;THE ID OF THE ELEMENT YOU WISH THE AD TO SHOW&gt;"
+    &#125;);
+&#125;);
 </pre>
-                                                </code>
+                                                </code><br><br>It can then be placed within the ngOnInit() method of
+                                            the component you wish to display the ad in.
                                         </mat-expansion-panel>
                                     </li>
-                                    <li>Setup Ads</li>
-                                    <li>Setup Payment</li>
-                                </ul>
-                                <ul>
-                                    <li>Go to the Microsoft Monetize Now website</li>
-                                    <li>Sign up for an account</li>
-                                    <li>Downloads the ads.txt file and place it in the root of your website</li>
-                                    <li>Configure your website to display it: inside angular.json, add the following to
-                                        the assets array:
-                                        <inline-file>"src/ads.txt"</inline-file>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Setup Payment Method</mat-panel-title>
+                                            </mat-expansion-panel-header>Arguably the most important part of the setup.
+                                            Provide them you bank or debit card information so they can pay you.
+                                        </mat-expansion-panel>
                                     </li>
-                                    <li>Visit the Microsoft Monetize Now website and click on the "Verify" button</li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Tips</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>How do we create ads of the appropriate
+                                                    size?</mat-panel-title>
+                                            </mat-expansion-panel-header>The Microsoft Monetize Now SDK is supposed to
+                                            automatically adjust the ad size to fit the container in which it is placed.
+                                            That's why no options are presented when setting up a new ad unit for size.
+                                            Still, this didn't work for me, and the ad bled onto the element below it,
+                                            causing ugliness. I set the container's width to 100% to ensure the ad fits
+                                            the container and has a fixed height and set the overflow to hidden. This
+                                            seems to do the trick:<br><br>
+
+                                            e.g.
+                                            <code><pre>
+&lt;div style="width: 100%; height: 100px; overflow: hidden;" id="&lt;THE ID OF THE ELEMENT YOU WISH THE AD TO SHOW&gt;"&gt;&lt;/div&gt;
+</pre>
+                                                </code><br><br>
+
+                                            Resulting in:<br>
+                                            <img src="assets/images/microsoft-monetize-now-ad.png" alt="Microsoft
+                                                    Monetize Now Ad">
+                                        </mat-expansion-panel>
+                                    </li>
                                 </ul>
                             </mat-expansion-panel>
                         </li>
