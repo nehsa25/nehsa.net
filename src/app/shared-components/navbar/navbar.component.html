@@ -10,8 +10,6 @@
       <mat-panel-title class="nav-menu-title-text">Menu <mat-icon>menu</mat-icon></mat-panel-title>
     </mat-expansion-panel-header>
     <ul class="navbar-links norm-navbar-links">
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/about'" (click)="sendUser('/about')">About
-        Jesse</li>
       <li class="norm" [class.nav-selected]="this.userService.pagePath==='/angular'" (click)="sendUser('/angular')">
         Angular</li>
       <li class="norm" [class.nav-selected]="this.userService.pagePath==='/ai'" (click)="sendUser('/ai')">Artificial

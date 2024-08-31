@@ -356,16 +356,16 @@
         </mat-expansion-panel>
     </div>
     <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen"
-        class="contactme">jesse.stone<wbr>&#64;nehsa.net
+        class="contactme"><a link routerLink="/about">About Jesse</a>
     </div>
     <nav [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen">
-        <app-navbar></app-navbar></nav>
+        <app-navbar></app-navbar>
+    </nav>
     <main [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
         <router-outlet (activate)="onActivate($event)"></router-outlet>
     </main>
-    <article id="ads">
-        <script>window.msAdsQueue = window.msAdsQueue || [];</script>
-        <script async src="https://adsdk.microsoft.com/mmnow/sdk.js?siteId=10323057&publisherId=254006085" crossorigin="anonymous"></script>
+    <article id="ad1">
+        <div id="1940502965"></div>
     </article>
     <footer [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
         <div class="copyright">nehsa.net &copy; 2024 - All Rights Reserved.</div>

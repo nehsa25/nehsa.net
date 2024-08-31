@@ -47,7 +47,7 @@ ul {
 .norm-navbar-links li:hover {
     background-color: var(--theme-navbar-background) !important;
     color: var(--theme-navbar-color) !important;
-    border-radius: 0 25px 25px 0 !important;
+    border-radius: 12px !important;
     border: 1px solid var(--theme-border-color);
     font-weight: bolder;
     cursor: pointer;
@@ -91,9 +91,8 @@ ul {
 .nav-selected {
     background-color: greenyellow !important;
     color: #222 !important;
-    border-radius: 0 25px 25px 0 !important;
+    border-radius: 25px !important;
     border: 1px solid #222;
-    border-left: none;
 }
 
 .nav-menu-title-text {
