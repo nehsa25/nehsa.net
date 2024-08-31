@@ -79,7 +79,7 @@
     }
 
     nav {
-        overflow: auto;
+        overflow: hidden;
         height: 100%;
     }
 
@@ -132,7 +132,6 @@
 
     nav {
         height: 100%;
-        overflow: auto;
     }
 }
 
@@ -167,8 +166,6 @@
 
     nav {
         height: 100%;
-        overflow: auto;
-        ;
     }
 
     .dh,
@@ -215,8 +212,6 @@
 
     nav {
         height: 100%;
-        overflow: auto;
-        ;
     }
 }
 
@@ -243,8 +238,6 @@
 
     nav {
         height: 100%;
-        overflow: auto;
-        ;
     }
 }
 
@@ -302,6 +295,7 @@ main {
 
 nav {
     grid-area: navbar;
+    overflow: hidden;
 }
 
 article {

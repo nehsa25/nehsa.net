@@ -1,9 +1,11 @@
-<div class="black-theme navbar" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+<div class="black-theme" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
   <ul class="navbar-featured navbar-links featured-navbar-links"
     [class.navbar-featured-navbar-links-dark]="userService.appIsDark()"
     [class.navbar-featured-navbar-links-light]="!userService.appIsDark()">
     <li class="bungee-spice-regular" (click)="sendUser('/mud')">NehsaMUD</li>
   </ul>
+</div>
+<div class="black-theme navbar" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
   <mat-expansion-panel #panel [expanded]="expanded" [disabled]="!allowExpand" [class.panel-expanded]="panel.expanded"
     [class.panel-collapsed]="!panel.expanded" [hideToggle]="!allowExpand">
     <mat-expansion-panel-header #header>
