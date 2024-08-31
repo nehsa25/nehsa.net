@@ -7,7 +7,7 @@
   <mat-expansion-panel #panel [expanded]="expanded" [disabled]="!allowExpand" [class.panel-expanded]="panel.expanded"
     [class.panel-collapsed]="!panel.expanded" [hideToggle]="!allowExpand">
     <mat-expansion-panel-header #header>
-      <mat-panel-title class="nav-menu-title-text">Menu <mat-icon>menu</mat-icon></mat-panel-title>
+      <mat-panel-title class="nav-menu-title-text">Topics <mat-icon>menu</mat-icon></mat-panel-title>
     </mat-expansion-panel-header>
     <ul class="navbar-links norm-navbar-links">
       <li class="norm" [class.nav-selected]="this.userService.pagePath==='/angular'" (click)="sendUser('/angular')">
