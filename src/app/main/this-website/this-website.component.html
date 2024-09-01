@@ -7,52 +7,125 @@
     <mat-card-content>
         <div class="commentgrid">
             <div class="topics">
-                Design and technologies of this website
-                <div>
-                    <div>
-                        <h3>Deployment</h3>
-                        <ul>
-                            <li>UI: Container deployed via Google Cloud Run</li>
-                            <li>API: Container hosted locally (api.nehsa.net)</li>
-                        </ul>
-                    </div>
-                    <h3>UI</h3>
-                    <ul>
-                        <li>Angular</li>
-                        <li>Material</li>
-                        <li><a href="https://hub.docker.com/repository/docker/nehsa/nehsanet/">Docker container</a>
-                        </li>
-                        <li><a href="https://nodejs.org/en">Node.js</a> / <a href="https://expressjs.com/">Express</a>
-                        </li>
-                        <li>Testing: Playwright</li>
-                        <li>Semantic HTML</li>
-                        <li>Responsive design</li>
-                        <li>Mobile First design</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>API <button mat-raised-button color="accent" (click)="testapi()">Test</button>&nbsp;
-                        <mat-icon *ngIf="testapiCheck == true && testapiSuccess == true"
-                            style="color: green; font-weight: bolder;">check</mat-icon>
-                        <mat-icon *ngIf="testapiCheck == true && testapiSuccess == false"
-                            style="color: red; font-weight: bolder;">error</mat-icon>
-                    </h3>
-                    <ul>
-                        <li>.NET Core 8.0</li>
-                        <li>webapi</li>
-                        <li>Testing: Pytest</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>DATABASE - MySQL (Docker ubuntu/mysql)&nbsp;<button mat-raised-button color="accent"
-                            (click)="testdb()">Test</button>&nbsp; <mat-icon
-                            *ngIf="testdbChecked == true && testdbSuccess == true"
-                            style="color: green; font-weight: bolder;">check</mat-icon>
-                        <mat-icon *ngIf="testdbChecked == true && testdbSuccess == false"
-                            style="color: red; font-weight: bolder;">error</mat-icon>
-                    </h3>
-                    See <a routerLink="/mysql">MySQL</a>
+                Design and technologies of this website.<br><br>
+                <table class="min-table">
+                    <tr>
+                        <th>Technolegy</th>
+                        <th>Deployed</th>
+                        <th>URL</th>
+                        <th>SSL</th>
+                    </tr>
+                    <tr>
+                        <td>UI</td>
+                        <td>Google Cloud Run</td>
+                        <td><a target="_blank" href="https://nehsa.net">nehsa.net</a></td>
+                        <td>
+                            <table class="min-table">
+                                <tr>
+                                    <th>Issuer</th>
+                                    <th>Expires</th>
+                                    <th>Auto-Renews</th>
+                                </tr>
+                                <tr>
+                                    <td>Let's Encrypt Authority X3</td>
+                                    <td>October 29th, 2024</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
 
+                <br><br>
+
+                <div>
+                    <ul>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Deployment</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>UI: Container deployed via Google Cloud Run</li>
+                                    <li>API: Container hosted locally (api.nehsa.net)</li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Front End UI</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>Angular 17.3.3</li>
+                                    <li>Material 17.3.3</li>
+                                    <li><a target="_blank"
+                                            href="https://hub.docker.com/repository/docker/nehsa/nehsanet/">Docker
+                                            container</a>
+                                    </li>
+                                    <li><a href="https://nodejs.org/en">Node.js</a></li>
+                                    <li>Testing: Playwright</li>
+                                    <li>Semantic HTML</li>
+                                    <li>Responsive design</li>
+                                    <li>Mobile First design</li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>API&nbsp;&nbsp;<button mat-raised-button color="accent"
+                                            (click)="testapi()">Test</button>&nbsp;
+                                        <mat-icon *ngIf="testapiCheck == true && testapiSuccess == true"
+                                            style="color: green; font-weight: bolder;">check</mat-icon>
+                                        <mat-icon *ngIf="testapiCheck == true && testapiSuccess == false"
+                                            style="color: red; font-weight: bolder;">error</mat-icon>
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>.NET Core 8.0</li>
+                                    <li>Locally hosted in Docker</li>
+                                    <li>Kestrel</li>
+                                    <li>webapi</li>
+                                    <li>Testing: Pytest</li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>RELATIONAL DATABASE - MySQL (Docker
+                                        ubuntu/mysql)&nbsp;&nbsp;<button mat-raised-button color="accent"
+                                            (click)="testdb()">Test</button>&nbsp;
+                                        <mat-icon *ngIf="testdbChecked == true && testdbSuccess == true"
+                                            style="color: green; font-weight: bolder;">check</mat-icon>
+                                        <mat-icon *ngIf="testdbChecked == true && testdbSuccess == false"
+                                            style="color: red; font-weight: bolder;">error</mat-icon></mat-panel-title>
+                                </mat-expansion-panel-header>MySQL is the relational database used for this
+                                website. Currently, it's only used by the comment system.<br><br>
+                                <ul>
+                                    <li>MySQL</li>
+                                    <li>Docker container</li>
+                                    <li>Hosted Locally</li>
+
+                                </ul>
+                                See <a routerLink="/mysql">MySQL</a>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>GraphQL&nbsp;&nbsp;<button mat-raised-button color="accent"
+                                            (click)="testdb()">Test</button>&nbsp;
+                                        <mat-icon *ngIf="testdbChecked == true && testdbSuccess == true"
+                                            style="color: green; font-weight: bolder;">check</mat-icon>
+                                        <mat-icon *ngIf="testdbChecked == true && testdbSuccess == false"
+                                            style="color: red; font-weight: bolder;">error</mat-icon></mat-panel-title>
+                                </mat-expansion-panel-header>MySQL is the relational database used for this
+                                website. Currently, it's only used by the comment system.<br><br>
+                                See <a routerLink="/mysql">MySQL</a>
+                            </mat-expansion-panel>
+                        </li>
+                    </ul>
                 </div>
             </div>
             <div><app-comment></app-comment></div>

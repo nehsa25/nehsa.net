@@ -5,15 +5,16 @@ import { HttpService } from '../../services/http.service';
 import { MatIcon } from '@angular/material/icon';
 import { NgIf } from '@angular/common';
 import { CommentComponent } from '../../shared-components/comment/comment.component';
-import { RouterModule } from '@angular/router';
+import { RouterLink, RouterModule } from '@angular/router';
 import { Subject } from 'rxjs';
 import { UserService } from '../../services/user.service';
 import { CommentType } from '../../types/comment.type';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @Component({
   selector: 'app-this-website',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule, MatIcon, NgIf, CommentComponent, RouterModule],
+  imports: [MatCardModule, MatButtonModule, MatIcon, NgIf, CommentComponent, RouterModule, RouterLink, MatExpansionModule],
   providers: [HttpService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './this-website.component.html',

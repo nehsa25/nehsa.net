@@ -14,6 +14,6 @@ import { MatIconModule } from '@angular/material/icon';
 
 export class GameTheoryComponent {
   constructor(public userService: UserService) {
-    this.userService.page = 'game-theory';
+    this.userService.page = 'Blog - game-theory';
   }
 }
