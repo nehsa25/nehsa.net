@@ -1116,6 +1116,34 @@ if (this.userDetails.invalid) return;
                         <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
+                                    <mat-panel-title>Use Custom Schema</mat-panel-title>
+                                    <mat-panel-description>
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                Angular, will not allow custom elements by default. To use
+                                them, do the following:
+                                <ul>
+                                    <li>Add CUSTOM_ELEMENTS_SCHEMA to your component</li>
+                                </ul><br><br>
+
+                                e.g.
+                                <code>
+<pre>
+    &#64;Component(&#123;
+    selector: 'app-angular',
+    standalone: true,
+    imports: [MatCardModule, CommentComponent, MatExpansionModule, MatIcon, RouterLink, CopyComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA], <span class="comment">// <mat-icon>arrow_back</mat-icon> Add this line</span>
+    templateUrl: './angular.component.html',
+    styleUrl: './angular.component.scss'
+    &#125;)
+</pre>
+                        </code>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
                                     <mat-panel-title>Troubleshooting</mat-panel-title>
                                 </mat-expansion-panel-header>
                                 <ul>
