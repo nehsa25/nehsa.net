@@ -70,6 +70,8 @@ import { MicrosoftClarityComponent } from './main/microsoft-clarity/microsoft-cl
 import { DnsComponent } from './main/dns/dns.component';
 import { GameTheoryComponent } from './main/blog/game-theory/game-theory.component';
 import { WhatComesAroundGoesAroundComponent } from './main/blog/what-comes-around-goes-around/what-comes-around-goes-around.component';
+import { CustomElementsComponent } from './main/blog/custom-elements/custom-elements.component';
+import { VscodeBadUxComponent } from './main/blog/vscode-bad-ux/vscode-bad-ux.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: WelcomeComponent },
@@ -132,6 +134,9 @@ export const routes: Routes = [
     { path: 'tls', title: 'nehsa.net | TLS', component: TlsComponent },
     { path: '2024-august-29/gametheory', title: 'nehsa.net | Game Theory', component: GameTheoryComponent },
     { path: '2024-july-28/makingofmud', title: 'nehsa.net | Making of NehsaMUD', component: MudMakingOfComponent },
+    { path: '2024-august-29/ageism', title: 'nehsa.net | Game Theory', component: WhatComesAroundGoesAroundComponent },
+    { path: '2024-sept-1/customelements', title: 'nehsa.net | Custom Elements', component: CustomElementsComponent },
+    { path: '2024-sept-1/vscodebadux', title: 'nehsa.net | VSCode Bad UX', component: VscodeBadUxComponent },
     { path: '2024-august-29/ageism', title: 'nehsa.net | Game Theory', component: WhatComesAroundGoesAroundComponent },
     { path: 'grammar', title: 'nehsa.net | Grammar', component: WritingComponent },
     { path: 'gemini', title: 'nehsa.net | Google Gemini', component: GeminiComponent },
