@@ -355,8 +355,10 @@
             SURPRISE!
         </mat-expansion-panel>
     </div>
-    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen"
-        class="contactme"><a link routerLink="/about">About Jesse</a>
+    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen" class="contactme">
+        <div><a link routerLink="/about">About Jesse</a></div>
+        <div><a link routerLink="/website">This
+            Website</a></div>
     </div>
     <nav [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen">
         <app-navbar></app-navbar>

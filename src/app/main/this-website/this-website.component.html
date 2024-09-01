@@ -10,29 +10,77 @@
                 Design and technologies of this website.<br><br>
                 <table class="min-table">
                     <tr>
-                        <th>Technolegy</th>
+                        <th>Technology</th>
                         <th>Deployed</th>
                         <th>URL</th>
                         <th>SSL</th>
                     </tr>
                     <tr>
                         <td>UI</td>
-                        <td>Google Cloud Run</td>
+                        <td><acronym-name>Google Cloud Platform<acronym-abbr>GCP</acronym-abbr></acronym-name></td>
                         <td><a target="_blank" href="https://nehsa.net">nehsa.net</a></td>
                         <td>
-                            <table class="min-table">
+                            <table class="ssl-table">
                                 <tr>
                                     <th>Issuer</th>
                                     <th>Expires</th>
                                     <th>Auto-Renews</th>
                                 </tr>
                                 <tr>
-                                    <td>Let's Encrypt Authority X3</td>
+                                    <td>Google Certificate Authority Service API</td>
                                     <td>October 29th, 2024</td>
+                                    <td>Yes</td>
                                 </tr>
                             </table>
                         </td>
                     </tr>
+                    <tr>
+                        <td>API</td>
+                        <td>Locally Hosted (Docker)</td>
+                        <td><a target="_blank" href="https://api.nehsa.net">api.nehsa.net</a></td>
+                        <td>
+                            <table class="ssl-table">
+                                <tr>
+                                    <th>Issuer</th>
+                                    <th>Expires</th>
+                                    <th>Auto-Renews</th>
+                                </tr>
+                                <tr>
+                                    <td>Zero SSL</td>
+                                    <td>??</td>
+                                    <td>No</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Database</td>
+                        <td>Locally Hosted (Docker)</td>
+                        <td>No external access</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td>GraphQL</td>
+                        <td>
+                            <acronym-name>Amazon Web Services<acronym-abbr>AWS</acronym-abbr></acronym-name><br>
+                            Container in <acronym-name>Elastic Container Registry<acronym-abbr>ECR</acronym-abbr></acronym-name><br>
+                            Service running in <acronym-name>Elastic Container Service<acronym-abbr>ECS</acronym-abbr></acronym-name>
+                        </td>
+                        <td>No configured yet</td>
+                        <td>No configured yet</td>
+                        </tr>
+                        <tr>
+                            <td>Go Weather Microservice</td>
+                            <td>Locally Hosted (Docker)</td>
+                            <td>No External Access</td>
+                            <td>None</td> 
+                        </tr>
+                        <tr>
+                            <td>Go Web scraping Microservice</td>
+                            <td>Locally Hosted (Docker)</td>
+                            <td>No External Access</td>
+                            <td>None</td>
+                        </tr>
                 </table>
 
                 <br><br>
@@ -83,7 +131,7 @@
                                 </mat-expansion-panel-header>
                                 <ul>
                                     <li>.NET Core 8.0</li>
-                                    <li>Locally hosted in Docker</li>
+                                    <li>Locally Hosted (Docker) in Docker</li>
                                     <li>Kestrel</li>
                                     <li>webapi</li>
                                     <li>Testing: Pytest</li>
@@ -106,7 +154,6 @@
                                     <li>MySQL</li>
                                     <li>Docker container</li>
                                     <li>Hosted Locally</li>
-
                                 </ul>
                                 See <a routerLink="/mysql">MySQL</a>
                             </mat-expansion-panel>
