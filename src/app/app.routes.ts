@@ -72,6 +72,7 @@ import { GameTheoryComponent } from './main/blog/game-theory/game-theory.compone
 import { WhatComesAroundGoesAroundComponent } from './main/blog/what-comes-around-goes-around/what-comes-around-goes-around.component';
 import { CustomElementsComponent } from './main/blog/custom-elements/custom-elements.component';
 import { VscodeBadUxComponent } from './main/blog/vscode-bad-ux/vscode-bad-ux.component';
+import { IUnderstandPiComponent } from './main/blog/i-understand-pi/i-understand-pi.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: WelcomeComponent },
@@ -137,6 +138,7 @@ export const routes: Routes = [
     { path: '2024-august-29/ageism', title: 'nehsa.net | Game Theory', component: WhatComesAroundGoesAroundComponent },
     { path: '2024-sept-1/customelements', title: 'nehsa.net | Custom Elements', component: CustomElementsComponent },
     { path: '2024-sept-1/vscodebadux', title: 'nehsa.net | VSCode Bad UX', component: VscodeBadUxComponent },
+    { path: '2024-sept-1/i-understand-pi', title: 'nehsa.net | I Understand Pi', component: IUnderstandPiComponent },
     { path: '2024-august-29/ageism', title: 'nehsa.net | Game Theory', component: WhatComesAroundGoesAroundComponent },
     { path: 'grammar', title: 'nehsa.net | Grammar', component: WritingComponent },
     { path: 'gemini', title: 'nehsa.net | Google Gemini', component: GeminiComponent },

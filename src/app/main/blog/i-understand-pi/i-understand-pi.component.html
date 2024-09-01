@@ -1,0 +1,64 @@
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">&#960;?</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                <div>
+                    <div class="blog-date">September 1st, 2024</div>
+                    <div class="blog-author">Jesse Stone</div>
+                    <div class="blog-body">
+                        <p>
+                            Pi, like quadratic equations, was a mystery to me. Although I learned the calculations, I
+                            had no
+                            understanding of what they meant or how they would be used in real-world scenarios.<br><br>
+
+                            Unfortunately, the list of topics I'm not strong on is long—I wouldn't be the go-to person
+                            for
+                            Ships, Cars, Space travel, or most things. Still, I want to be educated and always strive to
+                            learn more.<br><br>
+
+                            That's why it makes me happy when a small piece of the universe snaps into place; for me, it
+                            was
+                            with pi.<br><br>
+
+                            3.14159 is no longer simply a number. I now understand how it fits:<br><br></p>
+
+                        Let's say you have a circle with a radius of 125px (250px diameter):<br><br>
+
+                        <div class="example-circle">250px</div><br><br>
+
+
+                        You snip it and lay it out flat: <div class="example-circle-flat"></div><br>
+                        C = 2πr = 2 * 3.14159 * 125px (radius) = 785.39px<br><br>
+
+                        The length of this would be equal of 3.14 circles of the same dimensions:<br>
+                        <div class="circle-grid">
+                            <div class="example-circle">250px</div>
+                            <div class="example-circle">250px</div>
+                            <div class="example-circle">250px</div>
+                            <div class="example-circle">250px</div>
+                            <div class="example-circle">250px</div>
+                        </div>
+                        <div class="example-circle-flat"></div>
+                    </div><br><br>
+                    <dl>
+                        <dt>pi</dt>
+                        <dd>3.14159</dd>
+                        <dt>radius</dt>
+                        <dd>The radius is the distance from the center to the edge of the circle. Ir is 1/2 of the
+                            diameter.</dd>
+                        <dt>circumference</dt>
+                        <dd>The circumference of a circle is the distance around the edge of the circle.</dd>
+                        <dt>diameter</dt>
+                        <dd>The diameter of a circle is the distance across the circle through the center.</dd>
+                    </dl>
+                </div>
+            </div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>

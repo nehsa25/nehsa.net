@@ -1,17 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
-<url><loc>https://www.nehsa.net/</loc><lastmod>2024-08-31</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.nehsa.net/</loc><lastmod>2024-09-01</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
 <url><loc>https://www.nehsa.net/agile</loc><lastmod>2024-08-31</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/ai</loc><lastmod>2024-08-13</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/aiimage</loc><lastmod>2024-08-24</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
-<url><loc>https://www.nehsa.net/angular</loc><lastmod>2024-08-30</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
+<url><loc>https://www.nehsa.net/angular</loc><lastmod>2024-09-01</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/asyncio</loc><lastmod>2024-08-24</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/aws</loc><lastmod>2024-08-28</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/azure</loc><lastmod>2024-08-28</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/about</loc><lastmod>2024-08-27</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
-<url><loc>https://www.nehsa.net/blog</loc><lastmod>2024-08-30</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
+<url><loc>https://www.nehsa.net/blog</loc><lastmod>2024-09-01</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
+<url><loc>https://www.nehsa.net/custom-elements</loc><lastmod>2024-09-01</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/2024-august-29/gametheory</loc><lastmod>2024-08-29</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
-<url><loc>https://www.nehsa.net/2024-august-29/agism</loc><lastmod>2024-08-30</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
+<url><loc>https://www.nehsa.net/vscode-bad-ux</loc><lastmod>2024-09-01</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
+<url><loc>https://www.nehsa.net/2024-august-29/agism</loc><lastmod>2024-09-01</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/c-sharp</loc><lastmod>2024-08-27</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/chef</loc><lastmod>2024-08-24</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/cloud</loc><lastmod>2024-08-28</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
@@ -20,7 +22,7 @@
 <url><loc>https://www.nehsa.net/docker</loc><lastmod>2024-08-24</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/dot</loc><lastmod>2024-08-24</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/doxy</loc><lastmod>2024-08-24</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
-<url><loc>https://www.nehsa.net/gcp</loc><lastmod>2024-08-28</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
+<url><loc>https://www.nehsa.net/gcp</loc><lastmod>2024-09-01</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/gemini</loc><lastmod>2024-08-24</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/git</loc><lastmod>2024-08-06</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/github</loc><lastmod>2024-08-06</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
@@ -42,7 +44,7 @@
 <url><loc>https://www.nehsa.net/ai-image</loc><lastmod>2024-06-16</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/map</loc><lastmod>2024-07-13</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/user-create</loc><lastmod>2024-06-22</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
-<url><loc>https://www.nehsa.net/2024-july-28/makingofmud</loc><lastmod>2024-08-29</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
+<url><loc>https://www.nehsa.net/2024-july-28/makingofmud</loc><lastmod>2024-09-01</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/mysql</loc><lastmod>2024-08-24</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/nosql</loc><lastmod>2024-08-24</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/npm</loc><lastmod>2024-08-06</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
@@ -68,7 +70,7 @@
 <url><loc>https://www.nehsa.net/t-sql</loc><lastmod>2024-08-22</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/tailwindcss</loc><lastmod>2024-08-24</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/testing</loc><lastmod>2024-08-24</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
-<url><loc>https://www.nehsa.net/website</loc><lastmod>2024-08-24</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
+<url><loc>https://www.nehsa.net/website</loc><lastmod>2024-09-01</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/tls</loc><lastmod>2024-08-24</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/typescript</loc><lastmod>2024-08-24</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/vue</loc><lastmod>2024-08-21</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>

@@ -1,0 +1,45 @@
+.example-circle {
+    border-radius: 100%;
+    border: 2px solid maroon;
+    width: 250px;
+    height: 250px;
+    text-align: center;
+    background-color: #EE82EE;
+}
+
+.example-circle-flat {
+    display: inline-block;
+    border-bottom: 3px solid maroon;
+    width: calc(2 * 3.14159 * 125px);
+    height: 2px;
+}
+
+.circle-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 250px);
+    grid-gap: 0px;
+}
+
+.circle-grid div {
+    text-align: center;
+}
+
+.circle-grid div:nth-child(1) {
+    background-color: #DC143C;
+}
+
+.circle-grid div:nth-child(2) {
+    background-color: #FFD700;
+}
+
+.circle-grid div:nth-child(3) {
+    background-color: #808000;
+}
+
+.circle-grid div:nth-child(4) {
+    background-color: #FA8072;
+}
+
+.circle-grid div:nth-child(5) {
+    background-color: #708090;
+}
