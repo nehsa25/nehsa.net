@@ -1,1 +1,35 @@
-<p>vscode-bad-ux works!</p>
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">VS Code</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                <div>
+                    <div class="blog-date">August 29th, 2024</div>
+                    <div class="blog-author">Jesse Stone</div>
+                    <div class="blog-body">
+                    </div>VS Code is an excellent improvement over Visual Studio (IMO), but the UX experience of the
+                    recent versions is poorer.<br><br>
+
+                    Specifically, this popup:<br>
+                    <img src="assets/images/vscode_bad_ux.png" alt="VS Code Bad UX"><br><br>
+
+                    Let's say you wish to reorganize your code and copy and paste code around. With this "feature," it's
+                    now become a frustrating race—unless you start selecting your area immediately, a popup will spawn,
+                    blocking your view. It will not go away unless you let go of your mouse button (causing you to start
+                    over).<br><br>                    
+
+                    As I'm usually in the middle of something and not expecting this popup to spawn, I accidentally
+                    click the link and get this window:<br>
+                    <img src="assets/images/mdn-reference.png" alt="VS Code Bad UX"><br><br>
+
+                    Bah. Poor UX, IMO.
+                </div>
+            </div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>
