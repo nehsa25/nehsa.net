@@ -47,7 +47,26 @@
                                 </tr>
                                 <tr>
                                     <td>Zero SSL</td>
-                                    <td>??</td>
+                                    <td>November 18th, 2024</td>
+                                    <td>No</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>NehsaMUD</td>
+                        <td>Locally Hosted</td>
+                        <td>https://mud.nehsa.net (not setup yet)</td>
+                        <td>
+                            <table class="ssl-table">
+                                <tr>
+                                    <th>Issuer</th>
+                                    <th>Expires</th>
+                                    <th>Auto-Renews</th>
+                                </tr>
+                                <tr>
+                                    <td>Zero SSL</td>
+                                    <td>November 18th, 2024</td>
                                     <td>No</td>
                                 </tr>
                             </table>
@@ -63,24 +82,26 @@
                         <td>GraphQL</td>
                         <td>
                             <acronym-name>Amazon Web Services<acronym-abbr>AWS</acronym-abbr></acronym-name><br>
-                            Container in <acronym-name>Elastic Container Registry<acronym-abbr>ECR</acronym-abbr></acronym-name><br>
-                            Service running in <acronym-name>Elastic Container Service<acronym-abbr>ECS</acronym-abbr></acronym-name>
+                            Container in <acronym-name>Elastic Container
+                                Registry<acronym-abbr>ECR</acronym-abbr></acronym-name><br>
+                            Service running in <acronym-name>Elastic Container
+                                Service<acronym-abbr>ECS</acronym-abbr></acronym-name>
                         </td>
                         <td>No configured yet</td>
                         <td>No configured yet</td>
-                        </tr>
-                        <tr>
-                            <td>Go Weather Microservice</td>
-                            <td>Locally Hosted (Docker)</td>
-                            <td>No External Access</td>
-                            <td>None</td> 
-                        </tr>
-                        <tr>
-                            <td>Go Web scraping Microservice</td>
-                            <td>Locally Hosted (Docker)</td>
-                            <td>No External Access</td>
-                            <td>None</td>
-                        </tr>
+                    </tr>
+                    <tr>
+                        <td>Go Weather Microservice</td>
+                        <td>Locally Hosted (Docker)</td>
+                        <td>No External Access</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td>Go Web scraping Microservice</td>
+                        <td>Locally Hosted (Docker)</td>
+                        <td>No External Access</td>
+                        <td>None</td>
+                    </tr>
                 </table>
 
                 <br><br>
@@ -121,14 +142,14 @@
                         <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
-                                    <mat-panel-title>API&nbsp;&nbsp;<button mat-raised-button color="accent"
-                                            (click)="testapi()">Test</button>&nbsp;
-                                        <mat-icon *ngIf="testapiCheck == true && testapiSuccess == true"
-                                            style="color: green; font-weight: bolder;">check</mat-icon>
-                                        <mat-icon *ngIf="testapiCheck == true && testapiSuccess == false"
-                                            style="color: red; font-weight: bolder;">error</mat-icon>
+                                    <mat-panel-title>API
                                     </mat-panel-title>
-                                </mat-expansion-panel-header>
+                                </mat-expansion-panel-header><button mat-raised-button color="accent"
+                                (click)="testapi()">Test</button>&nbsp;
+                            <mat-icon *ngIf="testapiCheck == true && testapiSuccess == true"
+                                style="color: green; font-weight: bolder;">check</mat-icon>
+                            <mat-icon *ngIf="testapiCheck == true && testapiSuccess == false"
+                                style="color: red; font-weight: bolder;">error</mat-icon>
                                 <ul>
                                     <li>.NET Core 8.0</li>
                                     <li>Locally Hosted (Docker) in Docker</li>
@@ -142,13 +163,15 @@
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>RELATIONAL DATABASE - MySQL (Docker
-                                        ubuntu/mysql)&nbsp;&nbsp;<button mat-raised-button color="accent"
-                                            (click)="testdb()">Test</button>&nbsp;
-                                        <mat-icon *ngIf="testdbChecked == true && testdbSuccess == true"
-                                            style="color: green; font-weight: bolder;">check</mat-icon>
-                                        <mat-icon *ngIf="testdbChecked == true && testdbSuccess == false"
-                                            style="color: red; font-weight: bolder;">error</mat-icon></mat-panel-title>
-                                </mat-expansion-panel-header>MySQL is the relational database used for this
+                                        ubuntu/mysql)</mat-panel-title>
+                                </mat-expansion-panel-header><button mat-raised-button color="accent"
+                                (click)="testdb()">Test</button>&nbsp;
+                            <mat-icon *ngIf="testdbChecked == true && testdbSuccess == true"
+                                style="color: green; font-weight: bolder;">check</mat-icon>
+                            <mat-icon *ngIf="testdbChecked == true && testdbSuccess == false"
+                                style="color: red; font-weight: bolder;">error</mat-icon><br><br>
+                                
+                                MySQL is the relational database used for this
                                 website. Currently, it's only used by the comment system.<br><br>
                                 <ul>
                                     <li>MySQL</li>
@@ -161,12 +184,7 @@
                         <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
-                                    <mat-panel-title>GraphQL&nbsp;&nbsp;<button mat-raised-button color="accent"
-                                            (click)="testdb()">Test</button>&nbsp;
-                                        <mat-icon *ngIf="testdbChecked == true && testdbSuccess == true"
-                                            style="color: green; font-weight: bolder;">check</mat-icon>
-                                        <mat-icon *ngIf="testdbChecked == true && testdbSuccess == false"
-                                            style="color: red; font-weight: bolder;">error</mat-icon></mat-panel-title>
+                                    <mat-panel-title>GraphQL</mat-panel-title>
                                 </mat-expansion-panel-header>MySQL is the relational database used for this
                                 website. Currently, it's only used by the comment system.<br><br>
                                 See <a routerLink="/mysql">MySQL</a>
