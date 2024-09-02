@@ -684,7 +684,7 @@ private static int SaveChanges(EntitlementsContext db)
                                         <mat-panel-title>Installation</mat-panel-title>
                                     </mat-expansion-panel-header>
                                     <ol>
-                                        <li>Download <a href="https://dotnet.microsoft.com/">.NET Core SDK</a></li>
+                                        <li>Download <a hresf="https://dotnet.microsoft.com/">.NET Core SDK</a></li>
                                         <li>Install it</li>
                                     </ol>
                                 </mat-expansion-panel>
@@ -692,11 +692,11 @@ private static int SaveChanges(EntitlementsContext db)
                             <li>
                                 <mat-expansion-panel>
                                     <mat-expansion-panel-header>
-                                        <mat-panel-title>Create new project</mat-panel-title>
+                                        <mat-panel-title>Create new C# project</mat-panel-title>
                                     </mat-expansion-panel-header>
-                                    <span class="code">dotnet new console -o Scratch</span>
-                                    <br>Creates a new console app in a folder called Scratch with a csproj file of:
-                                    <code>
+                                    <span class="code">dotnet new console -o Scratch</span> <span class="comment"> Specific configurations can be specified: i.e. web, mvc</span>
+                                        <br>Creates a new console app in a folder called Scratch with a csproj file of:
+                                        <code>
                                         <pre>
 &lt;Project Sdk="Microsoft.NET.Sdk"&gt;
     &lt;PropertyGroup&gt;

@@ -132,7 +132,12 @@
                                             container</a>
                                     </li>
                                     <li><a href="https://nodejs.org/en">Node.js</a></li>
-                                    <li>Testing: Playwright</li>
+                                    <li>Testing: Playwright 
+                                        <div class="playwright">
+                                            <a href="https://github.com/nehsa25/nehsa.net/actions"><img
+                                                    src="https://github.com/nehsa25/nehsa.net/actions/workflows/playwright.yml/badge.svg" /></a>
+                                        </div>
+                                    </li>
                                     <li>Semantic HTML</li>
                                     <li>Responsive design</li>
                                     <li>Mobile First design</li>
@@ -145,11 +150,11 @@
                                     <mat-panel-title>API
                                     </mat-panel-title>
                                 </mat-expansion-panel-header><button mat-raised-button color="accent"
-                                (click)="testapi()">Test</button>&nbsp;
-                            <mat-icon *ngIf="testapiCheck == true && testapiSuccess == true"
-                                style="color: green; font-weight: bolder;">check</mat-icon>
-                            <mat-icon *ngIf="testapiCheck == true && testapiSuccess == false"
-                                style="color: red; font-weight: bolder;">error</mat-icon>
+                                    (click)="testapi()">Test</button>&nbsp;
+                                <mat-icon *ngIf="testapiCheck == true && testapiSuccess == true"
+                                    style="color: green; font-weight: bolder;">check</mat-icon>
+                                <mat-icon *ngIf="testapiCheck == true && testapiSuccess == false"
+                                    style="color: red; font-weight: bolder;">error</mat-icon>
                                 <ul>
                                     <li>.NET Core 8.0</li>
                                     <li>Locally Hosted (Docker) in Docker</li>
@@ -165,12 +170,12 @@
                                     <mat-panel-title>RELATIONAL DATABASE - MySQL (Docker
                                         ubuntu/mysql)</mat-panel-title>
                                 </mat-expansion-panel-header><button mat-raised-button color="accent"
-                                (click)="testdb()">Test</button>&nbsp;
-                            <mat-icon *ngIf="testdbChecked == true && testdbSuccess == true"
-                                style="color: green; font-weight: bolder;">check</mat-icon>
-                            <mat-icon *ngIf="testdbChecked == true && testdbSuccess == false"
-                                style="color: red; font-weight: bolder;">error</mat-icon><br><br>
-                                
+                                    (click)="testdb()">Test</button>&nbsp;
+                                <mat-icon *ngIf="testdbChecked == true && testdbSuccess == true"
+                                    style="color: green; font-weight: bolder;">check</mat-icon>
+                                <mat-icon *ngIf="testdbChecked == true && testdbSuccess == false"
+                                    style="color: red; font-weight: bolder;">error</mat-icon><br><br>
+
                                 MySQL is the relational database used for this
                                 website. Currently, it's only used by the comment system.<br><br>
                                 <ul>
