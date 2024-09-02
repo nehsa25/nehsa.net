@@ -6,25 +6,37 @@ import { NameType } from '../types/name.type';
 import { AiImageType } from '../types/aiimage.type';
 import { AIQuestion } from '../types/ai.type';
 import { Observable } from 'rxjs';
+import { environment } from '../../../src/environments/environment';
 
 @Injectable()
 export class HttpService {
+    apiUrl = "";
+    contactmeUrl = "";
+        addUserUrl = "";
+        quoteUrl = "";
+        nameUrl = "";
+        posAdjUrl = "";
+        stabilityaiUrl = "";
+        dbhealth = "";
+        commentUrl= "";
+        aiQuestionUrl = "";
+    
     httpOptions = {
         headers: new HttpHeaders({
             'Content-Type': 'application/json'
         })
     };
-    constructor(private http: HttpClient) { }
-
-    contactmeUrl = 'https://api.nehsa.net/v1/contactme';
-    addUserUrl = 'https://api.nehsa.net/v1/adduser';
-    quoteUrl = "https://api.nehsa.net/v1/quote";
-    nameUrl = "https://api.nehsa.net/v1/name";
-    posAdjUrl = "https://api.nehsa.net/v1/positiveadjective";
-    stabilityaiUrl = `https://api.stability.ai/v1/generation/stable-diffusion-v1-6/text-to-image`;
-    dbhealth = 'https://api.nehsa.net/v1/dbhealth';
-    commentUrl = 'https://api.nehsa.net/v1/comment';
-    aiQuestionUrl = 'https://api.nehsa.net/v1/ai';
+    constructor(private http: HttpClient) { 
+        this.contactmeUrl = `${environment.apiUrl}/${environment.apiVersion}/contactme`;
+        this.addUserUrl = `${environment.apiUrl}/${environment.apiVersion}/adduser`;
+        this.quoteUrl =`${environment.apiUrl}/${environment.apiVersion}/quote`;
+        this.nameUrl = `${environment.apiUrl}/${environment.apiVersion}/name`;
+        this.posAdjUrl = `${environment.apiUrl}/${environment.apiVersion}/positiveadjective`;
+        this.stabilityaiUrl = `https://api.stability.ai/v1/generation/stable-diffusion-v1-6/text-to-image`;
+        this.dbhealth = `${environment.apiUrl}/${environment.apiVersion}/dbhealth`;
+        this.commentUrl = `${environment.apiUrl}/${environment.apiVersion}/comment`;
+        this.aiQuestionUrl = `${environment.apiUrl}/${environment.apiVersion}/ai`;
+    }
 
     /** 
      * Posts the contact me form to API
