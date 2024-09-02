@@ -108,6 +108,116 @@
                         <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
+                                    <mat-panel-title>Point at "test" or "prod" environment</mat-panel-title>
+                                    <mat-panel-description>Environment files</mat-panel-description>
+                                </mat-expansion-panel-header>It often needs to point at a different set of backend
+                                services when developing new features. Using environment files, you can point at
+                                different backend services based on the environment. For example, you can have different
+                                connection strings for development, staging, and production environments.<br><br>
+
+                                e.g. to launch the dev version: <inline-code>ng serve --configuration
+                                    development</inline-code><br><br>
+
+                                <ol>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Add configurations to angular.json</mat-panel-title>
+                                            </mat-expansion-panel-header>Use the fileReplacements feature to replace the
+                                            environment file with the appropriate one for the environment.
+                                            <br><br>
+                                            <code>
+<pre>
+"configurations": &#123;
+    "development": &#123;
+        "other settings..."
+        "fileReplacements": [
+            &#123;
+            "replace": "src/environments/environment.ts",
+            "with": "src/environments/environment.development.ts"
+            &#125;
+        ]
+        &#125;,
+        "preprod": &#123;
+        "other settings..."
+        "fileReplacements": [
+            &#123;
+            "replace": "src/environment.ts",
+            "with": "src/environments/environment.pp.ts"
+            &#125;
+        ]
+        &#125;
+    "prod": &#123;
+        "other settings..."
+        "fileReplacements": [
+        &#123;
+            "replace": "src/environment.ts",
+            "with": "src/environments/environment.prod.ts"
+        &#125;
+        ]
+    &#125;
+    &#125;,
+    "defaultConfiguration": "development"
+</pre>
+                                            </code>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Create environment files</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <ol>
+                                                <li>Run <inline-code>ng generate environments</inline-code>. This will
+                                                    create environment files for you and update angular.json to use the
+                                                    correct resource on build.</li>
+                                                <li>Update <inline-file>environment.development.ts</inline-file> with
+                                                    contents:<br>
+                                                    <code>
+                                                        <pre>
+export const environment = &#123;
+    production: false,
+    apiUrl: 'http://127.0.0.1'
+&#125;
+                                                        </pre>
+                                                    </code>
+                                                </li>
+                                                <li>Update <inline-file>environment.production.ts</inline-file> with
+                                                    contents:<br>
+                                                    <code>
+                                                        <pre>
+export const environment = &#123;
+    production: true,
+    apiUrl: 'https://api.nehsa.net'
+&#125;
+                                                        </pre>
+                                                    </code>
+                                                </li>
+                                            </ol>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Update HTTP Service to use it</mat-panel-title>
+                                            </mat-expansion-panel-header>Update the http service to use it:<br>
+                                            <code>
+<pre>
+import &#123; environment &#125; from '../environments/environment';
+
+constructor(private http: HttpClient) &#123; 
+    this.contactmeUrl = `$&#123;environment.apiUrl&#125;/$&#123;environment.apiVersion&#125;/&lt;ENDPOINT&gt;`;
+&#125;
+</pre>
+</code>
+                                        </mat-expansion-panel>
+                                    </li>
+                                </ol>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
                                     <mat-panel-title>Services should be singletons</mat-panel-title>
                                 </mat-expansion-panel-header>
                                 Services need to be singletons. If you have a userService, it should
