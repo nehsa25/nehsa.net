@@ -25,15 +25,16 @@ export class CometComponent implements OnInit {
   cometMessages = [
     new Comet("My name is Comet. I am the AI for nehsa.net and I can help you if you let me.", this.cometWait * 1),
     new Comet("I am a dog&mdash;an almond blond terrier&mdash;but I am also an AI, and I can help you if you let me. Click on me.", this.cometWait * 3),
-    new Comet("As you may see, I am a dog; click on me!", this.cometWait * 4.5),
-    new Comet("Click on me. I can help you with your problems.", this.cometWait * 5),
-    new Comet("I am a dog, click on me. I can help you with your problems.", this.cometWait * 6),
-    new Comet("", this.cometWait * 6),
-    new Comet("Really? There isn't anything I can help you with?", this.cometWait * 30),
-    new Comet("", this.cometWait * 35),
-    new Comet("Agile development! Would you like to know about Agile best practices? Ask me! I know!", this.cometWait * 60),
-    new Comet("Whine.", this.cometWait * 65),
-    new Comet("", this.cometWait * 66),
+    new Comet("Whine.", this.cometWait * 5),
+    // new Comet("As you may see, I am a dog; click on me!", this.cometWait * 4.5),
+    // new Comet("Click on me. I can help you with your problems.", this.cometWait * 5),
+    // new Comet("I am a dog, click on me. I can help you with your problems.", this.cometWait * 6),
+    // new Comet("", this.cometWait * 6),
+    // new Comet("Really? There isn't anything I can help you with?", this.cometWait * 30),
+    // new Comet("", this.cometWait * 35),
+    // new Comet("Agile development! Would you like to know about Agile best practices? Ask me! I know!", this.cometWait * 60),
+    // new Comet("Whine.", this.cometWait * 65),
+    new Comet("", this.cometWait * 7),
   ];
   constructor(
     private ref: ChangeDetectorRef,
@@ -55,8 +56,8 @@ export class CometComponent implements OnInit {
 
   launchPrompt(event: any) {
     let dialogRef = this.dialog.open(PromptComponent, {
-      height: '400px',
-      width: '60%',
+      height: '300px',
+      width: '500px',
       enterAnimationDuration: "800ms",
       exitAnimationDuration: "300ms"
     });
