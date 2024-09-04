@@ -21,39 +21,44 @@
                     familiarize myself with how such services work. It'll be hilarious if I make any money from it.
                     $100 minimum before I can cash out...<br><br>
 
-                    Definitions:<br>
-                    <dl>
-                        <dt>Microsoft Monetize Now</dt>
-                        <dd>Microsoft Monetize Now is a program that helps you monetize your app.</dd>
-                        <dt>Ads.txt</dt>
-                        <dd>Ads.txt is not referring to a sales ad but is an acronym for: Authorized Digital Sellers. It
-                            is
-                            a file that publishers can create to list who is authorized to sell their inventory. It is
-                            intended to prevent unauthorized inventory sales.</dd>
-                        <dt>Ad Unit</dt>
-                        <dd>Ad Unit is a container for ads. You can have multiple ad units on a page. Each ad unit has a
-                            unique ID.</dd>
-                        <dt>Header Tag</dt>
-                        <dd>The header tag is a script that goes in the header of your website. It is used to load the
-                            Microsoft Monetize Now SDK.</dd>
-                        <dt>Body Tag</dt>
-                        <dd>The body tag is a script that goes in the body of your website. It is used to render
-                            the ad.</dd>
-                        <dt>Native Ad</dt>
-                        <dd>A native ad is an ad that is designed to look like the content it is placed in. It is less
-                            intrusive than a display ad.</dd>
-                        <dt>Display Ad</dt>
-                        <dd>A display ad is a traditional ad that is displayed on a website. It is more intrusive than a
-                            native ad. The only reason to choose a display ad over a native ad is if you wish to annoy
-                            your users.</dd>
-                    </dl><br><br>
-
                     <ul>
                         <li>
                             <mat-expansion-panel expanded>
                                 <mat-expansion-panel-header>
+                                    <mat-panel-title>Definitions</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <dl>
+                                    <dt>Microsoft Monetize Now</dt>
+                                    <dd>Microsoft Monetize Now is a program that helps you monetize your app.</dd>
+                                    <dt>Ads.txt</dt>
+                                    <dd>Ads.txt is not referring to a sales ad but is an acronym for: Authorized Digital Sellers. It
+                                        is
+                                        a file that publishers can create to list who is authorized to sell their inventory. It is
+                                        intended to prevent unauthorized inventory sales.</dd>
+                                    <dt>Ad Unit</dt>
+                                    <dd>Ad Unit is a container for ads. You can have multiple ad units on a page. Each ad unit has a
+                                        unique ID.</dd>
+                                    <dt>Header Tag</dt>
+                                    <dd>The header tag is a script that goes in the header of your website. It is used to load the
+                                        Microsoft Monetize Now SDK.</dd>
+                                    <dt>Body Tag</dt>
+                                    <dd>The body tag is a script that goes in the body of your website. It is used to render
+                                        the ad.</dd>
+                                    <dt>Native Ad</dt>
+                                    <dd>A native ad is an ad that is designed to look like the content it is placed in. It is less
+                                        intrusive than a display ad.</dd>
+                                    <dt>Display Ad</dt>
+                                    <dd>A display ad is a traditional ad that is displayed on a website. It is more intrusive than a
+                                        native ad. The only reason to choose a display ad over a native ad is if you wish to annoy
+                                        your users.</dd>
+                                </dl>
+                            </mat-expansion-panel>     
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
                                     <mat-panel-title>Setup</mat-panel-title>
-                                </mat-expansion-panel-header>The setup was straightforward:
+                                </mat-expansion-panel-header>
                                 <ul>
                                     <li>
                                         <mat-expansion-panel>
@@ -68,10 +73,11 @@
                                                 <li>Sign up for an account</li>
                                                 <li>Downloads the ads.txt file and place it in the root of your website
                                                 </li>
-                                                <li>Configure your website to display it: inside angular.json, add the
+                                                <li>Configure your website to display it: inside
+                                                    <inline-file>angular.json</inline-file>, add the
                                                     following to
                                                     the assets array:
-                                                    <inline-file>"src/ads.txt"</inline-file>
+                                                    <inline-code>"src/ads.txt"</inline-code>
                                                 </li>
                                                 <li>Perform the verification process after ensuring your site is
                                                     serving ads.txt</li>
@@ -145,7 +151,7 @@
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Tips</mat-panel-title>
                                 </mat-expansion-panel-header>
-                                <ul>
+                                <ul>                                    
                                     <li>
                                         <mat-expansion-panel>
                                             <mat-expansion-panel-header>
