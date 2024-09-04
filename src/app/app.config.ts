@@ -2,9 +2,8 @@ import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { HttpClient } from '@angular/common/http';
-import { importProvidersFrom } from '@angular/core';
-import { LocationStrategy, HashLocationStrategy, PathLocationStrategy } from '@angular/common';
+import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { UserService } from './services/user.service';
 
@@ -12,7 +11,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideAnimationsAsync(),
-    importProvidersFrom(HttpClientModule),
+    provideHttpClient(withInterceptorsFromDi()),
     UserService,
     HttpClient,
     { provide: LocationStrategy, useClass: PathLocationStrategy },
