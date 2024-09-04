@@ -7,57 +7,57 @@
     <mat-card-content>
         <div class="commentgrid">
             <div class="topics">
-                <div>
-                    <div>Related Content:
-                        <ul class="condensed">
-                            <li><a routerLink="/seo">Search Engine Optimization</a></li>
-                            <li><a routerLink="/ssr">Server-Side Rendering (SSR)</a></li>
-                            <li><a routerLink="/monetizenow">Microsoft Monetize Now</a></li>
-                            <li><a routerLink="/clarity">Microsoft Clarity</a></li>
-                        </ul>
-                    </div>
-                    <div><acronym-name>Server-side rendering<acronym-abbr>SSR</acronym-abbr></acronym-name> is the
-                        process
-                        of
-                        rendering web pages on the server and sending them to the browser already rendered. This differs
-                        from the traditional <acronym-name>client-side
-                            rendering<acronym-abbr>CSR</acronym-abbr></acronym-name> method of rendering pages in the
-                        browser using JavaScript.<br><br>
+                <div>Related Content:
+                    <ul class="condensed">
+                        <li><a routerLink="/seo">Search Engine Optimization</a></li>
+                        <li><a routerLink="/ssr">Server-Side Rendering (SSR)</a></li>
+                        <li><a routerLink="/monetizenow">Microsoft Monetize Now</a></li>
+                        <li><a routerLink="/clarity">Microsoft Clarity</a></li>
+                    </ul>
+                </div>
+                <div><acronym-name>Server-side rendering<acronym-abbr>SSR</acronym-abbr></acronym-name> is the
+                    process
+                    of
+                    rendering web pages on the server and sending them to the browser already rendered. This differs
+                    from the traditional <acronym-name>client-side
+                        rendering<acronym-abbr>CSR</acronym-abbr></acronym-name> method of rendering pages in the
+                    browser using JavaScript.<br><br>
 
-                        Server-side rendering can improve performance and <acronym-name>search engine optimization<acronym-abbr>SEO</acronym-abbr></acronym-name> by delivering a fully rendered
-                        page to search engines.<br><br>
+                    Server-side rendering can improve performance and <acronym-name>search engine
+                        optimization<acronym-abbr>SEO</acronym-abbr></acronym-name> by delivering a fully rendered
+                    page to search engines.<br><br>
 
-                        This is my first attempt at server-side rendering. I'm using Angular Universal to render this
-                        website.<br><br>
+                    This is my first attempt at server-side rendering. I'm using Angular Universal to render this
+                    website.<br><br>
 
-                        Average Load Time 100 requests of https://www.nehsa.net:<br><br>
-                        <span class="importantish">Before: 1.5251026892662047s</span><br> 
-                        <span class="importantish">After: </span><br><br>
+                    Average Load Time 100 requests of https://www.nehsa.net:<br><br>
+                    <span class="importantish">Before: 1.5251026892662047s</span><br>
+                    <span class="importantish">After: </span><br><br>
 
-                        <ul>
-                            <li>
-                                <mat-expansion-panel expanded>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>Converting an Angular CSR to SSR Project</mat-panel-title>
-                                    </mat-expansion-panel-header>
-                                    <ol>
-                                        <li>Ensure NPM is the latest: <inline-code>npm install -g npm</inline-code></li>
-                                        <li>
-                                            Install Angular Universal: <inline-code>ng add
-                                                &#64;nguniversal/express-engine</inline-code>
-                                        </li>
-                                        <li>Create new files needed for SSR:<br>
-                                            <ul>
-                                                <li><inline-file>server.ts</inline-file>: This file is the entry
-                                                    point for your server-side rendering.
-                                                <li><inline-file>app.server.module.ts</inline-file>: This file is
-                                                    the server-side module.
-                                                </li>
-                                                <li><inline-file>main.server.ts</inline-file>: Render the Angular
-                                                    application on the server-side and return the rendered HTML.
-                                                </li>
-                                                <li>Update angular.json:<br>
-                                                    <code>
+                    <ul>
+                        <li>
+                            <mat-expansion-panel expanded>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Converting an Angular CSR to SSR Project</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ol>
+                                    <li>Ensure NPM is the latest: <inline-code>npm install -g npm</inline-code></li>
+                                    <li>
+                                        Install Angular Universal: <inline-code>ng add
+                                            &#64;nguniversal/express-engine</inline-code>
+                                    </li>
+                                    <li>Create new files needed for SSR:<br>
+                                        <ul>
+                                            <li><inline-file>server.ts</inline-file>: This file is the entry
+                                                point for your server-side rendering.
+                                            <li><inline-file>app.server.module.ts</inline-file>: This file is
+                                                the server-side module.
+                                            </li>
+                                            <li><inline-file>main.server.ts</inline-file>: Render the Angular
+                                                application on the server-side and return the rendered HTML.
+                                            </li>
+                                            <li>Update angular.json:<br>
+                                                <code>
                                                         <pre>
 "architect": &#123; &#123;
 &#125;
@@ -82,11 +82,11 @@
 &#125;
                                                         </pre>
                                                     </code>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>Configure Kestrel to serve the Angular application:<br>
-                                            <code>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>Configure Kestrel to serve the Angular application:<br>
+                                        <code>
                                                 <pre>
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 &#123;
@@ -122,15 +122,14 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 &#125;
                                             </pre>
                                             </code>
-                                        </li>
-                                        <li>Run the project:<br>
-                                            <inline-code>ng run nehsanet:server</inline-code>
-                                        </li>
-                                    </ol>
-                                </mat-expansion-panel>
-                            </li>
-                        </ul>
-                    </div>
+                                    </li>
+                                    <li>Run the project:<br>
+                                        <inline-code>ng run nehsanet:server</inline-code>
+                                    </li>
+                                </ol>
+                            </mat-expansion-panel>
+                        </li>
+                    </ul>
                 </div>
             </div>
             <div><app-comment></app-comment></div>
