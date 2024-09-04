@@ -7,73 +7,179 @@
     <mat-card-content>
         <div class="commentgrid">
             <div class="topics">
-                <div>
-                    <h3>Useful Files</h3>
-                    <ul>
-                        <li>package.json - Main configuration file for Node project. Contains the dependencies and
-                            script hooks for running project.</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3>Useful Commands</h3>
-                    <span class="code">npm init (--yes)</span> - Initialize new Node project. Creates
-                    package.json.<br><br>
-                    <span class="code">npm install -g npm&#64;latest</span> - Update NPM (Node Package Manager) to
-                    latest.<br><br>
-                    <span class="code">npm update -g npm</span> - Update Node to latest.<br><br>
-                    <span class="code">npm install</span> - Installs packages specified in packages.json if no package
-                    is specified.<br><br>
-                    <span class="code">npm audit fix</span> - Fixes easy security problems found in audit (excluding
-                    breaking changes).<br><br>
-                    <span class="code">npm run start</span> - Runs a script hook from packages.json, in this case,
-                    "start."<br><br>
-                    <span class="code code_lh">npm link</span> - Tell npm to install from local source.<br>
-                    E.g.<br>
-                    <ol>
-                        <li>From the base npm package folder, type <span class="code">npm link</span></li>
-                        <li>Type <span class="code">npm link</span> in a subfolder. Useful for testing npm package
-                            before publishing!</li>
-                    </ol>
-                </div>
-
-                <div>
-                    <h3>Packaging a new NPM package</h3>
-                    <ol>
-                        <li>Sign up for an NPM account at <a href="https://www.npmjs.com/">npmjs.com</a></li>
-                        <li>Create folder structure:
-                            <ul class="condensed">
-                                <li>&lt;packagename&gt;</li>
-                                <ul>
-                                    <li>package</li>
-                                    <ul>
-                                        <li>&lt;The actual contents of the package&gt;</li>
-                                    </ul>
-                                    <li>test-folder</li>
-                                </ul>
+                <ul>
+                    <li>
+                        <mat-expansion-panel expanded>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Useful Files</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li>package.json - Main configuration file for Node project. Contains the
+                                    dependencies and
+                                    script hooks for running project.</li>
                             </ul>
-                        </li>
-                    </ol>
-                </div>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel expanded>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Useful Commands</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li><span class="code">npm init (--yes)</span> - Initialize new Node project. Creates
+                                    package.json.</li>
+                                <li><span class="code">npm install -g npm&#64;latest</span> - Update NPM (Node Package
+                                    Manager) to
+                                    latest.</li>
+                                <li><span class="code">npm update -g npm</span> - Update Node to latest.</li>
+                                <li><span class="code">npm install</span> - Installs packages specified in packages.json
+                                    if
+                                    no package
+                                    is specified.</li>
+                                <li><span class="code">npm audit fix</span> - Fixes easy security problems found in
+                                    audit
+                                    (excluding
+                                    breaking changes).</li>
+                                <li><span class="code">npm run start</span> - Runs a script hook from packages.json, in
+                                    this
+                                    case,
+                                    "start."</li>
+                                <li><span class="code code_lh">npm link</span> - Tell npm to install from local
+                                    source.<br>
+                                    E.g.<br>
+                                    <ol>
+                                        <li>From the base npm package folder, type <span class="code">npm link</span>
+                                        </li>
+                                        <li>Type <span class="code">npm link</span> in a subfolder. Useful for testing
+                                            npm
+                                            package
+                                            before publishing!</li>
+                                    </ol>
+                                </li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Packaging a new NPM package</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ol>
+                                <li>Sign up for an NPM account at <a href="https://www.npmjs.com/">npmjs.com</a>
+                                </li>
+                                <li>Create folder structure:
+                                    <ul class="condensed">
+                                        <li>&lt;packagename&gt;</li>
+                                        <ul>
+                                            <li>package</li>
+                                            <ul>
+                                                <li>&lt;The actual contents of the package&gt;</li>
+                                            </ul>
+                                            <li>test-folder</li>
+                                        </ul>
+                                    </ul>
+                                </li>
+                            </ol><br><br>
+                            <h3>Example package.json</h3>
+                            <code>
+<pre>
+&#123;
+"name": "nehsanet",
+"version": "0.0.0",
+"scripts": &#123;
+"start": "node index.js"
+&#x2775;,
+"type": "module",
+"dependencies": &#123;
+"express": "^4.19.2"
+&#x2775;
+&#x2775;
+</pre>
+</code>
 
-                <div>
-                    <h3>Example package.json</h3>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Troubleshooting</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>Fix the upstream dependency</mat-panel-title>
+                                            <mat-panel-subtitle>--force or --legacy-peer-deps</mat-panel-subtitle>
+                                        </mat-expansion-panel-header>
 
-                    <pre>
-        &#123;
-            "name": "nehsanet",
-            "version": "0.0.0",
-            "scripts": &#123;
-                "start": "node index.js"
-            &#x2775;,
-            "type": "module",
-            "dependencies": &#123;
-                "express": "^4.19.2"
-            &#x2775;
-            &#x2775;
-    </pre>
-                </div>
+                                        Errors like this are common when working with NPM:<br>
+                                        <pre>
+                                            npm error code ERESOLVE
+                                            npm error ERESOLVE unable to resolve dependency tree
+                                            npm error
+                                            npm error While resolving: nehsanet&#64;0.0.0
+                                            npm error Found: &#64;angular/animations&#64;17.3.12
+                                            npm error node_modules/&#64;angular/animations
+                                            npm error &#64;angular/animations&#64;"^17.3.0" from the root project
+                                            npm error
+                                            npm error Could not resolve dependency:
+                                            npm error peer &#64;angular/animations&#64;"18.2.2" from &#64;angular/platform-server&#64;18.2.2
+                                            npm error node_modules/&#64;angular/platform-server
+                                            npm error peer &#64;angular/platform-server&#64;">=6.0.0" from &#64;nguniversal/express-engine&#64;7.0.2
+                                            npm error node_modules/&#64;nguniversal/express-engine
+                                            npm error  &#64;nguniversal/express-engine&#64;"7.0.2" from the root project
+                                            npm error
+                                            npm error Fix the upstream dependency conflict, or retry
+                                            npm error this command with --force or --legacy-peer-deps
+                                            npm error to accept an incorrect (and potentially broken) dependency resolution.
+                                            npm error
+                                        </pre>
 
+                                        How to read it: it found a version of Angular/animations that is not compatible
+                                        with the
+                                        version of Angular/platform-server<br><br>
+
+                                        Options to fix:<br>
+                                        <ol>
+                                            <li>Upgrade &#64;angular/animations to 18.2.2: <inline-code>npm install
+                                                    &#64;angular/animations&#64;18.2.2</inline-code></li>
+                                            <li>Downgrade &#64;angular/platform-server to 17.3.0</li>
+                                            <li>Use --force or --legacy-peer-deps to accept the incorrect dependency
+                                                resolution<br><span class="additional-note">Option 1 being the preferred of course. Really,
+                                                    this is the order I would attempt to resolve..</span></li>
+                                        </ol><br><br>
+
+                                        To play this out, I tried to upgrade Angular/animations to 18.2.2. This caused the error:<br>
+                                        <pre>
+npm error code ERESOLVE
+npm error ERESOLVE unable to resolve dependency tree
+npm error
+npm error While resolving: nehsanet&#64;0.0.0
+npm error Found: &#64;angular/core&#64;17.3.12
+npm error node_modules/&#64;angular/core
+npm error   &#64;angular/core&#64;"^17.3.0" from the root project
+npm error
+npm error Could not resolve dependency:
+npm error peer &#64;angular/core&#64;"18.2.2" from &#64;angular/animations&#64;18.2.2
+npm error node_modules/&#64;angular/animations
+npm error   &#64;angular/animations&#64;"18.2.2" from the root project
+npm error
+npm error Fix the upstream dependency conflict, or retry
+npm error this command with --force or --legacy-peer-deps
+                                        </pre><br><br>
+
+                                        I tried: <inline-code>npm install &#64;angular/core&#64;18.2.2</inline-code><br><br>
+
+                                        That worked, albeit with warnings, next: <inline-code>npm install &#64;angular/animations&#64;18.2.2</inline-code><br><br>
+
+                                        Then, 
+
+                                    </mat-expansion-panel>
+                                </li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                </ul>
             </div>
             <div><app-comment></app-comment></div>
         </div>

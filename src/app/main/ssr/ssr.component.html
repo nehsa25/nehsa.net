@@ -24,11 +24,110 @@
                             rendering<acronym-abbr>CSR</acronym-abbr></acronym-name> method of rendering pages in the
                         browser using JavaScript.<br><br>
 
-                        Server-side rendering can improve performance and SEO by delivering a fully rendered
+                        Server-side rendering can improve performance and <acronym-name>search engine optimization<acronym-abbr>SEO</acronym-abbr></acronym-name> by delivering a fully rendered
                         page to search engines.<br><br>
 
                         This is my first attempt at server-side rendering. I'm using Angular Universal to render this
-                        website.
+                        website.<br><br>
+
+                        Before: Average Load Time 100 requests of https://www.nehsa.net: 1.5251026892662047s<br> 
+
+                        <ul>
+                            <li>
+                                <mat-expansion-panel expanded>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Converting an Angular CSR to SSR Project</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    <ol>
+                                        <li>Ensure NPM is the latest: <inline-code>npm install -g npm</inline-code></li>
+                                        <li>
+                                            Install Angular Universal: <inline-code>ng add
+                                                &#64;nguniversal/express-engine</inline-code>
+                                        </li>
+                                        <li>Create new files needed for SSR:<br>
+                                            <ul>
+                                                <li><inline-file>server.ts</inline-file>: This file is the entry
+                                                    point for your server-side rendering.
+                                                <li><inline-file>app.server.module.ts</inline-file>: This file is
+                                                    the server-side module.
+                                                </li>
+                                                <li><inline-file>main.server.ts</inline-file>: Render the Angular
+                                                    application on the server-side and return the rendered HTML.
+                                                </li>
+                                                <li>Update angular.json:<br>
+                                                    <code>
+                                                        <pre>
+"architect": &#123; &#123;
+&#125;
+    "build": &#123; &#123;
+&#125;
+        // ...
+    &#125;,
+    "serve": &#123; &#123;
+&#125;
+        // ...
+    &#125;,
+    "server": &#123; &#123;
+&#125;
+        "builder": "&#64;nguniversal/builders:ssr",
+        "options": &#123; &#123;
+&#125;
+        "outputPath": "dist/nehsanet/browser",
+        "main": "src/main.server.ts",
+        "tsConfig": "tsconfig.server.json"
+        &#125;
+    &#125;
+&#125;
+                                                        </pre>
+                                                    </code>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>Configure Kestrel to serve the Angular application:<br>
+                                            <code>
+                                                <pre>
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+&#123;
+    if (env.IsDevelopment())
+    &#123;
+        app.UseDeveloperExceptionPage();
+    &#125;
+    else
+    &#123;
+        app.UseExceptionHandler("/Error");
+        app.UseHsts();
+
+        app.UseHttpsRedirection();
+        app.UseSpaStaticFiles();
+    &#125;
+    app.UseRouting();
+    app.UseEndpoints(endpoints =>
+
+    &#123;
+        endpoints.MapControllerRoute(
+            name: "default",
+            pattern: "&#123;controller&#125;/&#123;action=Index&#125;/&#123;id?&#125;");
+    &#125;);
+    app.UseSpa(spa =>
+    &#123;
+        spa.Options.SourcePath = "ClientApp";
+        if (env.IsDevelopment())
+        &#123;
+                                                    
+            spa.UseAngularCliServer(npmScript: "start");
+        &#125;
+    &#125;);
+&#125;
+                                            </pre>
+                                            </code>
+                                        </li>
+                                        <li>Run the project:<br>
+                                            <inline-code>ng run nehsanet:server</inline-code>
+                                        </li>
+                                    </ol>
+                                </mat-expansion-panel>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
