@@ -3,11 +3,12 @@ import { CommentComponent } from '../../shared-components/comment/comment.compon
 import { MatCardModule } from '@angular/material/card';
 import { UserService } from '../../services/user.service';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-ssr',
   standalone: true,
-  imports: [MatCardModule, CommentComponent, MatExpansionModule],
+  imports: [MatCardModule, CommentComponent, MatExpansionModule, RouterLink],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './ssr.component.html',
   styleUrl: './ssr.component.scss'
