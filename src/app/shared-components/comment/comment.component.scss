@@ -93,6 +93,10 @@ textarea {
     grid-gap: 1em;
 }
 
+table {
+    border: none;
+}
+
 th {
     text-decoration: solid;
     font-variant: small-caps;
@@ -130,7 +134,8 @@ th {
 .view-comments td {
     width: 10px;
     border-collapse: collapse;
-    border: 1px solid var(--theme-border-color);
+    border: 1px solid #222;
+    border-top: none;
 }
 
 .comment-light {
