@@ -155,14 +155,39 @@
                             </mat-expansion-panel>
                         </li>
                         <li>
-                            <mat-expansion-panel expanded>
+                            <mat-expansion-panel>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Setup Logging</mat-panel-title>
                                 </mat-expansion-panel-header>
+                                Setting configuration logging is done in the appsettings.json file.<br><br>
+
+                                It can be activated by:<br>
+                                <ol>
+                                    <li>
+                                        <code>
+<pre>
+webApplicationBuilder.Services.AddLogging();
+webApplicationBuilder.Logging.ClearProviders();
+webApplicationBuilder.Logging.AddConsole();
+webApplicationBuilder.Logging.AddDebug();
+</pre>
+                                        </code>
+                                    </li>
+                                    <li>
+                                        <code>
+<pre>
+var app = webApplicationBuilder.Build();
+var logger = app.Services.GetRequiredService&lt;ILogger&lt;Program&gt;&gt;();
+logger.LogInformation("Logging works!");
+</pre>
+                                    </code>
+                                    </li>
+                                </ol>
+
                             </mat-expansion-panel>
                         </li>
                         <li>
-                            <mat-expansion-panel expanded>
+                            <mat-expansion-panel>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Configure for <acronym-name>Single Page
                                             Application<acronym-abbr>SPA</acronym-abbr></acronym-name></mat-panel-title>
@@ -175,28 +200,154 @@
                                 refreshing causes a 404 error.<br><br>
 
                                 This is because the server is looking for a file that doesn't exist. To fix this, we
-                                need to add a middleware layer that inspects the page and forwards it if necessary.
+                                need to add a middleware layer that inspects the page and forwards it if
+                                necessary.<br><br>
+
+                                I have yet to get this to work fully and I'm evaluating moving to SSR to get around this
+                                limitation..<br><br>
+
+                                <code>
+                                    <pre>
+// Setup the middleware that will handle the SPA routing
+app.Use(async (context, next) =>
+&#123;
+    await next();
+    if (context.Response.StatusCode == 404 &amp;&amp; !Path.HasExtension(context.Request.Path.Value))
+    &#123;  
+        context.Request.Path = "/index.html";
+        await next();
+    &#125;
+&#125;);
+
+                                    </pre>
+                                </code><br><br>
+
+                                This middleware layer will intercept the request and forward it to the index.html file,
+                                assuming the index.html file is in the root of the wwwroot folder.<br><br>
                             </mat-expansion-panel>
                         </li>
                         <li>
-                            <mat-expansion-panel expanded>
+                            <mat-expansion-panel>
                                 <mat-expansion-panel-header>
-                                    <mat-panel-title>Setup Cors</mat-panel-title>
-                                </mat-expansion-panel-header>Content to be added soon!
+                                    <mat-panel-title>Setup <acronym-name>Cross Origin Resource Sharing
+                                            <acronym-abbr>CORS</acronym-abbr></acronym-name></mat-panel-title>
+                                </mat-expansion-panel-header>Enabling CORS is a two-step process, we need to update the
+                                Kestrel web server via WebApplication.CreateBuilder (webApplicationBuilder) and then the
+                                API layer webApplicationBuilder.Build (app):
+                                <ol>
+                                    <li>
+                                        <code>
+                                            <pre>
+// CORS support
+webApplicationBuilder.Services.AddCors(options =>
+&#123;
+options.AddPolicy(name: api,
+    policy =>
+    &#123;
+        policy.WithOrigins("https://api.nehsa.net").AllowAnyMethod().AllowAnyHeader().AllowCredentials();
+    &#125;);
+&#125;);
+</pre>
+</code>
+                                    </li>
+                                    <li>
+                                        <code>
+<pre>
+// set to use CORS
+logger.LogInformation("Setting up CORS for API: " + api);
+app.UseCors(api);
+</pre>
+</code>
+                                    </li>
+                                </ol>
+
+                                <dl>
+                                    <dt>AllowAnyMethod()</dt>
+                                    <dd>Allows any HTTP method. e.g. options: WithMethods("GET", "POST", "PUT",
+                                        "DELETE").</dd>
+                                    <dt>AllowAnyHeader()</dt>
+                                    <dd>Allows any HTTP header. e.g. options: WithHeaders("Accept", "Content-Type",
+                                        "Origin").</dd>
+                                    <dt>AllowCredentials()</dt>
+                                    <dd>Allows credentials to be passed.</dd>
+                                </dl>
                             </mat-expansion-panel>
                         </li>
                         <li>
-                            <mat-expansion-panel expanded>
+                            <mat-expansion-panel>
                                 <mat-expansion-panel-header>
-                                    <mat-panel-title>Setup CSP</mat-panel-title>
-                                </mat-expansion-panel-header>Content to be added soon!
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel expanded>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Serve Static Files</mat-panel-title>
-                                </mat-expansion-panel-header>Content to be added soon!
+                                    <mat-panel-title>Setup <acronym-name>Content Security Policy
+                                            <acronym-abbr>CSP</acronym-abbr></acronym-name></mat-panel-title>
+                                </mat-expansion-panel-header>The CSP is use to ensure that the browser only loads
+                                scripts and other resources we explicitly allow. This is a security feature to prevent
+                                XSS attacks.<br><br>
+
+                                To set up the CSP, we need to add a middleware layer that adds the
+                                appopriate headers:<br>
+
+                                <ul>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Create Middleware</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <code>
+<pre>
+public class CSPMiddleware 
+&#123;
+    private readonly string _cspPolicy;
+
+    public CSPMiddleware(string cspPolicy)
+    &#123;
+        _cspPolicy = cspPolicy;
+    &#125;
+
+    public async Task InvokeAsync(HttpContext context, RequestDelegate next)
+    &#123;
+        // Access the cspPolicy parameter here
+        context.Response.Headers.Append("Content-Security-Policy", _cspPolicy);
+        await next(context);
+    &#125;
+&#125;
+</pre>
+                                            </code>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Call it</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <code>
+<pre>
+// setup the middleware to handle the Content-Security-Policy header
+app.UseMiddleware&lt;CSPMiddleware&gt;("default-src 'self'; style-src 'self' 'unsafe-inline';
+    script-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' data:; font-src
+    'self';");
+</pre>
+                                            </code>
+                                        </mat-expansion-panel>
+                                    </li>
+                                </ul>
+
+                                <dl>
+                                    <dt>default-src</dt>
+                                    <dd>Default source for all directives.</dd>
+                                    <dt>style-src</dt>
+                                    <dd>Allowed sources for stylesheets.</dd>
+                                    <dt>script-src</dt>
+                                    <dd>Allowed sources for scripts.</dd>
+                                    <dt>img-src</dt>
+                                    <dd>Allowed sources for images.</dd>
+                                    <dt>font-src</dt>
+                                    <dd>Allowed sources for fonts.</dd>
+                                    <dt>unsafe-inline</dt>
+                                    <dd>Allows inline scripts and styles.</dd>
+                                    <dt>unsafe-eval</dt>
+                                    <dd>Allows eval() and similar functions.</dd>
+                                    <dt>self</dt>
+                                    <dd>Allows the current domain only.</dd>
+                                </dl>
                             </mat-expansion-panel>
                         </li>
                     </ul>
