@@ -4,7 +4,7 @@
 <url><loc>https://www.nehsa.net/agile</loc><lastmod>2024-08-31</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/ai</loc><lastmod>2024-08-13</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/aiimage</loc><lastmod>2024-08-24</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
-<url><loc>https://www.nehsa.net/angular</loc><lastmod>2024-09-01</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
+<url><loc>https://www.nehsa.net/angular</loc><lastmod>2024-09-02</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/asyncio</loc><lastmod>2024-08-24</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/aws</loc><lastmod>2024-08-28</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/azure</loc><lastmod>2024-08-28</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
@@ -12,9 +12,10 @@
 <url><loc>https://www.nehsa.net/blog</loc><lastmod>2024-09-01</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/custom-elements</loc><lastmod>2024-09-01</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/2024-august-29/gametheory</loc><lastmod>2024-08-29</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
+<url><loc>https://www.nehsa.net/i-understand-pi</loc><lastmod>2024-09-02</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/vscode-bad-ux</loc><lastmod>2024-09-01</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/2024-august-29/agism</loc><lastmod>2024-09-01</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
-<url><loc>https://www.nehsa.net/c-sharp</loc><lastmod>2024-08-27</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
+<url><loc>https://www.nehsa.net/c-sharp</loc><lastmod>2024-09-01</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/chef</loc><lastmod>2024-08-24</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/cloud</loc><lastmod>2024-08-28</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/design</loc><lastmod>2024-08-24</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
@@ -35,6 +36,7 @@
 <url><loc>https://www.nehsa.net/webdev-frameworks</loc><lastmod>2024-08-24</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/jenkins</loc><lastmod>2024-08-24</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/jsdoc</loc><lastmod>2024-08-06</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
+<url><loc>https://www.nehsa.net/kestrel</loc><lastmod>2024-09-02</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/k8s</loc><lastmod>2024-08-15</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/linux</loc><lastmod>2024-08-24</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/mercurial</loc><lastmod>2024-08-24</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>

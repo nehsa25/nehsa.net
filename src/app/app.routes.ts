@@ -73,6 +73,8 @@ import { WhatComesAroundGoesAroundComponent } from './main/blog/what-comes-aroun
 import { CustomElementsComponent } from './main/blog/custom-elements/custom-elements.component';
 import { VscodeBadUxComponent } from './main/blog/vscode-bad-ux/vscode-bad-ux.component';
 import { IUnderstandPiComponent } from './main/blog/i-understand-pi/i-understand-pi.component';
+import { KestrelComponent } from './main/kestrel/kestrel.component';
+import { SsrComponent } from './main/ssr/ssr.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: WelcomeComponent },
@@ -147,6 +149,7 @@ export const routes: Routes = [
     { path: 'glider', title: 'nehsa.net | Glider Preparedness', component: GliderComponent },
     { path: 'signup', title: 'nehsa.net | Signup', component: SignupComponent },
     { path: 'sql', title: 'nehsa.net | SQL', component: SqlComponent },
+    { path: 'ssr', title: 'nehsa.net | SSR', component: SsrComponent },
     { path: 'mud', title: 'nehsa.net | MUD', component: MudComponent },
     { path: 'aiimage', title: 'nehsa.net | AI Image Generation', component: AiImageGenerationComponent },
     { path: 'inno', title: 'nehsa.net |Inno Setup', component: InnoComponent },
@@ -155,6 +158,7 @@ export const routes: Routes = [
     { path: 'react', title: 'nehsa.net | React', component: ReactComponent },
     { path: 'webdesign', title: 'nehsa.net | Web Design', component: WebDesignComponent },
     { path: 'scratch', title: 'nehsa.net | Scratch', component: ScratchComponent },
+    { path: 'kestrel', title: 'nehsa.net | Kestrel', component: KestrelComponent },
     { path: 'ide', title: 'nehsa.net | IDEs / Code Editors', component: IdeComponent },
     { path: 'iis', title: 'nehsa.net | IIS', component: IisComponent },
     { path: 'tailwindcss', title: 'nehsa.net | Tailwind CSS', component: TailwindcssComponent },

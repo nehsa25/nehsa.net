@@ -1,0 +1,38 @@
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Search Engine Optimization</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                <div>
+                    <div>Related Content:
+                        <ul class="condensed">
+                            <li><a routerLink="/seo">Search Engine Optimization</a></li>
+                            <li><a routerLink="/ssr">Server-Side Rendering (SSR)</a></li>
+                            <li><a routerLink="/monetizenow">Microsoft Monetize Now</a></li>
+                            <li><a routerLink="/clarity">Microsoft Clarity</a></li>
+                        </ul>
+                    </div>
+                    <div><acronym-name>Server-side rendering<acronym-abbr>SSR</acronym-abbr></acronym-name> is the
+                        process
+                        of
+                        rendering web pages on the server and sending them to the browser already rendered. This differs
+                        from the traditional <acronym-name>client-side
+                            rendering<acronym-abbr>CSR</acronym-abbr></acronym-name> method of rendering pages in the
+                        browser using JavaScript.<br><br>
+
+                        Server-side rendering can improve performance and SEO by delivering a fully rendered
+                        page to search engines.<br><br>
+
+                        This is my first attempt at server-side rendering. I'm using Angular Universal to render this
+                        website.
+                    </div>
+                </div>
+            </div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,208 @@
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Kestrel</h1>
+        </mat-card-title>
+        <mat-card-subtitle>
+            <h2 data-testid="header-subtitle">Default Web Server for ASP.NET Core</h2>
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid">
+            <div class="topics">
+                Kestrel is included by default in the ASP.NET Core shared framework and is intended to be used with
+                ASP.NET Core apps.
+                <ul>
+                    <ul>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Key Files</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <dl>
+                                    <dt>appsettings.json</dt>
+                                    <dd>Configuration file for the app. Settings include the application connection
+                                        strings,
+                                        logging, and other settings.</dd>
+                                    <dt>appsettings.Development.json</dt>
+                                    <dd>Configuration file for the app in development
+                                        environment. Uses all settings in appsettings.json but will extend/override them
+                                        with settings here.</dd>
+                                    <dt>package.json</dt>
+                                    <dd>Contains the npm packages and scripts for the app.</dd>
+                                </dl>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Create new C# Kestrel project</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <span class="code">dotnet new console -o Scratch</span>
+                                <br>Creates a new console app in a folder called Scratch with a csproj file of:
+                                <code>
+                                    <pre>
+&lt;Project Sdk="Microsoft.NET.Sdk"&gt;
+&lt;PropertyGroup&gt;
+    &lt;OutputType&gt;Exe&lt;/OutputType&gt;
+    &lt;TargetFramework&gt;net8.0&lt;/TargetFramework&gt;
+    &lt;ImplicitUsings&gt;enable&lt;/ImplicitUsings&gt;
+    &lt;Nullable&gt;enable&lt;/Nullable&gt;
+&lt;/PropertyGroup&gt;
+&lt;/Project&gt;                                              
+</pre>
+                                </code>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Configure to run in different environments</mat-panel-title>
+                                </mat-expansion-panel-header>By using different appsettings files, you can configure the
+                                app to run in different environments. For example, you can have different connection
+                                strings for development, staging, and production environments.<br><br>
+
+                                <inline-file>appsettings.json</inline-file><br>
+                                <code>
+<pre>
+&#123;
+    "ConnectionStrings": &#123;
+        "Default": "&lt;CONNECTION STRING&gt;"
+    &#125;,
+    "AllowedHosts": "*"
+&#125;
+</pre>
+                                </code><br><br>
+
+                                <inline-file>appsettings.Development.json</inline-file>, HTTP, No SSL, Debug
+                                logging:<br>
+                                <code>
+<pre>
+&#123;
+    "Logging": &#123;
+        "LogLevel": &#123;
+            "Default": "Debug",
+            "Microsoft": "Warning",
+            "Microsoft.Hosting.Lifetime": "Information"
+        &#125;,
+        "Console": &#123;
+            "FormatterName": "Console",
+            "FormatterOptions": &#123;
+                "SingleLine": true,
+                "IncludeScopes": true,
+                "TimestampFormat": "yyyy-MM-ddTHH:mm:ss : ",
+                "UseUtcTimestamp": true
+            &#125;
+        &#125;
+    &#125;,
+    "Kestrel": &#123;
+        "Endpoints": &#123;
+            "Http": &#123;
+                "Url": "http://localhost:22006"
+            &#125;
+        &#125;
+    &#125;
+&#125;
+</pre>
+                            </code><br><br>
+
+                                <inline-file>appsettings.Production.json</inline-file>, Https, SSL, Info logging:<br>
+                                <code>
+<pre>
+&#123;
+    "Logging": &#123;
+        "LogLevel": &#123;
+            "Default": "Error",
+            "Microsoft": "Warning",
+            "Microsoft.Hosting.Lifetime": "Information"
+        &#125;,
+        "Console": &#123;
+            "FormatterName": "Console",
+            "FormatterOptions": &#123;
+                "SingleLine": true,
+                "IncludeScopes": true,
+                "TimestampFormat": "yyyy-MM-ddTHH:mm:ss : ",
+                "UseUtcTimestamp": true
+            &#125;
+        &#125;
+    &#125;,
+    "Kestrel": &#123;
+        "Endpoints": &#123;
+            "Https": &#123;
+                "Url": "http://localhost:22007"
+            &#125;
+        &#125;
+    &#125;
+&#125;
+</pre>
+                            </code>
+
+                                To start the app in development mode:<br>
+                                <inline-code>dotnet run -o --configuration Development</inline-code><br>
+                                <span class="additional-note">-o: Output to the console</span><br><br>
+
+                                To configure VS Code to run this configuration on F5, add this to the launch.json
+                                file:<br>
+                                <code>
+<pre>
+"env": &#123;
+    "ASPNETCORE_ENVIRONMENT": "Development"
+&#125;,
+</pre>
+                            </code>
+
+
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel expanded>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Setup Logging</mat-panel-title>
+                                </mat-expansion-panel-header>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel expanded>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Configure for <acronym-name>Single Page
+                                            Application<acronym-abbr>SPA</acronym-abbr></acronym-name></mat-panel-title>
+                                </mat-expansion-panel-header>SPAs are single-page websites, meaning that everything is
+                                compiled into a single page. The server serves the index.html, which has all the JS,
+                                CSS, and HTML of every page.<br><br>
+
+                                This is if you use Angular to do your routine. The problem is when someone wishes to
+                                reach a specific page externally. Navigating to the page via www.nehsa.net works, but
+                                refreshing causes a 404 error.<br><br>
+
+                                This is because the server is looking for a file that doesn't exist. To fix this, we
+                                need to add a middleware layer that inspects the page and forwards it if necessary.
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel expanded>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Setup Cors</mat-panel-title>
+                                </mat-expansion-panel-header>Content to be added soon!
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel expanded>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Setup CSP</mat-panel-title>
+                                </mat-expansion-panel-header>Content to be added soon!
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel expanded>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Serve Static Files</mat-panel-title>
+                                </mat-expansion-panel-header>Content to be added soon!
+                            </mat-expansion-panel>
+                        </li>
+                    </ul>
+                </ul>
+            </div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>

@@ -139,10 +139,10 @@ export class AppComponent implements OnInit, OnDestroy {
     this.timMessages.push(this.setEvent("Ohh, poor Timoth&eacute;e..", .5, false, false, 1000 * 120))
     this.timMessages.push(this.setEvent("GASTON!", 1.7, false, true, 1000 * 125));
     this.timMessages.push(this.setEvent("GASTON!!", 1.8, false, true, 1000 * 127));
-    this.timMessages.push(this.setEvent("WHEW! I KNEW I FED GASTON!", 1, true, true, 1000 * 130));
+    this.timMessages.push(this.setEvent("Whew! I knew I fed Gaston!", 1, true, true, 1000 * 130));
     this.timMessages.push(this.setEvent("Glad that's settled. Timoth&eacute;e about to start huming again!", .9, true, false, 1000 * 135));
-    this.timMessages.push(this.setEvent("Hmm-hmm-hmmmmmmmm-HMm-hmm!", 1, true, true, 1000 * 137));
-    this.timMessages.push(this.setEvent("Bravo sir, bravo.", .9, true, false, 1000 * 135));
+    this.timMessages.push(this.setEvent("Hmm-hmm-hmmmmmmmm-HMm-hmm!", 1, true, true, 1000 * 140));
+    this.timMessages.push(this.setEvent("Bravo sir, bravo.", .9, true, false, 1000 * 143));
     this.timMessages.push(this.setEvent("Fin.", 1, true, false, 1000 * 165));
     this.timMessages.push(this.setEvent("Vere finitus. Fin.", 1, true, false, 1000 * 175));
     this.timMessages.push(this.setEvent("This has been a production of &quot;Jesse playing with CSS animations.&quot;<br>Copyright 2024 nehsa.net, All Right Reserved. Feed hungry people. Water thirty people.", 1, true, true, 1000 * 190));
