@@ -338,6 +338,10 @@ $light-primary: (
 $light-primary-palette: mat.define-palette($light-primary);
 
 $light-accent: (
+    "primary": pink,
+    "link": "#7F7F7F",
+    "code-background": "#D4AC0D",
+    "code-color": "#222",
     50 : #edebf9,
     100 : #d2cef0,
     200 : #b5ade6,

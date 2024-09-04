@@ -306,6 +306,10 @@ $dark-primary-palette: mat.define-palette($dark-primary);
 
 /* For use in src/lib/core/theming/_palette.scss */
 $dark-accent: (
+    "primary": pink,
+    "link": "#7F7F7F",
+    "code-background": "#D4AC0D",
+    "code-color": "#222",
     50 : #e6e4e9,
     100 : #c0bac8,
     200 : #978da3,

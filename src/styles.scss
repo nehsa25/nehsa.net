@@ -6,6 +6,14 @@
 @import './styles/colorful.scss';
 @import './styles/assets/lagoon.scss';
 
+@function get-color-from-palette($palette, $shade) {
+    @if (map-has-key($palette, $shade)) {
+        $palette: map-get($palette, $shade);
+    } 
+    @return $palette;
+  }
+
+  
 @media (min-width: 0) {
     dl {
         gap: .4rem;
@@ -53,69 +61,69 @@
 
 @media (min-width: 1400px) {}
 
-$theme-border-color: mat.m2-get-color-from-palette($dark-primary-palette, 500);
-$theme-background: mat.m2-get-color-from-palette($dark-primary-palette, 50);
+$theme-border-color: get-color-from-palette($dark-primary-palette, 500);
+$theme-background: get-color-from-palette($dark-primary-palette, 50);
 
 // code -light
-$theme-light-code-background: mat.m2-get-color-from-palette($dark-primary-palette, "code-background");
-$theme-light-code-color: mat.m2-get-color-from-palette($dark-accent-palette, "code-color");
+$theme-light-code-background: get-color-from-palette($dark-primary-palette, "code-background");
+$theme-light-code-color: get-color-from-palette($dark-accent-palette, "code-color");
 
 // code -dark
-$theme-dark-code-background: mat.m2-get-color-from-palette($light-primary-palette, "code-background");
-$theme-dark-code-color: mat.m2-get-color-from-palette($light-primary-palette, "code-color");
+$theme-dark-code-background: get-color-from-palette($light-primary-palette, "code-background");
+$theme-dark-code-color: get-color-from-palette($light-primary-palette, "code-color");
 
 // comments
-$theme-comment-background: mat.m2-get-color-from-palette($dark-primary-palette, 200);
-$theme-comment-color: mat.m2-get-color-from-palette($dark-primary-palette, 400);
+$theme-comment-background: get-color-from-palette($dark-primary-palette, 200);
+$theme-comment-color: get-color-from-palette($dark-primary-palette, 400);
 
 //notes
-$theme-note-background: mat.m2-get-color-from-palette($dark-primary-palette, 300);
-$theme-note-color: mat.m2-get-color-from-palette($dark-primary-palette, 50);
+$theme-note-background: get-color-from-palette($dark-primary-palette, 300);
+$theme-note-color: get-color-from-palette($dark-primary-palette, 50);
 
 //answers
-$theme-answer-background: mat.m2-get-color-from-palette($dark-primary-palette, 300);
-$theme-answer-color: mat.m2-get-color-from-palette($dark-primary-palette, 50);
+$theme-answer-background: get-color-from-palette($dark-primary-palette, 300);
+$theme-answer-color: get-color-from-palette($dark-primary-palette, 50);
 
 //card
-$theme-card-background: mat.m2-get-color-from-palette($dark-accent-palette, 50);
+$theme-card-background: get-color-from-palette($dark-accent-palette, 50);
 $theme-card-color: #222;
 
 //table
-$theme-table-background: mat.m2-get-color-from-palette($light-primary-palette, 200);
-$theme-table-color: mat.m2-get-color-from-palette($light-primary-palette, 400);
+$theme-table-background: get-color-from-palette($light-primary-palette, 200);
+$theme-table-color: get-color-from-palette($light-primary-palette, 400);
 
 //files
 $theme-file-background: #454B1B;
 $theme-file-color: yellow;
 
 //navbar
-$theme-navbar-background: mat.m2-get-color-from-palette($dark-primary-palette, 500);
-$theme-navbar-color: mat.m2-get-color-from-palette($dark-primary-palette, A100);
+$theme-navbar-background: get-color-from-palette($dark-primary-palette, 500);
+$theme-navbar-color: get-color-from-palette($dark-primary-palette, A100);
 
 //buttons
-$theme-light-button-background-color: mat.m2-get-color-from-palette($light-primary-palette, 900);
-$theme-dark-button-background-color: mat.m2-get-color-from-palette($dark-primary-palette, 400);
-$theme-light-button-color: mat.m2-get-color-from-palette($light-primary-palette, 50);
-$theme-dark-button-color: mat.m2-get-color-from-palette($dark-primary-palette, 50);
+$theme-light-button-background-color: get-color-from-palette($light-primary-palette, 900);
+$theme-dark-button-background-color: get-color-from-palette($dark-primary-palette, 400);
+$theme-light-button-color: get-color-from-palette($light-primary-palette, 50);
+$theme-dark-button-color: get-color-from-palette($dark-primary-palette, 50);
 
 //buttons hover
-$theme-light-button-hover-background-color: mat.m2-get-color-from-palette($light-primary-palette, A700);
-$theme-dark-button-hover-background-color: mat.m2-get-color-from-palette($dark-primary-palette, 900);
-$theme-light-button-hover-color: mat.m2-get-color-from-palette($light-primary-palette, 100);
-$theme-dark-button-hover-color: mat.m2-get-color-from-palette($dark-primary-palette, 100);
+$theme-light-button-hover-background-color: get-color-from-palette($light-primary-palette, A700);
+$theme-dark-button-hover-background-color: get-color-from-palette($dark-primary-palette, 900);
+$theme-light-button-hover-color: get-color-from-palette($light-primary-palette, 100);
+$theme-dark-button-hover-color: get-color-from-palette($dark-primary-palette, 100);
 
 //primary color
-$theme-dark-primary-color: mat.m2-get-color-from-palette($dark-primary-palette, "primary");
-$theme-light-primary-color: mat.m2-get-color-from-palette($light-primary-palette, "primary");
+$theme-dark-primary-color: get-color-from-palette($dark-primary-palette, "primary");
+$theme-light-primary-color: get-color-from-palette($light-primary-palette, "primary");
 
 //links
-$theme-dark-a-active-color: mat.m2-get-color-from-palette($dark-primary-palette, 100);
-$theme-light-a-active-color: mat.m2-get-color-from-palette($light-primary-palette, 100);
-$theme-dark-a-visited-color: mat.m2-get-color-from-palette($dark-primary-palette, 200);
-$theme-light-a-visited-color: mat.m2-get-color-from-palette($light-primary-palette, 200);
-$theme-dark-a-hover-color: mat.m2-get-color-from-palette($dark-primary-palette, 300);
-$theme-dark-a-link-color: mat.m2-get-color-from-palette($dark-primary-palette, "link");
-$theme-light-a-link-color: mat.m2-get-color-from-palette($light-primary-palette, "link");
+$theme-dark-a-active-color: get-color-from-palette($dark-primary-palette, 100);
+$theme-light-a-active-color: get-color-from-palette($light-primary-palette, 100);
+$theme-dark-a-visited-color: get-color-from-palette($dark-primary-palette, 200);
+$theme-light-a-visited-color: get-color-from-palette($light-primary-palette, 200);
+$theme-dark-a-hover-color: get-color-from-palette($dark-primary-palette, 300);
+$theme-dark-a-link-color: get-color-from-palette($dark-primary-palette, "link");
+$theme-light-a-link-color: get-color-from-palette($light-primary-palette, "link");
 
 // table 
 table,
