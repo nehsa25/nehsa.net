@@ -2,7 +2,7 @@ import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, FormsModule, NgControl, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { RecaptchaModule } from 'ng-recaptcha';
+// import { RecaptchaModule } from 'ng-recaptcha';
 import { HttpService } from '../../services/http.service';
 import { AddUserType } from '../../types/adduser.type';
 import { Subject } from 'rxjs';
@@ -12,7 +12,7 @@ import { CommentType } from '../../types/comment.type';
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [NgIf, FormsModule, MatButtonModule, RecaptchaModule, ReactiveFormsModule],
+  imports: [NgIf, FormsModule, MatButtonModule, ReactiveFormsModule], //RecaptchaModule
   providers: [UserService, HttpService], 
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.scss'

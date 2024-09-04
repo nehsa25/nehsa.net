@@ -26,31 +26,36 @@
                                 <mat-panel-title>Useful Commands</mat-panel-title>
                             </mat-expansion-panel-header>
                             <ul>
-                                <li><span class="code">npm init (--yes)</span> - Initialize new Node project. Creates
+                                <li><inline-code>npm init (--yes)</inline-code> - Initialize new Node project. Creates
                                     package.json.</li>
-                                <li><span class="code">npm install -g npm&#64;latest</span> - Update NPM (Node Package
+                                <li><inline-code>npm install -g npm&#64;latest</inline-code> - Update NPM (Node Package
                                     Manager) to
-                                    latest.</li>
-                                <li><span class="code">npm update -g npm</span> - Update Node to latest.</li>
-                                <li><span class="code">npm install</span> - Installs packages specified in packages.json
+                                    latest. The -g makes this install global, meaning it will update NPM for all
+                                    projects on your machine.</li>
+                                <li><inline-code>npm uninstall &lt;PACKAGE&gt;</inline-code> - Uninstall.</li>
+                                <li><inline-code>npm update -g npm</inline-code> - Update Node to latest.</li>
+                                <li><inline-code>npm install</inline-code> - Installs packages specified in
+                                    packages.json
                                     if
                                     no package
                                     is specified.</li>
-                                <li><span class="code">npm audit fix</span> - Fixes easy security problems found in
+                                <li><inline-code>npm audit fix</inline-code> - Fixes easy security problems found in
                                     audit
                                     (excluding
                                     breaking changes).</li>
-                                <li><span class="code">npm run start</span> - Runs a script hook from packages.json, in
+                                <li><inline-code>npm run start</inline-code> - Runs a script hook from packages.json, in
                                     this
                                     case,
                                     "start."</li>
-                                <li><span class="code code_lh">npm link</span> - Tell npm to install from local
+                                <li><inline-code>npm link</inline-code> - Tell npm to install from local
                                     source.<br>
                                     E.g.<br>
                                     <ol>
-                                        <li>From the base npm package folder, type <span class="code">npm link</span>
+                                        <li>From the base npm package folder, type <inline-code>npm
+                                                link</inline-code>
                                         </li>
-                                        <li>Type <span class="code">npm link</span> in a subfolder. Useful for testing
+                                        <li>Type <inline-code>npm link</inline-code> in a subfolder. Useful for
+                                            testing
                                             npm
                                             package
                                             before publishing!</li>
@@ -145,11 +150,13 @@
                                                     &#64;angular/animations&#64;18.2.2</inline-code></li>
                                             <li>Downgrade &#64;angular/platform-server to 17.3.0</li>
                                             <li>Use --force or --legacy-peer-deps to accept the incorrect dependency
-                                                resolution<br><span class="additional-note">Option 1 being the preferred of course. Really,
+                                                resolution<br><span class="additional-note">Option 1 being the preferred
+                                                    of course. Really,
                                                     this is the order I would attempt to resolve..</span></li>
                                         </ol><br><br>
 
-                                        To play this out, I tried to upgrade Angular/animations to 18.2.2. This caused the error:<br>
+                                        To play this out, I tried to upgrade Angular/animations to 18.2.2. This caused
+                                        the error:<br>
                                         <pre>
 npm error code ERESOLVE
 npm error ERESOLVE unable to resolve dependency tree
@@ -168,11 +175,13 @@ npm error Fix the upstream dependency conflict, or retry
 npm error this command with --force or --legacy-peer-deps
                                         </pre><br><br>
 
-                                        I tried: <inline-code>npm install &#64;angular/core&#64;18.2.2</inline-code><br><br>
+                                        I tried: <inline-code>npm install
+                                            &#64;angular/core&#64;18.2.2</inline-code><br><br>
 
-                                        That worked, albeit with warnings, next: <inline-code>npm install &#64;angular/animations&#64;18.2.2</inline-code><br><br>
+                                        That worked, albeit with warnings, next: <inline-code>npm install
+                                            &#64;angular/animations&#64;18.2.2</inline-code><br><br>
 
-                                        Then, 
+                                        Then,
 
                                     </mat-expansion-panel>
                                 </li>
