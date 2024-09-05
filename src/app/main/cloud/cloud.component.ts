@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { CommentComponent } from '../../shared-components/comment/comment.component';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
   selector: 'app-cloud',
   standalone: true,
   imports: [MatCardModule, CommentComponent, MatExpansionModule, RouterLink, MatButtonModule],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './cloud.component.html',
   styleUrl: './cloud.component.scss'
 })
