@@ -267,6 +267,15 @@ a:active {
     border-top: 1px solid midnightblue !important;
 }
 
+.vampire .comment {
+    background-color: var(--theme-comment-background) !important;
+    color: #6B1000 !important;
+}
+
+.vampire .comment-arrow, .vampire .comment->.mat-icon {
+    color: #B2C248 !important;
+}
+
 $dark-primary: (
     "primary": pink,
     "link": "#7F7F7F",

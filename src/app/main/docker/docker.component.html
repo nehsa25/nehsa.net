@@ -10,55 +10,81 @@
                 <div>
                     <ul>
                         <li>
-                            <mat-expansion-panel>
+                            <mat-expansion-panel expanded>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Common Commands</mat-panel-title>
                                 </mat-expansion-panel-header>
-                                <br><label>builds a Docker image and tags it for uploading to <a
-                                        href="https://hub.docker.dom">Docker
-                                        Hub</a></label>
-                                <code>docker build . -t &lt;dockerhub username&gt;/&lt;repo name&gt;:latest
-                                </code>
-                                <br><label>Build the image + start the container</label>
-                                <code>docker-compose up --build</code>
-                                <br><label>Start/Stop the container</label>
-                                <code>docker-compose up/down</code>
-                                <br><label>Network info</label>
-                                <code>docker network ls</code>
-                                <br><label>Image info</label>
-                                <code>docker images</code>
-                                <br><label>Copy items to/from image</label>
-                                <code>docker cp 16d4ac49e7bb:/app/html-report .</code>
-                                <br><label>Remove stopped containers and unused images.
-                                    The options -a removes everything.</label>
-                                <code>docker system prune (-a)</code>
-                                <br><label>Saves an image to a local file
-                                    system</label>
-                                <div>
-                                    <label>Create new image with current changes (this merges volumes)</label>
-                                    <code>docker commit 93afb54049db jenkins:2.440.3-1
-                                         (the recommended approach is to update your dockerfile with everything required as that ensured full reproducibility)</code>
-                                    <br><label>Saves an image as image.tar</label>
-                                    <code>docker save --output image.tar jenkins:2.440.3-1</code>
-
-                                </div>
-                                <br><label>Loads a saved image (likely on a different
-                                    machine if you're not publishing to dockerhub)</label>
-                                <code>docker load --input image.tar</code>
-                                <br><label>Lists running containers</label>
-                                <code>docker container ps</code>
-                                <br><label>Lists all containers (including stopped)</label>
-                                <code>docker ps -a</code>
-                                <br><label>Lists all containers
-                                    tagged</label>
-                                <code>docker image ls | grep nehsa/nehsanet</code>
-                                <br><label>publish
-                                    to Docker Hub</label>
-                                <code>docker push &lt;dockerhub username&gt;/&lt;repo name&gt;:latest</code>
-                                <br><label>pull from Docker Hub</label>
-                                <code>docker pull nehsa/nehsanet:latest</code>
-                                <br><label>Open bash prompt as root user</label>
-                                <code>docker exec -it -u root jenkins /bin/bash</code>
+                                <ul>
+                                    <li><label>builds a Docker image and tags it for uploading to <a
+                                                href="https://hub.docker.dom">Docker
+                                                Hub</a></label><br>
+                                        <inline-code>docker build . -t &lt;dockerhub username&gt;/&lt;repo
+                                            name&gt;:latest
+                                        </inline-code>
+                                    </li>
+                                    <li><label>Starts a new container from the cu</label><br>
+                                <inline-code>docker build . -t &lt;dockerhub username&gt;/&lt;repo
+                                    name&gt;:latest
+                                </inline-code>
+                            </li>
+                                    <li><label>Build the image + start the container</label><br>
+                                        <inline-code>docker-compose up --build</inline-code>
+                                    </li>
+                                    <li><label>Start/Stop the container</label><br>
+                                        <inline-code>docker-compose up/down</inline-code>
+                                    </li>
+                                    <li><label>Network info</label><br>
+                                        <inline-code>docker network ls</inline-code>
+                                    </li>
+                                    <li><label>Image info</label><br>
+                                        <inline-code>docker images</inline-code>
+                                    </li>
+                                    <li>
+                                        <label>Copy items to/from image</label><br>
+                                        <inline-code>docker cp 16d4ac49e7bb:/app/html-report .</inline-code>
+                                    </li>
+                                    <li><label>Remove stopped containers and unused images.
+                                            The options -a removes everything.</label><br>
+                                        <inline-code>docker system prune (-a)</inline-code>
+                                    </li>
+                                    <li><label>Saves an image to a local file
+                                            system</label><br>
+                                        <div>
+                                            <label>Create new image with current changes (this merges volumes)</label><br>
+                                            <inline-code>docker commit 93afb54049db jenkins:2.440.3-1
+                                                (the recommended approach is to update your dockerfile with everything
+                                                required
+                                                as that ensured full reproducibility)</inline-code>
+                                            <br><label>Saves an image as image.tar</label><br>
+                                            <inline-code>docker save --output image.tar jenkins:2.440.3-1</inline-code>
+                                        </div>
+                                    </li>
+                                    <li><label>Loads a saved image (likely on a different
+                                            machine if you're not publishing to dockerhub)</label><br>
+                                        <inline-code>docker load --input image.tar</inline-code>
+                                    </li>
+                                    <li><label>Lists running containers</label><br>
+                                        <inline-code>docker container ps</inline-code>
+                                    </li>
+                                    <li><label>Lists all containers (including stopped)</label><br>
+                                        <inline-code>docker ps -a</inline-code>
+                                    </li>
+                                    <li><label>Lists all containers
+                                            tagged</label><br>
+                                        <inline-code>docker image ls | grep nehsa/nehsanet</inline-code>
+                                    </li>
+                                    <li><label>publish
+                                            to Docker Hub</label><br>
+                                        <inline-code>docker push &lt;dockerhub username&gt;/&lt;repo
+                                            name&gt;:latest</inline-code>
+                                    </li>
+                                    <li><label>pull from Docker Hub</label><br>
+                                        <inline-code>docker pull nehsa/nehsanet:latest</inline-code>
+                                    </li>
+                                    <li><label>Open bash prompt as root user</label><br>
+                                        <inline-code>docker exec -it -u root jenkins /bin/bash</inline-code>
+                                    </li>
+                                </ul>
                             </mat-expansion-panel>
                         </li>
                         <li>
@@ -70,17 +96,17 @@
                                     <li>Setup account on <a href="https://hub.docker.com/">dockerhub</a></li>
                                     <li>Create dockerfile and docker-compose files</li>
                                     <li>
-                                        <br><label>Verify it builds</label>
-                                        <code>docker build . -t &lt;dockerhub username&gt;/&lt;repo
-                                            name&gt;:latest</code>
+                                        <br><label>Verify it builds</label><br>
+                                        <inline-code>docker build . -t &lt;dockerhub username&gt;/&lt;repo
+                                            name&gt;:latest</inline-code>
                                     </li>
                                     <li>
-                                        <br><label>Verify it runs</label>
-                                        <code>docker-compose up</code>
+                                        <br><label>Verify it runs</label><br>
+                                        <inline-code>docker-compose up</inline-code>
                                     </li>
                                     <li>
-                                        <code>docker push &lt;dockerhub username&gt;/&lt;repo
-                                            name&gt;:latest</code>
+                                        <inline-code>docker push &lt;dockerhub username&gt;/&lt;repo
+                                            name&gt;:latest</inline-code>
                                     </li>
                                 </ol>
                             </mat-expansion-panel>
@@ -94,28 +120,28 @@
                                     <li>Download the registry docker container: <a
                                             href="https://hub.docker.com/_/registry"
                                             target="_blank">https://hub.docker.com/_/registry</a>
-                                        <code>
+                                        <inline-code>
                                             docker pull registry
-                                        </code>
+                                        </inline-code>
                                     </li>
                                     <li>Run it:
-                                        <code>docker run -d -p 5000:5000 --name registry registry:latest
-                                        </code>
+                                        <inline-code>docker run -d -p 5000:5000 --name registry registry:latest
+                                        </inline-code>
                                     </li>
                                     <li>Verify it's running:
-                                        <code>docker logs -f registry</code>
+                                        <inline-code>docker logs -f registry</inline-code>
                                     </li>
                                     <li>Push to it:
-                                        <code>
+                                        <inline-code>
                                             docker tag node:20 localhost:5000/&lt;tagname&gt;<br>
                                             docker push localhost:5000/&lt;tagname&gt;
-                                        </code>
+                                        </inline-code>
                                     </li>
                                     <li>Delete it from the local machine (for reference):
-                                        <code>docker rmi localhost:5000/&lt;tagname&gt;</code>
+                                        <inline-code>docker rmi localhost:5000/&lt;tagname&gt;</inline-code>
                                     </li>
                                     <li>Pull from it:
-                                        <code>docker pull localhost:5000/&lt;tagname&gt;</code>
+                                        <inline-code>docker pull localhost:5000/&lt;tagname&gt;</inline-code>
                                     </li>
                                 </ol>
                             </mat-expansion-panel>
@@ -126,7 +152,7 @@
                                     <mat-panel-title>Install latest Python on Ubuntu (within Docker)</mat-panel-title>
                                 </mat-expansion-panel-header>
                                 Update dockerfile:
-                                <code>
+                                <inline-code>
                                     <pre>
 # Update package lists
 RUN apt update && \
@@ -138,7 +164,7 @@ RUN apt install -y python3.11
 # Check the installed version of Python
 RUN python3.11 --version
 </pre>
-                                </code><br><br>
+                                </inline-code><br><br>
                                 This can be verified by checking build log and confirmed we get a Python version 3.11
                                 printed:
                                 <img src="../../../assets/images/python-docker.png" alt="Python 3.11 installed" />
@@ -156,7 +182,7 @@ RUN python3.11 --version
                                             <mat-expansion-panel-header>
                                                 <mat-panel-title>dockerfile</mat-panel-title>
                                             </mat-expansion-panel-header>
-                                            <code>
+                                            <inline-code>
                                                 <pre>
 FROM node:21.6.1-slim  <span class="comment">// The base image to start with</span>
 EXPOSE 80 443
@@ -166,7 +192,7 @@ RUN npm install
 COPY . .
 CMD node index.js
 </pre>
-                                            </code>
+                                            </inline-code>
                                         </mat-expansion-panel>
                                     </li>
                                     <li>
@@ -174,8 +200,8 @@ CMD node index.js
                                             <mat-expansion-panel-header>
                                                 <mat-panel-title>docker-compose.yml</mat-panel-title>
                                             </mat-expansion-panel-header>
-                                            <code>
-<pre>
+                                            <inline-code>
+                                                <pre>
 name: nehsanet
 version: "3.8"
 services:
@@ -193,7 +219,7 @@ volumes:
     node_modules:
     app:                       
 </pre>
-                                            </code>
+                                            </inline-code>
                                         </mat-expansion-panel>
                                     </li>
                                     <li>
@@ -232,11 +258,11 @@ nehsa/nehsanet   latest    418b390c6d3a   26 minutes ago   3.2GB
                             until the image is updated (docker build)</li>
                         <li>Containers can be started using either:
                             <ul>
-                                <li>a sole dockerfile and <code>docker run -p 80:80 -it
-                                        nehsa/nehsanet:latest</code>
+                                <li>a sole dockerfile and <inline-code>docker run -p 80:80 -it
+                                        nehsa/nehsanet:latest</inline-code>
                                 </li>
-                                <li>a dockerfile and docker-compose.yml and <code>docker compose
-                                        up/down</code>
+                                <li>a dockerfile and docker-compose.yml and <inline-code>docker compose
+                                        up/down</inline-code>
                                 </li>
                             </ul>
                         </li>

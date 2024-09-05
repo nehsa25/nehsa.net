@@ -27,10 +27,10 @@
                         optimization<acronym-abbr>SEO</acronym-abbr></acronym-name> by delivering a fully rendered
                     page to search engines.<br><br>
 
-                    This is my first attempt at server-side rendering. I'm using Angular Universal to render this
+                    I'm going to use <span class="important">Angular Universal</span> to render this
                     website.<br><br>
 
-                    Average Load Time 100 requests of https://www.nehsa.net:<br><br>
+                    Average Load Time <span class="importantish">100 requests</span> of https://www.nehsa.net:<br><br>
                     <span class="importantish">Before: 1.5251026892662047s</span><br>
                     <span class="importantish">After: </span><br><br>
 
@@ -46,15 +46,149 @@
                                         Install Angular Universal: <inline-code>ng add
                                             &#64;nguniversal/express-engine</inline-code>
                                     </li>
+                                    <li>Install the Angular Universal module map loader:
+                                        <inline-code>npm install
+                                            &#64;nguniversal/module-map-ngfactory-loader</inline-code>
+                                    </li>
+                                    <li>Install the Angular platform server, which is required for server-side
+                                        rendering:
+                                        <inline-code>npm install &#64;angular/platform-server </inline-code>
+                                    </li>
                                     <li>Create new files needed for SSR:<br>
                                         <ul>
                                             <li><inline-file>server.ts</inline-file>: This file is the entry
-                                                point for your server-side rendering.
+                                                point for your server-side rendering.<br>
+
+                                                Minimal example server.ts:<br>
+                                                <code>
+                                                        <pre>
+import 'zone.js/dist/zone-node';
+import 'reflect-metadata';
+import &#123; enableProdMode &#125; from '&#64;angular/core';
+import &#123; ngExpressEngine &#125; from '&#64;nguniversal/express-engine';
+import &#123; provideModuleMap &#125; from '&#64;nguniversal/module-map-ngfactory-loader';
+import express from 'express';
+import &#123; join &#125; from 'path';
+import &#123; readFileSync &#125; from 'fs';
+import &#123; AppServerModule, LAZY_MODULE_MAP &#125; from './src/main.server';
+
+enableProdMode();
+
+const app = express(); <span class="comment">// <mat-icon>arrow_back</mat-icon> We're going to use Express server (http://expressjs.com/)</span>
+
+const PORT = process.env["PORT"] || 4000;
+
+const DIST_FOLDER = join(process.cwd(), 'dist/nehsanet/browser');
+
+const template = readFileSync(join(DIST_FOLDER, 'index.html')).toString(); <span class="comment">// <mat-icon>arrow_back</mat-icon> Read the index.html file.  DIST_FOLDER is where the Angular application is built.</span>
+
+app.engine('html', ngExpressEngine( <span class="comment">// <mat-icon>arrow_back</mat-icon> Use Angular Universal's ExpressEngine</span>
+    &#123;
+        bootstrap: AppServerModule,
+        providers: [provideModuleMap(LAZY_MODULE_MAP)]
+    &#125;
+));
+
+app.set('view engine', 'html'); <span class="comment">// <mat-icon>arrow_back</mat-icon> Set the view engine to HTML</span>
+app.set('views', DIST_FOLDER); <span class="comment">// <mat-icon>arrow_back</mat-icon> Set the views folder (DIST_FOLDER is where the Angular application is built).</span>
+
+<span class="comment">// Serve static files using Express.js engine</span><br>
+app.get('*.*', express.static(DIST_FOLDER, &#123; maxAge: '1y' &#125;)); 
+
+<span class="comment">// All regular routes use the Universal engine</span><br>
+app.get('*', (req, res) =>
+&#123;
+    res.render('index', &#123; req &#125;);
+&#125;);
+
+<span class="comment">// Start the server</span><br>
+app.listen(PORT, () =>
+&#123;
+    console.log(`Node server listening on http://localhost:$&#123;PORT&#125;`);
+&#125;);
+                                                    </pre>
+                                                </code>
+                                            </li>
                                             <li><inline-file>app.server.module.ts</inline-file>: This file is
-                                                the server-side module.
+                                                the server-side module.<br>
+
+                                                Minimal app.server.module.ts:<br>
+                                                <code>
+                                                        <pre>
+import &#123; NgModule &#125; from '&#64;angular/core';
+import &#123; ServerModule &#125; from '&#64;angular/platform-server';
+import &#123; ModuleMapLoaderModule &#125; from '&#64;nguniversal/module-map-ngfactory-loader';
+
+&#64;NgModule(&#123;
+    imports: [
+        ServerModule,
+        ModuleMapLoaderModule,
+        AppServerModule
+    ]
+&#125;)
+export class AppServerModule &#123; &#125;                                                            
+                                                            </pre>
+                                                </code>
+                                            </li>
+                                            <li><inline-file>tsconfig.server.json</inline-file>: The TypeScript configuration file for the server-side rendering.<br><br>
+
+                                                tsconfig.server.json:<br>
+                                                <code>
+                                                    <pre>
+&#123;
+    "extends": "./tsconfig.app.json",
+    "compilerOptions": &#123;
+        "outDir": "./out-tsc/app",
+        "baseUrl": "./",
+        "module": "commonjs",
+        "types": []
+    &#125;,
+    "angularCompilerOptions": &#123;
+        "entryModule": "./src/app/app.server.module#AppServerModule"
+    &#125;
+&#125;
+</pre>
+                                                </code>
                                             </li>
                                             <li><inline-file>main.server.ts</inline-file>: Render the Angular
                                                 application on the server-side and return the rendered HTML.
+
+                                                main.server.ts:<br>
+                                                <code>
+<pre>
+export &#123; AppServerModule &#125; from './app.server.module';
+import &#123; enableProdMode &#125; from '&#64;angular/core';
+enableProdMode();
+
+export &#123; ngExpressEngine &#125; from '&#64;nguniversal/express-engine';
+export &#123; provideModuleMap &#125; from '&#64;nguniversal/module-map-ngfactory-loader';
+import 'zone.js/dist/zone-node';
+import 'reflect-metadata';
+import &#123; readFileSync &#125; from 'fs';
+import &#123; join &#125; from 'path';
+import &#123; provideModuleMap &#125; from '&#64;nguniversal/module-map-ngfactory-loader';
+
+const &#123; AppServerModule, LAZY_MODULE_MAP &#125; = require('./dist/nehsanet/server/main');
+
+const template = readFileSync(join(__dirname, 'dist/nehsanet/browser/index.html')).toString();
+
+export function render(url: string): Promise&lt;string&gt; &#123;
+    return renderModuleFactory(AppServerModule, &#123;
+        document: template,
+        url: url,
+        extraProviders: [provideModuleMap(LAZY_MODULE_MAP)]
+    &#125;);
+&#125;
+
+export function renderModule(url: string): Promise&lt;string&lg; &#123;
+    return render(url);
+&#125;
+
+export function renderModuleFactory(AppServerModule: any, options: any): Promise&lt;string&lg; &#123;
+    return renderModuleFactory(AppServerModule, options);
+&#125;
+</pre>
+                                                </code>
                                             </li>
                                             <li>Update angular.json:<br>
                                                 <code>

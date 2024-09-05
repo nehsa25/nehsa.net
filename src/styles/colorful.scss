@@ -109,10 +109,10 @@ a:active {
 
 .angel .comment {
     background-color: var(--theme-comment-background) !important;
-    color: var(--theme-comment-color) !important;
+    color: #6B1000 !important;
 }
 
-.angel .comment-arrow {
+.angel .comment-arrow, .angel .comment->mat-icon {
     color: cornflowerblue;
 }
 

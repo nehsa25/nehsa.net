@@ -14,6 +14,8 @@
     <ul class="navbar-links norm-navbar-links">
       <li class="norm" [class.nav-selected]="this.userService.pagePath==='/angular'" (click)="sendUser('/angular')">
         Angular</li>
+      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/ssr'" (click)="sendUser('/ssr')">
+        Angular Universal</li>
       <li class="norm" [class.nav-selected]="this.userService.pagePath==='/ai'" (click)="sendUser('/ai')">Artificial
         Intelligence (AI)</li>
       <li class="norm" [class.nav-selected]="this.userService.pagePath==='/aws'" (click)="sendUser('/aws')">AWS</li>
@@ -54,7 +56,8 @@
         Jenkins</li>
       <li class="norm" [class.nav-selected]="this.userService.pagePath==='/jsdoc'" (click)="sendUser('/jsdoc')">jsdoc
       </li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/kestrel'" (click)="sendUser('/kestrel')">Kestrel
+      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/kestrel'" (click)="sendUser('/kestrel')">
+        Kestrel
       </li>
       <li class="norm" [class.nav-selected]="this.userService.pagePath==='/k8s'" (click)="sendUser('/k8s')">Kubernetes
       </li>
@@ -91,8 +94,8 @@
         Engine Optimization (SEO)</li>
       <li class="norm" [class.nav-selected]="this.userService.pagePath==='/security'" (click)="sendUser('/security')">
         Security</li>
-        <li class="norm" [class.nav-selected]="this.userService.pagePath==='/ssr'" (click)="sendUser('/ssr')">
-          Server-Side Rendering (SSR)</li>
+      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/ssr'" (click)="sendUser('/ssr')">
+        Server-Side Rendering (SSR)</li>
       <li class="norm" [class.nav-selected]="this.userService.pagePath==='/sql'" (click)="sendUser('/sql')">SQL</li>
       <li class="norm" [class.nav-selected]="this.userService.pagePath==='/swagger'" (click)="sendUser('/swagger')">
         Swagger</li>
