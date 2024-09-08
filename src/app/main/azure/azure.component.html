@@ -21,13 +21,15 @@
 
                     <ul>
                         <li>
-                            <mat-expansion-panel>
+                            <mat-expansion-panel expanded>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Definitions</mat-panel-title>
                                 </mat-expansion-panel-header>
                                 <dl>
                                     <dt>App Service</dt>
                                     <dd>Azure's offering for hosting web applications</dd>
+                                    <dt>Azure Container Registry</dt><dd>MS offering for hosting container images</dd>
+                                    <dt>Azure Container Instances</dt><dd>MS offering for running containers</dd>
                                     <dt>Application Insights</dt>
                                     <dd>Azure's monitoring service. Can be instrumented into your application to monitor
                                         performance and usage</dd>
@@ -171,6 +173,29 @@
                                     </li>
                                     <li>The database settings are updated for the perspectice environment. e.g. test
                                         database should point to test portal.</li>
+                                </ol>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Running an Angular app in a container</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                This will be moving from an Azure App Service to an Azure Container Instance. The reasoning behind this move: <br>
+                                <ul>
+                                    <li>Cost: Azure App Service is more expensive than Azure Container Instances</li>
+                                    <li>Flexibility: Azure Container Instances allow for more flexibility in the environment</li>
+                                    <li>Learning: I want to learn how to run an Angular app in a container</li>
+                                </ul><br><br>
+
+                                The process will be like this:
+                                <ol>
+                                    <li>Build the Angular app (see <a routerLink="/angular">Angular</a>)</li>
+                                    <li>Build the Docker image (see <a routerLink="/docker">Azure</a>)</li>
+                                    <li>Push the Docker image to Azure Container Registry</li>
+                                    <li>Run the Docker image in Azure Container Instances</li>
+                                    <li>Update traffic from App Service "test" environment to new Continaer instance</li>
+                                    <li>Validate!</li>
                                 </ol>
                             </mat-expansion-panel>
                         </li>
