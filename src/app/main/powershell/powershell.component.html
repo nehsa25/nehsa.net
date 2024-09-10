@@ -7,11 +7,61 @@
     <mat-card-content>
         <div class="commentgrid">
             <div class="topics">
-                <div>
-                    <h3>Useful PowerShell profile with useful functions/information</h3>
-                    <a href="https://github.com/nehsa25/powershell-profile">Microsoft.PowerShell_profile.ps1</a>
-                    <div>
-                <pre>
+                <ul>
+                    <li>
+                        <mat-expansion-panel expanded>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Useful Commands</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li>Get 5 latest LabListener event log errors: 
+                                    <inline-code>(Get-EventLog -Newest 5 -LogName LabListener -EntryType Error).Message
+                                    </inline-code>
+                                </li>
+                                <li>Harddrive info: 
+                                    <inline-code>wmic diskdrive get InterfaceType,Model,Name,SerialNumber,Size,Status</inline-code>
+                                </li>
+                                <li>Get the .NET runtime version used: 
+                                    <code>
+<pre>
+$path = 'C:\Program Files (x86)\LabListener\bin\ghasi.dll'<br>
+[Reflection.Assembly]::ReflectionOnlyLoadFrom($path).ImageRuntimeVersion
+</pre>
+                                </code>
+                                </li>
+                                <li>List IPv4 Address: 
+                                    <inline-code>
+                                        (Get-NetIPConfiguration |Where-Object &#123; $_.IPv4DefaultGateway -ne $null
+                                        -and
+                                        $_.NetAdapter.Status -ne "Disconnected" &#125;).IPv4Address.IPAddress
+                                    </inline-code>
+                                </li>
+                                <li>Get status of a service: 
+                                    <inline-code>get-service -name 'lab listener'</inline-code>
+                                </li>
+                                <li>Last 30 lines of a log file:
+                                    <inline-code>
+                                        Get-Content install_log.txt | Select-Object -last 30
+                                    </inline-code>
+                                </li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>My PowerShell profile with useful
+                                    functions/information</mat-panel-title>
+                                <mat-panel-description>                                    
+                                    pwsh.exe (.NET Core): c:\users\&lt;YOU&gt;\Documents\PowerShell\Microsoft.PowerShell_profile.ps1<br>
+                                    powershell.exe: c:\users\&lt;YOU&gt;\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <div>
+                                <a
+                                    href="https://github.com/nehsa25/powershell-profile">Microsoft.PowerShell_profile.ps1</a>
+                                <code>
+                                    <pre>
 <span class="red">Aliases</span><span class="grey">
 * "npp" - Launches Notepad++
 * "weather "Casablanca,Morocco" - The weather :)
@@ -73,41 +123,15 @@ YOU ARE NOT RUNNING AS AN ADMINISTRATOR.
 </span><span class="grey">
 
 Good day, sir Jesse!  It is: 05/16/2024 12:48:12
-</span></pre>
-                    </div>
-                </div>
-                <div>
-                    <h3>Powershell Commands</h3>
-                    <ul>
-                        <li>Get 5 latest LabListener event log errors:<br>
-                            <div>(Get-EventLog -Newest 5 -LogName LabListener -EntryType Error).Message</div>
-                        </li>
-                        <li>Harddrive info:<br>
-                            <div>wmic diskdrive get InterfaceType,Model,Name,SerialNumber,Size,Status</div>
-                        </li>
-                        <li>Get the .NET runtime version used:<br>
-                            <div>
-                                $path = 'C:\Program Files (x86)\LabListener\bin\ghasi.dll'<br>
-                                [Reflection.Assembly]::ReflectionOnlyLoadFrom($path).ImageRuntimeVersion</div>
-                        </li>
-                        <li>List IPv4 Address:<br>
-                            <div>
-                                (Get-NetIPConfiguration |Where-Object &#123; $_.IPv4DefaultGateway -ne $null -and
-                                $_.NetAdapter.Status -ne "Disconnected" &#125;).IPv4Address.IPAddress
+</span>
+</pre>
+                                </code>
                             </div>
-                        </li>
-                        <li>Get status of a service:<br>
-                            <div>get-service -name 'lab listener'</div>
-                        </li>
-                        <li>Last 30 lines of a log file:
-                            <div>
-                                Get-Content install_log.txt | Select-Object -last 30
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                        </mat-expansion-panel>
+                    </li>
+                </ul>
             </div>
             <div><app-comment></app-comment></div>
         </div>
     </mat-card-content>
-</mat-card>k
+</mat-card>
