@@ -24,8 +24,8 @@
                                 <li>Get the .NET runtime version used: 
                                     <code>
 <pre>
-$path = 'C:\Program Files (x86)\LabListener\bin\ghasi.dll'<br>
-[Reflection.Assembly]::ReflectionOnlyLoadFrom($path).ImageRuntimeVersion
+$path = 'C:\Program Files (x86)\LabListener\bin\ghasi.dll';
+[Reflection.Assembly]::ReflectionOnlyLoadFrom($path).ImageRuntimeVersion;
 </pre>
                                 </code>
                                 </li>
@@ -44,14 +44,21 @@ $path = 'C:\Program Files (x86)\LabListener\bin\ghasi.dll'<br>
                                         Get-Content install_log.txt | Select-Object -last 30
                                     </inline-code>
                                 </li>
+                                <li>Output variable to file (pipe to out-file):
+                                <code>
+                                    <pre>                                        
+$cmd = "docker run nehsa/nehsanet:$&#123;build&#125;";
+$cmd | <span class="importantish">out-file</span> -filepath ./run-api.ps1;
+write-host 'To run in the future: ./run-api.ps1';
+                                    </pre>
+                                </code></li>
                             </ul>
                         </mat-expansion-panel>
                     </li>
                     <li>
                         <mat-expansion-panel>
                             <mat-expansion-panel-header>
-                                <mat-panel-title>My PowerShell profile with useful
-                                    functions/information</mat-panel-title>
+                                <mat-panel-title>My PowerShell Profile</mat-panel-title>
                                 <mat-panel-description>                                    
                                     pwsh.exe (.NET Core): c:\users\&lt;YOU&gt;\Documents\PowerShell\Microsoft.PowerShell_profile.ps1<br>
                                     powershell.exe: c:\users\&lt;YOU&gt;\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
