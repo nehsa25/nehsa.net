@@ -144,21 +144,21 @@ h6 {
 }
 
 .vampire inline-code,
-span.code,
-code {
+.vampire span.code,
+.vampire code {
     background-color: var(--theme-dark-code-background) !important;
     color: var(--theme-dark-code-color) !important;
 }
 
 .vampire inline-code:hover,
-span.code:hover {
+.vampire span.code:hover {
     color: var(--theme-pop);
     -webkit-text-stroke-color: var(--theme-background-purple) !important;
 }
 
 .vampire .additional-note,
-.additional-notes,
-.asterisk {
+.vampire .additional-notes,
+.vampire .asterisk {
     color: #888;
 }
 

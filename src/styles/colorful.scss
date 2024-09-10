@@ -199,21 +199,21 @@ td {
 }
 
 .angel inline-code,
-span.code,
-code {
+.angel span.code,
+.angel code {
     background-color: var(--theme-light-code-background) !important;
     color: var(--theme-light-code-color) !important;
 }
 
 .angel inline-code:hover,
-span.code:hover {
+.angel span.code:hover {
     color: var(--theme-pop);
     -webkit-text-stroke-color: var(--theme-background-purple) !important;
 }
 
 .angel .additional-note,
-.additional-notes,
-.asterisk {
+.angel .additional-notes,
+.angel .asterisk {
     color: #888;
 }
 
