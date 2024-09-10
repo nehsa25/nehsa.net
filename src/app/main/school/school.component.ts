@@ -1,15 +1,14 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { CommentComponent } from '../../shared-components/comment/comment.component';
-import { Subject } from 'rxjs';
 import { UserService } from '../../services/user.service';
-import { CommentType } from '../../types/comment.type';
 import { MatIconModule } from '@angular/material/icon';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-school',
   standalone: true,
-  imports: [MatCardModule, CommentComponent, MatIconModule],
+  imports: [MatCardModule, CommentComponent, MatIconModule, RouterLink],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './school.component.html',
   styleUrl: './school.component.scss'
