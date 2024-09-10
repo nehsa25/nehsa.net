@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -11,6 +11,7 @@ import { UserService } from '../../services/user.service';
   selector: 'app-t-sql',
   standalone: true,
   imports: [MatCardModule, MatExpansionModule, CommentComponent, MatIcon, RouterLink, MatButtonModule],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './t-sql.component.html',
   styleUrl: './t-sql.component.scss'
 })
