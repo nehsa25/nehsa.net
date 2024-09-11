@@ -195,83 +195,15 @@ logger.LogInformation("Logging works!");
                                 compiled into a single page. The server serves the index.html, which has all the JS,
                                 CSS, and HTML of every page.<br><br>
 
-                                This is if you use Angular to do your routine. The problem is when someone wishes to
-                                reach a specific page externally. Navigating to the page via www.nehsa.net works, but
-                                refreshing causes a 404 error.<br><br>
-
-                                This is because the server is looking for a file that doesn't exist. To fix this, we
-                                need to add a middleware layer that inspects the page and forwards it if
-                                necessary.<br><br>
-
-                                I have yet to get this to work fully and I'm evaluating moving to SSR to get around this
-                                limitation..<br><br>
-
-                                Attempt 1: (never hit)<br>
                                 <code>
-                                    <pre>
-// Setup the middleware that will handle the SPA routing
-app.Use(async (context, next) =>
+<pre>
+// allows serving our SPA app
+webApplicationBuilder.Services.AddSpaStaticFiles(configuration =>
 &#123;
-    await next();
-    if (context.Response.StatusCode == 404 &amp;&amp; !Path.HasExtension(context.Request.Path.Value))
-    &#123;  
-        context.Request.Path = "/index.html";
-        await next();
-    &#125;
+    configuration.RootPath = "app/wwwrooot";
 &#125;);
-
-                                    </pre>
-                                </code><br><br>
-
-                                Attempt 2: (only hit on api calls)<br>
-                                <code>
-<pre>
-public class AngularMiddleware
-&#123;
-    private readonly RequestDelegate _next;
-
-    public AngularMiddleware(RequestDelegate next)
-    &#123;
-        _next = next;
-    &#125;
-
-    public async Task Invoke(HttpContext context)
-    &#123;
-        Console.WriteLine($"AngularMiddleware Invoke: &#123;context.Request.Path&#125;, IP: &#123;context.Connection.RemoteIpAddress&#125;");
-        if (context.Request.Path.StartsWithSegments("/v1"))
-        &#123;
-            // Forward API requests to Kestrel
-            Console.WriteLine("Directing to Kestrel");
-            await _next(context);
-        &#125;
-        else
-        &#123;
-            // Redirect all other requests to Angular's index.html
-            Console.WriteLine("Directing to Angular SPA");
-            context.Response.StatusCode = StatusCodes.Status302Found;
-            context.Response.Headers.Location = "/";
-        &#125;
-    &#125;
-&#125;                                    
 </pre>
-                                </code><br><br>
-
-                                Attempt 3: (can't seem to get working)<br>
-                                <code>
-<pre>
-// ensure we redirect to index.html any non API requests
-app.UseDefaultFiles(new DefaultFilesOptions
-&#123;
-    RequestPath = "/app",
-    DefaultFileNames = ["index.html"]
-&#125;);                  
-</pre>
-                                </code><br><br>
-
-                                Attempt 4: SSR: <a mat-stroked-button routerLink="/ssr">Server-Side Rendering</a><br><br>
-
-                                This middleware layer will intercept the request and forward it to the index.html file,
-                                assuming the index.html file is in the root of the wwwroot folder.<br><br>
+                                </code>
                             </mat-expansion-panel>
                         </li>
                         <li>
@@ -396,6 +328,17 @@ app.UseMiddleware&lt;CSPMiddleware&gt;("default-src 'self'; style-src 'self' 'un
                                     <dt>self</dt>
                                     <dd>Allows the current domain only.</dd>
                                 </dl>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Cold Start Issues</mat-panel-title>
+                                    <mat-panel-description>When the server takes a long time to start
+                                        up for first requests or after server has been idle for a while.</mat-panel-description>
+                                </mat-expansion-panel-header>Set the Kestrel idle timeout to 0. This will keep the server running
+                                        indefinitely.<code>webApplicationBuilder.WebHost.ConfigureKestrel(options =>
+                                            options.Limits.KeepAliveTimeout = TimeSpan.FromMinutes(0));</code>
                             </mat-expansion-panel>
                         </li>
                     </ul>
