@@ -6,49 +6,404 @@
     </mat-card-header>
     <mat-card-content>
         <div class="commentgrid">
-            <div class="topics">A random assortment of stuff I commonly need to look up:<br>
-                <ul>
-                    <li>Create Symbolic Link:
-                        <code><span class="importantish">ln</span>
-                            <pre>
-/app# ln -s /usr/bin/python3.11 /usr/bin/python
+            <div class="topics">
+                <div>Although I would like to say I was into Linux before it was cool, I cannot. Linux has always been a
+                    fantastic operating system. There's just something special about the choice, variety, and freedom
+                    that Linux offers. It may take hours, but having that Flexbox right-click menu layout just right is
+                    a pure-fire method to release some dopamine. The thrill when running <inline-code>pacman
+                        -Syu</inline-code> in ArchLinux and
+                    seeing the new cutting-edge goodness coming your way whilest also wondering how broken your system
+                    is about to be == bliss.
+
+                    <br><br><span class="importantish">The content below is mostly based on Mint Linux which is a
+                        derivative of Ubuntu running the
+                        Cinnamon desktop environment.</span>
+                </div>
+                <div>
+                    <ul>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Common Commands</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <div class="topics">
+                                    <ul>
+                                        <li>
+                                            <mat-expansion-panel>
+                                                <mat-expansion-panel-header>
+                                                    <mat-panel-title>Create Symbolic Link</mat-panel-title>
+                                                </mat-expansion-panel-header>
+                                                <code>
+<pre>
+&lt;USER&gt;&#64;&lt;HOST&gt;:~$ ln -s /usr/bin/python3.11 /usr/bin/python
 root&#64;aa3978da43f5:/app# ls -al /usr/bin/python*
 lrwxrwxrwx 1 root root      19 Aug  9 15:00 /usr/bin/python -> /usr/bin/python3.11
 -rwxr-xr-x 1 root root 6839928 May  2 11:59 /usr/bin/python3.11
 </pre>
-                        </code>
-                    </li>
-                    <li>Get machine information:
-                        <code><span class="importantish">uname -a</span>
-                            <pre>
-PS C:\src> uname -a
-WindowsNT ideapad5-pc 2 6 x86
+                                                    </code>
+                                            </mat-expansion-panel>
+                                        </li>
+                                        <li>
+                                            <mat-expansion-panel>
+                                                <mat-expansion-panel-header>
+                                                    <mat-panel-title>Get Machine Information</mat-panel-title>
+                                                </mat-expansion-panel-header>
+                                                <code>
+<pre>
+&lt;USER&gt;&#64;&lt;HOST&gt;:~$ uname -a
+Linux &lt;HOST&gt; 6.8.0-44-generic #44-Ubuntu SMP PREEMPT_DYNAMIC Tue Aug 13 13:35:26 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
 </pre>
-                        </code>
-                    </li>
-                    <li>Get OS information:
-                        <code><span class="importantish">/etc/os-release</span>
-                            <pre>
-/app# cat /etc/os-release
-PRETTY_NAME="Debian GNU/Linux 12 (bookworm)"
-NAME="Debian GNU/Linux"
-VERSION_ID="12"
-VERSION="12 (bookworm)"
-VERSION_CODENAME=bookworm
-ID=debian
-HOME_URL="https://www.debian.org/"
-SUPPORT_URL="https://www.debian.org/support"
-BUG_REPORT_URL="https://bugs.debian.org/"
+                                                    </code>
+                                            </mat-expansion-panel>
+                                        </li>
+                                        <li>
+                                            <mat-expansion-panel>
+                                                <mat-expansion-panel-header>
+                                                    <mat-panel-title>Get OS Information</mat-panel-title>
+                                                </mat-expansion-panel-header>
+                                                <ul>
+                                                    <li>
+                                                        <code>
+<pre>
+&lt;USER&gt;&#64;&lt;HOST&gt;:~$ cat /etc/os-release
+NAME="Linux Mint"
+VERSION="22 (Wilma)"
+ID=linuxmint
+ID_LIKE="ubuntu debian"
+PRETTY_NAME="Linux Mint 22"
+VERSION_ID="22"
+HOME_URL="https://www.linuxmint.com/"
+SUPPORT_URL="https://forums.linuxmint.com/"
+BUG_REPORT_URL="http://linuxmint-troubleshooting-guide.readthedocs.io/en/latest/"
+PRIVACY_POLICY_URL="https://www.linuxmint.com/"
+VERSION_CODENAME=wilma
+UBUNTU_CODENAME=noble
 </pre>
-                        </code>
-                        <code><span class="importantish">/etc/debian_version (Debian-specific):</span>
-                            <pre>
-/app# cat /etc/debian_version
-12.6
+                                                    </code>
+                                                    </li>
+                                                    <li>
+                                                        <code>
+<pre>
+&lt;USER&gt;&#64;&lt;HOST&gt;:~$ cat /etc/debian_version
+trixie/sid
 </pre>
-                        </code>
-                    </li>
-                </ul>
+                                                    </code>
+                                                    </li>
+                                                    <li>
+                                                        <code>
+<pre>
+&lt;USER&gt;&#64;&lt;HOST&gt;:~$ lsb_release -a
+No LSB modules are available.
+Distributor ID:	Linuxmint
+Description:	Linux Mint 22
+Release:	22
+Codename:	wilma
+</pre>
+</code>
+                                                    </li>
+                                                </ul>
+                                            </mat-expansion-panel>
+                                        </li>
+                                        <li>
+                                            <mat-expansion-panel>
+                                                <mat-expansion-panel-header>
+                                                    <mat-panel-title>Get Kernel Version</mat-panel-title>
+                                                </mat-expansion-panel-header>
+                                                <code>
+<pre>
+&lt;USER&gt;&#64;&lt;HOST&gt;:~$ uname -r
+6.8.0-44-generic
+</pre>
+</code>
+                                            </mat-expansion-panel>
+                                        </li>
+                                        <li>
+                                            <mat-expansion-panel>
+                                                <mat-expansion-panel-header>
+                                                    <mat-panel-title>Get CPU Information</mat-panel-title>
+                                                </mat-expansion-panel-header>
+                                                <code>
+<pre>
+&lt;USER&gt;&#64;&lt;HOST&gt;:~$ lscpu
+Architecture:             x86_64
+  CPU op-mode(s):         32-bit, 64-bit
+  Address sizes:          39 bits physical, 48 bits virtual
+  Byte Order:             Little Endian
+CPU(s):                   8
+  On-line CPU(s) list:    0-7
+Vendor ID:                GenuineIntel
+  Model name:             Intel(R) Core(TM) i7-7700 CPU &#64; 3.60GHz
+    CPU family:           6
+    Model:                158
+    Thread(s) per core:   2
+    Core(s) per socket:   4
+    Socket(s):            1
+    Stepping:             9
+    CPU(s) scaling MHz:   33%
+    CPU max MHz:          3600.0000
+    CPU min MHz:          800.0000
+    BogoMIPS:             7200.00
+</pre>
+</code>
+                                            </mat-expansion-panel>
+                                        </li>
+                                        <li>
+                                            <mat-expansion-panel>
+                                                <mat-expansion-panel-header>
+                                                    <mat-panel-title>Get Memory Information</mat-panel-title>
+                                                </mat-expansion-panel-header>
+                                                <code>
+<pre>
+&lt;USER&gt;&#64;&lt;HOST&gt;:~$ free -h
+total        used        free      shared  buff/cache   available
+Mem:            15Gi       6.9Gi       2.6Gi       207Mi       6.5Gi       8.6Gi
+Swap:          2.0Gi          0B       2.0Gi
+</pre>
+</code>
+                                            </mat-expansion-panel>
+                                        </li>
+                                        <li>
+                                            <mat-expansion-panel>
+                                                <mat-expansion-panel-header>
+                                                    <mat-panel-title>Get Disk Information</mat-panel-title>
+                                                </mat-expansion-panel-header>
+                                                <code>
+<pre>
+&lt;USER&gt;&#64;&lt;HOST&gt;:~$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           1.6G  1.9M  1.6G   1% /run
+/dev/sda3       251G   21G  218G   9% /
+tmpfs           7.8G  154M  7.7G   2% /dev/shm
+tmpfs           5.0M   12K  5.0M   1% /run/lock
+/dev/sda2       512M  6.2M  506M   2% /boot/efi
+tmpfs           1.6G  360K  1.6G   1% /run/user/1000
+/dev/sdb2       916G  3.6G  866G   1% /media/&lt;HOST&gt;/2b0a0996-0bf2-461a-a682-19b02581373c                                        
+</pre>
+</code>
+                                            </mat-expansion-panel>
+                                        </li>
+                                        <li>
+                                            <mat-expansion-panel>
+                                                <mat-expansion-panel-header>
+                                                    <mat-panel-title>Get IP Address</mat-panel-title>
+                                                </mat-expansion-panel-header>
+                                                <ul>
+                                                    <li>
+                                                        <code>
+<pre>
+&lt;USER&gt;&#64;&lt;HOST&gt;:~$ ip a
+1: lo: <&lt;OOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+        valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host noprefixroute 
+        valid_lft forever preferred_lft forever                             
+</pre>
+                                                </code>
+                                                    </li>
+                                                    <li>
+                                                        <code>
+                                                    <pre>
+&lt;USER&gt;&#64;&lt;HOST&gt;:~$ ifconfig
+lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10&lt;host&gt;
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 29030  bytes 210354627 (210.3 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 29030  bytes 210354627 (210.3 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+</pre>
+</code>
+                                                    </li>
+                                                </ul>
+                                            </mat-expansion-panel>
+                                        </li>
+                                        <li>
+                                            <mat-expansion-panel>
+                                                <mat-expansion-panel-header>
+                                                    <mat-panel-title>Get DNS Information</mat-panel-title>
+                                                </mat-expansion-panel-header>
+                                                <code><span class="importantish">cat /etc/resolv.conf</span>
+<pre>
+&lt;USER&gt;&#64;&lt;HOST&gt;:~$ cat /etc/resolv.conf
+# This file is managed
+nameserver &lt;NAMESERVER IP&gt;
+</pre>
+</code>
+                                            </mat-expansion-panel>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Configure Bluetooth</mat-panel-title>
+                                </mat-expansion-panel-header>I use a Bluetooth headset with my Linux machine using a USB
+                                adapter: TP-LINK UB500.<br><br>
+
+                                Steps to configure Bluetooth:<br>
+                                <ul>
+                                    <li>Plug in the USB adapter</li>
+                                    <li>Run lsusb to see if the adapter is recognized (we should see something
+                                        like:<br>Bus 001 Device 006: ID 2357:0604 TP-Link TP-Link UB500 Adapter)</li>
+                                    <li>Run <inline-code>sudo apt-get install bluez bluez-tools
+                                            bluez-firmware</inline-code>, this will install the necessary Bluetooth
+                                        packages</li>
+                                    <li>Run <inline-code>sudo systemctl start bluetooth</inline-code> to start the
+                                        Bluetooth service</li>
+                                    <li>Run <inline-code>sudo systemctl enable bluetooth</inline-code> to enable the
+                                        Bluetooth service on boot</li>
+                                    <li>Restart the bluetoot service: <inline-code>sudo systemctl restart
+                                            bluetooth</inline-code></li>
+                                    <li>Run <inline-code>sudo systemctl status bluetooth</inline-code> to check the
+                                        status of the Bluetooth service</li>
+                                    <li>Launch the Cinnamon Bluetooth applet (called blueman-manager)</li>
+                                    <li>Run scan on to scan for Bluetooth devices</li>
+                                    <li>Run pair &lt;MAC ADDRESS&gt; to pair with the device</li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Configure Python</mat-panel-title>
+                                    <mat-panel-description>Python packages Vs. system packages</mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <div class="topics">
+                                    <div>
+                                        While it used to be common to use Python's built-in package manager,
+                                        <inline-code>pip</inline-code>, it's
+                                        now expected to use the system package manager instead when using Python in a
+                                        Linux environment. This allows the Python
+                                        packages to be installed and maintained by the
+                                        system package manager.<br><br>
+
+                                        To install a package to a specific Python version, use the following command:
+                                        <inline-code>python3.11 -m pip install &lt;PACKAGE&gt;</inline-code><br>(or
+                                        <inline-code>pip install &lt;PACKAGE&gt;</inline-code>)<br><br>
+
+                                        To install a package system-wide, use the following command:
+                                        <inline-code>sudo apt install python3.11-&lt;PACKAGE&gt;</inline-code>
+                                    </div>
+                                </div>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Configure SSH</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <div class="topics">
+                                    <div>
+                                        <ul>
+                                            <li>Install It:
+                                                <inline-code>&lt;USER&gt;&#64;&lt;HOST&gt;:~$ sudo apt install
+                                                    openssh-server</inline-code>
+                                            </li>
+                                            <li>Start It:
+                                                <inline-code>&lt;USER&gt;&#64;&lt;HOST&gt;:~$ sudo systemctl start
+                                                    ssh</inline-code>
+                                            </li>
+                                            <li>Enable It (Start on boot):
+                                                <inline-code>&lt;USER&gt;&#64;&lt;HOST&gt;:~$ sudo systemctl enable
+                                                    ssh</inline-code>
+                                            </li>
+                                            <li>Check Status:
+                                                <inline-code>&lt;USER&gt;&#64;&lt;HOST&gt;:~$ sudo systemctl status
+                                                    ssh</inline-code>
+                                            </li>
+                                            <li>Configure it:
+                                                <inline-code>&lt;USER&gt;&#64;&lt;HOST&gt;:~$ sudo vim
+                                                    /etc/ssh/sshd_config</inline-code><br><br>
+
+                                                # Common options:<br>
+                                                # doesn't allow root login: PermitRootLogin no<br>
+                                                # doesn't allow password login (must have ssh key):
+                                                PasswordAuthentication no<br>
+                                                # doesn't allow empty passwords: PermitEmptyPasswords no<br>
+                                                # doesn't allow X11 forwarding: X11Forwarding no<br>
+                                                # doesn't allow agent forwarding: AllowAgentForwarding no<br>
+                                                # doesn't allow TCP forwarding: AllowTcpForwarding no<br>
+                                                # Restrict access to specific users (delimited by space): AllowUsers
+                                                &lt;USER&gt;<br>
+                                                # Restrict access to specific groups (delimited by space): AllowGroups
+                                                &lt;GROUP&gt;<br>
+                                                # Restrict access to specific IP addresses: AllowUsers
+                                                &lt;USER&gt;&#64;&lt;IP&gt;<br>
+                                                # Restrict access to specific IP ranges: AllowUsers
+                                                &lt;USER&gt;&#64;&lt;IP&gt;/&lt;CIDR&gt;<br>
+                                                # Restrict access to specific ports: AllowUsers
+                                                &lt;USER&gt;&#64;&lt;IP&gt;:&lt;PORT&gt;<br>
+                                                # Ban after 3 failed login attempts: MaxAuthTries 3
+                                                (/etc/ssh/sshd_config)
+                                            </li>
+                                            <li>Restart It:
+                                                <inline-code>&lt;USER&gt;&#64;&lt;HOST&gt;:~$ sudo systemctl restart
+                                                    ssh</inline-code>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel expanded>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Setting Up Common Applications</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Setup Chrome</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <ul>
+                                                <li>Download Chrome deb package</li>
+                                                <li><inline-code>sudo dpkg -i &lt;PACKAGE&gt;</inline-code></li>
+                                                <li><inline-code>sudo apt install</inline-code></li>
+                                            </ul>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Setup Docker</mat-panel-title>
+                                            </mat-expansion-panel-header>
+
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel expanded>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Setup Slack</mat-panel-title>
+                                            </mat-expansion-panel-header>
+
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel expanded>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Setup Discord</mat-panel-title>
+                                            </mat-expansion-panel-header>
+
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel expanded>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Setup VS Code</mat-panel-title>
+                                            </mat-expansion-panel-header>
+
+                                        </mat-expansion-panel>
+                                    </li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div><app-comment></app-comment></div>
         </div>

@@ -292,7 +292,7 @@ code,
 .code-command {
     font-family: Consolas;
     border-radius: 5px;
-    padding: 2px 1em;
+    padding: 0 1em;
     font-size: 1rem;
     max-width: 90%;
 }
@@ -307,7 +307,7 @@ code {
 inline-code,
 span.code,
 .code-command {
-    line-height: 5lvh !important;
+    line-height: 2 !important;
     display: inline-block; // allows it to affect other elements around it
 }
 
@@ -443,6 +443,7 @@ li {
 
 .topics>div {
     padding: 1em;
+    line-height: 2;
 }
 
 .commentgrid {
