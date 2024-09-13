@@ -290,7 +290,7 @@ inline-code,
 span.code,
 code,
 .code-command {
-    font-family: Consolas;
+    font-family: monospace !important;
     border-radius: 5px;
     padding: 0 1em;
     font-size: 1rem;
