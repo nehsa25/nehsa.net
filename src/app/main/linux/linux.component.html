@@ -350,7 +350,7 @@ nameserver &lt;NAMESERVER IP&gt;
                             </mat-expansion-panel>
                         </li>
                         <li>
-                            <mat-expansion-panel expanded>
+                            <mat-expansion-panel>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Setting Up Common Applications</mat-panel-title>
                                 </mat-expansion-panel-header>
@@ -372,7 +372,35 @@ nameserver &lt;NAMESERVER IP&gt;
                                             <mat-expansion-panel-header>
                                                 <mat-panel-title>Setup Docker</mat-panel-title>
                                             </mat-expansion-panel-header>
-
+                                            <ol>
+                                                <li>Add the Docker repo:
+                                                    <ol>
+                                                        <li>Create folder for Docker Apt repo: <inline-code>sudo mkdir
+                                                                -p /etc/apt/keyrings</inline-code></li>
+                                                        <li>Download the Docker GPG key: <inline-code>curl -fsSL
+                                                                https://download.docker.com/linux/ubuntu/gpg |
+                                                                sudo gpg --dearmor -o
+                                                                /etc/apt/keyrings/docker.gpg</inline-code></li>
+                                                        echo "deb [arch=$(dpkg --print-architecture)
+                                                        signed-by=/etc/apt/keyrings/docker.gpg]
+                                                        https://download.docker.com/linux/ubuntu <span
+                                                            class="importantish">jammy</span>
+                                                        stable" | sudo tee /etc/apt/sources.list.d/docker.list >
+                                                        /dev/null<br><span class="additional-notes">Linux Mint 22
+                                                            codename "wilma" should point to the Ubuntu 22 codename
+                                                            "jammy"</span>
+                                                    </ol>
+                                                </li>
+                                                <li>Update apt: <inline-code>sudo apt-get update</inline-code></li>
+                                                <li>Install dependancies: <inline-code>sudo apt-get install docker-ce
+                                                        docker-ce-cli containerd.io docker-compose-plugin</inline-code>
+                                                </li>
+                                                <li>Install the dep package: <inline-code>sudo apt-get install
+                                                        ./docker-desktop-&lt;version&gt;-&lt;arch&gt;.deb</inline-code>
+                                                </li>
+                                                <li>Configure Pass (required to be able to login)</li>
+                                                <li>At this point, we should be able to start the docker-desktop</li>
+                                            </ol>
                                         </mat-expansion-panel>
                                     </li>
                                     <li>
@@ -381,9 +409,16 @@ nameserver &lt;NAMESERVER IP&gt;
                                                 <mat-panel-title>Install PowerShell Core</mat-panel-title>
                                             </mat-expansion-panel-header>
                                             <ol>
-                                                <li>Download the .db package: <inline-code>wget https://github.com/PowerShell/PowerShell/releases/download/v7.4.5/powershell_7.4.5-1.deb_amd64.deb</inline-code></li>
-                                                <li>Install libicu71_72.1-3_amd64.deb (<inline-code>sudo pkg -i libicu72_72.1-3_amd64.deb</inline-code>)</li>
-                                                <li>Install the package: <inline-code>sudo dpkg -i powershell_7.4.5-1.deb_amd64.deb</inline-code></li>
+                                                <li>Download the .deb package: <inline-code>wget
+                                                        https://github.com/PowerShell/PowerShell/releases/download/v7.4.5/powershell_7.4.5-1.deb_amd64.deb</inline-code>
+                                                </li>
+                                                <li>Install libicu71_72.1-3_amd64.deb (<inline-code>sudo pkg -i
+                                                        libicu72_72.1-3_amd64.deb</inline-code>)<br><span
+                                                        class="additional-notes">This step is likely only required for
+                                                        v7.4.5 of
+                                                        PowerShell. It shouldn't be required.</span></li>
+                                                <li>Install the package: <inline-code>sudo dpkg -i
+                                                        powershell_7.4.5-1.deb_amd64.deb</inline-code></li>
                                                 <li>Test it: <inline-code>pwsh</inline-code></li>
                                             </ol>
                                         </mat-expansion-panel>
