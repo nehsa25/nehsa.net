@@ -92,6 +92,19 @@
         grid-template-columns: 1fr;
     }
 
+    .buildarea {
+        display: grid;
+        grid-template-columns: auto 35px;
+        grid-template-rows: 1fr;
+    }
+
+    .buildarea img {
+        height: 25px;
+        width:25px;
+        margin: 0 auto;
+        background-color: #222;
+    }
+
     .dh {
         text-align: left;
     }
@@ -810,6 +823,11 @@ $base-size: .35rem;
     height: fit-content;
     margin: auto 0;
     margin-left: 3em;
+}
+
+.discord {
+    width: 100%;
+    background-color: inherit;
 }
 
 /* tims rocking motion */

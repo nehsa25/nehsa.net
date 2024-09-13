@@ -371,12 +371,10 @@
     </div>
     <footer [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
         <div class="copyright">nehsa.net &copy; 2024 - All Rights Reserved.</div>
-        <div>{{getBuild()}}</div>
-        <!-- <div class="playwright">
-            <a href="https://github.com/nehsa25/nehsa.net/actions"><img
-                    src="https://github.com/nehsa25/nehsa.net/actions/workflows/playwright.yml/badge.svg" /></a>
-            <h2>Why?</h2>
-        </div> -->
+        <div class="buildarea">
+            <div>{{getBuild()}}</div>
+            <div class="discord"><a routerLink="/discord"><img src="assets/images/discord.png" alt-text="Discord icon" /></a></div>
+        </div>
     </footer>
 </div>
 <div class="comet">

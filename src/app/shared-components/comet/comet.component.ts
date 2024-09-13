@@ -62,7 +62,8 @@ export class CometComponent implements OnInit {
       exitAnimationDuration: "300ms"
     });
     dialogRef.afterClosed().subscribe(result => {
-      if (result != "") {
+      if (result !== "" && result !== undefined) {
+        console.log("Prompt result: " + result);
         let question = new AIQuestion();
         question.question = result;
         question.previousAnswer = this.lastAnsweredMessage;

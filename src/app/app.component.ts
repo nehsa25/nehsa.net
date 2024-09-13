@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, ElementRef, HostListener, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, HostListener, Input, NO_ERRORS_SCHEMA, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './shared-components/navbar/navbar.component';
 import { CornerListenerComponent } from './shared-components/corner-listener/corner-listener.component';
@@ -46,6 +46,7 @@ import { ScriptService } from 'ngx-script-loader';
   providers: [
     HttpService
   ],
+  schemas: [NO_ERRORS_SCHEMA],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
