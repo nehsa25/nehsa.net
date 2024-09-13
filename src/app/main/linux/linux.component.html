@@ -31,6 +31,27 @@
                                         <li>
                                             <mat-expansion-panel>
                                                 <mat-expansion-panel-header>
+                                                    <mat-panel-title>Working with Apt</mat-panel-title>
+                                                </mat-expansion-panel-header>
+                                                <ul>
+                                                    <li>Install a package: <inline-code>sudo apt-get install
+                                                            &lt;PACKAGE&gt;</inline-code><br><span
+                                                            class="additional-notes">NOTE: Despite what my fingers
+                                                            muscle memory says, apt-get can just be apt. i.e. sudo apt
+                                                            install &lt;PACKAGE&gt;</span></li>
+                                                    <li>Search for a package: <inline-code>apt-cache search &lt;PACKAGE&gt;</inline-code></li>
+                                                    <li>Uninstall a package: <inline-code>sudo apt-get remove
+                                                            &lt;PACKAGE&gt;</inline-code></li>
+                                                    <li>Update the package list: <inline-code>sudo apt-get update</inline-code></li>
+                                                    <li>Upgrade the system: <inline-code>sudo apt-get upgrade</inline-code></li>
+                                                    <li>Upgrade the system (including kernel): <inline-code>sudo apt-get
+                                                            dist-upgrade</inline-code></li>
+                                                </ul>
+                                            </mat-expansion-panel>
+                                        </li>
+                                        <li>
+                                            <mat-expansion-panel>
+                                                <mat-expansion-panel-header>
                                                     <mat-panel-title>Create Symbolic Link</mat-panel-title>
                                                 </mat-expansion-panel-header>
                                                 <code>
@@ -400,6 +421,19 @@ nameserver &lt;NAMESERVER IP&gt;
                                                 </li>
                                                 <li>Configure Pass (required to be able to login)</li>
                                                 <li>At this point, we should be able to start the docker-desktop</li>
+                                            </ol>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Install .NET Core 8</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <ol>
+                                                <li>Install the SDK: <inline-code>sudo apt-get install
+                                                        dotnet-sdk-8.0</inline-code>
+                                                </li>
+                                                <li>That's it, to test: <inline-code>dotnet --version</inline-code></li>
                                             </ol>
                                         </mat-expansion-panel>
                                     </li>
