@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
-<url><loc>https://www.nehsa.net/</loc><lastmod>2024-09-11</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.nehsa.net/</loc><lastmod>2024-09-13</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
 <url><loc>https://www.nehsa.net/react</loc><lastmod>2024-09-11</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/ide</loc><lastmod>2024-09-11</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/dot</loc><lastmod>2024-09-11</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
@@ -47,6 +47,7 @@
 <url><loc>https://www.nehsa.net/vue</loc><lastmod>2024-09-11</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/graphql</loc><lastmod>2024-09-11</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/kestrel</loc><lastmod>2024-09-11</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
+<url><loc>https://www.nehsa.net/discord</loc><lastmod>2024-09-13</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/mud</loc><lastmod>2024-09-11</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
 <url><loc>https://www.nehsa.net/map</loc><lastmod>2024-09-11</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/ai-image</loc><lastmod>2024-09-11</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>

@@ -24,6 +24,7 @@
     "@angular/router": "^18.2.3",
     "@nguniversal/express-engine": "^16.2.0",
     "@nguniversal/module-map-ngfactory-loader": "^8.2.6",
+    "common": "^0.2.5",
     "ngx-script-loader": "^3.0.0",
     "playwright": "^1.43.0",
     "rxjs": "~7.8.0",
@@ -33,7 +34,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^18.2.3",
-    "@angular/cli": "^18.2.3",
+    "@angular/cli": "^18.2.4",
     "@angular/compiler-cli": "^18.2.3",
     "@playwright/test": "^1.44.1",
     "@types/jasmine": "~5.1.0",
