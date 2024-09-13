@@ -7,129 +7,188 @@
     <mat-card-content>
         <div class="commentgrid">
             <div class="topics">
-                <div>
-                    <h3>Pull Requests</h3>
-                    <h4>(contribute to another developers code base)</h4>
-                    <ol>
-                        <li>Find the repo you wish to contribute to</li>
-                        <li>Fork their repo (to make a copy of their repo in your repo)</li>
-                        <li>Clone your local fork to pull it down locally</li>
-                        <li>Use <span class="code">git checkout &lt;NewBranch&gt;</span> to create a new branch</li>
-                        <li>&lt;Make your changes... add/commit them&gt;</li>
-                        <li>Use <span class="code">git push origin &lt;NewBranch&gt; to put it back to Github</span>
-                        </li>
-                        <li>Now, you'll see the changes in your fork and have a button to create to <span
-                                class="code">Compare & pull request</span> button to open a new pull request</li>
-                        <li>If all is well, you're PR is merged and all is done</li>
-                    </ol>
-                </div>
-                <div>
-                    <h3>Example Github Workflow</h3>
-                    <div>
-                        <ol class="condensed">
-                            <li>Ned contributes by submitting a pull request...</li>
-                            <ol>
-                                <li>Unit and E2E tests are executed in a Docker container</li>
-                                <li>If 100%,</li>
-                                <ol>
-                                    <li>PR merged (The CI in CI/CD)</li>
-                                    <li>Release notes updated</li>
-                                    <li>Version updated</li>
-                                    <li>Unit, E2E, regression/long running tests executed on merged code (in a Docker
-                                        container)
-                                    </li>
-                                    <li>If 100%, </li>
+                <ul>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Important Commands</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li><span class="code">git restore .</span> - Revert everyting back to original</li>
+                                <li>
+                                    <h3>Pull Requests - Sync upsteam</h3>
                                     <ol>
-                                        <li>The change is deployed to Production. (The CD in CI/CD)</li>
-                                        <ol>
-                                            <li>Smoke test performed in Production</li>
-                                            <li>Feature Enabled. Woohoo! Highfive Ned.</li>
-                                        </ol>
+                                        <li>git remove add upstream https://github.com/nehsa25/nehsa.net.git</li>
+                                        <li>Now, at any time, use <span class="code">git fetch upstream</span> to pull
+                                            any new changes
+                                        </li>
+                                        <li>If there are some, use <span class="code">git rebase upstream</span> to add
+                                            changes on top
+                                            of your work</li>
                                     </ol>
-                                </ol>
+                                </li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Configure git</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li><span class="code">git config --global user.name "Your Name"</span></li>
+                                <li><span class="code">git config --global user.email "&lt;YOUR EMAIL&gt;"</span></li>
+                                <li><span class="code">git config --global core.editor "code --wait"</span></li>
+                                <li>Setup SSH keys
+                                    <ul>
+                                        <li>Setup on machine
+                                            <ol>
+                                                <li>ssh-keygen -t ed25519 -C "&lt;YOUR EMAIL&gt;"</li>
+                                                <li>Enter a passphrase</li>
+                                                <li>Add key to ssh-agent: <ol>
+                                                    <li>Start the ssh-agent: <inline-code>eval "$(ssh-agent -s)"</inline-code></li>
+                                                    <li>Add the key: <inline-code>ssh-add ~/.ssh/id_ed25519</inline-code>
+                                                </ol><inline-code></inline-code>
+                                                <li>cat ~/.ssh/id_ed25519.pub</li>
+                                                <li>Copy the public key</li>
+                                                <li>Setup in Github
+                                                    <ol>
+                                                        <li>Settings</li>
+                                                        <li>SSH and GPG keys</li>
+                                                        <li>New SSH key</li>
+                                                        <li>Paste the public key</li>
+                                                    </ol>
+                                                </li>
+                                            </ol>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li><mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Pull Requests</mat-panel-title>
+                                <mat-panel-description>contribute to another developers code
+                                    base</mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <ol>
+                                <li>Find the repo you wish to contribute to</li>
+                                <li>Fork their repo (to make a copy of their repo in your repo)</li>
+                                <li>Clone your local fork to pull it down locally</li>
+                                <li>Use <span class="code">git checkout &lt;NewBranch&gt;</span> to create a new branch
+                                </li>
+                                <li>&lt;Make your changes... add/commit them&gt;</li>
+                                <li>Use <span class="code">git push origin &lt;NewBranch&gt; to put it back to
+                                        Github</span>
+                                </li>
+                                <li>Now, you'll see the changes in your fork and have a button to create to <span
+                                        class="code">Compare & pull request</span> button to open a new pull request
+                                </li>
+                                <li>If all is well, you're PR is merged and all is done</li>
                             </ol>
-                        </ol>
-
-                    </div>
-                    <div>
-
-                        <div>
-                            <h3>Github Actions: Playwright - run on successful deployment</h3>
-                            <span>(Actions are in response to events such as PR created, Contributor joined, Issue
-                                created,
-                                PR
-                                merged)</span>
-
-                            <div>
-                                <h4>Example workflow</h4>
-                                <span>A workflow is a series of actions. For example, 3-6 are separate actions.</span>
-                                <ol class="condensed">
-                                    <li>Listen for an event (PR Merged)</li>
-                                    <li>Trigger appropiate workflow</li>
-                                    <li>Sort the issue</li>
-                                    <li>Assign issue to contributor</li>
-                                    <li>Catagorize it</li>
-                                    <li>Test the reproduces the issue</li>
-                                </ol>
-                            </div>
-
+                        </mat-expansion-panel>
+                    </li>
+                    <li><mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Github Actions</mat-panel-title>
+                                <mat-panel-description>Actions are triggered by events such as "PR
+                                    Created"</mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <ol class="condensed">
+                                <li>Listen for an event (PR Merged)</li>
+                                <li>Trigger appropiate workflow</li>
+                                <li>Sort the issue</li>
+                                <li>Assign issue to contributor</li>
+                                <li>Catagorize it</li>
+                                <li>Test the reproduces the issue</li>
+                            </ol>
                             <div>
                                 <h4>Example GitHub Action</h4>
-                        <pre>
+                                <pre>
 name: Super CI/CD Workflow
 
 on:
-    push:
-        branches: [ feature_branch, master ]
-    pull_request:
-        branches: [ master ]
+push:
+    branches: [ feature_branch, master ]
+pull_request:
+    branches: [ master ]
 jobs:
 build: 
 runs-on: $&#123;&#123;matrix.os&#x2775;&#x2775;
 strategy: <span class="comment" style="background-color: inherit;">#&lt;-- Build on each environment.</span>
-    matrix:
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+matrix:
+    os: [ubuntu-latest, windows-latest, macOS-latest]
 test:
-    timeout-minutes: 60
-    runs-on: ubuntu-latest
+timeout-minutes: 60
+runs-on: ubuntu-latest
 
-    if: github.event.deployment_status.state == 'success'
-    steps:
-    - uses: actions/checkout&#64;v4 <span class="comment" style="background-color: inherit;">#&lt;-- check out the repo using OOB v4 checkout action</span>
-    - name: setup node <span class="comment" style="background-color: inherit;">#&lt;-- setup node.js</span>
-        uses: actions/setup-node&#64;v4 
-    - name: Build/push Docker Image<span class="comment" style="background-color: inherit;">#&lt;-- login to Docker</span>
-        uses: docker/login-action&amp;v3
-        with:
-        username: $&#123;&#123; secrets.DOCKERHUB_USERNAME &#x2775;&#x2775;
-        password: $&#123;&#123; secrets.DOCKERHUB_TOKEN &#x2775;&#x2775;
-    -
-        name: Build and push
-        uses: docker/build-push-action&amp;v5  <span class="comment" style="background-color: inherit;">#&lt;-- Build/Push to Docker</span>
-        with:
-        image: nehsa/nehsanet
-        registry: docker.io
-        push: true
-        tags: user/app:latest
+if: github.event.deployment_status.state == 'success'
+steps:
+- uses: actions/checkout&#64;v4 <span class="comment" style="background-color: inherit;">#&lt;-- check out the repo using OOB v4 checkout action</span>
+- name: setup node <span class="comment" style="background-color: inherit;">#&lt;-- setup node.js</span>
+    uses: actions/setup-node&#64;v4 
+- name: Build/push Docker Image<span class="comment" style="background-color: inherit;">#&lt;-- login to Docker</span>
+    uses: docker/login-action&amp;v3
     with:
-        node-version: 18
-    - name: Install dependencies
-    run: npm ci
-    - name: Install Playwright
-    run: npx playwright install --with-deps
-    - name: Run Playwright tests
-    run: npx playwright test
-    env:
-        PLAYWRIGHT_TEST_BASE_URL: $&#123;&#123; github.event.deployment_status.target_url &#x2775;&#x2775;
+    username: $&#123;&#123; secrets.DOCKERHUB_USERNAME &#x2775;&#x2775;
+    password: $&#123;&#123; secrets.DOCKERHUB_TOKEN &#x2775;&#x2775;
+-
+    name: Build and push
+    uses: docker/build-push-action&amp;v5  <span class="comment" style="background-color: inherit;">#&lt;-- Build/Push to Docker</span>
+    with:
+    image: nehsa/nehsanet
+    registry: docker.io
+    push: true
+    tags: user/app:latest
+with:
+    node-version: 18
+- name: Install dependencies
+run: npm ci
+- name: Install Playwright
+run: npx playwright install --with-deps
+- name: Run Playwright tests
+run: npx playwright test
+env:
+    PLAYWRIGHT_TEST_BASE_URL: $&#123;&#123; github.event.deployment_status.target_url &#x2775;&#x2775;
 
-    publish:
-        needs: test <span class="comment" style="background-color: inherit;">#&lt;-- Denotes it requires test to complete</span>
-                        </pre>
+publish:
+    needs: test <span class="comment" style="background-color: inherit;">#&lt;-- Denotes it requires test to complete</span>
+                    </pre>
                             </div>
 
-                        </div>
-                    </div>
-                </div>
+                        </mat-expansion-panel></li>
+                    <li><mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Example Github Workflow</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ol class="condensed">
+                                <li>Ned contributes by submitting a pull request...</li>
+                                <ol>
+                                    <li>Unit and E2E tests are executed in a Docker container</li>
+                                    <li>If 100%,</li>
+                                    <ol>
+                                        <li>PR merged (The CI in CI/CD)</li>
+                                        <li>Release notes updated</li>
+                                        <li>Version updated</li>
+                                        <li>Unit, E2E, regression/long running tests executed on merged code (in a
+                                            Docker
+                                            container)
+                                        </li>
+                                        <li>If 100%,</li>
+                                        <ol>
+                                            <li>The change is deployed to Production. (The CD in CI/CD)</li>
+                                            <ol>
+                                                <li>Smoke test performed in Production</li>
+                                                <li>Feature Enabled. Woohoo! Good job Ned!</li>
+                                            </ol>
+                                        </ol>
+                                    </ol>
+                                </ol>
+                            </ol>
+                        </mat-expansion-panel>
+                    </li>
+                </ul>
             </div>
             <div><app-comment></app-comment></div>
         </div>

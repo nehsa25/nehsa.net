@@ -15,7 +15,6 @@ import { PowershellComponent } from './main/powershell/powershell.component';
 import { ProjectsComponent } from './main/projects/projects.component';
 import { AsyncioComponent } from './main/asyncio/asyncio.component';
 import { PythonComponent } from './main/python/python.component';
-import { GitComponent } from './main/git/git.component';
 import { MercurialComponent } from './main/mercurial/mercurial.component';
 import { GcpComponent } from './main/gcp/gcp.component';
 import { AzureComponent } from './main/azure/azure.component';
@@ -119,7 +118,6 @@ export const routes: Routes = [
     { path: 'projects', title: 'nehsa.net | Projects', component: ProjectsComponent },
     { path: 'asyncio', title: 'nehsa.net | AsyncIO', component: AsyncioComponent },
     { path: 'python', title: 'nehsa.net | Python', component: PythonComponent },
-    { path: 'git', title: 'nehsa.net | git', component: GitComponent },
     { path: 'mercurial', title: 'nehsa.net | Mercurial', component: MercurialComponent },
     { path: 'gcp', title: 'nehsa.net | gcp', component: GcpComponent },
     { path: 'azure', title: 'nehsa.net | Azure', component: AzureComponent },
