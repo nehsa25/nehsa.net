@@ -73,6 +73,7 @@ import { VscodeBadUxComponent } from './main/blog/vscode-bad-ux/vscode-bad-ux.co
 import { IUnderstandPiComponent } from './main/blog/i-understand-pi/i-understand-pi.component';
 import { KestrelComponent } from './main/kestrel/kestrel.component';
 import { SsrComponent } from './main/ssr/ssr.component';
+import { DiscordComponent } from './main/discord/discord.component';
 
 export const routes: Routes = [
     { path: '', title: 'nehsa.net | Home', component: WelcomeComponent },
@@ -123,6 +124,7 @@ export const routes: Routes = [
     { path: 'azure', title: 'nehsa.net | Azure', component: AzureComponent },
     { path: 'aws', title: 'nehsa.net | aws', component: AwsComponent },
     { path: 'jenkins', title: 'nehsa.net | Jenkins', component: JenkinsComponent },
+    { path: 'discord', title: 'nehsa.net | Discord', component: DiscordComponent },
     { path: 'jsdoc', title: 'nehsa.net | jsdoc', component: JsdocComponent },
     { path: 'cloud', title: 'nehsa.net | Cloud', component: CloudComponent },
     { path: 'java', title: 'nehsa.net | Java', component: JavaComponent },
