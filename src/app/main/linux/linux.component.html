@@ -376,7 +376,20 @@ nameserver &lt;NAMESERVER IP&gt;
                                         </mat-expansion-panel>
                                     </li>
                                     <li>
-                                        <mat-expansion-panel expanded>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Install PowerShell Core</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <ol>
+                                                <li>Download the .db package: <inline-code>wget https://github.com/PowerShell/PowerShell/releases/download/v7.4.5/powershell_7.4.5-1.deb_amd64.deb</inline-code></li>
+                                                <li>Install libicu71_72.1-3_amd64.deb (<inline-code>sudo pkg -i libicu72_72.1-3_amd64.deb</inline-code>)</li>
+                                                <li>Install the package: <inline-code>sudo dpkg -i powershell_7.4.5-1.deb_amd64.deb</inline-code></li>
+                                                <li>Test it: <inline-code>pwsh</inline-code></li>
+                                            </ol>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
                                             <mat-expansion-panel-header>
                                                 <mat-panel-title>Setup Slack</mat-panel-title>
                                             </mat-expansion-panel-header>
@@ -384,7 +397,7 @@ nameserver &lt;NAMESERVER IP&gt;
                                         </mat-expansion-panel>
                                     </li>
                                     <li>
-                                        <mat-expansion-panel expanded>
+                                        <mat-expansion-panel>
                                             <mat-expansion-panel-header>
                                                 <mat-panel-title>Setup Discord</mat-panel-title>
                                             </mat-expansion-panel-header>
@@ -392,7 +405,7 @@ nameserver &lt;NAMESERVER IP&gt;
                                         </mat-expansion-panel>
                                     </li>
                                     <li>
-                                        <mat-expansion-panel expanded>
+                                        <mat-expansion-panel>
                                             <mat-expansion-panel-header>
                                                 <mat-panel-title>Setup VS Code</mat-panel-title>
                                             </mat-expansion-panel-header>
