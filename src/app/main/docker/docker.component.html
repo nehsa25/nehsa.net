@@ -15,10 +15,10 @@
                                     <mat-panel-title>Tips / Tricks</mat-panel-title>
                                 </mat-expansion-panel-header>
                                 <div>
-                                    <h3>Other tidbits..</h3>
                                     <ul>
-                                        <li>You do not need to enter entire hash for an image/container as long as
-                                            they're using. e.g.
+                                        <li>You do not need to enter entire hash for an image/container.<br><br>
+                                            
+                                            e.g.
                                             <span class="importantish">418</span> would find this image:
                                             <code>
                             <pre>
@@ -228,8 +228,7 @@ root&#64;418b390c6d3a:/app#
                                     <dt>VOLUME</dt>
                                     <dd>Mount a volume from the host machine to the container. <inline-code>VOLUME
                                             /app</inline-code> would mount the /app directory from the host machine to
-                                        the container. Volumes are critical when publishing to Docker Hub as they
-                                        ensure that data is persisted between container restarts.</dd>
+                                        the container.</dd>
                                     <dt>HEALTHCHECK</dt>
                                     <dd>Specifies a command to run to check the health of the container.
                                         <inline-code>HEALTHCHECK
