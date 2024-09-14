@@ -12,6 +12,43 @@
                         <li>
                             <mat-expansion-panel expanded>
                                 <mat-expansion-panel-header>
+                                    <mat-panel-title>Tips / Tricks</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <div>
+                                    <h3>Other tidbits..</h3>
+                                    <ul>
+                                        <li>You do not need to enter entire hash for an image/container as long as
+                                            they're using. e.g.
+                                            <span class="importantish">418</span> would find this image:
+                                            <code>
+                            <pre>
+PS C:\src\nehsa.net> docker image ls | grep nehsa/nehsanet
+nehsa/nehsanet   latest    <span class="importantish">418</span>b390c6d3a   26 minutes ago   3.2GB
+
+PS C:\src\nehsa.net> docker exec -it <span class="importantish">418</span> /bin/bash
+root&#64;418b390c6d3a:/app#
+</pre>
+            </code>
+                                        </li>
+                                        <li><span class="importantish">Anything</span> not in a &quot;volume&quot; will
+                                            be lost the next time the container is started.</li>
+                                        <li>Containers can be started using either:
+                                            <ul>
+                                                <li>a sole dockerfile and <inline-code>docker run -p 80:80 -it
+                                                        nehsa/nehsanet:latest</inline-code>
+                                                </li>
+                                                <li>a dockerfile and docker-compose.yml and <inline-code>docker compose
+                                                        up/down</inline-code>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
                                     <mat-panel-title>Common Commands</mat-panel-title>
                                 </mat-expansion-panel-header>
                                 <ul>
@@ -23,10 +60,10 @@
                                         </inline-code>
                                     </li>
                                     <li><label>Starts a new container from the cu</label><br>
-                                <inline-code>docker build . -t &lt;dockerhub username&gt;/&lt;repo
-                                    name&gt;:latest
-                                </inline-code>
-                            </li>
+                                        <inline-code>docker build . -t &lt;dockerhub username&gt;/&lt;repo
+                                            name&gt;:latest
+                                        </inline-code>
+                                    </li>
                                     <li><label>Build the image + start the container</label><br>
                                         <inline-code>docker-compose up --build</inline-code>
                                     </li>
@@ -50,7 +87,8 @@
                                     <li><label>Saves an image to a local file
                                             system</label><br>
                                         <div>
-                                            <label>Create new image with current changes (this merges volumes)</label><br>
+                                            <label>Create new image with current changes (this merges
+                                                volumes)</label><br>
                                             <inline-code>docker commit 93afb54049db jenkins:2.440.3-1
                                                 (the recommended approach is to update your dockerfile with everything
                                                 required
@@ -85,6 +123,179 @@
                                         <inline-code>docker exec -it -u root jenkins /bin/bash</inline-code>
                                     </li>
                                 </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Dockerfiles</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                Tips, Tricks, usage, and definitions regarding dockerfiles.<br><br>
+
+                                Common commands:<br>
+                                <dl>
+                                    <dt>FROM</dt>
+                                    <dd>
+                                        Specifies the base image to start with with an optional tag.<br><br>
+
+                                        Images I use often:<br>
+                                        <table class="min-table">
+                                            <tr>
+                                                <th>Image Name</th>
+                                                <th>Purpose</th>
+                                                <th>Where Employed</th>
+                                            </tr>
+                                            <tr>
+                                                <td>node</td>
+                                                <td>Running Node.js applications</td>
+                                                <td>nehsa.net Angular app, React apps</td>
+                                            </tr>
+                                            <tr>
+                                                <td>sdk:8.0</td>
+                                                <td>.NET Core applications</td>
+                                                <td>Kestrel web servers and APIs</td>
+                                            </tr>
+                                            <tr>
+                                                <td>python</td>
+                                                <td>Python applications</td>
+                                                <td>NehsaMUD</td>
+                                            </tr>
+                                            <tr>
+                                                <td>golang</td>
+                                                <td>Go applications</td>
+                                                <td>Weather microservice, Web scraper microservice</td>
+                                            </tr>
+                                        </table>
+                                    </dd>
+                                    <dt>EXPOSE</dt>
+                                    <dd>
+                                        Exposes a port to the host machine. <inline-code>EXPOSE 80 443</inline-code>
+                                        would expose ports 80 and 443.
+                                    </dd>
+                                    <dt>WORKDIR</dt>
+                                    <dd>
+                                        Sets the working directory for the container. <inline-code>WORKDIR
+                                            /app</inline-code> would set the working directory to /app.
+                                    </dd>
+                                    <dt>COPY</dt>
+                                    <dd>
+                                        Copies files from the host machine to the container. <inline-code>COPY
+                                            package.json .</inline-code> would copy the package.json file from the host
+                                        machine to the container to the current directory (where set by WORKDIR). To
+                                        copy a directory, use <inline-code>COPY . .</inline-code> to copy the current
+                                        directory (the full app) or <inline-code>COPY
+                                            /app .</inline-code> to copy the /app directory.
+                                    </dd>
+                                    <dt>RUN</dt>
+                                    <dd>
+                                        Runs a command in the container. <inline-code>RUN npm install</inline-code>
+                                        would run the npm install command.
+                                    </dd>
+                                    <dt>CMD</dt>
+                                    <dd>
+                                        Specifies the command to run when the container starts.<br><br>
+
+                                        e.g.
+                                        <ul>
+                                            <li> To start a Node.js app: <inline-code>CMD
+                                                    node index.js</inline-code></li>
+                                            <li>To start a .NET Core app: <inline-code>CMD dotnet
+                                                    run</inline-code></li>
+                                        </ul>
+                                    </dd>
+                                    <dt>ENTRYPOINT</dt>
+                                    <dd>
+                                        Specifies the command to run when the container starts. This is similar to CMD
+                                        but can't be overridden by the command line. It's useful for setting a default
+                                        command that can be overridden by CMD.<br><br>
+
+                                        Example: <inline-code>ENTRYPOINT
+                                            ["dotnet", "run"]</inline-code> with <inline-code>CMD
+                                            ["--urls", "http://&lt;ip&gt;:5000"]</inline-code> would start the app with
+                                        a default URL of http://&lt;ip&gt;:5000.</dd>
+                                    <dt>ENV</dt>
+                                    <dd>Set environment variables. <inline-code>ENV
+                                            NODE_ENV=production</inline-code> would set the NODE_ENV variable to
+                                        production.</dd>
+                                    <dt>ARG</dt>
+                                    <dd>Set build-time variables. <inline-code>ARG
+                                            NODE_ENV=production</inline-code> would set the NODE_ENV variable to
+                                        production. ARG is different from ENV in that it's only available during the
+                                        build process, not when the container is running.</dd>
+                                    <dt>USER</dt>
+                                    <dd>Set the user that the container runs as. <inline-code>USER
+                                            node</inline-code> would run the container as the node user.</dd>
+                                    <dt>VOLUME</dt>
+                                    <dd>Mount a volume from the host machine to the container. <inline-code>VOLUME
+                                            /app</inline-code> would mount the /app directory from the host machine to
+                                        the container. Volumes are critical when publishing to Docker Hub as they
+                                        ensure that data is persisted between container restarts.</dd>
+                                    <dt>HEALTHCHECK</dt>
+                                    <dd>Specifies a command to run to check the health of the container.
+                                        <inline-code>HEALTHCHECK
+                                            CMD curl --fail http://localhost:80/ || exit 1</inline-code> would check the
+                                        health of the container by making a request to http://localhost:80.
+                                    </dd>
+                                    <dt>ONBUILD</dt>
+                                    <dd>Specifies a command to run when the image is used as a base image. This is
+                                        useful for setting up common configurations that are shared across multiple
+                                        images.</dd>
+                                </dl>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Multi-stage Dockerfiles</mat-panel-title>
+                                </mat-expansion-panel-header>It can be useful to use a multi-stage Dockerfile to keep
+                                the size of the final image small and minimize the attack surface. A multi-stage works
+                                by first building the application in a temporary container and then copying the built
+                                application to a new container that only contains the runtime dependencies. This allows
+                                you to keep the final image small while still having all the necessary dependencies to
+                                run the application.<br><br>
+
+                                Example:<br>
+                                <code>
+                                    <pre>
+# Build stage
+FROM node:21.6.1-slim AS build <span class="comment"><mat-icon>arrow_back</mat-icon> // Label the stage as "build"</span>
+WORKDIR /app
+COPY package.json .
+RUN npm install <span class="comment"><mat-icon>arrow_back</mat-icon> // Install dependencies required to build the application</span>
+COPY . .
+RUN npm run build
+
+# Production stage
+FROM node:21.6.1-slim
+WORKDIR /app
+COPY --from=build /app/dist .  <span class="comment"><mat-icon>arrow_back</mat-icon> // The juicy bit. Copy the built application from the build stage</span>
+CMD node index.js
+                                    </pre>
+                                </code>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Dockerfiles Vs. Docker Compose</mat-panel-title>
+                                </mat-expansion-panel-header>Projects will often after either a dockerfile, a
+                                docker-compose.yml, or both.<br><br>
+
+                                <dl>
+                                    <dt>dockerfile</dt>
+                                    <dd>The dockerfile is used to build the image.</dd>
+                                    <dt>docker-compose.yml</dt>
+                                    <dd>Whereas the Dockerfile starts the container, docker-compose is about running
+                                        them. While the docker-compose.yml file can also be used to build the image, it
+                                        is more common to use a docker file for this purpose.
+                                        <br><br>
+
+                                        An advantage of using a docker-compose.yml file is that it allows you to
+                                        orchestrate running multiple containers, including defining the network
+                                        configuration between them. It's also helpful in defining environment variables
+                                        and other configuration options shared across multiple containers.
+                                    </dd>
+                                </dl>
                             </mat-expansion-panel>
                         </li>
                         <li>
@@ -149,10 +360,10 @@
                         <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
-                                    <mat-panel-title>Install latest Python on Ubuntu (within Docker)</mat-panel-title>
+                                    <mat-panel-title>Using "RUN" to install Python</mat-panel-title>
                                 </mat-expansion-panel-header>
                                 Update dockerfile:
-                                <inline-code>
+                                <code>
                                     <pre>
 # Update package lists
 RUN apt update && \
@@ -164,7 +375,7 @@ RUN apt install -y python3.11
 # Check the installed version of Python
 RUN python3.11 --version
 </pre>
-                                </inline-code><br><br>
+                                </code><br><br>
                                 This can be verified by checking build log and confirmed we get a Python version 3.11
                                 printed:
                                 <img src="../../../assets/images/python-docker.png" alt="Python 3.11 installed" />
@@ -241,30 +452,6 @@ volumes:
                                     </li>
                                 </ul>
                             </mat-expansion-panel>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Other tidbits..</h3>
-                    <ul>
-                        <li>You do not need to enter entire hash for an image/container as long as they're using. e.g.
-                            418 would find this image:
-                            <pre>
-PS C:\src\nehsa.net> docker image ls | grep nehsa/nehsanet
-nehsa/nehsanet   latest    418b390c6d3a   26 minutes ago   3.2GB
-</pre>
-                        </li>
-                        <li>Anything not in a &quot;volume&quot; will be lost the next time the container is started
-                            until the image is updated (docker build)</li>
-                        <li>Containers can be started using either:
-                            <ul>
-                                <li>a sole dockerfile and <inline-code>docker run -p 80:80 -it
-                                        nehsa/nehsanet:latest</inline-code>
-                                </li>
-                                <li>a dockerfile and docker-compose.yml and <inline-code>docker compose
-                                        up/down</inline-code>
-                                </li>
-                            </ul>
                         </li>
                     </ul>
                 </div>
