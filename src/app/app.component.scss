@@ -92,19 +92,6 @@
         grid-template-columns: 1fr;
     }
 
-    .buildarea {
-        display: grid;
-        grid-template-columns: auto 35px;
-        grid-template-rows: 1fr;
-    }
-
-    .buildarea img {
-        height: 25px;
-        width:25px;
-        margin: 0 auto;
-        background-color: #222;
-    }
-
     .dh {
         text-align: left;
     }
@@ -322,7 +309,7 @@ main {
 .contactme {
     grid-area: contactme;
     background-color: var(--theme-background-color);
-    place-content: start;
+    place-content: center;
 }
 
 nav {
@@ -333,9 +320,27 @@ nav {
 footer {
     grid-area: footer;
     text-align: center;
+    place-content: center;
     width: 100%;
     z-index: 100;
     display: grid;
+}
+
+footer div {
+    margin: auto;
+}
+
+.buildarea {
+    display: grid;
+    grid-template-columns: 1fr auto 35px;
+    grid-template-rows: 1fr;
+}
+
+.buildarea img {
+    height: 20px;
+    width:25px;
+    margin: 0 auto;
+    background-color: #222;
 }
 
 .main-fullscreen {
