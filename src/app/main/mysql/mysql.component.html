@@ -10,7 +10,7 @@
                 <div>
                     <ul>
                         <li>
-                            <mat-expansion-panel expanded>
+                            <mat-expansion-panel>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Tips / Best Practices</mat-panel-title>
                                 </mat-expansion-panel-header>
@@ -37,15 +37,14 @@
                                         efficient.
                                         <h3>Inserting a JSON object</h3>
                                         <code>
-                                            <pre>
-                                                INSERT INTO flashcards (question, answer, answer_format_id, page)
-                                                VALUES (
-                                                    JSON_OBJECT('question', 'What is the distance from the Earth to the Sun?'),
-                                                    JSON_OBJECT('answer', JSON_ARRAY('1 AU', '1 light-year', '1 parsec')), 
-                                                    1,
-                                                    'PH207'
-                                                );                                                
-                                                </pre>
+<pre>
+INSERT INTO flashcards (question, answer, answer_format_id, page)
+VALUES (
+    JSON_OBJECT('question', 'What is the distance from the Earth to the Sun?'),
+    JSON_OBJECT('answer', JSON_ARRAY('1 AU', '1 light-year', '1 parsec')), 
+    1, 'PH207'
+);                                                
+</pre>
                                         </code>
                                         <h3>Retrieving a JSON object</h3>
                                         <ul>
@@ -249,6 +248,57 @@ log  : Restored C:\src\&lt;PROJECT&gt;\&lt;PROJECT&gt;.csproj (in 1.22 sec)
                         <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
+                                    <mat-panel-title>Using MySQL Shell</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <div>
+                                    <h4>Using MySQL Shell</h4>
+                                    <dl>
+                                        <dt>Connect to a database</dt>
+                                        <dd>
+                                            <code>
+                                                <pre>
+\connect root&#64;localhost:3306
+Creating a session to 'root&#64;localhost:3306'
+Please provide the password for 'root&#64;localhost:30306': **********
+Save password for 'root&#64;localhost:3306'? [Y]es/[N]o/Ne[v]er (default No): n
+Fetching schema names for auto-completion... Press ^C to stop.
+Your MySQL connection id is 37
+Server version: 8.0.37-0ubuntu0.22.04.3 (Ubuntu)
+</pre>
+                                            </code>
+                                        </dd>
+                                        <dt>Change Schema</dt>
+                                        <dd>
+                                            <code>
+                                                <pre>
+\use &lt;DATABASE&gt;
+Default schema set to `&lt;DATABASE&gt;`.
+</pre>
+                                            </code>
+                                        </dd>
+                                        <dt>Run a query (in this case: Show all tables)</dt>
+                                        <dd>
+                                            <code>
+                                                <pre>
+\sql show tables;
+Fetching global names, object names from `&lt;DATABASE&gt;`
++----------------------+
+| Tables_in_&lt;DATABASE&gt; |
++----------------------+
+| &lt;TABLE1&gt;             |
+| &lt;TABLE2&gt;             |
++----------------------+
+2 rows in set (0.0013 sec)
+                                </pre>
+                                            </code>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
                                     <mat-panel-title>Troubleshooting</mat-panel-title>
                                 </mat-expansion-panel-header>
                                 <ul>
@@ -368,57 +418,6 @@ MySQL [&lt;DATABASE NAME&gt;]>
                                         </mat-expansion-panel>
                                     </li>
                                 </ul>
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Using MySQL Shell</mat-panel-title>
-                                </mat-expansion-panel-header>
-                                <div>
-                                    <h4>Using MySQL Shell</h4>
-                                    <dl>
-                                        <dt>Connect to a database</dt>
-                                        <dd>
-                                            <code>
-                                                <pre>
-\connect root&#64;localhost:3306
-Creating a session to 'root&#64;localhost:3306'
-Please provide the password for 'root&#64;localhost:30306': **********
-Save password for 'root&#64;localhost:3306'? [Y]es/[N]o/Ne[v]er (default No): n
-Fetching schema names for auto-completion... Press ^C to stop.
-Your MySQL connection id is 37
-Server version: 8.0.37-0ubuntu0.22.04.3 (Ubuntu)
-</pre>
-                                            </code>
-                                        </dd>
-                                        <dt>Change Schema</dt>
-                                        <dd>
-                                            <code>
-                                                <pre>
-\use &lt;DATABASE&gt;
-Default schema set to `&lt;DATABASE&gt;`.
-</pre>
-                                            </code>
-                                        </dd>
-                                        <dt>Run a query (in this case: Show all tables)</dt>
-                                        <dd>
-                                            <code>
-                                                <pre>
-\sql show tables;
-Fetching global names, object names from `&lt;DATABASE&gt;`
-+----------------------+
-| Tables_in_&lt;DATABASE&gt; |
-+----------------------+
-| &lt;TABLE1&gt;             |
-| &lt;TABLE2&gt;             |
-+----------------------+
-2 rows in set (0.0013 sec)
-                                </pre>
-                                            </code>
-                                        </dd>
-                                    </dl>
-                                </div>
                             </mat-expansion-panel>
                         </li>
                     </ul>

@@ -692,7 +692,24 @@ valid users = %S
                                         <mat-expansion-panel-header>
                                             <mat-panel-title>Setup VS Code</mat-panel-title>
                                         </mat-expansion-panel-header>
-
+                                        <ol>
+                                            <li>Download the .deb package</li>
+                                            <li>Install the package: <inline-code>sudo dpkg -i
+                                                    &lt;PACKAGE&gt;.deb</inline-code></li>
+                                        </ol>
+                                    </mat-expansion-panel>
+                                </li>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>Setup MySQL Client</mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <ol>
+                                            <li>Install the client: <inline-code>sudo apt-get install
+                                                    mysql-client</inline-code></li>
+                                            <li>Connect to a server: <inline-code>mysql -u &lt;USER&gt; -p -h
+                                                    &lt;HOST&gt;</inline-code></li>
+                                        </ol>
                                     </mat-expansion-panel>
                                 </li>
                             </ul>
