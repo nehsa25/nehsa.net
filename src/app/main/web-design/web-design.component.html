@@ -2998,7 +2998,6 @@ animation: fadeOut 10s ease-out forwards;
                                                 </div>
                                             </div>
                                         </mat-expansion-panel>
-
                                     </li>
                                     <li>
                                         <mat-expansion-panel>
@@ -3008,9 +3007,9 @@ animation: fadeOut 10s ease-out forwards;
                                             Using this as an example:<br>
                                             <code>
                                                 <pre>
-&lt;div class="container"&lt;
-    &lt;div class="content">This is the content&lt;/div&lt;
-&lt;/div&lt;  
+&lt;div class="container"&gt;
+    &lt;div class="content"&gt;This is the content&lt;/div&gt;
+&lt;/div&gt;  
                                                 </pre>
                                             </code><br><br>
 
@@ -3064,6 +3063,47 @@ animation: fadeOut 10s ease-out forwards;
                                             <div class="example-container example-container-flex5">
                                                 <div class="container-flex5">
                                                     <div class="content-flex">This is the content</div>
+                                                </div>
+                                            </div>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Force space between two divs</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            Forcing space between two divs is easy with flexbox. Using this as an
+                                            example:<br>
+                                            <code>
+                                                <pre>
+&lt;div class="container"&gt;
+    &lt;div class="content"&gt;Southpaw!&lt;/div&gt;
+    &lt;div class="footer"&gt;Righty&lt;/div&gt;
+&lt;/div&gt;  
+                                                </pre>
+                                            </code><br><br>
+
+                                            CSS:<br>
+                                            <code>
+                                                <pre>
+.container &#123;
+    display: flex;
+    justify-content: space-between;
+&#125;
+
+.content &#123;
+    background-color: teal;
+&#125;
+
+.footer &#123;
+    background-color: hotpink;
+&#125;
+                                                </pre>
+                                            </code>
+                                            <div class="example-container example-container-flex6">
+                                                <div class="container-flex6">
+                                                    <div class="content-flex6">Southpaw!</div>
+                                                    <div class="footer-flex6">Righty</div>
                                                 </div>
                                             </div>
                                         </mat-expansion-panel>

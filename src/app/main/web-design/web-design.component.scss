@@ -594,11 +594,11 @@ nav div {
 }
 
 // flex examples
-.content-flex1, .content-flex2, .content-flex3, .content-flex4, .content-flex {
+.content-flex1, .content-flex2, .content-flex3, .content-flex4,.content-flex6, .content-flex {
     background-color: teal;
 }
 
-.footer-flex1, .footer-flex2, .footer-flex3 {
+.footer-flex1, .footer-flex2, .footer-flex6, .footer-flex3 {
     background-color: hotpink;
 }
 
@@ -643,3 +643,8 @@ nav div {
     height: 100%;
 }
 
+.container-flex6 {
+    display: flex;
+    justify-content: space-between;
+}
+ 
