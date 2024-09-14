@@ -32,7 +32,6 @@ export class HttpService {
         this.quoteUrl =`${environment.apiUrl}/${environment.apiVersion}/quote`;
         this.nameUrl = `${environment.apiUrl}/${environment.apiVersion}/name`;
         this.posAdjUrl = `${environment.apiUrl}/${environment.apiVersion}/positiveadjective`;
-        this.stabilityaiUrl = `https://api.stability.ai/v1/generation/stable-diffusion-v1-6/text-to-image`;
         this.dbhealth = `${environment.apiUrl}/${environment.apiVersion}/dbhealth`;
         this.commentUrl = `${environment.apiUrl}/${environment.apiVersion}/comment`;
         this.aiQuestionUrl = `${environment.apiUrl}/${environment.apiVersion}/ai`;
@@ -66,6 +65,7 @@ export class HttpService {
         let url = `${this.commentUrl}/${page_name}/${numToReturn}`;
         return this.http.get(url);
     }
+    
     getDBHealth() {
         return this.http.get(this.dbhealth);
     }
@@ -111,15 +111,5 @@ export class HttpService {
         let user: NameType = new NameType();
         user.Name = name;
         return this.http.post(this.nameUrl, user);
-    }
-
-    getAiImage(image: AiImageType) {
-        const bearer = "sk-aIIMUE6NJeYvXfmJ83d8T6Rqueur7hOjT07hskStmrnB7khw";
-
-        const headers = new HttpHeaders().set('Authorization', 'Bearer ' + bearer);
-        headers.append('Content-Type', 'application/json');
-        headers.append('Accept', 'application/json');
-
-        return this.http.post(this.stabilityaiUrl, image, { headers });
     }
 }
