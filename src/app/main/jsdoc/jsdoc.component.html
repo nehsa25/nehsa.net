@@ -9,8 +9,9 @@
         </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-        <div class="commentgrid">
-            <div class="topics">
+        <div class="commentgrid topics">
+            <div><app-related-content></app-related-content></div>
+            <div>
                 <div>
                     <h3>Installation</h3>
                     <span class="code">npm install --save-dev jsdoc</span> - To install the latest version on npm
@@ -25,7 +26,7 @@
 
                     <div class="code jsdocexample">
                         <div>
-                    <pre style="background-color: white; word-wrap: break-word;">
+                            <pre style="background-color: white; word-wrap: break-word;">
 /**
 * &amp;function /api/v1/contactme
 * &amp;param &#123;&#123;body: string&#x2775;&#x2775; req - The body.subject and body.body of the request is JSON format.  e.g. &#123; body.subject = 'test subject', body.body = 'test body' &#x2775;

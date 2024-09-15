@@ -10,11 +10,12 @@ import { Subject } from 'rxjs';
 import { UserService } from '../../services/user.service';
 import { CommentType } from '../../types/comment.type';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { RelatedContentComponent } from '../../shared-components/related-content/related-content.component';
 
 @Component({
   selector: 'app-this-website',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule, MatIcon, NgIf, CommentComponent, RouterModule, RouterLink, MatExpansionModule],
+  imports: [MatCardModule, MatButtonModule, MatIcon, NgIf, CommentComponent, RouterModule, RouterLink, MatExpansionModule, RelatedContentComponent],
   providers: [HttpService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './this-website.component.html',

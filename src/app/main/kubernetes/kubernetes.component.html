@@ -5,8 +5,9 @@
         </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <div class="commentgrid">
-            <div class="topics">
+        <div class="commentgrid topics">
+            <div><app-related-content></app-related-content></div>
+            <div>
                 <div>
                     Kubernetes (pronounced "koo&#183;burr&#183;NET&#183;EEZ") is an open-source container orchestration
                     platform that automates the deployment, scaling, and management of containerized applications.
@@ -46,7 +47,8 @@
                                                 href="https://hub.docker.com/repository/docker/nehsa/ascii-weather/general">here</a>.<br><br>
 
                                             Kubernetes configuration files are written in YAML. The following is the
-                                            configuration for my weather service: <span class="file">weather-microservice.yaml</span>
+                                            configuration for my weather service: <span
+                                                class="file">weather-microservice.yaml</span>
                                             <div class="code copy-container"><app-copy></app-copy>
                                                 <pre>
 apiVersion: apps/v1 <span class="comment">// version of the Kubernetes API, valid values are v1, v1beta1, v1beta2, apps/v1.</span>
@@ -134,7 +136,7 @@ spec:
                                             This command will create a deployment and a service for the weather
                                             microservice.<br>
                                             <div class="answer">
-<pre>
+                                                <pre>
 PS C:\src> kubectl apply -f ./weather-microservice.yaml
 deployment.apps/weather-microservice created</pre>
                                             </div>
@@ -153,13 +155,15 @@ deployment.apps/weather-microservice created</pre>
                                     <ul>
                                         <li>
                                             <span class="code">kubectl apply -f weather-microservice.yaml</span><br>
-                                            How to use kubectl to deploy a service. This command will create a deployment and a service for the weather microservice.
+                                            How to use kubectl to deploy a service. This command will create a
+                                            deployment and a service for the weather microservice.
                                         </li>
                                         <li>
                                             <span class="code">kubectl get pods</span><br>
                                             This command will list the pods that are running in the cluster.<br><br>
 
-                                            <div class="answer"><pre>
+                                            <div class="answer">
+                                                <pre>
 PS C:\src> kubectl get pods
 NAME                                    READY   STATUS             RESTARTS   AGE
 weather-microservice-664bdcd6d8-c7gvd   0/1     ImagePullBackOff   0          2m38s</pre>

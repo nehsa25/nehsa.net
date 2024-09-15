@@ -5,11 +5,12 @@ import { CommentComponent } from '../../shared-components/comment/comment.compon
 import { Subject } from 'rxjs';
 import { UserService } from '../../services/user.service';
 import { CommentType } from '../../types/comment.type';
+import { RelatedContentComponent } from '../../shared-components/related-content/related-content.component';
 
 @Component({
   selector: 'app-swagger',
   standalone: true,
-  imports: [MatCardModule, CommentComponent],
+  imports: [MatCardModule, CommentComponent, RelatedContentComponent],
   providers: [HttpService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './swagger.component.html',

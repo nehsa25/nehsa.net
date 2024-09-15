@@ -6,11 +6,12 @@ import { MatIcon } from '@angular/material/icon';
 import { MatButton } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
 import { UserService } from '../../services/user.service';
+import { RelatedContentComponent } from '../../shared-components/related-content/related-content.component';
 
 @Component({
   selector: 'app-web-design',
   standalone: true,
-  imports: [MatCardModule, CommentComponent, MatExpansionModule, MatCardImage, MatIcon, MatButton, RouterLink],
+  imports: [MatCardModule, CommentComponent, MatExpansionModule, MatCardImage, MatIcon, MatButton, RouterLink, RelatedContentComponent],
   templateUrl: './web-design.component.html',
   styleUrl: './web-design.component.scss'
 })

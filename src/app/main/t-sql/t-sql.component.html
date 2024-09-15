@@ -1,0 +1,106 @@
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Transactional SQL Overview</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid topics">
+            <div><app-related-content></app-related-content></div>
+            <div>
+                <span>This page contains information on how to
+                    use T-SQL, PL/SQL, examples, and other general information.</span><br><br>
+
+                For information specific to MySQL or MS SQL, visit their respective pages from the "Related Content"
+                area.<br><br>
+
+                This page will focus on the basic concepts of T-SQL, including:<br>
+                <dl>
+                    <dt>SQL</dt>
+                    <dd><acronym-name>Structured Query
+                            Language<acronym-abbr>SQL</acronym-abbr></acronym-name></dd>
+                    <dt>T-SQL</dt>
+                    <dd><acronym-name>Transactional
+                            SQL<acronym-abbr>T-SQL</acronym-abbr></acronym-name><br><br>
+
+                        T-SQL is a proprietary extension of SQL that is used in Microsoft SQL Server. MySQL uses
+                        a
+                        similar extension called PL/SQL.</dd>
+                    <dt>PL/SQL</dt>
+                    <dd><acronym-name>Procedural Language
+                            <acronym-abbr>PL</acronym-abbr></acronym-name> / <acronym-name>Structured Query
+                            Language<acronym-abbr>SQL</acronym-abbr></acronym-name><br><br>
+
+                        PL/SQL is a procedural language extension to SQL that is used in Oracle (including
+                        MySQL)
+                        databases. It is similar
+                        to T-SQL in that it allows for the creation of stored procedures, functions, and
+                        triggers.</dd>
+                    <dt>Primary Key</dt>
+                    <dd>A primary key is a unique identifier for a record in a table. It is a
+                        column or a set of columns that uniquely identifies a record in a table. A primary key
+                        must contain unique values, and cannot contain NULL values.</dd>
+                    <dt>Foreign Key</dt>
+                    <dd>A foreign key is a column or a set of columns in a table that references
+                        the primary key of another table. The foreign key constraint is used to enforce
+                        integrity between the two tables. This means that the values in the foreign
+                        key column must match the values in the primary key column of the referenced table.</dd>
+                    <dt>Relationships</dt>
+                    <dd>
+                        <dl>
+                            <dt>one-to-one</dt>
+                            <dd>A one-to-one relationship is where one element of A may
+                                only be linked to one element of B, and vice versa. An example of this would be a person
+                                and a social security number. A person can only have one social security number, and a
+                                social security number can only be assigned to one person.<br><br>
+                                In SQL, this would involve creating a table for the person, and a table for the social
+                                security number, with a foreign key in the social security number table that references
+                                the person table's primary key.
+                            </dd>
+                            <dt>one-to-many</dt>
+                            <dd>A one-to-many relationship is where one element of A may be linked to many elements of
+                                B,
+                                but an element of B may only be linked to one element of A. An example of this would be
+                                a
+                                person and a phone number. A person can have many phone numbers, but a phone number can
+                                only be assigned to one person.<br><br>
+
+                                In SQL, this would involve creating a table for the person, and a table for the phone
+                                number,
+                                with a foreign key in the phone number table that references the person table's primary
+                                key. Although the same as a one-to-one relationship, the difference is that the phone
+                                number table can have multiple entries for the same person.
+                            </dd>
+                            <dt>many-to-many</dt>
+                            <dd>A many-to-many relationship is where one element of A may be linked to many elements of
+                                B,
+                                and an element of B may be linked to many elements of A. An example of this would be a
+                                person and a project. A person can be assigned to many projects, and a project can have
+                                many people assigned to it.<br><br>
+
+                                In SQL, this would involve creating a table for the person, a table for the project, and
+                                a
+                                table for the relationship between the two. The relationship table would have foreign
+                                keys
+                                that reference the primary keys of the person and project tables.
+                            </dd>
+                        </dl>
+                    </dd>
+                    <dt>Indexes</dt>
+                    <dd>An index is a data structure that improves the speed of data retrieval
+                        operations on a database table at the cost of additional space and decreased
+                        performance on data modification operations. Indexes are used to quickly locate
+                        data without having to search every row in a database table every time a database
+                        table is accessed. Indexes can be created using one or more columns in a table,
+                        and can be unique or non-unique. Unique indexes enforce the uniqueness of the
+                        values in the indexed columns, while non-unique indexes allow duplicate values.<br><br>
+
+                        In SQL, indexes can be created using the CREATE INDEX statement:
+                        <inline-code>CREATE INDEX index_name ON table_name (column_name);</inline-code>
+                    </dd>
+                </dl>
+            </div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>

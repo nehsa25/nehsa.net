@@ -4,11 +4,12 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { UserService } from '../../services/user.service';
 import { RouterLink } from '@angular/router';
+import { RelatedContentComponent } from '../../shared-components/related-content/related-content.component';
 
 @Component({
   selector: 'app-iis',
   standalone: true,
-  imports: [MatCardModule, CommentComponent, MatIconModule, CommentComponent, RouterLink],
+  imports: [MatCardModule, CommentComponent, MatIconModule, CommentComponent, RouterLink, RelatedContentComponent],
   templateUrl: './iis.component.html',
   styleUrl: './iis.component.scss'
 })

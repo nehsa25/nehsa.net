@@ -7,11 +7,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { NgIf } from '@angular/common';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { RouterLink } from '@angular/router';
+import { RelatedContentComponent } from '../../shared-components/related-content/related-content.component';
 
 @Component({
   selector: 'app-python',
   standalone: true,
-  imports: [CommentComponent, MatExpansionModule, MatCardModule, MatIconModule, MatButtonModule, NgIf, RouterLink, MatButtonModule],
+  imports: [CommentComponent, MatExpansionModule, MatCardModule, MatIconModule, MatButtonModule, NgIf, RouterLink, MatButtonModule, RelatedContentComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './python.component.html',
   styleUrl: './python.component.scss'

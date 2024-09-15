@@ -5,24 +5,9 @@
         </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <div class="commentgrid">
-            <div class="topics">
-                <div>Related Content:
-                    <ul class="condensed">
-                        <li><a routerLink="/design">Software Development</a></li>
-                        <li><a routerLink="/webdev-frameworks">Web Development Frameworks</a></li>
-                        <li><a routerLink="/agile">Agile</a></li>
-                        <li><a routerLink="/angular">Angular</a></li>
-                        <li><a routerLink="/csharp">C#</a></li>
-                        <li><a routerLink="/go">Golang</a></li>
-                        <li><a routerLink="/java">Java</a></li>
-                        <li><a routerLink="/python">Python</a></li>
-                        <li><a routerLink="/react">React</a></li>
-                        <li><a routerLink="/security">Security</a></li>
-                        <li><a routerLink="/testing">Testing</a></li>
-                        <li><a routerLink="/typescript">Typescript</a></li>
-                    </ul>
-                </div>
+        <div class="commentgrid topics">
+            <div><app-related-content></app-related-content></div>
+            <div>
                 <div>
                     <ul>
                         <li>
@@ -321,10 +306,10 @@ background-color: var(--theme-splash-backround-color);
                                 <ul class="condensed">
                                     <li>Create two components:
                                         <code>
-                                            <pre>
-                                                        ng g c component1
-                                                        ng g c component2
-                                                    </pre>
+<pre>
+ng g c component1
+ng g c component2
+</pre>
                                         </code>
                                     </li>
                                     <li>
@@ -778,6 +763,35 @@ $app-theme: mat.define-dark-theme((color: (primary: $primary,
                         <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
+                                    <mat-panel-title>Dynamic HTML (ngFor, for)</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                Often used for building a list:
+                                <ul>
+                                    <li>
+                                        <code>
+                                    <pre>
+&lt;ul&gt;
+    &lt;li *ngFor="let item of items"&gt;&#123; &#123; item &#125; &#125;&lt;/li&gt;
+&lt;/ul&gt;                                      
+</pre>
+                                        </code>
+                                    </li>
+                                    <li>Newer versions of Angular allow for a built-in for loop:
+                                        <code>
+                                    <pre>
+&lt;ul&gt;
+    &lt;li *for="let item of items"&gt;&#123; &#123; item &#125; &#125;&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+</code>
+                                    </li>
+                                </ul>
+
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
                                     <mat-panel-title>Table select-columns feature</mat-panel-title>
                                     <mat-panel-description>
                                     </mat-panel-description>
@@ -802,58 +816,58 @@ $app-theme: mat.define-dark-theme((color: (primary: $primary,
                                     <li>Add a type for the event transmission (e.g. SplashMessage in a new file
                                         <span class=file>splash-message.ts</span>)
                                         <code>
-                                            <pre>
-            export class SplashMessage &#123;
-                showSplash: boolean = false;
-                duration: number = 8;
-            &#125;
-                                            </pre>
+                                <pre>
+export class SplashMessage &#123;
+    showSplash: boolean = false;
+    duration: number = 8;
+&#125;
+                                </pre>
                                         </code>
                                     </li>
                                     <li>Add a service called <span class=file>splash.service.ts</span>
                                         <code>
-                                            <pre>
-            import &#123; Injectable &#125; from '&#64;angular/core';
-            import &#123; Observable, Subject &#125; from 'rxjs';
-            import &#123; SplashMessage &#125; from '../types/splash-message';
-        
-            &#64;Injectable()
-            export class SplashService &#123;
-                private showSplash:Subject&lt;SplashMessage&gt; = new Subject&lt;SplashMessage&gt;();
-                private msg = new SplashMessage();
-        
-                public show(duration:number) &#123;        
-                    this.msg.showSplash = true;
-                    this.msg.duration = duration;
-                    this.showSplash.next(this.msg);
-                &#125;
-        
-                public hide() &#123;
-                    this.msg.showSplash = false;
-                    this.showSplash.next(this.msg);
-                &#125;
-        
-                public observe():Observable&lt;SplashMessage&gt; &#123;
-                    return this.showSplash.asObservable();
-                &#125;
-            &#125;
-                                            </pre>
+                                <pre>
+import &#123; Injectable &#125; from '&#64;angular/core';
+import &#123; Observable, Subject &#125; from 'rxjs';
+import &#123; SplashMessage &#125; from '../types/splash-message';
+
+&#64;Injectable()
+export class SplashService &#123;
+    private showSplash:Subject&lt;SplashMessage&gt; = new Subject&lt;SplashMessage&gt;();
+    private msg = new SplashMessage();
+
+    public show(duration:number) &#123;        
+        this.msg.showSplash = true;
+        this.msg.duration = duration;
+        this.showSplash.next(this.msg);
+    &#125;
+
+    public hide() &#123;
+        this.msg.showSplash = false;
+        this.showSplash.next(this.msg);
+    &#125;
+
+    public observe():Observable&lt;SplashMessage&gt; &#123;
+        return this.showSplash.asObservable();
+    &#125;
+&#125;
+                                </pre>
                                         </code>
                                     </li>
                                     <li>Add event observer for service to child component
                                         <code>
-                                            <pre>
-            constructor(
-                private splash: SplashService) &#123; &#125;
-            
-                ngOnInit(): void &#123;
-                this.splash.observe().subscribe((d) => &#123;
-                    this.showSplash = d.showSplash;
-                    let duration: number = d.duration;
-                    this.showhide(duration);
-                &#125;);
-            &#125;
-                                            </pre>
+                                <pre>
+constructor(
+    private splash: SplashService) &#123; &#125;
+
+    ngOnInit(): void &#123;
+    this.splash.observe().subscribe((d) => &#123;
+        this.showSplash = d.showSplash;
+        let duration: number = d.duration;
+        this.showhide(duration);
+    &#125;);
+&#125;
+                                </pre>
                                         </code>
                                     </li>
                                     <li>Use it somewhere:
@@ -1002,11 +1016,11 @@ openFullScreen() &#123;
                                         <span class="important">Typescript:</span>
                                         <code>
                                             <pre>
-    // set focus to mud input
-    const mudInput = document.getElementById('mud-input')! as HTMLInputElement;
-    setTimeout(() => &#123;
-      this.refocus(mudInput);
-    &#125;, 0);
+// set focus to mud input
+const mudInput = document.getElementById('mud-input')! as HTMLInputElement;
+setTimeout(() => &#123;
+    this.refocus(mudInput);
+&#125;, 0);
 </pre>
                                         </code>
                                     </li>
@@ -1036,14 +1050,14 @@ openFullScreen() &#123;
                                             <code>
                                                 <pre>
 export class SignupComponent &#123;
-userDetails: FormGroup;
-emailControl = new FormControl('');
-constructor(
-private fb: FormBuilder) &#123;
-this.userDetails = this.fb.group(&#123;
-email: this.emailControl,
-passwordmatch: this.passwordmatchControl
-&#125;);
+    userDetails: FormGroup;
+    emailControl = new FormControl('');
+    constructor(
+    private fb: FormBuilder) &#123;
+        this.userDetails = this.fb.group(&#123;
+            email: this.emailControl,
+            passwordmatch: this.passwordmatchControl
+            &#125;);
 &#125;
 
 ngOnInit() &#123;
@@ -1239,14 +1253,14 @@ if (this.userDetails.invalid) return;
                                 e.g.
                                 <code>
 <pre>
-    &#64;Component(&#123;
+&#64;Component(&#123;
     selector: 'app-angular',
     standalone: true,
     imports: [MatCardModule, CommentComponent, MatExpansionModule, MatIcon, RouterLink, CopyComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA], <span class="comment">// <mat-icon>arrow_back</mat-icon> Add this line</span>
     templateUrl: './angular.component.html',
     styleUrl: './angular.component.scss'
-    &#125;)
+&#125;)
 </pre>
                         </code>
                             </mat-expansion-panel>

@@ -3,11 +3,12 @@ import { MatCardModule } from '@angular/material/card';
 import { CommentComponent } from '../../shared-components/comment/comment.component';
 import { UserService } from '../../services/user.service';
 import { RouterLink } from '@angular/router';
+import { RelatedContentComponent } from '../../shared-components/related-content/related-content.component';
 
 @Component({
   selector: 'app-gcp',
   standalone: true,
-  imports: [MatCardModule, CommentComponent, RouterLink],
+  imports: [MatCardModule, CommentComponent, RouterLink, RelatedContentComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './gcp.component.html',
   styleUrl: './gcp.component.scss'

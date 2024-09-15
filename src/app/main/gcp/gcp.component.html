@@ -5,17 +5,9 @@
         </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <div class="commentgrid">
-            <div class="topics">
-                <div>Related Content:
-                    <ul class="condensed">
-                        <li><a routerLink="/cloud">Cloud Overview</a></li>
-                        <li><a routerLink="/aws">AWS</a></li>
-                        <li><a routerLink="/azure">Azure</a></li>
-                        <li><a routerLink="/gcp">Google Cloud Platform</a></li>
-                        <li><a routerLink="/dns">DNS</a></li>
-                    </ul>
-                </div>
+        <div class="commentgrid topics">
+            <div><app-related-content></app-related-content></div>
+            <div>
                 <div>
                     <ul>
                         <li>
@@ -41,12 +33,14 @@
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>SSL</mat-panel-title>
                                 </mat-expansion-panel-header>
-                                One method of setting up SSL within Google Cloud Platform is to use an integration. To set this up:
+                                One method of setting up SSL within Google Cloud Platform is to use an integration. To
+                                set this up:
 
                                 <ul>
-                                    <li>Login to <a target="_blank" href="https://console.cloud.google.com/">Google Cloud
+                                    <li>Login to <a target="_blank" href="https://console.cloud.google.com/">Google
+                                            Cloud
                                             Console</a></li>
-                                             
+
                                 </ul>
                             </mat-expansion-panel>
                         </li>

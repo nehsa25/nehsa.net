@@ -6,11 +6,12 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIcon } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import { RelatedContentComponent } from '../../shared-components/related-content/related-content.component';
 
 @Component({
   selector: 'app-designpatterns',
   standalone: true,
-  imports: [MatIcon, MatCardModule, CommentComponent, MatExpansionModule, RouterLink, MatButtonModule],
+  imports: [MatIcon, MatCardModule, CommentComponent, MatExpansionModule, RouterLink, MatButtonModule, RelatedContentComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './designpatterns.component.html',
   styleUrl: './designpatterns.component.scss'

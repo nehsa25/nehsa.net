@@ -5,18 +5,9 @@
         </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <div class="commentgrid">
-            <div class="topics">
-                <div>Related Content:
-                    <ul class="condensed">
-                        <li><a routerLink="/webdev-frameworks">Web Development Frameworks</a></li>
-                        <li><a routerLink="/playwright">Playwright</a></li>
-                        <li><a routerLink="/webdesign">Web Design</a></li>
-                        <li><a routerLink="/typescript">TypeScript</a></li>
-                        <li><a routerLink="/react">React</a></li>
-                        <li><a routerLink="/angular">Angular</a></li>
-                    </ul>
-                </div>
+        <div class="commentgrid topics">
+            <div><app-related-content></app-related-content></div>
+            <div>
                 <div>
                     <mat-expansion-panel expanded>
                         <mat-expansion-panel-header>

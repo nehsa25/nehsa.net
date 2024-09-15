@@ -4,11 +4,12 @@ import { CommentComponent } from '../../shared-components/comment/comment.compon
 import { UserService } from '../../services/user.service';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
+import { RelatedContentComponent } from '../../shared-components/related-content/related-content.component';
 
 @Component({
   selector: 'app-school',
   standalone: true,
-  imports: [MatCardModule, CommentComponent, MatIconModule, RouterLink],
+  imports: [MatCardModule, CommentComponent, MatIconModule, RouterLink, RelatedContentComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './school.component.html',
   styleUrl: './school.component.scss'

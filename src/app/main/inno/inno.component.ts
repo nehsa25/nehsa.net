@@ -6,11 +6,12 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { Subject } from 'rxjs';
 import { UserService } from '../../services/user.service';
 import { CommentType } from '../../types/comment.type';
+import { RelatedContentComponent } from '../../shared-components/related-content/related-content.component';
 
 @Component({
   selector: 'app-inno',
   standalone: true,
-  imports: [MatCardModule, CommentComponent, MatIconModule, MatExpansionModule],
+  imports: [MatCardModule, CommentComponent, MatIconModule, MatExpansionModule, RelatedContentComponent],
   templateUrl: './inno.component.html',
   styleUrl: './inno.component.scss'
 })

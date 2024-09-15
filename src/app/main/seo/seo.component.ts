@@ -7,11 +7,12 @@ import { NgClass } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
+import { RelatedContentComponent } from '../../shared-components/related-content/related-content.component';
 
 @Component({
   selector: 'app-seo',
   standalone: true,
-  imports: [MatCardModule, MatExpansionModule, CommentComponent, NgClass, MatButtonModule, MatIcon, RouterLink],
+  imports: [MatCardModule, MatExpansionModule, CommentComponent, NgClass, MatButtonModule, MatIcon, RouterLink, RelatedContentComponent],
   templateUrl: './seo.component.html',
   styleUrl: './seo.component.scss'
 })

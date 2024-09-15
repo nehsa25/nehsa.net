@@ -5,8 +5,9 @@
         </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <div class="commentgrid">
-            <div class="topics">
+        <div class="commentgrid topics">
+            <div><app-related-content></app-related-content></div>
+            <div>
                 <span>This is an overview page for <acronym-name>Transactional
                         SQL<acronym-abbr>T-SQL</acronym-abbr></acronym-name><br><br>It contains information on how to
                     use T-SQL,
@@ -435,14 +436,6 @@ from
                         <td></td>
                     </tr>
                 </table>
-
-                <div>Related Content:
-                    <ul class="condensed">
-                        <li><a routerLink="/tsql">T-SQL Overview</a></li>
-                        <li><a routerLink="/sql">Microsoft SQL</a></li>
-                        <li><a routerLink="/mysql">MySql</a></li>
-                    </ul>
-                </div>
             </div>
             <div><app-comment></app-comment></div>
         </div>

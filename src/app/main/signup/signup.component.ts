@@ -8,11 +8,12 @@ import { AddUserType } from '../../types/adduser.type';
 import { Subject } from 'rxjs';
 import { UserService } from '../../services/user.service';
 import { CommentType } from '../../types/comment.type';
+import { RelatedContentComponent } from '../../shared-components/related-content/related-content.component';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [NgIf, FormsModule, MatButtonModule, ReactiveFormsModule], //RecaptchaModule
+  imports: [NgIf, FormsModule, MatButtonModule, ReactiveFormsModule, RelatedContentComponent], //RecaptchaModule
   providers: [UserService, HttpService], 
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.scss'

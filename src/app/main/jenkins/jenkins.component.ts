@@ -4,11 +4,12 @@ import { CommentComponent } from '../../shared-components/comment/comment.compon
 import { UserService } from '../../services/user.service';
 import { CommentType } from '../../types/comment.type';
 import { Subject } from 'rxjs';
+import { RelatedContentComponent } from '../../shared-components/related-content/related-content.component';
 
 @Component({
   selector: 'app-jenkins',
   standalone: true,
-  imports: [MatCardModule, CommentComponent],
+  imports: [MatCardModule, CommentComponent, RelatedContentComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './jenkins.component.html',
   styleUrl: './jenkins.component.scss'

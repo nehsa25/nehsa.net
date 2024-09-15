@@ -5,15 +5,9 @@
         </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <div class="commentgrid">
-            <div class="topics">
-                <div>Related Content:
-                    <ul class="condensed">
-                        <li><a routerLink="/seo">Search Engine Optimization</a></li>
-                        <li><a routerLink="/monetizenow">Microsoft Monetize Now</a></li>
-                        <li><a routerLink="/clarity">Microsoft Clarity</a></li>
-                    </ul>
-                </div>
+        <div class="commentgrid topics">
+            <div><app-related-content></app-related-content></div>
+            <div>
                 <div>
                     <a target="_blank" mat-stroked-button href="https://monetizenow.microsoft.com/">Microsoft Monetize
                         Now</a> is a program that helps you monetize your app. I wanted to set it up for this website
@@ -31,27 +25,34 @@
                                     <dt>Microsoft Monetize Now</dt>
                                     <dd>Microsoft Monetize Now is a program that helps you monetize your app.</dd>
                                     <dt>Ads.txt</dt>
-                                    <dd>Ads.txt is not referring to a sales ad but is an acronym for: Authorized Digital Sellers. It
+                                    <dd>Ads.txt is not referring to a sales ad but is an acronym for: Authorized Digital
+                                        Sellers. It
                                         is
-                                        a file that publishers can create to list who is authorized to sell their inventory. It is
+                                        a file that publishers can create to list who is authorized to sell their
+                                        inventory. It is
                                         intended to prevent unauthorized inventory sales.</dd>
                                     <dt>Ad Unit</dt>
-                                    <dd>Ad Unit is a container for ads. You can have multiple ad units on a page. Each ad unit has a
+                                    <dd>Ad Unit is a container for ads. You can have multiple ad units on a page. Each
+                                        ad unit has a
                                         unique ID.</dd>
                                     <dt>Header Tag</dt>
-                                    <dd>The header tag is a script that goes in the header of your website. It is used to load the
+                                    <dd>The header tag is a script that goes in the header of your website. It is used
+                                        to load the
                                         Microsoft Monetize Now SDK.</dd>
                                     <dt>Body Tag</dt>
-                                    <dd>The body tag is a script that goes in the body of your website. It is used to render
+                                    <dd>The body tag is a script that goes in the body of your website. It is used to
+                                        render
                                         the ad.</dd>
                                     <dt>Native Ad</dt>
-                                    <dd>A native ad is an ad that is designed to look like the content it is placed in. It is less
+                                    <dd>A native ad is an ad that is designed to look like the content it is placed in.
+                                        It is less
                                         intrusive than a display ad.</dd>
                                     <dt>Display Ad</dt>
-                                    <dd>A display ad is a traditional ad that is displayed on a website. It is more intrusive than a
+                                    <dd>A display ad is a traditional ad that is displayed on a website. It is more
+                                        intrusive than a
                                         native ad.</dd>
                                 </dl>
-                            </mat-expansion-panel>     
+                            </mat-expansion-panel>
                         </li>
                         <li>
                             <mat-expansion-panel expanded>
@@ -144,7 +145,7 @@
                                     </li>
                                     <li>
                                         Start researching beach-front property in Malibu.<br>
-                                        <img src="../../../assets/images/money.png" alt="pay display"> 
+                                        <img src="../../../assets/images/money.png" alt="pay display">
                                     </li>
                                 </ol>
                             </mat-expansion-panel>
@@ -154,7 +155,7 @@
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Tips</mat-panel-title>
                                 </mat-expansion-panel-header>
-                                <ul>                                    
+                                <ul>
                                     <li>
                                         <mat-expansion-panel>
                                             <mat-expansion-panel-header>

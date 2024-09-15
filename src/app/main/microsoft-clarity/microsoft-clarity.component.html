@@ -5,17 +5,12 @@
         </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <div class="commentgrid">
-            <div class="topics">
-                <div>Related Content:
-                    <ul class="condensed">
-                        <li><a routerLink="/seo">Search Engine Optimization</a></li>
-                        <li><a routerLink="/monetizenow">Microsoft Monetize Now</a></li>
-                        <li><a routerLink="/clarity">Microsoft Clarity</a></li>
-                    </ul>
-                </div>
+        <div class="commentgrid topics">
+            <div><app-related-content></app-related-content></div>
+            <div>
                 <div>
-                    <a target="_blank" mat-stroked-button href="https://clarity.microsoft.com/">Microsoft Clarity</a> is an anlytics
+                    <a target="_blank" mat-stroked-button href="https://clarity.microsoft.com/">Microsoft Clarity</a> is
+                    an anlytics
                     platform that
                     helps you understand how users interact with your website.
                     <ul>

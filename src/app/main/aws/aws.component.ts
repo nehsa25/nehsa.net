@@ -6,11 +6,12 @@ import { AsyncPipe, NgIf } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { RelatedContentComponent } from '../../shared-components/related-content/related-content.component';
 
 @Component({
   selector: 'app-aws',
   standalone: true,
-  imports: [MatCardModule, CommentComponent, NgIf, MatButtonModule, AsyncPipe, RouterLink, MatExpansionModule],
+  imports: [MatCardModule, CommentComponent, NgIf, MatButtonModule, AsyncPipe, RouterLink, MatExpansionModule, RelatedContentComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './aws.component.html',
   styleUrl: './aws.component.scss'

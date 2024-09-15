@@ -6,11 +6,12 @@ import { UserService } from '../../services/user.service';
 import { CommentType } from '../../types/comment.type';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { RouterLink } from '@angular/router';
+import { RelatedContentComponent } from '../../shared-components/related-content/related-content.component';
 
 @Component({
   selector: 'app-powershell',
   standalone: true,
-  imports: [MatCardModule, CommentComponent, RouterLink, MatExpansionModule],
+  imports: [MatCardModule, CommentComponent, RouterLink, MatExpansionModule, RelatedContentComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './powershell.component.html',
   styleUrl: './powershell.component.scss'

@@ -5,11 +5,12 @@ import { UserService } from '../../services/user.service';
 import { Subject } from 'rxjs';
 import { CommentType } from '../../types/comment.type';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { RelatedContentComponent } from '../../shared-components/related-content/related-content.component';
 
 @Component({
   selector: 'app-asyncio',
   standalone: true,
-  imports: [MatCardModule, CommentComponent, MatExpansionModule],
+  imports: [MatCardModule, CommentComponent, MatExpansionModule, RelatedContentComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './asyncio.component.html',
   styleUrl: './asyncio.component.scss'

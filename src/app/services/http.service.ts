@@ -12,29 +12,30 @@ import { environment } from '../../../src/environments/environment';
 export class HttpService {
     apiUrl = "";
     contactmeUrl = "";
-        addUserUrl = "";
-        quoteUrl = "";
-        nameUrl = "";
-        posAdjUrl = "";
-        stabilityaiUrl = "";
-        dbhealth = "";
-        commentUrl= "";
-        aiQuestionUrl = "";
-    
+    addUserUrl = "";
+    quoteUrl = "";
+    nameUrl = "";
+    posAdjUrl = "";
+    stabilityaiUrl = "";
+    dbhealth = "";
+    commentUrl = "";
+    aiQuestionUrl = "";
+    getRelatedUrl = "";
     httpOptions = {
         headers: new HttpHeaders({
             'Content-Type': 'application/json'
         })
     };
-    constructor(private http: HttpClient) { 
+    constructor(private http: HttpClient) {
         this.contactmeUrl = `${environment.apiUrl}/${environment.apiVersion}/contactme`;
         this.addUserUrl = `${environment.apiUrl}/${environment.apiVersion}/adduser`;
-        this.quoteUrl =`${environment.apiUrl}/${environment.apiVersion}/quote`;
+        this.quoteUrl = `${environment.apiUrl}/${environment.apiVersion}/quote`;
         this.nameUrl = `${environment.apiUrl}/${environment.apiVersion}/name`;
         this.posAdjUrl = `${environment.apiUrl}/${environment.apiVersion}/positiveadjective`;
         this.dbhealth = `${environment.apiUrl}/${environment.apiVersion}/dbhealth`;
         this.commentUrl = `${environment.apiUrl}/${environment.apiVersion}/comment`;
         this.aiQuestionUrl = `${environment.apiUrl}/${environment.apiVersion}/ai`;
+        this.getRelatedUrl = `${environment.apiUrl}/${environment.apiVersion}/related`;
     }
 
     /** 
@@ -60,12 +61,18 @@ export class HttpService {
         return this.http.get(this.quoteUrl);
     }
 
+    /** Returns the related pages for a page */
+    getRelated(page_name: string) {
+        let url = `${this.getRelatedUrl}?page=${page_name}`;
+        return this.http.get(url);
+    }
+
     /** Returns the comments for a page */
     getComments(page_name: string, numToReturn: number = 5) {
         let url = `${this.commentUrl}/${page_name}/${numToReturn}`;
         return this.http.get(url);
     }
-    
+
     getDBHealth() {
         return this.http.get(this.dbhealth);
     }
@@ -78,13 +85,13 @@ export class HttpService {
     getName() {
         return this.http.get(this.nameUrl);
     }
-  
+
     /** Returns scraped data */
     getScrapeData(url: string) {
         const getScrapeUrl = `https://api.nehsa.net/v1/scaper?scrapeUrl=${url}`;
         return this.http.get(getScrapeUrl);
     }
-    
+
     /** Returns the weather */
     getWeather(city: string, units: string = 'imperial', typeStyle: string = 'words') {
         const getWeatherUrl = `https://api.nehsa.net/v1/getweather?city=${city}&units=${units}&weatherType=${typeStyle}`;

@@ -14,6 +14,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { RouterLink } from '@angular/router';
+import { RelatedContentComponent } from '../../shared-components/related-content/related-content.component';
 
 @Component({
   selector: 'app-go',
@@ -31,7 +32,7 @@ import { RouterLink } from '@angular/router';
     MatSelectModule,
     ReactiveFormsModule, 
     MatProgressSpinnerModule,
-    MatInputModule],
+    MatInputModule, RelatedContentComponent],
 
   templateUrl: './go.component.html',
   styleUrl: './go.component.scss'

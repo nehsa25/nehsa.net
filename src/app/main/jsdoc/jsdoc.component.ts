@@ -4,11 +4,12 @@ import { CommentComponent } from '../../shared-components/comment/comment.compon
 import { CommentType } from '../../types/comment.type';
 import { Subject } from 'rxjs';
 import { UserService } from '../../services/user.service';
+import { RelatedContentComponent } from '../../shared-components/related-content/related-content.component';
 
 @Component({
   selector: 'app-jsdoc',
   standalone: true,
-  imports: [MatCardModule, CommentComponent],
+  imports: [MatCardModule, CommentComponent, RelatedContentComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './jsdoc.component.html',
   styleUrl: './jsdoc.component.scss'

@@ -448,7 +448,7 @@ li {
 
 .commentgrid {
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: min-content 1fr min-content;
     grid-gap: 1em;
 }
 
@@ -573,6 +573,20 @@ dl {
     grid-template-columns: 1fr auto;
     width: fit-content;
     grid-gap: 1rem;
+}
+
+// only alter the first dl but change subsequent dls back to the default
+dl dl {
+    display: block;
+}
+
+dl dl dt {
+    text-align: left;
+    margin: 1rem;
+}
+
+dl dl dd {
+    text-align: left;
 }
 
 dt {

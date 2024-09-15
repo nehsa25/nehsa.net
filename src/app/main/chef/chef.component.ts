@@ -6,11 +6,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { UserService } from '../../services/user.service';
 import { CommentType } from '../../types/comment.type';
 import { Subject } from 'rxjs';
+import { RelatedContentComponent } from '../../shared-components/related-content/related-content.component';
 
 @Component({
   selector: 'app-chef',
   standalone: true,
-  imports: [MatCardModule, CommentComponent, MatExpansionModule, MatIconModule],
+  imports: [MatCardModule, CommentComponent, MatExpansionModule, MatIconModule, RelatedContentComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './chef.component.html',
   styleUrl: './chef.component.scss'

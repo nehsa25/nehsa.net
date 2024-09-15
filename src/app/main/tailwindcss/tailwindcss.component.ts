@@ -4,11 +4,12 @@ import { CommentComponent } from '../../shared-components/comment/comment.compon
 import { MatTableModule } from '@angular/material/table';
 import { UserService } from '../../services/user.service';
 import { MatCardModule } from '@angular/material/card';
+import { RelatedContentComponent } from '../../shared-components/related-content/related-content.component';
 
 @Component({
   selector: 'app-tailwindcss',
   standalone: true,
-  imports: [MatCardModule, MatExpansionModule, CommentComponent, MatTableModule],
+  imports: [MatCardModule, MatExpansionModule, CommentComponent, MatTableModule, RelatedContentComponent],
   templateUrl: './tailwindcss.component.html',
   styleUrl: './tailwindcss.component.scss'
 })

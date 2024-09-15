@@ -5,17 +5,12 @@
         </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <div class="commentgrid">
-            <div class="topics">
+        <div class="commentgrid topics">
+            <div><app-related-content></app-related-content></div>
+            <div>
                 This is an overview page for all things AI but has links to specific areas of interest. It contains
                 my experience and knowledge working with various AI technologies, including prompts, AI Image
                 Generation, Adding intelligence to NPCs / Website AI Bots, and building generative AI.
-                <div>Related Content:
-                    <ul class="condensed">
-                        <li><a routerLink="/aiimage">Stability AI (AI Image Generation)</a></li>
-                        <li><a routerLink="/gemini">Google Gemini (Used for Comet bot and NPC dialog)</a></li>
-                    </ul>
-                </div>
                 <div>
                     <ul>
                         <li>
@@ -32,7 +27,8 @@
                                         <span class="importantish">Tell me about dogs</span>
                                     </li>
                                     <li>What tone and perspective are you looking for?
-                                        <span class="importantish">Write a 3 sentence horror story about Timoth&eacute;e and Gaston.
+                                        <span class="importantish">Write a 3 sentence horror story about Timoth&eacute;e
+                                            and Gaston.
                                             Reply as a retired Appalachian sewist visiting Utah.</span>
                                         is better than <span class="importantish">Write a 3 sentence horror story about
                                             Timoth&eacute;e and Gaston.</span><br><br>Gemimi Answer:<br>
@@ -43,8 +39,9 @@
                                             somethin' was amiss. Their eyes, they was hollow, like lookin' into a
                                             bottomless well. And then the folks started disappearin', one by one, just
                                             like they was swallowed by the earth.</div>
-                                            </li>
-                                            <li>Set limits and return types. e.g. provide x examples, return results as a csv</li>
+                                    </li>
+                                    <li>Set limits and return types. e.g. provide x examples, return results as a csv
+                                    </li>
                                 </ul>
 
                             </mat-expansion-panel>

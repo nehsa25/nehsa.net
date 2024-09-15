@@ -5,17 +5,9 @@
         </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <div class="commentgrid">
-            <div class="topics">
-                <div>Related Content:
-                    <ul class="condensed">
-                        <li><a routerLink="/cloud">Cloud Overview</a></li>
-                        <li><a routerLink="/aws">AWS</a></li>
-                        <li><a routerLink="/azure">Azure</a></li>
-                        <li><a routerLink="/gcp">Google Cloud Platform</a></li>
-                        <li><a routerLink="/dns">DNS</a></li>
-                    </ul>
-                </div>
+        <div class="commentgrid topics">
+            <div><app-related-content></app-related-content></div>
+            <div>
                 <div>
                     <ul>
                         <li>

@@ -5,11 +5,12 @@ import { UserService } from '../../services/user.service';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { RelatedContentComponent } from '../../shared-components/related-content/related-content.component';
 
 @Component({
   selector: 'app-testing',
   standalone: true,
-  imports: [MatCardModule, CommentComponent, MatButtonModule, RouterLink, MatExpansionModule],
+  imports: [MatCardModule, CommentComponent, MatButtonModule, RouterLink, MatExpansionModule, RelatedContentComponent],
   templateUrl: './testing.component.html',
   styleUrl: './testing.component.scss'
 })

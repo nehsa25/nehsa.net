@@ -8,8 +8,9 @@
         </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-        <div class="commentgrid">
-            <div class="topics">
+        <div class="commentgrid topics">
+            <div><app-related-content></app-related-content></div>
+            <div>
                 <div>
                     <h3>Definitions</h3>
                     <dl>
@@ -300,7 +301,7 @@
                                                 <li>Just like in base10, once you fill up your column, you must move
                                                     into
                                                     next
-                                            <pre>
+                                                    <pre>
 0
 1
 2
@@ -382,7 +383,7 @@ In Binary:
                                     </ul>
                                 </li>
                                 <li>BASE 16 example
-                            <pre>
+                                    <pre>
 0x1        ==        1
 0xF        ==        15
 0xFF       ==        255
@@ -413,7 +414,7 @@ In Binary:
                                             </li>
                                         </ol>
                                         <li>Examples
-                            <pre>
+                                            <pre>
 0 &#x2227; 0 = 0 (False &#x2227; False = False)
 0 &#x2227; 1 = 0 (False &#x2227; True = False)
 1 &#x2227; 0 = 0 (True &#x2227; False = False)

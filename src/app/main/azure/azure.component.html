@@ -5,17 +5,9 @@
         </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <div class="commentgrid">
-            <div class="topics">
-                <div>Related Content:
-                    <ul class="condensed">
-                        <li><a routerLink="/cloud">Cloud Overview</a></li>
-                        <li><a routerLink="/aws">AWS</a></li>
-                        <li><a routerLink="/azure">Azure</a></li>
-                        <li><a routerLink="/gcp">Google Cloud Platform</a></li>
-                        <li><a routerLink="/dns">DNS</a></li>
-                    </ul>
-                </div>
+        <div class="commentgrid topics">
+            <div><app-related-content></app-related-content></div>
+            <div>
                 <div>
                     <a target="_blank" mat-stroked-button href="https://portal.azure.com">Azure Portal</a><br><br>
 
@@ -28,8 +20,10 @@
                                 <dl>
                                     <dt>App Service</dt>
                                     <dd>Azure's offering for hosting web applications</dd>
-                                    <dt>Azure Container Registry</dt><dd>MS offering for hosting container images</dd>
-                                    <dt>Azure Container Instances</dt><dd>MS offering for running containers</dd>
+                                    <dt>Azure Container Registry</dt>
+                                    <dd>MS offering for hosting container images</dd>
+                                    <dt>Azure Container Instances</dt>
+                                    <dd>MS offering for running containers</dd>
                                     <dt>Application Insights</dt>
                                     <dd>Azure's monitoring service. Can be instrumented into your application to monitor
                                         performance and usage</dd>
@@ -181,10 +175,12 @@
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Running an Angular app in a container</mat-panel-title>
                                 </mat-expansion-panel-header>
-                                This will be moving from an Azure App Service to an Azure Container Instance. The reasoning behind this move: <br>
+                                This will be moving from an Azure App Service to an Azure Container Instance. The
+                                reasoning behind this move: <br>
                                 <ul>
                                     <li>Cost: Azure App Service is more expensive than Azure Container Instances</li>
-                                    <li>Flexibility: Azure Container Instances allow for more flexibility in the environment</li>
+                                    <li>Flexibility: Azure Container Instances allow for more flexibility in the
+                                        environment</li>
                                     <li>Learning: I want to learn how to run an Angular app in a container</li>
                                 </ul><br><br>
 
@@ -194,7 +190,8 @@
                                     <li>Build the Docker image (see <a routerLink="/docker">Azure</a>)</li>
                                     <li>Push the Docker image to Azure Container Registry</li>
                                     <li>Run the Docker image in Azure Container Instances</li>
-                                    <li>Update traffic from App Service "test" environment to new Continaer instance</li>
+                                    <li>Update traffic from App Service "test" environment to new Continaer instance
+                                    </li>
                                     <li>Validate!</li>
                                 </ol>
                             </mat-expansion-panel>

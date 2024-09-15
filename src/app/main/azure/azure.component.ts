@@ -6,11 +6,12 @@ import { RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
+import { RelatedContentComponent } from '../../shared-components/related-content/related-content.component';
 
 @Component({
   selector: 'app-azure',
   standalone: true,
-  imports: [MatCardModule, CommentComponent, RouterLink, MatButtonModule, MatExpansionModule, MatIconModule],
+  imports: [MatCardModule, CommentComponent, RouterLink, MatButtonModule, MatExpansionModule, MatIconModule, RelatedContentComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './azure.component.html',
   styleUrl: './azure.component.scss'

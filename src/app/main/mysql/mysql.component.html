@@ -5,38 +5,119 @@
         </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <div class="commentgrid">
-            <div class="topics">
+        <div class="commentgrid topics">
+            <div><app-related-content></app-related-content></div>
+            <div>
                 <div>
                     <ul>
                         <li>
-                            <mat-expansion-panel>
+                            <mat-expansion-panel expanded>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Tips / Best Practices</mat-panel-title>
                                 </mat-expansion-panel-header>
                                 <ul>
-                                    <li>Naming Conventions
-                                        <dl>
-                                            <dt>Use plural nours for tables</dt>
-                                            <dd>eg: `flashcards` (for tables with multiple names, use underscores)</dd>
-                                            <dt>Use singular nouns for columns</dt>
-                                            <dd>eg: `question`</dd>
-                                            <dt>For columns with multiple names, use underscores</dt>
-                                            <dd>eg: `created_at`</dd>
-                                            <dt>Use `id` for primary keys</dt>
-                                            <dd>eg: `id`</dd>
-                                            <dt>Use prefix `fk_` for foreign keys</dt>
-                                            <dd>eg: `fk_user_id`</dd>
-                                            <dt>Use prefix `idx_` for indexes</dt>
-                                            <dd>eg: `idx_user_id`</dd>
-                                            <dt>Do not use unicode NVARCHAR or NCHAR</dt>
-                                            <dd>For UTF8MB4, use VARCHAR or CHAR</dd>
-                                        </dl>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header><mat-panel-title>Data Types</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <dl>
+                                                <dt>INT</dt>
+                                                <dd>A number without a decimal point. Use INT for primary keys.</dd>
+                                                <dt>VARCHAR</dt>
+                                                <dd>Variable-length string. Use VARCHAR for strings.</dd>
+                                                <dt>TEXT</dt>
+                                                <dd>Use TEXT for large strings.</dd>
+                                                <dt>JSON</dt>
+                                                <dd>Use JSON for JSON objects. Example: '&#123;"name":
+                                                    "Jesse"&#125;'<br>
+                                                    To access the value, use JSON_EXTRACT. i.e. <inline-code>select *
+                                                        from table where JSON_EXTRACT(column, '$.name') =
+                                                        'Jesse';</inline-code>
+                                                </dd>
+                                                <dt>ENUM</dt>
+                                                <dd>Use ENUM for a list of possible values. Example: ENUM('red',
+                                                    'green', 'blue')<br>To access the value, use the index (0, 1, 2).
+                                                    i.e. <inline-code>select * from table where color = 1;</inline-code>
+                                                </dd>
+                                                <dt>DATE</dt>
+                                                <dd>Use DATE for dates. Example: '2024-09-01'</dd>
+                                                <dt>DATETIME</dt>
+                                                <dd>Use DATETIME for dates and times. Example: '2024-09-01 12:00:00'
+                                                </dd>
+                                                <dt>DECIMAL</dt>
+                                                <dd>Use DECIMAL for numbers with decimal points.</dd>
+                                                <dt>BOOLEAN</dt>
+                                                <dd>Use BOOLEAN for true/false values.</dd>
+                                            </dl>
+                                        </mat-expansion-panel>
                                     </li>
-                                    <li>Use JSON_OBJECT instead of VARCHAR when working with JSON. It's faster and more
-                                        efficient.
-                                        <h3>Inserting a JSON object</h3>
-                                        <code>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header><mat-panel-title>Naming
+                                                    Conventions</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <dl>
+                                                <dt>Use plural nours for tables</dt>
+                                                <dd>eg: `flashcards` (for tables with multiple names, use underscores)
+                                                </dd>
+                                                <dt>Use singular nouns for columns</dt>
+                                                <dd>eg: `question`</dd>
+                                                <dt>For columns with multiple names, use underscores</dt>
+                                                <dd>eg: `created_at`</dd>
+                                                <dt>Use `id` for primary keys</dt>
+                                                <dd>eg: `id`</dd>
+                                                <dt>Use prefix `fk_` for foreign keys</dt>
+                                                <dd>eg: `fk_user_id`</dd>
+                                                <dt>Use prefix `idx_` for indexes</dt>
+                                                <dd>eg: `idx_user_id`</dd>
+                                                <dt>Do not use unicode NVARCHAR or NCHAR</dt>
+                                                <dd>For UTF8MB4, use VARCHAR or CHAR</dd>
+                                            </dl>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header><mat-panel-title>Create Table
+                                                    Options</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <dl>
+                                                <dt>AUTO_INCREMENT</dt>
+                                                <dd>Automatically increments the value for each record.</dd>
+                                                <dt>PRIMARY KEY</dt>
+                                                <dd>Unique identifier for the record. This can be used as a foreign key
+                                                    constraint in other tables.</dd>
+                                                <dt>FOREIGN KEY</dt>
+                                                <dd>Links to a primary key in another table.</dd>
+                                                <dt>NOT NULL</dt>
+                                                <dd>Requires a value to be entered.</dd>
+                                                <dt>UNIQUE</dt>
+                                                <dd>Requires a unique value.</dd>
+                                                <dt>DEFAULT</dt>
+                                                <dd>Provides a default value if none is entered.<br><br>
+                                                    e.g. to add a current timestamp:
+                                                    <code>
+                                                        <pre>
+CREATE TABLE `pages` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `stem` VARCHAR(100) NOT NULL,
+    `title` VARCHAR(100) NOT NULL,
+    `date` DATETIME NOT NULL <span class="importantish">DEFAULT CURRENT_TIMESTAMP</span>
+);
+
+                                                        </pre>
+                                                    </code>
+                                                </dd>
+                                            </dl>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header><mat-panel-title>Working with
+                                                    JSON</mat-panel-title>
+                                            </mat-expansion-panel-header>Use JSON_OBJECT instead of VARCHAR when working
+                                            with JSON. It's faster and more efficient.
+                                            <h3>Inserting a JSON object</h3>
+                                            <code>
 <pre>
 INSERT INTO flashcards (question, answer, answer_format_id, page)
 VALUES (
@@ -45,98 +126,39 @@ VALUES (
     1, 'PH207'
 );                                                
 </pre>
-                                        </code>
-                                        <h3>Retrieving a JSON object</h3>
-                                        <ul>
-                                            <li>Search for specific value:
-                                                <code>
+                                                </code>
+                                            <h3>Retrieving a JSON object</h3>
+                                            <ul>
+                                                <li>Search for specific value:
+                                                    <code>
                                                     <pre>
 SELECT *
 FROM flashcards
 WHERE JSON_CONTAINS(question, '&#123;"question":"What is the distance from the Earth to the Sun?"&#125;');
 </pre>
-                                                </code>
-                                            </li>
-                                            <li>Search for a value in an array:
-                                                <code>
+                                                        </code>
+                                                </li>
+                                                <li>Search for a value in an array:
+                                                    <code>
                                                     <pre>
 SELECT *
 FROM flashcards
 WHERE JSON_CONTAINS(answer, '["1 AU"]');
 </pre>
-                                                </code>
-                                            </li>
-                                            <li>Search for a value in an array and a specific question:
-                                                <code>
+                                                        </code>
+                                                </li>
+                                                <li>Search for a value in an array and a specific question:
+                                                    <code>
                                                     <pre>
 SELECT *
 FROM flashcards
 WHERE JSON_EXTRACT(question, '$.question') LIKE '%distance%'
     AND JSON_CONTAINS(JSON_EXTRACT(answer, '$.answer'), '["1 AU"]');
 </pre>
-                                                </code>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>UTF8MB4 is the best character. Other options are deprecated.</li>
-                                    <li>Use exaplin! It's a great way to see how your query is being executed. <br>
-                                        <span class="code">explain select * from flashcards</span><br>
-                                        <code>
-                                            <pre>
-# id, select_type, table, partitions, type, possible_keys, key, key_len, ref, rows, filtered, Extra
-'1', 'SIMPLE', 'flashcards', NULL, 'ALL', NULL, NULL, NULL, NULL, '1', '100.00', NULL
-                                            </pre>
-                                        </code><br><br>
-                                        This is a lot of valuable information:<br>
-                                        <dl>
-                                            <dt>id</dt>
-                                            <dd>the query number</dd>
-                                            <dt>select_type</dt>
-                                            <dd>the type of query</dd>
-                                            <dt>table</dt>
-                                            <dd>the table being queried</dd>
-                                            <dt>partitions</dt>
-                                            <dd>the partitions being used</dd>
-                                            <dt>type</dt>
-                                            <dd>the type of join</dd>
-                                            <dt>possible_keys</dt>
-                                            <dd>the keys that could be used</dd>
-                                            <dt>key</dt>
-                                            <dd>the key that was used</dd>
-                                            <dt>key_len</dt>
-                                            <dd>the length of the key</dd>
-                                            <dt>ref</dt>
-                                            <dd>the reference</dd>
-                                            <dt>rows</dt>
-                                            <dd>the number of rows</dd>
-                                            <dt>filtered</dt>
-                                            <dd>the percentage of rows that were filtered</dd>
-                                            <dt>Extra</dt>
-                                            <dd>any extra information</dd>
-                                        </dl><br><br>
-                                        An example of how this could be used to troubleshoot performance issues:<br>
-                                        <ol>
-                                            <li>Check if the query uses the correct index. If the key is NULL, then the
-                                                query
-                                                is not using an index. If the key is not NULL, then the query uses an
-                                                index.</li>
-                                            <li>Check the number of rows. If the number of rows is high, then the query
-                                                may not optimized.</li>
-                                            <li>Check the type of join. If the type is ALL, then the query is not using
-                                                an index. An example of an all join is a full table scan.</li>
-                                        </ol>
-                                    </li>
-                                    <li>MySQL Workbench is the only tool I've used for MySQL. It's similar to SQL Server
-                                        Management Studio (SSMS) although I find SSMS a bit more polished.
-                                        <ul>
-                                            <li>To execute a query similar to F5 in SSMS, use <span
-                                                    class="code">Ctrl+Enter</span></li>
-                                            <li>Use <span class="code">Ctrl+Shift+Enter</span> to execute the current
-                                                line
-                                            </li>
-                                            <li>Specifying a length `id` INT(11) is deprecated, use `id` INT instead
-                                            </li>
-                                        </ul>
+                                                        </code>
+                                                </li>
+                                            </ul>
+                                        </mat-expansion-panel>
                                     </li>
                                 </ul>
                             </mat-expansion-panel>
@@ -144,7 +166,7 @@ WHERE JSON_EXTRACT(question, '$.question') LIKE '%distance%'
                         <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
-                                    <mat-panel-title>Setup Docker</mat-panel-title>
+                                    <mat-panel-title>Running MySQL within Docker</mat-panel-title>
                                 </mat-expansion-panel-header>
                                 <ul>
                                     <li>Get latest imagest:<br>
@@ -152,13 +174,17 @@ WHERE JSON_EXTRACT(question, '$.question') LIKE '%distance%'
                                     </li>
                                     <li>
                                         Run it:<br>
-                                        <code>docker run -d --name mysql-container -e TZ=UTC -p
-                                            3306:3306
-                                            -e
-                                            MYSQL_ROOT_PASSWORD=&lt;PASSWORD&gt; ubuntu/mysql:latest</code>
+                                        <code>docker run <br>&nbsp;&nbsp;
+                                            --name mysql-container <br>&nbsp;&nbsp;
+                                            -d <br>&nbsp;&nbsp;
+                                            -e TZ=UTC <br>&nbsp;&nbsp;
+                                            -p 3306:3306 <br>&nbsp;&nbsp;
+                                            -v /opt/mysql-db:/var/lib/mysql<br>&nbsp;&nbsp;
+                                            -e MYSQL_ROOT_PASSWORD=&lt;PASSWORD&gt;<br>&nbsp;&nbsp;ubuntu/mysql:latest</code>
                                     </li>
                                     <li>We now have a SQL server install running to the outside world on port <span
-                                            class="important">3306</span>:<br><br><br>
+                                            class="importantish">3306</span>. The data for the database is stored
+                                        externally in a volume /opt/mysql.<br><br>
                                         <span class="code-command">docker ps</span>
                                         <code>
 
@@ -168,17 +194,27 @@ CONTAINER ID   IMAGE                 COMMAND                  CREATED          S
                                 </pre>
                                         </code>
                                     </li>
-                                    <li>Get MySQL Workbench
-                                        <ul class="condensed">
-                                            <li>Install client only</li>
-                                        </ul>
-                                    </li>
-                                    <li>Configure .NET Core support<br><br>
-                                        <ul>
-                                            <li>
-                                                <span class="code-command">dotnet add package MySqlConnector</span>
-                                                <code>
-                                                    <pre>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>MySQL WorkBench</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                Install client only
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header><mat-panel-title>Configure .NET Core
+                                        support</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>
+                                        <span class="code-command">dotnet add package MySqlConnector</span>
+                                        <code>
+                                        <pre>
 Determining projects to restore...
 ...
 info : Adding PackageReference for package 'MySqlConnector' into project 'C:\src\&lt;PROJECT&gt;\&lt;PROJECT&gt;.csproj'.
@@ -188,23 +224,23 @@ info : PackageReference for package 'MySqlConnector' version '2.3.7' added to fi
 info : Generating MSBuild file C:\src\&lt;PROJECT&gt;\obj\&lt;PROJECT&gt;.csproj.nuget.g.targets.
 info : Writing assets file to disk. Path: C:\src\&lt;PROJECT&gt;\obj\project.assets.json
 log  : Restored C:\src\&lt;PROJECT&gt;\&lt;PROJECT&gt;.csproj (in 1.72 sec).
-                                        </pre>
-                                                </code>
-                                            </li>
-                                            <li>Add connection string to appsettings.json:
-                                                <code>
-                                                    <pre>
+                            </pre>
+                                        </code>
+                                    </li>
+                                    <li>Add connection string to appsettings.json:
+                                        <code>
+                                        <pre>
 "ConnectionStrings": &#123;
-    "Default": "Server=&lt;YOURSERVER&gt;;Port=&lt;PORT&gt;User ID=&lt;USERID&gt;;Password=&lt;PASSWORD&gt;;Database=&lt;YOURDATABASE&gt;"
+"Default": "Server=&lt;YOURSERVER&gt;;Port=&lt;PORT&gt;User ID=&lt;USERID&gt;;Password=&lt;PASSWORD&gt;;Database=&lt;YOURDATABASE&gt;"
 &#125;,
-                                            </pre>
-                                                </code>
-                                            </li>
-                                            <li>Install MySqlConnector.DependencyInjection:<br><br>
-                                                <span class="code-command">dotnet add package
-                                                    MySqlConnector.DependencyInjection</span>
-                                                <code>
-                                                    <pre>
+                                </pre>
+                                        </code>
+                                    </li>
+                                    <li>Install MySqlConnector.DependencyInjection:<br><br>
+                                        <span class="code-command">dotnet add package
+                                            MySqlConnector.DependencyInjection</span>
+                                        <code>
+                                            <pre>
 Determining projects to restore...
 ...
 info : Adding PackageReference for package 'MySqlConnector.DependencyInjection' into project 'C:\src\&lt;PROJECT&gt;\&lt;PROJECT&gt;.csproj'.
@@ -213,15 +249,13 @@ info : Package 'MySqlConnector.DependencyInjection' is compatible with all the s
 info : PackageReference for package 'MySqlConnector.DependencyInjection' version '2.3.6' added to file 'C:\src\&lt;PROJECT&gt;\&lt;PROJECT&gt;.csproj'.
 info : Writing assets file to disk. Path: C:\src\&lt;PROJECT&gt;\obj\project.assets.json
 log  : Restored C:\src\&lt;PROJECT&gt;\&lt;PROJECT&gt;.csproj (in 1.22 sec)
-                                        </pre>
-                                                </code>
-                                            </li>
-                                            <li>Update appsetings.json again and add:<br>
-                                                <code>
-                                                    builder.Services.AddMySqlDataSource(builder.Configuration.GetConnectionString("Default")!);
-                                                </code>
-                                            </li>
-                                        </ul>
+                            </pre>
+                                        </code>
+                                    </li>
+                                    <li>Update appsetings.json again and add:<br>
+                                        <code>
+                                            builder.Services.AddMySqlDataSource(builder.Configuration.GetConnectionString("Default")!);
+                                        </code>
                                     </li>
                                 </ul>
                             </mat-expansion-panel>
@@ -229,21 +263,48 @@ log  : Restored C:\src\&lt;PROJECT&gt;\&lt;PROJECT&gt;.csproj (in 1.22 sec)
                         <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
-                                    <mat-panel-title>Setup Database</mat-panel-title>
+                                    <mat-panel-title>Setup New Database Schema</mat-panel-title>
                                 </mat-expansion-panel-header>
-                        <li>Setup database
-                            <ul>
-                                <li>Connect via MySQL Workbench</li>
-                                <li>
-                                    Create the new database:<br>
-                                    <code>create schema &lt;DATABASE NAME&gt;</code>
-                                </li>
-                                <li>Ensure you're viewing "Schemas," click "Refresh" to see your new schema</li>
-                                <li>Create a new type by expanding the schema and right-clicking on Tables</li>
-                                <li>Click "Apply" to generate the new table</li>
-                            </ul>
+                                <ul>
+                                    <li>Connect via MySQL Workbench</li>
+                                    <li>
+                                        Create the new database:<br>
+                                        <code>create schema &lt;DATABASE NAME&gt;</code>
+                                    </li>
+                                    <li>Ensure you're viewing "Schemas," click "Refresh" to see your new schema</li>
+                                    <li>Create a new type by expanding the schema and right-clicking on Tables</li>
+                                    <li>Click "Apply" to generate the new table</li>
+                                </ul>
+                            </mat-expansion-panel>
                         </li>
-                        </mat-expansion-panel>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Creating new MySQL Tables</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                Basic syntax is:
+                                <code>
+                                    <pre>
+CREATE TABLE &lt;TABLE NAME&gt; (
+    &lt;COLUMN NAME&gt; &lt;DATA TYPE&gt; &lt;OPTIONAL CONSTRAINTS&gt;,
+    &lt;COLUMN NAME&gt; &lt;DATA TYPE&gt; &lt;OPTIONAL CONSTRAINTS&gt;,
+    &lt;COLUMN NAME&gt; &lt;DATA TYPE&gt; &lt;OPTIONAL CONSTRAINTS&gt;
+);
+                                </pre>
+                                </code>
+                                <h3>Example</h3>
+                                <code>
+                                    <pre>
+CREATE TABLE flashcards (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    question VARCHAR(255),
+    answer TEXT,
+    answer_format_id INT,
+    page VARCHAR(255)
+);
+                                    </pre>
+                                </code>
+                            </mat-expansion-panel>
                         </li>
                         <li>
                             <mat-expansion-panel>

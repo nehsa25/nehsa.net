@@ -5,11 +5,12 @@ import { MatCardModule } from '@angular/material/card';
 import { UserService } from '../../../services/user.service';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
+import { RelatedContentComponent } from '../../../shared-components/related-content/related-content.component';
 
 @Component({
   selector: 'app-custom-elements',
   standalone: true,
-  imports: [MatCardModule, MatExpansionModule, CommentComponent, MatIconModule, RouterLink],
+  imports: [MatCardModule, MatExpansionModule, CommentComponent, MatIconModule, RouterLink, RelatedContentComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './custom-elements.component.html',
   styleUrl: './custom-elements.component.scss'

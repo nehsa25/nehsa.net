@@ -4,11 +4,12 @@ import { CommentComponent } from '../../shared-components/comment/comment.compon
 import { UserService } from '../../services/user.service';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { RouterLink } from '@angular/router';
+import { RelatedContentComponent } from '../../shared-components/related-content/related-content.component';
 
 @Component({
   selector: 'app-typescript',
   standalone: true,
-  imports: [MatCardModule, CommentComponent, MatExpansionModule, RouterLink],
+  imports: [MatCardModule, CommentComponent, MatExpansionModule, RouterLink, RelatedContentComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './typescript.component.html',
   styleUrl: './typescript.component.scss'

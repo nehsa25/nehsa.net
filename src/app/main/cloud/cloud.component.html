@@ -5,17 +5,9 @@
         </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <div class="commentgrid">
-            <div class="topics">
-                <div>Related Content:
-                    <ul class="condensed">
-                        <li><a routerLink="/cloud">Cloud Overview</a></li>
-                        <li><a routerLink="/aws">AWS</a></li>
-                        <li><a routerLink="/azure">Azure</a></li>
-                        <li><a routerLink="/gcp">Google Cloud Platform</a></li>
-                        <li><a routerLink="/dns">DNS</a></li>
-                    </ul>
-                </div>
+        <div class="commentgrid topics">
+            <div><app-related-content></app-related-content></div>
+            <div>
                 <div>
                     Using the cloud is more than simply using someone else's computer. Cloud providers offer many
                     services, including extra security and services that would be hard for a small company to provide on
@@ -37,7 +29,8 @@
                             </tr>
                             <tr>
                                 <td>AWS</td>
-                                <td>Is the most widely used and has the most services. (e.g. AWS services: 175, GCP: 60, and
+                                <td>Is the most widely used and has the most services. (e.g. AWS services: 175, GCP: 60,
+                                    and
                                     Azure: 50). Some of which include:<br>
                                     <dl>
                                         <dt>EC2</dt>
@@ -71,13 +64,17 @@
                                 <td>VMs, Blob Storage, SQL Server, Functions, CosmosDB, etc.
                                     <dl>
                                         <dt>Blob storage</dt>
-                                        <dd>is a type of storage that is used to store unstructured data like images, videos, and
+                                        <dd>is a type of storage that is used to store unstructured data like images,
+                                            videos, and
                                             backups.</dd>
                                         <dt>VPC</dt>
-                                        <dd>VPC is a service that allows you to create a virtual private cloud. A VPC is needed when
-                                            you need more security, isolation, or connection to an on-premise network. (akin to
+                                        <dd>VPC is a service that allows you to create a virtual private cloud. A VPC is
+                                            needed when
+                                            you need more security, isolation, or connection to an on-premise network.
+                                            (akin to
                                             Azure Virtual Network or Google Cloud VPC)</dd>
-                                        <dt>Application Insights</dt><dd>is a service that allows you to monitor your
+                                        <dt>Application Insights</dt>
+                                        <dd>is a service that allows you to monitor your
                                             application.</dd>
                                         <dt>CosmosDB</dt>
                                         <dd>is a service that will enable you to create a NoSQL database. IN SPACE!</dd>
@@ -100,7 +97,8 @@
                     <div>
                         Non-sepcific Cloud Lingo:<br>
                         <dl>
-                            <dt><acronym-name>Infrastructure as a Service<acronym-abbr>IaaS</acronym-abbr></acronym-name></dt>
+                            <dt><acronym-name>Infrastructure as a
+                                    Service<acronym-abbr>IaaS</acronym-abbr></acronym-name></dt>
                             <dd>An IaaS is a cloud service that
                                 provides virtualized computing resources over the internet.</dd>
                             <dt><acronym-name>Software as a Service<acronym-abbr>SaaS</acronym-abbr></acronym-name></dt>
@@ -110,7 +108,8 @@
                             <dt><acronym-name>Platform as a Service<acronym-abbr>PaaS</acronym-abbr></acronym-name></dt>
                             <dd>This differs from similar services like IaaS or SaaS in that it
                                 provides a platform for developers to build applications on.</dd>
-                            <dt><acronym-name>Integration Platform as a Service<acronym-abbr>iPaaS</acronym-abbr></acronym-name></dt>
+                            <dt><acronym-name>Integration Platform as a
+                                    Service<acronym-abbr>iPaaS</acronym-abbr></acronym-name></dt>
                             <dd>Integration Platform as a Service is a suite of cloud services and tools thatthat
                                 further streamline deployment by providing pre-built connectors to common SaaS
                                 applications and on-premises systems and tools for building custom integrations. It also

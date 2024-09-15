@@ -6,11 +6,12 @@ import { CommentType } from '../../types/comment.type';
 import { Subject } from 'rxjs';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { RouterLink } from '@angular/router';
+import { RelatedContentComponent } from '../../shared-components/related-content/related-content.component';
 
 @Component({
   selector: 'app-github',
   standalone: true,
-  imports: [MatCardModule, CommentComponent, MatExpansionModule, RouterLink],
+  imports: [MatCardModule, CommentComponent, MatExpansionModule, RouterLink, RelatedContentComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './github.component.html',
   styleUrl: './github.component.scss'

@@ -3,11 +3,12 @@ import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { UserService } from '../../../services/user.service';
 import { MatIconModule } from '@angular/material/icon';
+import { RelatedContentComponent } from '../../../shared-components/related-content/related-content.component';
 
 @Component({
   selector: 'app-game-theory',
   standalone: true,
-  imports: [MatCardModule, CommonModule, MatIconModule],
+  imports: [MatCardModule, CommonModule, MatIconModule, RelatedContentComponent],
   templateUrl: './game-theory.component.html',
   styleUrl: './game-theory.component.scss'
 })

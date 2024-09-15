@@ -5,11 +5,12 @@ import { UserService } from '../../services/user.service';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import { RelatedContentComponent } from '../../shared-components/related-content/related-content.component';
 
 @Component({
   selector: 'app-security',
   standalone: true,
-  imports: [MatCardModule, CommentComponent, MatExpansionModule, RouterLink, MatButtonModule],
+  imports: [MatCardModule, CommentComponent, MatExpansionModule, RouterLink, MatButtonModule, RelatedContentComponent],
   templateUrl: './security.component.html',
   styleUrl: './security.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

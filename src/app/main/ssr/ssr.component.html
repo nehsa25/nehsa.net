@@ -5,16 +5,9 @@
         </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <div class="commentgrid">
-            <div class="topics">
-                <div>Related Content:
-                    <ul class="condensed">
-                        <li><a routerLink="/seo">Search Engine Optimization</a></li>
-                        <li><a routerLink="/ssr">Server-Side Rendering (SSR)</a></li>
-                        <li><a routerLink="/monetizenow">Microsoft Monetize Now</a></li>
-                        <li><a routerLink="/clarity">Microsoft Clarity</a></li>
-                    </ul>
-                </div>
+        <div class="commentgrid topics">
+            <div><app-related-content></app-related-content></div>
+            <div>
                 <div><acronym-name>Server-side rendering<acronym-abbr>SSR</acronym-abbr></acronym-name> is the
                     process
                     of
@@ -131,7 +124,8 @@ export class AppServerModule &#123; &#125;
                                                             </pre>
                                                 </code>
                                             </li>
-                                            <li><inline-file>tsconfig.server.json</inline-file>: The TypeScript configuration file for the server-side rendering.<br><br>
+                                            <li><inline-file>tsconfig.server.json</inline-file>: The TypeScript
+                                                configuration file for the server-side rendering.<br><br>
 
                                                 tsconfig.server.json:<br>
                                                 <code>

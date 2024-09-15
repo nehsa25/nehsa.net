@@ -5,11 +5,12 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { CommentComponent } from '../../shared-components/comment/comment.component';
 import { UserService } from '../../services/user.service';
 import { RouterLink } from '@angular/router';
+import { RelatedContentComponent } from '../../shared-components/related-content/related-content.component';
 
 @Component({
   selector: 'app-javascript-frameworks',
   standalone: true,
-  imports: [MatCardModule, MatExpansionModule, MatCommonModule, CommentComponent, RouterLink],
+  imports: [MatCardModule, MatExpansionModule, MatCommonModule, CommentComponent, RouterLink, RelatedContentComponent],
   templateUrl: './javascript-frameworks.component.html',
   styleUrl: './javascript-frameworks.component.scss'
 })

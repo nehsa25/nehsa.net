@@ -5,8 +5,8 @@
         </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <div class="commentgrid">
-            <div class="topics">
+        <div class="commentgrid topics">
+            <div><app-related-content></app-related-content></div><div>
                 <div class="grid">
                     <div>
                         <h3>Swagger Documentation for this website (OpenApi 3.0)</h3>
@@ -20,14 +20,14 @@
                             <li>
                                 <h4>Auto-generation in Kestrel</h4>
                                 <code>
-                                    <pre>
-        var builder = WebApplication.CreateBuilder(args);
-        builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen();    
-        var app = builder.Build();
-        app.UseSwagger();
-        app.UseSwaggerUI();
-                                        </pre>
+                            <pre>
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();    
+var app = builder.Build();
+app.UseSwagger();
+app.UseSwaggerUI();
+                                </pre>
                                 </code>
                             </li>
                             <li>
@@ -36,19 +36,19 @@
                                 </h4>
                                 For annotated as such:
                                 <code>
-                                    <pre>
-        app.MapGet("/api/v1/da", [SwaggerOperation(
-            Summary = "Returns a single quote",
-            Description = "A random quote is returned each time a request is made")]
-            [SwaggerResponse(200, "Success")]
-            [SwaggerResponse(500, "An error occurred")] () =>
-        &#123;
-        
-            return JsonSerializer.Serialize&lt;string&gt;(quotes[Random.Shared.Next(quotes.Length)]);
-        &#125;)
-        .WithName("DouglasAdamQuotes")
-        .WithOpenApi();
-                                    </pre>
+                            <pre>
+app.MapGet("/api/v1/da", [SwaggerOperation(
+    Summary = "Returns a single quote",
+    Description = "A random quote is returned each time a request is made")]
+    [SwaggerResponse(200, "Success")]
+    [SwaggerResponse(500, "An error occurred")] () =>
+&#123;
+
+    return JsonSerializer.Serialize&lt;string&gt;(quotes[Random.Shared.Next(quotes.Length)]);
+&#125;)
+.WithName("DouglasAdamQuotes")
+.WithOpenApi();
+                            </pre>
                                 </code>
                             </li>
                         </ul>

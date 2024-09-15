@@ -7,11 +7,12 @@ import { CommentType } from '../../../types/comment.type';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatButtonModule } from '@angular/material/button';
+import { RelatedContentComponent } from '../../../shared-components/related-content/related-content.component';
 
 @Component({
   selector: 'app-writing',
   standalone: true,
-  imports: [MatCardModule, CommentComponent, MatExpansionModule, MatButtonModule],
+  imports: [MatCardModule, CommentComponent, MatExpansionModule, MatButtonModule, RelatedContentComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './writing.component.html',
   styleUrl: './writing.component.scss'

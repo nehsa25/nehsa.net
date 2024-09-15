@@ -5,8 +5,10 @@
         </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <div class="commentgrid">
-            <div class="topics">I love technology.<br><br>
+        <div class="commentgrid topics">
+            <div><app-related-content></app-related-content></div>
+            <div>
+                I love technology.<br><br>
                 I firmly believe
                 that the more senior an engineer you become, the less you feel, by default, you know the best
                 solution. Smart people are creating new technologies, patterns, and tools every day, and if you stop
@@ -95,13 +97,15 @@
                     <li>
                         <mat-expansion-panel>
                             <mat-expansion-panel-header>
-                                <mat-panel-title><span class="pending"><mat-icon>pending</mat-icon></span>Host GraphQL server container on AWS</mat-panel-title>
+                                <mat-panel-title><span class="pending"><mat-icon>pending</mat-icon></span>Host GraphQL
+                                    server container on AWS</mat-panel-title>
                             </mat-expansion-panel-header>My only experience with AWS is simply for storage. To better
                             understand the platform, I will host a Docker image on AWS.
 
                             <ul>
                                 <li><span class="done"><mat-icon>done</mat-icon></span>Evaluate AWS offerings</li>
-                                <li><span class="done"><mat-icon>done</mat-icon></span>Setup account/infrastructure for the docker image</li>
+                                <li><span class="done"><mat-icon>done</mat-icon></span>Setup account/infrastructure for
+                                    the docker image</li>
                                 <li><span class="done"><mat-icon>done</mat-icon></span>Host the image</li>
                                 <li><span class="not-started"><mat-icon>stop</mat-icon></span>Test</li>
                             </ul>
@@ -224,7 +228,8 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li>Organize story styling so each stories is self-contained</li>
+                                <li><span class="not-started"><mat-icon>stop</mat-icon></span>Organize story styling so
+                                    each stories is self-contained</li>
                             </ul>
                         </mat-expansion-panel>
                     </li>
@@ -239,11 +244,75 @@
                             one highlighted.
                             <ul>
                                 <li><span class="done"><mat-icon>done</mat-icon></span>Create Component</li>
-                                <li><span class="not-started"><mat-icon>stop</mat-icon></span>Update all pages to use
-                                    the
+                                <li><span class="done"><mat-icon>done</mat-icon></span>Update all pages to use the
                                     component</li>
-                                <li><span class="not-started"><mat-icon>stop</mat-icon></span>GraphQL will be used upon
-                                    each page load to receive related content information.</li>
+                                <li><span class="done"><mat-icon>done</mat-icon></span>Create MySQL tables for page
+                                    association<br>
+                                    <ul>
+                                        <li>pages: record for each page:<br>
+                                            <code>
+                                                <pre>
+CREATE TABLE `pages` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `stem` VARCHAR(100) NOT NULL,
+  `title` VARCHAR(100) NOT NULL,
+  `date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+                                                </pre>
+                                            </code>
+                                        </li>
+                                        <li>related_pages: record for each related page:<br>
+                                            <code>
+                                                <pre>
+CREATE TABLE `related_pages` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `page_id` INT NOT NULL,
+    `related_page_id` INT NOT NULL,
+    FOREIGN KEY (page_id) REFERENCES pages(id),
+    FOREIGN KEY (related_page_id) REFERENCES pages(id)
+);
+                                                </pre>
+                                            </code>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><span class="pending"><mat-icon>pending</mat-icon></span>Populate it:<br>
+                                    <code>
+<pre>
+INSERT INTO pages (stem, title) VALUES
+('/agile', 'Agile Methodolgy and Development Practices'),
+('/ai', 'Artificial Intelligence),
+(... and so on);
+</pre>
+                                    </code><br><br>
+
+                                    Create the relationships:<br>
+                                    <code>
+<pre>
+INSERT INTO related_pages (page_id, related_page_id)
+VALUES (
+    (SELECT id FROM pages WHERE stem = 'page1'),
+    (SELECT id FROM pages WHERE stem = 'page2')
+);
+</pre>
+                                    </code><br><br>
+
+                                    e.g. to relate the general Web Design page with to the TailWind CSS page:<br>
+                                    <code>
+<pre>
+INSERT INTO related_pages (page_id, related_page_id)
+VALUES (
+    (SELECT id FROM pages WHERE stem = '/webdesign'),
+    (SELECT id FROM pages WHERE stem = '/tailwindcss')
+);
+</pre>
+                                    </code>
+                                </li>
+                                <li><span class="pending"><mat-icon>pending</mat-icon></span>Create API endpoints for
+                                    getting the data</li>
+                                <li><span class="not-started"><mat-icon>stop</mat-icon></span>Update site to make the
+                                    call</li>
                                 <li><span class="not-started"><mat-icon>stop</mat-icon></span>Indicate page currently
                                     selected</li>
                             </ul>

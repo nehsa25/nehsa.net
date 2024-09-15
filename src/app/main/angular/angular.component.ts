@@ -6,11 +6,12 @@ import { UserService } from '../../services/user.service';
 import { MatIcon } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { CopyComponent } from '../../shared-components/copy/copy.component';
+import { RelatedContentComponent } from '../../shared-components/related-content/related-content.component';
 
 @Component({
   selector: 'app-angular',
   standalone: true,
-  imports: [MatCardModule, CommentComponent, MatExpansionModule, MatIcon, RouterLink, CopyComponent],
+  imports: [MatCardModule, CommentComponent, MatExpansionModule, MatIcon, RouterLink, CopyComponent, RelatedContentComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './angular.component.html',
   styleUrl: './angular.component.scss'

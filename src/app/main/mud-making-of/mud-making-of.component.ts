@@ -5,11 +5,12 @@ import { UserService } from '../../services/user.service';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { RouterLink } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
+import { RelatedContentComponent } from '../../shared-components/related-content/related-content.component';
 
 @Component({
   selector: 'app-mud-making-of',
   standalone: true,
-  imports: [MatCardModule, CommentComponent, MatExpansionModule, RouterLink, MatIcon],
+  imports: [MatCardModule, CommentComponent, MatExpansionModule, RouterLink, MatIcon, RelatedContentComponent],
   templateUrl: './mud-making-of.component.html',
   styleUrl: './mud-making-of.component.scss'
 })

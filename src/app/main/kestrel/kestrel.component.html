@@ -8,8 +8,9 @@
         </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-        <div class="commentgrid">
-            <div class="topics">
+        <div class="commentgrid topics">
+            <div><app-related-content></app-related-content></div>
+            <div>
                 Kestrel is included by default in the ASP.NET Core shared framework and is intended to be used with
                 ASP.NET Core apps.
                 <ul>
@@ -152,6 +153,290 @@
                             </code>
 
 
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>API Controller</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <div class="topics">
+                                    <ul>
+                                        <li>
+                                            <mat-expansion-panel>
+                                                <mat-expansion-panel-header>
+                                                    <mat-panel-title>Setup</mat-panel-title>
+                                                </mat-expansion-panel-header>
+                                                <h3>Create a new project web api within VS Code (using an API
+                                                    Controller,
+                                                    not
+                                                    minimial API - see
+                                                    below)</h3>
+                                                Within your project folder, create a "Controllers" folder
+                                                <ul>
+                                                    <li>Add <span class=file>MainController.cs</span>
+                                                        <code>
+                                                            <pre>
+namespace NehsaNet.Controllers
+&#123;
+    [ApiController]
+    [Route("/")]
+    public class Main : ControllerBase
+    &#123;
+        [HttpGet]
+        [Route("/v1/quote")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public string GetQuote()
+        &#123;
+            return JsonSerializer.Serialize&lt;string&gt;(quotes[Random.Shared.Next(quotes.Count)]);
+        &#125;
+    &#125;
+&#125;
+                                                        </pre>
+                                                        </code>
+                                                    </li>
+                                                    <li>
+                                                        Update <span class=file>Program.cs</span> to use it
+                                                        <code>
+                                                            <pre>
+internal class Program
+&#123;
+    private static void Main(string[] args)
+    &#123;
+        var builder = WebApplication.CreateBuilder(args);
+        builder.Services.AddControllers();
+        var app = builder.Build();
+        app.UseRouting();
+        app.MapControllers();
+        app.Run();
+    &#125;
+&#125;
+</pre>
+                                                        </code>
+                                                    </li>
+                                                </ul>
+                                            </mat-expansion-panel>
+                                        </li>
+                                        <li>
+                                            <mat-expansion-panel>
+                                                <mat-expansion-panel-header>
+                                                    <mat-panel-title>API Controller with Dependency
+                                                        Injection</mat-panel-title>
+                                                </mat-expansion-panel-header>
+                                                <code>
+                                                    <pre>
+public class QuoteService
+&#123;
+    private readonly string[] quotes = new string[]
+    &#123;
+        "quote1",
+        "quote2",
+        "quote3"
+    &#125;;
+
+    public string GetQuote()
+    &#123;
+        return quotes[Random.Shared.Next(quotes.Length)];
+    &#125;
+&#125;
+
+namespace NehsaNet.Controllers
+&#123;
+
+    [ApiController]
+    [Route("/")]
+    public class Main : ControllerBase
+    &#123;
+        private readonly QuoteService _quoteService;
+                                                        
+        public Main(QuoteService quoteService)
+        &#123;
+            _quoteService = quoteService;
+        &#125;
+
+        [HttpGet]
+        [Route("/v1/quote")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public string GetQuote()
+        &#123;
+                                                        
+            return JsonSerializer.Serialize&lt;string&gt;(_quoteService.GetQuote());
+        &#125;
+    &#125;
+&#125;
+</pre>
+                                                </code>
+                                            </mat-expansion-panel>
+                                        </li>
+                                        <li>
+                                            <mat-expansion-panel expanded>
+                                                <mat-expansion-panel-header>
+                                                    <mat-panel-title>API Route Parameters</mat-panel-title>
+                                                </mat-expansion-panel-header>
+                                                <ul>
+                                                    <li>
+                                                        <mat-expansion-panel>
+                                                            <mat-expansion-panel-header>
+                                                                <mat-panel-title>Parameters within
+                                                                    URL</mat-panel-title>
+                                                            </mat-expansion-panel-header>
+                                                            <code>
+                                                                <pre>
+[HttpGet]
+[Route("/v1/quote/&#123;id&#125;")]
+[ProducesResponseType(StatusCodes.Status200OK)]
+public string GetQuote(int id)
+&#123;
+    return JsonSerializer.Serialize&lt;string&gt;(quotes[id]);
+&#125;
+</pre>
+                                                                </code>
+                                                        </mat-expansion-panel>
+                                                    </li>
+                                                    <li>
+                                                        <mat-expansion-panel>
+                                                            <mat-expansion-panel-header>
+                                                                <mat-panel-title>Parameters within query
+                                                                    string</mat-panel-title>
+                                                            </mat-expansion-panel-header>
+                                                            <code>
+                                                                    <pre>
+    [HttpGet]
+    [Route("/v1/quote")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    public string GetQuote([FromQuery] int id)
+    </pre></code>
+                                                        </mat-expansion-panel>
+                                                    </li>
+                                                    <li>
+                                                        <mat-expansion-panel>
+                                                            <mat-expansion-panel-header>
+                                                                <mat-panel-title>A complex mix of the
+                                                                    two</mat-panel-title>
+                                                            </mat-expansion-panel-header>Always place the optional
+                                                            parameters at the end of the method signature.
+                                                            <code>
+                                                                <pre>
+[HttpGet]
+[Route("/v1/quote/&#123;id&#125;")]
+[ProducesResponseType(StatusCodes.Status200OK)]
+public string GetQuote(int id, [FromQuery] string name)
+</pre>
+                                                                </code>
+                                                        </mat-expansion-panel>
+                                                    </li>
+                                                </ul>
+                                            </mat-expansion-panel>
+                                        </li>
+                                        <li>
+                                            <mat-expansion-panel>
+                                                <mat-expansion-panel-header>
+                                                    <mat-panel-title>Minimial API Example</mat-panel-title>
+                                                </mat-expansion-panel-header>
+                                                this style seems to be a pattern nowadays. I don't like it. It's
+                                                difficult to read and hard to modify.
+                                                <code>
+                                                        <pre>
+app.MapGet("/v1/quote", [SwaggerOperation(
+Summary = "Returns a single quote",
+Description = "A random quote is returned.  Because.")]
+[SwaggerResponse(200, "Success")]
+[SwaggerResponse(500, "An error occurred")] () =>
+&#123;
+return JsonSerializer.Serialize&lt;string&gt;(quotes[Random.Shared.Next(quotes.Length)]);
+&#125;)
+.WithName("Quotes")
+.WithOpenApi();
+</pre>
+                                                    </code>I much prefer this for readability:
+                                                <code>
+                                                        <pre>
+namespace NehsaNet.Controllers
+&#123;
+[ApiController]
+[Route("/")]
+public class Main : ControllerBase
+&#123;
+    [HttpGet]
+    [Route("/v1/quote")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    public string GetQuote()
+    &#123;
+        return JsonSerializer.Serialize&lt;string&gt;(quotes[Random.Shared.Next(quotes.Count)]);
+    &#125;
+&#125;
+&#125;             
+</pre>
+                                                    </code>
+                                            </mat-expansion-panel>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Configure Swagger Support</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <div>
+                                    <code>
+                                        <pre>
+internal class Program
+&#123;
+private static void Main(string[] args)
+&#123;
+    var builder = WebApplication.CreateBuilder(args);
+    builder.Services.AddSwaggerGen();
+    var app = builder.Build();
+    app.UseSwagger();
+    app.UseSwaggerUI();
+    app.Run();   
+&#125;
+&#125;
+</pre>
+                                        <div>
+                                            <h4>Example:</h4>
+                                            <div class="grid">
+                                                <div>
+                                                    Swagger UI
+                                                    <iframe src="https://api.nehsa.net/swagger"
+                                                        title="OpenAPI Documenation"></iframe>
+                                                </div>
+                                                <div>
+                                                    swagger.json
+                                                    <iframe src="https://api.nehsa.net/swagger/v1/swagger.json"
+                                                        title="swagger.json file"></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </code>
+                                </div>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Healthchecks!</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <code>
+                                    <pre>
+internal class Program
+&#123;
+private static void Main(string[] args)
+&#123;
+    var builder = WebApplication.CreateBuilder(args);
+    builder.Services.AddHealthChecks();
+    var app = builder.Build();
+    app.Run();   
+    app.UseHealthChecks("/health");
+&#125;
+&#125;
+</pre>
+                                </code>
+                                Access via /health:<br>
+                                <img mat-card-image src="../../../assets/images/healthcheck.png"
+                                    alt="screenshot of api returning health" />
                             </mat-expansion-panel>
                         </li>
                         <li>
@@ -335,9 +620,11 @@ app.UseMiddleware&lt;CSPMiddleware&gt;("default-src 'self'; style-src 'self' 'un
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Cold Start Issues</mat-panel-title>
                                     <mat-panel-description>When the server takes a long time to start
-                                        up for first requests or after server has been idle for a while.</mat-panel-description>
-                                </mat-expansion-panel-header>Set the Kestrel idle timeout to 0. This will keep the server running
-                                        indefinitely.<code>webApplicationBuilder.WebHost.ConfigureKestrel(options =>
+                                        up for first requests or after server has been idle for a
+                                        while.</mat-panel-description>
+                                </mat-expansion-panel-header>Set the Kestrel idle timeout to 0. This will keep the
+                                server running
+                                indefinitely.<code>webApplicationBuilder.WebHost.ConfigureKestrel(options =>
                                             options.Limits.KeepAliveTimeout = TimeSpan.FromMinutes(0));</code>
                             </mat-expansion-panel>
                         </li>

@@ -5,11 +5,12 @@ import { CommentComponent } from '../../shared-components/comment/comment.compon
 import { MatExpansionModule } from '@angular/material/expansion';
 import { UserService } from '../../services/user.service';
 import { RouterLink } from '@angular/router';
+import { RelatedContentComponent } from '../../shared-components/related-content/related-content.component';
 
 @Component({
   selector: 'app-gemini',
   standalone: true,
-  imports: [MatCardModule, CommentComponent, MatIconModule, MatExpansionModule, RouterLink],
+  imports: [MatCardModule, CommentComponent, MatIconModule, MatExpansionModule, RouterLink, RelatedContentComponent],
   templateUrl: './gemini.component.html',
   styleUrl: './gemini.component.scss'
 })

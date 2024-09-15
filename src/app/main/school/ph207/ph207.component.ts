@@ -7,11 +7,12 @@ import { Question } from '../../../types/question.type';
 import { Subject } from 'rxjs';
 import { UserService } from '../../../services/user.service';
 import { CommentType } from '../../../types/comment.type';
+import { RelatedContentComponent } from '../../../shared-components/related-content/related-content.component';
 
 @Component({
   selector: 'app-ph207',
   standalone: true,
-  imports: [MatCardModule, CommentComponent, FlashcardsComponent],
+  imports: [MatCardModule, CommentComponent, FlashcardsComponent, RelatedContentComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './ph207.component.html',
   styleUrl: './ph207.component.scss',
