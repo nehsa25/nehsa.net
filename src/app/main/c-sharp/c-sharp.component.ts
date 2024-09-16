@@ -17,7 +17,7 @@ import { RelatedContentComponent } from '../../shared-components/related-content
   styleUrl: './c-sharp.component.scss'
 })
 export class CSharpComponent {
-  private _page_name = "c-sharp";
+  private _page_name = "csharp";
   totalItems = 0;
 
   constructor(

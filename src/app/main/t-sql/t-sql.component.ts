@@ -17,6 +17,6 @@ import { RelatedContentComponent } from '../../shared-components/related-content
 })
 export class TSqlComponent {
   constructor(public userService: UserService) {
-    this.userService.page = 't-sql';
+    this.userService.page = 'tsql';
   }
 }

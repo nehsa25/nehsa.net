@@ -16,7 +16,7 @@ import { RelatedContentComponent } from '../../shared-components/related-content
   styleUrl: './doxygen.component.scss'
 })
 export class DoxygenComponent {
-  private _page_name = "doxygen";
+  private _page_name = "doxy";
   totalItems = 0;
 
   constructor(

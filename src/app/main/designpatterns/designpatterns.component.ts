@@ -17,7 +17,7 @@ import { RelatedContentComponent } from '../../shared-components/related-content
   styleUrl: './designpatterns.component.scss'
 })
 export class DesignpatternsComponent {
-  private _page_name = "design patterns";
+  private _page_name = "design";
   totalItems = 0;
 
   constructor(
