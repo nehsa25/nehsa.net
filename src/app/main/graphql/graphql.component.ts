@@ -16,6 +16,6 @@ import { RelatedContentComponent } from '../../shared-components/related-content
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class GraphqlComponent {
-  constructor(public userService: UserService) { this.userService.page = 'GraphQL'; }
+  constructor(public userService: UserService) { this.userService.page = 'graphql'; }
 
 }

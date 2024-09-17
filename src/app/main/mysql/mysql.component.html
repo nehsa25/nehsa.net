@@ -309,6 +309,14 @@ CREATE TABLE flashcards (
                         <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
+                                    <mat-panel-title>Updating MySQL Tables</mat-panel-title>
+                                </mat-expansion-panel-header>Done using the "ALTER" command. Example: <inline-code>ALTER
+                                    TABLE flashcards ADD COLUMN category VARCHAR(255);</inline-code>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
                                     <mat-panel-title>Using MySQL Shell</mat-panel-title>
                                 </mat-expansion-panel-header>
                                 <div>
@@ -355,6 +363,40 @@ Fetching global names, object names from `&lt;DATABASE&gt;`
                                         </dd>
                                     </dl>
                                 </div>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Constraints</mat-panel-title>
+                                </mat-expansion-panel-header>Example of creating a table with contraints that enforce
+                                uniqueness on multiple columns:
+                                <ul>
+                                    <li>
+                                        <code>
+                                    <pre>
+CREATE TABLE dogs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    type VARCHAR(255),
+    breed TEXT,
+    age INT,
+    UNIQUE (type, breed, age) <span class="command"><mat-icon>arrow_back</mat-icon> An attempt to insert a duplicate will entry of type, breed, and age will fail.</span>
+);
+                                </pre>
+                                    </code>
+                                    </li>
+                                    <li>Updating a table to add a UNIQUE constrain on multiple columns:
+                                        <inline-code>ALTER TABLE dogs ADD UNIQUE (type, breed, age);</inline-code>
+                                    </li>
+                                    <li>KEY containts a unique value for each row. NULL values are not allowed.<br><br>
+
+                                        Example, this would fail if you tried to insert a second dog with the same
+                                        name:<br>
+                                        <inline-code>CREATE TABLE dogs (id INT AUTO_INCREMENT PRIMARY KEY, name
+                                            VARCHAR(255) NOT NULL);</inline-code>
+                                    </li>
+                                </ul>
+
                             </mat-expansion-panel>
                         </li>
                         <li>

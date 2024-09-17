@@ -1,0 +1,112 @@
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Dynamics 365 (FetchXML, Dynamics API))</h1>
+        </mat-card-title>
+        <mat-card-subtitle>FetchXML is the query language that is used in Microsoft Dynamics 365. It is used to query
+            data from the system.
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid topics">
+            <div><app-related-content></app-related-content></div>
+            <div>
+                <ul>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Example FetchXML Query - Return records for last
+                                    month</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <code>
+<pre>
+&lt;fetch no-lock= \"true\" returntotalrecordcount= \"true\"&gt;
+    &lt;entity name= \"xrm3_entity\"&gt;
+        &lt;attribute name= \"attribute1\" /&gt;
+        &lt;attribute name= \"attribute2\" /&gt;
+        &lt;filter type= \"and\"&gt;
+            &lt;condition attribute= \"statecode\" operator= \"eq\" value= \"0\" /&gt;
+        &lt;/filter&gt;
+        &lt;filter type= \"and\"&gt;
+            &lt;condition attribute= \"modifiedon\" operator= \"last-x-months\" value= \"1\" /&gt;
+        &lt;/filter&gt;
+    &lt;/entity&gt;
+&lt;/fetch&gt;";
+</pre>
+                            </code>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Tools</mat-panel-title>
+                            </mat-expansion-panel-header>The tools I use to work with FetchXML is the FetchXML Builder
+                            and the FetchXML Tester.<br><br>
+                            These tools allow connecting to a Dynamics 365 instance and executing queries against the
+                            data.
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Query Syntax</mat-panel-title>
+                            </mat-expansion-panel-header>The structure of a FetchXML query is as follows:<br><br>
+                            <ul>
+                                <li><inline-code>&lt;fetch&gt;</inline-code> - The root element of the query</li>
+                                <li><inline-code>&lt;entity&gt;</inline-code> - The entity to query</li>
+                                <li><inline-code>&lt;attribute&gt;</inline-code> - The attributes to return</li>
+                                <li><inline-code>&lt;filter&gt;</inline-code> - The conditions to filter by</li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>.NET</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            Creating a connection to a Dynamics 365 instance can be done using Microsoft Nuget packages:
+                            <br>
+                            <ul>
+                                <li>Microsoft.CrmSdk.CoreAssemblies</li>
+                                <li>Microsoft.CrmSdk.XrmTooling.CoreAssembly</li>
+                            </ul><br><br>
+
+                            Example of opening a connection:<br>
+                            <code>
+<pre>
+public OrganizationWebProxyClient getOrgProxy()
+&#123;
+    string error = "";
+    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+    CrmServiceClient client = new CrmServiceClient(connString);
+    error += client?.LastCrmException?.Message != null ? client?.LastCrmException?.Message + "" + client?.LastCrmError : "";
+    if (error != "") throw new Exception(error);
+    return client.OrganizationWebProxyClient;
+&#125;    
+</pre>
+                            </code><br><br>
+
+                            Which can be used like this:<br>
+                            <code>
+<pre>
+OrganizationWebProxyClient oService = getOrgProxy();
+var k = oService.RetrieveMultiple(new FetchExpression(fetchXml));
+if (k != null && k.Entities.Count > 0)
+&#123;
+    foreach (var e in k.Entities)
+        result.Add(e.Attributes);
+&#125;
+return result;
+</pre>
+                            </code><br><br>
+
+                            Finally, this can be used: <inline-code>dynamic resultAsObject =
+                                JsonConvert.DeserializeObject&lt;dynamic&gt;(result);</inline-code>
+                        </mat-expansion-panel>
+                    </li>
+                </ul>
+            </div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>

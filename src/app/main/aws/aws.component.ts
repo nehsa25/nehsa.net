@@ -18,7 +18,7 @@ import { RelatedContentComponent } from '../../shared-components/related-content
 })
 
 export class AwsComponent {
-  private _page_name = "AWS";
+  private _page_name = "aws";
   totalItems = 0;
 
   constructor(

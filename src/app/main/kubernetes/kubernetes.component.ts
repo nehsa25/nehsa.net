@@ -15,5 +15,7 @@ import { RelatedContentComponent } from '../../shared-components/related-content
   styleUrl: './kubernetes.component.scss'
 })
 export class KubernetesComponent {
-  constructor(public userService: UserService) { }
+  constructor(public userService: UserService) {
+    this.userService.page = 'k8s';
+   }
 }

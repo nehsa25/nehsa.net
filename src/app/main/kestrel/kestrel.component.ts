@@ -17,7 +17,7 @@ import { RelatedContentComponent } from '../../shared-components/related-content
 })
 export class KestrelComponent {
   constructor(public userService: UserService) {
-    this.userService.page = 'Kestrel';
+    this.userService.page = 'kestrel';
   }
 
 }

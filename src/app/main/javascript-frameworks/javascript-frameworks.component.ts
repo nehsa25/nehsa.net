@@ -16,6 +16,6 @@ import { RelatedContentComponent } from '../../shared-components/related-content
 })
 export class JavascriptFrameworksComponent {
   constructor(public userService: UserService) {
-    userService.page = 'javascript-frameworks';
+    userService.page = 'webdev-frameworks';
   }
 }

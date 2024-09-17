@@ -18,7 +18,7 @@ import { RelatedContentComponent } from '../../shared-components/related-content
 })
 export class SwaggerComponent {
   swagger: string = "Please Wait.";  
-  private _page_name = "school";
+  private _page_name = "swagger";
   totalItems = 0;
   constructor(
     public httpClient: HttpService,

@@ -75,6 +75,7 @@ import { KestrelComponent } from './main/kestrel/kestrel.component';
 import { SsrComponent } from './main/ssr/ssr.component';
 import { DiscordComponent } from './main/discord/discord.component';
 import { TSqlComponent } from './main/t-sql/t-sql.component';
+import { FetchxmlComponent } from './main/fetchxml/fetchxml.component';
 
 export const routes: Routes = [
     { path: 'agile', title: 'nehsa.net | Agile', component: AgileComponent },
@@ -162,5 +163,6 @@ export const routes: Routes = [
     { path: 'iis', title: 'nehsa.net | IIS', component: IisComponent },
     { path: 'tailwindcss', title: 'nehsa.net | Tailwind CSS', component: TailwindcssComponent },
     { path: 'redux', title: 'nehsa.net | Redux', component: ReduxComponent },
+    { path: 'dynamics365', title: 'nehsa.net | Dynamics 365', component: FetchxmlComponent },
     { path: '**', component: WelcomeComponent }, // Default route if nothing else found
 ];

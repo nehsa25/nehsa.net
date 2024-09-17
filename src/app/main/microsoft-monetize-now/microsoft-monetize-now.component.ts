@@ -17,6 +17,6 @@ import { RelatedContentComponent } from '../../shared-components/related-content
 })
 export class MicrosoftMonetizeNowComponent {
   constructor(public userService: UserService) {
-    this.userService.page = 'microsoft-monetize-now';
+    this.userService.page = 'monetizenow';
   }
 }

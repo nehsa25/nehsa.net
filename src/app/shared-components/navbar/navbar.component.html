@@ -12,106 +12,110 @@
       <mat-panel-title class="nav-menu-title-text">Topics <mat-icon>menu</mat-icon></mat-panel-title>
     </mat-expansion-panel-header>
     <ul class="navbar-links norm-navbar-links">
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/agile'" (click)="sendUser('/agile')">Agile Development</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/angular'" (click)="sendUser('/angular')">
+      <li class="norm" [class.nav-selected]="this.userService.page==='agile'" (click)="sendUser('/agile')">Agile Development</li>
+      <li class="norm" [class.nav-selected]="this.userService.page==='angular'" (click)="sendUser('/angular')">
         Angular</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/ssr'" (click)="sendUser('/ssr')">
+      <li class="norm" [class.nav-selected]="this.userService.page==='ssr'" (click)="sendUser('/ssr')">
         Angular Universal</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/ai'" (click)="sendUser('/ai')">Artificial
+      <li class="norm" [class.nav-selected]="this.userService.page==='ai'" (click)="sendUser('/ai')">Artificial
         Intelligence (AI)</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/aws'" (click)="sendUser('/aws')">AWS</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/azure'" (click)="sendUser('/azure')">Azure
+      <li class="norm" [class.nav-selected]="this.userService.page==='aws'" (click)="sendUser('/aws')">AWS</li>
+      <li class="norm" [class.nav-selected]="this.userService.page==='azure'" (click)="sendUser('/azure')">Azure
       </li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/blog'" (click)="sendUser('/blog')">Blog</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/cloud'" (click)="sendUser('/cloud')">(the)
+      <li class="norm" [class.nav-selected]="this.userService.page==='blog'" (click)="sendUser('/blog')">Blog</li>
+      <li class="norm" [class.nav-selected]="this.userService.page==='clarity'" (click)="sendUser('/clarity')">Clarity</li>
+      <li class="norm" [class.nav-selected]="this.userService.page==='cloud'" (click)="sendUser('/cloud')">(the)
         Cloud</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/csharp'" (click)="sendUser('/csharp')">C#
+      <li class="norm" [class.nav-selected]="this.userService.page==='csharp'" (click)="sendUser('/csharp')">C#
       </li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/chef'" (click)="sendUser('/chef')">Chef</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/webdesign'" (click)="sendUser('/webdesign')">
+      <li class="norm" [class.nav-selected]="this.userService.page==='chef'" (click)="sendUser('/chef')">Chef</li>
+      <li class="norm" [class.nav-selected]="this.userService.page==='webdesign'" (click)="sendUser('/webdesign')">
         CSS / Web Design</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/design'" (click)="sendUser('/design')">
+      <li class="norm" [class.nav-selected]="this.userService.page==='design'" (click)="sendUser('/design')">
         Development</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/dns'" (click)="sendUser('/dns')">DNS</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/docker'" (click)="sendUser('/docker')">Docker
+      <li class="norm" [class.nav-selected]="this.userService.page==='dns'" (click)="sendUser('/dns')">DNS</li>
+      <li class="norm" [class.nav-selected]="this.userService.page==='docker'" (click)="sendUser('/docker')">Docker
       </li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/dot'" (click)="sendUser('/dot')">Dot</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/doxy'" (click)="sendUser('/doxy')">Doxygen
+      <li class="norm" [class.nav-selected]="this.userService.page==='dot'" (click)="sendUser('/dot')">Dot</li>
+      <li class="norm" [class.nav-selected]="this.userService.page==='doxy'" (click)="sendUser('/doxy')">Doxygen
       </li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/github'" (click)="sendUser('/github')">git / github
+      <li class="norm" [class.nav-selected]="this.userService.page==='dynamics365'" (click)="sendUser('/dynamics365')">Dynamics 365
       </li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/go'" (click)="sendUser('/go')">go</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/graphql'" (click)="sendUser('/graphql')">
+      <li class="norm" [class.nav-selected]="this.userService.page==='github'" (click)="sendUser('/github')">git / github
+      </li>
+      <li class="norm" [class.nav-selected]="this.userService.page==='go'" (click)="sendUser('/go')">go</li>
+      <li class="norm" [class.nav-selected]="this.userService.page==='graphql'" (click)="sendUser('/graphql')">
         GraphQL</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/welcome'" (click)="sendUser('/welcome')">Home
+      <li class="norm" [class.nav-selected]="this.userService.page==='welcome'" (click)="sendUser('/welcome')">Home
       </li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/ide'" (click)="sendUser('/ide')">IDEs</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/iis'" (click)="sendUser('/iis')">IIS</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/inno'" (click)="sendUser('/inno')">Inno Setup
+      <li class="norm" [class.nav-selected]="this.userService.page==='ide'" (click)="sendUser('/ide')">IDEs</li>
+      <li class="norm" [class.nav-selected]="this.userService.page==='iis'" (click)="sendUser('/iis')">IIS</li>
+      <li class="norm" [class.nav-selected]="this.userService.page==='inno'" (click)="sendUser('/inno')">Inno Setup
       </li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/java'" (click)="sendUser('/java')">Java</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/typescript'"
-        (click)="sendUser('/typescript')">JavaScript / TypeScript</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/jenkins'" (click)="sendUser('/jenkins')">
+      <li class="norm" [class.nav-selected]="this.userService.page==='java'" (click)="sendUser('/java')">Java</li>
+      <li class="norm" [class.nav-selected]="this.userService.page==='typescript'"
+        (click)="sendUser('typescript')">JavaScript / TypeScript</li>
+      <li class="norm" [class.nav-selected]="this.userService.page==='jenkins'" (click)="sendUser('/jenkins')">
         Jenkins</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/jsdoc'" (click)="sendUser('/jsdoc')">jsdoc
+      <li class="norm" [class.nav-selected]="this.userService.page==='jsdoc'" (click)="sendUser('/jsdoc')">jsdoc
       </li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/kestrel'" (click)="sendUser('/kestrel')">
+      <li class="norm" [class.nav-selected]="this.userService.page==='kestrel'" (click)="sendUser('/kestrel')">
         Kestrel
       </li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/k8s'" (click)="sendUser('/k8s')">Kubernetes
+      <li class="norm" [class.nav-selected]="this.userService.page==='k8s'" (click)="sendUser('/k8s')">Kubernetes
       </li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/linux'" (click)="sendUser('/linux')">Linux
+      <li class="norm" [class.nav-selected]="this.userService.page==='linux'" (click)="sendUser('/linux')">Linux
       </li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/mercurial'" (click)="sendUser('/mercurial')">
+      <li class="norm" [class.nav-selected]="this.userService.page==='mercurial'" (click)="sendUser('/mercurial')">
         Mercurial</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/tsql'" (click)="sendUser('/sql')">Microsoft SQL (T-SQL)</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/mud'" (click)="sendUser('/mud')">mud</li>      
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/mysql'" (click)="sendUser('/mysql')">MySQL (PL/SQL)
+      <li class="norm" [class.nav-selected]="this.userService.page==='tsql'" (click)="sendUser('/sql')">Microsoft SQL (T-SQL)</li>
+      <li class="norm" [class.nav-selected]="this.userService.page==='monetizenow'" (click)="sendUser('/monetizenow')">Monetize Now</li>
+      <li class="norm" [class.nav-selected]="this.userService.page==='mud'" (click)="sendUser('/mud')">mud</li>      
+      <li class="norm" [class.nav-selected]="this.userService.page==='mysql'" (click)="sendUser('/mysql')">MySQL (PL/SQL)
       </li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/nosql'" (click)="sendUser('/nosql')">nosql
+      <li class="norm" [class.nav-selected]="this.userService.page==='nosql'" (click)="sendUser('/nosql')">nosql
       </li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/npm'" (click)="sendUser('/npm')">npm</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/ohai'" (click)="sendUser('/ohai')">Ohai</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/playwright'"
+      <li class="norm" [class.nav-selected]="this.userService.page==='npm'" (click)="sendUser('/npm')">npm</li>
+      <li class="norm" [class.nav-selected]="this.userService.page==='ohai'" (click)="sendUser('/ohai')">Ohai</li>
+      <li class="norm" [class.nav-selected]="this.userService.page==='playwright'"
         (click)="sendUser('/playwright')">Playwright</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/powershell'"
+      <li class="norm" [class.nav-selected]="this.userService.page==='powershell'"
         (click)="sendUser('/powershell')">Powershell</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/agile'" (click)="sendUser('/agile')">Project
+      <li class="norm" [class.nav-selected]="this.userService.page==='agile'" (click)="sendUser('/agile')">Project
         Management</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/projects'" (click)="sendUser('/projects')">
+      <li class="norm" [class.nav-selected]="this.userService.page==='projects'" (click)="sendUser('/projects')">
         Projects</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/pytest'" (click)="sendUser('/pytest')">Pytest
+      <li class="norm" [class.nav-selected]="this.userService.page==='pytest'" (click)="sendUser('/pytest')">Pytest
       </li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/python'" (click)="sendUser('/python')">Python
+      <li class="norm" [class.nav-selected]="this.userService.page==='python'" (click)="sendUser('/python')">Python
       </li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/react'" (click)="sendUser('/react')">React
+      <li class="norm" [class.nav-selected]="this.userService.page==='react'" (click)="sendUser('/react')">React
       </li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/redux'" (click)="sendUser('/redux')">redux
+      <li class="norm" [class.nav-selected]="this.userService.page==='redux'" (click)="sendUser('/redux')">redux
       </li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/regex'" (click)="sendUser('/regex')">Regex
+      <li class="norm" [class.nav-selected]="this.userService.page==='regex'" (click)="sendUser('/regex')">Regex
       </li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/seo'" (click)="sendUser('/seo')">Search
+      <li class="norm" [class.nav-selected]="this.userService.page==='seo'" (click)="sendUser('/seo')">Search
         Engine Optimization (SEO)</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/security'" (click)="sendUser('/security')">
+      <li class="norm" [class.nav-selected]="this.userService.page==='security'" (click)="sendUser('/security')">
         Security</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/ssr'" (click)="sendUser('/ssr')">
+      <li class="norm" [class.nav-selected]="this.userService.page==='ssr'" (click)="sendUser('/ssr')">
         Server-Side Rendering (SSR)</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/tsql'" (click)="sendUser('/tsql')">SQL</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/swagger'" (click)="sendUser('/swagger')">
+      <li class="norm" [class.nav-selected]="this.userService.page==='tsql'" (click)="sendUser('/tsql')">SQL</li>
+      <li class="norm" [class.nav-selected]="this.userService.page==='swagger'" (click)="sendUser('/swagger')">
         Swagger</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/testing'" (click)="sendUser('/testing')">
+      <li class="norm" [class.nav-selected]="this.userService.page==='testing'" (click)="sendUser('/testing')">
         Testing</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/tls'" (click)="sendUser('/tls')">TLS</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/tailwindcss'"
+      <li class="norm" [class.nav-selected]="this.userService.page==='tls'" (click)="sendUser('/tls')">TLS</li>
+      <li class="norm" [class.nav-selected]="this.userService.page==='tailwindcss'"
         (click)="sendUser('/tailwindcss')">Tailwind CSS</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/typescript'"
+      <li class="norm" [class.nav-selected]="this.userService.page==='typescript'"
         (click)="sendUser('/typescript')">TypeScript / JavaScript</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/webdesign'" (click)="sendUser('/webdesign')">
+      <li class="norm" [class.nav-selected]="this.userService.page==='webdesign'" (click)="sendUser('/webdesign')">
         Web Design / CSS</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/webdev-frameworks'"
+      <li class="norm" [class.nav-selected]="this.userService.page==='webdev-frameworks'"
         (click)="sendUser('/webdev-frameworks')">Web Development Frameworks</li>
-      <li class="norm" [class.nav-selected]="this.userService.pagePath==='/asyncio'" (click)="sendUser('/asyncio')">
+      <li class="norm" [class.nav-selected]="this.userService.page==='asyncio'" (click)="sendUser('/asyncio')">
         Websockets</li>
     </ul>
     <div class="navbar-actions">

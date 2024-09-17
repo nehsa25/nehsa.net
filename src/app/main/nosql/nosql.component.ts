@@ -13,6 +13,8 @@ import { RelatedContentComponent } from '../../shared-components/related-content
   styleUrl: './nosql.component.scss'
 })
 export class NosqlComponent {
-  constructor(public userService: UserService) {}
+  constructor(public userService: UserService) {
+    this.userService.page = 'nosql';
+  }
 
 }

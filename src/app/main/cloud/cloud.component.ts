@@ -16,5 +16,7 @@ import { RelatedContentComponent } from '../../shared-components/related-content
   styleUrl: './cloud.component.scss'
 })
 export class CloudComponent {
-  constructor(public userService: UserService) {}
+  constructor(public userService: UserService) {
+    this.userService.page = 'cloud';
+  }
 }

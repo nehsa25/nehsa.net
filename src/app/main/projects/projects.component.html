@@ -275,6 +275,10 @@ CREATE TABLE `related_pages` (
                                                 </pre>
                                             </code>
                                         </li>
+                                        <li>Update related pages to enforce uniqueness across two columns:
+                                            <inline-code>ALTER TABLE related_pages ADD UNIQUE (page_id,
+                                                related_page_id);</inline-code>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li><span class="pending"><mat-icon>pending</mat-icon></span>Populate it:<br>
@@ -309,9 +313,9 @@ VALUES (
 </pre>
                                     </code>
                                 </li>
-                                <li><span class="pending"><mat-icon>pending</mat-icon></span>Create API endpoints for
+                                <li><span class="done"><mat-icon>done</mat-icon></span>Create API endpoints for
                                     getting the data</li>
-                                <li><span class="not-started"><mat-icon>stop</mat-icon></span>Update site to make the
+                                <li><span class="done"><mat-icon>done</mat-icon></span>Update site to make the
                                     call</li>
                                 <li><span class="not-started"><mat-icon>stop</mat-icon></span>Indicate page currently
                                     selected</li>

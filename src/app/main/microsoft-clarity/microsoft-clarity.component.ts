@@ -17,6 +17,6 @@ import { RelatedContentComponent } from '../../shared-components/related-content
 })
 export class MicrosoftClarityComponent {
   constructor(public userService: UserService) {
-    this.userService.page = 'microsoft-clarity';
+    this.userService.page = 'clarity';
    }
 }

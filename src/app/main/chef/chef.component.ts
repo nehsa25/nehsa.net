@@ -17,7 +17,7 @@ import { RelatedContentComponent } from '../../shared-components/related-content
   styleUrl: './chef.component.scss'
 })
 export class ChefComponent {
-  private _page_name = "AWS";
+  private _page_name = "chef";
   totalItems = 0;
 
   constructor(
