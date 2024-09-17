@@ -15,16 +15,37 @@
                     <li>
                         <mat-expansion-panel expanded>
                             <mat-expansion-panel-header>
-                                <mat-panel-title>Important Commands</mat-panel-title>
+                                <mat-panel-title>Chef Commands</mat-panel-title>
                             </mat-expansion-panel-header>
                             <ul class="condensed">
-                                <li><span class="code">knife cookbook upload &lt;cookbook&gt;</span> - Upload cookbook
+                                <li><inline-code>chef-client -o &lt;COOKBOOK&gt;:&lt;RECIPE&gt;</inline-code> - Run a
+                                    recipe
+                                </li>
+                                <li><inline-code>chef-client -o &lt;COOKBOOK&gt;:&lt;RECIPE&gt; -j &lt;JSON CONFIGURATION&gt;</inline-code> - Run a
+                                    recipe
+                                </li>
+                                <li><inline-code>chef-client -A -o &lt;ROLE&gt;</inline-code> - Run a role</li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel expanded>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Knife Commands</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul class="condensed">
+                                <li><inline-code>knife cookbook upload &lt;COOKBOOK&gt;</inline-code> - Upload cookbook
                                     to
                                     the
                                     server</li>
-                                <li><span class="code">chef-client -o &lt;cookbook&gt;:&lt;recipe&gt;</span> - Run a
-                                    recipe
-                                </li>
+                                <li><inline-code>knife cookbook list</inline-code> - List cookbooks on the server</li>
+                                <li><inline-code>knife cookbook show &lt;COOKBOOK&gt;</inline-code> - Show details of a
+                                    cookbook</li>
+                                <li><inline-code>knife cookbook delete &lt;COOKBOOK&gt;</inline-code> - Delete a cookbook
+                                    from the server</li>
+                                <li><inline-code>knife role list</inline-code> - List roles on the server</li>
+                                <li><inline-code>knife role show &lt;ROLE&gt;</inline-code> - Show details of a role</li>
+                                <li><inline-code>knife role edit &lt;ROLE&gt;</inline-code> - Edit a role</li>
                             </ul>
                         </mat-expansion-panel>
                     </li>
@@ -34,11 +55,8 @@
                                 <mat-panel-title>Important Paths</mat-panel-title>
                             </mat-expansion-panel-header>
                             <ul class="condensed">
-                                <li><span class="code">C:\Users\&lt;you&gt;\.chef</span> - Contains configuration
-                                    (knife.rb,
-                                    pem
-                                    files, trusted certs)</li>
-                                <li><span class="code">C:\Chef</span> - Chef-client configuration and logs</li>
+                                <li><inline-code>C:\Users\&lt;you&gt;\.chef</inline-code> - Contains administration configuration (<span class="file">knife.rb</span>) - TLS files, trusted certs)</li>
+                                <li><inline-code>C:\Chef</inline-code> - Chef-client configuration (<span class="file">client.rb</span>)and logs from chef-client executions. Where you set your editor.</li>
                             </ul>
                         </mat-expansion-panel>
                     </li>
