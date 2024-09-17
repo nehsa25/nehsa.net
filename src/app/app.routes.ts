@@ -77,7 +77,6 @@ import { DiscordComponent } from './main/discord/discord.component';
 import { TSqlComponent } from './main/t-sql/t-sql.component';
 
 export const routes: Routes = [
-    { path: '', title: 'nehsa.net | Home', component: WelcomeComponent },
     { path: 'agile', title: 'nehsa.net | Agile', component: AgileComponent },
     { path: 'ai', title: 'nehsa.net | AI', component: AiComponent },
     { path: 'blog', title: 'nehsa.net | Blog', component: BlogComponent },
@@ -163,6 +162,5 @@ export const routes: Routes = [
     { path: 'iis', title: 'nehsa.net | IIS', component: IisComponent },
     { path: 'tailwindcss', title: 'nehsa.net | Tailwind CSS', component: TailwindcssComponent },
     { path: 'redux', title: 'nehsa.net | Redux', component: ReduxComponent },
-    { path: '', title: 'nehsa.net | Home', redirectTo: '/', pathMatch: 'full' },
-    { path: '**', component: WelcomeComponent },
+    { path: '**', component: WelcomeComponent }, // Default route if nothing else found
 ];
