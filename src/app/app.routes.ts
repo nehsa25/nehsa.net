@@ -76,6 +76,7 @@ import { SsrComponent } from './main/ssr/ssr.component';
 import { DiscordComponent } from './main/discord/discord.component';
 import { TSqlComponent } from './main/t-sql/t-sql.component';
 import { FetchxmlComponent } from './main/fetchxml/fetchxml.component';
+import { ChocoComponent } from './main/choco/choco.component';
 
 export const routes: Routes = [
     { path: 'agile', title: 'nehsa.net | Agile', component: AgileComponent },
@@ -157,6 +158,7 @@ export const routes: Routes = [
     { path: 'regex', title: 'nehsa.net | Regular Expressions', component: RegexComponent },
     { path: 'react', title: 'nehsa.net | React', component: ReactComponent },
     { path: 'webdesign', title: 'nehsa.net | Web Design', component: WebDesignComponent },
+    { path: 'choco', title: 'nehsa.net | Scratch', component: ChocoComponent },
     { path: 'scratch', title: 'nehsa.net | Scratch', component: ScratchComponent },
     { path: 'kestrel', title: 'nehsa.net | Kestrel', component: KestrelComponent },
     { path: 'ide', title: 'nehsa.net | IDEs / Code Editors', component: IdeComponent },

@@ -1,0 +1,412 @@
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Chocolatey</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid topics">
+            <div><app-related-content></app-related-content></div>
+            <div>Chocolatey is a Windows package manager technology similar to Linux package managers like apt-get. It
+                allows for management of software installed on the machine from a centralized and more secure location.
+                <br><br>
+
+                It's pretty useful; installing a set of Unix-style commands onto Windows can be done in two
+                commands:<br>
+                <ol>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>PS C:\> choco install unxUtils -y</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <code>
+                    <pre>
+PS C:\> choco install unxUtils -y <span class="comment"><mat-icon>arrow_back</mat-icon> -y auto-accepts Y/N prompts such as accepting the license agreement</span>
+Chocolatey v0.11.3
+Installing the following packages:
+unxUtils
+By installing, you accept licenses for the packages.
+Progress: Downloading unxUtils 1.0.0.0... 100%
+
+unxUtils v1.0.0.0
+unxutils package files install completed. Performing other installation steps.
+C:\ProgramData\chocolatey\lib\unxUtils\tools\unxUtils
+Attempt to use original download file name failed for 'C:\ProgramData\chocolatey\lib\unxUtils\tools\UnxUtils.zip'.
+Copying unxUtils
+    from 'C:\ProgramData\chocolatey\lib\unxUtils\tools\UnxUtils.zip'
+Extracting C:\Users\&lt;YOU&gt;\AppData\Local\Temp\chocolatey\unxUtils\1.0.0.0\unxUtilsInstall.zip to C:\ProgramData\chocolatey\lib\unxUtils\tools\unxUtils...
+C:\ProgramData\chocolatey\lib\unxUtils\tools\unxUtils
+    ShimGen has successfully created a shim for sh.exe
+    ShimGen has successfully created a shim for agrep.exe
+    ShimGen has successfully created a shim for ansi2knr.exe
+    ShimGen has successfully created a shim for basename.exe
+    ShimGen has successfully created a shim for bc.exe
+    ShimGen has successfully created a shim for bison.exe
+    ShimGen has successfully created a shim for bunzip2.exe
+    ShimGen has successfully created a shim for bzip2.exe
+    ShimGen has successfully created a shim for bzip2recover.exe
+    ShimGen has successfully created a shim for cat.exe
+    ShimGen has successfully created a shim for chgrp.exe
+    ShimGen has successfully created a shim for chmod.exe
+    ShimGen has successfully created a shim for chown.exe
+    ShimGen has successfully created a shim for cksum.exe
+    ShimGen has successfully created a shim for cmp.exe
+    ShimGen has successfully created a shim for comm.exe
+    ShimGen has successfully created a shim for compress.exe
+    ShimGen has successfully created a shim for cp.exe
+    ShimGen has successfully created a shim for csplit.exe
+    ShimGen has successfully created a shim for cut.exe
+    ShimGen has successfully created a shim for date.exe
+    ShimGen has successfully created a shim for dc.exe
+    ShimGen has successfully created a shim for dd.exe
+    ShimGen has successfully created a shim for df.exe
+    ShimGen has successfully created a shim for diff.exe
+    ShimGen has successfully created a shim for diff3.exe
+    ShimGen has successfully created a shim for dircolors.exe
+    ShimGen has successfully created a shim for dirname.exe
+    ShimGen has successfully created a shim for du.exe
+    ShimGen has successfully created a shim for echo.exe
+    ShimGen has successfully created a shim for egrep.exe
+    ShimGen has successfully created a shim for env.exe
+    ShimGen has successfully created a shim for expand.exe
+    ShimGen has successfully created a shim for expr.exe
+    ShimGen has successfully created a shim for factor.exe
+    ShimGen has successfully created a shim for fgrep.exe
+    ShimGen has successfully created a shim for find.exe
+    ShimGen has successfully created a shim for flex.exe
+    ShimGen has successfully created a shim for fmt.exe
+    ShimGen has successfully created a shim for fold.exe
+    ShimGen has successfully created a shim for fsplit.exe
+    ShimGen has successfully created a shim for gawk.exe
+    ShimGen has successfully created a shim for gclip.exe
+    ShimGen has successfully created a shim for gplay.exe
+    ShimGen has successfully created a shim for grep.exe
+    ShimGen has successfully created a shim for gsar.exe
+    ShimGen has successfully created a shim for gunzip.exe
+    ShimGen has successfully created a shim for gzip.exe
+    ShimGen has successfully created a shim for head.exe
+    ShimGen has successfully created a shim for id.exe
+    ShimGen has successfully created a shim for indent.exe
+    ShimGen has successfully created a shim for install.exe
+    ShimGen has successfully created a shim for join.exe
+    ShimGen has successfully created a shim for jwhois.exe
+    ShimGen has successfully created a shim for less.exe
+    ShimGen has successfully created a shim for lesskey.exe
+    ShimGen has successfully created a shim for ln.exe
+    ShimGen has successfully created a shim for logname.exe
+    ShimGen has successfully created a shim for ls.exe
+    ShimGen has successfully created a shim for m4.exe
+    ShimGen has successfully created a shim for make.exe
+    ShimGen has successfully created a shim for makedepend.exe
+    ShimGen has successfully created a shim for makemsg.exe
+    ShimGen has successfully created a shim for man.exe
+    ShimGen has successfully created a shim for md5sum.exe
+    ShimGen has successfully created a shim for mkdir.exe
+    ShimGen has successfully created a shim for mkfifo.exe
+    ShimGen has successfully created a shim for mknod.exe
+    ShimGen has successfully created a shim for mv.exe
+    ShimGen has successfully created a shim for mvdir.exe
+    ShimGen has successfully created a shim for nl.exe
+    ShimGen has successfully created a shim for od.exe
+    ShimGen has successfully created a shim for paste.exe
+    ShimGen has successfully created a shim for patch.exe
+    ShimGen has successfully created a shim for pathchk.exe
+    ShimGen has successfully created a shim for pclip.exe
+    ShimGen has successfully created a shim for pr.exe
+    ShimGen has successfully created a shim for printenv.exe
+    ShimGen has successfully created a shim for printf.exe
+    ShimGen has successfully created a shim for pwd.exe
+    ShimGen has successfully created a shim for recode.exe
+    ShimGen has successfully created a shim for rm.exe
+    ShimGen has successfully created a shim for rman.exe
+    ShimGen has successfully created a shim for rmdir.exe
+    ShimGen has successfully created a shim for sdiff.exe
+    ShimGen has successfully created a shim for sed.exe
+    ShimGen has successfully created a shim for seq.exe
+    ShimGen has successfully created a shim for shar.exe
+    ShimGen has successfully created a shim for sleep.exe
+    ShimGen has successfully created a shim for sort.exe
+    ShimGen has successfully created a shim for split.exe
+    ShimGen has successfully created a shim for stego.exe
+    ShimGen has successfully created a shim for su.exe
+    ShimGen has successfully created a shim for sum.exe
+    ShimGen has successfully created a shim for sync.exe
+    ShimGen has successfully created a shim for tac.exe
+    ShimGen has successfully created a shim for tail.exe
+    ShimGen has successfully created a shim for tar.exe
+    ShimGen has successfully created a shim for tee.exe
+    ShimGen has successfully created a shim for test.exe
+    ShimGen has successfully created a shim for touch.exe
+    ShimGen has successfully created a shim for tr.exe
+    ShimGen has successfully created a shim for type.exe
+    ShimGen has successfully created a shim for uname.exe
+    ShimGen has successfully created a shim for unexpand.exe
+    ShimGen has successfully created a shim for uniq.exe
+    ShimGen has successfully created a shim for unrar.exe
+    ShimGen has successfully created a shim for unshar.exe
+    ShimGen has successfully created a shim for unzip.exe
+    ShimGen has successfully created a shim for uudecode.exe
+    ShimGen has successfully created a shim for uuencode.exe
+    ShimGen has successfully created a shim for wc.exe
+    ShimGen has successfully created a shim for wget.exe
+    ShimGen has successfully created a shim for which.exe
+    ShimGen has successfully created a shim for whoami.exe
+    ShimGen has successfully created a shim for xargs.exe
+    ShimGen has successfully created a shim for yes.exe
+    ShimGen has successfully created a shim for zcat.exe
+    ShimGen has successfully created a shim for zip.exe
+    The install of unxutils was successful.
+    Software installed to 'C:\ProgramData\chocolatey\lib\unxUtils\tools\unxUtils'
+
+Chocolatey installed 1/1 packages.
+    See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+                    </pre>
+                                    </code>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>PS C:\> refreshenv</mat-panel-title>
+                                <mat-panel-description>awesome utility that comes with Chocolatey to refresh
+                                    environment variables
+                                    such as your PATH</mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <code>
+                                <pre>
+PS C:\> refreshenv
+Refreshing environment variables from the registry for powershell.exe. Please wait...
+Finished
+                                </pre>
+</code>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>PC c:\> wc C:\Windows\System32\drivers\etc\hosts</mat-panel-title>
+                                <mat-panel-description>You're done!</mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <code>
+                    <pre>
+                        PS C:\> wc C:\Windows\System32\drivers\etc\hosts
+                        27     164    1058 C:\Windows\System32\drivers\etc\hosts
+                    </pre>
+                                    </code>
+                        </mat-expansion-panel>
+                    </li>
+                </ol><br><br>
+
+                Common tasks:<br>
+                <ul>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Usage</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <dl>
+                                <dt>choco list</dt>
+                                <dd>Lists all availabile packages</dd>
+                                <dt>choco install package</dt>
+                                <dd>Installs a package</dd>
+                                <dt>choco uninstall package</dt>
+                                <dd>Uninstalls a package</dd>
+                                <dt>choco upgrade package</dt>
+                                <dd>Upgrades a package</dd>
+                                <dt>choco search package</dt>
+                                <dd>Searches for a package</dd>
+                                <dt>choco outdated</dt>
+                                <dd>Lists outdated packages</dd>
+                                <dt>choco upgrade all</dt>
+                                <dd>Upgrades all packages</dd>
+                                <dt>choco source</dt>
+                                <dd>Lists all sources (places we will get packages from)</dd>
+                            </dl>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Hosting Your Own Repository</mat-panel-title>
+                            </mat-expansion-panel-header>For security reasons, it may make sense to host your own
+                            repository instead of pointing at the default, publically accessible location at
+                            https://community.chocolatey.org/packages.<br><br>
+
+                            This helps in a couple ways:
+                            <ul>
+                                <li>It allow IT to choose what software is available to be installed.</li>
+                                <li>IT can vet the package first - check for viruses, review OSAWP, ect</li>
+                            </ul><br><br>
+
+                            To host your own repository, you will need to:
+                            <ul>
+                                <li>Install it (use Chocolatey documentation)</li>
+                                <li>Push packages to it: <inline-code></inline-code></li>
+                                <li>Point clients to it:<br><br>
+
+                                    By default, adding a internal source will not disable the public source, it will be
+                                    in additional to it. When using a choco command, all sources would be searched in
+                                    the order they are listed.<br><br>
+                                    To disable the public source, you will need to run the following commands:<br><br>
+                                    <code>
+                                        <pre>
+choco source disable -n=chocolatey <span class="comment"><mat-icon>arrow_back</mat-icon> Disable the public repo</span>
+choco source add -n=choco_internal -s="http://&lt;HOSTNAME&lt;/chocolatey/" <span class="comment"><mat-icon>arrow_back</mat-icon> Add internal repo</span>
+choco source enable -n=choco_internal <span class="comment"><mat-icon>arrow_back</mat-icon> Point clients to it</span>
+                                        </pre>
+                                    </code>
+                                </li>
+                            </ul>
+
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel expanded>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Build Your Own Packages</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            One of the aspects that makes Chocolatey powerful is the ability to create your own packages
+                            or vet/convert others packages for internal use.<br><br>
+
+                            The process is pretty simple:
+                            <ol>
+                                <li>Grab a package from the public Choco repo</li>
+                                <li>Unzip it (files with extensions .nupkg are just zip files)</li>
+                                <li>At minimum, check the following (depending on the package complexity,
+                                    more may be needed):
+                                    <ol>
+                                        <li>Ensure the folder name and nuspec file have the correct version:
+                                            &lt;version&gt;7.8.5&lt;/version&gt;</li>
+                                        <li>Remove [Content_Types].xml and _rels directory</li>
+                                        <li>
+                                            <span class="file">tools\chocolateyInstall.ps1</span> - This is the script
+                                            that installs the package.<br><br>
+
+                                            My process is to download the packages listed in this file - or better yet,
+                                            go to the manufacturors website directly and get the installer
+                                            there, virus scan the file, then put
+                                            them on an internal location. This ensures the file cannot be changed by
+                                            nefarious actors - well, external ones. You still need to protect your
+                                            internal share. One way to do this is to then checksum the file:
+                                            <code>
+                                                <pre>
+PS C:\> checksum -t sha256 \\&lt;INTERNAL_SHARE&gt;\installer.exe
+AFF4BB9B15BCCFF67A112A7857D28D3F2F436E2E42F11BE14930FE496269D573
+</pre>
+</code>
+                                            <br><br>
+
+                                            THis can be added to the install script to ensure the file has not been
+                                            tampered with:
+                                            <code>
+    <pre>
+$checksum = 'AFF4BB9B15BCCFF67A112A7857D28D3F2F436E2E42F11BE14930FE496269D573'
+$checksumType = 'sha256'
+$toolsPath = Split-Path $MyInvocation.MyCommand.Definition
+$installer = Join-Path $toolsPath 'installer.exe'
+
+Get-Checksum $installer $checksumType
+if ($checksum -ne $checksumType) &#123;
+    Write-Error 'Checksums do not match'
+    Exit 1
+&#125;
+</pre>
+
+</code>
+                                        </li>
+                                        <li>
+                                            <span class="file">tools\chocolateyUninstall.ps1</span><br>
+                                            This is the script that uninstalls the package.<br><br>
+
+                                            This is optional, but it's a good idea to have it. It's a good idea to
+                                            uninstall software when it's no longer needed.<br><br>
+
+                                            Chocolately does have built-in uninstall capabilities, so they may be
+                                            unnecessary if you use a common installer.
+                                        </li>
+                                        <li>
+                                            <span class="file">tools\chocolateyBeforeModify.ps1</span><br>
+                                            This is a script that runs before the install script. It's optional, but
+                                            can be useful for things like stopping services, ect.
+                                        </li>
+                                    </ol>
+                                </li>
+                                <li>Repackage the file back up: <inline-code>choco pack
+                                        &lt;YOURFILE&gt;.nuspec</inline-code></li>
+                                <li>choco install &lt;id of choco package&gt; -s . -y</li>
+                            </ol><br><br>
+                            
+                            If all was successful, we can push the files to our internal repository:<inline-code>choco
+                                push --source="http://&lt;YOURSERVER&gt;/chocolatey" --api-key=&lt;YOURPASSWORD&gt;
+                                --force &lt;YOURFILE&gt;.nupkg</inline-code><br><br>
+
+                            <span class="importantish">Note: Chocolately "Profressional" versions do all
+                                this automatically - internalizes packages, virus scans, offers a GUI, lots of other
+                                things. It's neat.</span>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Troubleshooting</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li><inline-code>refreshenv</inline-code> is refreshing wrong environment (you are
+                                    using PowerShell but it states it's refreshing CMD):<br>
+                                    <code>
+                                        <pre>
+PS C:\> refreshenv <span class="comment"><mat-icon>arrow_back</mat-icon> We are using PowerShell</span>
+Refreshing environment variables from registry for cmd.exe. Please wait...Finished.. <span class="comment"><mat-icon>arrow_back</mat-icon> but variables refreshed for CMD</span>
+</pre>
+</code>
+                                </li>
+                            </ul><br><br>
+
+                            <ol>
+                                <li>
+                                    Edit PowerShell profile:<br><br>
+
+                                    If you're using PowerShell Core (pwsh.exe):<br>
+                                    <span class="file">c:\users\&lt;YOU&gt;\documents\<span
+                                            class="important">PowerShell</span>\Microsoft.PowerShell_profile.ps1</span><br><span
+                                        class="additional-note">Create this file if it does not exist.</span><br><br>
+
+                                    If you're using the older Windows-only PowerShell (powershell.exe):<br>
+                                    <span class="file">c:\users\&lt;YOU&gt;\documents\<span
+                                            class="important">WindowsPowerShell</span>\Microsoft.PowerShell_profile.ps1</span><br><span
+                                        class="additional-note">It's safe to update both too</span>
+                                </li>
+                                <li>
+                                    Add the following line to the profile:<br>
+                                    <code>
+                                        <pre>
+# Chocolatey profile
+$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+if (Test-Path($ChocolateyProfile)) &#123;
+    Import-Module "$ChocolateyProfile"
+&#125;
+</pre>
+</code>
+                                </li>
+                                <li>
+                                    Save the file
+                                </li>
+                                <li>Load the profile: <inline-code>. $profile</inline-code></li>
+                                <li>Jump up and down in celebration at a problem solved:
+                                    <code>
+                                        <pre>
+PS C:\> refreshenv
+Refreshing environment variables from the registry for powershell.exe. Please wait...
+Finished
+                                        </pre>
+</code>
+                                </li>
+                            </ol>
+                        </mat-expansion-panel>
+                    </li>
+                </ul>
+            </div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>
