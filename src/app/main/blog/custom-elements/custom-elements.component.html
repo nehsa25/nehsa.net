@@ -6,27 +6,27 @@
     </mat-card-header>
     <mat-card-content>
         <div class="commentgrid topics">
-            <div><app-related-content></app-related-content></div><div>
+            <div><app-related-content></app-related-content></div>
+            <div>
                 <div>
                     <div class="blog-date">September 1st, 2024</div>
                     <div class="blog-author">Jesse Stone</div>
                     <div class="blog-body">
                         <p>Although I see the allure of CSS frameworks, which focus on atomic/single-use utility
-                            classes. These frameworks allow you to add them to an element to change its styling. For
-                            example, in TailWind CSS, you add the
-                            "items-center" class to its parent if you wish to center an element.
+                            classes (they allow you to add them to an element to change its styling).
                         </p>
 
                         <p>
-                            This approach does have some limitations. For example, it's not uncommon to end up with
-                            inconsistent styling because you've left one of many classes of an element.
+                            For example, in TailWind CSS, you can add the "items-center" class to a parent element to
+                            center the elements within it.
+                            This approach does have some limitations. For example, it's common to end up with
+                            inconsistent styling because you've left one-of-many classes off of an element.
                         </p>
 
                         <p>
-                            Leveraging semantic and custom
-                            HTML elements where possible is a superior strategy. This approach offers reusable
-                            components
-                            with consistent styling, enhancing the overall user experience. <br> <br>
+                            Leveraging semantic and custom HTML elements where possible is a superior strategy. This
+                            approach offers reusable components with consistent styling, enhancing the overall user
+                            experience.<br> <br>
 
                             For example, instead of: <inline-code>&lt;span class="code text-white
                                 font-bold"&gt;CODE&lt;/span&gt;</inline-code><br>
@@ -34,13 +34,13 @@
                             I would create: <inline-code>&lt;inline-code&gt;CODE&lt;/inline-code&gt;</inline-code> <br>
                             <br>
 
-                            This gives me two classes:<br>
+                            Doing this gives me two classes:<br>
                             &lt;code&gt; - For multiline code blocks which I want to start on a new line<br>
                             &lt;inline-code&gt; - For small code snippets that I wish to be on the same line<br><br>
 
-                            Some frameworks, such as Angular, will not allow custom elements by default. To use them, do
-                            the following: Refer to "Custom Elements" section <a routerLink="/angular">here</a> for
-                            instructions.
+                            It's worth noting that some frameworks, like Angular, may not support custom elements by
+                            default. However, you can still use them by following these steps: Refer to the 'Custom
+                            Elements' section <a routerLink="/angular">here</a> for detailed instructions.
                         </p>
                     </div>
                 </div>
