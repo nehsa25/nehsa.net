@@ -261,7 +261,7 @@ choco source enable -n=choco_internal <span class="comment"><mat-icon>arrow_back
                         </mat-expansion-panel>
                     </li>
                     <li>
-                        <mat-expansion-panel expanded>
+                        <mat-expansion-panel>
                             <mat-expansion-panel-header>
                                 <mat-panel-title>Build Your Own Packages</mat-panel-title>
                             </mat-expansion-panel-header>
@@ -335,7 +335,7 @@ if ($checksum -ne $checksumType) &#123;
                                         &lt;YOURFILE&gt;.nuspec</inline-code></li>
                                 <li>choco install &lt;id of choco package&gt; -s . -y</li>
                             </ol><br><br>
-                            
+
                             If all was successful, we can push the files to our internal repository:<inline-code>choco
                                 push --source="http://&lt;YOURSERVER&gt;/chocolatey" --api-key=&lt;YOURPASSWORD&gt;
                                 --force &lt;YOURFILE&gt;.nupkg</inline-code><br><br>
