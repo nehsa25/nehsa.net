@@ -11,143 +11,150 @@
                 <div class="topics">SQL is a declarative language for working with
                     relational databases.<br><br>
 
-                    <mat-expansion-panel expanded>
-                        <mat-expansion-panel-header>
-                            <mat-panel-title>Common Keywords</mat-panel-title>
-                        </mat-expansion-panel-header>
-                        <table class="keyword-table">
-                            <tr>
-                                <th>Keyword</th>
-                                <th>Function</th>
-                                <th>Example</th>
-                                <th>Performance Impact</th>
-                                <th>Related Keywords</th>
-                            </tr>
-                            <tr>
-                                <td>SELECT</td>
-                                <td>Retrieve data from a database</td>
-                                <td>SELECT * FROM Customers</td>
-                                <td>Low</td>
-                                <td>FROM, WHERE, JOIN</td>
-                            </tr>
-                            <tr>
-                                <td>INSERT</td>
-                                <td>Add new data to a database</td>
-                                <td>INSERT INTO Customers (Name)<br>VALUES ('John Doe')</td>
-                                <td>Medium</td>
-                                <td>VALUES, INTO</td>
-                            </tr>
-                            <tr>
-                                <td>UPDATE</td>
-                                <td>Modify existing data in a database</td>
-                                <td>UPDATE Customers SET Name = 'Jane Doe'<br>WHERE Name = 'John Doe'</td>
-                                <td>Medium</td>
-                                <td>SET, WHERE</td>
-                            </tr>
-                            <tr>
-                                <td>DELETE</td>
-                                <td>Remove data from a database</td>
-                                <td>DELETE FROM Customers<br>WHERE Name = 'John Doe'</td>
-                                <td>High</td>
-                                <td>WHERE</td>
-                            </tr>
-                            <tr>
-                                <td>JOIN</td>
-                                <td>Combine rows from two or more tables</td>
-                                <td>SELECT * FROM Orders<br>JOIN Customers<br>ON Orders.CustomerID =
-                                    Customers.CustomerID
-                                </td>
-                                <td>Medium</td>
-                                <td>INNER, LEFT, RIGHT</td>
-                            </tr>
-                            <tr>
-                                <td>WHERE</td>
-                                <td>Filter records based on a condition</td>
-                                <td>SELECT * FROM Customers<br>WHERE Country = 'USA'</td>
-                                <td>Low</td>
-                                <td>AND, OR, NOT</td>
-                            </tr>
-                            <tr>
-                                <td>GROUP BY</td>
-                                <td>Group rows that have the same values in specified columns</td>
-                                <td>SELECT COUNT(*), Country<br>FROM Customers<br>GROUP BY Country</td>
-                                <td>Medium</td>
-                                <td>HAVING</td>
-                            </tr>
-                            <tr>
-                                <td>ORDER BY</td>
-                                <td>Sort the result set in ascending or descending order</td>
-                                <td>SELECT * FROM Customers<br>ORDER BY Name ASC</td>
-                                <td>Low</td>
-                                <td>ASC, DESC</td>
-                            </tr>
-                            <tr>
-                                <td>HAVING</td>
-                                <td>Filter records after grouping</td>
-                                <td>SELECT COUNT(*), Country<br>FROM Customers<br>GROUP BY Country HAVING COUNT(*) > 1
-                                </td>
-                                <td>Medium</td>
-                                <td>GROUP BY</td>
-                            </tr>
-                            <tr>
-                                <td>BETWEEN</td>
-                                <td>Select values within a range</td>
-                                <td>SELECT * FROM Orders<br>WHERE OrderDate BETWEEN '2021-01-01' AND '2021-12-31'</td>
-                                <td>Low</td>
-                                <td>AND, OR</td>
-                            </tr>
-                            <tr>
-                                <td>LIKE</td>
-                                <td>Search for a pattern in a column<br>% is the wildcard:
-                                    <ul>
-                                        <li>% - Zero or more characters</li>
-                                        <li>_ - A single character</li>
-                                    </ul>
-
-                                    e.g. LIKE 'J%' would return all records that have a starting with J.<br>
-                                    LIKE '%J%' would return all records that have a J in them.<br>
-                                    LIKE '%J' would return all records that end with a J.<br>
-                                    LIKE '_J%' would return all records that have a J as the second character.
-                                </td>
-                                <td>SELECT * FROM Customers<br>WHERE Name LIKE 'J%'</td>
-                                <td>High</td>
-                                <td>CONTAINS</td>
-                            </tr>
-                            <tr>
-                                <td>CONTAINS</td>
-                                <td>Search for a specific word or phrase in a column</td>
-                                <td>SELECT * FROM Products<br>WHERE CONTAINS(ProductName, 'Mountain')</td>
-                                <td>High</td>
-                                <td>LIKE (Advantage of contains is that it is full-text search so is faster)</td>
-                            </tr>
-                            <tr>
-                                <td>IN</td>
-                                <td>Select values that match any value in a list</td>
-                                <td>SELECT * FROM Customers<br>WHERE Country IN ('USA', 'Canada')</td>
-                                <td>Low</td>
-                                <td>OR</td>
-                            </tr>
-                            <tr>
-                                <td>CASE</td>
-                                <td>Provide conditional logic in a query</td>
-                                <td>SELECT Name, CASE WHEN Country = 'USA'<br>THEN 'North America'<br>ELSE 'Other' END
-                                    AS
-                                    Region FROM Customers</td>
-                                <td>Medium</td>
-                                <td>WHEN, THEN</td>
-                            </tr>
-                            <tr>
-                                <td>IF</td>
-                                <td>Execute a statement conditionally</td>
-                                <td>IF (SELECT COUNT(*) FROM Customers) > 0<br>BEGIN SELECT 'Customers exist' END</td>
-                                <td>Medium</td>
-                                <td>ELSE, END</td>
-                            </tr>
-                        </table>
-                    </mat-expansion-panel>
-
-                    <div>Feats I've once accomplished that I may need to do again:<br>
+                    <div>
                         <ul>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Common Keywords</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    <table class="keyword-table">
+                                        <tr>
+                                            <th>Keyword</th>
+                                            <th>Function</th>
+                                            <th>Example</th>
+                                            <th>Performance Impact</th>
+                                            <th>Related Keywords</th>
+                                        </tr>
+                                        <tr>
+                                            <td>SELECT</td>
+                                            <td>Retrieve data from a database</td>
+                                            <td>SELECT * FROM Customers</td>
+                                            <td>Low</td>
+                                            <td>FROM, WHERE, JOIN</td>
+                                        </tr>
+                                        <tr>
+                                            <td>INSERT</td>
+                                            <td>Add new data to a database</td>
+                                            <td>INSERT INTO Customers (Name)<br>VALUES ('John Doe')</td>
+                                            <td>Medium</td>
+                                            <td>VALUES, INTO</td>
+                                        </tr>
+                                        <tr>
+                                            <td>UPDATE</td>
+                                            <td>Modify existing data in a database</td>
+                                            <td>UPDATE Customers SET Name = 'Jane Doe'<br>WHERE Name = 'John Doe'</td>
+                                            <td>Medium</td>
+                                            <td>SET, WHERE</td>
+                                        </tr>
+                                        <tr>
+                                            <td>DELETE</td>
+                                            <td>Remove data from a database</td>
+                                            <td>DELETE FROM Customers<br>WHERE Name = 'John Doe'</td>
+                                            <td>High</td>
+                                            <td>WHERE</td>
+                                        </tr>
+                                        <tr>
+                                            <td>JOIN</td>
+                                            <td>Combine rows from two or more tables</td>
+                                            <td>SELECT * FROM Orders<br>JOIN Customers<br>ON Orders.CustomerID =
+                                                Customers.CustomerID
+                                            </td>
+                                            <td>Medium</td>
+                                            <td>INNER, LEFT, RIGHT</td>
+                                        </tr>
+                                        <tr>
+                                            <td>WHERE</td>
+                                            <td>Filter records based on a condition</td>
+                                            <td>SELECT * FROM Customers<br>WHERE Country = 'USA'</td>
+                                            <td>Low</td>
+                                            <td>AND, OR, NOT</td>
+                                        </tr>
+                                        <tr>
+                                            <td>GROUP BY</td>
+                                            <td>Group rows that have the same values in specified columns</td>
+                                            <td>SELECT COUNT(*), Country<br>FROM Customers<br>GROUP BY Country</td>
+                                            <td>Medium</td>
+                                            <td>HAVING</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ORDER BY</td>
+                                            <td>Sort the result set in ascending or descending order</td>
+                                            <td>SELECT * FROM Customers<br>ORDER BY Name ASC</td>
+                                            <td>Low</td>
+                                            <td>ASC, DESC</td>
+                                        </tr>
+                                        <tr>
+                                            <td>HAVING</td>
+                                            <td>Filter records after grouping</td>
+                                            <td>SELECT COUNT(*), Country<br>FROM Customers<br>GROUP BY Country HAVING
+                                                COUNT(*) > 1
+                                            </td>
+                                            <td>Medium</td>
+                                            <td>GROUP BY</td>
+                                        </tr>
+                                        <tr>
+                                            <td>BETWEEN</td>
+                                            <td>Select values within a range</td>
+                                            <td>SELECT * FROM Orders<br>WHERE OrderDate BETWEEN '2021-01-01' AND
+                                                '2021-12-31'</td>
+                                            <td>Low</td>
+                                            <td>AND, OR</td>
+                                        </tr>
+                                        <tr>
+                                            <td>LIKE</td>
+                                            <td>Search for a pattern in a column<br>% is the wildcard:
+                                                <ul>
+                                                    <li>% - Zero or more characters</li>
+                                                    <li>_ - A single character</li>
+                                                </ul>
+
+                                                e.g. LIKE 'J%' would return all records that have a starting with J.<br>
+                                                LIKE '%J%' would return all records that have a J in them.<br>
+                                                LIKE '%J' would return all records that end with a J.<br>
+                                                LIKE '_J%' would return all records that have a J as the second
+                                                character.
+                                            </td>
+                                            <td>SELECT * FROM Customers<br>WHERE Name LIKE 'J%'</td>
+                                            <td>High</td>
+                                            <td>CONTAINS</td>
+                                        </tr>
+                                        <tr>
+                                            <td>CONTAINS</td>
+                                            <td>Search for a specific word or phrase in a column</td>
+                                            <td>SELECT * FROM Products<br>WHERE CONTAINS(ProductName, 'Mountain')</td>
+                                            <td>High</td>
+                                            <td>LIKE (Advantage of contains is that it is full-text search so is faster)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>IN</td>
+                                            <td>Select values that match any value in a list</td>
+                                            <td>SELECT * FROM Customers<br>WHERE Country IN ('USA', 'Canada')</td>
+                                            <td>Low</td>
+                                            <td>OR</td>
+                                        </tr>
+                                        <tr>
+                                            <td>CASE</td>
+                                            <td>Provide conditional logic in a query</td>
+                                            <td>SELECT Name, CASE WHEN Country = 'USA'<br>THEN 'North America'<br>ELSE
+                                                'Other' END
+                                                AS
+                                                Region FROM Customers</td>
+                                            <td>Medium</td>
+                                            <td>WHEN, THEN</td>
+                                        </tr>
+                                        <tr>
+                                            <td>IF</td>
+                                            <td>Execute a statement conditionally</td>
+                                            <td>IF (SELECT COUNT(*) FROM Customers) > 0<br>BEGIN SELECT 'Customers
+                                                exist' END</td>
+                                            <td>Medium</td>
+                                            <td>ELSE, END</td>
+                                        </tr>
+                                    </table>
+                                </mat-expansion-panel>
+                            </li>
                             <li>
                                 <mat-expansion-panel>
                                     <mat-expansion-panel-header>
@@ -318,7 +325,51 @@ FROM schema.table
                             <li>
                                 <mat-expansion-panel>
                                     <mat-expansion-panel-header>
-                                        <mat-panel-title>Use sub query</mat-panel-title>
+                                        <mat-panel-title>Working with Time</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    <ul>
+                                        <li>Selecting between datetime ranges
+                                            <code>
+                                                <pre>
+SELECT column1, column2
+FROM schema.table
+WHERE date_column BETWEEN '2024-01-01 00:00:00.000' AND '2024-12-31 23:23:59.999'
+                                                </pre>
+                                            </code>
+                                        </li>
+                                        <li>Finding Supported Timezones: <inline-code>select * from sys.time_zone_info</inline-code></li>
+                                        <li>
+                                            Converting to Timezones
+                                            <code>
+                                                <pre>
+SELECT creationtime, 
+CONVERT(DATETIME,creationtime) AT TIME ZONE 'UTC' AT TIME ZONE 'Pacific Standard Time' as 'PST',
+CONVERT(DATETIME,creationtime) AT TIME ZONE 'UTC' AT TIME ZONE 'Central Europe Standard Time' as 'CEST',
+FROM schema.table
+                                                </pre>
+                                            </code>
+                                            <br><br>
+                                            Produces:<br>
+                                            <table class="min-table">
+                                                <tr>
+                                                    <th>UTC</th>
+                                                    <th>PST</th>
+                                                    <th>CEST</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>2024-01-10 08:00:00.000</td>
+                                                    <td>2024-01-10 01:00:00.000</td>
+                                                    <td>2024-01-10 10:00:00.000</td>                                                    
+                                                </tr>
+                                            </table>
+                                        </li>
+                                    </ul>
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Using Sub Queries</mat-panel-title>
                                     </mat-expansion-panel-header>
                                     <code>
                                         <pre>
@@ -332,7 +383,7 @@ from
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div><br><br>
 
                 I've experience with Oracle, MSSQL, and MySql. A nearly arbitrary ranking for me would be MSSQL > MySql
                 >
