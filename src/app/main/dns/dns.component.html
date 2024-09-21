@@ -11,7 +11,7 @@
                 <div>
                     <ul>
                         <li>
-                            <mat-expansion-panel expanded>
+                            <mat-expansion-panel>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Definitions</mat-panel-title>
                                 </mat-expansion-panel-header>
@@ -80,6 +80,100 @@
                                         </table>
                                     </dd>
                                 </dl>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Tools</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Linux</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <dl>
+                                                <dt><acronym-name>Domain Information
+                                                        Groper<acronym-abbr>dig</acronym-abbr></acronym-name></dt>
+                                                <dd>
+                                                    <code>
+                                                        <pre>
+PS /home> dig nehsa.net                                                                      
+
+; <<>> DiG 9.18.28-0ubuntu0.24.04.1-Ubuntu <<>> nehsa.net
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 52810
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;nehsa.net.			IN	A
+
+;; ANSWER SECTION:
+nehsa.net.		153	IN	A	3.33.152.147
+nehsa.net.		153	IN	A	15.197.142.173
+
+;; Query time: 0 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+;; WHEN: Sat Sep 21 11:23:00 PDT 2024
+;; MSG SIZE  rcvd: 70
+                                                        </pre>
+                                                    </code><br><br>
+
+                                                    dig w/type (in this case MX). Other options include A, AAAA, CNAME, NS, PTR, SOA, and TXT.
+                                                    <code>
+                                                        <pre>
+PS /home> dig -t mx nehsa.net                                                                      
+
+; <<>> DiG 9.18.28-0ubuntu0.24.04.1-Ubuntu <<>> nehsa.net
+                                                        </pre>
+                                                    </code>
+                                                </dd>
+                                                <dt>nslookup</dt>
+                                                <dd>
+                                                    <code>
+                                                        <pre>
+&lt;YOU&gt;&#64;&lt;YOURMACHINE&gt;:~/src$ nslookup nehsa.net
+Server:		127.0.0.53
+Address:	127.0.0.53#53
+
+Non-authoritative answer:
+Name:	nehsa.net
+Address: 15.197.142.173
+Name:	nehsa.net
+Address: 3.33.152.147
+</pre></code>
+                                                </dd>
+                                                <dt>host</dt>
+                                                <dd><code>
+<pre>
+&lt;YOU&gt;&#64;&lt;YOURMACHINE&gt;:~/src$ host nehsa.net
+nehsa.net has address 3.33.152.147
+nehsa.net has address 15.197.142.173
+nehsa.net mail is handled by 20 alt2.aspmx.l.google.com.
+nehsa.net mail is handled by 10 aspmx.l.google.com.
+nehsa.net mail is handled by 30 aspmx2.googlemail.com.
+nehsa.net mail is handled by 30 aspmx3.googlemail.com.
+nehsa.net mail is handled by 30 aspmx4.googlemail.com.
+nehsa.net mail is handled by 30 aspmx5.googlemail.com.
+nehsa.net mail is handled by 20 alt1.aspmx.l.google.com.
+</pre>
+                                                </code>
+                                            </dl>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Windows</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                        </mat-expansion-panel>
+                                    </li>
+                                </ul>
+
                             </mat-expansion-panel>
                         </li>
                     </ul>
