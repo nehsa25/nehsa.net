@@ -56,13 +56,13 @@ vim ~/.hgrc
 username = Jenkins &lt;email to use&gt;
 
 [auth]
-lp.prefix = https://&lt;scm path&gt;/Code/INtime/Components/Licman_dotnet452
+lp.prefix = https://&lt;scm path&gt;/Code/Components/Licman_dotnet452
 lp.username = &lt;username&gt;
 lp.password = &lt;password&gt;
 rt.prefix = https://&lt;scm path&gt;/Code/PlayArea/Jesse/regression_tests
 rt.username = &lt;username&gt;
 rt.password = &lt;password&gt;
-su.prefix = https://&lt;scm path&gt;/Code/INtime/Tests/script_utils
+su.prefix = https://&lt;scm path&gt;/Code/Tests/script_utils
 su.username = &lt;username&gt;
 su.password = &lt;password&gt;
                                             </pre>
@@ -145,7 +145,7 @@ pipeline &#123;
             &#125;
         &#125;
 
-        stage ('Install License Portal dependancies') &#123;
+        stage ('Install Application dependancies') &#123;
             steps &#123;
                     nodejs(nodeJSInstallationName: 'Node') &#123;
                         sh 'cd ProjectA/projecta-ng; npm install --legacy-peer-deps'
@@ -183,7 +183,7 @@ pipeline &#123;
         
         stage('Execute Pytest (e2e-api) tests') &#123;
             steps &#123;
-                sh 'cd regression_tests; export INTIMECFG=/var/jenkins_home/workspace/Portal\\ CI/; export PYTHONPATH=/var/jenkins_home/workspace/License\\ Portal\\ CI/script_utils/; export INTIME=/var/jenkins_home/workspace/Portal\\ CI/; pytest -m ci'
+                sh 'cd regression_tests; export PYTHONPATH=/var/jenkins_home/workspace/script_utils/; pytest -m ci'
             &#125;
         &#125;
                 
