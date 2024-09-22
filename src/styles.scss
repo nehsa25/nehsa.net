@@ -827,7 +827,7 @@ acronym-abbr::before {
     content: "(";
     position: absolute;
     top: 50%;
-    left: -.5em;
+    left: -1em;
     transform: translateY(-50%);
 }
 
@@ -835,6 +835,6 @@ acronym-abbr::after {
     content: ")";
     position: absolute;
     top: 50%;
-    right: -.5em;
+    right: -1em;
     transform: translateY(-50%);
 }

@@ -1,0 +1,31 @@
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title"><span style="font-size: 3rem;" class="important">VI</span> I<span
+                    style="font-size: 3rem;" class="important">M</span>proved</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid topics">
+            <div><app-related-content></app-related-content>
+                <div style="margin-top:1rem;">
+                    <acronym-name>GNU Image Manipulation Program<acronym-abbr>Gimp</acronym-abbr></acronym-name> is a
+                    free, open-source image editor.<br><br>
+
+                    I've done some cool things with it:
+                    <ul>
+                        <li>Steam Profile:
+                            <img src="assets/images/cs_logo.jpg" alt="Steam Profile">
+                        </li>
+                    </ul>
+                </div>
+
+                <span class="important">Pro-tip:</span>
+                <ul>
+                    <li>To quickly edit a screenshop: gimp->File->Create->From Clipboard</li>
+                </ul>
+                <div><app-comment></app-comment></div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
