@@ -1,0 +1,158 @@
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title"><span style="font-size: 3rem;" class="important">VI</span> I<span
+                    style="font-size: 3rem;" class="important">M</span>proved</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid topics">
+            <div><app-related-content></app-related-content>
+                <div style="margin-top:1rem;">
+                    I have always liked <acronym-name>VI Improved<acronym-abbr>vim</acronym-abbr></acronym-name>, maybe
+                    because of it's complete lack of effort on a good UX. It's nostalgic
+                    to me that VIM hasn't changed since I first used it years ago. Unfortunately, I am not good with it
+                    so this is
+                    my reference.<br><br>
+
+                    <ul>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Commands</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                To enter a command in VIM, press ESC and then type the command. Here are some
+                                commands:<br><br>
+
+                                <dl>
+                                    <dt>:wq</dt>
+                                    <dd>Save and quit</dd>
+                                    <dt>:q!</dt>
+                                    <dd>Quit without saving</dd>
+                                    <dt>:q</dt>
+                                    <dd>Quit</dd>
+                                    <dt>:w</dt>
+                                    <dd>Save</dd>
+                                    <dt>:w filename</dt>
+                                    <dd>Save as filename</dd>
+                                    <dt>d, ENTER (or dd)</dt>
+                                    <dd>Delete a line</dd>
+                                    <dt>u</dt>
+                                    <dd>Undo</dd>
+                                    <dt>y</dt>
+                                    <dd>Copy (<acronym-name>yank<acronym-abbr>y</acronym-abbr></acronym-name>)</dd>
+                                    <dt>p</dt>
+                                    <dd>Paste</dd>
+                                    <dt>Show Color Schemes</dt>
+                                    <dd>Run :colorscheme and then press tab<br>
+                                        <img src="assets/images/vim_colorschemes.png" alt="VIM Color Schemes">
+                                    </dd>
+                                    <dt>o</dt>
+                                    <dd>Insert a new line below the cursor</dd>
+                                    <dt>O</dt>
+                                    <dd>Insert a new line above the cursor</dd>
+                                    <dt>0</dt>
+                                    <dd>Move to the beginning of the line</dd>
+                                    <dt>$</dt>
+                                    <dd>Move to the end of the line</dd>
+                                    <dt>^</dt>
+                                    <dd>Move to the first non-whitespace character of the line</dd>
+                                    <dt>gg</dt>
+                                    <dd>Move to the beginning of the file</dd>
+                                    <dt>G</dt>
+                                    <dd>Move to the end of the file</dd>
+                                    <dt>/&#123;pattern&#125;</dt>
+                                    <dd>Search for a pattern. e.g. "/hello" would find the first instance of "hello"
+                                        from the cursor moving down.</dd>
+                                    <dt>n</dt>
+                                    <dd>Move to the next instance of the pattern</dd>
+                                    <dt>N</dt>
+                                    <dd>Move to the previous instance of the pattern</dd>
+                                    <dt>:set number</dt>
+                                    <dd>Show line numbers</dd>
+                                </dl>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel expanded>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>.vimrc</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                The .vimrc file is a configuration file for VIM. It is located in the home directory. By
+                                default, it does not exist but creating one offers some value:
+                                <ul>
+                                    <li>Set the number of spaces to use for tabs</li>
+                                    <li>Set the color scheme</li>
+                                    <li>Set the default indentation</li>
+                                    <li>Set the default syntax highlighting</li>
+                                    <li>Set to show line numbers</li>
+                                    <li>Set the default search behavior</li>
+                                    <li>Lots of other things I'm sure..</li>
+                                </ul><br><br>
+
+                                Here's mine. I know, a thing of beauty:<br>
+                                <img src="assets/images/vim.png" alt="VIM .vimrc themed example"><br><br>
+                                <code>
+                                    <pre>
+<span class="comment">" Set the number of spaces to use for tabs</span>
+set tabstop=4
+
+<span class="comment">" Set the number of spaces to use for indentation</span>
+set shiftwidth=4
+
+<span class="comment">" Set the default indentation to spaces</span>
+set expandtab <span class="comment">" (use "set noexpandtab" to use tabs)</span>
+
+<span class="comment">" Set the color scheme (to get more schemes, run :colorscheme and then press tab)</span>
+colorscheme delek <span class="comment">" (or whatever scheme you like)</span>
+
+<span class="comment">" Set the default syntax highlighting</span>
+syntax on
+
+<span class="comment">" Show line numbers</span>
+set number
+
+<span class="comment">" Set syntax based on filetype</span>
+au BufReadPost *.conf set syntax=dosini
+au BufReadPost *.py set syntax=python
+au BufReadPost *.sh set syntax=sh
+au BufReadPost *.c set syntax=c
+au BufReadPost *.cpp set syntax=cpp
+au BufReadPost *.h set syntax=c
+au BufReadPost *.hpp set syntax=cpp
+au BufReadPost *.java set syntax=java
+au BufReadPost *.html set syntax=html
+au BufReadPost *.css set syntax=css
+au BufReadPost *.js set syntax=javascript
+au BufReadPost *.php set syntax=php
+au BufReadPost *.sql set syntax=sql
+au BufReadPost *.xml set syntax=xml
+au BufReadPost *.yml set syntax=yaml
+au BufReadPost *.yaml set syntax=yaml
+au BufReadPost *.md set syntax=markdown
+au BufReadPost *.rst set syntax=rst
+au BufReadPost *.txt set syntax=txt
+au BufReadPost *.log set syntax=log
+au BufReadPost *.json set syntax=json
+                                    </pre>
+                                </code><br><br>
+
+                                <span class="important">Pro-tip:</span>
+                                <ul>
+                                    <li>The .vimrc file is read when VIM starts up. If you make changes
+                                        to the file, you can either restart VIM or run the command ":source
+                                        ~/.vimrc" to reload the file.</li>
+                                    <li>This will not work when running sudo vim, to fix this, run "sudo vim
+                                        -u ~/.vimrc" instead or if it won't affect others, place the settings in the
+                                        /etc/vim/vimrc.local file to make it system-wide.
+                                    </li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                    </ul>
+                </div>
+                <div><app-comment></app-comment></div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
