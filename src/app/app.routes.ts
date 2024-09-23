@@ -79,6 +79,8 @@ import { FetchxmlComponent } from './main/fetchxml/fetchxml.component';
 import { ChocoComponent } from './main/choco/choco.component';
 import { VimComponent } from './main/vim/vim.component';
 import { GimpComponent } from './main/gimp/gimp.component';
+import { GamesComponent } from './main/games/games.component';
+import { ValheimComponent } from './main/games/valheim/valheim.component';
 
 export const routes: Routes = [
     { path: 'agile', title: 'nehsa.net | Agile', component: AgileComponent },
@@ -170,5 +172,7 @@ export const routes: Routes = [
     { path: 'dynamics365', title: 'nehsa.net | Dynamics 365', component: FetchxmlComponent },
     { path: 'vim', title: 'nehsa.net | VIM', component: VimComponent },
     { path: 'gimp', title: 'nehsa.net | Gimp', component: GimpComponent },
+    { path: 'games', title: 'nehsa.net | Games', component: GamesComponent },
+    { path: 'valheim', title: 'nehsa.net | Valheim', component: ValheimComponent },
     { path: '**', component: WelcomeComponent }, // Default route if nothing else found
 ];

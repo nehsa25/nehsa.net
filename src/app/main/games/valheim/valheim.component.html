@@ -1,0 +1,66 @@
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Valheim</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid topics">
+            <div><app-related-content></app-related-content></div>
+            <div>
+                <div>
+                    <ul>
+                        <li>
+                            <mat-expansion-panel expanded>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Linux</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>
+                                        <mat-expansion-panel expanded>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Configure Server</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <ul>
+                                                <li>Get the Docker image: <inline-code>docker pull
+                                                        lloesche/valheim-server</inline-code>
+                                                </li>
+                                                <li>Run it:<br>
+                                                    <code>
+                                                        <pre>
+docker run -d \
+    --name valheim-server \
+    --cap-add=sys_nice \
+    --stop-timeout 120 \
+    -p 2456-2457:2456-2457/udp \
+    -v $HOME/valheim-server/config:/config \
+    -v $HOME/valheim-server/data:/opt/valheim \
+    -e SERVER_NAME="&lt;SERVER NAME&gt;" \
+    -e WORLD_NAME="&lt;WORLD NAME&gt;" \
+    -e SERVER_PASS="&lt;SECRET&gt;" \
+    lloesche/valheim-server
+                                                        </pre>
+                                                    </code>
+                                                </li>
+                                                <li>Define A record in DNS for
+                                                    <inline-code>&lt;vh.nehsa.net&gt;</inline-code></li>
+                                                <li>Open port in local firewall</li>
+                                                <li>Port forwarding: &lt;IP&gt;:2456-2458 (Both TCP/UPD)</li>
+                                                <li>Connect to the server at
+                                                    <inline-code>&lt;vh.nehsa.net&gt;:2456</inline-code></li>
+                                                <li><span class="important">BE A VIKING!</span></li>
+                                            </ul>
+                                        </mat-expansion-panel>
+                                    </li>
+                                </ul><br><br>
+
+                                Play on nehsa.net server: vh.nehsa.net:2456, password: playnehsa
+                            </mat-expansion-panel>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>
