@@ -1,265 +1,372 @@
-<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
-    <mat-card-header>
-        <mat-card-title>
-            <h1 data-testid="header-title">Cloud Overview</h1>
-        </mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        <div class="commentgrid topics">
-            <div><app-related-content></app-related-content></div>
-            <div>
-                <div>
-                    Using the cloud is more than simply using someone else's computer. Cloud providers offer many
-                    services, including extra security and services that would be hard for a small company to provide on
-                    its own.<br>
-                    <span class="additional-note">* You'll fully understand the importance of security and a
-                        decentralized infrastructure when foreign hackers encrypt every file on every machine in your
-                        local office and demand a ransom in cryptocurrency before handing over the decryption
-                        tool.</span><br>
+<mat-card
+  class="card"
+  [class.vampire]="userService.appIsDark()"
+  [class.angel]="!userService.appIsDark()"
+>
+  <mat-card-header>
+    <mat-card-title>
+      <h1 data-testid="header-title">Cloud Overview</h1>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="commentgrid topics">
+      <div><app-related-content></app-related-content></div>
+      <div>
+        <div>
+          Using the cloud is more than simply using someone else's computer.
+          Cloud providers offer many services, including extra security and
+          services that would be hard for a small company to provide on its
+          own.<br />
+          <span class="additional-note"
+            >* You'll fully understand the importance of security and a
+            decentralized infrastructure when foreign hackers encrypt every file
+            on every machine in your local office and demand a ransom in
+            cryptocurrency before handing over the decryption tool.</span
+          ><br />
 
-                    <div>
-                        Here's a breakdown of the three major cloud providers and some key differents their offerings:
-                        <table class="min-table">
-                            <tr>
-                                <th>Provider</th>
-                                <th>Services</th>
-                                <th>Cost</th>
-                                <th>Market Adoption</th>
-                                <th>Strong CLI support, tool names</th>
-                            </tr>
-                            <tr>
-                                <td>AWS</td>
-                                <td>Is the most widely used and has the most services. (e.g. AWS services: 175, GCP: 60,
-                                    and
-                                    Azure: 50). Some of which include:<br>
-                                    <dl>
-                                        <dt>EC2</dt>
-                                        <dd>is a type of service that allows you to create virtual machines. GPC and
-                                            Azure offer
-                                            similar services.</dd>
-                                        <dt>S3</dt>
-                                        <dd> is a type of storage used to store unstructured data like images, videos,
-                                            and backups.
-                                            (akin to Azure Blob storage or Google Cloud Storage's buckets)</dd>
-                                        <dt>RDS</dt>
-                                        <dd>is a service that allows you to create a relational database. (akin to Azure
-                                            SQL
-                                            Database or Google Cloud SQL)</dd>
-                                        <dt>Lambda</dt>
-                                        <dd>enables you to run code without provisioning or managing servers. (akin to
-                                            Azure
-                                            Functions or Google Cloud Functions)</dd>
-                                        <dt>DynamoDB</dt>
-                                        <dd>is a service that will allow you to create a NoSQL database. (akin to Azure
-                                            CosmosDB or
-                                            Google Cloud Datastore)</dd>
-                                    </dl>
-                                </td>
-                                <td>Pay as you go, free tier</td>
-                                <td>Most widely used</td>
-                                <td>aws-cli, boto3, CloudFormation</td>
-                            </tr>
-                            <tr>
-                                <td>Azure</td>
-                                <td>VMs, Blob Storage, SQL Server, Functions, CosmosDB, etc.
-                                    <dl>
-                                        <dt>Blob storage</dt>
-                                        <dd>is a type of storage that is used to store unstructured data like images,
-                                            videos, and
-                                            backups.</dd>
-                                        <dt>VPC</dt>
-                                        <dd>VPC is a service that allows you to create a virtual private cloud. A VPC is
-                                            needed when
-                                            you need more security, isolation, or connection to an on-premise network.
-                                            (akin to
-                                            Azure Virtual Network or Google Cloud VPC)</dd>
-                                        <dt>Application Insights</dt>
-                                        <dd>is a service that allows you to monitor your
-                                            application.</dd>
-                                        <dt>CosmosDB</dt>
-                                        <dd>is a service that will enable you to create a NoSQL database. IN SPACE!</dd>
-                                    </dl>
-                                </td>
-                                <td>Pay as you go, free tier</td>
-                                <td>2nd most widely used</td>
-                                <td>az, Azure CLI, ARM templates</td>
-                            </tr>
-                            <tr>
-                                <td>Google Cloud Platform</td>
-                                <td>Compute Engine, Cloud Storage, Cloud SQL, Cloud Functions, etc.</td>
-                                <td>Pay as you go, free tier</td>
-                                <td>3rd most widely used</td>
-                                <td>gcloud, Cloud SDK, Deployment Manager</td>
-                            </tr>
-                        </table>
-                    </div><br><br>
+          <div>
+            Here's a breakdown of the three major cloud providers and some key
+            differents their offerings:
+            <table class="min-table">
+              <tr>
+                <th>Provider</th>
+                <th>Services</th>
+                <th>Cost</th>
+                <th>Market Adoption</th>
+                <th>Strong CLI support, tool names</th>
+              </tr>
+              <tr>
+                <td>AWS</td>
+                <td>
+                  Is the most widely used and has the most services. (e.g. AWS
+                  services: 175, GCP: 60, and Azure: 50). Some of which
+                  include:<br />
+                  <dl>
+                    <dt>EC2</dt>
+                    <dd>
+                      is a type of service that allows you to create virtual
+                      machines. GPC and Azure offer similar services.
+                    </dd>
+                    <dt>S3</dt>
+                    <dd>
+                      is a type of storage used to store unstructured data like
+                      images, videos, and backups. (akin to Azure Blob storage
+                      or Google Cloud Storage's buckets)
+                    </dd>
+                    <dt>RDS</dt>
+                    <dd>
+                      is a service that allows you to create a relational
+                      database. (akin to Azure SQL Database or Google Cloud SQL)
+                    </dd>
+                    <dt>Lambda</dt>
+                    <dd>
+                      enables you to run code without provisioning or managing
+                      servers. (akin to Azure Functions or Google Cloud
+                      Functions)
+                    </dd>
+                    <dt>DynamoDB</dt>
+                    <dd>
+                      is a service that will allow you to create a NoSQL
+                      database. (akin to Azure CosmosDB or Google Cloud
+                      Datastore)
+                    </dd>
+                  </dl>
+                </td>
+                <td>Pay as you go, free tier</td>
+                <td>Most widely used</td>
+                <td>aws-cli, boto3, CloudFormation</td>
+              </tr>
+              <tr>
+                <td>Azure</td>
+                <td>
+                  VMs, Blob Storage, SQL Server, Functions, CosmosDB, etc.
+                  <dl>
+                    <dt>Blob storage</dt>
+                    <dd>
+                      is a type of storage that is used to store unstructured
+                      data like images, videos, and backups.
+                    </dd>
+                    <dt>VPC</dt>
+                    <dd>
+                      VPC is a service that allows you to create a virtual
+                      private cloud. A VPC is needed when you need more
+                      security, isolation, or connection to an on-premise
+                      network. (akin to Azure Virtual Network or Google Cloud
+                      VPC)
+                    </dd>
+                    <dt>Application Insights</dt>
+                    <dd>
+                      is a service that allows you to monitor your application.
+                    </dd>
+                    <dt>CosmosDB</dt>
+                    <dd>
+                      is a service that will enable you to create a NoSQL
+                      database. IN SPACE!
+                    </dd>
+                  </dl>
+                </td>
+                <td>Pay as you go, free tier</td>
+                <td>2nd most widely used</td>
+                <td>az, Azure CLI, ARM templates</td>
+              </tr>
+              <tr>
+                <td>Google Cloud Platform</td>
+                <td>
+                  Compute Engine, Cloud Storage, Cloud SQL, Cloud Functions,
+                  etc.
+                </td>
+                <td>Pay as you go, free tier</td>
+                <td>3rd most widely used</td>
+                <td>gcloud, Cloud SDK, Deployment Manager</td>
+              </tr>
+            </table>
+          </div>
+          <br /><br />
 
-                    <div>
-                        Non-sepcific Cloud Lingo:<br>
-                        <dl>
-                            <dt><acronym-name>Infrastructure as a
-                                    Service<acronym-abbr>IaaS</acronym-abbr></acronym-name></dt>
-                            <dd>An IaaS is a cloud service that
-                                provides virtualized computing resources over the internet.</dd>
-                            <dt><acronym-name>Software as a Service<acronym-abbr>SaaS</acronym-abbr></acronym-name></dt>
-                            <dd>SaaS is a software distribution
-                                model in which a third-party provider hosts applications and makes them available to
-                                customers over the internet.</dd>
-                            <dt><acronym-name>Platform as a Service<acronym-abbr>PaaS</acronym-abbr></acronym-name></dt>
-                            <dd>This differs from similar services like IaaS or SaaS in that it
-                                provides a platform for developers to build applications on.</dd>
-                            <dt><acronym-name>Integration Platform as a
-                                    Service<acronym-abbr>iPaaS</acronym-abbr></acronym-name></dt>
-                            <dd>Integration Platform as a Service is a suite of cloud services and tools thatthat
-                                further streamline deployment by providing pre-built connectors to common SaaS
-                                applications and on-premises systems and tools for building custom integrations. It also
-                                provides a centralized console for monitoring and managing integrations and often
-                                includes features for data mapping, transformation, and error handling.<br><br>
+          <div>
+            Non-sepcific Cloud Lingo:<br />
+            <dl>
+              <dt>
+                <acronym-name
+                  >Infrastructure as a Service<acronym-abbr
+                    >IaaS</acronym-abbr
+                  ></acronym-name
+                >
+              </dt>
+              <dd>
+                An IaaS is a cloud service that provides virtualized computing
+                resources over the internet.
+              </dd>
+              <dt>
+                <acronym-name
+                  >Software as a Service<acronym-abbr
+                    >SaaS</acronym-abbr
+                  ></acronym-name
+                >
+              </dt>
+              <dd>
+                SaaS is a software distribution model in which a third-party
+                provider hosts applications and makes them available to
+                customers over the internet.
+              </dd>
+              <dt>
+                <acronym-name
+                  >Platform as a Service<acronym-abbr
+                    >PaaS</acronym-abbr
+                  ></acronym-name
+                >
+              </dt>
+              <dd>
+                This differs from similar services like IaaS or SaaS in that it
+                provides a platform for developers to build applications on.
+              </dd>
+              <dt>
+                <acronym-name
+                  >Integration Platform as a Service<acronym-abbr
+                    >iPaaS</acronym-abbr
+                  ></acronym-name
+                >
+              </dt>
+              <dd>
+                Integration Platform as a Service is a suite of cloud services
+                and tools thatthat further streamline deployment by providing
+                pre-built connectors to common SaaS applications and on-premises
+                systems and tools for building custom integrations. It also
+                provides a centralized console for monitoring and managing
+                integrations and often includes features for data mapping,
+                transformation, and error handling.<br /><br />
 
-                                A use case for iPaaS would be to connect a CRM system to an ERP system. This would allow
-                                a salesperson to see the status of an order in real-time, without having to switch
-                                between systems.<br><br>
+                A use case for iPaaS would be to connect a CRM system to an ERP
+                system. This would allow a salesperson to see the status of an
+                order in real-time, without having to switch between systems.<br /><br />
 
-                                Examples include: MuleSoft, Dell Boomi, and Workato.
-                            </dd>
-                            <dt><acronym-name>Function as a Service<acronym-abbr>FaaS</acronym-abbr></acronym-name></dt>
-                            <dd>FaaS is a category of cloud computing services that provides a platform allowing
-                                customers to develop, run, and manage application functionalities without the complexity
-                                of
-                                building and maintaining the infrastructure typically associated with developing and
-                                launching an app.</dd>
-                        </dl>
-                    </div><br><br>
+                Examples include: MuleSoft, Dell Boomi, and Workato.
+              </dd>
+              <dt>
+                <acronym-name
+                  >Function as a Service<acronym-abbr
+                    >FaaS</acronym-abbr
+                  ></acronym-name
+                >
+              </dt>
+              <dd>
+                FaaS is a category of cloud computing services that provides a
+                platform allowing customers to develop, run, and manage
+                application functionalities without the complexity of building
+                and maintaining the infrastructure typically associated with
+                developing and launching an app.
+              </dd>
+            </dl>
+          </div>
+          <br /><br />
 
-                    Methods to host your application:<br>
-                    <table class="min-table">
-                        <tr>
-                            <th>Service Offering</th>
-                            <th>Strengths</th>
-                            <th>Weaknesses</th>
-                            <th>Examples</th>
-                            <th>When would you use?</th>
-                        </tr>
-                        <tr>
-                            <td>SaaS</td>
-                            <td>Easy to use, no maintenance</td>
-                            <td>Less control, the provider manages the software</td>
-                            <td>Google Docs, Office 365, Salesforce</td>
-                            <td>When you have a self-contained solution already and you wish to host it in the cloud.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>PaaS</td>
-                            <td>Easy to deploy, no maintenance</td>
-                            <td>Less control, the provider manages the platform</td>
-                            <td>Heroku, Google App Engine, Azure App Service</td>
-                            <td>When you need a platform to build your application on and you don't want to manage
-                                it. Differs from SaaS because you're building the application within the platform.</td>
-                        </tr>
-                        <tr>
-                            <td>FaaS</td>
-                            <td>Easy to deploy, no maintenance</td>
-                            <td>Less control, the provider manages the platform</td>
-                            <td>Google Cloud Functions, AWS Lambda, Azure Functions</td>
-                            <td>When you need to run a small piece of code in response to an event. For example, you
-                                could use a function to resize an image when it's uploaded to a storage bucket.</td>
-                        </tr>
-                        <tr>
-                            <td>IaaS</td>
-                            <td>Most control, most flexibility</td>
-                            <td>Most maintenance, most expensive</td>
-                            <td>EC2, Azure VMs, Google Compute Engine</td>
-                            <td>When you need full control over the infrastructure and you're willing to manage it.</td>
-                        </tr>
-                        <tr>
-                            <td>Serverless
-                            </td>
-                            <td>Easy to deploy, no maintenance</td>
-                            <td>Less control, the provider manages the platform</td>
-                            <td>Azure Static Web Apps, AWS Lambda, Google Cloud Functions</td>
-                            <td>When you need to run a small piece of code in response to an event. For example,
-                                documentation is a good use case for serverless architecture.</td>
-                        </tr>
-                    </table><br><br>
+          Methods to host your application:<br />
+          <table class="min-table">
+            <tr>
+              <th>Service Offering</th>
+              <th>Strengths</th>
+              <th>Weaknesses</th>
+              <th>Examples</th>
+              <th>When would you use?</th>
+            </tr>
+            <tr>
+              <td>SaaS</td>
+              <td>Easy to use, no maintenance</td>
+              <td>Less control, the provider manages the software</td>
+              <td>Google Docs, Office 365, Salesforce</td>
+              <td>
+                When you have a self-contained solution already and you wish to
+                host it in the cloud.
+              </td>
+            </tr>
+            <tr>
+              <td>PaaS</td>
+              <td>Easy to deploy, no maintenance</td>
+              <td>Less control, the provider manages the platform</td>
+              <td>Heroku, Google App Engine, Azure App Service</td>
+              <td>
+                When you need a platform to build your application on and you
+                don't want to manage it. Differs from SaaS because you're
+                building the application within the platform.
+              </td>
+            </tr>
+            <tr>
+              <td>FaaS</td>
+              <td>Easy to deploy, no maintenance</td>
+              <td>Less control, the provider manages the platform</td>
+              <td>Google Cloud Functions, AWS Lambda, Azure Functions</td>
+              <td>
+                When you need to run a small piece of code in response to an
+                event. For example, you could use a function to resize an image
+                when it's uploaded to a storage bucket.
+              </td>
+            </tr>
+            <tr>
+              <td>IaaS</td>
+              <td>Most control, most flexibility</td>
+              <td>Most maintenance, most expensive</td>
+              <td>EC2, Azure VMs, Google Compute Engine</td>
+              <td>
+                When you need full control over the infrastructure and you're
+                willing to manage it.
+              </td>
+            </tr>
+            <tr>
+              <td>Serverless</td>
+              <td>Easy to deploy, no maintenance</td>
+              <td>Less control, the provider manages the platform</td>
+              <td>Azure Static Web Apps, AWS Lambda, Google Cloud Functions</td>
+              <td>
+                When you need to run a small piece of code in response to an
+                event. For example, documentation is a good use case for
+                serverless architecture.
+              </td>
+            </tr>
+          </table>
+          <br /><br />
 
-                    <div>
-                        <h3>My Experience</h3><br>
-                        <h4>Personal</h4><br>
-                        I use Google Cloud Platform for the API & front-end of nehsa.net home resources for everything
-                        else. Eventually, I'd like to find ways to use AWS and Azure that leverage each perspective's
-                        strengths. For example, I need to host:
-                        <table class="min-table">
-                            <tr>
-                                <th>Feature</th>
-                                <th>Provider</th>
-                                <th>Reason</th>
-                                <th>Created</th>
-                                <th>Deployed to Cloud</th>
-                            </tr>
-                            <tr>
-                                <td>nehsa.net</td>
-                                <td>GCP Cloud Run</td>
-                                <td>This is an Angular website hosted on a C# Kestrel server.
-                                <td>Yes</td>
-                                <td>Yes</td>
-                            </tr>
-                            <tr>
-                                <td>Python websocker server</td>
-                                <td>AWS (Fargate)</td>
-                                <td>Fargate should be a good use for this, as it's a long-running process that doesn't
-                                    need to be on all the time.</td>
-                                <td>Yes</td>
-                                <td>No</td>
-                            </tr>
-                            <tr>
-                                <td>GraphQL</td>
-                                <td>AWS (ECR and ECS)</td>
-                                <td>Using the ECR and ECS (Elastic Container Registry and Elastic Container Service) to
-                                    host a containerized GraphQL server.</td>
-                                <td>Yes</td>
-                                <td>Partial</td>
-                            <tr>
-                                <td>MySQL Database</td>
-                                <td>GCP (Cloud SQL)</td>
-                                <td>Cloud SQL is a managed MySQL service that is easy to use and has a free tier.</td>
-                                <td>Yes</td>
-                                <td>No</td>
-                            </tr>
-                            <tr>
-                                <td>Weather microservice writtin in Go</td>
-                                <td>GCP (Cloud Run)</td>
-                                <td>Cloud Run is a managed service that allows you to run stateless containers. It's
-                                    perfect for a microservice that doesn't need to be on all the time.</td>
-                                <td>Yes</td>
-                                <td>No</td>
-                            </tr>
-                            <tr>
-                                <td>Test React Front-ends</td>
-                                <td>GCP (Cloud Run)</td>
-                                <td>Cloud Run is a managed service that allows you to run stateless containers. It's
-                                    perfect for a microservice that doesn't need to be on all the time.</td>
-                                <td>Yes</td>
-                                <td>No</td>
-                            </tr>
-                            <tr>
-                                <td>Web page scraper microservice writtin in Go</td>
-                                <td>GCP (Cloud Run)</td>
-                                <td>Cloud Run is a managed service that allows you to run stateless containers. It's
-                                    perfect for a microservice that doesn't need to be on all the time.</td>
-                                <td>Yes</td>
-                                <td>No</td>
-                            </tr>
-                        </table>
-                        <br><br>
+          <div>
+            <h3>My Experience</h3>
+            <br />
+            <h4>Personal</h4>
+            <br />
+            I use Google Cloud Platform for the API & front-end of nehsa.net
+            home resources for everything else. Eventually, I'd like to find
+            ways to use AWS and Azure that leverage each perspective's
+            strengths. For example, I need to host:
+            <table class="min-table">
+              <tr>
+                <th>Feature</th>
+                <th>Provider</th>
+                <th>Reason</th>
+                <th>Created</th>
+                <th>Deployed to Cloud</th>
+              </tr>
+              <tr>
+                <td>nehsa.net</td>
+                <td>GCP Cloud Run</td>
+                <td>
+                  This is an Angular website hosted on a C# Kestrel server.
+                </td>
+                <td>Yes</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Python websocker server</td>
+                <td>AWS (Fargate)</td>
+                <td>
+                  Fargate should be a good use for this, as it's a long-running
+                  process that doesn't need to be on all the time.
+                </td>
+                <td>Yes</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>GraphQL</td>
+                <td>AWS (ECR and ECS)</td>
+                <td>
+                  Using the ECR and ECS (Elastic Container Registry and Elastic
+                  Container Service) to host a containerized GraphQL server.
+                </td>
+                <td>Yes</td>
+                <td>Partial</td>
+              </tr>
 
-                        <h4>Professional</h4><br>
-                        In a professional capacity, I am most familar with Azure for hosting web applications,
-                        containers, databases, Application Insights, and APIs. See <a mat-stroked-button
-                            routerLink="/azure">Azure</a> for
-                        more information on Azure. AWS but only S3 capabilities.
-                    </div>
-                </div>
-            </div>
+              <tr>
+                <td>MySQL Database</td>
+                <td>GCP (Cloud SQL)</td>
+                <td>
+                  Cloud SQL is a managed MySQL service that is easy to use and
+                  has a free tier.
+                </td>
+                <td>Yes</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>Weather microservice writtin in Go</td>
+                <td>GCP (Cloud Run)</td>
+                <td>
+                  Cloud Run is a managed service that allows you to run
+                  stateless containers. It's perfect for a microservice that
+                  doesn't need to be on all the time.
+                </td>
+                <td>Yes</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>Test React Front-ends</td>
+                <td>GCP (Cloud Run)</td>
+                <td>
+                  Cloud Run is a managed service that allows you to run
+                  stateless containers. It's perfect for a microservice that
+                  doesn't need to be on all the time.
+                </td>
+                <td>Yes</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>Web page scraper microservice writtin in Go</td>
+                <td>GCP (Cloud Run)</td>
+                <td>
+                  Cloud Run is a managed service that allows you to run
+                  stateless containers. It's perfect for a microservice that
+                  doesn't need to be on all the time.
+                </td>
+                <td>Yes</td>
+                <td>No</td>
+              </tr>
+            </table>
+            <br /><br />
+
+            <h4>Professional</h4>
+            <br />
+            In a professional capacity, I am most familar with Azure for hosting
+            web applications, containers, databases, Application Insights, and
+            APIs. See <a mat-stroked-button routerLink="/azure">Azure</a> for
+            more information on Azure. AWS but only S3 capabilities.
+          </div>
         </div>
-    </mat-card-content>
+      </div>
+    </div>
+  </mat-card-content>
 </mat-card>

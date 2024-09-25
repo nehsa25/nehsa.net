@@ -6,7 +6,8 @@
     </mat-card-header>
     <mat-card-content>
         <div class="commentgrid topics">
-            <div><app-related-content></app-related-content></div><div>
+            <div><app-related-content></app-related-content></div>
+            <div>
                 <ul>
                     <li>
                         <mat-expansion-panel expanded>
@@ -14,14 +15,15 @@
                                 <mat-panel-title>Useful Commands</mat-panel-title>
                             </mat-expansion-panel-header>
                             <ul>
-                                <li>Get 5 latest LabListener event log errors: 
+                                <li>Get 5 latest LabListener event log errors:
                                     <inline-code>(Get-EventLog -Newest 5 -LogName LabListener -EntryType Error).Message
                                     </inline-code>
                                 </li>
-                                <li>Harddrive info: 
-                                    <inline-code>wmic diskdrive get InterfaceType,Model,Name,SerialNumber,Size,Status</inline-code>
+                                <li>Harddrive info:
+                                    <inline-code>wmic diskdrive get
+                                        InterfaceType,Model,Name,SerialNumber,Size,Status</inline-code>
                                 </li>
-                                <li>Get the .NET runtime version used: 
+                                <li>Get the .NET runtime version used:
                                     <code>
 <pre>
 $path = 'C:\Program Files (x86)\LabListener\bin\ghasi.dll';
@@ -29,14 +31,14 @@ $path = 'C:\Program Files (x86)\LabListener\bin\ghasi.dll';
 </pre>
                                 </code>
                                 </li>
-                                <li>List IPv4 Address: 
+                                <li>List IPv4 Address:
                                     <inline-code>
                                         (Get-NetIPConfiguration |Where-Object &#123; $_.IPv4DefaultGateway -ne $null
                                         -and
                                         $_.NetAdapter.Status -ne "Disconnected" &#125;).IPv4Address.IPAddress
                                     </inline-code>
                                 </li>
-                                <li>Get status of a service: 
+                                <li>Get status of a service:
                                     <inline-code>get-service -name 'lab listener'</inline-code>
                                 </li>
                                 <li>Last 30 lines of a log file:
@@ -45,13 +47,14 @@ $path = 'C:\Program Files (x86)\LabListener\bin\ghasi.dll';
                                     </inline-code>
                                 </li>
                                 <li>Output variable to file (pipe to out-file):
-                                <code>
+                                    <code>
                                     <pre>                                        
 $cmd = "docker run nehsa/nehsanet:$&#123;build&#125;";
 $cmd | <span class="importantish">out-file</span> -filepath ./run-api.ps1;
 write-host 'To run in the future: ./run-api.ps1';
                                     </pre>
-                                </code></li>
+                                </code>
+                                </li>
                             </ul>
                         </mat-expansion-panel>
                     </li>
@@ -59,9 +62,11 @@ write-host 'To run in the future: ./run-api.ps1';
                         <mat-expansion-panel>
                             <mat-expansion-panel-header>
                                 <mat-panel-title>My PowerShell Profile</mat-panel-title>
-                                <mat-panel-description>                                    
-                                    pwsh.exe (.NET Core): c:\users\&lt;YOU&gt;\Documents\PowerShell\Microsoft.PowerShell_profile.ps1<br>
-                                    powershell.exe: c:\users\&lt;YOU&gt;\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
+                                <mat-panel-description>
+                                    pwsh.exe (.NET Core):
+                                    c:\users\&lt;YOU&gt;\Documents\PowerShell\Microsoft.PowerShell_profile.ps1<br>
+                                    powershell.exe:
+                                    c:\users\&lt;YOU&gt;\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
                                 </mat-panel-description>
                             </mat-expansion-panel-header>
                             <div>
@@ -134,6 +139,44 @@ Good day, sir Jesse!  It is: 05/16/2024 12:48:12
 </pre>
                                 </code>
                             </div>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Troubleshooting</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li>
+                                    <dl>
+                                        <dt>&lt;SCRIPT.ps1&gt;
+                                            is not digitally signed. You cannot run this script on the current
+                                            system.
+                                        </dt>
+                                        <dd><inline-code>set-executionpolicy -executionpolicy
+                                                unrestricted</inline-code><br><br>
+                                            Options:<br>
+                                            <ul class="condensed">
+                                                <li>Allow all scripts: Unrestricted (required for $profile) </li>
+                                                <li>Allow local scripts and remove signed scripts: RemoteSigned</li>
+                                                <li>Allow only signed scripts: AllSigned</li>
+                                            </ul>
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt><inline-code>unblock-file $profile</inline-code>
+                                        </dt>
+                                        <dd>Run only scripts that you trust. While scripts from the internet can
+                                            be useful, this script can potentially harm your
+                                            computer. If you trust this script, use the Unblock-File cmdlet to
+                                            allow the script to run without this warning
+                                            message.
+                                        </dd>
+                                    </dl>
+                                </li>
+                            </ul>
                         </mat-expansion-panel>
                     </li>
                 </ul>

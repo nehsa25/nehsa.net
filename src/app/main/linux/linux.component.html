@@ -1,119 +1,166 @@
-<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
-    <mat-card-header>
-        <mat-card-title>
-            <h1 data-testid="header-title">Linux</h1>
-        </mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        <div class="commentgrid topics">
-            <div><app-related-content></app-related-content></div>
-            <div>
-                <div>Although I would like to say I was into Linux before it was cool, I cannot. Linux has always been a
-                    fantastic operating system. There's just something special about the choice, variety, and freedom
-                    that Linux offers. It may take hours, but having that Flexbox right-click menu layout just right is
-                    a pure-fire method to release some dopamine. The thrill when running <inline-code>pacman
-                        -Syu</inline-code> in ArchLinux and
-                    seeing the new cutting-edge goodness coming your way whilest also wondering how broken your system
-                    is about to be == bliss.
+<mat-card
+  class="card"
+  [class.vampire]="userService.appIsDark()"
+  [class.angel]="!userService.appIsDark()"
+>
+  <mat-card-header>
+    <mat-card-title>
+      <h1 data-testid="header-title">Linux</h1>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="commentgrid topics">
+      <div><app-related-content></app-related-content></div>
+      <div>
+        <div>
+          Although I would like to say I was into Linux before it was cool, I
+          cannot. Linux has always been a fantastic operating system. There's
+          just something special about the choice, variety, and freedom that
+          Linux offers. It may take hours, but having that Flexbox right-click
+          menu layout just right is a pure-fire method to release some dopamine.
+          The thrill when running <inline-code>pacman -Syu</inline-code> in
+          ArchLinux and seeing the new cutting-edge goodness coming your way
+          whilest also wondering how broken your system is about to be == bliss.
 
-                    <br><br><span class="importantish">The content below is mostly based on Mint Linux which is a
-                        derivative of Ubuntu running the
-                        Cinnamon desktop environment.</span>
-                </div>
-                <div>
-                    <ul>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Common Commands</mat-panel-title>
-                                </mat-expansion-panel-header>
-                                <div class="topics">
-                                    <ul>
-                                        <li>
-                                            <mat-expansion-panel>
-                                                <mat-expansion-panel-header>
-                                                    <mat-panel-title>Working with Apt</mat-panel-title>
-                                                </mat-expansion-panel-header>
-                                                <ul>
-                                                    <li>Install a package: <inline-code>sudo apt-get install
-                                                            &lt;PACKAGE&gt;</inline-code><br><span
-                                                            class="additional-notes">NOTE: Despite what my fingers
-                                                            muscle memory says, apt-get can just be apt. i.e. sudo apt
-                                                            install &lt;PACKAGE&gt;</span></li>
-                                                    <li>Search for a package: <inline-code>apt-cache search
-                                                            &lt;PACKAGE&gt;</inline-code></li>
-                                                    <li>Uninstall a package: <inline-code>sudo apt-get remove
-                                                            &lt;PACKAGE&gt;</inline-code></li>
-                                                    <li>Update the package list: <inline-code>sudo apt-get
-                                                            update</inline-code></li>
-                                                    <li>Upgrade the system: <inline-code>sudo apt-get
-                                                            upgrade</inline-code></li>
-                                                    <li>Upgrade the system (including kernel): <inline-code>sudo apt-get
-                                                            dist-upgrade</inline-code></li>
-                                                </ul>
-                                            </mat-expansion-panel>
-                                        </li>
-                                        <li>
-                                            <mat-expansion-panel>
-                                                <mat-expansion-panel-header>
-                                                    <mat-panel-title>Working with Snap</mat-panel-title>
-                                                </mat-expansion-panel-header>To configure Snap, we need to install the
-                                                snapd package: <inline-code>sudo apt-get install
-                                                    snapd</inline-code><br><br>
+          <br /><br /><span class="importantish"
+            >The content below is mostly based on Mint Linux which is a
+            derivative of Ubuntu running the Cinnamon desktop environment.</span
+          >
+        </div>
+        <div>
+          <ul>
+            <li>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Common Commands</mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="topics">
+                  <ul>
+                    <li>
+                      <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>Working with Apt</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <ul>
+                          <li>
+                            Install a package:
+                            <inline-code
+                              >sudo apt-get install &lt;PACKAGE&gt;</inline-code
+                            ><br /><span class="additional-notes"
+                              >NOTE: Despite what my fingers muscle memory says,
+                              apt-get can just be apt. i.e. sudo apt install
+                              &lt;PACKAGE&gt;</span
+                            >
+                          </li>
+                          <li>
+                            Search for a package:
+                            <inline-code
+                              >apt-cache search &lt;PACKAGE&gt;</inline-code
+                            >
+                          </li>
+                          <li>
+                            Uninstall a package:
+                            <inline-code
+                              >sudo apt-get remove &lt;PACKAGE&gt;</inline-code
+                            >
+                          </li>
+                          <li>
+                            Update the package list:
+                            <inline-code>sudo apt-get update</inline-code>
+                          </li>
+                          <li>
+                            Upgrade the system:
+                            <inline-code>sudo apt-get upgrade</inline-code>
+                          </li>
+                          <li>
+                            Upgrade the system (including kernel):
+                            <inline-code>sudo apt-get dist-upgrade</inline-code>
+                          </li>
+                        </ul>
+                      </mat-expansion-panel>
+                    </li>
+                    <li>
+                      <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title
+                            >Working with Snap</mat-panel-title
+                          > </mat-expansion-panel-header
+                        >To configure Snap, we need to install the snapd
+                        package:
+                        <inline-code>sudo apt-get install snapd</inline-code
+                        ><br /><br />
 
-                                                <ul>
-                                                    <li>To install a package using Snap, use the following command:
-                                                        <inline-code>sudo snap install &lt;PACKAGE&gt;</inline-code>
-                                                    </li>
-                                                    <li>To uninstall a package using Snap, use the following command:
-                                                        <inline-code>sudo snap remove &lt;PACKAGE&gt;</inline-code>
-                                                    </li>
-                                                    <li>To list installed Snap packages, use the following command:
-                                                        <inline-code>snap list</inline-code>
-                                                    </li>
-                                                    <li>To update all Snap packages, use the following command:
-                                                        <inline-code>sudo snap refresh</inline-code>
-                                                    </li>
-                                                </ul>
-                                            </mat-expansion-panel>
-                                        </li>
-                                        <li>
-                                            <mat-expansion-panel>
-                                                <mat-expansion-panel-header>
-                                                    <mat-panel-title>Create Symbolic Link</mat-panel-title>
-                                                </mat-expansion-panel-header>
-                                                <code>
-<pre>
+                        <ul>
+                          <li>
+                            To install a package using Snap, use the following
+                            command:
+                            <inline-code
+                              >sudo snap install &lt;PACKAGE&gt;</inline-code
+                            >
+                          </li>
+                          <li>
+                            To uninstall a package using Snap, use the following
+                            command:
+                            <inline-code
+                              >sudo snap remove &lt;PACKAGE&gt;</inline-code
+                            >
+                          </li>
+                          <li>
+                            To list installed Snap packages, use the following
+                            command:
+                            <inline-code>snap list</inline-code>
+                          </li>
+                          <li>
+                            To update all Snap packages, use the following
+                            command:
+                            <inline-code>sudo snap refresh</inline-code>
+                          </li>
+                        </ul>
+                      </mat-expansion-panel>
+                    </li>
+                    <li>
+                      <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title
+                            >Create Symbolic Link</mat-panel-title
+                          >
+                        </mat-expansion-panel-header>
+                        <code>
+                          <pre>
 &lt;USER&gt;&#64;&lt;HOST&gt;:~$ ln -s /usr/bin/python3.11 /usr/bin/python
 root&#64;aa3978da43f5:/app# ls -al /usr/bin/python*
 lrwxrwxrwx 1 root root      19 Aug  9 15:00 /usr/bin/python -> /usr/bin/python3.11
 -rwxr-xr-x 1 root root 6839928 May  2 11:59 /usr/bin/python3.11
-</pre>
-                                                    </code>
-                                            </mat-expansion-panel>
-                                        </li>
-                                        <li>
-                                            <mat-expansion-panel>
-                                                <mat-expansion-panel-header>
-                                                    <mat-panel-title>Get Machine Information</mat-panel-title>
-                                                </mat-expansion-panel-header>
-                                                <code>
-<pre>
+</pre
+                          >
+                        </code>
+                      </mat-expansion-panel>
+                    </li>
+                    <li>
+                      <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title
+                            >Get Machine Information</mat-panel-title
+                          >
+                        </mat-expansion-panel-header>
+                        <code>
+                          <pre>
 &lt;USER&gt;&#64;&lt;HOST&gt;:~$ uname -a
 Linux &lt;HOST&gt; 6.8.0-44-generic #44-Ubuntu SMP PREEMPT_DYNAMIC Tue Aug 13 13:35:26 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
-</pre>
-                                                    </code>
-                                            </mat-expansion-panel>
-                                        </li>
-                                        <li>
-                                            <mat-expansion-panel>
-                                                <mat-expansion-panel-header>
-                                                    <mat-panel-title>Get OS Information</mat-panel-title>
-                                                </mat-expansion-panel-header>
-                                                <ul>
-                                                    <li>
-                                                        <code>
-<pre>
+</pre
+                          >
+                        </code>
+                      </mat-expansion-panel>
+                    </li>
+                    <li>
+                      <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>Get OS Information</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <ul>
+                          <li>
+                            <code>
+                              <pre>
 &lt;USER&gt;&#64;&lt;HOST&gt;:~$ cat /etc/os-release
 NAME="Linux Mint"
 VERSION="22 (Wilma)"
@@ -127,52 +174,56 @@ BUG_REPORT_URL="http://linuxmint-troubleshooting-guide.readthedocs.io/en/latest/
 PRIVACY_POLICY_URL="https://www.linuxmint.com/"
 VERSION_CODENAME=wilma
 UBUNTU_CODENAME=noble
-</pre>
-                                                    </code>
-                                                    </li>
-                                                    <li>
-                                                        <code>
-<pre>
+</pre
+                              >
+                            </code>
+                          </li>
+                          <li>
+                            <code>
+                              <pre>
 &lt;USER&gt;&#64;&lt;HOST&gt;:~$ cat /etc/debian_version
 trixie/sid
-</pre>
-                                                    </code>
-                                                    </li>
-                                                    <li>
-                                                        <code>
-<pre>
+</pre
+                              >
+                            </code>
+                          </li>
+                          <li>
+                            <code>
+                              <pre>
 &lt;USER&gt;&#64;&lt;HOST&gt;:~$ lsb_release -a
 No LSB modules are available.
 Distributor ID:	Linuxmint
 Description:	Linux Mint 22
 Release:	22
 Codename:	wilma
-</pre>
-</code>
-                                                    </li>
-                                                </ul>
-                                            </mat-expansion-panel>
-                                        </li>
-                                        <li>
-                                            <mat-expansion-panel>
-                                                <mat-expansion-panel-header>
-                                                    <mat-panel-title>Get Kernel Version</mat-panel-title>
-                                                </mat-expansion-panel-header>
-                                                <code>
-<pre>
+</pre
+                              >
+                            </code>
+                          </li>
+                        </ul>
+                      </mat-expansion-panel>
+                    </li>
+                    <li>
+                      <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>Get Kernel Version</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <code>
+                          <pre>
 &lt;USER&gt;&#64;&lt;HOST&gt;:~$ uname -r
 6.8.0-44-generic
-</pre>
-</code>
-                                            </mat-expansion-panel>
-                                        </li>
-                                        <li>
-                                            <mat-expansion-panel>
-                                                <mat-expansion-panel-header>
-                                                    <mat-panel-title>Get CPU Information</mat-panel-title>
-                                                </mat-expansion-panel-header>
-                                                <code>
-<pre>
+</pre
+                          >
+                        </code>
+                      </mat-expansion-panel>
+                    </li>
+                    <li>
+                      <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>Get CPU Information</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <code>
+                          <pre>
 &lt;USER&gt;&#64;&lt;HOST&gt;:~$ lscpu
 Architecture:             x86_64
   CPU op-mode(s):         32-bit, 64-bit
@@ -192,32 +243,38 @@ Vendor ID:                GenuineIntel
     CPU max MHz:          3600.0000
     CPU min MHz:          800.0000
     BogoMIPS:             7200.00
-</pre>
-</code>
-                                            </mat-expansion-panel>
-                                        </li>
-                                        <li>
-                                            <mat-expansion-panel>
-                                                <mat-expansion-panel-header>
-                                                    <mat-panel-title>Get Memory Information</mat-panel-title>
-                                                </mat-expansion-panel-header>
-                                                <code>
-<pre>
+</pre
+                          >
+                        </code>
+                      </mat-expansion-panel>
+                    </li>
+                    <li>
+                      <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title
+                            >Get Memory Information</mat-panel-title
+                          >
+                        </mat-expansion-panel-header>
+                        <code>
+                          <pre>
 &lt;USER&gt;&#64;&lt;HOST&gt;:~$ free -h
 total        used        free      shared  buff/cache   available
 Mem:            15Gi       6.9Gi       2.6Gi       207Mi       6.5Gi       8.6Gi
 Swap:          2.0Gi          0B       2.0Gi
-</pre>
-</code>
-                                            </mat-expansion-panel>
-                                        </li>
-                                        <li>
-                                            <mat-expansion-panel>
-                                                <mat-expansion-panel-header>
-                                                    <mat-panel-title>Get Disk Information</mat-panel-title>
-                                                </mat-expansion-panel-header>
-                                                <code>
-<pre>
+</pre
+                          >
+                        </code>
+                      </mat-expansion-panel>
+                    </li>
+                    <li>
+                      <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title
+                            >Get Disk Information</mat-panel-title
+                          >
+                        </mat-expansion-panel-header>
+                        <code>
+                          <pre>
 &lt;USER&gt;&#64;&lt;HOST&gt;:~$ df -h
 Filesystem      Size  Used Avail Use% Mounted on
 tmpfs           1.6G  1.9M  1.6G   1% /run
@@ -227,19 +284,20 @@ tmpfs           5.0M   12K  5.0M   1% /run/lock
 /dev/sda2       512M  6.2M  506M   2% /boot/efi
 tmpfs           1.6G  360K  1.6G   1% /run/user/1000
 /dev/sdb2       916G  3.6G  866G   1% /media/&lt;HOST&gt;/2b0a0996-0bf2-461a-a682-19b02581373c                                        
-</pre>
-</code>
-                                            </mat-expansion-panel>
-                                        </li>
-                                        <li>
-                                            <mat-expansion-panel>
-                                                <mat-expansion-panel-header>
-                                                    <mat-panel-title>Get IP Address</mat-panel-title>
-                                                </mat-expansion-panel-header>
-                                                <ul>
-                                                    <li>
-                                                        <code>
-<pre>
+</pre
+                          >
+                        </code>
+                      </mat-expansion-panel>
+                    </li>
+                    <li>
+                      <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>Get IP Address</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <ul>
+                          <li>
+                            <code>
+                              <pre>
 &lt;USER&gt;&#64;&lt;HOST&gt;:~$ ip a
 1: lo: <&lt;OOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -247,12 +305,13 @@ tmpfs           1.6G  360K  1.6G   1% /run/user/1000
         valid_lft forever preferred_lft forever
     inet6 ::1/128 scope host noprefixroute 
         valid_lft forever preferred_lft forever                             
-</pre>
-                                                </code>
-                                                    </li>
-                                                    <li>
-                                                        <code>
-                                                    <pre>
+</pre
+                              >
+                            </code>
+                          </li>
+                          <li>
+                            <code>
+                              <pre>
 &lt;USER&gt;&#64;&lt;HOST&gt;:~$ ifconfig
 lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536
         inet 127.0.0.1  netmask 255.0.0.0
@@ -262,291 +321,391 @@ lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536
         RX errors 0  dropped 0  overruns 0  frame 0
         TX packets 29030  bytes 210354627 (210.3 MB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-</pre>
-</code>
-                                                    </li>
-                                                </ul>
-                                            </mat-expansion-panel>
-                                        </li>
-                                        <li>
-                                            <mat-expansion-panel>
-                                                <mat-expansion-panel-header>
-                                                    <mat-panel-title>Get DNS Information</mat-panel-title>
-                                                </mat-expansion-panel-header>
-                                                <code><span class="importantish">cat /etc/resolv.conf</span>
-<pre>
+</pre
+                              >
+                            </code>
+                          </li>
+                        </ul>
+                      </mat-expansion-panel>
+                    </li>
+                    <li>
+                      <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>Get DNS Information</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <code
+                          ><span class="importantish"
+                            >cat /etc/resolv.conf</span
+                          >
+                          <pre>
 &lt;USER&gt;&#64;&lt;HOST&gt;:~$ cat /etc/resolv.conf
 # This file is managed
 nameserver &lt;NAMESERVER IP&gt;
-</pre>
-</code>
-                                            </mat-expansion-panel>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </mat-expansion-panel>
+</pre
+                          >
+                        </code>
+                      </mat-expansion-panel>
+                    </li>
+                  </ul>
+                </div>
+              </mat-expansion-panel>
+            </li>
+            <li>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Chmodding and Chowning</mat-panel-title>
+                </mat-expansion-panel-header>
+                <ul>
+                  <li>
+                    <mat-expansion-panel>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>Chmodding</mat-panel-title>
+                      </mat-expansion-panel-header>
+                      Linux uses an 3-digit octal number to represent the
+                      permissions of a file or directory.<br /><br />
+
+                      The numbers work as follows:<br />
+                      <div>
+                        <ul>
+                          <li>4: Read</li>
+                          <li>2: Write</li>
+                          <li>1: Execute</li>
+                        </ul>
+                      </div>
+                      <br /><br />
+
+                      Some examples:<br />
+                      <ul>
+                        <li>
+                          444 indicates: Owner, Group, and Others have read
+                          permissions only.
                         </li>
                         <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Chmodding and Chowning</mat-panel-title>
-                                </mat-expansion-panel-header>
-                                <ul>
-                                    <li>
-                                        <mat-expansion-panel>
-                                            <mat-expansion-panel-header>
-                                                <mat-panel-title>Chmodding</mat-panel-title>
-                                            </mat-expansion-panel-header>
-                                            Linux uses an 3-digit octal number to represent the permissions of a file or
-                                            directory.<br><br>
-
-                                            The numbers work as follows:<br>
-                                            <div>
-                                                <ul>
-                                                    <li>4: Read</li>
-                                                    <li>2: Write</li>
-                                                    <li>1: Execute</li>
-                                                </ul>
-                                            </div><br><br>
-
-                                            Some examples:<br>
-                                            <ul>
-                                                <li>444 indicates: Owner, Group, and Others have read permissions only.
-                                                </li>
-                                                <li>755 indicates: Owner has read, write, and execute permissions; Group
-                                                    has read
-                                                    and
-                                                    execute permissions; Others have read and execute permissions.</li>
-                                                <li>777 indicates: Owner, Group, and Others have read, write, and
-                                                    execute
-                                                    permissions. Also called "The full burrito." (not really, I just
-                                                    made that up)
-                                                </li>
-                                            </ul>
-                                            <br><br>
-
-                                            To change the permissions of a file or directory, use the following command:
-                                            chmod &lt;PERMISSIONS&gt; &lt;FILE&gt;<br>
-                                            e.g. <inline-code>chmod 777 example_file</inline-code><br><br>
-
-                                            Or, if you're ganster, you can use the symbolic method:<br>
-                                            <ol>
-                                                <li><inline-code>chmod g+x &lt;FILE&gt;</inline-code> - Modify the file
-                                                    allowing the
-                                                    group to execute it.</li>
-                                                <li><inline-code>chmod u+r &lt;FILE&gt;</inline-code> - Allow the
-                                                    owner to read it.</li>
-                                                <li><inline-code>chmod o-w &lt;FILE&gt;</inline-code> - Prevent others
-                                                    from writing
-                                                    to it.</li>
-                                                <li><inline-code>chmod a=rwx &lt;FILE&gt;</inline-code> - Give everyone
-                                                    full access to
-                                                    the file.</li>
-                                                <li><inline-code>chmod u=rw,go=r &lt;FILE&gt;</inline-code> - Give the
-                                                    owner read and
-                                                    write permissions, and everyone else read permissions.</li>
-                                            </ol>
-                                        </mat-expansion-panel>
-                                    </li>
-                                    <li>
-                                        <mat-expansion-panel>
-                                            <mat-expansion-panel-header>
-                                                <mat-panel-title>Chowning</mat-panel-title>
-                                            </mat-expansion-panel-header>Files and directories in a Linux environment
-                                            have two main attributes: the owner and the group. The owner is the user who
-                                            created the file or directory, and the group is a collection of users who
-                                            have access to the file or directory. The owner and group can have different
-                                            permissions, which can be set using the chown command.<br><br>
-
-                                            To change the owner of a file or directory, use the following command:
-                                            <inline-code>chown &lt;USER&gt; &lt;FILE&gt;</inline-code><br><br>
-
-                                            Examples:
-                                            <ul>
-                                                <li><inline-code>chown root example_file</inline-code> - Change the
-                                                    owner of the file to root.</li>
-                                                <li><inline-code>chown root:web example_file</inline-code> - Change the
-                                                    owner
-                                                    of the file to root and the group to web.</li>
-                                            </ul>
-                                        </mat-expansion-panel>
-                                    </li>
-                                </ul>
-                            </mat-expansion-panel>
+                          755 indicates: Owner has read, write, and execute
+                          permissions; Group has read and execute permissions;
+                          Others have read and execute permissions.
                         </li>
                         <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Apt Vs. Snap</mat-panel-title>
-                                </mat-expansion-panel-header>Snap is a package manager developed by Canonical (makers of
-                                Ubuntu) that allows for the installation of packages in a sandboxed environment. This
-                                means that the package is isolated from the rest of the system, which can help prevent
-                                conflicts and security issues. Snap packages are also self-contained, meaning that they
-                                include all of the dependencies that they need to run. This can make them larger than
-                                traditional packages, but it also means that they are more likely to work on different
-                                distributions of Linux.<br><br>
+                          777 indicates: Owner, Group, and Others have read,
+                          write, and execute permissions. Also called "The full
+                          burrito." (not really, I just made that up)
+                        </li>
+                      </ul>
+                      <br /><br />
 
-                                Snap packages are containerized.
-                            </mat-expansion-panel>
+                      To change the permissions of a file or directory, use the
+                      following command: chmod &lt;PERMISSIONS&gt;
+                      &lt;FILE&gt;<br />
+                      e.g. <inline-code>chmod 777 example_file</inline-code
+                      ><br /><br />
+
+                      Or, if you're ganster, you can use the symbolic method:<br />
+                      <ol>
+                        <li>
+                          <inline-code>chmod g+x &lt;FILE&gt;</inline-code> -
+                          Modify the file allowing the group to execute it.
                         </li>
                         <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Enabling Snap on Mint Linux</mat-panel-title>
-                                </mat-expansion-panel-header>Due to the proprietary nature of Snap, Mint Linux decided
-                                to prevent it's use by default. To enable Snap, we need to:
-                                <code>
-                                        <pre>
+                          <inline-code>chmod u+r &lt;FILE&gt;</inline-code> -
+                          Allow the owner to read it.
+                        </li>
+                        <li>
+                          <inline-code>chmod o-w &lt;FILE&gt;</inline-code> -
+                          Prevent others from writing to it.
+                        </li>
+                        <li>
+                          <inline-code>chmod a=rwx &lt;FILE&gt;</inline-code> -
+                          Give everyone full access to the file.
+                        </li>
+                        <li>
+                          <inline-code
+                            >chmod u=rw,go=r &lt;FILE&gt;</inline-code
+                          >
+                          - Give the owner read and write permissions, and
+                          everyone else read permissions.
+                        </li>
+                      </ol>
+                    </mat-expansion-panel>
+                  </li>
+                  <li>
+                    <mat-expansion-panel>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title
+                          >Chowning</mat-panel-title
+                        > </mat-expansion-panel-header
+                      >Files and directories in a Linux environment have two
+                      main attributes: the owner and the group. The owner is the
+                      user who created the file or directory, and the group is a
+                      collection of users who have access to the file or
+                      directory. The owner and group can have different
+                      permissions, which can be set using the chown command.<br /><br />
+
+                      To change the owner of a file or directory, use the
+                      following command:
+                      <inline-code>chown &lt;USER&gt; &lt;FILE&gt;</inline-code
+                      ><br /><br />
+
+                      Examples:
+                      <ul>
+                        <li>
+                          <inline-code>chown root example_file</inline-code> -
+                          Change the owner of the file to root.
+                        </li>
+                        <li>
+                          <inline-code>chown root:web example_file</inline-code>
+                          - Change the owner of the file to root and the group
+                          to web.
+                        </li>
+                      </ul>
+                    </mat-expansion-panel>
+                  </li>
+                </ul>
+              </mat-expansion-panel>
+            </li>
+            <li>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title
+                    >Apt Vs. Snap</mat-panel-title
+                  > </mat-expansion-panel-header
+                >Snap is a package manager developed by Canonical (makers of
+                Ubuntu) that allows for the installation of packages in a
+                sandboxed environment. This means that the package is isolated
+                from the rest of the system, which can help prevent conflicts
+                and security issues. Snap packages are also self-contained,
+                meaning that they include all of the dependencies that they need
+                to run. This can make them larger than traditional packages, but
+                it also means that they are more likely to work on different
+                distributions of Linux.<br /><br />
+
+                Snap packages are containerized.
+              </mat-expansion-panel>
+            </li>
+            <li>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title
+                    >Enabling Snap on Mint Linux</mat-panel-title
+                  > </mat-expansion-panel-header
+                >Due to the proprietary nature of Snap, Mint Linux decided to
+                prevent it's use by default. To enable Snap, we need to:
+                <code>
+                  <pre>
     sudo rm /etc/apt/preferences.d/nosnap.pref
     sudo apt-get update
     sudo apt-get install snapd
-                                        </pre>
-                                    </code>
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Configure Bluetooth</mat-panel-title>
-                                </mat-expansion-panel-header>I use a Bluetooth headset with my Linux machine using a USB
-                                adapter: TP-LINK UB500.<br><br>
+                                        </pre
+                  >
+                </code>
+              </mat-expansion-panel>
+            </li>
+            <li>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title
+                    >Configure Bluetooth</mat-panel-title
+                  > </mat-expansion-panel-header
+                >I use a Bluetooth headset with my Linux machine using a USB
+                adapter: TP-LINK UB500.<br /><br />
 
-                                Steps to configure Bluetooth:<br>
-                                <ul>
-                                    <li>Plug in the USB adapter</li>
-                                    <li>Run lsusb to see if the adapter is recognized (we should see something
-                                        like:<br>Bus 001 Device 006: ID 2357:0604 TP-Link TP-Link UB500 Adapter)</li>
-                                    <li>Run <inline-code>sudo apt-get install bluez bluez-tools
-                                            bluez-firmware</inline-code>, this will install the necessary Bluetooth
-                                        packages</li>
-                                    <li>Run <inline-code>sudo systemctl start bluetooth</inline-code> to start the
-                                        Bluetooth service</li>
-                                    <li>Run <inline-code>sudo systemctl enable bluetooth</inline-code> to enable the
-                                        Bluetooth service on boot</li>
-                                    <li>Restart the bluetoot service: <inline-code>sudo systemctl restart
-                                            bluetooth</inline-code></li>
-                                    <li>Run <inline-code>sudo systemctl status bluetooth</inline-code> to check the
-                                        status of the Bluetooth service</li>
-                                    <li>Launch the Cinnamon Bluetooth applet (called blueman-manager)</li>
-                                    <li>Run scan on to scan for Bluetooth devices</li>
-                                    <li>Run pair &lt;MAC ADDRESS&gt; to pair with the device</li>
-                                </ul>
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Configure Python</mat-panel-title>
-                                    <mat-panel-description>Python packages Vs. system packages</mat-panel-description>
-                                </mat-expansion-panel-header>
-                                <div class="topics">
-                                    <div>
-                                        While it used to be common to use Python's built-in package manager,
-                                        <inline-code>pip</inline-code>, it's
-                                        now expected to use the system package manager instead when using Python in a
-                                        Linux environment. This allows the Python
-                                        packages to be installed and maintained by the
-                                        system package manager.<br><br>
+                Steps to configure Bluetooth:<br />
+                <ul>
+                  <li>Plug in the USB adapter</li>
+                  <li>
+                    Run lsusb to see if the adapter is recognized (we should see
+                    something like:<br />Bus 001 Device 006: ID 2357:0604
+                    TP-Link TP-Link UB500 Adapter)
+                  </li>
+                  <li>
+                    Run
+                    <inline-code
+                      >sudo apt-get install bluez bluez-tools
+                      bluez-firmware</inline-code
+                    >, this will install the necessary Bluetooth packages
+                  </li>
+                  <li>
+                    Run
+                    <inline-code>sudo systemctl start bluetooth</inline-code> to
+                    start the Bluetooth service
+                  </li>
+                  <li>
+                    Run
+                    <inline-code>sudo systemctl enable bluetooth</inline-code>
+                    to enable the Bluetooth service on boot
+                  </li>
+                  <li>
+                    Restart the bluetoot service:
+                    <inline-code>sudo systemctl restart bluetooth</inline-code>
+                  </li>
+                  <li>
+                    Run
+                    <inline-code>sudo systemctl status bluetooth</inline-code>
+                    to check the status of the Bluetooth service
+                  </li>
+                  <li>
+                    Launch the Cinnamon Bluetooth applet (called
+                    blueman-manager)
+                  </li>
+                  <li>Run scan on to scan for Bluetooth devices</li>
+                  <li>Run pair &lt;MAC ADDRESS&gt; to pair with the device</li>
+                </ul>
+              </mat-expansion-panel>
+            </li>
+            <li>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Configure Python</mat-panel-title>
+                  <mat-panel-description
+                    >Python packages Vs. system packages</mat-panel-description
+                  >
+                </mat-expansion-panel-header>
+                <div class="topics">
+                  <div>
+                    While it used to be common to use Python's built-in package
+                    manager,
+                    <inline-code>pip</inline-code>, it's now expected to use the
+                    system package manager instead when using Python in a Linux
+                    environment. This allows the Python packages to be installed
+                    and maintained by the system package manager.<br /><br />
 
-                                        To install a package to a specific Python version, use the following command:
-                                        <inline-code>python3.11 -m pip install &lt;PACKAGE&gt;</inline-code><br>(or
-                                        <inline-code>pip install &lt;PACKAGE&gt;</inline-code>)<br><br>
+                    To install a package to a specific Python version, use the
+                    following command:
+                    <inline-code
+                      >python3.11 -m pip install &lt;PACKAGE&gt;</inline-code
+                    ><br />(or
+                    <inline-code>pip install &lt;PACKAGE&gt;</inline-code
+                    >)<br /><br />
 
-                                        To install a package system-wide, use the following command:
-                                        <inline-code>sudo apt install python3.11-&lt;PACKAGE&gt;</inline-code>
-                                    </div>
-                                </div>
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Configure SSH</mat-panel-title>
-                                </mat-expansion-panel-header>
-                                <div class="topics">
-                                    <div>
-                                        <ul>
-                                            <li>Install It:
-                                                <inline-code>&lt;USER&gt;&#64;&lt;HOST&gt;:~$ sudo apt install
-                                                    openssh-server</inline-code>
-                                            </li>
-                                            <li>Start It:
-                                                <inline-code>&lt;USER&gt;&#64;&lt;HOST&gt;:~$ sudo systemctl start
-                                                    ssh</inline-code>
-                                            </li>
-                                            <li>Enable It (Start on boot):
-                                                <inline-code>&lt;USER&gt;&#64;&lt;HOST&gt;:~$ sudo systemctl enable
-                                                    ssh</inline-code>
-                                            </li>
-                                            <li>Check Status:
-                                                <inline-code>&lt;USER&gt;&#64;&lt;HOST&gt;:~$ sudo systemctl status
-                                                    ssh</inline-code>
-                                            </li>
-                                            <li>Configure it:
-                                                <inline-code>&lt;USER&gt;&#64;&lt;HOST&gt;:~$ sudo vim
-                                                    /etc/ssh/sshd_config</inline-code><br><br>
+                    To install a package system-wide, use the following command:
+                    <inline-code
+                      >sudo apt install python3.11-&lt;PACKAGE&gt;</inline-code
+                    >
+                  </div>
+                </div>
+              </mat-expansion-panel>
+            </li>
+            <li>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Configure SSH</mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="topics">
+                  <div>
+                    <ul>
+                      <li>
+                        Install It:
+                        <inline-code
+                          >&lt;USER&gt;&#64;&lt;HOST&gt;:~$ sudo apt install
+                          openssh-server</inline-code
+                        >
+                      </li>
+                      <li>
+                        Start It:
+                        <inline-code
+                          >&lt;USER&gt;&#64;&lt;HOST&gt;:~$ sudo systemctl start
+                          ssh</inline-code
+                        >
+                      </li>
+                      <li>
+                        Enable It (Start on boot):
+                        <inline-code
+                          >&lt;USER&gt;&#64;&lt;HOST&gt;:~$ sudo systemctl
+                          enable ssh</inline-code
+                        >
+                      </li>
+                      <li>
+                        Check Status:
+                        <inline-code
+                          >&lt;USER&gt;&#64;&lt;HOST&gt;:~$ sudo systemctl
+                          status ssh</inline-code
+                        >
+                      </li>
+                      <li>
+                        Configure it:
+                        <inline-code
+                          >&lt;USER&gt;&#64;&lt;HOST&gt;:~$ sudo vim
+                          /etc/ssh/sshd_config</inline-code
+                        ><br /><br />
 
-                                                # Common options:<br>
-                                                # doesn't allow root login: PermitRootLogin no<br>
-                                                # doesn't allow password login (must have ssh key):
-                                                PasswordAuthentication no<br>
-                                                # doesn't allow empty passwords: PermitEmptyPasswords no<br>
-                                                # doesn't allow X11 forwarding: X11Forwarding no<br>
-                                                # doesn't allow agent forwarding: AllowAgentForwarding no<br>
-                                                # doesn't allow TCP forwarding: AllowTcpForwarding no<br>
-                                                # Restrict access to specific users (delimited by space): AllowUsers
-                                                &lt;USER&gt;<br>
-                                                # Restrict access to specific groups (delimited by space): AllowGroups
-                                                &lt;GROUP&gt;<br>
-                                                # Restrict access to specific IP addresses: AllowUsers
-                                                &lt;USER&gt;&#64;&lt;IP&gt;<br>
-                                                # Restrict access to specific IP ranges: AllowUsers
-                                                &lt;USER&gt;&#64;&lt;IP&gt;/&lt;CIDR&gt;<br>
-                                                # Restrict access to specific ports: AllowUsers
-                                                &lt;USER&gt;&#64;&lt;IP&gt;:&lt;PORT&gt;<br>
-                                                # Ban after 3 failed login attempts: MaxAuthTries 3
-                                                (/etc/ssh/sshd_config)
-                                            </li>
-                                            <li>Restart It:
-                                                <inline-code>&lt;USER&gt;&#64;&lt;HOST&gt;:~$ sudo systemctl restart
-                                                    ssh</inline-code>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Install .NET Core 8</mat-panel-title>
-                                </mat-expansion-panel-header>
-                                <ol>
-                                    <li>Install the SDK: <inline-code>sudo apt-get install
-                                            dotnet-sdk-8.0</inline-code>
-                                    </li>
-                                    <li>That's it, to test: <inline-code>dotnet --version</inline-code></li>
-                                </ol>
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Samba</mat-panel-title>
-                                </mat-expansion-panel-header>I always configure a Samba share on my Linux
-                                machine to easilly share files with my Windows machine.
+                        # Common options:<br />
+                        # doesn't allow root login: PermitRootLogin no<br />
+                        # doesn't allow password login (must have ssh key):
+                        PasswordAuthentication no<br />
+                        # doesn't allow empty passwords: PermitEmptyPasswords
+                        no<br />
+                        # doesn't allow X11 forwarding: X11Forwarding no<br />
+                        # doesn't allow agent forwarding: AllowAgentForwarding
+                        no<br />
+                        # doesn't allow TCP forwarding: AllowTcpForwarding no<br />
+                        # Restrict access to specific users (delimited by
+                        space): AllowUsers &lt;USER&gt;<br />
+                        # Restrict access to specific groups (delimited by
+                        space): AllowGroups &lt;GROUP&gt;<br />
+                        # Restrict access to specific IP addresses: AllowUsers
+                        &lt;USER&gt;&#64;&lt;IP&gt;<br />
+                        # Restrict access to specific IP ranges: AllowUsers
+                        &lt;USER&gt;&#64;&lt;IP&gt;/&lt;CIDR&gt;<br />
+                        # Restrict access to specific ports: AllowUsers
+                        &lt;USER&gt;&#64;&lt;IP&gt;:&lt;PORT&gt;<br />
+                        # Ban after 3 failed login attempts: MaxAuthTries 3
+                        (/etc/ssh/sshd_config)
+                      </li>
+                      <li>
+                        Restart It:
+                        <inline-code
+                          >&lt;USER&gt;&#64;&lt;HOST&gt;:~$ sudo systemctl
+                          restart ssh</inline-code
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </mat-expansion-panel>
+            </li>
+            <li>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Install .NET Core 8</mat-panel-title>
+                </mat-expansion-panel-header>
+                <ol>
+                  <li>
+                    Install the SDK:
+                    <inline-code
+                      >sudo apt-get install dotnet-sdk-8.0</inline-code
+                    >
+                  </li>
+                  <li>
+                    That's it, to test:
+                    <inline-code>dotnet --version</inline-code>
+                  </li>
+                </ol>
+              </mat-expansion-panel>
+            </li>
+            <li>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title
+                    >Samba</mat-panel-title
+                  > </mat-expansion-panel-header
+                >I always configure a Samba share on my Linux machine to easilly
+                share files with my Windows machine.
 
-                                <ol>
-                                    <li>Install Samba: <inline-code>sudo apt-get install samba</inline-code>
-                                    </li>
-                                    <li>Configure Samba:
-                                        <ul>
-                                            <li><inline-code>sudo vim /etc/samba/smb.conf</inline-code><br>
-                                                Edit the homes share as follows:
-                                                <ul>
-                                                    <li>
-                                                        <code>
-    <pre>
+                <ol>
+                  <li>
+                    Install Samba:
+                    <inline-code>sudo apt-get install samba</inline-code>
+                  </li>
+                  <li>
+                    Configure Samba:
+                    <ul>
+                      <li>
+                        <inline-code>sudo vim /etc/samba/smb.conf</inline-code
+                        ><br />
+                        Edit the homes share as follows:
+                        <ul>
+                          <li>
+                            <code>
+                              <pre>
     [homes]
     comment = Home Directories
     browseable = yes
@@ -554,186 +713,303 @@ nameserver &lt;NAMESERVER IP&gt;
     create mask = 0775
     directory mask = 0775
     valid users = %S
-    </pre>
-    </code>
-                                                    </li>
-                                                    <li>Restart Samba: <inline-code>sudo systemctl restart
-                                                            smbd</inline-code></li>
-                                                    <li>To allow access with the setting valid users, we need to set a
-                                                        password for the user: <inline-code>sudo smbpasswd
-                                                            -a &lt;USER&gt;</inline-code></li>
-                                                    <li>Test it: <inline-code>smbclient -L
-                                                            &lt;HOST&gt;</inline-code></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ol>
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Install PowerShell Core</mat-panel-title>
-                                </mat-expansion-panel-header>
-                                <ol>
-                                    <li>Download the .deb package: <inline-code>wget
-                                            https://github.com/PowerShell/PowerShell/releases/download/v7.4.5/powershell_7.4.5-1.deb_amd64.deb</inline-code>
-                                    </li>
-                                    <li>Install libicu71_72.1-3_amd64.deb (<inline-code>sudo pkg
-                                            -i
-                                            libicu72_72.1-3_amd64.deb</inline-code>)<br><span
-                                            class="additional-notes">This
-                                            step is likely only
-                                            required for
-                                            v7.4.5 of
-                                            PowerShell. It shouldn't be required.</span></li>
-                                    <li>Install the package: <inline-code>sudo dpkg -i
-                                            powershell_7.4.5-1.deb_amd64.deb</inline-code></li>
-                                    <li>Test it: <inline-code>pwsh</inline-code></li>
-                                </ol>
-                            </mat-expansion-panel>
-                        </li>
-                        <li>
-                            <mat-expansion-panel expanded>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>Setting Up Common Applications</mat-panel-title>
-                                </mat-expansion-panel-header>
-                                <ul>
-                                    <li>
-                                        <mat-expansion-panel>
-                                            <mat-expansion-panel-header>
-                                                <mat-panel-title>Setup Chrome</mat-panel-title>
-                                            </mat-expansion-panel-header>
-                                            <ul>
-                                                <li>Download Chrome deb package</li>
-                                                <li><inline-code>sudo dpkg -i &lt;PACKAGE&gt;</inline-code></li>
-                                                <li><inline-code>sudo apt install</inline-code></li>
-                                            </ul>
-                                        </mat-expansion-panel>
-                                    </li>
-                                    <li>
-                                        <mat-expansion-panel>
-                                            <mat-expansion-panel-header>
-                                                <mat-panel-title>Setup Docker</mat-panel-title>
-                                            </mat-expansion-panel-header>
-                                            <ol>
-                                                <li>Add the Docker repo:
-                                                    <ol>
-                                                        <li>Create folder for Docker Apt repo: <inline-code>sudo mkdir
-                                                                -p /etc/apt/keyrings</inline-code></li>
-                                                        <li>Download the Docker GPG key: <inline-code>curl -fsSL
-                                                                https://download.docker.com/linux/ubuntu/gpg |
-                                                                sudo gpg --dearmor -o
-                                                                /etc/apt/keyrings/docker.gpg</inline-code></li>
-                                                        echo "deb [arch=$(dpkg --print-architecture)
-                                                        signed-by=/etc/apt/keyrings/docker.gpg]
-                                                        https://download.docker.com/linux/ubuntu <span
-                                                            class="importantish">jammy</span>
-                                                        stable" | sudo tee /etc/apt/sources.list.d/docker.list >
-                                                        /dev/null<br><span class="additional-notes">Linux Mint 22
-                                                            codename "wilma" should point to the Ubuntu 22 codename
-                                                            "jammy"</span>
-                                                    </ol>
-                                                </li>
-                                                <li>Update apt: <inline-code>sudo apt-get update</inline-code></li>
-                                                <li>Install dependancies: <inline-code>sudo apt-get install docker-ce
-                                                        docker-ce-cli containerd.io docker-compose-plugin</inline-code>
-                                                </li>
-                                                <li>Install the dep package: <inline-code>sudo apt-get install
-                                                        ./docker-desktop-&lt;version&gt;-&lt;arch&gt;.deb</inline-code>
-                                                </li>
-                                                <li>Configure Pass (required to be able to login)</li>
-                                                <li>At this point, we should be able to start the docker-desktop</li>
-                                            </ol>
-                                        </mat-expansion-panel>
-                                    </li>
-                                    <li>
-                                        <mat-expansion-panel>
-                                            <mat-expansion-panel-header>
-                                                <mat-panel-title>Install PowerShell Core</mat-panel-title>
-                                            </mat-expansion-panel-header>
-                                            <ol>
-                                                <li>Download the .deb package: <inline-code>wget
-                                                        https://github.com/PowerShell/PowerShell/releases/download/v7.4.5/powershell_7.4.5-1.deb_amd64.deb</inline-code>
-                                                </li>
-                                                <li>Install libicu71_72.1-3_amd64.deb (<inline-code>sudo pkg -i
-                                                        libicu72_72.1-3_amd64.deb</inline-code>)<br><span
-                                                        class="additional-notes">This step is likely only required for
-                                                        v7.4.5 of
-                                                        PowerShell. It shouldn't be required.</span></li>
-                                                <li>Install the package: <inline-code>sudo dpkg -i
-                                                        powershell_7.4.5-1.deb_amd64.deb</inline-code></li>
-                                                <li>Test it: <inline-code>pwsh</inline-code></li>
-                                            </ol>
-                                        </mat-expansion-panel>
-                                    </li>
-                                    <li>
-                                        <mat-expansion-panel>
-                                            <mat-expansion-panel-header>
-                                                <mat-panel-title>Setup Slack</mat-panel-title>
-                                            </mat-expansion-panel-header>
-                                            Slack has a Beta Linux client that can be install via Snap:
-                                            <inline-code>sudo snap install slack</inline-code>
-                                        </mat-expansion-panel>
-                                    </li>
-                                    <li>
-                                        <mat-expansion-panel>
-                                            <mat-expansion-panel-header>
-                                                <mat-panel-title>Setup Discord</mat-panel-title>
-                                            </mat-expansion-panel-header>
-                                            <ol>
-                                                <li>Download the .deb package</li>
-                                                <li>Install the package: <inline-code>sudo dpkg -i
-                                                        &lt;PACKAGE&gt;.deb</inline-code></li>
-                                            </ol>
-                                        </mat-expansion-panel>
-                                    </li>
-                                    <li>
-                                        <mat-expansion-panel>
-                                            <mat-expansion-panel-header>
-                                                <mat-panel-title>Setup VS Code</mat-panel-title>
-                                            </mat-expansion-panel-header>
-                                            <ol>
-                                                <li>Download the .deb package</li>
-                                                <li>Install the package: <inline-code>sudo dpkg -i
-                                                        &lt;PACKAGE&gt;.deb</inline-code></li>
-                                            </ol>
-                                        </mat-expansion-panel>
-                                    </li>
-                                    <li>
-                                        <mat-expansion-panel>
-                                            <mat-expansion-panel-header>
-                                                <mat-panel-title>Setup MySQL Client</mat-panel-title>
-                                            </mat-expansion-panel-header>
-                                            <ol>
-                                                <li>Install the client: <inline-code>sudo apt-get install
-                                                        mysql-client</inline-code></li>
-                                                <li>Connect to a server: <inline-code>mysql -u &lt;USER&gt; -p -h
-                                                        &lt;HOST&gt;</inline-code></li>
-                                            </ol>
-                                        </mat-expansion-panel>
-                                    </li>
-                                    <li>
-                                        <mat-expansion-panel>
-                                            <mat-expansion-panel-header>
-                                                <mat-panel-title>Steam</mat-panel-title>
-                                            </mat-expansion-panel-header>
-                                            <ol>
-                                                <li>Download Steam .deb from https://store.steampowered.com/</li>
-                                                <li>Install it: <inline-code>dpkg -i ~/Downloads/steam_latest.deb</inline-code></li>
-                                                <li>Run Steam, the first run will install additional packages/updates and drivers.</li>
-                                                <li>That's it. Steams now has an extensive list of games that work on Linux!</li>
-                                            </ol>
-                                        </mat-expansion-panel>
-                                    </li>
-                                </ul>
-                            </mat-expansion-panel>
-                        </li>
+    </pre
+                              >
+                            </code>
+                          </li>
+                          <li>
+                            Restart Samba:
+                            <inline-code
+                              >sudo systemctl restart smbd</inline-code
+                            >
+                          </li>
+                          <li>
+                            To allow access with the setting valid users, we
+                            need to set a password for the user:
+                            <inline-code
+                              >sudo smbpasswd -a &lt;USER&gt;</inline-code
+                            >
+                          </li>
+                          <li>
+                            Test it:
+                            <inline-code>smbclient -L &lt;HOST&gt;</inline-code>
+                          </li>
+                        </ul>
+                      </li>
                     </ul>
-                </div>
-            </div>
-            <div><app-comment></app-comment></div>
+                  </li>
+                </ol>
+              </mat-expansion-panel>
+            </li>
+            <li>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Install PowerShell Core</mat-panel-title>
+                </mat-expansion-panel-header>
+                <ol>
+                  <li>
+                    Download the .deb package:
+                    <inline-code
+                      >wget
+                      https://github.com/PowerShell/PowerShell/releases/download/v7.4.5/powershell_7.4.5-1.deb_amd64.deb</inline-code
+                    >
+                  </li>
+                  <li>
+                    Install libicu71_72.1-3_amd64.deb (<inline-code
+                      >sudo pkg -i libicu72_72.1-3_amd64.deb</inline-code
+                    >)<br /><span class="additional-notes"
+                      >This step is likely only required for v7.4.5 of
+                      PowerShell. It shouldn't be required.</span
+                    >
+                  </li>
+                  <li>
+                    Install the package:
+                    <inline-code
+                      >sudo dpkg -i
+                      powershell_7.4.5-1.deb_amd64.deb</inline-code
+                    >
+                  </li>
+                  <li>Test it: <inline-code>pwsh</inline-code></li>
+                </ol>
+              </mat-expansion-panel>
+            </li>
+            <li>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Add to sudoers</mat-panel-title>
+                </mat-expansion-panel-header>
+                <ol>
+                  <li><inline-code>vim /etc/group</inline-code></li>
+                  <li>Add your user to sudoers group</li>
+                  <li>Re-login</li>
+                </ol>
+              </mat-expansion-panel>
+            </li>
+            <li>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Setup Chrome</mat-panel-title>
+                </mat-expansion-panel-header>
+                <ul>
+                  <li>Download Chrome deb package</li>
+                  <li>
+                    <inline-code>sudo dpkg -i &lt;PACKAGE&gt;</inline-code>
+                  </li>
+                  <li><inline-code>sudo apt install</inline-code></li>
+                </ul>
+              </mat-expansion-panel>
+            </li>
+            <li>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Setup Docker</mat-panel-title>
+                </mat-expansion-panel-header>
+                <ol>
+                  <li>
+                    Add the Docker repo:
+                    <ol>
+                      <li>
+                        Create folder for Docker Apt repo:
+                        <inline-code
+                          >sudo mkdir -p /etc/apt/keyrings</inline-code
+                        >
+                      </li>
+                      <li>
+                        Download the Docker GPG key:
+                        <inline-code
+                          >curl -fsSL
+                          https://download.docker.com/linux/ubuntu/gpg | sudo
+                          gpg --dearmor -o
+                          /etc/apt/keyrings/docker.gpg</inline-code
+                        >
+                      </li>
+                      <li>
+                        <ul>
+                          <li>
+                            Ubuntu/Mint:<br />
+                            <inline-code>
+                              echo "deb [arch=$(dpkg --print-architecture)
+                              signed-by=/etc/apt/keyrings/docker.gpg]
+                              https://download.docker.com/linux/<span
+                                class="importantish"
+                                >ubuntu jammy</span
+                              >
+                              stable" | sudo tee
+                              /etc/apt/sources.list.d/docker.list >
+                              /dev/null</inline-code
+                            ><br /><span class="additional-notes"
+                              >Linux Mint 22 codename "wilma" should point to
+                              the Ubuntu 22 codename "jammy"</span
+                            >
+                          </li>
+                          <li>
+                            Debian:<br />
+                            <inline-code>
+                              echo "deb [arch=$(dpkg --print-architecture)
+                              signed-by=/etc/apt/keyrings/docker.gpg]
+                              https://download.docker.com/linux/<span
+                                class="importantish"
+                                >debian bookworm</span
+                              >
+                              stable" | sudo tee
+                              /etc/apt/sources.list.d/docker.list >
+                              /dev/null</inline-code
+                            ><br /><span class="additional-notes"
+                              >Debian 12 is "bookworm"</span
+                            >
+                          </li>
+                        </ul>
+                      </li>
+                    </ol>
+                  </li>
+                  <li>
+                    Update apt: <inline-code>sudo apt-get update</inline-code>
+                  </li>
+                  <li>
+                    Install dependancies:
+                    <inline-code
+                      >sudo apt-get install docker-ce docker-ce-cli
+                      containerd.io docker-compose-plugin</inline-code
+                    >
+                  </li>
+                  <li>
+                    Install the dep package:
+                    <inline-code
+                      >sudo apt-get install
+                      ./docker-desktop-&lt;version&gt;-&lt;arch&gt;.deb</inline-code
+                    >
+                  </li>
+                  <li>
+                    Configure Pass (required to be able to login)
+                    <ul>
+                      <li><inline-code>gpg --generate-key</inline-code></li>
+                      <li>pass init &lt;KEY&gt;</li>
+                    </ul>
+                  </li>
+                  <li>
+                    At this point, we should be able to start the docker-desktop
+                  </li>
+                </ol>
+              </mat-expansion-panel>
+            </li>
+            <li>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Install PowerShell Core</mat-panel-title>
+                </mat-expansion-panel-header>
+                <ol>
+                  <li>
+                    Download the .deb package:
+                    <inline-code
+                      >wget
+                      https://github.com/PowerShell/PowerShell/releases/download/v7.4.5/powershell_7.4.5-1.deb_amd64.deb</inline-code
+                    >
+                  </li>
+                  <li>
+                    Install libicu71_72.1-3_amd64.deb (<inline-code
+                      >sudo pkg -i libicu72_72.1-3_amd64.deb</inline-code
+                    >)<br /><span class="additional-notes"
+                      >This step is likely only required for v7.4.5 of
+                      PowerShell. It shouldn't be required.</span
+                    >
+                  </li>
+                  <li>
+                    Install the package:
+                    <inline-code
+                      >sudo dpkg -i
+                      powershell_7.4.5-1.deb_amd64.deb</inline-code
+                    >
+                  </li>
+                  <li>Test it: <inline-code>pwsh</inline-code></li>
+                </ol>
+              </mat-expansion-panel>
+            </li>
+            <li>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Setup Slack</mat-panel-title>
+                </mat-expansion-panel-header>
+                Slack has a Beta Linux client that can be install via Snap:
+                <inline-code>sudo snap install slack</inline-code>
+              </mat-expansion-panel>
+            </li>
+            <li>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Setup Discord</mat-panel-title>
+                </mat-expansion-panel-header>
+                <ol>
+                  <li>Download the .deb package</li>
+                  <li>
+                    Install the package:
+                    <inline-code>sudo dpkg -i &lt;PACKAGE&gt;.deb</inline-code>
+                  </li>
+                </ol>
+              </mat-expansion-panel>
+            </li>
+            <li>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Setup VS Code</mat-panel-title>
+                </mat-expansion-panel-header>
+                <ol>
+                  <li>Download the .deb package</li>
+                  <li>
+                    Install the package:
+                    <inline-code>sudo dpkg -i &lt;PACKAGE&gt;.deb</inline-code>
+                  </li>
+                </ol>
+              </mat-expansion-panel>
+            </li>
+            <li>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Setup MySQL Client</mat-panel-title>
+                </mat-expansion-panel-header>
+                <ol>
+                  <li>
+                    Install the client:
+                    <inline-code>sudo apt-get install mysql-client</inline-code>
+                  </li>
+                  <li>
+                    Connect to a server:
+                    <inline-code
+                      >mysql -u &lt;USER&gt; -p -h &lt;HOST&gt;</inline-code
+                    >
+                  </li>
+                </ol>
+              </mat-expansion-panel>
+            </li>
+            <li>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Steam</mat-panel-title>
+                </mat-expansion-panel-header>
+                <ol>
+                  <li>
+                    Download Steam .deb from https://store.steampowered.com/
+                  </li>
+                  <li>
+                    Install it:
+                    <inline-code
+                      >dpkg -i ~/Downloads/steam_latest.deb</inline-code
+                    >
+                  </li>
+                  <li>
+                    Run Steam, the first run will install additional
+                    packages/updates and drivers.
+                  </li>
+                  <li>
+                    That's it. Steams now has an extensive list of games that
+                    work on Linux!
+                  </li>
+                </ol>
+              </mat-expansion-panel>
+            </li>
+          </ul>
         </div>
-    </mat-card-content>
+      </div>
+      <div><app-comment></app-comment></div>
+    </div>
+  </mat-card-content>
 </mat-card>
