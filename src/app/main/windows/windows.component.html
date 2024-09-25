@@ -1,0 +1,92 @@
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Windows</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid topics">
+            <div><app-related-content></app-related-content></div>
+            <div>
+                <ul>
+                    <li>
+                        <mat-expansion-panel expanded>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Configure WSL</mat-panel-title>
+                                <mat-panel-description>Linux in Windows!</mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>Installation / Configuration</mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <ol>
+                                            <li>
+                                                To install Ubuntu:
+                                                <inline-code>wsl --install</inline-code><br />
+                                                <span class="additional-note">
+                                                    Other distros can be installed with
+                                                    <ol>
+                                                        <li>
+                                                            <inline-code>wsl --install -d
+                                                                &lt;DISTRIBUTION&gt;</inline-code><br />
+                                                            To list all available distros:
+                                                            <inline-code>wsl --list --online</inline-code>
+                                                        </li>
+                                                    </ol>
+                                                </span>
+                                            </li>
+                                        </ol>
+                                    </mat-expansion-panel>
+                                </li>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>Switching between WSL and back</mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <ul>
+                                            <li>To switch to WSL:
+                                                <inline-code>wsl</inline-code><br><br>
+                                                Multiple WSL environments may be
+                                                installed. For example, Docker Desktop creates a WSL environment. If
+                                                you type wsl and go into the wrong environment:<br>
+                                                <ul>
+                                                    <li><inline-code>wsl --list (-l)</inline-code>: See what
+                                                        environments
+                                                        are on the machine</li>
+                                                    <li><inline-code>wsl -d &lt;DISTRIBUTION&gt;</inline-code>:
+                                                        Specify the environment to use</li>
+                                                </ul>
+                                            </li>
+                                            <li>To switch back to Windows: <inline-code>exit</inline-code></li>
+                                        </ul>
+                                    </mat-expansion-panel>
+                                </li>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>Copying Files</mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <ul>
+                                            <li>WSL to Windows: <inline-code>cp /mnt/c/Path/To/File
+                                                    /Path/To/Destination</inline-code><br>
+                                                <span class="additional-note">e.g. from home to c: would be:
+                                                    <inline-code>cp ~/file /mnt/c/file</inline-code></span>
+                                            </li>
+                                            <li>Windows to WSL: <inline-code>cp /mnt/c/Path/To/File
+                                                    /Path/To/Destination</inline-code><br>
+                                                e.g. from home to c: would be:
+                                                <inline-code>cp c:\file ~/</inline-code>
+                                        </ul>
+                                    </mat-expansion-panel>
+                                </li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                </ul>
+            </div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>
