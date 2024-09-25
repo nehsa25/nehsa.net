@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { CommentComponent } from '../../shared-components/comment/comment.component';
@@ -11,6 +11,7 @@ import { RelatedContentComponent } from '../../shared-components/related-content
   selector: 'app-vue',
   standalone: true,
   imports: [CommonModule, MatCardModule, MatExpansionModule, CommentComponent, RouterLink, RelatedContentComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './vue.component.html',
   styleUrl: './vue.component.scss'
 })

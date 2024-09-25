@@ -1,23 +1,142 @@
-<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
-    <mat-card-header>
-        <mat-card-title>
-            <h1 data-testid="header-title">TypeScript</h1>
-        </mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        <div class="commentgrid topics">
-            <div><app-related-content></app-related-content></div>
-            <div>
-                <div>
-                    <mat-expansion-panel expanded>
-                        <mat-expansion-panel-header>
-                            <mat-panel-title>Vue</mat-panel-title>
-                        </mat-expansion-panel-header>Maybe someday..
+<mat-card
+  class="card"
+  [class.vampire]="userService.appIsDark()"
+  [class.angel]="!userService.appIsDark()"
+>
+  <mat-card-header>
+    <mat-card-title>
+      <h1 data-testid="header-title">Vue</h1>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="commentgrid topics">
+      <div><app-related-content></app-related-content></div>
+      <div>
+        <div>
+          <ul>
+            <li>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Setup New Application</mat-panel-title>
+                </mat-expansion-panel-header>
+                <ol>
+                  <li><inline-code>npm init vue&#64;latest</inline-code></li>
+                  <li>
+                    <inline-code>npm install -g &#64;vue/cli</inline-code>:
+                    Install CLI
+                  </li>
+                  <li>Configure Project Settings</li>
+                  <li>
+                    CD into new project directory and run:
+                    <ul>
+                      <li><inline-code>npm install</inline-code></li>
+                      <li>
+                        <inline-code>npm run format</inline-code>
+                        (automatically format the codebase according to
+                        predefined style guidelines)
+                      </li>
+                    </ul>
+                  </li>
+                </ol>
+              </mat-expansion-panel>
+            </li>
+            <li>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title
+                    >Run Debug Server</mat-panel-title
+                  > </mat-expansion-panel-header
+                ><inline-code>npm run dev</inline-code>
+              </mat-expansion-panel>
+            </li>
+            <li>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Integrate w/Code</mat-panel-title>
+                </mat-expansion-panel-header>
+                <ol>
+                  <li>Install Vue extension from VS Code Marketplace</li>
+                  <li>Open Command Palette (CTRL+SHIFT+P)</li>
+                  <li>Type Debug: Add Configuration</li>
+                  <li>Choose with Web Apps (Chrome)</li>
+                  <li>
+                    Ensure port matches port shows when running
+                    <inline-code>npm run dev</inline-code>
+                  </li>
+                  <li>Repeat for Edge</li>
+                  <li>F5 to debug</li>
+                </ol>
+              </mat-expansion-panel>
+            </li>
+            <li>
+              <mat-expansion-panel expanded>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>File Structure</mat-panel-title>
+                </mat-expansion-panel-header>
+                <ul>
+                  <li>
+                    <ul>
+                      <li>
+                        <span class="directory">/</span>
+                        <ul>
+                          <inline-file>package.json</inline-file
+                          >: Application metadata, package versions
+                          <li>
+                            <ul>
+                              <li>
+                                <span class="directory">/src</span>
+                                <ul>
+                                  <li>
+                                    <inline-file>App.vue</inline-file>: Main
+                                    component, often the root component
+                                  </li>
+                                  <li>
+                                    <span class="directory">/stores</span>:
+                                    Global state of your application
+                                  </li>
+                                  <li>
+                                    <span class="directory">/assets</span>:
+                                    Static files like images
+                                  </li>
+                                  <li>
+                                    <span class="directory">/components</span>:
+                                    Reusable Vue components
+                                  </li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </mat-expansion-panel>
+            </li>
+            <li>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Create New Component</mat-panel-title>
+                </mat-expansion-panel-header>
+                <inline-code>vue create &lt;COMPONENT&gt;</inline-code>
 
-                    </mat-expansion-panel>
-                </div>
-                <div><app-comment></app-comment></div>
-            </div>
+                vue create my-project: Creates a new Vue project with
+                interactive prompts. vue serve: Starts the development server
+                for your Vue project. vue build: Builds your Vue project for
+                production. Component Generation vue generate component
+                MyComponent: Generates a new Vue component named MyComponent.
+                vue generate view MyView: Generates a new Vue view (similar to a
+                component). Routing and State Management vue generate router:
+                Generates a Vue Router configuration. vue generate store:
+                Generates a Vuex store configuration. Testing vue generate test:
+                Generates unit tests for your Vue project. vue generate e2e:
+                Generates end-to-end tests for your Vue project.
+              </mat-expansion-panel>
+            </li>
+          </ul>
         </div>
-    </mat-card-content>
+        <div><app-comment></app-comment></div>
+      </div>
+    </div>
+  </mat-card-content>
 </mat-card>
