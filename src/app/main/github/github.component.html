@@ -47,8 +47,12 @@
                                                 <li>ssh-keygen -t ed25519 -C "&lt;YOUR EMAIL&gt;"</li>
                                                 <li>Enter a passphrase</li>
                                                 <li>Add key to ssh-agent: <ol>
-                                                        <li>Start the ssh-agent: <inline-code>eval "$(ssh-agent
-                                                                -s)"</inline-code></li>
+                                                        <li>Start the ssh-agent: <code>
+<pre>
+Get-Service -Name ssh-agent | Set-Service -StartupType Manual
+Start-Service ssh-agent
+</pre>
+                                                        </code></li>
                                                         <li>Add the key: <inline-code>ssh-add
                                                                 ~/.ssh/id_ed25519</inline-code>
                                                     </ol><inline-code></inline-code>
