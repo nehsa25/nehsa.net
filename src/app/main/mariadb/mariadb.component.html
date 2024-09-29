@@ -1,0 +1,39 @@
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Maria DB</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid topics">
+            <div><app-related-content></app-related-content></div>
+            <div>
+                MariaDB is a community-developed, commercially supported fork of the MySQL
+                relational database management system, intended to remain free and open-source.<br><br>
+                As the <acronym-name>
+                    Procedural Language/Structured Query Language<acronym-abbr>PL/SQL</acronym-abbr></acronym-name> of MariaDB and MYSQL syntax are the same, this page will focus on the installation and
+                configuration of MariaDB only.<br><br>
+                <ul>
+                    <li>
+                        <mat-expansion-panel expanded>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Installation</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li>Get Docker image: <inline-code>docker pull mariadb:latest</inline-code></li>
+                                <li>Run Docker container: <inline-code>docker run --name &lt;DB-NAME&gt; -p 3306:3306 -v d:\data\mariadb:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=&lt;PASSWORD&gt; -d mariadb:latest</inline-code></li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Configuration</mat-panel-title>
+                            </mat-expansion-panel-header>
+                        </mat-expansion-panel>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

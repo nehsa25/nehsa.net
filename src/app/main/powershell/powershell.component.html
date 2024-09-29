@@ -19,6 +19,9 @@
                                     <inline-code>(Get-EventLog -Newest 5 -LogName LabListener -EntryType Error).Message
                                     </inline-code>
                                 </li>
+                                <li>Create symbolic link: <inline-code>new-item -itemtype symboliclink -path &lt;SYMBOLIC ITEM LOCATION&gt; -target &lt;ACTUAL LOCATION&gt; </inline-code><br>
+                                    <span class="additional-notes">e.g. to create python3.exe which points at python.exe: new-item -itemtype symboliclink -path C:\Python312\python3.exe -target C:\Python312\python.exe </span>
+                                </li>
                                 <li>Harddrive info:
                                     <inline-code>wmic diskdrive get
                                         InterfaceType,Model,Name,SerialNumber,Size,Status</inline-code>

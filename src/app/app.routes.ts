@@ -82,6 +82,7 @@ import { GimpComponent } from './main/gimp/gimp.component';
 import { GamesComponent } from './main/games/games.component';
 import { ValheimComponent } from './main/games/valheim/valheim.component';
 import { WindowsComponent } from './main/windows/windows.component';
+import { MariadbComponent } from './main/mariadb/mariadb.component';
 
 export const routes: Routes = [
   { path: 'agile', title: 'nehsa.net | Agile', component: AgileComponent },
@@ -342,6 +343,11 @@ export const routes: Routes = [
     path: 'valheim',
     title: 'nehsa.net | Valheim',
     component: ValheimComponent,
+  },
+  {
+    path: 'mariadb',
+    title: 'nehsa.net | MariaDB',
+    component: MariadbComponent,
   },
   {
     path: 'windows',

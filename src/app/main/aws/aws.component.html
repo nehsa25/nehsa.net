@@ -1,7 +1,8 @@
 <mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
     <mat-card-header>
         <mat-card-title>
-            <h1 data-testid="header-title">AWS</h1>
+            <h1 data-testid="header-title"><acronym-name>Amazon Web
+                    Services<acronym-abbr>AWS</acronym-abbr></acronym-name></h1>
         </mat-card-title>
     </mat-card-header>
     <mat-card-content>
@@ -11,20 +12,46 @@
                 <div>
                     AWS Termonology:
                     <dl>
-                        <dt>ECS</dt>
+                        <dt><acronym-name>Elastic Container Service<acronym-abbr>ECS</acronym-abbr></acronym-name></dt>
                         <dd>Elastic Container Service: AWS's container orchestration service, compare with Kubernetes
                         </dd>
-                        <dt>ECR</dt>
-                        <dd>Elastic Container Registry: AWS's container registry service, compare with Docker Hub</dd>
+                        <dt><acronym-name>Elastic Container Registry<acronym-abbr>ECR</acronym-abbr></acronym-name></dt>
+                        <dd>Elastic Container Registry: AWS's container registry service, compare with DockerHub</dd>
                         <dt>ECS Cluster</dt>
-                        <dd>A group of EC2 instances that run your containers</dd>
+                        <dd>A group of EC2 instances that run your containers. The purpose of a cluster is to run
+                            containers. Clusters are required to run tasks and services.</dd>
+                        <dt>EC2 Instance</dt>
+                        <dd>Underlying servers that provide the computing resources for your containers.</dd>
                         <dt>ECS Task</dt>
                         <dd>A group of containers that run together on a single EC2 instance</dd>
+                        <dt>Amazon SES</dt>
+                        <dd>Amazon's email service</dd>
                         <dt>ECS Task Definition Family</dt>
                         <dd>A group of ECS Task Definitions that are related. e.g. graphql-endpoint</dd>
                         <dt>ECS Service</dt>
                         <dd>A group of ECS Tasks that run together</dd>
+                        <dt>CloudFront</dt>
+                        <dd>Amazon's <acronym-name>Content Delievery
+                                Network<acronym-abbr>CDN</acronym-abbr></acronym-name></dd>
+                        <dt>Fargate</dt>
+                        <dd>AWS's serverless container service</dd>
+                        <dt>Route 53</dt>
+                        <dd>Amazon's DNS service</dd>
+                        <dt>CloudFormation</dt>
+                        <dd>AWS's infrastructure as code. Compare with Terraform, Ansible, etc.</dd>
                     </dl><br><br>
+
+                    Main points:
+                    <ul>
+                        <li><span class="importantish">ECS clusters</span> provide a scalable and managed environment
+                            for running containers.</li>
+                        <li><span class="importantish">ECR</span> is used to store and manage your container images.
+                            Amazon's version of DockerHub.
+                        </li>
+                        <li><span class="importantish">ECS tasks</span> are the basic unit of work in ECS.</li>
+                        <li><span class="importantish">ECS services</span> allow you to group and manage related tasks.
+                        </li>
+                    </ul><br><br>
 
                     AWS Tools:
                     <dl>
@@ -40,6 +67,7 @@
                             Instllation: pip install awscli
                     </dl><br><br>
 
+                    Common Tasks:
                     <ul>
                         <li>
                             <mat-expansion-panel expanded>

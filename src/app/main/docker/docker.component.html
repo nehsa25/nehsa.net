@@ -6,11 +6,12 @@
     </mat-card-header>
     <mat-card-content>
         <div class="commentgrid topics">
-            <div><app-related-content></app-related-content></div><div>
+            <div><app-related-content></app-related-content></div>
+            <div>
                 <div>
                     <ul>
                         <li>
-                            <mat-expansion-panel expanded>
+                            <mat-expansion-panel>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Tips / Tricks</mat-panel-title>
                                 </mat-expansion-panel-header>
@@ -240,6 +241,35 @@ root&#64;418b390c6d3a:/app#
                                         useful for setting up common configurations that are shared across multiple
                                         images.</dd>
                                 </dl>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel expanded>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Volumes</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                For Docker to persist data, it needs to be stored in a volume. A volume is a directory
+                                specificed on your local filesystem that will correspond to a directory in the
+                                container. This allows data to be stored on the host machine and not be lost when the
+                                container is stopped or removed.<br><br>
+
+                                Syntax:<br>
+                                <inline-code>
+                                    <cmd-structure>
+                                        <cmd-name>docker</cmd-name>
+                                        <cmd-flag>-v</cmd-flag>
+                                        <cmd-option>&lt;LOCAL_FILESYSTEM&gt;</cmd-option>:<cmd-option>&lt;DOCKER_FILESYSTEM&gt;</cmd-option>:<cmd-option>&lt;FILESYSTEM_TYPE&gt;</cmd-option></cmd-structure></inline-code>
+
+                                Examples:<br>
+                                <ul>
+                                    <li>Create a volume for the /app/node_modules.
+                                        This is useful if you don't wish to install all node packages everytime you build
+                                        the docker image:<br>
+                                        <inline-code>-v d:\data\node_modules:/app/node_modules</inline-code>
+                                    </li>
+                                    <li>Specify a local database location and indicate the zfs filetype:<br>
+                                        <inline-code>-v /my/own/datadir:/var/lib/mysql:Z</inline-code></li>
+                                </ul><br><br>
                             </mat-expansion-panel>
                         </li>
                         <li>

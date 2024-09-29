@@ -1,8 +1,4 @@
-<mat-card
-  class="card"
-  [class.vampire]="userService.appIsDark()"
-  [class.angel]="!userService.appIsDark()"
->
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
   <mat-card-header>
     <mat-card-title>
       <h1 data-testid="header-title">Vue</h1>
@@ -43,10 +39,8 @@
             <li>
               <mat-expansion-panel>
                 <mat-expansion-panel-header>
-                  <mat-panel-title
-                    >Run Debug Server</mat-panel-title
-                  > </mat-expansion-panel-header
-                ><inline-code>npm run dev</inline-code>
+                  <mat-panel-title>Run Debug Server</mat-panel-title> </mat-expansion-panel-header><inline-code>npm run
+                  dev</inline-code>
               </mat-expansion-panel>
             </li>
             <li>
@@ -69,7 +63,7 @@
               </mat-expansion-panel>
             </li>
             <li>
-              <mat-expansion-panel expanded>
+              <mat-expansion-panel>
                 <mat-expansion-panel-header>
                   <mat-panel-title>File Structure</mat-panel-title>
                 </mat-expansion-panel-header>
@@ -79,8 +73,7 @@
                       <li>
                         <span class="directory">/</span>
                         <ul>
-                          <inline-file>package.json</inline-file
-                          >: Application metadata, package versions
+                          <inline-file>package.json</inline-file>: Application metadata, package versions
                           <li>
                             <ul>
                               <li>
@@ -131,6 +124,111 @@
                 Generates a Vuex store configuration. Testing vue generate test:
                 Generates unit tests for your Vue project. vue generate e2e:
                 Generates end-to-end tests for your Vue project.
+              </mat-expansion-panel>
+            </li>
+            <li>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Template Syntax</mat-panel-title>
+                </mat-expansion-panel-header>Similar to Angular's ngFor/ngIf type options, Vue has v-for and v-if. <br>
+
+                <table class="min-table">
+                  <tr>
+                    <th>Operation</th>
+                    <th>Purpose</th>
+                    <th>Example</th>
+                    <th>Angular Equivalent</th>
+                  </tr>
+                  <tr>
+                    <td>Text Interpolation</td>
+                    <td>Display variable</td>
+                    <td>&#123; &#123; someVariable &#125; &#125; <span class="additional-note">Curly braces should not
+                        have space between them, this is only to allow Angular to build.</span></td>
+                    <td>Same</td>
+                  </tr>
+                  <tr>
+                    <td>v-for</td>
+                    <td>Loop through an array</td>
+                    <td>
+                      <code>
+                        <pre>
+&lt;li v-for="item in items" :key="item.id"&gt;
+  &#123; &#123; item.text &#125; &#125;
+&lt;/li&gt;
+                        </pre>
+                      </code>
+                    </td>
+                    <td>ngFor</td>
+                  </tr>
+                  <tr>
+                    <td>v-if</td>
+                    <td>Conditional rendering</td>
+                    <td>
+                      <code>
+<pre>
+&lt;div v-if="isTrue"&gt;This is true&lt;/div&gt;
+&lt;div v-else&gt;This is false&lt;/div&gt;
+</pre>
+                        </code>
+                    </td>
+                    <td>ngIf</td>
+                  </tr>
+                  <tr>
+                    <td>v-model</td>
+                    <td>Two-way data binding. i.e. input field updates variable and variable updates input field</td>
+                    <td>
+                      <code>
+<pre>
+&lt;input v-model="message" placeholder="Enter a message"&gt;
+&lt;p&gt;The message is: &#123; &#123; message &#125; &#125;&lt;/p&gt;
+</pre>
+                        </code>
+                    </td>
+                    <td>[(ngModel)]</td>
+                  </tr>
+                  <tr>
+                    <td>v-on</td>
+                    <td>Event handling. i.e. click, hover, etc.<br><br>
+                      <div class="importantish">Shorthand for this using the &#64; symbol:<br><br>
+                        <inline-code>&lt;a v-on:click="go"&gt;...&lt;/a&gt;</inline-code> === <inline-code>&lt;a
+                          &#64;click="go"&gt;...&lt;/a&gt;</inline-code>
+                      </div>
+                    </td>
+                    <td>
+                      <code>
+<pre>
+&lt;button v-on:click="doSomething"&gt;Click me&lt;/button&gt;
+</pre>
+                        </code>
+                    </td>
+                    <td>(click)="doSomething"</td>
+                  </tr>
+                  <tr>
+                    <td>v-bind</td>
+                    <td>Bind an attribute to a variable. This is better than using src= only because it allows for
+                      dynamic values. ImageSrc could be a variable that changes based on user input.</td>
+                    <td>
+                      <code>
+<pre>
+&lt;img v-bind:src="imageSrc"&gt;
+</pre>
+                        </code>
+                    </td>
+                    <td>[src]</td>
+                  </tr>
+                  <tr>
+                    <td>v-html</td>
+                    <td>Render content as HTML.</td>
+                    <td>
+                      <code>
+<pre>
+&lt;div v-html="htmlContent"&gt;&lt;/div&gt;
+</pre>
+                        </code>
+                    </td>
+                    <td>Use innerHTML</td>
+                  </tr>
+                </table>
               </mat-expansion-panel>
             </li>
           </ul>

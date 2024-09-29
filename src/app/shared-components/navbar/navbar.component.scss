@@ -18,6 +18,7 @@
 
 .norm {
     font-size: .9rem;
+    text-transform: uppercase;
 }
 
 .navbar {
@@ -114,6 +115,8 @@ mat-panel-title:hover {
     font-weight: bold;
     margin: 0;
     padding: 0;
+    border-bottom: 1px solid orangered;
+    text-align: center;
 }
 
 .nav-menu-title-text mat-icon {
