@@ -1,0 +1,34 @@
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Llama</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid topics">
+            <div><app-related-content></app-related-content></div>
+            <div>
+                <ul>
+                    <li>
+                        <mat-expansion-panel expanded>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Completely unqualified "gut" opinion</mat-panel-title>
+                            </mat-expansion-panel-header>I've briefly tried Llama 3.2. My two cents: Similar in Gemini
+                            in features and performance. It get's an extra point as
+                            right now Gemini is responding with "An error occurred" while Llama is working.<br><br>
+
+                            Other
+                            observations:<br>
+                            <ul>
+                                <li>Llama is hard not to spell LLama.</li>
+                                <li>The Llama site responded quickly: <a href="https://meta.ai"
+                                        target="_blank">https://meta.ai</a></li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                </ul>
+            </div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>

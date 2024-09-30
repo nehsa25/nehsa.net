@@ -87,7 +87,8 @@
                                                 <dd>Unique identifier for the record. This can be used as a foreign key
                                                     constraint in other tables.</dd>
                                                 <dt>FOREIGN KEY</dt>
-                                                <dd>Links to a primary key in another table.</dd>
+                                                <dd>Links to a primary key in another table. Example: <inline-code>FOREIGN
+                                                        KEY (user_id) REFERENCES users(id)</inline-code></dd>
                                                 <dt>NOT NULL</dt>
                                                 <dd>Requires a value to be entered.</dd>
                                                 <dt>UNIQUE</dt>
@@ -202,7 +203,21 @@ CONTAINER ID   IMAGE                 COMMAND                  CREATED          S
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>MySQL WorkBench</mat-panel-title>
                                 </mat-expansion-panel-header>
-                                Install client only
+                                <ul>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Tips/Tricks</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <ul>
+                                                <li>Execute highlighted query: <inline-code>Ctrl+Shift+Enter</inline-code>
+                                                </li>
+                                                <li>Execute all queries: <inline-code>Ctrl+Enter</inline-code>
+                                                </li>
+                                            </ul>
+                                        </mat-expansion-panel>
+                                    </li>
+                                </ul>
                             </mat-expansion-panel>
                         </li>
                         <li>
@@ -280,7 +295,7 @@ log  : Restored C:\src\&lt;PROJECT&gt;\&lt;PROJECT&gt;.csproj (in 1.22 sec)
                         <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
-                                    <mat-panel-title>Creating Tables</mat-panel-title>
+                                    <mat-panel-title>Create Table</mat-panel-title>
                                 </mat-expansion-panel-header>
                                 Basic syntax is:
                                 <code>
@@ -309,9 +324,16 @@ CREATE TABLE flashcards (
                         <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
-                                    <mat-panel-title>Updating MySQL Tables</mat-panel-title>
-                                </mat-expansion-panel-header>Done using the "ALTER" command. Example: <inline-code>ALTER
-                                    TABLE flashcards ADD COLUMN category VARCHAR(255);</inline-code>
+                                    <mat-panel-title>Update Table</mat-panel-title>
+                                </mat-expansion-panel-header>Done using the "ALTER" command.<br><br>
+
+                                Examples:<br>
+                                <ul>
+                                    <li>Add new column to end of table: <inline-code>ALTER
+                                            TABLE flashcards ADD COLUMN category VARCHAR(255);</inline-code></li>
+                                    <li>Update table to add unique contrainst: <inline-code>ALTER TABLE flashcards ADD
+                                            UNIQUE (question);</inline-code></li>
+                                </ul>
                             </mat-expansion-panel>
                         </li>
                         <li>
@@ -398,7 +420,7 @@ CREATE TABLE dogs (
                                 </ul>
 
                             </mat-expansion-panel>
-                        </li>                        
+                        </li>
                         <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>

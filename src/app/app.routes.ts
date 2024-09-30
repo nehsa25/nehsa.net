@@ -83,6 +83,8 @@ import { GamesComponent } from './main/games/games.component';
 import { ValheimComponent } from './main/games/valheim/valheim.component';
 import { WindowsComponent } from './main/windows/windows.component';
 import { MariadbComponent } from './main/mariadb/mariadb.component';
+import { EntityComponent } from './main/entity/entity.component';
+import { LlamaComponent } from './main/llama/llama.component';
 
 export const routes: Routes = [
   { path: 'agile', title: 'nehsa.net | Agile', component: AgileComponent },
@@ -348,6 +350,16 @@ export const routes: Routes = [
     path: 'mariadb',
     title: 'nehsa.net | MariaDB',
     component: MariadbComponent,
+  },
+  {
+    path: 'entity',
+    title: 'nehsa.net | Entity Framework',
+    component: EntityComponent,
+  },
+  {
+    path: 'llama',
+    title: 'nehsa.net | Llama',
+    component: LlamaComponent,
   },
   {
     path: 'windows',

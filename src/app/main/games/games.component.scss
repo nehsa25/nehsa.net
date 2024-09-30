@@ -1,0 +1,17 @@
+ul {
+    list-style: none; /* Remove bullets */
+    padding: 0; /* Remove default padding */
+  }
+  
+  li {
+    margin: 0 10px; /* Add spacing between list items */
+  }
+  
+  a {
+    text-decoration: none; /* Remove underline from links */
+    font-variant: small-caps;
+    font-size: 3rem;
+    padding: 1rem;
+    font-weight: 700;
+    height:100%;
+  }

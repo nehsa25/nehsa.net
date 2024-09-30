@@ -24,6 +24,20 @@
     -webkit-text-stroke-color: #4B0082;
 }
 
+.chartruse {
+    background-color: #7fff00;
+    width: 100px;
+    height: 50px;
+    display: inline-block;
+}
+
+.cerulean {
+    background-color: #007ba7;
+    width: 100px;
+    height: 50px;
+    display: inline-block;
+}
+
 @keyframes gradient-animation {
     0% {
         background-color: teal;

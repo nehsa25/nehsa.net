@@ -1,0 +1,309 @@
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Entity Framework</h1>
+        </mat-card-title>
+        <mat-card-subtitle>
+
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid topics">
+            <div><app-related-content></app-related-content></div>
+            <div>
+                <div>
+                    <mat-expansion-panel expanded>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Entity Framework</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <ul>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Eager Vs. Lazy Loading</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    <dl>
+                                        <dt>Entity Framework</dt>
+                                        <dd>Entity Framework is an object-relational mapper that enables .NET
+                                            developers
+                                            to work with relational data using domain-specific objects. It
+                                            eliminates the
+                                            need for most of the data-access code that developers usually need to
+                                            write.
+                                        <dt>Collection-side</dt>
+                                        <dd>the side of the relationship that has the collection of entities. For
+                                            instance, in the context of articles written by a user or products of a
+                                            category, the articles and products are the 'collection-side' entities,
+                                            while the
+                                            user and category are the 'main entities'.</dd>
+                                        <dt>Lazy Loading</dt>
+                                        <dd>Lazy loading is the process whereby an entity or collection of entities
+                                            is
+                                            automatically loaded from the database the first time that a property
+                                            referring to the entity/entities is accessed.
+                                        <dt>One-to-one relationships</dt>
+                                        <dd>one record in one table with a single record in the other table.
+                                        </dd>
+                                        <dt>One-to-many</dt>
+                                        <dd>A bidirectional relationship (can) exists. TableA may have a
+                                            foreign key
+                                            into
+                                            tableB, and tableB may have a foreign key into the associated
+                                            record in
+                                            tableA.
+                                        </dd>
+                                        <dt>many-to-many</dt>
+                                        <dd>TableA has a collection of records in tableB, and tableB has a
+                                            collection of
+                                            records in tableA. e.g. A Students and Courses relationship would be
+                                            many-to-many since a student can take many courses and a course can have
+                                            many students.
+                                        </dd>
+                                    </dl>
+
+                                    <div>How to determine which to use:<br>
+                                        Eager Loading:<br>
+                                        <ul>
+                                            <li>Use when working with one-to-many relations that are not too complex.
+                                            </li>
+                                            <li>Reduces additional queries on the server, improving performance.</li>
+                                            <li>Ideal for situations where related data is frequently needed.</li>
+                                        </ul><br><br>
+
+                                        Lazy Loading:<br>
+                                        <ul>
+                                            <li>Suitable for one-to-many relations on the 'collection-side' (e.g.,
+                                                articles written by a user or products in a category).</li>
+                                            <li>Loads related data only when needed, reducing initial query overhead.
+                                            </li>
+                                            <li>Ideal for situations where related data is not always necessary or is
+                                                large in size.</li>
+                                        </ul><br><br>
+
+                                        Example:<br>
+                                        <ul>
+                                            <li>
+                                                Eager Loading: When displaying user profiles with their associated
+                                                articles, eager load articles to reduce queries.
+                                            </li>
+                                            <li>
+                                                Lazy Loading: When displaying a list of articles, lazy load authors to
+                                                avoid loading unnecessary author data.
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>AsQueryable()</mat-panel-title>
+                                    </mat-expansion-panel-header>AsQueryable() is a method that returns an IQueryable
+                                    object. This method performs a lazy loading operation, meaning that it does not
+                                    execute the query against the database until the IQueryable object is
+                                    enumerated.<br><br>
+
+                                    Example:<br>
+                                    <code>
+                                        <pre>
+<span class="comment">// Instantiate an IQueryable object</span>
+var query = db.Users.AsQueryable(); <span class="comment"><mat-icon>arrow_back</mat-icon> No hit on database</span>
+
+<span class="comment">// Add a where clause</span>
+query = query.Where(u => u.Name == "John"); <span class="comment"><mat-icon>arrow_back</mat-icon> No hit on database</span>
+
+<span class="comment">// Execute the query</span>
+var users = query.ToList(); <span class="comment"><mat-icon>arrow_back</mat-icon> Hit on database</span>
+</pre>
+                                    </code>
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>ToList() Vs. ToListAsync()</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    <dl>
+                                        <dt>ToList()</dt>
+                                        <dd>ToList() is a synchronous method that returns a List object. It
+                                            executes the query against the database and returns the results as a
+                                            List object.</dd>
+                                        <dt>ToListAsync()</dt>
+                                        <dd>ToListAsync() is an asynchronous method that returns a Task object.
+                                            It executes the query against the database asynchronously and returns
+                                            the results as a List object.</dd>
+                                    </dl><br><br>
+
+                                    In general, you should use ToListAsync(). The only time you should use ToList()
+                                    is when you are working with a synchronous method that does not support
+                                    asynchronous operations.<br><br>
+
+                                    Example:<br>
+                                    <ul>
+                                        <li>ToList(): <inline-code>var users = db.Users.ToList();</inline-code></li>
+                                        <li>ToListAsync(): <inline-code>var users = await
+                                                db.Users.ToListAsync();</inline-code>
+                                    </ul>
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>.Include()</mat-panel-title>
+                                    </mat-expansion-panel-header>A primary method for including (eager loading) related
+                                    data. This is similar in concept to a SQL join.<br><br>
+
+                                    Let's say we're a canine gang. Our gang has leadership heirarchy, and each leader
+                                    has a pack of dogs. We want to display the leader's name and the dogs in their pack.
+                                    We can use .Include() to load the leader and their pack of dogs in a single
+                                    query.<br><br>
+
+                                    Tables:<br>
+                                    <ul>
+                                        <li>dog_leaders: [id, leader]: <span class="comment">Our pack leaders</span>
+                                        </li>
+                                        <li>dogs [id, name, strength, bite_power]: <span class="comment">Our dogs</span>
+                                        </li>
+                                        <li>leader_dog [name, strength, bite power]: <span class="comment">A one-to-many
+                                                relationship between dog and leaders (a leader can have multiple dogs
+                                                but a dog can only have one pack leader)</span></li>
+                                    </ul><br><br>
+
+                                    Example:<br>
+                                    <ul>
+                                        <li>
+                                            Eager load the leader and their pack of dogs: <inline-code>var leaders =
+                                                db.DogLeaders.Include(l => l.LeaderDogs).ToList();</inline-code><br><br>
+
+                                            leaders contents:<br>
+                                            <code>
+                                                <pre>
+[
+    &#123;
+        "id": 1,
+        "leader": "Alpha",
+        "leaderDogs": [
+            &#123;
+                "name": "Rex",
+                "strength": 10,
+                "bite_power": 5
+            &#125;,
+            &#123;
+                "name": "Fido",
+                "strength": 8,
+                "bite_power": 3
+            &#125;
+        ]
+    &#125;,
+    &#123;
+        "id": 2,
+        "leader": "Beta",
+        "leaderDogs": [
+            &#123;
+                "name": "Spot",
+                "strength": 7,
+                "bite_power": 2
+            &#125;,
+            &#123;
+                "name": "Rover",
+                "strength": 6,
+                "bite_power": 1
+            &#125;
+        ]
+    &#125;
+]
+</pre>
+                                            </code>
+                                        </li>
+                                        <li>To accomplish the same thing without eager loading:<br>
+                                            <code>
+                                                <pre>
+var leaders = db.DogLeaders.ToList();
+var dogs = db.LeaderDogs.ToList();
+
+foreach (var leader in leaders)
+    leader.LeaderDogs = dogs.Where(d => d.Leader == leader.Leader).ToList();
+</pre>
+                                            </code>
+                                        </li>
+                                    </ul><br><br>
+
+                                    In this case, the first example is more efficient because it only requires a single
+                                    query to the database whereas the "lazy" example would require many.
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <div>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>Troubleshooting</mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        Troubleshooting:<br>
+                                        <ul>
+                                            <li>db.SaveChanges() exception: String or binary data would be
+                                                truncated.
+                                                General Tips:<br>
+                                                <ul>
+                                                    <li>Check the length of the column in the database</li>
+                                                    <li>Check the length of the data being saved</li>
+                                                    <li>Check the data being saved for special characters</li>
+                                                </ul><br><br>
+
+                                                Specific things to do:<br>
+                                                <ol>
+                                                    <li>Some code to help you troubleshoot:<br>
+                                                        <code>
+                                                                    <pre>
+private static int SaveChanges(EntitlementsContext db)
+&#123;
+    try
+    &#123;
+        return db.SaveChanges();
+    &#125;
+    catch (System.Data.Entity.Validation.DbEntityValidationException ex)  <span class="comment">// <mat-icon>arrow_back</mat-icon>DbEntityValidationException..</span>
+    &#123;
+        var msg = $"DbEntityValidationException - &#123;Environment.NewLine&#125;&#123;Environment.NewLine&#125;";
+        var sqlException = ex.InnerException.InnerException as SqlException;
+        if (sqlException != null)
+        &#123;
+            msg += $"SQL Exception: &#123;sqlException.Message&#125;&#123;Environment.NewLine&#125;&#123;Environment.NewLine&#125;";
+        &#125;
+
+        msg += $"&#123;Environment.NewLine&#125;&#123;Environment.NewLine&#125;Exception Message: &#123;ex.Message&#125;";
+        Console.WriteLine(msg);
+        //throw new Exception(msg); <span class="comment">// <mat-icon>arrow_back</mat-icon>Optionally, throw the exception.</span>
+        return 0;
+    &#125;
+    catch (System.Data.Entity.Infrastructure.DbUpdateException ex) <span class="comment">// <mat-icon>arrow_back</mat-icon>DBUpdateExceptions..</span>
+    &#123;
+        var msg = $"DbUpdateException - &#123;Environment.NewLine&#125;&#123;Environment.NewLine&#125;";
+        var sqlException = ex.InnerException.InnerException as SqlException;
+        if (sqlException != null)
+        &#123;
+            msg += $"SQL Exception: &#123;sqlException.Message&#125;&#123;Environment.NewLine&#125;&#123;Environment.NewLine&#125;";
+        &#125;
+
+        msg += $"&#123;Environment.NewLine&#125;&#123;Environment.NewLine&#125;Exception Message: &#123;ex.Message&#125;";
+        Console.WriteLine(msg);
+        //throw new Exception(msg); <span class="comment">// <mat-icon>arrow_back</mat-icon>Optionally, throw the exception.</span>
+        return 0;
+    &#125;
+&#125;
+</pre>
+                                                                </code>
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                        </ul>
+                                    </mat-expansion-panel>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </mat-expansion-panel>
+                </div>
+            </div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>

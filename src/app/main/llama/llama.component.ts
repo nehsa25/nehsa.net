@@ -1,21 +1,23 @@
 import { Component } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
-import { UserService } from '../../services/user.service';
 import { CommentComponent } from '../../shared-components/comment/comment.component';
 import { RelatedContentComponent } from '../../shared-components/related-content/related-content.component';
-import { MatButtonModule } from '@angular/material/button';
+import { UserService } from '../../services/user.service';
 
 @Component({
-  selector: 'app-games',
+  selector: 'app-llama',
   standalone: true,
-  imports: [MatCardModule, MatExpansionModule, RouterLink, CommentComponent, RelatedContentComponent, MatButtonModule],
-  templateUrl: './games.component.html',
-  styleUrl: './games.component.scss'
+  imports: [MatCardModule, MatExpansionModule, RouterLink, CommentComponent, RelatedContentComponent, MatButtonModule, MatIconModule],
+  templateUrl: './llama.component.html',
+  styleUrl: './llama.component.scss'
 })
-export class GamesComponent {
+export class LlamaComponent {
   constructor(public userService: UserService) {
-    this.userService.page = 'games';
+    this.userService.page = 'llama';
   }
+
 }

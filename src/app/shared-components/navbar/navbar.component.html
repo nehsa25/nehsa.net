@@ -71,6 +71,10 @@
         (click)="sendUser('/dynamics365')">
         Dynamics 365
       </li>
+      <li class="norm" [class.nav-selected]="this.userService.page === 'entity'"
+      (click)="sendUser('/entity')">
+      Entity Framework
+    </li>
       <li class="norm" [class.nav-selected]="this.userService.page === 'games'" (click)="sendUser('/games')">
         Games
       </li>
@@ -115,6 +119,9 @@
       </li>
       <li class="norm" [class.nav-selected]="this.userService.page === 'linux'" (click)="sendUser('/linux')">
         Linux
+      </li>
+      <li class="norm" [class.nav-selected]="this.userService.page === 'llama'" (click)="sendUser('/llama')">
+        Llama
       </li>
       <li class="norm" [class.nav-selected]="this.userService.page === 'mariadb'" (click)="sendUser('/mariadb')">
         MariaDB (PL/SQL)
