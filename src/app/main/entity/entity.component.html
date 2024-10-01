@@ -18,18 +18,31 @@
                         </mat-expansion-panel-header>
                         <ul>
                             <li>
+                                <mat-expansion-panel expanded>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Defintions / Acronyms</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    <dl>
+                                        <dt><acronym-name>Entity Framework</acronym-name></dt>
+                                        <dd>Entity Framework is an object-relational mapper that enables .NET developers
+                                            to work with relational data using domain-specific objects. It eliminates
+                                            the need for most of the data-access code that developers usually need to
+                                            write.</dd>
+                                        <dt><acronym-name>Object-Relational Mapping
+                                                <acronym-abbr>ORM</acronym-abbr></acronym-name></dt>
+                                        <dd>Object-Relational Mapping (ORM) is a programming technique that converts
+                                            data between incompatible type systems in object-oriented programming
+                                            languages. It enables developers to work with objects instead of database
+                                            tables and SQL.</dd>
+                                    </dl>
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
                                 <mat-expansion-panel>
                                     <mat-expansion-panel-header>
                                         <mat-panel-title>Eager Vs. Lazy Loading</mat-panel-title>
                                     </mat-expansion-panel-header>
                                     <dl>
-                                        <dt>Entity Framework</dt>
-                                        <dd>Entity Framework is an object-relational mapper that enables .NET
-                                            developers
-                                            to work with relational data using domain-specific objects. It
-                                            eliminates the
-                                            need for most of the data-access code that developers usually need to
-                                            write.
                                         <dt>Collection-side</dt>
                                         <dd>the side of the relationship that has the collection of entities. For
                                             instance, in the context of articles written by a user or products of a
@@ -149,7 +162,7 @@ var users = query.ToList(); <span class="comment"><mat-icon>arrow_back</mat-icon
                             <li>
                                 <mat-expansion-panel>
                                     <mat-expansion-panel-header>
-                                        <mat-panel-title>.Include()</mat-panel-title>
+                                        <mat-panel-title>Include()</mat-panel-title>
                                     </mat-expansion-panel-header>A primary method for including (eager loading) related
                                     data. This is similar in concept to a SQL join.<br><br>
 
@@ -230,6 +243,196 @@ foreach (var leader in leaders)
 
                                     In this case, the first example is more efficient because it only requires a single
                                     query to the database whereas the "lazy" example would require many.
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>ThenInclude()</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    ThenInclude() is used to include related data that is more than one level deep. For
+                                    example, if you have these tables:<br>
+                                    <ul>
+                                        <li>dog_leaders: [id, leader]</li>
+                                        <li>dogs [id, name, strength, bite_power]</li>
+                                        <li>leader_dog [name, strength, bite power]</li>
+                                        <li>dog_toys [id, name, type, dog_id]</li>
+                                    </ul><br><br>
+
+                                    And you want to display the leader, their dogs, and the toys each dog has, you can
+                                    use .Include() and .ThenInclude() to load all the data in a single query.<br><br>
+
+                                    Example:<br>
+                                    <code>
+                                        <pre>
+var leaders = db.DogLeaders
+    .Include(l => l.LeaderDogs)
+        .ThenInclude(d => d.DogToys)
+    .ToList();  
+</pre>
+                                    </code><br><br>
+
+                                    This would provide the following JSON output:<br>
+                                    <code>
+                                        <pre>
+[
+    &#123;
+        "id": 1,
+        "leader": "Alpha",
+        "leaderDogs": [
+            &#123;
+                "name": "Rex",
+                "strength": 10,
+                "bite_power": 5,
+                "dogToys": [
+                    &#123;
+                        "name": "Ball",
+                        "type": "Rubber"
+                    &#125;,
+                    &#123;
+                        "name": "Bone",
+                        "type": "Plastic"
+                    &#125;
+                ]
+            &#125;,
+            &#123;
+                "name": "Fido",
+                "strength": 8,
+                "bite_power": 3,
+                "dogToys": [
+                                            
+                ]
+            &#125;
+
+        ]
+    &#125;,
+    &#123;
+        "id": 2,
+        "leader": "Beta",
+        "leaderDogs": [
+            &#123;
+                "name": "Spot",
+                "strength": 7,
+                "bite_power": 2,
+                "dogToys": [
+                    &#123;
+                        "name": "Frisbee",
+                        "type": "Plastic"
+                    &#125;
+                ]
+            &#125;,
+            &#123;
+                "name": "Rover",
+                "strength": 6,  
+                "bite_power": 1,
+                "dogToys": [
+                    &#123;
+                        "name": "Squeaky Toy",
+                        "type": "Rubber"
+                    &#125;
+                ]
+            &#125;
+        ]
+    &#125;
+]
+</pre>
+                                    </code>
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>Mapping Entity Objects to SQL Objects</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    <dl>
+                                        <dt>Entity Objects</dt>
+                                        <dd>Entity objects are the objects that represent the data in your
+                                            application. They are typically classes that map to tables in your
+                                            database.</dd>
+                                        <dt>SQL Objects</dt>
+                                        <dd>SQL objects are the objects that represent the data in your database.
+                                            They are typically tables, views, or stored procedures.</dd>
+                                    </dl><br><br>
+
+                                    Mapping Entity Objects to SQL Objects:<br>
+
+                                    <code>
+                                                <pre>
+namespace Api.Models.Data
+&#123;
+    [Table("User")]
+    public class User
+    &#123;
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int UserID &#123; get; set; &#125;
+
+        [Required]
+        public string FirstName &#123; get; set; &#125;
+
+        [ForeignKey("Roles_RoleID")]
+        public int RoleID &#123; get; set; &#125;
+
+        [Required]
+        public UserStatusEnum Status &#123; get; set; &#125;
+    &#125;
+
+    public enum UserStatusEnum
+    &#123;
+        Active = 0,
+        Inactive = 1
+    &#125;
+&#125;
+                                                </pre>
+                                            </code><br><br>
+
+                                    Common property decorators:<br>
+                                    <dl>
+                                        <dt>[Table("User")]</dt>
+                                        <dd>Specifies the table name for the entity.</dd>
+                                        <dt>[Key]</dt>
+                                        <dd>Specifies the primary key for the entity.</dd>
+                                        <dt>[DatabaseGenerated(DatabaseGeneratedOption.Identity)]</dt>
+                                        <dd>Specifies that the
+                                            primary key is generated by the database.</dd>
+                                        <dt>[Required]</dt>
+                                        <dd>Specifies that the property is required whenever the entity
+                                            is saved.</dd>
+                                        <dt>[ForeignKey("Role_RoleID")]</dt>
+                                        <dd>Specifies the foreign key relationship to the Role table on the RoleID
+                                            column.</dd>
+                                        <dt>[EnumMember]</dt>
+                                        <dd>Specifies that the property is an enumeration.<br><br>
+
+                                            For example, we could have this enum:<br>
+                                            <code>
+                                                <pre>
+public enum UserStatusEnum
+&#123;
+    Active = 0,
+    Inactive = 1
+&#125;
+                                                </pre>
+                                            </code><br><br>
+
+                                            Or we could have this one:<br>
+                                            <code>
+                                                <pre>
+public enum UserStatusEnum
+&#123;
+    [EnumMember(Value = "Active")]
+    Active = 0,
+    [EnumMember(Value = "Inactive")]
+    Inactive = 1
+&#125;
+
+                                        </pre>
+                                    </code>
+
+                                            The difference is that the first example would store the enum as an integer
+                                            in the database, while the second example would store it as a string.
+                                        </dd>
+                                    </dl>
                                 </mat-expansion-panel>
                             </li>
                             <li>
