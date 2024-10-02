@@ -196,6 +196,22 @@ publish:
                         </mat-expansion-panel>
                     </li>
                     <li><mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Moving Uncommitted Changes to a Branch</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <ol>
+                            <li>Stash your changes: <inline-code>git stash</inline-code></li>
+                            <li>Checkout the branch: <inline-code>git checkout &lt;branch&gt;</inline-code></li>
+                            <li>Pop the stash: <inline-code>git stash pop</inline-code>.<br>
+                                <span class="additional-note">apply could be used here to but pop will remove the
+                                    stash and apply will keep it, requiring an additional step to remove it: <inline-code>git
+                                        stash drop</inline-code></span>
+                            </li>
+                        </ol>
+                        
+                    </mat-expansion-panel>
+                </li>
+                    <li><mat-expansion-panel>
                             <mat-expansion-panel-header>
                                 <mat-panel-title>Troubleshooting</mat-panel-title>
                             </mat-expansion-panel-header>

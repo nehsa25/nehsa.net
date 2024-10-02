@@ -68,6 +68,46 @@
                         <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
+                                    <mat-panel-title>Coding Comments</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <code>
+    <pre>
+/// &lt;summary&gt;
+/// Method &lt;c&gt;UserAssignment&lt;/c&gt; assigns a user to a role.
+/// &lt;/summary&gt;
+    </pre>
+</code><br><br>
+
+                                Optional tags which can be placed inside the <inline-code>&lt;summary&gt;</inline-code>
+                                tag:
+                                <dl>
+                                    <dt>&lt;remarks&gt;</dt>
+                                    <dd>Additional information about a type or member</dd>
+                                    <dt>&lt;example&gt;</dt>
+                                    <dd>Provides an example of how to use a type or member</dd>
+                                    <dt>&lt;see&gt;</dt>
+                                    <dd>Provides a reference to another type or member</dd>
+                                    <dt>&lt;seealso&gt;</dt>
+                                    <dd>Provides a reference to another type or member</dd>
+                                    <dt>&lt;c&gt; / &lt;code&gt;</dt>
+                                    <dd>Code Snippet</dd>
+                                    <dt>&lt;exception&gt;</dt>
+                                    <dd>Exception information. e.g. <inline-code>&lt;exception
+                                            cref="System.ArgumentNullException"&gt;Thrown when the user is
+                                            null&lt;/exception&gt;
+                                        </inline-code></dd>
+                                    <dt>&lt;param&gt;</dt>
+                                    <dd>Parameter information. e.g. <inline-code>&lt;param
+                                            name="user"&gt;The user&lt;/param&gt;</inline-code></dd>
+                                    <dt>&lt;returns&gt;</dt>
+                                    <dd>Return information. e.g. <inline-code>&lt;returns&gt;The
+                                            user&lt;/returns&gt;</inline-code></dd>
+                                </dl>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
                                     <mat-panel-title>Accessors</mat-panel-title>
                                 </mat-expansion-panel-header>
                                 <code>
@@ -313,10 +353,22 @@ C:\src\scratch\Scratch\Program.cs(88,27): error CS0535: 'Orange' does not implem
                         <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
-                                    <mat-panel-title>Abstract Classes</mat-panel-title>
-                                    <mat-panel-description>Abstract classes are classes that cannot be
-                                        instantiated directly but can contain shared code</mat-panel-description>
-                                </mat-expansion-panel-header>
+                                    <mat-panel-title>Abstract Modifiers</mat-panel-title>
+                                    <mat-panel-description>Sealed, Abstract, Virtual, Override</mat-panel-description>
+                                </mat-expansion-panel-header>Abstract classes are classes that cannot be
+                                instantiated directly but can contain shared code.<br>
+                                <dl>
+                                    <dt>sealed</dt>
+                                    <dd>Sealed classes cannot be inherited.</dd>
+                                    <dt>abstract</dt>
+                                    <dd>Abstract classes cannot be instantiated directly but can contain shared
+                                        code.</dd>
+                                    <dt>virtual</dt>
+                                    <dd>Virtual methods can be overridden in derived classes.</dd>
+                                    <dt>override</dt>
+                                    <dd>Override is used to provide a new implementation of a method in a derived
+                                        class.</dd>
+                                </dl>
                                 <div>
                                     Notice that in the interface example, we still have duplicate code in the "Peel"
                                     methods; it's not great. We cannot fix this in the interface directly since
