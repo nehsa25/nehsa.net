@@ -557,6 +557,14 @@ a,
     display: inline-block;
 }
 
+.highlight {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    margin: 0;
+    padding: 0;
+    opacity: .5;
+}
+
 .question {
     font-style: italic;
 }

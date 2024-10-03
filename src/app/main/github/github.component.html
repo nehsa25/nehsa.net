@@ -10,6 +10,27 @@
             <div>
                 <ul>
                     <li>
+                        <mat-expansion-panel expanded>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Definitions</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <dl>
+                                <dt>Fork</dt>
+                                <dd>Make a copy of a repository in your account</dd>
+                                <dt>Clone</dt>
+                                <dd>Copy a repository to your local machine</dd>
+                                <dt>Branch</dt>
+                                <dd>Isolate changes from the main code base</dd>
+                                <dt>Commit</dt>
+                                <dd>Save changes to the local repository</dd>
+                                <dt>Push</dt>
+                                <dd>Send committed changes to the remote repository</dd>
+                                <dt>Rebase</dt>
+                                <dd>Move or combine a sequence of commits to a new base commit</dd>
+                            </dl>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
                         <mat-expansion-panel>
                             <mat-expansion-panel-header>
                                 <mat-panel-title>Important Commands</mat-panel-title>
@@ -73,12 +94,96 @@ Start-Service ssh-agent
                             </ul>
                         </mat-expansion-panel>
                     </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Rebase</mat-panel-title>
+                            </mat-expansion-panel-header>Rebase is a confusing component of git. It is used to alter the
+                            commit history of a git repository.<br><br>
+
+                            For example:<br>
+
+                            If you had the following git log containing 3 commits and let's say the middle commit was a
+                            mistake:<br><br>
+
+                            <inline-code>git log</inline-code>
+                            <div class="result">
+                                <pre>
+commit 123 (origin/develop, develop)
+Author: Bob.Smith &lt;bs&#64;somewhere.com&gt;
+Date:   Tue Sep 24 17:02:02 2024 -0700
+
+    Remove the display of sources.list in docker file
+
+commit 456 <span class="comment"><mat-icon>arrow_back</mat-icon> we want to remove this commit</span>
+Author: Joe.Goggins &lt;jg&#64;somewhere.com&gt;
+Date:   Tue Sep 24 16:58:28 2024 -0700
+
+    Updated docker file to use debian archives
+
+commit 789
+Author: Sam.Matt &lt;sm&#64;somewhere.com&gt;
+Date:   Mon Sep 23 19:56:51 2024 -0700
+
+    Update the version number
+</pre>
+                            </div><br><br>
+
+                            Using rebase:<br>
+                            <ol>
+                                <inline-code>git rebase -i HEAD~3</inline-code><br>
+                                <span class="additional-note">-i is for interactive, ~3 is the number of commits to
+                                    rebase. This will open a text editor with the commits:
+                                    <pre>
+pick 789 Update the version number
+pick 456 Updated docker file to use debian archives
+pick 123 Remove the display of sources.list in docker file
+                                        </pre>
+                                </span><br><br>
+
+                                To remove 456, change pick to drop:<br>
+                                <code>
+                                        <pre>
+pick 789 Update the version number
+<span class="highlight">drop 456</span> Updated docker file to use debian archives
+pick 123 Remove the display of sources.list in docker file
+                                        </pre>
+                                    </code><br><br>
+
+                                Save and close the editor. This will rebase the commits and remove the commit
+                                456.<br><br>
+
+                                <inline-code>git log</inline-code>
+                                <div class="result">
+                                    <pre>
+commit 123 (origin/develop, develop)
+Author: Bob.Smith &lt;bs&#64;somewhere.com&gt;
+Date:   Tue Sep 24 17:02:02 2024 -0700
+
+    Remove the display of sources.list in docker file
+
+commit 789
+Author: Sam.Matt &lt;sm&#64;somewhere.com&gt;
+Date:   Mon Sep 23 19:56:51 2024 -0700
+
+Update the version number
+
+                                    </pre>
+                                </div>
+                            </ol>
+                        </mat-expansion-panel>
+                    </li>
                     <li><mat-expansion-panel>
                             <mat-expansion-panel-header>
                                 <mat-panel-title>Pull Requests</mat-panel-title>
                                 <mat-panel-description>contribute to another developers code
                                     base</mat-panel-description>
                             </mat-expansion-panel-header>
+                            If you do not have write access to the repository, start by forking the repo. This will
+                            create a copy of the repo in your account. You can then clone the repo to your local machine
+                            and make changes. Once you are ready to contribute, you can create a pull request to the
+                            original repo. The owner of the original repo can then review your changes and merge them
+                            into the main branch.
                             <ol>
                                 <li>Find the repo you wish to contribute to</li>
                                 <li>Fork their repo (to make a copy of their repo in your repo)</li>
@@ -93,7 +198,9 @@ Start-Service ssh-agent
                                         class="code">Compare & pull request</span> button to open a new pull request
                                 </li>
                                 <li>If all is well, you're PR is merged and all is done</li>
-                            </ol>
+                            </ol><br><br>
+
+                            If you do have write access, start at step "D."
                         </mat-expansion-panel>
                     </li>
                     <li><mat-expansion-panel>
@@ -196,21 +303,21 @@ publish:
                         </mat-expansion-panel>
                     </li>
                     <li><mat-expansion-panel>
-                        <mat-expansion-panel-header>
-                            <mat-panel-title>Moving Uncommitted Changes to a Branch</mat-panel-title>
-                        </mat-expansion-panel-header>
-                        <ol>
-                            <li>Stash your changes: <inline-code>git stash</inline-code></li>
-                            <li>Checkout the branch: <inline-code>git checkout &lt;branch&gt;</inline-code></li>
-                            <li>Pop the stash: <inline-code>git stash pop</inline-code>.<br>
-                                <span class="additional-note">apply could be used here to but pop will remove the
-                                    stash and apply will keep it, requiring an additional step to remove it: <inline-code>git
-                                        stash drop</inline-code></span>
-                            </li>
-                        </ol>
-                        
-                    </mat-expansion-panel>
-                </li>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Moving Uncommitted Changes to a Branch</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ol>
+                                <li>Stash your changes: <inline-code>git stash</inline-code></li>
+                                <li>Checkout the branch: <inline-code>git checkout &lt;branch&gt;</inline-code></li>
+                                <li>Pop the stash: <inline-code>git stash pop</inline-code>.<br>
+                                    <span class="additional-note">apply could be used here to but pop will remove the
+                                        stash and apply will keep it, requiring an additional step to remove it:
+                                        <inline-code>git
+                                            stash drop</inline-code></span>
+                                </li>
+                            </ol>
+                        </mat-expansion-panel>
+                    </li>
                     <li><mat-expansion-panel>
                             <mat-expansion-panel-header>
                                 <mat-panel-title>Troubleshooting</mat-panel-title>
