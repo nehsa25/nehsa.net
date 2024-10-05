@@ -12,6 +12,22 @@
                     <li>
                         <mat-expansion-panel expanded>
                             <mat-expansion-panel-header>
+                                <mat-panel-title>Tips/Tricks</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ul>
+                                <li>CTRL+Click: Open URL in PowerShell</li>
+                                <li>Copy Microsoft.PowerShell_profile.ps1 into both
+                                    <inline-file>c:\users\&lt;YOU&gt;\Documents\PowerShell</inline-file> and 
+                                    <inline-file>c:\users\&lt;YOU&gt;\Documents\WindowsPowerShell</inline-file>. This
+                                    will ensure your profile is used whether you use the older Windows Powershell or the
+                                    newer .NET Core version.
+                                </li>
+                            </ul>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel expanded>
+                            <mat-expansion-panel-header>
                                 <mat-panel-title>Useful Commands</mat-panel-title>
                             </mat-expansion-panel-header>
                             <ul>
@@ -19,8 +35,12 @@
                                     <inline-code>(Get-EventLog -Newest 5 -LogName LabListener -EntryType Error).Message
                                     </inline-code>
                                 </li>
-                                <li>Create symbolic link: <inline-code>new-item -itemtype symboliclink -path &lt;SYMBOLIC ITEM LOCATION&gt; -target &lt;ACTUAL LOCATION&gt; </inline-code><br>
-                                    <span class="additional-notes">e.g. to create python3.exe which points at python.exe: new-item -itemtype symboliclink -path C:\Python312\python3.exe -target C:\Python312\python.exe </span>
+                                <li>Create symbolic link: <inline-code>new-item -itemtype symboliclink -path
+                                        &lt;SYMBOLIC ITEM LOCATION&gt; -target &lt;ACTUAL LOCATION&gt;
+                                    </inline-code><br>
+                                    <span class="additional-notes">e.g. to create python3.exe which points at
+                                        python.exe: new-item -itemtype symboliclink -path C:\Python312\python3.exe
+                                        -target C:\Python312\python.exe </span>
                                 </li>
                                 <li>Harddrive info:
                                     <inline-code>wmic diskdrive get

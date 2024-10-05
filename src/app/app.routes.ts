@@ -85,6 +85,7 @@ import { WindowsComponent } from './main/windows/windows.component';
 import { MariadbComponent } from './main/mariadb/mariadb.component';
 import { EntityComponent } from './main/entity/entity.component';
 import { LlamaComponent } from './main/llama/llama.component';
+import { LinqComponent } from './main/linq/linq.component';
 
 export const routes: Routes = [
   { path: 'agile', title: 'nehsa.net | Agile', component: AgileComponent },
@@ -360,6 +361,11 @@ export const routes: Routes = [
     path: 'llama',
     title: 'nehsa.net | Llama',
     component: LlamaComponent,
+  },
+  {
+    path: 'linq',
+    title: 'nehsa.net | Linq',
+    component: LinqComponent,
   },
   {
     path: 'windows',

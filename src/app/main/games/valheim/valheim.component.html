@@ -8,7 +8,7 @@
         <div class="commentgrid topics">
             <div><app-related-content></app-related-content></div>
             <div>
-                <div>
+                <div>Play on nehsa.net server: vh.nehsa.net:2456, password: playnehsa<br><br>
                     <ul>
                         <li>
                             <mat-expansion-panel expanded>
@@ -43,18 +43,56 @@ docker run -d \
                                                     </code>
                                                 </li>
                                                 <li>Define A record in DNS for
-                                                    <inline-code>&lt;vh.nehsa.net&gt;</inline-code></li>
+                                                    <inline-code>&lt;vh.nehsa.net&gt;</inline-code>
+                                                </li>
                                                 <li>Open port in local firewall</li>
                                                 <li>Port forwarding: &lt;IP&gt;:2456-2458 (Both TCP/UPD)</li>
                                                 <li>Connect to the server at
-                                                    <inline-code>&lt;vh.nehsa.net&gt;:2456</inline-code></li>
+                                                    <inline-code>&lt;vh.nehsa.net&gt;:2456</inline-code>
+                                                </li>
                                                 <li><span class="important">BE A VIKING!</span></li>
                                             </ul>
                                         </mat-expansion-panel>
                                     </li>
-                                </ul><br><br>
+                                    <li>
+                                        <mat-expansion-panel expanded>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Setup Admins</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <ul>
+                                                <li>Watch from the server as the player you wish to make admin joins
+                                                    your server</li>
+                                                <li>Get the player's Steam64ID. This will just be a number:
+                                                    XXXXXXXXXXXXXXXX</li>
+                                                <li>Add it it the adminlist.txt file in the config directory</li>
+                                                <li>I did not need to restart the server but it certainly wouldn't hurt.
+                                                </li>
+                                                <li>Admin commands are now included in the output when you type
+                                                    <inline-code>/help</inline-code> in the conversation window. Further
+                                                    development commands can be enabled by typing:
+                                                    <inline-code>devcommands</inline-code> in the conversation window.
+                                                    This allows for things like teleporting to players: <inline-code>pos
+                                                        &lt;playername&gt;</inline-code>
+                                                </li>
+                                                <li>Launch client with <inline-code>-console</inline-code> flag</li>
+                                            </ul>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel expanded>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Allow all items through portals</mat-panel-title>
+                                            </mat-expansion-panel-header>In an effort to enforce a sort of progression,
+                                            by default the game does not allow items such as metals to be transported
+                                            through portals. This forces the player to explore the world and find the
+                                            items.<br><br>All well and good the first playthrough..<br><br>
 
-                                Play on nehsa.net server: vh.nehsa.net:2456, password: playnehsa
+                                            If you want to allow all items to be transported through portals, you can do
+                                            this:<br>
+                                            <inline-code>setworldmodifier portals casual</inline-code>
+                                        </mat-expansion-panel>
+                                    </li>
+                                </ul>
                             </mat-expansion-panel>
                         </li>
                     </ul>

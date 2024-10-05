@@ -9,34 +9,55 @@
             <div><app-related-content></app-related-content></div>
             <div>
                 <div>
-                    <dl>
-                        <dt>Why C#?</dt>
-                        <dd>C# continues to evolve but the language is very mature and has good
-                            community
-                            support</dd>
-                        <dt>What is the CLR?</dt>
-                        <dd>CLR is the basic and Virtual Machine component of the .NET
-                            Framework. It
-                            is the run-time environment in the .NET Framework that runs the codes</dd>
-                        <dt>What is managed vs. unmanaged code?</dt>
-                        <dd>Code that executes under the control of
-                            the
-                            runtime
-                            is called managed code. Conversely, code that runs outside the runtime is called
-                            unmanaged
-                            code. COM components, ActiveX interfaces, and Windows API functions are examples
-                            of
-                            unmanaged code.</dd>
-                        <dt>What is idempotency in REST?</dt>
-                        <dd>Idempotency /īdem'pōt(ə)nt/ means that sending
-                            the
-                            same
-                            request multiple
-                            times will produce the same result, without changing the state of the server or
-                            the
-                            resource.</dd>
-                    </dl>
                     <ul>
+                        <li>
+                            <mat-expansion-panel expanded>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Overview and Definitions of Common C#/.NET
+                                        Features</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <dl>
+                                    <dt>Why <acronym-name>c#</acronym-name>?</dt>
+                                    <dd>C# continues to evolve but the language is very mature and has good
+                                        community
+                                        support</dd>
+                                    <dt>What is the <acronym-name>CLR</acronym-name>?</dt>
+                                    <dd>CLR is the basic and Virtual Machine component of the .NET
+                                        Framework. It
+                                        is the run-time environment in the .NET Framework that runs the codes</dd>
+                                    <dt>What is <acronym-name>managed</acronym-name> vs.
+                                        <acronym-name>unmanaged</acronym-name> code?
+                                    </dt>
+                                    <dd>Code that executes under the control of
+                                        the
+                                        runtime
+                                        is called managed code. Conversely, code that runs outside the runtime is called
+                                        unmanaged
+                                        code. COM components, ActiveX interfaces, and Windows API functions are examples
+                                        of
+                                        unmanaged code.</dd>
+                                    <dt>What is <acronym-name>idempotency</acronym-name> in REST?</dt>
+                                    <dd>Idempotency /īdem'pōt(ə)nt/ means that sending
+                                        the
+                                        same
+                                        request multiple
+                                        times will produce the same result, without changing the state of the server or
+                                        the
+                                        resource.</dd>
+                                    <dt><acronym-name>Entity Framework</acronym-name></dt>
+                                    <dd>Entity Framework is an object-relational mapper that enables .NET developers
+                                        to work with relational data using domain-specific objects. It eliminates
+                                        the need for most of the data-access code that developers usually need to
+                                        write: <a routerLink="/entity">Entity Framework</a></dd>
+                                    <dt><acronym-name>Language Integrated
+                                            Query<acronym-abbr>linq</acronym-abbr></acronym-name></dt>
+                                    <dd>linq is a Microsoft .NET Framework component that
+                                        adds native data querying capabilities to .NET languages. It allows you to query
+                                        data from a variety of data sources, including SQL databases, XML, collections,
+                                        and more.</dd>
+                                </dl>
+                            </mat-expansion-panel>
+                        </li>
                         <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
@@ -60,8 +81,15 @@
                                     <li>Use <span class="important">string.Empty</span> instead of <span
                                             class="important">""</span>.</li>
                                     <li>
-                                        Use <span class="important">string.IsNullOrEmpty</span> instead of <span
-                                            class="important">string == null || string == ""</span>.</li>
+                                        Use <span class="important">string.IsNullOrWhiteSpace(&lt;STRING&gt;)</span>
+                                        instead of <span class="important">string.IsNullOrEmpty(&lt;STRING&gt;)</span>
+                                        instead of <span class="important">&lt;STRING&gt; == null || &lt;STRING&gt; ==
+                                            ""</span>: In addition to checking for null values and empty,
+                                        IsNullOrWhiteSpace also checks for strings that only contain whitespace
+                                        characters (like spaces, tabs, newlines).</li>
+                                    <li>Use reverse() instead of OrderByDescending() when sorting a list unless a key
+                                        needs to be specified (i.e. OrderByDescending(x => x.Key)). Reverse() will never
+                                        be slower and could be faster.</li>
                                 </ul>
                             </mat-expansion-panel>
                         </li>
