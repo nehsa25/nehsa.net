@@ -86,6 +86,7 @@ import { MariadbComponent } from './main/mariadb/mariadb.component';
 import { EntityComponent } from './main/entity/entity.component';
 import { LlamaComponent } from './main/llama/llama.component';
 import { LinqComponent } from './main/linq/linq.component';
+import { UseIndeedComponent } from './main/blog/use-indeed/use-indeed.component';
 
 export const routes: Routes = [
   { path: 'agile', title: 'nehsa.net | Agile', component: AgileComponent },
@@ -243,6 +244,11 @@ export const routes: Routes = [
     path: '2024-august-29/ageism',
     title: 'nehsa.net | Game Theory',
     component: WhatComesAroundGoesAroundComponent,
+  },
+  {
+    path: '2024-oct-6/chooseindeed',
+    title: 'nehsa.net | Choose Indeed',
+    component: UseIndeedComponent,
   },
   {
     path: '2024-sept-1/customelements',

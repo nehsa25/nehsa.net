@@ -435,16 +435,32 @@ li {
     padding-left: 25px;
 }
 
-.important {
+important-high,
+.important,
+important-high,
+.important li {
     font-weight: bold;
-    font-size: 2rem;
+    font-size: calc(100% + .5rem);
     line-height: 1.5;
 }
 
-.importantish {
+important-med,
+.importantish,
+important-med,
+.importantish li {
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: calc(100% + .1rem);
     line-height: 1.5;
+    font-weight: 700;
+}
+
+important-normal,
+.important-less  {
+    font-weight: 900;
+}
+
+important-low {
+    font-weight: 700;
 }
 
 .strike,
@@ -807,13 +823,16 @@ dt {
 }
 
 .blog-body,
-.blog-body p {
+.blog-body p,
+.blog-body li {
     font-size: 1.4rem;
     padding: 1rem .5rem;
     border-radius: 5px;
 }
 
-.blog-body p {
+.blog-body p,
+.blog-body li
+{
 
     max-width: 65%;
 }

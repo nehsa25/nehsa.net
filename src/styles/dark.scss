@@ -128,6 +128,18 @@ h6 {
     color: var(--theme-header-color);
 }
 
+.vampire .important,
+.vampire .importantish,
+.vampire .important-less,
+.vampire important-high,
+.vampire important-med,
+.vampire important-normal,
+.vampire important-low
+ {
+    color: yellow;
+    -webkit-text-stroke: .3px orangered;
+}
+
 .vampire .code {
     background-color: var(--theme-dark-code-background) !important;
     color: var(--theme-dark-code-color) !important;

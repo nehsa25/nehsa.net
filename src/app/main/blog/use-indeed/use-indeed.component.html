@@ -1,0 +1,47 @@
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Pick Indeed!</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid topics">
+            <div><app-related-content></app-related-content></div>
+            <div>
+                <div>
+                    <div class="blog-date">October 6th, 2024</div>
+                    <div class="blog-author">Jesse Stone</div>
+                    <div class="blog-body">
+                        <p>I was stagnating at my current employer, which I had been with for seven years, and needed a
+                            fresh start. I signed up for a paid LinkedIn subscription and began exploring the new
+                            opportunities available.</p>
+
+                        <p>A few months later, after discovering an exciting new
+                            opportunity, I reflected on the
+                            experience. What immediately comes to mind: <important-med>LinkedIn sucks.</important-med>
+                        </p>
+
+                        <p>LinkedIn did not produce interviews. The problems with LinkedIn were two-fold:</p>
+
+                        <ol>
+                            <li>It's too big. It's too popular. TOO MANY PEOPLE.</li>
+                            <li>The "EASY" submit feature was too easy. It allows for too many applications, too
+                                quickly. A new job posting might get hundreds of applications within minutes of the
+                                post.
+                            </li>
+                        </ol>
+
+                        <p>None of the "premium" services offers such as the ability to indicate a job is a "Top Choice"
+                            offset these systemic issues.</p>
+
+                        <p>At the same time I paid for a subscription at LinkedIn, I also updated my resume on a free version of Indeed. This generated every fruitful
+                            conversation in the end.</p>
+
+                        <p>Indeed, it is the clear winner in my head. The day I officially accepted my offer from the
+                            new employer, I canceled my paid subscription to LinkedIn and have no plans to return.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

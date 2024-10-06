@@ -53,14 +53,16 @@ a:active {
     color: #222;
 }
 
-.angel .important {
-    color: teal;
-    -webkit-text-stroke: .3px orangered;
-}
-
-.angel .importantish {
-    color: teal;
-    -webkit-text-stroke: .3px orangered;
+.angel .important,
+.angel .importantish,
+.angel .important-less,
+.angel important-high,
+.angel important-med,
+.angel important-normal,
+.angel important-low
+ {
+    color: #007bff;
+    -webkit-text-stroke: .3px white;
 }
 
 // breadcrumbs
