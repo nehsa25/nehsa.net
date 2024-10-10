@@ -299,42 +299,252 @@ def test_user_not_in_support_cannot_do_y():
                             </mat-expansion-panel-header>
                             Solid is a mnumonic acronym for a set of design principles intended to make code
                             cleaner, and more flexible to future enhancements<br>
-                            <dl class="condensed">
-                                <dt>S: Single responsibility principle</dt>
-                                <dd>The idea behind the SRP is that every class, module, or function in a
-                                    program
-                                    should
-                                    have one responsibility/purpose in a program. As a commonly used
-                                    definition,
-                                    "every
-                                    class should have only one reason to change".</dd>
-                                <dt>O: Open-closed principle</dt>
-                                <dd>The open-closed principle states that software entities should be open
-                                    for
-                                    extension, but closed for modification.</dd>
-                                <dt>L: Liskov substitution principle</dt>
-                                <dd>The Liskov substitution principle simply implies that when an instance
-                                    of a
-                                    class is
-                                    passed/extended to another class, the inheriting class should have a use
-                                    case
-                                    for
-                                    all the properties and behavior of the inherited class.</dd>
-                                <dt>I: Interface segregation principle</dt>
-                                <dd>The interface segregation principle states that the interface of a
-                                    program
-                                    should be
-                                    split in a way that the user/client would only have access to the
-                                    necessary
-                                    methods
-                                    related to their needs.</dd>
-                                <dt>D: Dependency inversion principle</dt>
-                                <dd>The dependency inversion principle states: High-level modules should not
-                                    import
-                                    anything from low-level modules. Both should depend on abstractions
-                                    (e.g.,
-                                    interfaces) and abstractions should not depend on details</dd>
-                            </dl>
+                            <ul>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>S</mat-panel-title>
+                                            <mat-panel-description>Single responsibility
+                                                principle</mat-panel-description>
+                                        </mat-expansion-panel-header>The idea behind the SRP is that every class,
+                                        module, or function in a program should have one responsibility/purpose in a
+                                        program. As a commonly used definition, "every class should have only one reason
+                                        to change".
+
+                                        For example, to follow a single responsibility principle, we could break the
+                                        following:
+                                        <code>
+<pre>
+class Pet:
+    def bark(self):
+        return 'Woof!'
+    def meow(self):
+        return 'Meow!'
+    def mow_lawn(self):
+        return 'Mow!'
+</pre>
+                                        </code>
+
+                                        Into:<br>
+                                        <code>
+<pre>
+class Dog:
+    def bark(self):
+        return 'Woof!'
+
+class Cat:
+    def meow(self):
+        return 'Meow!'
+
+class LawnMower:
+    def mow_lawn(self):
+        return 'Mow!'
+</pre>
+                                        </code>
+                                    </mat-expansion-panel>
+                                </li>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>O</mat-panel-title>
+                                            <mat-panel-description>Open/Closed Principle</mat-panel-description>
+                                        </mat-expansion-panel-header>The open-closed principle states that software
+                                        entities should be open for extension, but closed for modification.
+
+                                        An example of this is a method that can be extended to add new functionality:
+                                        <code>
+<pre>
+class Dog(Pet):
+    def perform_trick(self, trick):
+        switch(trick):
+            case: 'sit'
+                return 'Sitting'
+            case: 'roll over'
+                return 'Rolling over'
+</pre>
+                                        </code><br>
+
+                                        A better way to implement this would be to use a strategy pattern where you pass
+                                        a trick object to the Dog class:
+                                        <code>
+<pre>
+    class Dog(Pet):
+        def perform_trick(self, trick):
+            return trick.perform()
+</pre>
+                                        </code>
+
+                                        This allows the "trick" to be implemented in a separate class:
+                                        <code>
+<pre>
+class Sit:
+    def perform(self):
+        return 'Sitting'
+
+class RollOver:
+    def perform(self):
+        return 'Rolling over'
+</pre>
+                                        </code><br><br>
+
+                                        This allows new "tricks" to be added without risk of breaking existing code.
+                                    </mat-expansion-panel>
+                                </li>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>L</mat-panel-title>
+                                            <mat-panel-description>Liskov Substituion Principle</mat-panel-description>
+                                        </mat-expansion-panel-header>The Liskov substitution principle simply implies
+                                        that when an instance of a class is passed/extended to another class, the
+                                        inheriting class should have a use case for all the properties and behavior of
+                                        the inherited class.<br><br>
+
+                                        This just means that if you have a class that inherits from another class, it
+                                        should be able to be used in place of the parent class without any unexpected
+                                        behavior.
+
+                                        For example, this is not good because a Cat does not bark:
+                                        <code>
+<pre>
+class Pet:
+    def bark(self):
+        return 'Sound!'
+
+class Dog(Pet):
+    def bark(self):
+        return 'Woof!'
+
+class Cat(Pet):
+    def bark(self):
+        raise NotImplementedError('Cats do not bark')
+</pre>
+                                        </code><br><br>
+
+                                        Instead, we should have a separate method for the Cat class:
+                                        <code>
+<pre>
+class BarkingPet:
+    def bark(self):
+        return 'Woof or bark'
+    
+class MeowPet:
+    def meow(self):
+        return 'meow / pur'
+
+class Dog(BarkingPet):
+    def bark(self):
+        return 'Woof!'
+
+class Hyena(BarkingPet):
+    def bark(self):
+        return 'Bark HEHE!'
+
+class Cat(MeowPet):
+    def meow(self):
+        return 'Meow!'
+
+class Panther(MeowPet):
+    def meow(self):
+        return 'Pur!'
+    
+if __name__ == "__main__":
+    barkpet = BarkingPet()
+    meowpet = MeowPet()
+    dog = Dog()
+    hyena = Hyena()
+    cat = Cat()
+    panther = Panther()
+
+    print(barkpet.bark())
+    print(meowpet.meow())
+    print(cat.meow())
+    print(dog.bark())
+    print(hyena.bark())
+    print(panther.meow())
+
+</pre>
+                                            </code><br><br>
+
+                                        Produces:<br>
+                                        <div class="result">
+                                            <pre>
+Woof or bark
+meow / pur
+Meow!
+Woof!
+Bark HEHE!
+Pur!
+                                                </pre>
+                                        </div>
+                                    </mat-expansion-panel>
+                                </li>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>I</mat-panel-title>
+                                            <mat-panel-description>Interface Segregation
+                                                Principle</mat-panel-description>
+                                        </mat-expansion-panel-header>The interface segregation principle states that the
+                                        interface of a program should be split in a way that the user/client would only
+                                        have access to the necessary methods related to their needs.<br><br>
+
+                                        In layman terms, this means we shouldn't have a big interface that forces a
+                                        class to implement methods it doesn't need. Instead, we should have smaller,
+                                        more specific interfaces that only contain the methods that are relevant to the
+                                        class.<br><br>
+
+                                        In Python, an interface is not a formal concept but still works:<br><br>
+
+                                        A bad interface:
+                                        <code>
+<pre>
+class Animal:
+    def bark(self):
+        return 'Woof!'
+    def meow(self):
+        return 'Meow!'
+</pre>
+</code><br><br>
+
+                                        The problem is that a class is forced to implement both methods. A better way to
+                                        do this would be to split the interface into two separate interfaces:
+                                        <code>
+<pre>
+class Barking:
+    def bark(self):
+        return 'Woof!'
+class Meowing:
+    def meow(self):
+        return 'Meow!'
+</pre>
+</code>
+                                    </mat-expansion-panel>
+                                </li>
+                                <li>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>D</mat-panel-title>
+                                            <mat-panel-description>Dependency Inversion
+                                                Principle</mat-panel-description>
+                                        </mat-expansion-panel-header>The dependency inversion principle states:
+                                        High-level modules should not import anything from low-level modules. Both
+                                        should depend on abstractions (e.g., interfaces) and abstractions should not
+                                        depend on details.<br><br>
+
+                                        In practice, this means that classes should depend on interfaces rather than on
+                                        concrete implementations. This allows for more flexibility, easier testing, and
+                                        is more "future-proof".<br><br>
+
+                                        A common example of these is with databases, where you might have a class that
+                                        interacts with a database. Instead of directly importing the database class, you
+                                        would create an interface that the database class implements.<br><br>
+
+                                        If done correctly, this could allow you to swap underlying database technolegy
+                                        like MariaDB for MS SQL Server or NoSQL without altering the code.
+                                    </mat-expansion-panel>
+                                </li>
+                            </ul>
                         </mat-expansion-panel>
                     </li>
                     <li>
@@ -343,180 +553,203 @@ def test_user_not_in_support_cannot_do_y():
                                 <mat-panel-title>Design Patterns</mat-panel-title>
                                 <mat-panel-subtitle>Builder is <span class="important">da
                                         bomb!</span></mat-panel-subtitle>
-                            </mat-expansion-panel-header>
+                            </mat-expansion-panel-header>Design patterns are not mutially exclusive and can be used as
+                            the situation dicates. Forcing yourself to a single design pattern can be limiting.<br>
                             <div>
-                                <h2></h2>
-                                <dl>
-                                    <dt>
-                                        <h3>Singleton</h3>
-                                    </dt>
-                                    <dd>- This pattern ensures only a single instance of an object is created. One
-                                        use may
-                                        be to
-                                        pass around configuration settings which we do not want multiple instances
-                                        with
-                                        possible
-                                        conflicting settings.</dd>
-                                </dl>
-                                <div>
-                                    Example
-                                    <code>
-                                        <pre>
-        if (settings == null)
-            settings = new Settings();
-        else
-            return settings;
-                                </pre>
-                                    </code>
-                                </div>
-                            </div>
-                            <div>
-                                <dl>
-                                    <dt>
-                                        <h3>Factory</h3>
-                                    </dt>
-                                    <dd>- Use a method to create an object instead of the new operator. This is nice
-                                        if you
-                                        have
-                                        logic that needs to be performed repeatedly.</dd>
-                                </dl>
-                                <div>
-                                    Example
-                                    <code>
-                                        <pre>
-        class ButtonFactory &#123;
-            createButton(type: string): RaisedButton | FlatButton &#123;
-                if (type == "raised") &#123;
-                    return new RaisedButton();
-                &#125; else &#123;
-                    return new FlatButton();
-                &#125;
-            &#125;
-        &#125;
-    
-        const factory = new ButtonFactory();
-        const btn1 = factory.createButton("flat");
-        const btn2 = factory.createButton("raised");
-                                </pre>
-                                    </code>
-                                </div>
-                            </div>
-                            <div>
-                                <dl>
-                                    <dt>
-                                        <h3>Prototype (aka cloning)</h3>
-                                    </dt>
-                                    <dd>- This pattern is like inheritance but it inherits from object already
-                                        created
-                                        instead
-                                        of from a class</dd>
-                                </dl>
-                                <div>
-                                    Example
-                                    <code>
-                                        <pre>
-    const dog = &#123;
-        sit() &#123;
-            return 'Good dog!';
+                                <ul>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Singleton</mat-panel-title>
+                                                <mat-panel-description>This pattern ensures only a single instance of an
+                                                    object is created. One use may be to pass around configuration
+                                                    settings which we do not want multiple instances with possible
+                                                    conflicting settings.</mat-panel-description>
+                                            </mat-expansion-panel-header>
+                                            Example
+                                            <code>
+                                <pre>
+if (settings == null)
+    settings = new Settings();
+else
+    return settings;
+                        </pre>
+                                            </code>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Factory</mat-panel-title>
+                                                <mat-panel-description>Use a method to create an object instead of the
+                                                    new operator. This is nice
+                                                    if you
+                                                    have
+                                                    logic that needs to be performed repeatedly.</mat-panel-description>
+                                            </mat-expansion-panel-header>
+                                            Example
+                                            <code>
+                                <pre>
+class ButtonFactory &#123;
+    createButton(type: string): RaisedButton | FlatButton &#123;
+        if (type == "raised") &#123;
+            return new RaisedButton();
+        &#125; else &#123;
+            return new FlatButton();
         &#125;
     &#125;
-    
-    const roz = Object.create(dog, &#123;&#125;);
-    const hopper = Object.create(dog, &#123;&#125;);
-    roz.sit();
-    hopper.sit();
-    
-                            </pre>
-                                    </code>
-                                </div>
-                            </div>
-                            <div>
-                                <dl>
-                                    <dt>
-                                        <h3>Facade</h3>
-                                    </dt>
-                                    <dd>- This pattern is about hiding the details from the end user to simply usage
-                                    </dd>
-                                </dl>
-                                <div>
-                                    Example
-                                    <code>
-                                        <pre>
-        // The complex class
-        class RainConditions &#123;
-            constructor() &#123;&#125;
-    
-            addRainQuantity(raindropsInSecs) &#123;
-                this.raindrops = raindropsInSecs;
-            &#125;
-        &#125;
-    
-        // A simplified class
-        class Weather &#123;
-            private rain = new 
-            constructor() &#123;&#125;
-    
-            setRainDrizzle() &#123;
-                rain.addRainQuantity(100);
-            &#125;
-    
-            setRainDownpour() &#123;
-                rain.addRainQuantity(10000);
-            &#125;
-    
-            setRainMonsoon() &#123;
-                rain.addRainQuantity(1000000);
-            &#125;
-        &#125;
-    
-        const weather = new Weather();
-        weather.setRainMonsoon();
-    
-    
-                                </pre>
-                                    </code>
-                                </div>
-                            </div>
-                            <div>
-                                <dl>
-                                    <dt>
-                                        <h3>Builder</h3>
-                                    </dt>
-                                    <dd>- This pattern allows you to build an object in steps but you always get the
-                                        object
-                                        back
-                                    </dd>
-                                </dl>
-                                <div>
-                                    Example
-                                    <code>
-                                        <pre>
-    class WeatherConditions &#123;
-        constructor() &#123;&#125;
-    
-        addRain() &#123;
-            this.rain = true;
-            return this;
-        &#125;
-    
-        addThunder() &#123;
-            this.thunder = true;
-            return this;
-        &#125;
-    
-        addFrightening() &#123;
-            this.frightening = true;
-            return this;
-        &#125;
+&#125;
+
+const factory = new ButtonFactory();
+const btn1 = factory.createButton("flat");
+const btn2 = factory.createButton("raised");
+                        </pre>
+                                            </code>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Prototype (aka cloning)</mat-panel-title>
+                                                <mat-panel-description>This pattern is like inheritance but it inherits
+                                                    from object already
+                                                    created
+                                                    instead
+                                                    of from a class.</mat-panel-description>
+                                            </mat-expansion-panel-header>
+                                            Example
+                                            <code>
+                                    <pre>
+const dog = &#123;
+    sit() &#123;
+        return 'Good dog!';
     &#125;
+&#125;
+
+const roz = Object.create(dog, &#123;&#125;);
+const hopper = Object.create(dog, &#123;&#125;);
+roz.sit();
+hopper.sit();
+
+                        </pre>
+                                            </code>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Facade</mat-panel-title>
+                                                <mat-panel-description>This pattern is about hiding the details from the
+                                                    end user to simply usage.</mat-panel-description>
+                                            </mat-expansion-panel-header>
+                                            Example
+                                            <code>
+                                <pre>
+// The complex class
+class RainConditions &#123;
+    constructor() &#123;&#125;
+
+    addRainQuantity(raindropsInSecs) &#123;
+        this.raindrops = raindropsInSecs;
+    &#125;
+&#125;
+
+// A simplified class
+class Weather &#123;
+    private rain = new 
+    constructor() &#123;&#125;
+
+    setRainDrizzle() &#123;
+        rain.addRainQuantity(100);
+    &#125;
+
+    setRainDownpour() &#123;
+        rain.addRainQuantity(10000);
+    &#125;
+
+    setRainMonsoon() &#123;
+        rain.addRainQuantity(1000000);
+    &#125;
+&#125;
+
+const weather = new Weather();
+weather.setRainMonsoon();
+
+
+                        </pre>
+                                            </code>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Strategy/Policy</mat-panel-title>
+                                                <mat-panel-description>Design a family of
+                                                    algorithms/policies.</mat-panel-description>
+                                            </mat-expansion-panel-header>
+                                            Example:<br>
+                                            <code>
+                                                <pre>
+                                                    class Dog(Pet):
+                                                        def perform_trick(self, trick):
+                                                            return trick.perform()
+                                                </pre>
+                                            </code>
+
+                                            This allows the "trick" to be implemented in a separate class:
+                                            <code>
+                                                <pre>
+                                                    class Sit:
+                                                        def perform(self):
+                                                            return 'Sitting'
     
-    const todaysWeather = new WeatherhConditions('scary thunderstorm day');
-    
-    todaysWeather.addRain().addThunder().addFrightening();
-    
-                            </pre>
-                                    </code>
-                                </div>
+                                                    class RollOver:
+                                                        def perform(self):
+                                                            return 'Rolling over'
+                                                </pre>
+                                            </code>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Builder</mat-panel-title>
+                                                <mat-panel-description>This pattern allows you to build an object in
+                                                    steps but you always get the
+                                                    object
+                                                    back.</mat-panel-description>
+                                            </mat-expansion-panel-header>
+                                            Example
+                                            <code>
+                                    <pre>
+class WeatherConditions &#123;
+    constructor() &#123;&#125;
+
+    addRain() &#123;
+        this.rain = true;
+        return this;
+    &#125;
+
+    addThunder() &#123;
+        this.thunder = true;
+        return this;
+    &#125;
+
+    addFrightening() &#123;
+        this.frightening = true;
+        return this;
+    &#125;
+&#125;
+
+const todaysWeather = new WeatherhConditions('scary thunderstorm day');
+
+todaysWeather.addRain().addThunder().addFrightening();
+
+                        </pre>
+                                </code>
+                                        </mat-expansion-panel>
+                                    </li>
+                                </ul>
                             </div>
                         </mat-expansion-panel>
                     </li>
