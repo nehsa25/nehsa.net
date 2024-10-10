@@ -206,11 +206,20 @@ constructor(private http: HttpClient) &#123;
                                     <mat-panel-title>Services should be singletons</mat-panel-title>
                                 </mat-expansion-panel-header>
                                 Services need to be singletons. If you have a userService, it should
-                                only be in the "providers" in a single spot. Otherwise, you'll have
+                                only be in the "providers" in a single spot (<inline-file>app.config.ts</inline-file>).
+                                Otherwise, you'll have
                                 multiple instances of the same service which can cause issues.
 
                                 <br><br>
-                                An easy way to ensure this is to add the service to the "providers", do not create a new instance in the constructor.
+                                An easy way to ensure this is to add the service to the "providers" of
+                                <inline-file>app.config.ts</inline-file>, then this service can be injected into any
+                                component or service via the constructor and only a single instance will be
+                                created.<br><br>
+
+                                Adding the service to the providers array of a specific component will create a new
+                                instance of the service for that component. This is useful if you need to have a
+                                different instance of the service for a specific component. The instance created at this
+                                module-level will be available to all components in the module.
                             </mat-expansion-panel>
                         </li>
                         <li>
@@ -296,28 +305,129 @@ background-color: var(--theme-splash-backround-color);
                             </mat-expansion-panel>
                         </li>
                         <li>
-                            <mat-expansion-panel>
+                            <mat-expansion-panel expanded>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Passing data between components</mat-panel-title>
                                     <mat-panel-description>
                                     </mat-panel-description>
                                 </mat-expansion-panel-header>
                                 Passing data between components in Angular is easy:
+
+                                Several methods can be used:
                                 <ul class="condensed">
-                                    <li>Create two components:
-                                        <code>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Using a Service and <acronym-name>Dependency
+                                                        Injection<acronym-abbr>DI</acronym-abbr></acronym-name>
+                                                </mat-panel-title>
+                                                <mat-panel-description>
+                                                </mat-panel-description>
+                                            </mat-expansion-panel-header>
+                                            <ol class="condensed">
+                                                <li>
+                                                    <mat-expansion-panel>
+                                                        <mat-expansion-panel-header>
+                                                            <mat-panel-title>Create Components</mat-panel-title>
+                                                        </mat-expansion-panel-header>
+                                                        Using a service:Create two components:
+                                                        <code>
 <pre>
 ng g c component1
 ng g c component2
 </pre>
-                                        </code>
+                                                        </code>
+                                                    </mat-expansion-panel>
+                                                </li>
+                                                <li>
+                                                    <mat-expansion-panel>
+                                                        <mat-expansion-panel-header>
+                                                            <mat-panel-title>Create Service</mat-panel-title>
+                                                        </mat-expansion-panel-header>
+                                                        <ol>
+                                                            <li>Create a service: <inline-code>ng generate service
+                                                                    shared</inline-code></li>
+                                                            <li>Check providedIn Properties in the service file.
+                                                                <dl>
+                                                                    <dt>root</dt>
+                                                                    <dd>Singleton at the root level:
+                                                                        <code>
+                                        <pre>
+&#64;Injectable(&#123;
+    providedIn: 'root',
+&#125;)
+export class ReportService &#123;&#125;
+                                        </pre>
+                                                                        </code>
+                                                                    </dd>
+                                                                    <dt>module (DEPRECATED)</dt>
+                                                                    <dd>Singleton at the module level:
+                                                                        <code>
+                                        <pre>
+&#64;Injectable(&#123;
+    providedIn: ReportModule,
+&#125;)
+export class ReportService &#123;&#125;
+                                        </pre>
+                                                                        </code>
+                                                                    </dd>
+                                                                    <dt>any/missing</dt>
+                                                                    <dd>Singleton at the root level</dd>
+                                                                </dl>
+                                                            </li>
+                                                        </ol>
+                                                    </mat-expansion-panel>
+                                                </li>
+                                                <li>Add to the list of providers in
+                                                    <inline-file>app.config.ts</inline-file>
+                                                </li>
+                                                <li>Add to the constructor of each component:
+                                                    <inline-code>constructor(private
+                                                        sharedService: SharedService)</inline-code><br><span
+                                                        class="additional-note">public if you need to access
+                                                        it within HTML template.</span>
+                                                </li>
+                                            </ol>
+                                        </mat-expansion-panel>
                                     </li>
                                     <li>
-                                        Set a parameter in component1:
-                                        name = "";
-
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Using &#64;Input()/&#64;Output()
+                                                    decorators</mat-panel-title>
+                                                <mat-panel-description>
+                                                </mat-panel-description>
+                                            </mat-expansion-panel-header>
+                                        </mat-expansion-panel>
                                     </li>
-                                </ul>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Using 3rd party libraries such Redux</mat-panel-title>
+                                            </mat-expansion-panel-header>
+
+                                        </mat-expansion-panel>
+                                    </li>
+                                </ul><br><br>
+
+                                Considerations:
+                                <table class="min-table">
+                                    <tr>
+                                        <th>Method</th>
+                                        <th>Pros</th>
+                                        <th>Cons</th>
+                                    </tr>
+                                    <tr>
+                                        <td>&#64;Input()/&#64;Output()</td>
+                                        <td>Simple</td>
+                                        <td>Only works for parent/child components</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Service</td>
+                                        <td>Works for any component</td>
+                                        <td>More complex</td>
+                                    </tr>
+                                </table>
                             </mat-expansion-panel>
                         </li>
                         <li>

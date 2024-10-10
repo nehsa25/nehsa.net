@@ -76,6 +76,24 @@ def dragonSneezingFire(): String = &#123;
                     <li>
                         <mat-expansion-panel>
                             <mat-expansion-panel-header>
+                                <mat-panel-title>Casing Styles</mat-panel-title>
+                                <mat-panel-description>camel, kebab, snake..</mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <dl>
+                                <dt>Camel Case</dt>
+                                <dd>camelCase</dd>
+                                <dt>Pascal Case</dt>
+                                <dd>PascalCase</dd>
+                                <dt>Snake Case</dt>
+                                <dd>snake_case</dd>
+                                <dt>Kebab Case</dt>
+                                <dd>kebab-case</dd>
+                            </dl>
+                        </mat-expansion-panel>
+                    </li>
+                    <li>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
                                 <mat-panel-title>Domain Driven Design</mat-panel-title>
                             </mat-expansion-panel-header>Domain-driven design (DDD) is an approach to software
                             development that focuses on aligning business and technical concepts. The basic idea is that
@@ -221,12 +239,12 @@ def test_order_creation(self):
 &#64;pytest.mark.automated_not_implemented
 ## Confirms the ... is ... when ...
 def test_usera_must_do_x():
-pass <span class="comment"><mat-icon>arrow_back</mat-icon> Pass is simply a Python NOOP keyword that allows the code to compile. It's not causing the test to "pass."</span>
+    pass <span class="comment"><mat-icon>arrow_back</mat-icon> Pass is simply a Python NOOP keyword that allows the code to compile. It's not causing the test to "pass."</span>
 
 &#64;pytest.mark.automated_not_implemented
 ## Confirms the ... is ... when ...
 def test_user_not_in_support_cannot_do_y():
-pass
+    pass
 </pre>
                                             </code>
                                         </li>

@@ -39,33 +39,7 @@
             <li>
               <mat-expansion-panel>
                 <mat-expansion-panel-header>
-                  <mat-panel-title>Run Debug Server</mat-panel-title> </mat-expansion-panel-header><inline-code>npm run
-                  dev</inline-code>
-              </mat-expansion-panel>
-            </li>
-            <li>
-              <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                  <mat-panel-title>Integrate w/Code</mat-panel-title>
-                </mat-expansion-panel-header>
-                <ol>
-                  <li>Install Vue extension from VS Code Marketplace</li>
-                  <li>Open Command Palette (CTRL+SHIFT+P)</li>
-                  <li>Type Debug: Add Configuration</li>
-                  <li>Choose with Web Apps (Chrome)</li>
-                  <li>
-                    Ensure port matches port shows when running
-                    <inline-code>npm run dev</inline-code>
-                  </li>
-                  <li>Repeat for Edge</li>
-                  <li>F5 to debug</li>
-                </ol>
-              </mat-expansion-panel>
-            </li>
-            <li>
-              <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                  <mat-panel-title>File Structure</mat-panel-title>
+                  <mat-panel-title>Vue Application File Hierarchy</mat-panel-title>
                 </mat-expansion-panel-header>
                 <ul>
                   <li>
@@ -109,126 +83,499 @@
             <li>
               <mat-expansion-panel>
                 <mat-expansion-panel-header>
-                  <mat-panel-title>Create New Component</mat-panel-title>
+                  <mat-panel-title>Structure of a Vue File</mat-panel-title>
                 </mat-expansion-panel-header>
-                <inline-code>vue create &lt;COMPONENT&gt;</inline-code>
+                <ul>
+                  <li>
+                    <mat-expansion-panel expanded>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>HTML / TEMPLATE</mat-panel-title>
+                      </mat-expansion-panel-header>The template is where the HTML goes for this page:<br>
+                      <code>
+                        <pre>
+&lt;template&gt;
+  <span class="comment">HTML CONTENT</span>
+&lt;/template&gt;
+                        </pre>
+                      </code><br><br>
 
-                vue create my-project: Creates a new Vue project with
-                interactive prompts. vue serve: Starts the development server
-                for your Vue project. vue build: Builds your Vue project for
-                production. Component Generation vue generate component
-                MyComponent: Generates a new Vue component named MyComponent.
-                vue generate view MyView: Generates a new Vue view (similar to a
-                component). Routing and State Management vue generate router:
-                Generates a Vue Router configuration. vue generate store:
-                Generates a Vuex store configuration. Testing vue generate test:
-                Generates unit tests for your Vue project. vue generate e2e:
-                Generates end-to-end tests for your Vue project.
+                      Similar to Angular's ngFor/ngIf type options, Vue has v-for and v-if for providing dynamic data to
+                      the template.<br>
+                      <table class="min-table">
+                        <tr>
+                          <th>Operation</th>
+                          <th>Purpose</th>
+                          <th>Example</th>
+                          <th>Angular Equivalent</th>
+                        </tr>
+                        <tr>
+                          <td>Text Interpolation</td>
+                          <td>Display variable</td>
+                          <td>&#123; &#123; someVariable &#125; &#125; <span class="additional-note">Curly braces should
+                              not
+                              have space between them, this is only to allow Angular to build.</span></td>
+                          <td>Same</td>
+                        </tr>
+                        <tr>
+                          <td>v-for</td>
+                          <td>Loop through an array</td>
+                          <td>
+                            <code>
+                              <pre>
+      &lt;li v-for="item in items" :key="item.id"&gt;
+        &#123; &#123; item.text &#125; &#125;
+      &lt;/li&gt;
+                              </pre>
+                            </code>
+                          </td>
+                          <td>ngFor</td>
+                        </tr>
+                        <tr>
+                          <td>v-if</td>
+                          <td>Conditional rendering</td>
+                          <td>
+                            <code>
+      <pre>
+      &lt;div v-if="isTrue"&gt;This is true&lt;/div&gt;
+      &lt;div v-else&gt;This is false&lt;/div&gt;
+      </pre>
+                              </code>
+                          </td>
+                          <td>ngIf</td>
+                        </tr>
+                        <tr>
+                          <td>v-model</td>
+                          <td>Two-way data binding. i.e. input field updates variable and variable updates input field
+                          </td>
+                          <td>
+                            <code>
+      <pre>
+      &lt;input v-model="message" placeholder="Enter a message"&gt;
+      &lt;p&gt;The message is: &#123; &#123; message &#125; &#125;&lt;/p&gt;
+      </pre>
+                              </code>
+                          </td>
+                          <td>[(ngModel)]</td>
+                        </tr>
+                        <tr>
+                          <td>v-on</td>
+                          <td>Event handling. i.e. click, hover, etc.<br><br>
+                            <div class="importantish">Shorthand for this using the &#64; symbol:<br><br>
+                              <inline-code>&lt;a v-on:click="go"&gt;...&lt;/a&gt;</inline-code> === <inline-code>&lt;a
+                                &#64;click="go"&gt;...&lt;/a&gt;</inline-code>
+                            </div>
+                          </td>
+                          <td>
+                            <code>
+      <pre>
+      &lt;button v-on:click="doSomething"&gt;Click me&lt;/button&gt;
+      </pre>
+                              </code>
+                          </td>
+                          <td>(click)="doSomething"</td>
+                        </tr>
+                        <tr>
+                          <td>v-bind</td>
+                          <td>Bind an attribute to a variable. This is better than using src= only because it allows for
+                            dynamic values. ImageSrc could be a variable that changes based on user input.</td>
+                          <td>
+                            <code>
+      <pre>
+      &lt;img v-bind:src="imageSrc"&gt;
+      </pre>
+                              </code>
+                          </td>
+                          <td>[src]</td>
+                        </tr>
+                        <tr>
+                          <td>v-html</td>
+                          <td>Render content as HTML.</td>
+                          <td>
+                            <code>
+      <pre>
+      &lt;div v-html="htmlContent"&gt;&lt;/div&gt;
+      </pre>
+                              </code>
+                          </td>
+                          <td>Use innerHTML</td>
+                        </tr>
+                      </table>
+                    </mat-expansion-panel>
+                  </li>
+                  <li>
+                    <mat-expansion-panel expanded>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>SCRIPT</mat-panel-title>
+                      </mat-expansion-panel-header>Under the template area is the script area. This is where you define
+                      the scripting logic for the page. <br><br>
+
+                      <code>
+                        <pre>
+&lt;script&gt;
+  export default
+    name: '',
+    components: &#123;&#125;, <span class="comment">All other components used in this component</span>
+    props: [], <span class="comment">Properties/data passed to this component from parent</span>
+    data: function () &#123;&#125;, <span class="comment">Variables used in this component</span>
+    computed: &#123;&#125;, <span class="comment">Computed properties</span>
+    watch: &#123;&#125;, <span class="comment">Properties to watch for changes</span>
+    methods: &#123;&#125;, <span class="comment">Methods used in this component</span>
+    mounted: function () &#123;&#125;, <span class="comment">Code to run when component first 
+      rendered on the page. This is akin to Angular's ngOnInit</span>
+  &#125;
+&lt;/script&gt;
+                        </pre>
+                      </code>
+                    </mat-expansion-panel>
+                  </li>
+                  <li>
+                    <mat-expansion-panel expanded>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>STYLE</mat-panel-title>
+                      </mat-expansion-panel-header>Specific styling for this component is done here:<br>
+                      <code>
+                        <pre>
+&lt;style lang="scss"&gt;
+  <span class="comment">CSS/SCSS CONTENT</span>
+&lt;/style&gt;
+                        </pre>
+                      </code>
+
+                    </mat-expansion-panel>
+                  </li>
+                </ul>
               </mat-expansion-panel>
             </li>
             <li>
               <mat-expansion-panel>
                 <mat-expansion-panel-header>
-                  <mat-panel-title>Template Syntax</mat-panel-title>
-                </mat-expansion-panel-header>Similar to Angular's ngFor/ngIf type options, Vue has v-for and v-if. <br>
+                  <mat-panel-title>Integrate w/Code</mat-panel-title>
+                </mat-expansion-panel-header>
 
-                <table class="min-table">
-                  <tr>
-                    <th>Operation</th>
-                    <th>Purpose</th>
-                    <th>Example</th>
-                    <th>Angular Equivalent</th>
-                  </tr>
-                  <tr>
-                    <td>Text Interpolation</td>
-                    <td>Display variable</td>
-                    <td>&#123; &#123; someVariable &#125; &#125; <span class="additional-note">Curly braces should not
-                        have space between them, this is only to allow Angular to build.</span></td>
-                    <td>Same</td>
-                  </tr>
-                  <tr>
-                    <td>v-for</td>
-                    <td>Loop through an array</td>
-                    <td>
-                      <code>
+                <ul>
+                  <li>
+                    <mat-expansion-panel>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>Install Vue Extension</mat-panel-title>
+                      </mat-expansion-panel-header>
+                      <ol>
+                        <li>Install Vue extension from VS Code Marketplace</li>
+                      </ol>
+                    </mat-expansion-panel>
+                  </li>
+                  <li>
+                    <mat-expansion-panel>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>Setup launch.json</mat-panel-title>
+                      </mat-expansion-panel-header>
+                      <ul>
+                        <li>Open Command Palette (CTRL+SHIFT+P)</li>
+                        <li>Type Debug: Add Configuration</li>
+                        <li>Choose with Web Apps (Chrome)</li>
+                        <li>
+                          Ensure port matches port shows when running
+                          <inline-code>npm run dev</inline-code>
+                        </li>
+                        <li>Repeat for Edge and Firefox</li><br><br>
+
+                        Example:<br>
+                        <code>
                         <pre>
-&lt;li v-for="item in items" :key="item.id"&gt;
-  &#123; &#123; item.text &#125; &#125;
-&lt;/li&gt;
+&#123;
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+      &#123;
+        "type": "chrome",
+        "request": "launch",
+        "name": "vuejs: chrome",
+        "url": "http://localhost:8080",
+        "webRoot": "$&#123;workspaceFolder&#125;/src",
+        "breakOnLoad": true,
+        "sourceMapPathOverrides": &#123;
+          "webpack:///src/*": "$&#123;webRoot&#125;/*"
+        &#125;
+      &#125;,
+      &#123;
+          "type": "firefox",
+          "request": "launch",
+          "name": "vuejs: firefox",
+          "url": "http://localhost:8080",
+          "webRoot": "$&#123;workspaceFolder&#125;/src",
+          "pathMappings": [&#123; "url": "webpack:///src/", "path": "$&#123;webRoot&#125;/" &#125;]
+        &#125;
+  ]
+&#125;
                         </pre>
                       </code>
-                    </td>
-                    <td>ngFor</td>
-                  </tr>
-                  <tr>
-                    <td>v-if</td>
-                    <td>Conditional rendering</td>
-                    <td>
+                      </ul>
+                    </mat-expansion-panel>
+                  </li>
+                  <li>
+                    <mat-expansion-panel>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>Start Debug Session</mat-panel-title>
+                      </mat-expansion-panel-header>
+                      <ul>
+                        <li><inline-code>npm run serve</inline-code></li>
+                        <li>Press F5 in VSCode</li>
+                      </ul>
+                    </mat-expansion-panel>
+                  </li>
+                </ul>
+                <span class="additional-note">If debugging still does not work, delete the "name" properties within
+                  package.json and package.lock.json.</span>
+              </mat-expansion-panel>
+            </li>
+            <li>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Create New Component</mat-panel-title>
+                </mat-expansion-panel-header>
+                <inline-code>vue create &lt;COMPONENT&gt;</inline-code>
+                <ul>
+                  <li>vue create my-project: Creates a new Vue project with
+                    interactive prompts.</li>
+                </ul>
+              </mat-expansion-panel>
+            </li>
+            <li>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Passing Data Between Components</mat-panel-title>
+                </mat-expansion-panel-header>
+                <ul>
+                  <li>
+                    <mat-expansion-panel>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>Props: Parent to Child</mat-panel-title>
+                      </mat-expansion-panel-header>
+                      Parent:<br>
                       <code>
-<pre>
-&lt;div v-if="isTrue"&gt;This is true&lt;/div&gt;
-&lt;div v-else&gt;This is false&lt;/div&gt;
-</pre>
-                        </code>
-                    </td>
-                    <td>ngIf</td>
-                  </tr>
-                  <tr>
-                    <td>v-model</td>
-                    <td>Two-way data binding. i.e. input field updates variable and variable updates input field</td>
-                    <td>
+                        <pre>
+&lt;template&gt;
+  &lt;child-component :message="dataVar"&gt;&lt;/child-component&gt; <span class="comment">:message is the prop, dataVar is the variable being passed.</span>
+&lt;/template&gt;
+
+&lt;script&gt;
+  export default
+    data: function () &#123; <span class="comment">Data to pass to child component. The data: function () is a function that returns an object.</span>
+      return &#123;
+        dataVar: 'Hello World' <span class="comment">Where the contents of dataVar are being set</span>
+      &#125;
+    &#125;
+&lt;/script&gt;
+                      </pre>
+                      </code><br><br>
+
+                      Child:<br>
                       <code>
-<pre>
-&lt;input v-model="message" placeholder="Enter a message"&gt;
-&lt;p&gt;The message is: &#123; &#123; message &#125; &#125;&lt;/p&gt;
-</pre>
-                        </code>
-                    </td>
-                    <td>[(ngModel)]</td>
-                  </tr>
-                  <tr>
-                    <td>v-on</td>
-                    <td>Event handling. i.e. click, hover, etc.<br><br>
-                      <div class="importantish">Shorthand for this using the &#64; symbol:<br><br>
-                        <inline-code>&lt;a v-on:click="go"&gt;...&lt;/a&gt;</inline-code> === <inline-code>&lt;a
-                          &#64;click="go"&gt;...&lt;/a&gt;</inline-code>
-                      </div>
-                    </td>
-                    <td>
+                        <pre>  
+&lt;template&gt;
+  &lt;div&gt;&#123; &#123; data-var &#125; &#125;&lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  export default
+  <span class="comment">Where we specify what is coming from the parent. Use kebab-case here for props. dataVar becomes data-var.</span>
+    props: &#123;
+      data-var: String 
+    &#125;
+&lt;/script&gt;
+                      </pre>
+                      </code>
+                    </mat-expansion-panel>
+                  </li>
+                  <li>
+                    <mat-expansion-panel>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>Emit (Events): Child to Parent</mat-panel-title>
+                      </mat-expansion-panel-header>Data can be passed back from a child to the parent using the emit
+                      function:<br>
+
+                      Child: <inline-code>this.$emit('data', 'Hello World');</inline-code><br><br>
+
+                      Parent:<br>
                       <code>
-<pre>
-&lt;button v-on:click="doSomething"&gt;Click me&lt;/button&gt;
-</pre>
-                        </code>
-                    </td>
-                    <td>(click)="doSomething"</td>
-                  </tr>
-                  <tr>
-                    <td>v-bind</td>
-                    <td>Bind an attribute to a variable. This is better than using src= only because it allows for
-                      dynamic values. ImageSrc could be a variable that changes based on user input.</td>
-                    <td>
+                        <pre>
+&lt;template&gt;
+  &lt;child-component &#64;data="getData"&gt;&lt;/child-component&gt;
+  &lt;div&gt;&#123; &#123; dataVar &#125; &#125;&lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  export default
+    data: function () &#123;
+      return &#123;
+        dataVar: ''
+      &#125;
+    &#125;,
+    methods: &#123;
+      getData: function (data) &#123;
+        this.dataVar = data;
+      &#125;
+    &#125;
+&lt;/script&gt;
+                      </pre>
+                      </code>
+                    </mat-expansion-panel>
+                  </li>
+                  <li>
+                    <mat-expansion-panel>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>Event Bus: Sibling to Sibling</mat-panel-title>
+                      </mat-expansion-panel-header>
+                      <ul>
+                        <li>Event bus is a Vue instance that allows components to communicate with each other.</li>
+                        <li>It is a global instance that can be imported into any component.</li>
+                        <li>It is not recommended for large applications as it can become difficult to manage.</li>
+                      </ul><br><br>
+
+                      Event Bus, setup as a separate component:<br>
                       <code>
-<pre>
-&lt;img v-bind:src="imageSrc"&gt;
-</pre>
-                        </code>
-                    </td>
-                    <td>[src]</td>
-                  </tr>
-                  <tr>
-                    <td>v-html</td>
-                    <td>Render content as HTML.</td>
-                    <td>
+                        <pre>
+&lt;script&gt;
+  export const eventBus = new Vue();
+&lt;/script&gt;
+                      </pre>
+                      </code>
+
                       <code>
-<pre>
-&lt;div v-html="htmlContent"&gt;&lt;/div&gt;
-</pre>
-                        </code>
-                    </td>
-                    <td>Use innerHTML</td>
-                  </tr>
-                </table>
+                        <pre>
+&lt;template&gt;
+  &lt;button &#64;click="emitEvent"&gt;Click me&lt;/button&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  import &#123; eventBus &#125; from './event-bus.js';
+  export default  
+    methods: &#123;
+      emitEvent: function () &#123;
+        eventBus.$emit('event', 'Hello World');
+      &#125;
+    &#125;
+&lt;/script&gt;
+                      </pre>
+                      </code>
+
+                      <code>
+                        <pre>
+&lt;template&gt;
+  &lt;div&gt;&#123; &#123; dataVar &#125; &#125;&lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  import &#123; eventBus &#125; from './event-bus.js';
+  export default
+    data: function () &#123;
+      return &#123;                          
+        dataVar: ''
+      &#125;
+    &#125;,
+    mounted: function () &#123;
+      eventBus.$on('event', (data) => &#123;
+        this.dataVar = data;
+      &#125;);
+    &#125;
+&lt;/script&gt;
+                      </pre>
+                      </code>
+                    </mat-expansion-panel>
+                  </li>
+                  <li>
+                    <mat-expansion-panel>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>Vuex: Global State Management</mat-panel-title>
+                      </mat-expansion-panel-header>The same thing can be accomplished with Vuex, which is a global state
+                      management library for Vue.<br><br>
+
+                      Store the data:<br>
+                      <code>
+                        <pre>
+&lt;template&gt;
+  &lt;div&gt;&#123; &#123; $store.state.dataVar &#125; &#125;&lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  export default
+    data: function () &#123;
+      return &#123;
+        dataVar: ''
+      &#125;
+    &#125;,
+    mounted: function () &#123;
+      this.$store.commit('setData', 'Hello World');
+    &#125;
+&lt;/script&gt;
+                      </pre>
+                      </code>
+
+                      Change the data:<br>
+                      <code>
+                        <pre>
+&lt;script&gt;
+  export default
+    state: &#123;
+      dataVar: ''
+    &#125;,
+    mutations: &#123;
+      setData: function (state, data) &#123;
+        state.dataVar = data;
+      &#125;
+    &#125;
+&lt;/script&gt;
+                      </pre>
+                      </code>
+
+                      Retrieve the data in a different component:<br>
+                      <code>
+                        <pre>
+&lt;template&gt;
+  &lt;div&gt;&#123; &#123; $store.state.dataVar &#125; &#125;&lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  export default
+    data: function () &#123;
+      return &#123;
+        dataVar: ''
+      &#125;
+    &#125;,
+    mounted: function () &#123; 
+      this.dataVar = this.$store.state.dataVar;
+    &#125;
+&lt;/script&gt;
+                      </pre>
+                      </code>
+                    </mat-expansion-panel>
+                  </li>
+                </ul>
+              </mat-expansion-panel>
+            </li>
+            <li>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Testing</mat-panel-title>
+                </mat-expansion-panel-header>
+                <ul>
+                  <li><inline-code>vue generate test</inline-code>:
+                    Generates unit tests for your Vue project.</li>
+                  <li><inline-code>vue generate e2e</inline-code>:
+                    Generates end-to-end tests for your Vue project.</li>
+                </ul>
+              </mat-expansion-panel>
+            </li>
+            <li>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Troubleshooting</mat-panel-title>
+                </mat-expansion-panel-header>
+                <ul>
+                  <li>&lt;PACKAGE&gt; missing for Vue 2: e.g. &#64;vue/runtime-dom would be <inline-code>npm install
+                      &#64;vue/runtime-dom</inline-code></li>
+                </ul>
               </mat-expansion-panel>
             </li>
           </ul>

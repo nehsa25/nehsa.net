@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatCommonModule } from '@angular/material/core';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -11,6 +11,7 @@ import { RelatedContentComponent } from '../../shared-components/related-content
   selector: 'app-javascript-frameworks',
   standalone: true,
   imports: [MatCardModule, MatExpansionModule, MatCommonModule, CommentComponent, RouterLink, RelatedContentComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './javascript-frameworks.component.html',
   styleUrl: './javascript-frameworks.component.scss'
 })

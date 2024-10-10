@@ -202,8 +202,8 @@ Update the version number
 
                             If you do have write access, start at step "D."<br><br>
                             <span class="importantish">To prevent clutter, delete the branch after the PR is
-                                merged.</span> Re-opening a branch is simply: 
-                                <inline-code>git checkout -b &lt;branch&gt;</inline-code>
+                                merged.</span> Re-opening a branch is simply:
+                            <inline-code>git checkout -b &lt;branch&gt;</inline-code>
                         </mat-expansion-panel>
                     </li>
                     <li><mat-expansion-panel>
@@ -308,12 +308,13 @@ publish:
                     <li><mat-expansion-panel>
                             <mat-expansion-panel-header>
                                 <mat-panel-title>Moving Uncommitted Changes to a Branch</mat-panel-title>
+                                <mat-panel-description>git stash (apply|pop)</mat-panel-description>
                             </mat-expansion-panel-header>
                             <ol>
                                 <li>Stash your changes: <inline-code>git stash</inline-code></li>
                                 <li>Checkout the branch: <inline-code>git checkout &lt;branch&gt;</inline-code></li>
                                 <li>Pop the stash: <inline-code>git stash pop</inline-code>.<br>
-                                    <span class="additional-note">apply could be used here to but pop will remove the
+                                    <span class="additional-note"><inline-code>git stash apply</inline-code> could be used here to but pop will remove the
                                         stash and apply will keep it, requiring an additional step to remove it:
                                         <inline-code>git
                                             stash drop</inline-code></span>
@@ -322,14 +323,14 @@ publish:
                         </mat-expansion-panel>
                     </li>
                     <li><mat-expansion-panel>
-                        <mat-expansion-panel-header>
-                            <mat-panel-title>Github Desktop</mat-panel-title>
-                        </mat-expansion-panel-header>
-                        <ol>
-                            <li>launch from current directory: <inline-code>github .</inline-code></li>
-                        </ol>
-                    </mat-expansion-panel>
-                </li>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Github Desktop</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ol>
+                                <li>launch from current directory: <inline-code>github .</inline-code></li>
+                            </ol>
+                        </mat-expansion-panel>
+                    </li>
                     <li><mat-expansion-panel>
                             <mat-expansion-panel-header>
                                 <mat-panel-title>Troubleshooting</mat-panel-title>
