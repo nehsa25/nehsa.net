@@ -17,6 +17,6 @@ import { RelatedContentComponent } from '../../shared-components/related-content
 })
 export class VueComponent {
   constructor(public userService: UserService) {
-    userService.page = 'vue';
+    this.userService.page = 'vue';
   }
 }

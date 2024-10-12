@@ -1,0 +1,169 @@
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Vue.use(Vuex)</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid topics">
+            <div><app-related-content></app-related-content></div>
+            <div>
+                <div>
+                    <ul>
+                        <li>
+                            <mat-expansion-panel expanded>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Overview</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                Vuex is a state management library similar to <a routerLink="/redux">Redux</a>.<br><br>
+
+                                <code>
+                                    <pre>
+const store = new Vuex.Store(&#123;
+    state: &#123; &#125;, <span class="comment">The "source of truth" state of the application.</span>
+    mutations: &#123; &#125;,
+    actions: &#123; &#125;,
+    getters: &#123; &#125;, <span class="comment">Getters define functions that return a value based on the state.</span>
+    plugins: [createMutationsSharer(&#123; predicate: [TOKEN_REFRESHED, SESSION_REFRESHED, SETSESSION] &#125;)] 
+&#125;);
+                                    </pre>
+                                </code>
+
+                                <table>
+                                    <tr>
+                                        <th>Category</th>
+                                        <th>Purpose</th>
+                                        <th>Example</th>
+                                    </tr>
+                                    <tr>
+                                        <td>state</td>
+                                        <td>The "source of truth" state of the application.</td>
+                                        <td>
+                                            <code>
+                                                <pre>
+state: &#123; 
+    livingThings : [
+        &#123; id: 1, name: 'dog', type: 'canidae', meat-eater: true &#125;,
+        &#123; id: 2, name: 'wolf', type: 'canidae', meat-eater: true  &#125;,
+        &#123; id: 3, name: 'fox', type: 'canidae', meat-eater: true  &#125;,
+        &#123; id: 4, name: 'cat', type: 'feline', meat-eater: true  &#125;,
+        &#123; id: 5, name: 'lion', type: 'feline', meat-eater: true  &#125;,
+        &#123; id: 6, name: 'tiger', type: 'feline', meat-eater: true  &#125;,
+        &#123; id: 7, name: 'Fern', type: 'homo-sapien', meat-eater: false  &#125;,
+    ]
+&#125;
+                                                </pre>
+                                            </code>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>getters</td>
+                                        <td>Getters define functions that return a value based on the state.</td>
+                                        <td><code>
+                                            <pre>
+getters: &#123;
+    getCats: (state) => &#123;
+        return state.livingThings.filter(_ => _.type == 'feline').map(_ => _.name);
+    &#125;
+&#125;
+                                            </pre>
+                                        </code><br><br>
+
+                                            Which can be accessed via:
+                                            <inline-code>this.$store.getters.getCats</inline-code>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>mutations</td>
+                                        <td>Functions that change the state.</td>
+                                        <td>
+                                            <code>
+                                                <pre>
+
+                                                </pre>
+                                            </code>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel expanded>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Creating a New Store</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>Create <inline-file>store.js</inline-file><br><br>
+                                        <code>
+<pre>
+import Vue from 'vue';
+import vuex from 'vuex';
+
+Vue.use(vuex);
+
+const store = new vuex.Store(&#123;
+    state: &#123;
+        livingThings: [
+            &#123; id: 1, name: 'dog', type: 'canidae', meatEater: true &#125;,
+            &#123; id: 2, name: 'wolf', type: 'canidae', meatEater: true &#125;,
+            &#123; id: 3, name: 'fox', type: 'canidae', meatEater: true &#125;,
+            &#123; id: 4, name: 'cat', type: 'feline', meatEater: true &#125;,
+            &#123; id: 5, name: 'lion', type: 'feline', meatEater: true &#125;,
+            &#123; id: 6, name: 'tiger', type: 'feline', meatEater: true &#125;,
+        ],
+    &#125;,
+    getters: &#123;
+        getCats: (state) => &#123;
+            return state.livingThings.filter(_ => _.type == 'feline').map(_ => _.name);
+        &#125;
+    &#125;
+&#125;);
+
+export default store;                                                    
+</pre>
+                                        </code>
+                                    </li>
+                                    <li>Add it to main.js:<br><br>
+                                        <code>
+                                            <pre>
+                                                new Vue(&#123;
+                                                    <span class="comment">store: store,</span>
+                                                    render: h => h(App),
+                                                  &#125;).$mount('#app');
+                                                  
+                                            </pre>
+                                        </code>
+                                    </li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel expanded>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Vuex Stores</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Getting data (Getters)</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Setting data (Mutations)</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                        </mat-expansion-panel>
+                                    </li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                    </ul>
+                </div>
+                <div><app-comment></app-comment></div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

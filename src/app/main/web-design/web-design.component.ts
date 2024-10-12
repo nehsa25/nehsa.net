@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommentComponent } from '../../shared-components/comment/comment.component';
 import { MatCardImage, MatCardModule } from '@angular/material/card';
 import { MatExpansionModule, MatExpansionPanel } from '@angular/material/expansion';
@@ -12,6 +12,7 @@ import { RelatedContentComponent } from '../../shared-components/related-content
   selector: 'app-web-design',
   standalone: true,
   imports: [MatCardModule, CommentComponent, MatExpansionModule, MatCardImage, MatIcon, MatButton, RouterLink, RelatedContentComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './web-design.component.html',
   styleUrl: './web-design.component.scss'
 })

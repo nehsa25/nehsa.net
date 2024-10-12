@@ -87,6 +87,7 @@ import { EntityComponent } from './main/entity/entity.component';
 import { LlamaComponent } from './main/llama/llama.component';
 import { LinqComponent } from './main/linq/linq.component';
 import { UseIndeedComponent } from './main/blog/use-indeed/use-indeed.component';
+import { VuexComponent } from './main/vue/vuex/vuex.component';
 
 export const routes: Routes = [
   { path: 'agile', title: 'nehsa.net | Agile', component: AgileComponent },
@@ -219,6 +220,7 @@ export const routes: Routes = [
   { path: 'java', title: 'nehsa.net | Java', component: JavaComponent },
   { path: 'github', title: 'nehsa.net | Github', component: GithubComponent },
   { path: 'vue', title: 'nehsa.net | Vue.js', component: VueComponent },
+  { path: 'vue/vuex', title: 'nehsa.net | Vuex', component: VuexComponent },
   {
     path: 'webdev-frameworks',
     title: 'nehsa.net | Web Development Frameworks',

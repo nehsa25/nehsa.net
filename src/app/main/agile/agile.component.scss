@@ -1,0 +1,41 @@
+ 
+  td {
+    height: 100px;
+    width: 100px;
+  }
+  .line-downtrend {
+    background-color: palevioletred;
+    transform: rotate(-45deg);
+    width: 25px;
+    height: 100px;
+    position: relative;
+    float: left;
+  }
+
+  .line-uptrend {
+    background-color: orangered;
+    transform: rotate(45deg);
+    width: 25px;
+    height: 100px;
+    position: relative;
+    float: left;
+  }
+
+  .line-upbacktrend {
+    background-color: plum;
+    transform: rotate(-45deg);
+    width: 25px;
+    height: 100px;
+    position: relative;
+    float: left;
+  }
+
+
+
+  .line-across {
+    background-color: skyblue;
+    width: 100px;
+    height: 25px;
+    position: relative;
+    float: left;
+  }

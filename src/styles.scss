@@ -714,10 +714,11 @@ dt {
 .quote {
     display: flex;
     flex-direction: column;
-    font-style: italic;
     margin: 1rem 0;
     padding: 0.5rem 1rem 0 1rem;
-    border-left: 3px solid #ccc;
+    font-family: "Englebert", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
 
 // who said it
