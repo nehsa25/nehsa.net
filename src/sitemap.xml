@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
-<url><loc>https://www.nehsa.net/</loc><lastmod>2024-10-12</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.nehsa.net/</loc><lastmod>2024-10-13</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
 <url><loc>https://www.nehsa.net/agile/</loc><lastmod>2024-10-12</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/ai/</loc><lastmod>2024-09-17</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/aiimage/</loc><lastmod>2024-09-15</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/angular/</loc><lastmod>2024-10-10</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/asyncio/</loc><lastmod>2024-09-15</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
-<url><loc>https://www.nehsa.net/aws/</loc><lastmod>2024-09-26</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
+<url><loc>https://www.nehsa.net/aws/</loc><lastmod>2024-10-14</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/azure/</loc><lastmod>2024-09-15</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/about/</loc><lastmod>2024-09-15</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/blog/</loc><lastmod>2024-10-06</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
@@ -23,7 +23,7 @@
 <url><loc>https://www.nehsa.net/design/</loc><lastmod>2024-10-10</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/discord/</loc><lastmod>2024-10-07</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/dns/</loc><lastmod>2024-09-22</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
-<url><loc>https://www.nehsa.net/docker/</loc><lastmod>2024-10-12</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
+<url><loc>https://www.nehsa.net/docker/</loc><lastmod>2024-10-13</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/dot/</loc><lastmod>2024-09-15</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/doxy/</loc><lastmod>2024-09-15</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/fetchxml/</loc><lastmod>2024-09-17</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
@@ -68,7 +68,7 @@
 <url><loc>https://www.nehsa.net/school/</loc><lastmod>2024-09-30</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/school/engr102/</loc><lastmod>2024-09-15</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/school/ph207/</loc><lastmod>2024-09-15</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
-<url><loc>https://www.nehsa.net/writing/</loc><lastmod>2024-09-30</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
+<url><loc>https://www.nehsa.net/writing/</loc><lastmod>2024-10-13</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/scratch/</loc><lastmod>2024-09-11</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/security/</loc><lastmod>2024-09-15</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/seo/</loc><lastmod>2024-09-15</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
@@ -83,7 +83,7 @@
 <url><loc>https://www.nehsa.net/tls/</loc><lastmod>2024-09-15</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/typescript/</loc><lastmod>2024-09-29</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/vim/</loc><lastmod>2024-09-22</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
-<url><loc>https://www.nehsa.net/vue/</loc><lastmod>2024-10-12</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
+<url><loc>https://www.nehsa.net/vue/</loc><lastmod>2024-10-14</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/vuex/</loc><lastmod>2024-10-11</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/webdesign/</loc><lastmod>2024-10-12</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/welcome/</loc><lastmod>2024-10-12</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
