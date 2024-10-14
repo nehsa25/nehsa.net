@@ -352,13 +352,16 @@
                     </div>
                 </mat-panel-title>
             </mat-expansion-panel-header>
-            SURPRISE!
+            I know the trees don't look right... Someday I'll get back to this and improve it. I'd like to actually have a
+            series of "panel stories" that are picked at random. Maybe Timoth&eacute;e and Gaston can go on quests in
+            the Illisurom world (the world of NehsaMud).
         </mat-expansion-panel>
     </div>
-    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen" class="contactme">
+    <div [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen"
+        class="contactme">
         <div><a link routerLink="/about">About Jesse</a></div>
         <div><a link routerLink="/website">This
-            Website</a></div>
+                Website</a></div>
     </div>
     <nav [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()" *ngIf="!fullScreen">
         <app-navbar></app-navbar>
@@ -374,7 +377,8 @@
         <div class="buildarea">
             <div>{{getBuild()}}</div>
             <div>&nbsp;</div>
-            <div class="discord"><a href="https://www.nehsa.net/discord"><img src="assets/images/discord.png" alt-text="Discord icon" /></a></div>
+            <div class="discord"><a href="https://www.nehsa.net/discord"><img src="assets/images/discord.png"
+                        alt-text="Discord icon" /></a></div>
         </div>
     </footer>
 </div>

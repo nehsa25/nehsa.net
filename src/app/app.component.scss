@@ -179,6 +179,17 @@
             "contactme footer footer footer footer footer";
     }
 
+    .app-main-expanded {
+        grid-template-rows: 7svh 6svh 70svh 14svh 3svh;
+        grid-template-columns: 225px 100px 1fr 1fr 100px 225px;
+        grid-template-areas:
+            "bread bread dh dh dh user_admin"
+            "navbar title title title theme theme"
+            "navbar body body body body body"
+            "ad1 body body body body body"
+            "contactme footer footer footer footer footer";
+    }
+
     footer {
         grid-template-columns: 1fr 215px;
     }
@@ -287,7 +298,7 @@
     display: grid;
     align-content: center;
     padding: 0 2em;
-    font-size: 1rem;
+    font-size: 1.4rem;
     white-space: wrap;
 }
 
@@ -438,17 +449,6 @@ footer div {
 footertxt h5 {
     padding: 0;
     margin: 0;
-}
-
-.panel-collapsed {
-    width: 100%;
-    margin-top: 1em;
-    background-color: var(--theme-background-color) !important;
-}
-
-.panel-expanded {
-    width: 100%;
-    margin: 1em !important;
 }
 
 a.panel-expanded {

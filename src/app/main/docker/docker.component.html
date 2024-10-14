@@ -11,37 +11,54 @@
                 <div>
                     <ul>
                         <li>
-                            <mat-expansion-panel>
+                            <mat-expansion-panel expanded>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Tips / Tricks</mat-panel-title>
                                 </mat-expansion-panel-header>
                                 <div>
                                     <ul>
-                                        <li>You do not need to enter entire hash for an image/container.<br><br>
-
-                                            e.g.
-                                            <span class="importantish">418</span> would find this image:
-                                            <code>
+                                        <li>
+                                            <mat-expansion-panel>
+                                                <mat-expansion-panel-header>
+                                                    <mat-panel-title>You do not need to enter entire hash for an
+                                                        image/container.</mat-panel-title>
+                                                </mat-expansion-panel-header><span class="importantish">418</span> would
+                                                find this image:
+                                                <code>
                             <pre>
 PS C:\src\nehsa.net> docker image ls | grep nehsa/nehsanet
 nehsa/nehsanet   latest    <span class="importantish">418</span>b390c6d3a   26 minutes ago   3.2GB
 
 PS C:\src\nehsa.net> docker exec -it <span class="importantish">418</span> /bin/bash
 root&#64;418b390c6d3a:/app#
-</pre>
-            </code>
+    </pre>
+                </code>
+                                            </mat-expansion-panel>
                                         </li>
-                                        <li><span class="importantish">Anything</span> not in a &quot;volume&quot; will
-                                            be lost the next time the container is started.</li>
-                                        <li>Containers can be started using either:
-                                            <ul>
-                                                <li>a sole dockerfile and <inline-code>docker run -p 80:80 -it
-                                                        nehsa/nehsanet:latest</inline-code>
-                                                </li>
-                                                <li>a dockerfile and docker-compose.yml and <inline-code>docker compose
-                                                        up/down</inline-code>
-                                                </li>
-                                            </ul>
+                                        <li>
+                                            <mat-expansion-panel>
+                                                <mat-expansion-panel-header>
+                                                    <mat-panel-title>Use Volumes!</mat-panel-title>
+                                                </mat-expansion-panel-header>Anything not in a &quot;volume&quot; will
+                                                be lost the next time the container is started.<br><br>
+                                                At least use VOLUMES for node_modules, you'll thank me later.
+                                            </mat-expansion-panel>
+                                        </li>
+
+                                        <li>
+                                            <mat-expansion-panel>
+                                                <mat-expansion-panel-header>
+                                                    <mat-panel-title>Use multi-stage builds!</mat-panel-title>
+                                                </mat-expansion-panel-header>Multi-stage builds are a way to keep the
+                                                size
+                                                of the final image small and minimize the attack surface. This is done
+                                                by building the
+                                                component in a temporary container and then copying the built files
+                                                to a new container. This allows you to deploy only the runtime
+                                                dependencies, not what was needed to build the app.<br><br>
+
+                                                See the section below for more information.
+                                            </mat-expansion-panel>
                                         </li>
                                     </ul>
                                 </div>
@@ -244,38 +261,58 @@ root&#64;418b390c6d3a:/app#
                             </mat-expansion-panel>
                         </li>
                         <li>
-                            <mat-expansion-panel expanded>
+                            <mat-expansion-panel>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Volumes</mat-panel-title>
                                 </mat-expansion-panel-header>
                                 For Docker to persist data, it needs to be stored in a volume. A volume is a directory
                                 specificed on your local filesystem that will correspond to a directory in the
                                 container. This allows data to be stored on the host machine and not be lost when the
-                                container is stopped or removed.<br><br>
-
-                                Syntax:<br>
-                                <inline-code>
-                                    <cmd-structure>
-                                        <cmd-name>docker</cmd-name>
-                                        <cmd-flag>-v</cmd-flag>
-                                        <cmd-option>&lt;LOCAL_FILESYSTEM&gt;</cmd-option>:<cmd-option>&lt;DOCKER_FILESYSTEM&gt;</cmd-option>:<cmd-option>&lt;FILESYSTEM_TYPE&gt;</cmd-option></cmd-structure></inline-code>
-
-                                Examples:<br>
+                                container is stopped or removed.<br>
                                 <ul>
-                                    <li>Create a volume for the /app/node_modules.
-                                        This is useful if you don't wish to install all node packages everytime you build
-                                        the docker image:<br>
-                                        <inline-code>-v d:\data\node_modules:/app/node_modules</inline-code>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Command-line</mat-panel-title>
+                                            </mat-expansion-panel-header>Syntax:<br>
+                                            <inline-code>
+                                                <cmd-structure>
+                                                    <cmd-name>docker</cmd-name>
+                                                    <cmd-flag>-v</cmd-flag>
+                                                    <cmd-option>&lt;LOCAL_FILESYSTEM&gt;</cmd-option>:<cmd-option>&lt;DOCKER_FILESYSTEM&gt;</cmd-option>:<cmd-option>&lt;FILESYSTEM_TYPE&gt;</cmd-option></cmd-structure></inline-code>
+
+                                            Examples:<br>
+
+                                            <ul>
+                                                <li>Create a volume for the /app/node_modules.
+                                                    This is useful if you don't wish to install all node packages
+                                                    everytime you build
+                                                    the docker image:<br>
+                                                    <inline-code>-v d:\data\node_modules:/app/node_modules</inline-code>
+                                                </li>
+                                                <li>Specify a local database location and indicate the zfs filetype:<br>
+                                                    <inline-code>-v /my/own/datadir:/var/lib/mysql:Z</inline-code>
+                                                </li>
+                                            </ul>
+                                        </mat-expansion-panel>
                                     </li>
-                                    <li>Specify a local database location and indicate the zfs filetype:<br>
-                                        <inline-code>-v /my/own/datadir:/var/lib/mysql:Z</inline-code></li>
-                                </ul><br><br>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Dockerfile</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <inline-code>VOLUME /app</inline-code> would
+                                            mount the /app directory from the host machine to the container at /app.
+                                        </mat-expansion-panel>
+                                    </li>
+                                </ul>
                             </mat-expansion-panel>
                         </li>
                         <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Multi-stage Dockerfiles</mat-panel-title>
+                                    <mat-panel-description>Good template here!</mat-panel-description>
                                 </mat-expansion-panel-header>It can be useful to use a multi-stage Dockerfile to keep
                                 the size of the final image small and minimize the attack surface. A multi-stage works
                                 by first building the application in a temporary container and then copying the built
@@ -283,8 +320,10 @@ root&#64;418b390c6d3a:/app#
                                 you to keep the final image small while still having all the necessary dependencies to
                                 run the application.<br><br>
 
-                                Example:<br>
-                                <code>
+                                Examples:<br>
+                                <ul>
+                                    <li>
+                                        <code>
                                     <pre>
 # Build stage
 FROM node:21.6.1-slim AS build <span class="comment"><mat-icon>arrow_back</mat-icon> // Label the stage as "build"</span>
@@ -300,7 +339,32 @@ WORKDIR /app
 COPY --from=build /app/dist .  <span class="comment"><mat-icon>arrow_back</mat-icon> // The juicy bit. Copy the built application from the build stage</span>
 CMD node index.js
                                     </pre>
-                                </code>
+                                        </code>
+                                    </li>
+                                    <li>
+                                        This is a good starting template:
+                                        <code>
+                                            <pre>
+# build stage
+FROM node:lts-alpine as build-stage
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+
+# production stage
+FROM nginx:stable-alpine as production-stage
+COPY --from=build-stage /app/dist /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+                                            </pre>
+                                        </code><br><br>
+
+                                        This example is using nginx but can be adapted to any hosting technology such as
+                                        Kestrel or Express.
+                                    </li>
+                                </ul>
                             </mat-expansion-panel>
                         </li>
                         <li>
@@ -414,6 +478,18 @@ RUN python3.11 --version
                         <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
+                                    <mat-panel-title>Development within a container</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>Open VS code</li>
+                                    <li>Connect to running container</li>
+                                    <li>Open /app folder</li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
                                     <mat-panel-title>Example Files</mat-panel-title>
                                 </mat-expansion-panel-header>
                                 <ul>
@@ -462,24 +538,19 @@ volumes:
                                             </inline-code>
                                         </mat-expansion-panel>
                                     </li>
-                                    <li>
-                                        <mat-expansion-panel>
-                                            <mat-expansion-panel-header>
-                                                <mat-panel-title>Development within a container</mat-panel-title>
-                                            </mat-expansion-panel-header>
-                                            <ul>
-                                                <li>
-                                                    If you're using WSL2:
-                                                    <ul>
-                                                        <li>Open VS code</li>
-                                                        <li>Connect to running container</li>
-                                                        <li>Open /app folder</li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </mat-expansion-panel>
-                                    </li>
                                 </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Troubleshooting</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <dl>
+                                    <dt>FromAsCasing: 'as' and 'FROM' keywords' casing do not match</dt>
+                                    <dd>Docker is a stickler for case, ensure the words "AS" and "FROM" are the same
+                                        case (uppercase probably)</dd>
+                                </dl>
                             </mat-expansion-panel>
                         </li>
                     </ul>
