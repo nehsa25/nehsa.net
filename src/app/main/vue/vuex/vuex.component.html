@@ -21,10 +21,10 @@
                                     <pre>
 const store = new Vuex.Store(&#123;
     state: &#123; &#125;, <span class="comment">The "source of truth" state of the application.</span>
-    mutations: &#123; &#125;,
-    actions: &#123; &#125;,
+    mutations: &#123; &#125;, <span class="comment">Changes the state, think of this similar to a setter. Mutations are "committed" by actions.</span>
+    actions: &#123; &#125;, <span class="comment">Actions call mutations. Actions are "dispatched" by components.</span>
     getters: &#123; &#125;, <span class="comment">Getters define functions that return a value based on the state.</span>
-    plugins: [createMutationsSharer(&#123; predicate: [TOKEN_REFRESHED, SESSION_REFRESHED, SETSESSION] &#125;)] 
+    plugins: &#123; &#125;, <span class="comment">Plugins are functions that run on the store.</span>
 &#125;);
                                     </pre>
                                 </code>
@@ -125,13 +125,12 @@ export default store;
                                     </li>
                                     <li>Add it to main.js:<br><br>
                                         <code>
-                                            <pre>
-                                                new Vue(&#123;
-                                                    <span class="comment">store: store,</span>
-                                                    render: h => h(App),
-                                                  &#125;).$mount('#app');
-                                                  
-                                            </pre>
+<pre>
+new Vue(&#123;
+    <span class="comment">store: store,</span>
+    render: h => h(App),
+&#125;).$mount('#app');                                                  
+</pre>
                                         </code>
                                     </li>
                                 </ul>

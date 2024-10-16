@@ -88,6 +88,7 @@ import { LlamaComponent } from './main/llama/llama.component';
 import { LinqComponent } from './main/linq/linq.component';
 import { UseIndeedComponent } from './main/blog/use-indeed/use-indeed.component';
 import { VuexComponent } from './main/vue/vuex/vuex.component';
+import { SemanticUiComponent } from './main/semantic-ui/semantic-ui.component';
 
 export const routes: Routes = [
   { path: 'agile', title: 'nehsa.net | Agile', component: AgileComponent },
@@ -232,6 +233,7 @@ export const routes: Routes = [
     component: ThisWebsiteComponent,
   },
   { path: 'tls', title: 'nehsa.net | TLS', component: TlsComponent },
+  { path: 'semanticui', title: 'nehsa.net | Semantic UI', component: SemanticUiComponent },
   {
     path: '2024-august-29/gametheory',
     title: 'nehsa.net | Game Theory',

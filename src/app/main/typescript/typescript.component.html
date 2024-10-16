@@ -128,6 +128,48 @@ num == str <span class="comment">// <span class="importantish">true</span> (this
                         <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
+                                    <mat-panel-title>Currying</mat-panel-title>
+                                    <mat-panel-description>Where a
+                                        function takes a single argument and returns a new function that takes the
+                                        remaining arguments. This can be useful for creating more flexible and
+                                        composable functions.
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                A function written like this:<br>
+                                <code>
+                                    <pre>
+const add = (a: number, b: number) => a + b;
+console.log(add(1, 2));
+</pre>
+                                </code>
+
+                                Can also be written using currying:<br>
+                                <code>
+                                    <pre>
+const add = (a: number) => (b: number) => a + b;
+console.log(add(1)(2));
+</pre>
+                                </code>
+                                <div class="result">Both product 3</div>
+
+                                Why? It doesn't seem like much of a difference, but it can be useful for creating more
+                                flexible and composable functions. For example a function that take a function and a
+                                value and returns a new function that takes a value and returns the result of the
+                                original function applied to the two values:
+                                <code>
+                                    <pre>
+const apply = (fn: (a: number, b: number) => number, a: number) => (b: number) => fn(a, b);
+const add = (a: number, b: number) => a + b;
+const add1 = apply(add, 1);
+console.log(add1(2));
+</pre>
+                                </code>
+                                <div class="result">3</div>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
                                     <mat-panel-title>JavaScript Files</mat-panel-title>
                                 </mat-expansion-panel-header>
                                 <dl>

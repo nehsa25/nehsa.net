@@ -1,0 +1,37 @@
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Semantic UI</h1>
+        </mat-card-title>
+        <mat-card-subtitle>Semantic UI is a development framework that aims to create responsive layouts using
+            human-friendly HTML.</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid topics">
+            <div><app-related-content></app-related-content></div>
+            <div>
+                <ul>
+                    <li>
+                        <mat-expansion-panel expanded>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Installation and Configuration</mat-panel-title>
+                            </mat-expansion-panel-header>I'm not sure all this is needed but it's what I did:
+                            <ol>
+                                <li>Install semantic-ui-vue, the official Semantic UI integration for Vue.js:
+                                    <inline-code>npm install semantic-ui-vue</inline-code>
+                                </li>
+                                <li>Install semantic-ui-css, the actual CSS for Semantic UI: <inline-code>npm install
+                                        semantic-ui-css</inline-code></li>
+                            </ol>
+
+                            Both are needed, as semantic-ui-vue is just the Vue.js integration and does not include the
+                            CSS. e.g. it allows for the use of semantic-ui-vue components in
+                            your Vue.js app, but does not include the CSS to style them.
+                        </mat-expansion-panel>
+                    </li>
+                </ul>
+            </div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>

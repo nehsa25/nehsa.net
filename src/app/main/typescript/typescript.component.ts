@@ -25,10 +25,11 @@ export class TypescriptComponent {
   ngOnInit() {
     this.userService.page = this._page_name;
   }
-
+  add = (a: number) => (b: number) => a + b; 
   getDistanceInFathoms = (distanceInFeet: number) => { return distanceInFeet / 6 };
-
 }
+
+
 
 function getDistanceInFathoms(distanceInFeet: number) {
   return distanceInFeet / 6;
