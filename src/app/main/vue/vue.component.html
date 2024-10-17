@@ -31,7 +31,7 @@
                                             </mat-expansion-panel-header>
                                             <ul>
                                                 <li>
-                                                    <mat-expansion-panel expanded>
+                                                    <mat-expansion-panel>
                                                         <mat-expansion-panel-header>
                                                             <mat-panel-title>Tips and Tricks</mat-panel-title>
                                                         </mat-expansion-panel-header>
@@ -254,7 +254,8 @@ new Vue(&#123;
                                                                                     not
                                                                                     have space between them, this is
                                                                                     only to allow Angular to
-                                                                                    build.</span></td>
+                                                                                    build.</span>
+                                                                            </td>
                                                                             <td>Same</td>
                                                                         </tr>
                                                                         <tr>
@@ -422,96 +423,6 @@ new Vue(&#123;
                                                                 </mat-expansion-panel>
                                                             </li>
                                                         </ul>
-                                                    </mat-expansion-panel>
-                                                </li>
-                                                <li>
-                                                    <mat-expansion-panel>
-                                                        <mat-expansion-panel-header>
-                                                            <mat-panel-title>Integrate w/Code</mat-panel-title>
-                                                        </mat-expansion-panel-header>
-
-                                                        <ul>
-                                                            <li>
-                                                                <mat-expansion-panel>
-                                                                    <mat-expansion-panel-header>
-                                                                        <mat-panel-title>Install Vue
-                                                                            Extension</mat-panel-title>
-                                                                    </mat-expansion-panel-header>
-                                                                    <ol>
-                                                                        <li>Install Vue extension from VS Code
-                                                                            Marketplace</li>
-                                                                    </ol>
-                                                                </mat-expansion-panel>
-                                                            </li>
-                                                            <li>
-                                                                <mat-expansion-panel>
-                                                                    <mat-expansion-panel-header>
-                                                                        <mat-panel-title>Setup
-                                                                            launch.json</mat-panel-title>
-                                                                    </mat-expansion-panel-header>
-                                                                    <ul>
-                                                                        <li>Open Command Palette (CTRL+SHIFT+P)</li>
-                                                                        <li>Type Debug: Add Configuration</li>
-                                                                        <li>Choose with Web Apps (Chrome)</li>
-                                                                        <li>
-                                                                            Ensure port matches port shows when running
-                                                                            <inline-code>npm run dev</inline-code>
-                                                                        </li>
-                                                                        <li>Repeat for Edge and Firefox</li><br><br>
-
-                                                                        Example:<br>
-                                                                        <code>
-                              <pre>
-&#123;
-  // Use IntelliSense to learn about possible attributes.
-  // Hover to view descriptions of existing attributes.
-  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-  "version": "0.2.0",
-  "configurations": [
-      &#123;
-        "type": "chrome",
-        "request": "launch",
-        "name": "vuejs: chrome",
-        "url": "http://localhost:8080",
-        "webRoot": "$&#123;workspaceFolder&#125;/src",
-        "breakOnLoad": true,
-        "sourceMapPathOverrides": &#123;
-          "webpack:///src/*": "$&#123;webRoot&#125;/*"
-        &#125;
-      &#125;,
-      &#123;
-          "type": "firefox",
-          "request": "launch",
-          "name": "vuejs: firefox",
-          "url": "http://localhost:8080",
-          "webRoot": "$&#123;workspaceFolder&#125;/src",
-          "pathMappings": [&#123; "url": "webpack:///src/", "path": "$&#123;webRoot&#125;/" &#125;]
-        &#125;
-  ]
-&#125;
-                              </pre>
-                                  </code>
-                                                                    </ul>
-                                                                </mat-expansion-panel>
-                                                            </li>
-                                                            <li>
-                                                                <mat-expansion-panel>
-                                                                    <mat-expansion-panel-header>
-                                                                        <mat-panel-title>Start Debug
-                                                                            Session</mat-panel-title>
-                                                                    </mat-expansion-panel-header>
-                                                                    <ul>
-                                                                        <li><inline-code>npm run serve</inline-code>
-                                                                        </li>
-                                                                        <li>Press F5 in VSCode</li>
-                                                                    </ul>
-                                                                </mat-expansion-panel>
-                                                            </li>
-                                                        </ul>
-                                                        <span class="additional-note">If debugging still does not work,
-                                                            delete the "name" properties
-                                                            within
-                                                            package.json and package.lock.json.</span>
                                                     </mat-expansion-panel>
                                                 </li>
                                                 <li>
@@ -744,7 +655,8 @@ new Vue(&#123;
                                                                                     <li>Add to list of components:
                                                                                         <inline-code> components: &#123;
                                                                                             Multiselect
-                                                                                            &#125;</inline-code></li>
+                                                                                            &#125;</inline-code>
+                                                                                    </li>
                                                                                 </ul>
                                                                             </mat-expansion-panel>
                                                                         </li>
@@ -861,6 +773,156 @@ TypeError: (0 , vue__WEBPACK_IMPORTED_MODULE_1__.createTextVNode) is not a funct
                                                                 Generates unit tests for your Vue project.</li>
                                                             <li><inline-code>vue generate e2e</inline-code>:
                                                                 Generates end-to-end tests for your Vue project.</li>
+                                                        </ul>
+                                                    </mat-expansion-panel>
+                                                </li>
+                                                <li>
+                                                    <mat-expansion-panel>
+                                                        <mat-expansion-panel-header>
+                                                            <mat-panel-title>Debugging</mat-panel-title>
+                                                        </mat-expansion-panel-header>
+                                                        <ul>
+                                                            <li>
+                                                                <mat-expansion-panel>
+                                                                    <mat-expansion-panel-header>
+                                                                        <mat-panel-title>Why are there several instances
+                                                                            of each page in develop
+                                                                            tools?</mat-panel-title>
+                                                                    </mat-expansion-panel-header>When debugging a Vue
+                                                                    <acronym-name>Single Page
+                                                                        Application<acronym-abbr>SPA</acronym-abbr></acronym-name>,
+                                                                    you may notice the same page listed multiple times
+                                                                    in the developer tools. This is because each
+                                                                    component is its own instance. i.e., if you have a
+                                                                    component that is used 10 times on a page, you will
+                                                                    see 10 cases of that component in the developer
+                                                                    tools.<br><br>
+
+                                                                    To see the data for each instance, click on the
+                                                                    component in the developer tools and then click on
+                                                                    the data tab.<br><br>
+
+                                                                    If you are not intending to have multiple instances,
+                                                                    check the following:
+                                                                    <ol>
+                                                                        <li>Ensure you are not using the same component
+                                                                            in multiple places on the page (maybe a loop?). If you are,
+                                                                            consider creating a new component for each
+                                                                            instance.
+
+                                                                            i.e., instead of using the same component
+                                                                            for a list of items, create a new component
+                                                                            for each item in the list.</li>
+                                                                    </ol><br><br>
+
+                                                                    How to tell where a new instance would be launched
+                                                                    in code, look for the <inline-code>new
+                                                                        Vue(&#123;&#125;)</inline-code> command.
+                                                                </mat-expansion-panel>
+                                                            </li>
+                                                            <li>
+                                                                <mat-expansion-panel>
+                                                                    <mat-expansion-panel-header>
+                                                                        <mat-panel-title>Integrate
+                                                                            w/Code</mat-panel-title>
+                                                                        <mat-panel-description>Not needed, just use F12
+                                                                            + Vue Developer
+                                                                            Tools!</mat-panel-description>
+                                                                    </mat-expansion-panel-header>
+
+                                                                    <ul>
+                                                                        <li>
+                                                                            <mat-expansion-panel>
+                                                                                <mat-expansion-panel-header>
+                                                                                    <mat-panel-title>Install Vue
+                                                                                        Extension</mat-panel-title>
+                                                                                </mat-expansion-panel-header>
+                                                                                <ol>
+                                                                                    <li>Install Vue extension from VS
+                                                                                        Code
+                                                                                        Marketplace</li>
+                                                                                </ol>
+                                                                            </mat-expansion-panel>
+                                                                        </li>
+                                                                        <li>
+                                                                            <mat-expansion-panel>
+                                                                                <mat-expansion-panel-header>
+                                                                                    <mat-panel-title>Setup
+                                                                                        launch.json</mat-panel-title>
+                                                                                </mat-expansion-panel-header>
+                                                                                <ul>
+                                                                                    <li>Open Command Palette
+                                                                                        (CTRL+SHIFT+P)</li>
+                                                                                    <li>Type Debug: Add Configuration
+                                                                                    </li>
+                                                                                    <li>Choose with Web Apps (Chrome)
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        Ensure port matches port shows
+                                                                                        when running
+                                                                                        <inline-code>npm run
+                                                                                            dev</inline-code>
+                                                                                    </li>
+                                                                                    <li>Repeat for Edge and Firefox</li>
+                                                                                    <br><br>
+
+                                                                                    Example:<br>
+                                                                                    <code>
+                                <pre>
+&#123;
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        &#123;
+        "type": "chrome",
+        "request": "launch",
+        "name": "vuejs: chrome",
+        "url": "http://localhost:8080",
+        "webRoot": "$&#123;workspaceFolder&#125;/src",
+        "breakOnLoad": true,
+        "sourceMapPathOverrides": &#123;
+            "webpack:///src/*": "$&#123;webRoot&#125;/*"
+        &#125;
+        &#125;,
+        &#123;
+            "type": "firefox",
+            "request": "launch",
+            "name": "vuejs: firefox",
+            "url": "http://localhost:8080",
+            "webRoot": "$&#123;workspaceFolder&#125;/src",
+            "pathMappings": [&#123; "url": "webpack:///src/", "path": "$&#123;webRoot&#125;/" &#125;]
+        &#125;
+    ]
+&#125;
+                                </pre>
+                                              </code>
+                                                                                </ul>
+                                                                            </mat-expansion-panel>
+                                                                        </li>
+                                                                        <li>
+                                                                            <mat-expansion-panel>
+                                                                                <mat-expansion-panel-header>
+                                                                                    <mat-panel-title>Start Debug
+                                                                                        Session</mat-panel-title>
+                                                                                </mat-expansion-panel-header>
+                                                                                <ul>
+                                                                                    <li><inline-code>npm run
+                                                                                            serve</inline-code>
+                                                                                    </li>
+                                                                                    <li>Press F5 in VSCode</li>
+                                                                                </ul>
+                                                                            </mat-expansion-panel>
+                                                                        </li>
+                                                                    </ul>
+                                                                    <span class="additional-note">If debugging still
+                                                                        does not work,
+                                                                        delete the "name" properties
+                                                                        within
+                                                                        package.json and package.lock.json.</span>
+                                                                </mat-expansion-panel>
+                                                            </li>
                                                         </ul>
                                                     </mat-expansion-panel>
                                                 </li>

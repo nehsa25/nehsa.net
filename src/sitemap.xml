@@ -81,10 +81,10 @@
 <url><loc>https://www.nehsa.net/testing/</loc><lastmod>2024-09-15</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/website/</loc><lastmod>2024-09-15</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/tls/</loc><lastmod>2024-09-15</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
-<url><loc>https://www.nehsa.net/typescript/</loc><lastmod>2024-09-29</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
+<url><loc>https://www.nehsa.net/typescript/</loc><lastmod>2024-10-15</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/vim/</loc><lastmod>2024-09-22</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
-<url><loc>https://www.nehsa.net/vue/</loc><lastmod>2024-10-14</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
-<url><loc>https://www.nehsa.net/vuex/</loc><lastmod>2024-10-11</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
+<url><loc>https://www.nehsa.net/vue/</loc><lastmod>2024-10-16</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
+<url><loc>https://www.nehsa.net/vuex/</loc><lastmod>2024-10-16</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/webdesign/</loc><lastmod>2024-10-12</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/welcome/</loc><lastmod>2024-10-12</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
 <url><loc>https://www.nehsa.net/windows/</loc><lastmod>2024-09-25</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
@@ -92,4 +92,5 @@
 <url><loc>https://www.nehsa.net/entity/</loc><lastmod>2024-10-01</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/llama/</loc><lastmod>2024-09-30</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 <url><loc>https://www.nehsa.net/linq/</loc><lastmod>2024-10-04</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
+<url><loc>https://www.nehsa.net/semantic-ui/</loc><lastmod>2024-10-16</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>
 </urlset>

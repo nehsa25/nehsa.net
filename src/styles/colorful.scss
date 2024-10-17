@@ -214,11 +214,15 @@ td {
     -webkit-text-stroke-color: var(--theme-background-purple) !important;
 }
 
+.angel .inline-additional-note,
+.angel .inline-additional-notes,
+.angel .inline-asterisk,
 .angel .additional-note,
 .angel .additional-notes,
 .angel .asterisk {
-    color: #888;
+    color: #B55E51;
 }
+
 
 .angel ulnav-links>li:hover {
     color: var(--theme-background-purple) !important;

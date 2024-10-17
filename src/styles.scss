@@ -358,6 +358,15 @@ cmd-flag {
     display: block;
 }
 
+.inline-additional-note,
+.inline-additional-notes,
+.inline-asterisk {
+    max-width: 90%;
+    font-size: 0.8em;
+    margin: .4rem 0 .4rem 0;
+    display: inline;
+}
+
 ul.navbar-links>li:hover {
     -webkit-text-stroke-width: .1px;
     border-radius: .4rem;
@@ -455,7 +464,7 @@ important-med,
 }
 
 important-normal,
-.important-less  {
+.important-less {
     font-weight: 900;
 }
 
@@ -832,8 +841,7 @@ dt {
 }
 
 .blog-body p,
-.blog-body li
-{
+.blog-body li {
 
     max-width: 65%;
 }
@@ -857,19 +865,15 @@ dt {
 // acroymns
 acronym-name {
     font-weight: 600;
-    font-size: 1.5rem;
     font-variant: small-caps;
     display: inline-block;
-    top: -3px;
-    padding: 0 8px;
-    border-radius: 5px;
-    position: relative;
 }
 
 acronym-abbr {
     display: inline-block;
+    font-variant: initial;
     position: relative;
-    margin: 0 1.5rem;
+    margin: 0 18px;
 }
 
 acronym-abbr::before {
@@ -886,4 +890,9 @@ acronym-abbr::after {
     top: 50%;
     right: -1em;
     transform: translateY(-50%);
+}
+
+.add-space {
+    margin-left: 1rem;
+    width: 80%;
 }
