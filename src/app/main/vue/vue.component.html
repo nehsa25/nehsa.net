@@ -16,14 +16,6 @@
                                     <mat-panel-title>Vue 2.6 + Vuex 3.1.1</mat-panel-title>
                                 </mat-expansion-panel-header>
                                 <ul>
-                                    <!-- <li>
-                    <mat-expansion-panel expanded>
-                      <mat-expansion-panel-header>
-                        <mat-panel-title>Test Site</mat-panel-title>
-                      </mat-expansion-panel-header>
-                      <iframe src="https://www.nehsa.net/vue26" width="100%" height="500px"></iframe>
-                    </mat-expansion-panel>
-                  </li> -->
                                     <li>
                                         <mat-expansion-panel expanded>
                                             <mat-expansion-panel-header>
@@ -230,132 +222,7 @@ new Vue(&#123;
   <span class="comment">HTML CONTENT</span>
 &lt;/template&gt;
                                     </pre>
-                                  </code><br><br>
-
-                                                                    Similar to Angular's ngFor/ngIf type options, Vue
-                                                                    has v-for and v-if for providing
-                                                                    dynamic
-                                                                    data to
-                                                                    the template.<br>
-                                                                    <table class="min-table">
-                                                                        <tr>
-                                                                            <th>Operation</th>
-                                                                            <th>Purpose</th>
-                                                                            <th>Example</th>
-                                                                            <th>Angular Equivalent</th>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Text Interpolation</td>
-                                                                            <td>Display variable</td>
-                                                                            <td>&#123; &#123; someVariable &#125; &#125;
-                                                                                <span class="additional-note">Curly
-                                                                                    braces
-                                                                                    should
-                                                                                    not
-                                                                                    have space between them, this is
-                                                                                    only to allow Angular to
-                                                                                    build.</span>
-                                                                            </td>
-                                                                            <td>Same</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>v-for</td>
-                                                                            <td>Loop through an array</td>
-                                                                            <td>
-                                                                                <code>
-                                          <pre>
-&lt;li v-for="item in items" :key="item.id"&gt;
-  &#123; &#123; item.text &#125; &#125;
-&lt;/li&gt;
-                                          </pre>
-                                        </code>
-                                                                            </td>
-                                                                            <td>ngFor</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>v-if</td>
-                                                                            <td>Conditional rendering</td>
-                                                                            <td>
-                                                                                <code>
-<pre>
-&lt;div v-if="isTrue"&gt;This is true&lt;/div&gt;
-&lt;div v-else&gt;This is false&lt;/div&gt;
-</pre>
-                                          </code>
-                                                                            </td>
-                                                                            <td>ngIf</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>v-model</td>
-                                                                            <td>Two-way data binding. i.e. input field
-                                                                                updates variable and variable updates
-                                                                                input
-                                                                                field
-                                                                            </td>
-                                                                            <td>
-                                                                                <code>
-<pre>
-&lt;input v-model="message" placeholder="Enter a message"&gt;
-&lt;p&gt;The message is: &#123; &#123; message &#125; &#125;&lt;/p&gt;
-</pre>
-                                          </code>
-                                                                            </td>
-                                                                            <td>[(ngModel)]</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>v-on</td>
-                                                                            <td>Event handling. i.e. click, hover,
-                                                                                etc.<br><br>
-                                                                                <div class="importantish">Shorthand for
-                                                                                    this using the &#64; symbol:<br><br>
-                                                                                    <inline-code>&lt;a
-                                                                                        v-on:click="go"&gt;...&lt;/a&gt;</inline-code>
-                                                                                    ===
-                                                                                    <inline-code>&lt;a
-                                                                                        &#64;click="go"&gt;...&lt;/a&gt;</inline-code>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>
-                                                                                <code>
-<pre>
-&lt;button v-on:click="doSomething"&gt;Click me&lt;/button&gt;
-</pre>
-                                          </code>
-                                                                            </td>
-                                                                            <td>(click)="doSomething"</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>v-bind</td>
-                                                                            <td>Bind an attribute to a variable. This is
-                                                                                better than using src= only because
-                                                                                it
-                                                                                allows for
-                                                                                dynamic values. ImageSrc could be a
-                                                                                variable that changes based on user
-                                                                                input.
-                                                                            </td>
-                                                                            <td>
-                                                                                <code>
-<pre>
-&lt;img v-bind:src="imageSrc"&gt;
-</pre>
-                                          </code>
-                                                                            </td>
-                                                                            <td>[src]</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>v-html</td>
-                                                                            <td>Render content as HTML.</td>
-                                                                            <td>
-                                                                                <code>
-<pre>
-&lt;div v-html="htmlContent"&gt;&lt;/div&gt;
-</pre>
-                                          </code>
-                                                                            </td>
-                                                                            <td>Use innerHTML</td>
-                                                                        </tr>
-                                                                    </table>
+                                  </code>
                                                                 </mat-expansion-panel>
                                                             </li>
                                                             <li>
@@ -420,6 +287,294 @@ new Vue(&#123;
 &lt;/style&gt;
                               </pre>
                                   </code>
+                                                                </mat-expansion-panel>
+                                                            </li>
+                                                        </ul>
+                                                    </mat-expansion-panel>
+                                                </li>
+                                                <li>
+                                                    <mat-expansion-panel>
+                                                        <mat-expansion-panel-header>
+                                                            <mat-panel-title>Working with Templates</mat-panel-title>
+                                                        </mat-expansion-panel-header>
+                                                        Similar to Angular's ngFor/ngIf type options, Vue
+                                                        has v-for and v-if for providing
+                                                        dynamic
+                                                        data to
+                                                        the template/HTML.<br><br>
+
+                                                        <mat-expansion-panel>
+                                                            <mat-expansion-panel-header>
+                                                                <mat-panel-title>Breakdown and Comparision with
+                                                                    Angular</mat-panel-title>
+                                                            </mat-expansion-panel-header>
+                                                            <table class="min-table">
+                                                                <tr>
+                                                                    <th>Operation</th>
+                                                                    <th>Purpose</th>
+                                                                    <th>Example</th>
+                                                                    <th>Angular Equivalent</th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Text Interpolation</td>
+                                                                    <td>Display variable</td>
+                                                                    <td>&#123; &#123; someVariable &#125; &#125;
+                                                                        <span class="additional-note">Curly
+                                                                            braces
+                                                                            should
+                                                                            not
+                                                                            have space between them, this is
+                                                                            only to allow Angular to
+                                                                            build.</span>
+                                                                    </td>
+                                                                    <td>Same</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>v-for</td>
+                                                                    <td>Loop through an array</td>
+                                                                    <td>
+                                                                        <code>
+                            <pre>
+&lt;li v-for="item in items" :key="item.id"&gt;
+&#123; &#123; item.text &#125; &#125;
+&lt;/li&gt;
+                            </pre>
+                        </code>
+                                                                    </td>
+                                                                    <td>ngFor</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>v-if</td>
+                                                                    <td>Conditional rendering</td>
+                                                                    <td>
+                                                                        <code>
+<pre>
+&lt;div v-if="isTrue"&gt;This is true&lt;/div&gt;
+&lt;div v-else&gt;This is false&lt;/div&gt;
+</pre>
+                                </code>
+                                                                    </td>
+                                                                    <td>ngIf</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>v-model</td>
+                                                                    <td>Two-way data binding. i.e. input field
+                                                                        updates variable and variable updates
+                                                                        input
+                                                                        field
+                                                                    </td>
+                                                                    <td>
+                                                                        <code>
+<pre>
+&lt;input v-model="message" placeholder="Enter a message"&gt;
+&lt;p&gt;The message is: &#123; &#123; message &#125; &#125;&lt;/p&gt;
+</pre>
+                                </code>
+                                                                    </td>
+                                                                    <td>[(ngModel)]</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>v-on</td>
+                                                                    <td>Event handling. i.e. click, hover,
+                                                                        etc.<br><br>
+                                                                        <div>Shorthand for
+                                                                            this using the &#64; symbol:<br><br>
+                                                                            <inline-code>&lt;a
+                                                                                v-on:click="go"&gt;...&lt;/a&gt;</inline-code>
+                                                                            ===
+                                                                            <inline-code>&lt;a
+                                                                                &#64;click="go"&gt;...&lt;/a&gt;</inline-code>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <code>
+<pre>
+&lt;button v-on:click="doSomething"&gt;Click me&lt;/button&gt;
+</pre>
+                                </code>
+                                                                    </td>
+                                                                    <td>(click)="doSomething"</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>v-bind</td>
+                                                                    <td>Bind an attribute to a variable. This is
+                                                                        better than using src= only because
+                                                                        it
+                                                                        allows for
+                                                                        dynamic values. ImageSrc could be a
+                                                                        variable that changes based on user
+                                                                        input.
+                                                                    </td>
+                                                                    <td>
+                                                                        <code>
+<pre>
+&lt;img v-bind:src="imageSrc"&gt;
+</pre>
+                                </code>
+                                                                    </td>
+                                                                    <td>[src]</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>v-html</td>
+                                                                    <td>Render content as HTML.</td>
+                                                                    <td>
+                                                                        <code>
+<pre>
+&lt;div v-html="htmlContent"&gt;&lt;/div&gt;
+</pre>
+                                </code>
+                                                                    </td>
+                                                                    <td>Use innerHTML</td>
+                                                                </tr>
+                                                            </table>
+                                                        </mat-expansion-panel><br><br>
+
+                                                        Common Tasks:<br>
+                                                        <ul>
+                                                            <li>To disable a button: <inline-code>&lt;button
+                                                                    :disabled="isDisabled"&gt;Click
+                                                                    me&lt;/button&gt;</inline-code></li>
+                                                        </ul>
+                                                    </mat-expansion-panel>
+                                                </li>
+                                                <li>
+                                                    <mat-expansion-panel>
+                                                        <mat-expansion-panel-header>
+                                                            <mat-panel-title>Working with Forms</mat-panel-title>
+                                                        </mat-expansion-panel-header>
+                                                        <ul>
+                                                            <li>
+                                                                <mat-expansion-panel>
+                                                                    <mat-expansion-panel-header>
+                                                                        <mat-panel-title>Vue
+                                                                            Multiselect</mat-panel-title>
+                                                                        <mat-panel-description>"vue-multiselect":
+                                                                            "^2.1.6"</mat-panel-description>
+                                                                    </mat-expansion-panel-header>Vue form select libary
+                                                                    from <a target="_blank"
+                                                                        href="https://vue-multiselect.js.org/">vue-multiselect.js.org</a>.<br><br>
+                                                                    <ul>
+                                                                        <li>
+                                                                            <mat-expansion-panel>
+                                                                                <mat-expansion-panel-header>
+                                                                                    <mat-panel-title>Installation</mat-panel-title>
+                                                                                </mat-expansion-panel-header>
+                                                                                <ul>
+                                                                                    <li>Install it: <inline-code>npm
+                                                                                            install vue-multiselect
+                                                                                            --save</inline-code>
+                                                                                    </li>
+                                                                                    <li>Add the import:
+                                                                                        <inline-code>import Multiselect
+                                                                                            from
+                                                                                            'vue-multiselect'</inline-code>
+                                                                                    </li>
+                                                                                    <li>Add to list of components:
+                                                                                        <inline-code> components: &#123;
+                                                                                            Multiselect
+                                                                                            &#125;</inline-code>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </mat-expansion-panel>
+                                                                        </li>
+                                                                        <li>
+                                                                            <mat-expansion-panel>
+                                                                                <mat-expansion-panel-header>
+                                                                                    <mat-panel-title>Example</mat-panel-title>
+                                                                                </mat-expansion-panel-header>
+                                                                                <code>
+<pre>
+&lt;multiselect 
+  v-model="selectedSubject"
+  deselectLabel="Remove"
+  :allow-empty="true"
+  :loading="SubjectLoading" 
+  tag-placeholder="Subject"
+  selectLabel="Select" 
+  placeholder="Subject" 
+  label="Subject name" 
+  track-by="ID"
+  :searchable="true" 
+  :options="SubjectList" 
+  :custom-label="getSubjectLabel"
+  :multiple="false"&gt; 
+  &lt;span&gt;Nothing found.&lt;/span&gt;
+&lt;/multiselect&gt;
+</pre>
+                                                                            </code>
+
+                                                                                <dl>
+                                                                                    <dt>v-model</dt>
+                                                                                    <dd></dd>
+                                                                                    <dt>:show_labels</dt>
+                                                                                    <dd>Display labels</dd>
+                                                                                    <dt>:close-on-select="false"</dt>
+                                                                                    <dd>Keep dropdown open after
+                                                                                        selection</dd>
+                                                                                    <dt>:allow-empty</dt>
+                                                                                    <dd>Once a value has been selected,
+                                                                                        it cannot be removed</dd>
+                                                                                    <dt>:loading</dt>
+                                                                                    <dd>Boolean to show loading spinner
+                                                                                    </dd>
+                                                                                    <dt>tag-placeholder</dt>
+                                                                                    <dd>A helper label that will be
+                                                                                        displayed when highlighting just
+                                                                                        the typed tag
+                                                                                        suggestion.</dd>
+                                                                                    <dt>tag-position</dt>
+                                                                                    <dd>By default, location is top.
+                                                                                        Options: top, bottom</dd>
+                                                                                    <dt>selectLabel</dt>
+                                                                                    <dd>Label for selecting an option
+                                                                                    </dd>
+                                                                                    <dt>placeholder</dt>
+                                                                                    <dd>Placeholder for input</dd>
+                                                                                    <dt>label</dt>
+                                                                                    <dd>Label for options</dd>
+                                                                                    <dt>deselectLabel</dt>
+                                                                                    <dd>Item selected and the user is
+                                                                                        now hovering over it</dd>
+                                                                                    <dt>track-by</dt>
+                                                                                    <dd>Unique identifier for options.
+                                                                                        e.g. an id(entity) value! GET
+                                                                                        IT!?!</dd>
+                                                                                    <dt>:searchable</dt>
+                                                                                    <dd>Allow searching</dd>
+                                                                                    <dt>:options</dt>
+                                                                                    <dd>An array of options</dd>
+                                                                                    <dt>:custom-label</dt>
+                                                                                    <dd>Function to format label</dd>
+                                                                                    <dt>multiple</dt>
+                                                                                    <dd>Allow multiple selections</dd>
+                                                                                </dl>
+                                                                            </mat-expansion-panel>
+                                                                        </li>
+                                                                        <li>
+                                                                            <mat-expansion-panel>
+                                                                                <mat-expansion-panel-header>
+                                                                                    <mat-panel-title>Troubleshooting</mat-panel-title>
+                                                                                </mat-expansion-panel-header>
+                                                                                <ul>
+                                                                                    <li>
+                                                                                        <code>
+                                              <pre>
+(0 , vue__WEBPACK_IMPORTED_MODULE_1__.createTextVNode) is not a function
+TypeError: (0 , vue__WEBPACK_IMPORTED_MODULE_1__.createTextVNode) is not a function...
+                                              </pre>
+                                            </code><br><br>
+
+                                                                                        This error is caused by a
+                                                                                        version mismatch between Vue and
+                                                                                        Vue Multiselect.
+                                                                                        To fix: <inline-code>npm install
+                                                                                            vue-multiselect&#64;&lt;VERSION&gt;
+                                                                                            --save</inline-code>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </mat-expansion-panel>
+                                                                        </li>
+                                                                    </ul>
                                                                 </mat-expansion-panel>
                                                             </li>
                                                         </ul>
@@ -623,144 +778,214 @@ new Vue(&#123;
                                                 <li>
                                                     <mat-expansion-panel>
                                                         <mat-expansion-panel-header>
-                                                            <mat-panel-title>Working with Forms</mat-panel-title>
+                                                            <mat-panel-title>Routing</mat-panel-title>
                                                         </mat-expansion-panel-header>
                                                         <ul>
                                                             <li>
                                                                 <mat-expansion-panel>
                                                                     <mat-expansion-panel-header>
-                                                                        <mat-panel-title>Vue
-                                                                            Multiselect</mat-panel-title>
-                                                                        <mat-panel-description>"vue-multiselect":
-                                                                            "^2.1.6"</mat-panel-description>
-                                                                    </mat-expansion-panel-header>Vue form select libary
-                                                                    from <a target="_blank"
-                                                                        href="https://vue-multiselect.js.org/">vue-multiselect.js.org</a>.<br><br>
-                                                                    <ul>
-                                                                        <li>
-                                                                            <mat-expansion-panel>
-                                                                                <mat-expansion-panel-header>
-                                                                                    <mat-panel-title>Installation</mat-panel-title>
-                                                                                </mat-expansion-panel-header>
-                                                                                <ul>
-                                                                                    <li>Install it: <inline-code>npm
-                                                                                            install vue-multiselect
-                                                                                            --save</inline-code>
-                                                                                    </li>
-                                                                                    <li>Add the import:
-                                                                                        <inline-code>import Multiselect
-                                                                                            from
-                                                                                            'vue-multiselect'</inline-code>
-                                                                                    </li>
-                                                                                    <li>Add to list of components:
-                                                                                        <inline-code> components: &#123;
-                                                                                            Multiselect
-                                                                                            &#125;</inline-code>
-                                                                                    </li>
-                                                                                </ul>
-                                                                            </mat-expansion-panel>
-                                                                        </li>
-                                                                        <li>
-                                                                            <mat-expansion-panel>
-                                                                                <mat-expansion-panel-header>
-                                                                                    <mat-panel-title>Example</mat-panel-title>
-                                                                                </mat-expansion-panel-header>
-                                                                                <code>
+                                                                        <mat-panel-title>Overview</mat-panel-title>
+                                                                    </mat-expansion-panel-header>
+                                                                    Example route:
+                                                                    <code>
 <pre>
-&lt;multiselect 
-  v-model="selectedSubject"
-  deselectLabel="Remove"
-  :allow-empty="true"
-  :loading="SubjectLoading" 
-  tag-placeholder="Subject"
-  selectLabel="Select" 
-  placeholder="Subject" 
-  label="Subject name" 
-  track-by="ID"
-  :searchable="true" 
-  :options="SubjectList" 
-  :custom-label="getSubjectLabel"
-  :multiple="false"&gt; 
-  &lt;span&gt;Nothing found.&lt;/span&gt;
-&lt;/multiselect&gt;
+&#123;
+    path: '/user',
+    redirect: '/users',
+    component: App,
+    children: [
+        &#123;
+            name: 'route1',
+            path: ':route1',
+            component: RouteOne
+        &#125;,
+        &#123;
+            name: 'route2',
+            path: ':route2',
+            component: RouteTwo
+        &#125;,
+    ]
+&#125;
 </pre>
-                                                                            </code>
+                                                                    </code><br><br>
 
-                                                                                <dl>
-                                                                                    <dt>v-model</dt>
-                                                                                    <dd></dd>
-                                                                                    <dt>:show_labels</dt>
-                                                                                    <dd>Display labels</dd>
-                                                                                    <dt>:close-on-select="false"</dt>
-                                                                                    <dd>Keep dropdown open after
-                                                                                        selection</dd>
-                                                                                    <dt>:allow-empty</dt>
-                                                                                    <dd>Once a value has been selected,
-                                                                                        it cannot be removed</dd>
-                                                                                    <dt>:loading</dt>
-                                                                                    <dd>Boolean to show loading spinner
-                                                                                    </dd>
-                                                                                    <dt>tag-placeholder</dt>
-                                                                                    <dd>A helper label that will be
-                                                                                        displayed when highlighting just
-                                                                                        the typed tag
-                                                                                        suggestion.</dd>
-                                                                                    <dt>tag-position</dt>
-                                                                                    <dd>By default, location is top.
-                                                                                        Options: top, bottom</dd>
-                                                                                    <dt>selectLabel</dt>
-                                                                                    <dd>Label for selecting an option
-                                                                                    </dd>
-                                                                                    <dt>placeholder</dt>
-                                                                                    <dd>Placeholder for input</dd>
-                                                                                    <dt>label</dt>
-                                                                                    <dd>Label for options</dd>
-                                                                                    <dt>deselectLabel</dt>
-                                                                                    <dd>Item selected and the user is
-                                                                                        now hovering over it</dd>
-                                                                                    <dt>track-by</dt>
-                                                                                    <dd>Unique identifier for options.
-                                                                                        e.g. an id(entity) value! GET
-                                                                                        IT!?!</dd>
-                                                                                    <dt>:searchable</dt>
-                                                                                    <dd>Allow searching</dd>
-                                                                                    <dt>:options</dt>
-                                                                                    <dd>An array of options</dd>
-                                                                                    <dt>:custom-label</dt>
-                                                                                    <dd>Function to format label</dd>
-                                                                                    <dt>multiple</dt>
-                                                                                    <dd>Allow multiple selections</dd>
-                                                                                </dl>
-                                                                            </mat-expansion-panel>
-                                                                        </li>
-                                                                        <li>
-                                                                            <mat-expansion-panel>
-                                                                                <mat-expansion-panel-header>
-                                                                                    <mat-panel-title>Troubleshooting</mat-panel-title>
-                                                                                </mat-expansion-panel-header>
-                                                                                <ul>
-                                                                                    <li>
-                                                                                        <code>
-                                              <pre>
-(0 , vue__WEBPACK_IMPORTED_MODULE_1__.createTextVNode) is not a function
-TypeError: (0 , vue__WEBPACK_IMPORTED_MODULE_1__.createTextVNode) is not a function...
-                                              </pre>
-                                            </code><br><br>
+                                                                    <dl>
+                                                                        <dt>path</dt>
+                                                                        <dd>URL stem for the route. Similar to Angular
+                                                                            and likely
+                                                                            other <acronym-name>Single Page
+                                                                                Application<acronym-abbr>SPA</acronym-abbr></acronym-name>
+                                                                            frameworks, this is the URL path that will
+                                                                            be used to
+                                                                            access the page and generally starts with a
+                                                                            #. E.g.
+                                                                            /users would end up as
+                                                                            &lt;DOMAIN&gt;/#/users. This is
+                                                                            because typically, &lt;DOMAIN&gt;/users
+                                                                            would be
+                                                                            picked up by the web server, not the SPA.
+                                                                        </dd>
+                                                                        <dt>redirect</dt>
+                                                                        <dd>Redirects the user to another route. In this
+                                                                            case,
+                                                                            /user would redirect to /users.</dd>
+                                                                        <dt>component</dt>
+                                                                        <dd>The component that will be displayed when
+                                                                            the route
+                                                                            is accessed.</dd>
+                                                                        <dt>children</dt>
+                                                                        <dd>Child routes. In this case, /user/route1
+                                                                            would
+                                                                            display the RouteOne component and
+                                                                            /user/route2 would
+                                                                            display the RouteTwo component.</dd>
+                                                                    </dl>
+                                                                </mat-expansion-panel>
+                                                            </li>
+                                                            <li> <mat-expansion-panel>
+                                                                    <mat-expansion-panel-header>
+                                                                        <mat-panel-title>Use a redirect
+                                                                            parameter</mat-panel-title>
+                                                                    </mat-expansion-panel-header>
+                                                                    Let's say you wish to route based on a query
+                                                                    parameter such
+                                                                    as:
+                                                                    <inline-code>/login?redirect=/profile</inline-code><br><br>
 
-                                                                                        This error is caused by a
-                                                                                        version mismatch between Vue and
-                                                                                        Vue Multiselect.
-                                                                                        To fix: <inline-code>npm install
-                                                                                            vue-multiselect&#64;&lt;VERSION&gt;
-                                                                                            --save</inline-code>
-                                                                                    </li>
-                                                                                </ul>
-                                                                            </mat-expansion-panel>
-                                                                        </li>
-                                                                    </ul>
+                                                                    <code>
+<pre>
+    login() &#123;
+        this.$router.push(&#123;
+            path: '/dashboard',
+            query: &#123; redirect: this.$route.query.redirect || '/' &#125;
+        &#125;);
+    &#125;
+</pre>
+                                                                </code>
                                                                 </mat-expansion-panel>
                                                             </li>
                                                         </ul>
+                                                    </mat-expansion-panel>
+                                                </li>
+                                                <li>
+                                                    <mat-expansion-panel>
+                                                        <mat-expansion-panel-header>
+                                                            <mat-panel-title>Injection Properties</mat-panel-title>
+                                                        </mat-expansion-panel-header>Vue has several properties that are
+                                                        injected into each component:<br>
+                                                        <table class="min-table">
+                                                            <tr>
+                                                                <th>Property</th>
+                                                                <th>Purpose</th>
+                                                                <th>Example</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>$el</td>
+                                                                <td>Reference to the root DOM element</td>
+                                                                <td>To change the background color of the root
+                                                                    element:<inline-code>this.$el.style.backgroundColor
+                                                                        = 'red';</inline-code>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>$data</td>
+                                                                <td>Reference to the data object</td>
+                                                                <td>To change the value of a data property:
+                                                                    <inline-code>this.$data.someVar = 'new
+                                                                        value';</inline-code>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>$refs</td>
+                                                                <td>Reference to child components (the child must have a
+                                                                    ref
+                                                                    attribute. e.g. <inline-code>&lt;child
+                                                                        ref="childComponent"&gt;&lt;/child&gt;</inline-code>)
+                                                                <td>To access a child component:
+                                                                    <inline-code>this.$refs.childComponent;</inline-code>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>$parent</td>
+                                                                <td>Reference to the parent component</td>
+                                                                <td>To access the parent component:
+                                                                    <inline-code>this.$parent;</inline-code>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>$root</td>
+                                                                <td>Reference to the root Vue instance</td>
+                                                                <td>To access the root Vue instance:
+                                                                    <inline-code>this.$root;</inline-code>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>$children</td>
+                                                                <td>Reference to child components. This differs from
+                                                                    $refs in that it
+                                                                    includes all child components, not just those with a
+                                                                    ref attribute.
+                                                                <td>
+                                                                    To access a child components:
+                                                                    <inline-code>this.$children;</inline-code><br>Or if
+                                                                    you're gangsta:
+                                                                    <inline-code>this.$root.$children[0].SomeMethod</inline-code>
+                                                                    would be a method called "SomeMethod" in the first
+                                                                    within App.vue.
+                                                            </tr>
+                                                            <tr>
+                                                                <td>$slots</td>
+                                                                <td>Reference to the content of a slot. A slot is a
+                                                                    placeholder for content
+                                                                    that is passed in from the parent component. It's
+                                                                    useful because it allows the parent to pass in
+                                                                    content that will be displayed in the child
+                                                                    component but allows the child to control where the
+                                                                    content is displayed. An alternate to this would be
+                                                                    to use a component within a component.
+                                                                <td>To access the content of a slot:
+                                                                    <inline-code>this.$slots.default;</inline-code>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>$options</td>
+                                                                <td>Reference to the component's options</td>
+                                                                <td>To access the component's options:
+                                                                    <inline-code>this.$options;</inline-code>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>$emit</td>
+                                                                <td>Method to emit an event</td>
+                                                                <td>To emit an event:
+                                                                    <inline-code>this.$emit('event');</inline-code>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>$on</td>
+                                                                <td>Method to listen for an event</td>
+                                                                <td>To listen for an event:
+                                                                    <inline-code>this.$on('event', function
+                                                                        () &#123;&#125;);</inline-code>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>$nextTick</td>
+                                                                <td>Method to wait for the DOM to update</td>
+                                                                <td>To wait for the DOM to update:
+                                                                    <inline-code>this.$nextTick(function
+                                                                        () &#123;&#125;);</inline-code>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>$route</td>
+                                                                <td>Reference to the current route</td>
+                                                                <td>this.$route.params.id would return the id
+                                                                    parameter from the current route. i.e. if the URL is
+                                                                    /user/123, this.$route.params.id would return 123.
+                                                                </td>
+                                                            </tr>
+                                                        </table>
                                                     </mat-expansion-panel>
                                                 </li>
                                                 <li>

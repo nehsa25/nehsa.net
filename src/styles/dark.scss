@@ -197,6 +197,10 @@ h6 {
     -webkit-text-stroke-color: var(--theme-background-purple) !important;
 }
 
+.vampire mat-panel-title {
+    color: chocolate;
+}
+
 .vampire mat-panel-title:hover {
     color: var(--theme-background-light);
     -webkit-text-stroke-color: var(--theme-background-purple) !important;
