@@ -1,9 +1,10 @@
 <mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
     <mat-card-header>
         <mat-card-title>
-            <h1 data-testid="header-title"><acronym-name>Amazon Web
-                    Services<acronym-abbr>AWS</acronym-abbr></acronym-name></h1>
+            <h1 data-testid="header-title"><acronym-name>Language Integrated
+                    Query<acronym-abbr>linq</acronym-abbr></acronym-name>, baby?</h1>
         </mat-card-title>
+        <mat-card-subtitle>Standardized query syntax in C#.</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
         <div class="commentgrid topics">
@@ -15,9 +16,11 @@
                             <mat-expansion-panel expanded>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Overview</mat-panel-title>
-                                </mat-expansion-panel-header>Linq is a .NET language-integrated query (LINQ) technology
-                                that makes it easy to query data from the web, databases, and other data sources. It
-                                extends C# with native language syntax for queries.<br><br>
+                                </mat-expansion-panel-header><acronym-name>Language Integrated
+                                    Query<acronym-abbr>linq</acronym-abbr></acronym-name> is a query
+                                technology for .NET. It
+                                extends C# with native language syntax for queries across various objects - databases,
+                                json, ect.<br><br>
 
                                 It can be used in two forms:<br><br>
 
@@ -26,21 +29,37 @@
                                     <pre>
 var query = from item in collection
 where item.property == value
-select item;
-                                    </pre>
+select item;</pre>
                                 </code>
 
-                                or, <span class="importantish">method syntax:</span> <inline-code>var query =
+                                or, <span class="importantish">method syntax:</span>
+                                <code>var query =
                                     collection.Where(item => item.property ==
-                                    value);</inline-code><br><br>
+                                    value);</code><br><br>
 
-                                I generally prefer the method syntax because it is more concise and easier to read. Someone once told me to consider the "=>" to be "such
-                                that." Doing so makes it much easier to read.<br><br>e.g. I want all items that are from the Canada:<br><br>
+                                I generally prefer the method syntax because it is more concise and easier to read.
+                                Someone once told me to consider the "=>" to be "such
+                                that." Doing so makes it much easier to read.<br><br>e.g. I want all items that are from
+                                the Canada:<br><br>
 
                                 OK:<br><br>
 
                                 Give me all items "such that" item.Country is equal to "CA":<br>
                                 <inline-code>var query = collection.Where(item => item.Country == "CA");</inline-code>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Common Operators</mat-panel-title>
+                                </mat-expansion-panel-header>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>.AsQueryAble()</mat-panel-title>
+                                </mat-expansion-panel-header>
                             </mat-expansion-panel>
                         </li>
                     </ul>

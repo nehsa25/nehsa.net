@@ -1,0 +1,102 @@
+<mat-card class="card" [class.vampire]="userService.appIsDark()" [class.angel]="!userService.appIsDark()">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 data-testid="header-title">Bootstrap</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="commentgrid topics">
+            <div><app-related-content></app-related-content></div>
+            <div>
+                <div>
+                    <ul>
+                        <li>
+                            <mat-expansion-panel expanded>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Overview</mat-panel-title>
+                                </mat-expansion-panel-header>Popular front-end styling framework. It was
+                                created by Twitter and is now maintained by the open-source community.<br><br>
+
+                                Very comparable to <a routerLink="/material">Material Design</a> and <a routerLink="/tailwind">Tailwind</a> (moreso Tailwind than Material due to the utility class nature  (text-center)).<br><br>
+
+                                Example, if you wish to have important text you wish to make prominent, add classes:<br><br>
+
+                                <div class="result-large">
+<pre>
+&lt;div class="<span class="importantish">display-1 text-center</span>"&gt;
+    Gubernatorial&lt;br&gt;/go͞obərnə'tôrēəl/
+&lt;/div&gt; 
+</pre>
+                                     
+                                    <span class="display-1 text-center">==</span> 
+                                    <span class="display-1 text-center">Gubernatorial<br>/go͞obərnə'tôrēəl/</span> 
+                                </div>
+
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Installation</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>
+                                        <mat-expansion-panel expanded>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Angular</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <ul>
+                                                <li><inline-code>npm install bootstrap&#64;&lt;VERSION&gt;</inline-code></li>
+                                                <li>Edit <inline-file>angular.json</inline-file>
+                                                    <ul>
+                                                        <li>Add <inline-code>"node_modules/bootstrap/dist/css/bootstrap.min.css"</inline-code> to styles section</li>
+                                                    </ul>
+                                                </li>
+                                                <li>How to tell if it's working: Add a <inline-code>class="btn btn-primary"</inline-code> to a button. It should be styled blue:
+                                                    <button class="btn btn-primary">Yay?</button>
+                                                </li>
+                                            </ul>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>In Vue 3</mat-panel-title>
+                                                <mat-panel-description>(Coming soon!)</mat-panel-description>
+                                            </mat-expansion-panel-header>
+                                        </mat-expansion-panel>
+                                    </li>
+                                </ul>                                    
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Configuration</mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Angular</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>In Vue 3</mat-panel-title>
+                                                <mat-panel-description>(Coming!)</mat-panel-description>
+                                            </mat-expansion-panel-header>
+                                        </mat-expansion-panel>
+                                    </li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div><app-comment></app-comment></div>
+        </div>
+    </mat-card-content>
+</mat-card>

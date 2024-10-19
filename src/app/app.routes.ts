@@ -89,6 +89,7 @@ import { LinqComponent } from './main/linq/linq.component';
 import { UseIndeedComponent } from './main/blog/use-indeed/use-indeed.component';
 import { VuexComponent } from './main/vue/vuex/vuex.component';
 import { SemanticUiComponent } from './main/semantic-ui/semantic-ui.component';
+import { BootstrapComponent } from './main/bootstrap/bootstrap.component';
 
 export const routes: Routes = [
   { path: 'agile', title: 'nehsa.net | Agile', component: AgileComponent },
@@ -278,6 +279,11 @@ export const routes: Routes = [
     path: 'grammar',
     title: 'nehsa.net | Grammar',
     component: WritingComponent,
+  },
+  {
+    path: 'bootstrap',
+    title: 'nehsa.net | Bootstrap',
+    component: BootstrapComponent,
   },
   {
     path: 'gemini',

@@ -87,8 +87,10 @@
                                                 <dd>Unique identifier for the record. This can be used as a foreign key
                                                     constraint in other tables.</dd>
                                                 <dt>FOREIGN KEY</dt>
-                                                <dd>Links to a primary key in another table. Example: <inline-code>FOREIGN
-                                                        KEY (user_id) REFERENCES users(id)</inline-code></dd>
+                                                <dd>Links to a primary key in another table. Example:
+                                                    <inline-code>FOREIGN
+                                                        KEY (user_id) REFERENCES users(id)</inline-code>
+                                                </dd>
                                                 <dt>NOT NULL</dt>
                                                 <dd>Requires a value to be entered.</dd>
                                                 <dt>UNIQUE</dt>
@@ -210,7 +212,8 @@ CONTAINER ID   IMAGE                 COMMAND                  CREATED          S
                                                 <mat-panel-title>Tips/Tricks</mat-panel-title>
                                             </mat-expansion-panel-header>
                                             <ul>
-                                                <li>Execute highlighted query: <inline-code>Ctrl + Shift + Enter</inline-code>
+                                                <li>Execute highlighted query: <inline-code>Ctrl + Shift +
+                                                        Enter</inline-code>
                                                 </li>
                                                 <li>Execute all queries: <inline-code>Ctrl + Enter</inline-code>
                                                 </li>
@@ -431,13 +434,14 @@ CREATE TABLE dogs (
                                     <mat-panel-title>Troubleshooting</mat-panel-title>
                                 </mat-expansion-panel-header>
                                 <ul>
-                                    <li> <mat-expansion-panel>
+                                    <li>
+                                        <mat-expansion-panel>
                                             <mat-expansion-panel-header>
                                                 <mat-panel-title>Connectivity To/From API (C#
                                                     Core)</mat-panel-title>
                                             </mat-expansion-panel-header>
                                             <ul>
-                                                <li>Can you ping it? (from API server)<br>
+                                                <li>Can you ping the database? (from API server)<br>
                                                     Find the database connection details in the <span
                                                         class="file">appsettings.json</span>
                                                     <code>
@@ -448,8 +452,8 @@ CREATE TABLE dogs (
 </pre>
                                                     </code>
                                                 </li>
-                                                <li>Can you connect to the docker image? (from DB server)<br><span
-                                                        class="code">docker
+                                                <li>Can you connect to the database docker image? (from DB
+                                                    server)<br><span class="code">docker
                                                         exec -it -u <span class="importantish">&lt;USERNAME&gt;</span>
                                                         /bin/bash </span>
                                                 </li>
@@ -544,6 +548,29 @@ MySQL [&lt;DATABASE NAME&gt;]>
                                                             class="importantish">&lt;PORT&gt;</span></span>
                                                 </li>
                                             </ul>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Foreign key constraint is incorrectly
+                                                    formed</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <ol>
+                                                <li>Confirm <inline-code>ALTER</inline-code> command is corret</li>
+                                                <li>
+                                                    Ensure both the primary key on table "A" and the foreign key on
+                                                    table "B" are the same type.<br><br>
+
+                                                    This error can occur if the primary key
+                                                    on table "A" is an
+                                                    <inline-code>INT(10) UNSIGNED NULL;
+                                                    </inline-code> (unsigned: only positive
+                                                    numbers) and the foreign key on table "B" is a
+                                                    <inline-code>INT(10) NULL;
+                                                    </inline-code> (SIGNED is default, so this INT can contain negative value).
+                                                </li>
+                                            </ol>
                                         </mat-expansion-panel>
                                     </li>
                                 </ul>

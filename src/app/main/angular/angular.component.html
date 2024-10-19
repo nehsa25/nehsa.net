@@ -448,14 +448,14 @@ export class ReportService &#123;&#125;
                                                 <code>
                                                     <pre>
 getCopyText() &#123;
-const copyContainer = this.copyButton?.nativeElement.closest('.copy-container');
-if (copyContainer) &#123;
-const content = copyContainer.textContent;
-this.copyText = content.trim().replace("content_copy", "");
-this.clipboard.copy(this.copyText);
-&#125; else &#123;
-console.error('No .copy-container found');
-&#125;
+    const copyContainer = this.copyButton?.nativeElement.closest('.copy-container');
+    if (copyContainer) &#123;
+        const content = copyContainer.textContent;
+        this.copyText = content.trim().replace("content_copy", "");
+        this.clipboard.copy(this.copyText);
+    &#125; else &#123;
+        console.error('No .copy-container found');
+    &#125;
 &#125;
 </pre>
                                                 </code>

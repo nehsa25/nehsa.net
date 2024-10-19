@@ -61,8 +61,8 @@ a:active {
 .angel important-normal,
 .angel important-low
  {
-    color: #007bff;
-    -webkit-text-stroke: .3px white;
+    color: #222;
+    -webkit-text-stroke: .1px white;
 }
 
 // breadcrumbs
@@ -159,6 +159,10 @@ td {
 .angel .example-container,
 .terminal-result,
 .result,
+.example-container-large,
+.terminal-result-large,
+.result-large,
+.cmd-large,
 .cmd {
     border: 1px solid black;
 }
