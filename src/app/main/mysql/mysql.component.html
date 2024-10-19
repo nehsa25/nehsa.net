@@ -326,7 +326,7 @@ CREATE TABLE flashcards (
                         <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
-                                    <mat-panel-title>Update Table</mat-panel-title>
+                                    <mat-panel-title>Update (ALTER) Table</mat-panel-title>
                                 </mat-expansion-panel-header>Done using the "ALTER" command.<br><br>
 
                                 Examples:<br>
@@ -335,6 +335,8 @@ CREATE TABLE flashcards (
                                             TABLE flashcards ADD COLUMN category VARCHAR(255);</inline-code></li>
                                     <li>Update table to add unique contrainst: <inline-code>ALTER TABLE flashcards ADD
                                             UNIQUE (question);</inline-code></li>
+                                    <li>Add a foriegn key: <inline-code>ALTER TABLE flashcards ADD FOREIGN KEY
+                                            (answer_format_id) REFERENCES answer_formats(id);</inline-code></li>
                                 </ul>
                             </mat-expansion-panel>
                         </li>
