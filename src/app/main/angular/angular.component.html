@@ -420,7 +420,8 @@ export class ReportService &#123;&#125;
                                     <tr>
                                         <td>&#64;Input()/&#64;Output()</td>
                                         <td>Simple</td>
-                                        <td>Only works for parent/child components</td>
+                                        <td>Only works for parent/child relationships. Use a service for
+                                            siblings.</td>
                                     </tr>
                                     <tr>
                                         <td>Service</td>
@@ -446,7 +447,7 @@ export class ReportService &#123;&#125;
                                                 (click)="getCopyText($event)"</li>
                                             <li>Within getCopyText:
                                                 <code>
-                                                    <pre>
+<pre>
 getCopyText() &#123;
     const copyContainer = this.copyButton?.nativeElement.closest('.copy-container');
     if (copyContainer) &#123;
