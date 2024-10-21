@@ -13,7 +13,7 @@
                 <div>
                     <ul>
                         <li>
-                            <mat-expansion-panel expanded>
+                            <mat-expansion-panel>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Overview</mat-panel-title>
                                 </mat-expansion-panel-header><acronym-name>Language Integrated
@@ -53,13 +53,381 @@ select item;</pre>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Common Operators</mat-panel-title>
                                 </mat-expansion-panel-header>
+                                <div>In the year 3060, Timothée's clan, a race of human Vikings, is feuding with
+                                    Gaston's possee, a talking race of French cats.<br><br>
+
+                                    For the examples below, consider these four tables (styled with bootstrap) with
+                                    relationships: Person, Gang, Abilities, and a mapping table called
+                                    PersonAbilities.<br><br>
+
+                                    <table class="table table-striped table-bordered">
+                                        <tr>
+                                            <th>Table</th>
+                                            <th>Relationship</th>
+                                            <th>Relationship Type</th>
+                                            <th>Comment</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Person</td>
+                                            <td>Person.GangID == Gang.ID</td>
+                                            <td>many-to-one</td>
+                                            <td>A person can only belong to one
+                                                gang</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gang</td>
+                                            <td>Gang.LeaderID == Person.ID</td>
+                                            <td>one-to-one</td>
+                                            <td>A gang can only have one leader</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Abilities</td>
+                                            <td>Abilities.AbilityID == Person.ID</td>
+                                            <td>one-to-many</td>
+                                            <td>An ability can be had by many people</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PersonAbilities</td>
+                                            <td>PersonAbilities.PersonId == Person.Id,<br>
+                                                PersonAbilities.AbilityId == Abilities.Id</td>
+                                            <td>many-to-many</td>
+                                            <td>A person can have many abilities, and an ability can be had by many
+                                                people</td>
+                                        </tr>
+                                    </table><br><br>
+
+                                    Person, <span class="importantish">one thousand</span> records, the first 10 being:
+                                    <table class="table table-striped table-bordered min-table">
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Name</th>
+                                            <th>GangId</th>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Timothée</td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Gaston</td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Marie</td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>Edward</td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>Pierre</td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>Antoine</td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td>Louis</td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td>Olivier</td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td>Julien</td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td>Luc</td>
+                                            <td>2</td>
+                                        </tr>
+                                    </table><br><br>
+
+                                    Gang, <span class="importantish">two</span> records:
+                                    <table class="table table-striped table-bordered min-table">
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Name</th>
+                                            <th>LeaderId</th>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Viking Clan</td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Cat Possee</td>
+                                            <td>2</td>
+                                        </tr>
+                                    </table><br><br>
+
+                                    Abilities, <span class="importantish">five</span> records:
+                                    <table class="table table-striped table-bordered min-table">
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Name</th>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Hacking</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Combat</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Stealth</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>Leadership</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>Charisma / Recruitment</td>
+                                        </tr>
+                                    </table><br><br>
+
+                                    PersonAbilities, <span class="importantish">ten million</span> records, this it
+                                    first 10 and random:
+                                    <table class="table table-striped table-bordered min-table">
+                                        <tr>
+                                            <th>PersonId</th>
+                                            <th>AbilityId</th>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>5</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>5</td>
+                                        </tr>
+                                    </table>
+                                </div><br><br>
+
+                                <table class="min-table">
+                                    <tr>
+                                        <th>Operation</th>
+                                        <th>Usage</th>
+                                        <th>Example</th>
+                                        <th>Result</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Where</td>
+                                        <td>Filters a sequence of values based on a predicate.</td>
+                                        <td><inline-code>var gastonPossee = persons.Where(person =>
+                                                person.GangId == 2);</inline-code></td>
+                                        <td>gastonPossee is a collection of all the people in Gaston's possee.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Select</td>
+                                        <td>Projects each element of a sequence into a new form.</td>
+                                        <td><inline-code>var names = persons.Select(person =>
+                                                person.Name);</inline-code>
+                                        </td>
+                                        <td>names is a collection of all the names of the people.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>OrderBy / OrderByDescending</td>
+                                        <td>Sorts the elements of a sequence based on a key.</td>
+                                        <td><inline-code>
+                                                var ordered = persons.OrderBy(person => person.Name);</inline-code>
+                                        </td>
+                                        <td>ordered is a collection of all the people sorted by name.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>GroupBy</td>
+                                        <td>Groups the elements of a sequence based on a key.</td>
+                                        <td><inline-code>var grouped = persons.GroupBy(person =>
+                                                person.GangId);</inline-code>
+                                        </td>
+                                        <td>grouped is a collection of all the people grouped by gang.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Join</td>
+                                        <td>Joins two sequences based on a key.</td>
+                                        <td><inline-code>
+                                                var joined = persons.Join(gangs, person => person.GangId, gang =>
+                                                gang.Id, (person, gang) => new
+                                                &#123; person.Name, gang.Name &#125;);</inline-code>
+                                        </td>
+                                        <td>joined is a collection of all the people and their gang names.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Any</td>
+                                        <td>Determines if any element of a sequence satisfies a condition.</td>
+                                        <td><inline-code>var any = persons.Any(person =>
+                                                person.Name == "Timothée");</inline-code>
+                                        </td>
+                                        <td>any is a boolean indicating if there is a person named Timothée.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Count</td>
+                                        <td>Returns the number of elements in a sequence.</td>
+                                        <td><inline-code>var count = persons.Count();</inline-code></td>
+                                        <td>count is the number of people.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sum</td>
+                                        <td>Computes the sum of a sequence of numeric values.</td>
+                                        <td><inline-code>var sum = persons.Sum(person =>
+                                                person.GangId);</inline-code></td>
+                                        <td>sum is the sum of all the gang ids.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Average</td>
+                                        <td>Computes the average of a sequence of numeric values.</td>
+                                        <td><inline-code>var average = persons.Average(person =>
+                                                person.GangId);</inline-code></td>
+                                        <td>average is the average of all the gang ids.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>First / FirstOrDefault</td>
+                                        <td>Returns the first element of a sequence.</td>
+                                        <td><inline-code>var first = persons.First();</inline-code></td>
+                                        <td>first is the first person.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Single / SingleOrDefault</td>
+                                        <td>Returns the only element of a sequence, or a default value if the sequence
+                                            is
+                                            empty.</td>
+                                        <td><inline-code>var single = persons.Single(person =>
+                                                person.Name == "Timothée");</inline-code></td>
+                                        <td>single is the person named Timothée.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Take</td>
+                                        <td>Returns a specified number of contiguous elements from the start of a
+                                            sequence.</td>
+                                        <td><inline-code>var take = persons.Take(5);</inline-code></td>
+                                        <td>take is the first five people.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Skip</td>
+                                        <td>Bypasses a specified number of elements in a sequence and then returns the
+                                            remaining elements.</td>
+                                        <td><inline-code>var skip = persons.Skip(5);</inline-code></td>
+                                        <td>skip is all the people after the first five.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Contains</td>
+                                        <td>Determines whether a sequence contains a specified element.</td>
+                                        <td><inline-code>var contains = persons.Contains(person);</inline-code></td>
+                                        <td>contains is a boolean indicating if the person is in the collection.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Distinct</td>
+                                        <td>Returns distinct elements from a sequence.</td>
+                                        <td><inline-code>var distinct = persons.Distinct();</inline-code></td>
+                                        <td>distinct is a collection of all the unique people.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Union</td>
+                                        <td>Combines two sequences and returns distinct elements.</td>
+                                        <td>
+                                            <code>
+                                                <pre>
+                                                    var timsclan = persons.Where(person => person.GangId == 1);
+                                                    var gastonspossee = persons.Where(person => person.GangId == 2);
+                                                    var union = timsclan.Union(gastonspossee);
+                                                </pre>
+                                            </code>
+                                        </td>
+                                        <td>All the people from both gangs.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Intersect</td>
+                                        <td>Returns the intersection of two sequences.</td>
+                                        <td><inline-code>var intersect = persons.Intersect(otherPersons);</inline-code>
+                                        </td>
+                                        <td>intersect is a collection of all the people that are in both collections.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Except</td>
+                                        <td>Returns the difference between two sequences.</td>
+                                        <td><inline-code>var except = persons.Except(otherPersons);</inline-code></td>
+                                        <td>except is a collection of all the people that are in the first collection
+                                            but not
+                                            the second.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Reverse</td>
+                                        <td>Reverses the order of elements in a sequence.</td>
+                                        <td><inline-code>var reverse = persons.Reverse();</inline-code></td>
+                                        <td>reverse is a collection of all the people in reverse order.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Concat</td>
+                                        <td>Concatenates two sequences.</td>
+                                        <td><inline-code>var concat = persons.Concat(otherPersons);</inline-code></td>
+                                        <td>concat is a collection of all the people from both collections.</td>
+                                    </tr>
+                                </table>
                             </mat-expansion-panel>
                         </li>
                         <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>.AsQueryAble()</mat-panel-title>
-                                </mat-expansion-panel-header>
+                                    <mat-panel-description>A memory friendly version of
+                                        IEnumerable.</mat-panel-description>
+                                </mat-expansion-panel-header>The power of .AsQueryAble() is that it allows you to query
+                                a large collection without having to load the entire collection into memory. This is
+                                useful when you are working with a large dataset and only need a small subset of the
+                                data. The query is only executed when an operation like ToList() or ToArray() is called
+                                or when the query is otherwise enumerated.<br><br>
+
+                                <inline-code>var query = collection.AsQueryAble().Where(item => item.Property ==
+                                    value);</inline-code>
                             </mat-expansion-panel>
                         </li>
                     </ul>

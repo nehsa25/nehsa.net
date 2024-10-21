@@ -248,7 +248,6 @@ export class AppComponent implements OnInit, OnDestroy {
     return event;
   }
 
-
   // pause button controls
   pauseAnimation(event: any) {
     this.playState == 'running' ? this.playState = 'paused' : this.playState = 'running';

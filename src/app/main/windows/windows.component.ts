@@ -21,5 +21,7 @@ import { UserService } from '../../services/user.service';
   styleUrl: './windows.component.scss',
 })
 export class WindowsComponent {
-  constructor(public userService: UserService) {}
+  constructor(public userService: UserService) {
+    this.userService.page = 'windows';
+  }
 }

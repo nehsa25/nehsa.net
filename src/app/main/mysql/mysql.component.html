@@ -324,6 +324,50 @@ CREATE TABLE flashcards (
 );
                                     </pre>
                                 </code>
+
+                                <h3>Common "Create Table" Options</h3>
+                                <dl>
+                                    <dt>AUTO_INCREMENT</dt>
+                                    <dd>Automatically increments the value for each record.</dd>
+                                    <dt>PRIMARY KEY</dt>
+                                    <dd>Unique identifier for the record. This can be used as a foreign key
+                                        constraint in other tables.</dd>
+                                    <dt>FOREIGN KEY</dt>
+                                    <dd>Links to a primary key in another table. Example:
+                                        <inline-code>FOREIGN
+                                            KEY (user_id) REFERENCES users(id)</inline-code>
+                                    </dd>
+                                    <dt>NOT NULL</dt>
+                                    <dd>Requires a value to be entered.</dd>
+                                    <dt>UNIQUE</dt>
+                                    <dd>Requires a unique value.</dd>
+                                    <dt>DEFAULT</dt>
+                                    <dd>Provides a default value if none is entered.<br><br>
+                                        e.g. to add a current timestamp:
+                                        <code>
+                                            <pre>
+CREATE TABLE `pages` (
+`id` INT AUTO_INCREMENT PRIMARY KEY,
+`stem` VARCHAR(100) NOT NULL,
+`title` VARCHAR(100) NOT NULL,
+`date` DATETIME NOT NULL <span class="importantish">DEFAULT CURRENT_TIMESTAMP</span>
+);
+
+                                            </pre>
+                                        </code>
+                                    </dd>
+                                    <dt>ENUM</dt>
+                                    <dd>Use ENUM for a list of possible values. Example: ENUM('red', 'green',
+                                        'blue')<br>To
+                                        access the value, use the index (0, 1, 2). i.e. <inline-code>select * from table
+                                            where color = 1;</inline-code>
+                                    </dd>
+                                    <dt>COLLATE</dt>
+                                    <dd>Use COLLATE to specify the collation for a column. Example: <inline-code>COLLATE
+                                            utf8mb4_unicode_ci</inline-code>. Collate is useful because it allows you to
+                                        sort and compare strings in a case-insensitive manner.
+                                    </dd>
+                                </dl>
                             </mat-expansion-panel>
                         </li>
                         <li>
@@ -568,7 +612,8 @@ MySQL [&lt;DATABASE NAME&gt;]>
                                                     </inline-code> (unsigned: only positive
                                                     numbers) and the foreign key on table "B" is a
                                                     <inline-code>INT(10) NULL;
-                                                    </inline-code> (SIGNED is default, so this INT can contain negative value).
+                                                    </inline-code> (SIGNED is default, so this INT can contain negative
+                                                    value).
                                                 </li>
                                             </ol>
                                         </mat-expansion-panel>

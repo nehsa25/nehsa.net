@@ -17,6 +17,8 @@ import { UserService } from '../../services/user.service';
   styleUrl: './semantic-ui.component.scss'
 })
 export class SemanticUiComponent {
-  constructor(public userService: UserService) { }
+  constructor(public userService: UserService) {
+    this.userService.page = 'semanticui';
+   }
 
 }

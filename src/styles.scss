@@ -4,6 +4,7 @@
 
 @import './styles/dark.scss';
 @import './styles/colorful.scss';
+@import './styles/tables.scss';
 @import './styles/assets/lagoon.scss';
 
 @function get-color-from-palette($palette, $shade) {
@@ -125,32 +126,6 @@ $theme-light-a-visited-color: get-color-from-palette($light-primary-palette, 200
 $theme-dark-a-hover-color: get-color-from-palette($dark-primary-palette, 300);
 $theme-dark-a-link-color: get-color-from-palette($dark-primary-palette, "link");
 $theme-light-a-link-color: get-color-from-palette($light-primary-palette, "link");
-
-// table 
-table,
-.table {
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-table,
-th,
-td {
-    border-collapse: collapse;
-    padding: 5px 1em;
-}
-
-th {
-    text-align: center;
-    font-weight: 700;
-}
-
-.min-table {
-    width: fit-content !important;
-    border-collapse: collapse;
-    border-spacing: 0;
-}
 
 // images
 img {
@@ -292,7 +267,7 @@ inline-code,
 span.code,
 code,
 .code-command {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-family: "JetBrains Mono", monospace;
     font-optical-sizing: auto;
     font-weight: 400;
