@@ -110,6 +110,32 @@
                             <li>
                                 <mat-expansion-panel>
                                     <mat-expansion-panel-header>
+                                        <mat-panel-title>Reference</mat-panel-title>
+                                        <mat-panel-description>Reference loads a related entity and makes it a property
+                                            of the
+                                            first entity.</mat-panel-description>
+                                    </mat-expansion-panel-header>
+                                    e.g. this would load the related table and make it a property of the main table. You
+                                    could access it in code as <inline-code>
+                                        mainTable.RelatedTable</inline-code>.<br><br>
+                                    <code>
+                                        <pre>
+                                            
+foreach (var record in MainTable)
+&#123;
+    db.Entry(record).Reference(_ => _.RelatedTable).Load();
+&#125;
+                                            </pre>
+                                    </code><br>
+                                    <span class="additional-note">Including <inline-code>.Load()</inline-code> is
+                                        optional. If you omit it, the
+                                        related data will be loaded when you access the property for the first
+                                        time.</span>
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
                                         <mat-panel-title>AsQueryable()</mat-panel-title>
                                     </mat-expansion-panel-header>AsQueryable() is a method that returns an IQueryable
                                     object. This method performs a lazy loading operation, meaning that it does not
