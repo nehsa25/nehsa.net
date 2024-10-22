@@ -110,7 +110,7 @@
                             <li>
                                 <mat-expansion-panel>
                                     <mat-expansion-panel-header>
-                                        <mat-panel-title>Reference</mat-panel-title>
+                                        <mat-panel-title>Reference()</mat-panel-title>
                                         <mat-panel-description>Reference loads a related entity and makes it a property
                                             of the
                                             first entity.</mat-panel-description>
@@ -118,71 +118,60 @@
                                     e.g. this would load the related table and make it a property of the main table. You
                                     could access it in code as <inline-code>
                                         mainTable.RelatedTable</inline-code>.<br><br>
+
+                                        Let's say we have two tables: Dogs and DogBreed. Dogs has a foreign key to DogBreed
                                     <code>
                                         <pre>
                                             
-foreach (var record in MainTable)
+foreach (var dog in Dogs)
 &#123;
-    db.Entry(record).Reference(_ => _.RelatedTable).Load();
+    db.Entry(dog).Reference(_ => _.DogBreed).Load();
 &#125;
                                             </pre>
-                                    </code><br>
-                                    <span class="additional-note">Including <inline-code>.Load()</inline-code> is
+                                    </code><span class="additional-note">Including <inline-code>.Load()</inline-code> is
                                         optional. If you omit it, the
                                         related data will be loaded when you access the property for the first
-                                        time.</span>
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>AsQueryable()</mat-panel-title>
-                                    </mat-expansion-panel-header>AsQueryable() is a method that returns an IQueryable
-                                    object. This method performs a lazy loading operation, meaning that it does not
-                                    execute the query against the database until the IQueryable object is
-                                    enumerated.<br><br>
+                                        time.</span><br><br>
 
-                                    Example:<br>
-                                    <code>
-                                        <pre>
-<span class="comment">// Instantiate an IQueryable object</span>
-var query = db.Users.AsQueryable(); <span class="comment"><mat-icon>arrow_back</mat-icon> No hit on database</span>
+                                    With these tables:<br><br>
 
-<span class="comment">// Add a where clause</span>
-query = query.Where(u => u.Name == "John"); <span class="comment"><mat-icon>arrow_back</mat-icon> No hit on database</span>
+                                    Dogs
+                                    <table class="min-table">
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>BreedID</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Hopper</td>
+                                            <td>1</td>                                            
+                                        </tr>
+                                        <tr>
+                                            <td>Roswaal</td>
+                                            <td>1</td>                                            
+                                        </tr>
+                                        <tr>
+                                            <td>Comet</td>
+                                            <td>2</td>                                            
+                                        </tr>
+                                    </table><br><br>
 
-<span class="comment">// Execute the query</span>
-var users = query.ToList(); <span class="comment"><mat-icon>arrow_back</mat-icon> Hit on database</span>
-</pre>
-                                    </code>
-                                </mat-expansion-panel>
-                            </li>
-                            <li>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>ToList() Vs. ToListAsync()</mat-panel-title>
-                                    </mat-expansion-panel-header>
-                                    <dl>
-                                        <dt>ToList()</dt>
-                                        <dd>ToList() is a synchronous method that returns a List object. It
-                                            executes the query against the database and returns the results as a
-                                            List object.</dd>
-                                        <dt>ToListAsync()</dt>
-                                        <dd>ToListAsync() is an asynchronous method that returns a Task object.
-                                            It executes the query against the database asynchronously and returns
-                                            the results as a List object.</dd>
-                                    </dl><br><br>
-
-                                    In general, you should use ToListAsync(). The only time you should use ToList()
-                                    is when you are working with a synchronous method that does not support
-                                    asynchronous operations.<br><br>
-
-                                    Example:<br>
-                                    <ul>
-                                        <li>ToList(): <inline-code>var users = db.Users.ToList();</inline-code></li>
-                                        <li>ToListAsync(): <inline-code>var users = await
-                                                db.Users.ToListAsync();</inline-code>
-                                    </ul>
+                                    And, DogBreed:
+                                    <table class="min-table">
+                                        <tr>
+                                            <th>BreedID</th>
+                                            <th>Breed</th>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Australian Cattle Dog</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Terrier</td>
+                                        </tr>
+                                    </table><br><br>
+                                    
+                                    The Hopper record would have dog.DogBreed.Breed = "Australian Cattle Dog" and Comet would have dog.DogBreed.Breed = "Terrier".
                                 </mat-expansion-panel>
                             </li>
                             <li>
@@ -269,6 +258,58 @@ foreach (var leader in leaders)
 
                                     In this case, the first example is more efficient because it only requires a single
                                     query to the database whereas the "lazy" example would require many.
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>AsQueryable()</mat-panel-title>
+                                    </mat-expansion-panel-header>AsQueryable() is a method that returns an IQueryable
+                                    object. This method performs a lazy loading operation, meaning that it does not
+                                    execute the query against the database until the IQueryable object is
+                                    enumerated.<br><br>
+
+                                    Example:<br>
+                                    <code>
+                                        <pre>
+<span class="comment">// Instantiate an IQueryable object</span>
+var query = db.Users.AsQueryable(); <span class="comment"><mat-icon>arrow_back</mat-icon> No hit on database</span>
+
+<span class="comment">// Add a where clause</span>
+query = query.Where(u => u.Name == "John"); <span class="comment"><mat-icon>arrow_back</mat-icon> No hit on database</span>
+
+<span class="comment">// Execute the query</span>
+var users = query.ToList(); <span class="comment"><mat-icon>arrow_back</mat-icon> Hit on database</span>
+</pre>
+                                    </code>
+                                </mat-expansion-panel>
+                            </li>
+                            <li>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>ToList() Vs. ToListAsync()</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    <dl>
+                                        <dt>ToList()</dt>
+                                        <dd>ToList() is a synchronous method that returns a List object. It
+                                            executes the query against the database and returns the results as a
+                                            List object.</dd>
+                                        <dt>ToListAsync()</dt>
+                                        <dd>ToListAsync() is an asynchronous method that returns a Task object.
+                                            It executes the query against the database asynchronously and returns
+                                            the results as a List object.</dd>
+                                    </dl><br><br>
+
+                                    In general, you should use ToListAsync(). The only time you should use ToList()
+                                    is when you are working with a synchronous method that does not support
+                                    asynchronous operations.<br><br>
+
+                                    Example:<br>
+                                    <ul>
+                                        <li>ToList(): <inline-code>var users = db.Users.ToList();</inline-code></li>
+                                        <li>ToListAsync(): <inline-code>var users = await
+                                                db.Users.ToListAsync();</inline-code>
+                                    </ul>
                                 </mat-expansion-panel>
                             </li>
                             <li>
