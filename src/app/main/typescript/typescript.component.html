@@ -88,10 +88,10 @@
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>Strict/Loose Comparisions</mat-panel-title>
-                                    <mat-panel-description>JavaScript/TypeScript is the only language I'm familar with
-                                        that has
-                                        both strict and loose comparisons.</mat-panel-description>
-                                </mat-expansion-panel-header>
+                                    <mat-panel-description>== Vs. ===</mat-panel-description>
+                                </mat-expansion-panel-header>JavaScript/TypeScript is the only language I'm familar with
+                                that has
+                                both strict and loose comparisons.
                                 <dl>
                                     <dt>Strict Comparision</dt>
                                     <dd>Checks if the two values are equal in type and value</dd>
@@ -124,6 +124,83 @@ num == str <span class="comment">// <span class="importantish">true</span> (this
 </code>
                         </li>
                         </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>Looping</mat-panel-title>
+                                    <mat-panel-description>forEach, for...of, for...in</mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <table class="min-table">
+                                    <tr>
+                                        <th>Loop</th>
+                                        <th>Considerations</th>
+                                    </tr>
+                                    <tr>
+                                        <td>forEach (JavaScript version)</td>
+                                        <td>Used to iterate over an array. It's a method of the array object.
+                                            <code>
+                                                <pre>
+const arr = [1, 2, 3];
+arr.forEach(function (element) &#123;
+    console.log(element);
+&#125;);
+</pre>
+                                            </code>
+                                            <div class="result">1<br>2<br>3</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>forEach (TypeScript version)</td>
+                                        <td>Used to iterate over an array. It's a method of the array object.
+
+                                            <code>
+                                                <pre>
+const arr = [1, 2, 3];
+arr.forEach(element => &#123;
+    console.log(element);
+&#125;);
+</pre>
+                                            </code>
+                                            <div class="result">1<br>2<br>3</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>for...of</td>
+                                        <td>Used to iterate over an array. It's a new feature of ES6 and can be used to
+                                            iterate any iterable object.
+                                            <code>
+                                                <pre>
+const arr = [1, 2, 3];
+for (const element of arr) &#123;
+    console.log(element);
+&#125;
+</pre>
+                                            </code>
+                                            <div class="result">1<br>2<br>3</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>for...in</td>
+                                        <td>Used to iterate over the properties of an object. It's a new feature of
+                                            ES6.<br><br>
+                                            <code>
+                                                <pre>
+const obj = &#123; a: 1, b: 2, c: 3 &#125;;
+for (const key in obj) &#123;
+    console.log(key);
+&#125;
+</pre>
+                                            </code>
+                                            <div class="result">a<br>b<br>c</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>for</td>
+                                        <td>Can't forget this one!</td>
+                                    </tr>
+                                </table>
+                            </mat-expansion-panel>
                         </li>
                         <li>
                             <mat-expansion-panel>
