@@ -237,6 +237,178 @@ test('all images have alt text', async (&#123; page &#125;) => &#123;
                         <li>
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
+                                    <mat-panel-title>Local Storage</mat-panel-title>
+                                    <mat-panel-description>Largely replacing cookies, local storage is a way to store
+                                        data on the client's computer.</mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <ul>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Tips/Tricks</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <ul>
+                                                <li>Use local storage to store user preferences, remember
+                                                    login
+                                                    information, and to reduce the number of API calls
+                                                    made
+                                                    by your application</li>
+                                                <li>Clear local storage when the user logs out or when the
+                                                    data
+                                                    is no longer needed</li>
+                                            </ul>
+
+                                            <table class="min-table">
+                                                <tr>
+                                                    <th>Method</th>
+                                                    <th>Description</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>setItem</td>
+                                                    <td>Sets the value of a key in local storage</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>getItem</td>
+                                                    <td>Gets the value of a key in local storage</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>removeItem</td>
+                                                    <td>Removes a key from local storage</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>clear</td>
+                                                    <td>Removes all keys from local storage</td>
+                                                </tr>
+                                            </table>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Storing something</mat-panel-title>
+                                            </mat-expansion-panel-header>The first thing we need to do is set the data.
+                                            <ul>
+                                                <li>Common things to set:
+                                                    <ul>
+                                                        <li>Username</li>
+                                                        <li>Theme</li>
+                                                        <li>Language</li>
+                                                    </ul>
+
+                                                    <code>
+                                                        <pre>
+localStorage.setItem('username', 'Jesse');
+localStorage.setItem('theme', 'dark');
+localStorage.setItem('language', 'en');
+                                                        </pre>
+                                                    </code><br><br>
+
+                                                    Instead of setting each item individually, you can also store an
+                                                    object for the user:
+                                                    <code>
+                                                        <pre>
+localStorage.setItem('user', JSON.stringify(&#123;
+    username: 'Jesse',
+    theme: 'dark',
+    language: 'en' 
+&#125;));
+                                                        </pre>
+                                                    </code><span class="additional-note">Storage is not typed meaning
+                                                        everything is stored as a string. If
+                                                        you want to store an object, you will need to convert it to a
+                                                        string
+                                                        using JSON.stringify.
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Getting the data back</mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <ul>
+                                                <li>Getting the data back is as simple as using the getItem method:<br>
+                                                    <inline-code>const username =
+                                                        localStorage.getItem('username');</inline-code><br><br>
+                                                    <inline-code>const user =
+                                                        JSON.parse(localStorage.getItem('user'));</inline-code>
+                                                </li>
+                                            </ul><span class="additional-note">If the data does not exist, the getItem
+                                                method will return null.</span>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Viewing local storage data</mat-panel-title>
+                                            </mat-expansion-panel-header>Using Chrome or Firefox DevTools, you can view
+                                            local storage. On the website, open devtools, go to application->local
+                                            storage.
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Expiration</mat-panel-title>
+                                            </mat-expansion-panel-header>By default, items stored in local storage do
+                                            not expire. They are only lost if the user clears their browser data or if
+                                            the data is removed programmatically.<br><br>
+
+                                            If you need to store data that
+                                            with an expiry date, a tactic is to store the expiry date along with
+                                            the data and check it when you retrieve the data. <br><br>
+
+                                            Let's say you wish to force someone to re-login every 7 days:<br>
+                                            <code>
+<pre>
+const 24h = 24 * 60 * 60 * 1000; <span class="comment">// 24 hours in milliseconds</span>
+const numDays = 7;
+localStorage.setItem('session', JSON.stringify(&#123; timeSensativeData: 'secrets',
+expiry: new Date().getTime() + (24h * numDays) &#125;));
+</pre>
+                                            </code>
+                                            <br><br>
+
+                                            Then you could check the expiry date:<br>
+                                            <code>
+    <pre>
+const session = JSON.parse(localStorage.getItem('session'));
+if (session.expiry && new Date().getTime() > session.expiry) &#123;
+    localStorage.removeItem('session');</pre>
+                                            </code><span class="additional-note">As local storage is stored
+                                                client-side, this is not secure and should only be use as a
+                                                secondary/tertiary
+                                                action to improve overall security. The assumption should be that a
+                                                crafty user could bypass this easily by increasing the expiry
+                                                date using a tool such as the Chrome DevTools.
+                                            </span>
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>When to use Cookies</mat-panel-title>
+                                            </mat-expansion-panel-header>Never, I cannot think of a situation that
+                                            couldn't be solved using local storage instead.
+                                        </mat-expansion-panel>
+                                    </li>
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>Security</mat-panel-title>
+                                            </mat-expansion-panel-header>As local storage is stored on the client's
+                                            computer, it is not secure and should not be used to store sensitive
+                                            information.
+                                        </mat-expansion-panel>
+                                    </li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </li>
+                        <li>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
                                     <mat-panel-title>Semantic HTML</mat-panel-title>
                                 </mat-expansion-panel-header>
                                 <div>Semantic HTML is a coding practice that uses HTML elements to describe the
@@ -2787,7 +2959,8 @@ animation: fadeOut 10s ease-out forwards;
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>&lt;br&gt; or &lt;br /&gt;</mat-panel-title>
                                 </mat-expansion-panel-header>For years I forced myself to get used to &lt;br /&gt; but
-                                with the introduction of HTML 5, &lt;br&gt; is now acceptable (again). To me,  &lt;br&gt; is preferred
+                                with the introduction of HTML 5, &lt;br&gt; is now acceptable (again). To me, &lt;br&gt;
+                                is preferred
                                 as it's shorter.
                             </mat-expansion-panel>
                         </li>
